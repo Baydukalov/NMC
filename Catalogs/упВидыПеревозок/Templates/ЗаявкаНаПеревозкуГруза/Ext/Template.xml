@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>Документы</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АдресОтправления</dataPath>
+			<field>АдресОтправления</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Заказчик</dataPath>
+			<field>Заказчик</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АдресПолучения</dataPath>
+			<field>АдресПолучения</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Соглашение</dataPath>
+			<field>Соглашение</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПолучениеГрузаС</dataPath>
+			<field>ПолучениеГрузаС</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГрафикРаботыАдресаОтправления</dataPath>
+			<field>ГрафикРаботыАдресаОтправления</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗонаПолучения</dataPath>
+			<field>ЗонаПолучения</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПолучениеГрузаПо</dataPath>
+			<field>ПолучениеГрузаПо</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Отправитель</dataPath>
+			<field>Отправитель</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОтправлениеГрузаПо</dataPath>
+			<field>ОтправлениеГрузаПо</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СхемаМультимодальнойПеревозки</dataPath>
+			<field>СхемаМультимодальнойПеревозки</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Ссылка</dataPath>
+			<field>Ссылка</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗонаОтправления</dataPath>
+			<field>ЗонаОтправления</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОтправлениеГрузаС</dataPath>
+			<field>ОтправлениеГрузаС</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Получатель</dataPath>
+			<field>Получатель</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГрафикРаботыАдресаПолучения</dataPath>
+			<field>ГрафикРаботыАдресаПолучения</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Статус</dataPath>
+			<field>Статус</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	упЗаявкаНаПеревозкуГруза.Ссылка,
+	упЗаявкаНаПеревозкуГруза.АдресОтправления,
+	упЗаявкаНаПеревозкуГруза.АдресПолучения,
+	упЗаявкаНаПеревозкуГруза.ГрафикРаботыАдресаОтправления,
+	упЗаявкаНаПеревозкуГруза.ГрафикРаботыАдресаПолучения,
+	упЗаявкаНаПеревозкуГруза.ЗонаОтправления,
+	упЗаявкаНаПеревозкуГруза.ЗонаПолучения,
+	упЗаявкаНаПеревозкуГруза.Заказчик,
+	упЗаявкаНаПеревозкуГруза.Организация,
+	упЗаявкаНаПеревозкуГруза.Отправитель,
+	упЗаявкаНаПеревозкуГруза.Получатель,
+	упЗаявкаНаПеревозкуГруза.Соглашение,
+	упЗаявкаНаПеревозкуГруза.СхемаМультимодальнойПеревозки,
+	упЗаявкаНаПеревозкуГруза.ОтправлениеГрузаС,
+	упЗаявкаНаПеревозкуГруза.ОтправлениеГрузаПо,
+	упЗаявкаНаПеревозкуГруза.ПолучениеГрузаС,
+	упЗаявкаНаПеревозкуГруза.ПолучениеГрузаПо,
+	ЕСТЬNULL(упСтатусыЗаявокНаПеревозкуГрузаСрезПоследних.Статус, ЗНАЧЕНИЕ(Перечисление.упСтатусыЗаявкиНаПеревозкуГруза.Новая)) КАК Статус
+ИЗ
+	Документ.упЗаявкаНаПеревозкуГруза КАК упЗаявкаНаПеревозкуГруза
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упСтатусыЗаявокНаПеревозкуГруза.СрезПоследних(, {(Документ).* КАК Ссылка}) КАК упСтатусыЗаявокНаПеревозкуГрузаСрезПоследних
+		ПО упЗаявкаНаПеревозкуГруза.Ссылка = упСтатусыЗаявокНаПеревозкуГрузаСрезПоследних.Документ</query>
+	</dataSet>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЗонаОтправления</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>АдресОтправления</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>АдресПолучения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ГрафикРаботыАдресаОтправления</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ГрафикРаботыАдресаПолучения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Заказчик</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЗонаПолучения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Организация</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Отправитель</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОтправлениеГрузаПо</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОтправлениеГрузаС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Получатель</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПолучениеГрузаПо</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПолучениеГрузаС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Соглашение</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Ссылка</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Статус</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СхемаМультимодальнойПеревозки</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

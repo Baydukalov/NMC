@@ -1,0 +1,381 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоПройденныхТочек</dataPath>
+			<field>КоличествоПройденныхТочек</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВремяВПути</dataPath>
+			<field>ВремяВПути</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоЗаданий</dataPath>
+			<field>КоличествоЗаданий</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаИнкассации</dataPath>
+			<field>СуммаИнкассации</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоОпозданий</dataPath>
+			<field>КоличествоОпозданий</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Сотрудник</dataPath>
+			<field>Сотрудник</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВремяВПутиДоГаража</dataPath>
+			<field>ВремяВПутиДоГаража</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Время</dataPath>
+			<field>Время</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоМест</dataPath>
+			<field>КоличествоМест</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоЗагрузочныхМетров</dataPath>
+			<field>КоличествоЗагрузочныхМетров</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПередачаДокументов</dataPath>
+			<field>ПередачаДокументов</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Расстояние</dataPath>
+			<field>Расстояние</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОценочнаяСтоимостьГруза</dataPath>
+			<field>ОценочнаяСтоимостьГруза</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВремяВПутиОтГаража</dataPath>
+			<field>ВремяВПутиОтГаража</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Масса</dataPath>
+			<field>Масса</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоОтмененныхТочек</dataPath>
+			<field>КоличествоОтмененныхТочек</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Объем</dataPath>
+			<field>Объем</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Период</dataPath>
+			<field>Период</field>
+			<role>
+				<dcscom:periodNumber>1</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Рейс</dataPath>
+			<field>Рейс</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	упВыработкаСотрудников.Период,
+	упВыработкаСотрудников.Сотрудник,
+	упВыработкаСотрудников.Рейс,
+	упВыработкаСотрудников.Масса,
+	упВыработкаСотрудников.Объем,
+	упВыработкаСотрудников.КоличествоМест,
+	упВыработкаСотрудников.КоличествоЗагрузочныхМетров,
+	упВыработкаСотрудников.КоличествоЗаданий,
+	упВыработкаСотрудников.КоличествоПройденныхТочек,
+	упВыработкаСотрудников.КоличествоОтмененныхТочек,
+	упВыработкаСотрудников.КоличествоОпозданий,
+	упВыработкаСотрудников.ВремяВПутиОтГаража,
+	упВыработкаСотрудников.ВремяВПутиДоГаража,
+	упВыработкаСотрудников.ВремяВПути,
+	упВыработкаСотрудников.Время,
+	упВыработкаСотрудников.Расстояние,
+	упВыработкаСотрудников.ОценочнаяСтоимостьГруза,
+	упВыработкаСотрудников.СуммаИнкассации,
+	упВыработкаСотрудников.ПередачаДокументов
+ИЗ
+	РегистрНакопления.упВыработкаСотрудников КАК упВыработкаСотрудников
+ГДЕ
+	упВыработкаСотрудников.Период МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода</query>
+	</dataSet>
+	<calculatedField>
+		<dataPath>ВремяВПути</dataPath>
+		<expression>упСервисныеФункцииКлиентСервер.СформироватьПредставлениеВремени(ВремяВПути*3600)</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Время в пути</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ВремяВПутиДоГаража</dataPath>
+		<expression>упСервисныеФункцииКлиентСервер.СформироватьПредставлениеВремени(ВремяВПутиДоГаража*3600)</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Время в пути до гаража</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>Время</dataPath>
+		<expression>упСервисныеФункцииКлиентСервер.СформироватьПредставлениеВремени(Время*3600)</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Время рейса</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ВремяВПутиОтГаража</dataPath>
+		<expression>упСервисныеФункцииКлиентСервер.СформироватьПредставлениеВремени(ВремяВПутиОтГаража*3600)</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Время в пути от гаража</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<totalField>
+		<dataPath>Время</dataPath>
+		<expression>Сумма(Время)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ВремяВПути</dataPath>
+		<expression>Сумма(ВремяВПути)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ВремяВПутиДоГаража</dataPath>
+		<expression>Сумма(ВремяВПутиДоГаража)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ВремяВПутиОтГаража</dataPath>
+		<expression>Сумма(ВремяВПутиОтГаража)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоЗагрузочныхМетров</dataPath>
+		<expression>Сумма(КоличествоЗагрузочныхМетров)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоЗаданий</dataPath>
+		<expression>Сумма(КоличествоЗаданий)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоМест</dataPath>
+		<expression>Сумма(КоличествоМест)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоОпозданий</dataPath>
+		<expression>Сумма(КоличествоОпозданий)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоОтмененныхТочек</dataPath>
+		<expression>Сумма(КоличествоОтмененныхТочек)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоПройденныхТочек</dataPath>
+		<expression>Сумма(КоличествоПройденныхТочек)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Масса</dataPath>
+		<expression>Сумма(Масса)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Объем</dataPath>
+		<expression>Сумма(Объем)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОценочнаяСтоимостьГруза</dataPath>
+		<expression>Сумма(ОценочнаяСтоимостьГруза)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Расстояние</dataPath>
+		<expression>Сумма(Расстояние)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаИнкассации</dataPath>
+		<expression>Сумма(СуммаИнкассации)</expression>
+	</totalField>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;СтандартныйПериод.ДатаОкончания</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;СтандартныйПериод.ДатаНачала</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>СтандартныйПериод</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:StandardPeriod</v8:Type>
+		</valueType>
+		<value xsi:type="v8:StandardPeriod">
+			<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+			<v8:startDate>2016-05-01T00:00:00</v8:startDate>
+			<v8:endDate>2016-05-31T23:59:59</v8:endDate>
+		</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>ВыработкаВодителей</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Выработка водителей</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Сотрудник</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПередачаДокументов</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Масса</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Объем</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоМест</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоЗагрузочныхМетров</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоЗаданий</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоПройденныхТочек</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоОтмененныхТочек</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоОпозданий</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВремяВПутиОтГаража</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВремяВПутиДоГаража</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВремяВПути</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Время</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Расстояние</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОценочнаяСтоимостьГруза</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаИнкассации</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Сотрудник.Партнер</dcsset:left>
+					<dcsset:comparisonType>InList</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.упПартнеры.ПустаяСсылка</dcsset:right>
+					<dcsset:userSettingID>68b39359-8d75-4376-8094-86d4ff19d302</dcsset:userSettingID>
+					<dcsset:userSettingPresentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Перевозчик</v8:content>
+						</v8:item>
+					</dcsset:userSettingPresentation>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>СтандартныйПериод</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">ThisMonth</v8:variant>
+					</dcscor:value>
+					<dcsset:userSettingID>787a3039-9150-487f-ab81-b3e1f45c0354</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МакетОформления</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">упМакетОформленияОтчетов</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Выработка водителей</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

@@ -1,0 +1,2363 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoTime>CurrentOrLast</AutoTime>
+	<UsePostingMode>Auto</UsePostingMode>
+	<RepostOnWrite>true</RepostOnWrite>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="AfterWrite">ПослеЗаписи</Event>
+		<Event name="ChoiceProcessing">ОбработкаВыбора</Event>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="FillCheckProcessingAtServer">ОбработкаПроверкиЗаполненияНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаШапка" id="204">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа шапка</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа шапка</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаШапкаРасширеннаяПодсказка" id="205"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаШапкаЛевая" id="208">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа шапка левая</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа шапка левая</v8:content>
+						</v8:item>
+					</ToolTip>
+					<HorizontalStretch>true</HorizontalStretch>
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаШапкаЛеваяРасширеннаяПодсказка" id="209"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаНомер" id="200">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа номер</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа номер</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаНомерРасширеннаяПодсказка" id="201"/>
+							<ChildItems>
+								<InputField name="Номер" id="1">
+									<DataPath>Объект.Number</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>11</Width>
+									<ContextMenu name="НомерКонтекстноеМеню" id="2"/>
+									<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="3"/>
+								</InputField>
+								<InputField name="Дата" id="4">
+									<DataPath>Объект.Date</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>от</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>14</Width>
+									<ContextMenu name="ДатаКонтекстноеМеню" id="5"/>
+									<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="6"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаОрганизация" id="202">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа организация</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа организация</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаОрганизацияРасширеннаяПодсказка" id="203"/>
+							<ChildItems>
+								<InputField name="Организация" id="22">
+									<DataPath>Объект.Организация</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<ContextMenu name="ОрганизацияКонтекстноеМеню" id="23"/>
+									<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="24"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаШапкаПравая" id="210">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа шапка правая</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа шапка правая</v8:content>
+						</v8:item>
+					</ToolTip>
+					<GroupVerticalAlign>Center</GroupVerticalAlign>
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаШапкаПраваяРасширеннаяПодсказка" id="211"/>
+					<ChildItems>
+						<InputField name="ДатаНачалаДействия" id="10">
+							<DataPath>Объект.ДатаНачалаДействия</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДатаНачалаДействияКонтекстноеМеню" id="11"/>
+							<ExtendedTooltip name="ДатаНачалаДействияРасширеннаяПодсказка" id="12"/>
+						</InputField>
+						<RadioButtonField name="ОбъектНормРасходаГСМ" id="19">
+							<DataPath>Объект.ОбъектНормРасходаГСМ</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<RadioButtonType>Tumbler</RadioButtonType>
+							<ColumnsCount>2</ColumnsCount>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>По транспорту</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xr:DesignTimeRef">Enum.упОбъектыНормРасходаГСМ.EnumValue.ТранспортноеСредство</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>По оборудованию</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xr:DesignTimeRef">Enum.упОбъектыНормРасходаГСМ.EnumValue.ДополнительноеОборудование</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="ОбъектНормРасходаГСМКонтекстноеМеню" id="20"/>
+							<ExtendedTooltip name="ОбъектНормРасходаГСМРасширеннаяПодсказка" id="21"/>
+							<Events>
+								<Event name="OnChange">ОбъектНормРасходаГСМПриИзменении</Event>
+							</Events>
+						</RadioButtonField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Группа1" id="206">
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="207"/>
+		</UsualGroup>
+		<Pages name="Страницы" id="25">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+			</Title>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="СтраницыРасширеннаяПодсказка" id="26"/>
+			<Events>
+				<Event name="OnCurrentPageChange">СтраницыПриСменеСтраницы</Event>
+			</Events>
+			<ChildItems>
+				<Page name="ГруппаНормыТранспортныхСредств" id="27">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Нормы расхода ГСМ</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ГруппаНормыТранспортныхСредствРасширеннаяПодсказка" id="28"/>
+					<ChildItems>
+						<Table name="НормыТранспортныхСредств" id="29">
+							<Representation>List</Representation>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Объект.НормыТранспортныхСредств</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="НормыТранспортныхСредствКонтекстноеМеню" id="30"/>
+							<AutoCommandBar name="НормыТранспортныхСредствКоманднаяПанель" id="31">
+								<ChildItems>
+									<Button name="НормыТранспортныхСредствПодобрать" id="297">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.Подобрать</CommandName>
+										<ExtendedTooltip name="НормыТранспортныхСредствПодобратьРасширеннаяПодсказка" id="298"/>
+									</Button>
+									<Popup name="НормыТранспортныхСредствГруппаЗаполнить" id="301">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Заполнить</v8:content>
+											</v8:item>
+										</Title>
+										<ToolTip>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Нормы транспортных средств группа заполнить</v8:content>
+											</v8:item>
+										</ToolTip>
+										<ExtendedTooltip name="НормыТранспортныхСредствГруппаЗаполнитьРасширеннаяПодсказка" id="302"/>
+										<ChildItems>
+											<Button name="НормыТранспортныхСредствЗаполнитьПоНорме" id="303">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ЗаполнитьПоНорме</CommandName>
+												<ExtendedTooltip name="НормыТранспортныхСредствЗаполнитьПоНормеРасширеннаяПодсказка" id="304"/>
+											</Button>
+											<Button name="НормыТранспортныхСредствЗаполнитьПоИстории" id="305">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ЗаполнитьПоИстории</CommandName>
+												<ExtendedTooltip name="НормыТранспортныхСредствЗаполнитьПоИсторииРасширеннаяПодсказка" id="306"/>
+											</Button>
+										</ChildItems>
+									</Popup>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="НормыТранспортныхСредствРасширеннаяПодсказка" id="32"/>
+							<SearchStringAddition name="НормыТранспортныхСредствСтрокаПоиска" id="33">
+								<AdditionSource>
+									<Item>НормыТранспортныхСредств</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="НормыТранспортныхСредствСтрокаПоискаКонтекстноеМеню" id="34"/>
+								<ExtendedTooltip name="НормыТранспортныхСредствСтрокаПоискаРасширеннаяПодсказка" id="35"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="НормыТранспортныхСредствСостояниеПросмотра" id="36">
+								<AdditionSource>
+									<Item>НормыТранспортныхСредств</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="НормыТранспортныхСредствСостояниеПросмотраКонтекстноеМеню" id="37"/>
+								<ExtendedTooltip name="НормыТранспортныхСредствСостояниеПросмотраРасширеннаяПодсказка" id="38"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="НормыТранспортныхСредствУправлениеПоиском" id="39">
+								<AdditionSource>
+									<Item>НормыТранспортныхСредств</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="НормыТранспортныхСредствУправлениеПоискомКонтекстноеМеню" id="40"/>
+								<ExtendedTooltip name="НормыТранспортныхСредствУправлениеПоискомРасширеннаяПодсказка" id="41"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="OnStartEdit">НормыТранспортныхСредствПриНачалеРедактирования</Event>
+								<Event name="OnChange">НормыТранспортныхСредствПриИзменении</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="НормыТранспортныхСредствНомерСтроки" id="42">
+									<DataPath>Объект.НормыТранспортныхСредств.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<FixingInTable>Left</FixingInTable>
+									<Width>3</Width>
+									<ContextMenu name="НормыТранспортныхСредствНомерСтрокиКонтекстноеМеню" id="43"/>
+									<ExtendedTooltip name="НормыТранспортныхСредствНомерСтрокиРасширеннаяПодсказка" id="44"/>
+								</LabelField>
+								<InputField name="НормыТранспортныхСредствТранспортноеСредство" id="45">
+									<DataPath>Объект.НормыТранспортныхСредств.ТранспортноеСредство</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<FixingInTable>Left</FixingInTable>
+									<Width>14</Width>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<ContextMenu name="НормыТранспортныхСредствТранспортноеСредствоКонтекстноеМеню" id="46"/>
+									<ExtendedTooltip name="НормыТранспортныхСредствТранспортноеСредствоРасширеннаяПодсказка" id="47"/>
+									<Events>
+										<Event name="OnChange">НормыТранспортныхСредствТранспортноеСредствоПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="НормыТранспортныхСредствВидГСМ" id="48">
+									<DataPath>Объект.НормыТранспортныхСредств.ВидГСМ</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<FixingInTable>Left</FixingInTable>
+									<Width>8</Width>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<ContextMenu name="НормыТранспортныхСредствВидГСМКонтекстноеМеню" id="49"/>
+									<ExtendedTooltip name="НормыТранспортныхСредствВидГСМРасширеннаяПодсказка" id="50"/>
+								</InputField>
+								<InputField name="НормыТранспортныхСредствТипНормыРасходаГСМ" id="51">
+									<DataPath>Объект.НормыТранспортныхСредств.ТипНормыРасходаГСМ</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>2</Width>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<ContextMenu name="НормыТранспортныхСредствТипНормыРасходаГСМКонтекстноеМеню" id="52"/>
+									<ExtendedTooltip name="НормыТранспортныхСредствТипНормыРасходаГСМРасширеннаяПодсказка" id="53"/>
+									<Events>
+										<Event name="OnChange">НормыТранспортныхСредствТипНормыРасходаГСМПриИзменении</Event>
+									</Events>
+								</InputField>
+								<ColumnGroup name="НормыТранспортныхСредствГруппаРасходСНадбавками" id="320">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Итоговый расход (справочно)</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Расход + Расход * надбавки</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>InCell</Group>
+									<ShowInHeader>true</ShowInHeader>
+									<FixingInTable>Left</FixingInTable>
+									<ExtendedTooltip name="НормыТранспортныхСредствГруппаРасходСНадбавкамиРасширеннаяПодсказка" id="321"/>
+									<ChildItems>
+										<InputField name="НормыТранспортныхСредствРасходСНадбавками" id="322">
+											<DataPath>Объект.НормыТранспортныхСредств.РасходСНадбавками</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<HorizontalAlign>Right</HorizontalAlign>
+											<EditMode>EnterOnInput</EditMode>
+											<ShowInHeader>false</ShowInHeader>
+											<Width>10</Width>
+											<Format>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>ЧН=</v8:content>
+												</v8:item>
+											</Format>
+											<EditFormat>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>ЧН=</v8:content>
+												</v8:item>
+											</EditFormat>
+											<BackColor>style:ToolTipBackColor</BackColor>
+											<ContextMenu name="НормыТранспортныхСредствРасходСНадбавкамиКонтекстноеМеню" id="323"/>
+											<ExtendedTooltip name="НормыТранспортныхСредствРасходСНадбавкамиРасширеннаяПодсказка" id="324"/>
+										</InputField>
+										<InputField name="НормыТранспортныхСредствНадписьРасходСНадбавками" id="317">
+											<DataPath>Объект.НормыТранспортныхСредств.НадписьРасходСНадбавками</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Расход+надбавки(%)</v8:content>
+												</v8:item>
+											</Title>
+											<EditMode>EnterOnInput</EditMode>
+											<ShowInHeader>false</ShowInHeader>
+											<Width>7</Width>
+											<BackColor>style:ToolTipBackColor</BackColor>
+											<ContextMenu name="НормыТранспортныхСредствНадписьРасходСНадбавкамиКонтекстноеМеню" id="318"/>
+											<ExtendedTooltip name="НормыТранспортныхСредствНадписьРасходСНадбавкамиРасширеннаяПодсказка" id="319"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="НормыТранспортныхСредствГруппаРасходГСМ" id="251">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Нормы транспортных средств группа расход ГСМ</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Нормы транспортных средств группа расход ГСМ</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="НормыТранспортныхСредствГруппаРасходГСМРасширеннаяПодсказка" id="252"/>
+									<ChildItems>
+										<ColumnGroup name="НормыТранспортныхСредствГруппаРасход" id="217">
+											<EnableContentChange>true</EnableContentChange>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Нормы транспортных средств группа расход</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Нормы транспортных средств группа расход</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>InCell</Group>
+											<ExtendedTooltip name="НормыТранспортныхСредствГруппаРасходРасширеннаяПодсказка" id="218"/>
+											<ChildItems>
+												<InputField name="НормыТранспортныхСредствРасход" id="54">
+													<DataPath>Объект.НормыТранспортныхСредств.Расход</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<HeaderPicture>
+														<xr:Ref>StdPicture.Change</xr:Ref>
+														<xr:LoadTransparent>true</xr:LoadTransparent>
+													</HeaderPicture>
+													<Width>14</Width>
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<ContextMenu name="НормыТранспортныхСредствРасходКонтекстноеМеню" id="55"/>
+													<ExtendedTooltip name="НормыТранспортныхСредствРасходРасширеннаяПодсказка" id="56"/>
+													<Events>
+														<Event name="OnChange">НормыТранспортныхСредствРасходПриИзменении</Event>
+													</Events>
+												</InputField>
+												<InputField name="НормыТранспортныхСредствНадписьРасход" id="214">
+													<DataPath>Объект.НормыТранспортныхСредств.НадписьРасход</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>6</Width>
+													<ContextMenu name="НормыТранспортныхСредствНадписьРасходКонтекстноеМеню" id="215"/>
+													<ExtendedTooltip name="НормыТранспортныхСредствНадписьРасходРасширеннаяПодсказка" id="216"/>
+												</InputField>
+											</ChildItems>
+										</ColumnGroup>
+										<ColumnGroup name="НормыТранспортныхСредствГруппаИзменениеРасходаГСМ" id="253">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Нормы транспортных средств группа изменение расхода ГСМ</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Нормы транспортных средств группа изменение расхода ГСМ</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>InCell</Group>
+											<ExtendedTooltip name="НормыТранспортныхСредствГруппаИзменениеРасходаГСМРасширеннаяПодсказка" id="254"/>
+											<ChildItems>
+												<InputField name="НормыТранспортныхСредствИзменениеРасхода" id="57">
+													<DataPath>Объект.НормыТранспортныхСредств.ИзменениеРасхода</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>13</Width>
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<ContextMenu name="НормыТранспортныхСредствИзменениеРасходаКонтекстноеМеню" id="58"/>
+													<ExtendedTooltip name="НормыТранспортныхСредствИзменениеРасходаРасширеннаяПодсказка" id="59"/>
+												</InputField>
+												<InputField name="НормыТранспортныхСредствНадписьИзменениеРасхода" id="255">
+													<DataPath>Объект.НормыТранспортныхСредств.НадписьИзменениеРасхода</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>6</Width>
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<ContextMenu name="НормыТранспортныхСредствНадписьИзменениеРасходаКонтекстноеМеню" id="256"/>
+													<ExtendedTooltip name="НормыТранспортныхСредствНадписьИзменениеРасходаРасширеннаяПодсказка" id="257"/>
+												</InputField>
+											</ChildItems>
+										</ColumnGroup>
+										<CheckBoxField name="НормыТранспортныхСредствУчитыватьТемпературуВоздухаВПутевомЛисте" id="360">
+											<DataPath>Объект.НормыТранспортныхСредств.УчитыватьТемпературуВоздухаВПутевомЛисте</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="НормыТранспортныхСредствУчитыватьТемпературуВоздухаВПутевомЛистеКонтекстноеМеню" id="361"/>
+											<ExtendedTooltip name="НормыТранспортныхСредствУчитыватьТемпературуВоздухаВПутевомЛистеРасширеннаяПодсказка" id="362"/>
+										</CheckBoxField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="НормыТранспортныхСредствГруппаНадбавки" id="219">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Эксплуатационные нормы (% - надбавка вычисляется как процент от базового расхода; л/час и л/км- надбавка считается исходя из затраченного времени или пройденного расстояния по путевому листу)</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Эксплуатационные нормы (% - надбавка вычисляется как процент от общего расхода; л/час, л/км, л/операция - надбавка считается исходя из затраченного времени,  пройденного расстояния, выполненных операций по путевому листу)</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<ShowInHeader>true</ShowInHeader>
+									<HeaderHorizontalAlign>Center</HeaderHorizontalAlign>
+									<ExtendedTooltip name="НормыТранспортныхСредствГруппаНадбавкиРасширеннаяПодсказка" id="220"/>
+									<ChildItems>
+										<ColumnGroup name="НормыТранспортныхСредствГруппаКолонка4" id="245">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Нормы транспортных средств группа колонка4</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Нормы транспортных средств группа колонка4</v8:content>
+												</v8:item>
+											</ToolTip>
+											<ExtendedTooltip name="НормыТранспортныхСредствГруппаКолонка4РасширеннаяПодсказка" id="246"/>
+											<ChildItems>
+												<ColumnGroup name="НормыТранспортныхСредствГруппаСпецОборудование" id="247">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Специальное оборудование</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Указывается надбавка на расход топлива на работу специального оборудования</v8:content>
+														</v8:item>
+													</ToolTip>
+													<Group>Horizontal</Group>
+													<ShowInHeader>true</ShowInHeader>
+													<ExtendedTooltip name="НормыТранспортныхСредствГруппаСпецОборудованиеРасширеннаяПодсказка" id="248"/>
+													<ChildItems>
+														<InputField name="НормыТранспортныхСредствРасходСпециальноеОборудование" id="117">
+															<DataPath>Объект.НормыТранспортныхСредств.РасходСпециальноеОборудование</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Спец. оборудование</v8:content>
+																</v8:item>
+															</Title>
+															<EditMode>EnterOnInput</EditMode>
+															<ShowInHeader>false</ShowInHeader>
+															<ContextMenu name="НормыТранспортныхСредствРасходСпециальноеОборудованиеКонтекстноеМеню" id="118"/>
+															<ExtendedTooltip name="НормыТранспортныхСредствРасходСпециальноеОборудованиеРасширеннаяПодсказка" id="119"/>
+															<Events>
+																<Event name="OnChange">НормыТранспортныхСредствРасходСпециальноеОборудованиеПриИзменении</Event>
+															</Events>
+														</InputField>
+														<InputField name="НормыТранспортныхСредствТипРасходаСпециальноеОборудование" id="114">
+															<DataPath>Объект.НормыТранспортныхСредств.ТипРасходаСпециальноеОборудование</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Тип</v8:content>
+																</v8:item>
+															</Title>
+															<EditMode>EnterOnInput</EditMode>
+															<ShowInHeader>false</ShowInHeader>
+															<Width>8</Width>
+															<AutoMaxWidth>false</AutoMaxWidth>
+															<ContextMenu name="НормыТранспортныхСредствТипРасходаСпециальноеОборудованиеКонтекстноеМеню" id="115"/>
+															<ExtendedTooltip name="НормыТранспортныхСредствТипРасходаСпециальноеОборудованиеРасширеннаяПодсказка" id="116"/>
+															<Events>
+																<Event name="OnChange">НормыТранспортныхСредствТипРасходаСпециальноеОборудованиеПриИзменении</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<ColumnGroup name="НормыТранспортныхСредствГруппаПростой" id="249">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Простой</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Указывается дополнительный расход топлива на простой автомобиля с работающим двигателем</v8:content>
+														</v8:item>
+													</ToolTip>
+													<Group>Horizontal</Group>
+													<ShowInHeader>true</ShowInHeader>
+													<ExtendedTooltip name="НормыТранспортныхСредствГруппаПростойРасширеннаяПодсказка" id="250"/>
+													<ChildItems>
+														<InputField name="НормыТранспортныхСредствРасходПростой" id="123">
+															<DataPath>Объект.НормыТранспортныхСредств.РасходПростой</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ShowInHeader>false</ShowInHeader>
+															<ContextMenu name="НормыТранспортныхСредствРасходПростойКонтекстноеМеню" id="124"/>
+															<ExtendedTooltip name="НормыТранспортныхСредствРасходПростойРасширеннаяПодсказка" id="125"/>
+															<Events>
+																<Event name="OnChange">НормыТранспортныхСредствРасходПростойПриИзменении</Event>
+															</Events>
+														</InputField>
+														<InputField name="НормыТранспортныхСредствТипРасходаПростой" id="120">
+															<DataPath>Объект.НормыТранспортныхСредств.ТипРасходаПростой</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Тип</v8:content>
+																</v8:item>
+															</Title>
+															<EditMode>EnterOnInput</EditMode>
+															<ShowInHeader>false</ShowInHeader>
+															<Width>8</Width>
+															<AutoMaxWidth>false</AutoMaxWidth>
+															<ContextMenu name="НормыТранспортныхСредствТипРасходаПростойКонтекстноеМеню" id="121"/>
+															<ExtendedTooltip name="НормыТранспортныхСредствТипРасходаПростойРасширеннаяПодсказка" id="122"/>
+															<Events>
+																<Event name="OnChange">НормыТранспортныхСредствТипРасходаПростойПриИзменении</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+											</ChildItems>
+										</ColumnGroup>
+										<ColumnGroup name="НормыТранспортныхСредствГруппаКолонка1" id="227">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Нормы транспортных средств группа колонка1</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Нормы транспортных средств группа колонка1</v8:content>
+												</v8:item>
+											</ToolTip>
+											<ExtendedTooltip name="НормыТранспортныхСредствГруппаКолонка1РасширеннаяПодсказка" id="228"/>
+											<ChildItems>
+												<ColumnGroup name="НормыТранспортныхСредствГруппаЗимний" id="221">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Зима</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Указывается надбавка на расход топлива в зимнее время года в зависимости от климатических районов страны.</v8:content>
+														</v8:item>
+													</ToolTip>
+													<Group>Horizontal</Group>
+													<ShowInHeader>true</ShowInHeader>
+													<ExtendedTooltip name="НормыТранспортныхСредствГруппаЗимнийРасширеннаяПодсказка" id="222"/>
+													<ChildItems>
+														<InputField name="НормыТранспортныхСредствРасходЗимний" id="63">
+															<DataPath>Объект.НормыТранспортныхСредств.РасходЗимний</DataPath>
+															<TitleLocation>None</TitleLocation>
+															<ToolTip>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Зима</v8:content>
+																</v8:item>
+															</ToolTip>
+															<EditMode>EnterOnInput</EditMode>
+															<ShowInHeader>false</ShowInHeader>
+															<ContextMenu name="НормыТранспортныхСредствРасходЗимнийКонтекстноеМеню" id="64"/>
+															<ExtendedTooltip name="НормыТранспортныхСредствРасходЗимнийРасширеннаяПодсказка" id="65"/>
+															<Events>
+																<Event name="OnChange">НормыТранспортныхСредствРасходЗимнийПриИзменении</Event>
+															</Events>
+														</InputField>
+														<InputField name="НормыТранспортныхСредствТипРасходаЗимний" id="60">
+															<DataPath>Объект.НормыТранспортныхСредств.ТипРасходаЗимний</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Тип</v8:content>
+																</v8:item>
+															</Title>
+															<TitleLocation>None</TitleLocation>
+															<EditMode>EnterOnInput</EditMode>
+															<ShowInHeader>false</ShowInHeader>
+															<Width>8</Width>
+															<ListChoiceMode>true</ListChoiceMode>
+															<ChoiceList>
+																<xr:Item>
+																	<xr:Presentation/>
+																	<xr:CheckState>0</xr:CheckState>
+																	<xr:Value xsi:type="FormChoiceListDesTimeValue">
+																		<Presentation>
+																			<v8:item>
+																				<v8:lang>ru</v8:lang>
+																				<v8:content>%</v8:content>
+																			</v8:item>
+																		</Presentation>
+																		<Value xsi:type="xr:DesignTimeRef">Enum.упСпособыРасчетаНадбавокГСМ.EnumValue.ПроцентОтОбщегоРасхода</Value>
+																	</xr:Value>
+																</xr:Item>
+																<xr:Item>
+																	<xr:Presentation/>
+																	<xr:CheckState>0</xr:CheckState>
+																	<xr:Value xsi:type="FormChoiceListDesTimeValue">
+																		<Presentation>
+																			<v8:item>
+																				<v8:lang>ru</v8:lang>
+																				<v8:content>л/час</v8:content>
+																			</v8:item>
+																		</Presentation>
+																		<Value xsi:type="xr:DesignTimeRef">Enum.упСпособыРасчетаНадбавокГСМ.EnumValue.РасходВЛитрахЗаЧас</Value>
+																	</xr:Value>
+																</xr:Item>
+																<xr:Item>
+																	<xr:Presentation/>
+																	<xr:CheckState>0</xr:CheckState>
+																	<xr:Value xsi:type="FormChoiceListDesTimeValue">
+																		<Presentation>
+																			<v8:item>
+																				<v8:lang>ru</v8:lang>
+																				<v8:content>л/км</v8:content>
+																			</v8:item>
+																		</Presentation>
+																		<Value xsi:type="xr:DesignTimeRef">Enum.упСпособыРасчетаНадбавокГСМ.EnumValue.РасходВЛитрахЗа100Км</Value>
+																	</xr:Value>
+																</xr:Item>
+															</ChoiceList>
+															<ContextMenu name="НормыТранспортныхСредствТипРасходаЗимнийКонтекстноеМеню" id="61"/>
+															<ExtendedTooltip name="НормыТранспортныхСредствТипРасходаЗимнийРасширеннаяПодсказка" id="62"/>
+															<Events>
+																<Event name="OnChange">НормыТранспортныхСредствТипРасходаЗимнийПриИзменении</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<ColumnGroup name="НормыТранспортныхСредствГруппаОтопитель" id="243">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Отопитель</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Указывается расход на отопитель </v8:content>
+														</v8:item>
+													</ToolTip>
+													<Group>Horizontal</Group>
+													<ShowInHeader>true</ShowInHeader>
+													<ExtendedTooltip name="НормыТранспортныхСредствГруппаОтопительРасширеннаяПодсказка" id="244"/>
+													<ChildItems>
+														<InputField name="НормыТранспортныхСредствРасходОтопитель" id="105">
+															<DataPath>Объект.НормыТранспортныхСредств.РасходОтопитель</DataPath>
+															<TitleLocation>None</TitleLocation>
+															<EditMode>EnterOnInput</EditMode>
+															<ShowInHeader>false</ShowInHeader>
+															<ContextMenu name="НормыТранспортныхСредствРасходОтопительКонтекстноеМеню" id="106"/>
+															<ExtendedTooltip name="НормыТранспортныхСредствРасходОтопительРасширеннаяПодсказка" id="107"/>
+															<Events>
+																<Event name="OnChange">НормыТранспортныхСредствРасходОтопительПриИзменении</Event>
+															</Events>
+														</InputField>
+														<InputField name="НормыТранспортныхСредствТипРасходаОтопитель" id="102">
+															<DataPath>Объект.НормыТранспортныхСредств.ТипРасходаОтопитель</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Тип</v8:content>
+																</v8:item>
+															</Title>
+															<TitleLocation>None</TitleLocation>
+															<EditMode>EnterOnInput</EditMode>
+															<ShowInHeader>false</ShowInHeader>
+															<Width>8</Width>
+															<AutoMaxWidth>false</AutoMaxWidth>
+															<ContextMenu name="НормыТранспортныхСредствТипРасходаОтопительКонтекстноеМеню" id="103"/>
+															<ExtendedTooltip name="НормыТранспортныхСредствТипРасходаОтопительРасширеннаяПодсказка" id="104"/>
+															<Events>
+																<Event name="OnChange">НормыТранспортныхСредствТипРасходаОтопительПриИзменении</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+											</ChildItems>
+										</ColumnGroup>
+										<ColumnGroup name="НормыТранспортныхСредствГруппаКолонка2" id="229">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Нормы транспортных средств группа колонка2</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Нормы транспортных средств группа колонка2</v8:content>
+												</v8:item>
+											</ToolTip>
+											<ExtendedTooltip name="НормыТранспортныхСредствГруппаКолонка2РасширеннаяПодсказка" id="230"/>
+											<ChildItems>
+												<ColumnGroup name="НормыТранспортныхСредствГруппаКондиционер" id="239">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Кондиционер</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Указывается надбавка на расход топлива при использовании кондиционера при движении автомобиля</v8:content>
+														</v8:item>
+													</ToolTip>
+													<Group>Horizontal</Group>
+													<ShowInHeader>true</ShowInHeader>
+													<ExtendedTooltip name="НормыТранспортныхСредствГруппаКондиционерРасширеннаяПодсказка" id="240"/>
+													<ChildItems>
+														<InputField name="НормыТранспортныхСредствРасходКондиционер" id="93">
+															<DataPath>Объект.НормыТранспортныхСредств.РасходКондиционер</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ShowInHeader>false</ShowInHeader>
+															<ContextMenu name="НормыТранспортныхСредствРасходКондиционерКонтекстноеМеню" id="94"/>
+															<ExtendedTooltip name="НормыТранспортныхСредствРасходКондиционерРасширеннаяПодсказка" id="95"/>
+															<Events>
+																<Event name="OnChange">НормыТранспортныхСредствРасходКондиционерПриИзменении</Event>
+															</Events>
+														</InputField>
+														<InputField name="НормыТранспортныхСредствТипРасходаКондиционер" id="90">
+															<DataPath>Объект.НормыТранспортныхСредств.ТипРасходаКондиционер</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Тип</v8:content>
+																</v8:item>
+															</Title>
+															<EditMode>EnterOnInput</EditMode>
+															<ShowInHeader>false</ShowInHeader>
+															<Width>8</Width>
+															<AutoMaxWidth>false</AutoMaxWidth>
+															<ContextMenu name="НормыТранспортныхСредствТипРасходаКондиционерКонтекстноеМеню" id="91"/>
+															<ExtendedTooltip name="НормыТранспортныхСредствТипРасходаКондиционерРасширеннаяПодсказка" id="92"/>
+															<Events>
+																<Event name="OnChange">НормыТранспортныхСредствТипРасходаКондиционерПриИзменении</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<ColumnGroup name="НормыТранспортныхСредствГруппаКлиматКонтроль" id="241">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>"Климат-контроль"</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Указывается надбавка на расход топлива при использовании установки "климат-контроль"  (независимо от времени года) при движении автомобиля </v8:content>
+														</v8:item>
+													</ToolTip>
+													<Group>Horizontal</Group>
+													<ShowInHeader>true</ShowInHeader>
+													<ExtendedTooltip name="НормыТранспортныхСредствГруппаКлиматКонтрольРасширеннаяПодсказка" id="242"/>
+													<ChildItems>
+														<InputField name="НормыТранспортныхСредствРасходКлиматКонтроль" id="99">
+															<DataPath>Объект.НормыТранспортныхСредств.РасходКлиматКонтроль</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ShowInHeader>false</ShowInHeader>
+															<ContextMenu name="НормыТранспортныхСредствРасходКлиматКонтрольКонтекстноеМеню" id="100"/>
+															<ExtendedTooltip name="НормыТранспортныхСредствРасходКлиматКонтрольРасширеннаяПодсказка" id="101"/>
+															<Events>
+																<Event name="OnChange">НормыТранспортныхСредствРасходКлиматКонтрольПриИзменении</Event>
+															</Events>
+														</InputField>
+														<InputField name="НормыТранспортныхСредствТипРасходаКлиматКонтроль" id="96">
+															<DataPath>Объект.НормыТранспортныхСредств.ТипРасходаКлиматКонтроль</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Тип</v8:content>
+																</v8:item>
+															</Title>
+															<EditMode>EnterOnInput</EditMode>
+															<ShowInHeader>false</ShowInHeader>
+															<Width>8</Width>
+															<AutoMaxWidth>false</AutoMaxWidth>
+															<ContextMenu name="НормыТранспортныхСредствТипРасходаКлиматКонтрольКонтекстноеМеню" id="97"/>
+															<ExtendedTooltip name="НормыТранспортныхСредствТипРасходаКлиматКонтрольРасширеннаяПодсказка" id="98"/>
+															<Events>
+																<Event name="OnChange">НормыТранспортныхСредствТипРасходаКлиматКонтрольПриИзменении</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+											</ChildItems>
+										</ColumnGroup>
+										<ColumnGroup name="НормыТранспортныхСредствГруппаКолонка3" id="231">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Нормы транспортных средств группа колонка3</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Нормы транспортных средств группа колонка3</v8:content>
+												</v8:item>
+											</ToolTip>
+											<ExtendedTooltip name="НормыТранспортныхСредствГруппаКолонка3РасширеннаяПодсказка" id="232"/>
+											<ChildItems>
+												<ColumnGroup name="НормыТранспортныхСредствГруппаГрузовой" id="235">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Грузовой</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Указывается надбавка на расход топлива при работе нагруженного грузового транспорта</v8:content>
+														</v8:item>
+													</ToolTip>
+													<Group>Horizontal</Group>
+													<ShowInHeader>true</ShowInHeader>
+													<ExtendedTooltip name="НормыТранспортныхСредствГруппаГрузовойРасширеннаяПодсказка" id="236"/>
+													<ChildItems>
+														<InputField name="НормыТранспортныхСредствРасходГрузовой" id="87">
+															<DataPath>Объект.НормыТранспортныхСредств.РасходГрузовой</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ShowInHeader>false</ShowInHeader>
+															<ContextMenu name="НормыТранспортныхСредствРасходГрузовойКонтекстноеМеню" id="88"/>
+															<ExtendedTooltip name="НормыТранспортныхСредствРасходГрузовойРасширеннаяПодсказка" id="89"/>
+															<Events>
+																<Event name="OnChange">НормыТранспортныхСредствРасходГрузовойПриИзменении</Event>
+															</Events>
+														</InputField>
+														<InputField name="НормыТранспортныхСредствТипРасходаГрузовой" id="84">
+															<DataPath>Объект.НормыТранспортныхСредств.ТипРасходаГрузовой</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Тип</v8:content>
+																</v8:item>
+															</Title>
+															<EditMode>EnterOnInput</EditMode>
+															<ShowInHeader>false</ShowInHeader>
+															<Width>8</Width>
+															<ContextMenu name="НормыТранспортныхСредствТипРасходаГрузовойКонтекстноеМеню" id="85"/>
+															<ExtendedTooltip name="НормыТранспортныхСредствТипРасходаГрузовойРасширеннаяПодсказка" id="86"/>
+															<Events>
+																<Event name="OnChange">НормыТранспортныхСредствТипРасходаГрузовойПриИзменении</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<ColumnGroup name="НормыТранспортныхСредствГруппаЭксплуатация" id="237">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Эксплуатация</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Указывается надбавка на расход топлива для автомобилей, находящихся в эксплуатации более пяти лет или с общим пробегом более 100 тыс. км </v8:content>
+														</v8:item>
+													</ToolTip>
+													<Group>Horizontal</Group>
+													<ShowInHeader>true</ShowInHeader>
+													<ExtendedTooltip name="НормыТранспортныхСредствГруппаЭксплуатацияРасширеннаяПодсказка" id="238"/>
+													<ChildItems>
+														<InputField name="НормыТранспортныхСредствРасходДлительнаяЭксплуатация" id="111">
+															<DataPath>Объект.НормыТранспортныхСредств.РасходДлительнаяЭксплуатация</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Длит. эксплуатация</v8:content>
+																</v8:item>
+															</Title>
+															<EditMode>EnterOnInput</EditMode>
+															<ShowInHeader>false</ShowInHeader>
+															<ContextMenu name="НормыТранспортныхСредствРасходДлительнаяЭксплуатацияКонтекстноеМеню" id="112"/>
+															<ExtendedTooltip name="НормыТранспортныхСредствРасходДлительнаяЭксплуатацияРасширеннаяПодсказка" id="113"/>
+															<Events>
+																<Event name="OnChange">НормыТранспортныхСредствРасходДлительнаяЭксплуатацияПриИзменении</Event>
+															</Events>
+														</InputField>
+														<InputField name="НормыТранспортныхСредствТипРасходаДлительнаяЭксплуатация" id="108">
+															<DataPath>Объект.НормыТранспортныхСредств.ТипРасходаДлительнаяЭксплуатация</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Тип</v8:content>
+																</v8:item>
+															</Title>
+															<EditMode>EnterOnInput</EditMode>
+															<ShowInHeader>false</ShowInHeader>
+															<Width>8</Width>
+															<ContextMenu name="НормыТранспортныхСредствТипРасходаДлительнаяЭксплуатацияКонтекстноеМеню" id="109"/>
+															<ExtendedTooltip name="НормыТранспортныхСредствТипРасходаДлительнаяЭксплуатацияРасширеннаяПодсказка" id="110"/>
+															<Events>
+																<Event name="OnChange">НормыТранспортныхСредствТипРасходаДлительнаяЭксплуатацияПриИзменении</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+											</ChildItems>
+										</ColumnGroup>
+										<ColumnGroup name="НормыТранспортныхСредствГруппаКолонка5" id="313">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Нормы транспортных средств группа колонка5</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Нормы транспортных средств группа колонка5</v8:content>
+												</v8:item>
+											</ToolTip>
+											<ExtendedTooltip name="НормыТранспортныхСредствГруппаКолонка5РасширеннаяПодсказка" id="314"/>
+											<ChildItems>
+												<ColumnGroup name="НормыТранспортныхСредствГруппаСложность" id="225">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Сложность</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Указывается надбавка на расход топлива при работе автотранспорта на дорогах общего пользования со сложным планом (вне пределов городов и пригородных зон), где в среднем на 1 км пути имеется более пяти закруглений (поворотов) радиусом менее 40 м</v8:content>
+														</v8:item>
+													</ToolTip>
+													<Group>Horizontal</Group>
+													<ShowInHeader>true</ShowInHeader>
+													<ExtendedTooltip name="НормыТранспортныхСредствГруппаСложностьРасширеннаяПодсказка" id="226"/>
+													<ChildItems>
+														<InputField name="НормыТранспортныхСредствРасходСложностьДорог" id="75">
+															<DataPath>Объект.НормыТранспортныхСредств.РасходСложностьДорог</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ShowInHeader>false</ShowInHeader>
+															<ContextMenu name="НормыТранспортныхСредствРасходСложностьДорогКонтекстноеМеню" id="76"/>
+															<ExtendedTooltip name="НормыТранспортныхСредствРасходСложностьДорогРасширеннаяПодсказка" id="77"/>
+															<Events>
+																<Event name="OnChange">НормыТранспортныхСредствРасходСложностьДорогПриИзменении</Event>
+															</Events>
+														</InputField>
+														<InputField name="НормыТранспортныхСредствТипРасходаСложностьДорог" id="72">
+															<DataPath>Объект.НормыТранспортныхСредств.ТипРасходаСложностьДорог</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Тип</v8:content>
+																</v8:item>
+															</Title>
+															<TitleLocation>None</TitleLocation>
+															<EditMode>EnterOnInput</EditMode>
+															<ShowInHeader>false</ShowInHeader>
+															<Width>8</Width>
+															<ListChoiceMode>true</ListChoiceMode>
+															<ChoiceList>
+																<xr:Item>
+																	<xr:Presentation/>
+																	<xr:CheckState>0</xr:CheckState>
+																	<xr:Value xsi:type="FormChoiceListDesTimeValue">
+																		<Presentation>
+																			<v8:item>
+																				<v8:lang>ru</v8:lang>
+																				<v8:content>%</v8:content>
+																			</v8:item>
+																		</Presentation>
+																		<Value xsi:type="xr:DesignTimeRef">Enum.упСпособыРасчетаНадбавокГСМ.EnumValue.ПроцентОтОбщегоРасхода</Value>
+																	</xr:Value>
+																</xr:Item>
+																<xr:Item>
+																	<xr:Presentation/>
+																	<xr:CheckState>0</xr:CheckState>
+																	<xr:Value xsi:type="FormChoiceListDesTimeValue">
+																		<Presentation>
+																			<v8:item>
+																				<v8:lang>ru</v8:lang>
+																				<v8:content>л/час</v8:content>
+																			</v8:item>
+																		</Presentation>
+																		<Value xsi:type="xr:DesignTimeRef">Enum.упСпособыРасчетаНадбавокГСМ.EnumValue.РасходВЛитрахЗаЧас</Value>
+																	</xr:Value>
+																</xr:Item>
+																<xr:Item>
+																	<xr:Presentation/>
+																	<xr:CheckState>0</xr:CheckState>
+																	<xr:Value xsi:type="FormChoiceListDesTimeValue">
+																		<Presentation>
+																			<v8:item>
+																				<v8:lang>ru</v8:lang>
+																				<v8:content>л/км</v8:content>
+																			</v8:item>
+																		</Presentation>
+																		<Value xsi:type="xr:DesignTimeRef">Enum.упСпособыРасчетаНадбавокГСМ.EnumValue.РасходВЛитрахЗа100Км</Value>
+																	</xr:Value>
+																</xr:Item>
+															</ChoiceList>
+															<ContextMenu name="НормыТранспортныхСредствТипРасходаСложностьДорогКонтекстноеМеню" id="73"/>
+															<ExtendedTooltip name="НормыТранспортныхСредствТипРасходаСложностьДорогРасширеннаяПодсказка" id="74"/>
+															<Events>
+																<Event name="OnChange">НормыТранспортныхСредствТипРасходаСложностьДорогПриИзменении</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<ColumnGroup name="НормыТранспортныхСредствГруппаГорность" id="223">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Горность</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Указывается надбавка на расход топлива при работе автотранспорта на дорогах общего пользования в горной местности.</v8:content>
+														</v8:item>
+													</ToolTip>
+													<Group>Horizontal</Group>
+													<ShowInHeader>true</ShowInHeader>
+													<ExtendedTooltip name="НормыТранспортныхСредствГруппаГорностьРасширеннаяПодсказка" id="224"/>
+													<ChildItems>
+														<InputField name="НормыТранспортныхСредствРасходГорнаяМестность" id="69">
+															<DataPath>Объект.НормыТранспортныхСредств.РасходГорнаяМестность</DataPath>
+															<TitleLocation>None</TitleLocation>
+															<EditMode>EnterOnInput</EditMode>
+															<ShowInHeader>false</ShowInHeader>
+															<ContextMenu name="НормыТранспортныхСредствРасходГорнаяМестностьКонтекстноеМеню" id="70"/>
+															<ExtendedTooltip name="НормыТранспортныхСредствРасходГорнаяМестностьРасширеннаяПодсказка" id="71"/>
+															<Events>
+																<Event name="OnChange">НормыТранспортныхСредствРасходГорнаяМестностьПриИзменении</Event>
+															</Events>
+														</InputField>
+														<InputField name="НормыТранспортныхСредствТипРасходаГорнаяМестность" id="66">
+															<DataPath>Объект.НормыТранспортныхСредств.ТипРасходаГорнаяМестность</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Тип</v8:content>
+																</v8:item>
+															</Title>
+															<TitleLocation>None</TitleLocation>
+															<EditMode>EnterOnInput</EditMode>
+															<ShowInHeader>false</ShowInHeader>
+															<Width>8</Width>
+															<ListChoiceMode>true</ListChoiceMode>
+															<ChoiceList>
+																<xr:Item>
+																	<xr:Presentation/>
+																	<xr:CheckState>0</xr:CheckState>
+																	<xr:Value xsi:type="FormChoiceListDesTimeValue">
+																		<Presentation>
+																			<v8:item>
+																				<v8:lang>ru</v8:lang>
+																				<v8:content>%</v8:content>
+																			</v8:item>
+																		</Presentation>
+																		<Value xsi:type="xr:DesignTimeRef">Enum.упСпособыРасчетаНадбавокГСМ.EnumValue.ПроцентОтОбщегоРасхода</Value>
+																	</xr:Value>
+																</xr:Item>
+																<xr:Item>
+																	<xr:Presentation/>
+																	<xr:CheckState>0</xr:CheckState>
+																	<xr:Value xsi:type="FormChoiceListDesTimeValue">
+																		<Presentation>
+																			<v8:item>
+																				<v8:lang>ru</v8:lang>
+																				<v8:content>л/час</v8:content>
+																			</v8:item>
+																		</Presentation>
+																		<Value xsi:type="xr:DesignTimeRef">Enum.упСпособыРасчетаНадбавокГСМ.EnumValue.РасходВЛитрахЗаЧас</Value>
+																	</xr:Value>
+																</xr:Item>
+																<xr:Item>
+																	<xr:Presentation/>
+																	<xr:CheckState>0</xr:CheckState>
+																	<xr:Value xsi:type="FormChoiceListDesTimeValue">
+																		<Presentation>
+																			<v8:item>
+																				<v8:lang>ru</v8:lang>
+																				<v8:content>л/км</v8:content>
+																			</v8:item>
+																		</Presentation>
+																		<Value xsi:type="xr:DesignTimeRef">Enum.упСпособыРасчетаНадбавокГСМ.EnumValue.РасходВЛитрахЗа100Км</Value>
+																	</xr:Value>
+																</xr:Item>
+															</ChoiceList>
+															<ContextMenu name="НормыТранспортныхСредствТипРасходаГорнаяМестностьКонтекстноеМеню" id="67"/>
+															<ExtendedTooltip name="НормыТранспортныхСредствТипРасходаГорнаяМестностьРасширеннаяПодсказка" id="68"/>
+															<Events>
+																<Event name="OnChange">НормыТранспортныхСредствТипРасходаГорнаяМестностьПриИзменении</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+											</ChildItems>
+										</ColumnGroup>
+										<ColumnGroup name="НормыТранспортныхСредствГруппаКолонка6" id="315">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Нормы транспортных средств группа колонка6</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Нормы транспортных средств группа колонка6</v8:content>
+												</v8:item>
+											</ToolTip>
+											<ExtendedTooltip name="НормыТранспортныхСредствГруппаКолонка6РасширеннаяПодсказка" id="316"/>
+											<ChildItems>
+												<ColumnGroup name="НормыТранспортныхСредствГруппаНаселенныйПункт" id="233">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Населенный пункт</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Указывается надбавка на расход топлива при работе автотранспорта в населенных пунктах с повышенной численностью населения</v8:content>
+														</v8:item>
+													</ToolTip>
+													<Group>Horizontal</Group>
+													<ShowInHeader>true</ShowInHeader>
+													<ExtendedTooltip name="НормыТранспортныхСредствГруппаНаселенныйПунктРасширеннаяПодсказка" id="234"/>
+													<ChildItems>
+														<InputField name="НормыТранспортныхСредствРасходНаселенныйПункт" id="81">
+															<DataPath>Объект.НормыТранспортныхСредств.РасходНаселенныйПункт</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ShowInHeader>false</ShowInHeader>
+															<ContextMenu name="НормыТранспортныхСредствРасходНаселенныйПунктКонтекстноеМеню" id="82"/>
+															<ExtendedTooltip name="НормыТранспортныхСредствРасходНаселенныйПунктРасширеннаяПодсказка" id="83"/>
+															<Events>
+																<Event name="OnChange">НормыТранспортныхСредствРасходНаселенныйПунктПриИзменении</Event>
+															</Events>
+														</InputField>
+														<InputField name="НормыТранспортныхСредствТипРасходаНаселенныйПункт" id="78">
+															<DataPath>Объект.НормыТранспортныхСредств.ТипРасходаНаселенныйПункт</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Тип</v8:content>
+																</v8:item>
+															</Title>
+															<EditMode>EnterOnInput</EditMode>
+															<ShowInHeader>false</ShowInHeader>
+															<Width>8</Width>
+															<AutoMaxWidth>false</AutoMaxWidth>
+															<ContextMenu name="НормыТранспортныхСредствТипРасходаНаселенныйПунктКонтекстноеМеню" id="79"/>
+															<ExtendedTooltip name="НормыТранспортныхСредствТипРасходаНаселенныйПунктРасширеннаяПодсказка" id="80"/>
+															<Events>
+																<Event name="OnChange">НормыТранспортныхСредствТипРасходаНаселенныйПунктПриИзменении</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<ColumnGroup name="НормыТранспортныхСредствГруппаРабочаяОперация" id="363">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Рабочая операция</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Указывается надбавка на расход топлива при учете расхода на количество рабочих операций</v8:content>
+														</v8:item>
+													</ToolTip>
+													<Group>Horizontal</Group>
+													<ShowInHeader>true</ShowInHeader>
+													<ExtendedTooltip name="НормыТранспортныхСредствГруппаРабочаяОперацияРасширеннаяПодсказка" id="364"/>
+													<ChildItems>
+														<InputField name="НормыТранспортныхСредствРасходРабочаяОперация" id="365">
+															<DataPath>Объект.НормыТранспортныхСредств.РасходРабочаяОперация</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ShowInHeader>false</ShowInHeader>
+															<ContextMenu name="НормыТранспортныхСредствРасходРабочаяОперацияКонтекстноеМеню" id="366"/>
+															<ExtendedTooltip name="НормыТранспортныхСредствРасходРабочаяОперацияРасширеннаяПодсказка" id="367"/>
+															<Events>
+																<Event name="OnChange">НормыТранспортныхСредствРасходРабочаяОперацияПриИзменении</Event>
+															</Events>
+														</InputField>
+														<InputField name="НормыТранспортныхСредствТипРасходаРабочаяОперация" id="368">
+															<DataPath>Объект.НормыТранспортныхСредств.ТипРасходаРабочаяОперация</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ShowInHeader>false</ShowInHeader>
+															<Width>8</Width>
+															<ContextMenu name="НормыТранспортныхСредствТипРасходаРабочаяОперацияКонтекстноеМеню" id="369"/>
+															<ExtendedTooltip name="НормыТранспортныхСредствТипРасходаРабочаяОперацияРасширеннаяПодсказка" id="370"/>
+															<Events>
+																<Event name="OnChange">НормыТранспортныхСредствТипРасходаРабочаяОперацияПриИзменении</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+											</ChildItems>
+										</ColumnGroup>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="НормыТранспортныхСредствГруппа1" id="258">
+									<ExtendedTooltip name="НормыТранспортныхСредствГруппа1РасширеннаяПодсказка" id="259"/>
+									<ChildItems>
+										<InputField name="НормыТранспортныхСредствФормулаРасчета" id="126">
+											<DataPath>Объект.НормыТранспортныхСредств.ФормулаРасчета</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="НормыТранспортныхСредствФормулаРасчетаКонтекстноеМеню" id="127"/>
+											<ExtendedTooltip name="НормыТранспортныхСредствФормулаРасчетаРасширеннаяПодсказка" id="128"/>
+										</InputField>
+										<InputField name="НормыТранспортныхСредствШкалаТемпературныхКоэффициентов" id="129">
+											<DataPath>Объект.НормыТранспортныхСредств.ШкалаТемпературныхКоэффициентов</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="НормыТранспортныхСредствШкалаТемпературныхКоэффициентовКонтекстноеМеню" id="130"/>
+											<ExtendedTooltip name="НормыТранспортныхСредствШкалаТемпературныхКоэффициентовРасширеннаяПодсказка" id="131"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаНормыДополнительногоОборудования" id="132">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Нормы расхода ГСМ</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ГруппаНормыДополнительногоОборудованияРасширеннаяПодсказка" id="133"/>
+					<ChildItems>
+						<Table name="НормыДополнительногоОборудования" id="134">
+							<Representation>List</Representation>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Объект.НормыДополнительногоОборудования</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="НормыДополнительногоОборудованияКонтекстноеМеню" id="135"/>
+							<AutoCommandBar name="НормыДополнительногоОборудованияКоманднаяПанель" id="136">
+								<ChildItems>
+									<Button name="НормыДополнительногоОборудованияПодобрать" id="299">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.Подобрать</CommandName>
+										<ExtendedTooltip name="НормыДополнительногоОборудованияПодобратьРасширеннаяПодсказка" id="300"/>
+									</Button>
+									<Popup name="НормыДополнительногоОборудованияГруппаЗаполнить" id="307">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Заполнить</v8:content>
+											</v8:item>
+										</Title>
+										<ToolTip>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Нормы дополнительного оборудования группа заполнить</v8:content>
+											</v8:item>
+										</ToolTip>
+										<ExtendedTooltip name="НормыДополнительногоОборудованияГруппаЗаполнитьРасширеннаяПодсказка" id="308"/>
+										<ChildItems>
+											<Button name="НормыДополнительногоОборудованияЗаполнитьПоНорме" id="309">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ЗаполнитьПоНорме</CommandName>
+												<ExtendedTooltip name="НормыДополнительногоОборудованияЗаполнитьПоНормеРасширеннаяПодсказка" id="310"/>
+											</Button>
+											<Button name="НормыДополнительногоОборудованияЗаполнитьПоИстории" id="311">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ЗаполнитьПоИстории</CommandName>
+												<ExtendedTooltip name="НормыДополнительногоОборудованияЗаполнитьПоИсторииРасширеннаяПодсказка" id="312"/>
+											</Button>
+										</ChildItems>
+									</Popup>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="НормыДополнительногоОборудованияРасширеннаяПодсказка" id="137"/>
+							<SearchStringAddition name="НормыДополнительногоОборудованияСтрокаПоиска" id="138">
+								<AdditionSource>
+									<Item>НормыДополнительногоОборудования</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="НормыДополнительногоОборудованияСтрокаПоискаКонтекстноеМеню" id="139"/>
+								<ExtendedTooltip name="НормыДополнительногоОборудованияСтрокаПоискаРасширеннаяПодсказка" id="140"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="НормыДополнительногоОборудованияСостояниеПросмотра" id="141">
+								<AdditionSource>
+									<Item>НормыДополнительногоОборудования</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="НормыДополнительногоОборудованияСостояниеПросмотраКонтекстноеМеню" id="142"/>
+								<ExtendedTooltip name="НормыДополнительногоОборудованияСостояниеПросмотраРасширеннаяПодсказка" id="143"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="НормыДополнительногоОборудованияУправлениеПоиском" id="144">
+								<AdditionSource>
+									<Item>НормыДополнительногоОборудования</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="НормыДополнительногоОборудованияУправлениеПоискомКонтекстноеМеню" id="145"/>
+								<ExtendedTooltip name="НормыДополнительногоОборудованияУправлениеПоискомРасширеннаяПодсказка" id="146"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="BeforeDeleteRow">НормыДополнительногоОборудованияПередУдалением</Event>
+								<Event name="BeforeEditEnd">НормыДополнительногоОборудованияПередОкончаниемРедактирования</Event>
+								<Event name="OnActivateRow">НормыДополнительногоОборудованияПриАктивизацииСтроки</Event>
+								<Event name="OnStartEdit">НормыДополнительногоОборудованияПриНачалеРедактирования</Event>
+								<Event name="OnChange">НормыДополнительногоОборудованияПриИзменении</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="НормыДополнительногоОборудованияНомерСтроки" id="147">
+									<DataPath>Объект.НормыДополнительногоОборудования.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<FixingInTable>Left</FixingInTable>
+									<Width>3</Width>
+									<ContextMenu name="НормыДополнительногоОборудованияНомерСтрокиКонтекстноеМеню" id="148"/>
+									<ExtendedTooltip name="НормыДополнительногоОборудованияНомерСтрокиРасширеннаяПодсказка" id="149"/>
+								</LabelField>
+								<InputField name="НормыДополнительногоОборудованияДополнительноеОборудование" id="150">
+									<DataPath>Объект.НормыДополнительногоОборудования.ДополнительноеОборудование</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<FixingInTable>Left</FixingInTable>
+									<Width>14</Width>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<ContextMenu name="НормыДополнительногоОборудованияДополнительноеОборудованиеКонтекстноеМеню" id="151"/>
+									<ExtendedTooltip name="НормыДополнительногоОборудованияДополнительноеОборудованиеРасширеннаяПодсказка" id="152"/>
+								</InputField>
+								<ColumnGroup name="НормыДополнительногоОборудованияГруппа2" id="288">
+									<FixingInTable>Left</FixingInTable>
+									<ExtendedTooltip name="НормыДополнительногоОборудованияГруппа2РасширеннаяПодсказка" id="289"/>
+									<ChildItems>
+										<InputField name="НормыДополнительногоОборудованияВидГСМ" id="153">
+											<DataPath>Объект.НормыДополнительногоОборудования.ВидГСМ</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>8</Width>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<ContextMenu name="НормыДополнительногоОборудованияВидГСМКонтекстноеМеню" id="154"/>
+											<ExtendedTooltip name="НормыДополнительногоОборудованияВидГСМРасширеннаяПодсказка" id="155"/>
+										</InputField>
+										<CheckBoxField name="НормыДополнительногоОборудованияРасходИзСобственногоБака" id="165">
+											<DataPath>Объект.НормыДополнительногоОборудования.РасходИзСобственногоБака</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="НормыДополнительногоОборудованияРасходИзСобственногоБакаКонтекстноеМеню" id="166"/>
+											<ExtendedTooltip name="НормыДополнительногоОборудованияРасходИзСобственногоБакаРасширеннаяПодсказка" id="167"/>
+										</CheckBoxField>
+									</ChildItems>
+								</ColumnGroup>
+								<InputField name="НормыДополнительногоОборудованияТипНормыРасходаГСМ" id="156">
+									<DataPath>Объект.НормыДополнительногоОборудования.ТипНормыРасходаГСМ</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>8</Width>
+									<ListChoiceMode>true</ListChoiceMode>
+									<ChoiceList>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xr:DesignTimeRef">Enum.упТипыНормРасходаГСМ.EnumValue.НаОдинЧасРаботы</Value>
+											</xr:Value>
+										</xr:Item>
+									</ChoiceList>
+									<ContextMenu name="НормыДополнительногоОборудованияТипНормыРасходаГСМКонтекстноеМеню" id="157"/>
+									<ExtendedTooltip name="НормыДополнительногоОборудованияТипНормыРасходаГСМРасширеннаяПодсказка" id="158"/>
+									<Events>
+										<Event name="OnChange">НормыДополнительногоОборудованияТипНормыРасходаГСМПриИзменении</Event>
+									</Events>
+								</InputField>
+								<ColumnGroup name="НормыДополнительногоОборудованияГруппаРасходНадбавки" id="325">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Итоговый расход (справочно)</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Расход + Расход * надбавки</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>InCell</Group>
+									<ShowInHeader>true</ShowInHeader>
+									<FixingInTable>Left</FixingInTable>
+									<ExtendedTooltip name="НормыДополнительногоОборудованияГруппаРасходНадбавкиРасширеннаяПодсказка" id="326"/>
+									<ChildItems>
+										<InputField name="НормыДополнительногоОборудованияРасходСНадбавками" id="327">
+											<DataPath>Объект.НормыДополнительногоОборудования.РасходСНадбавками</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<EditMode>EnterOnInput</EditMode>
+											<ShowInHeader>false</ShowInHeader>
+											<Width>10</Width>
+											<Format>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>ЧН=</v8:content>
+												</v8:item>
+											</Format>
+											<EditFormat>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>ЧН=</v8:content>
+												</v8:item>
+											</EditFormat>
+											<BackColor>style:ToolTipBackColor</BackColor>
+											<ContextMenu name="НормыДополнительногоОборудованияРасходСНадбавкамиКонтекстноеМеню" id="328"/>
+											<ExtendedTooltip name="НормыДополнительногоОборудованияРасходСНадбавкамиРасширеннаяПодсказка" id="329"/>
+										</InputField>
+										<InputField name="НормыДополнительногоОборудованияНадписьРасходСНадбавками" id="330">
+											<DataPath>Объект.НормыДополнительногоОборудования.НадписьРасходСНадбавками</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ShowInHeader>false</ShowInHeader>
+											<Width>7</Width>
+											<BackColor>style:ToolTipBackColor</BackColor>
+											<ContextMenu name="НормыДополнительногоОборудованияНадписьРасходСНадбавкамиКонтекстноеМеню" id="331"/>
+											<ExtendedTooltip name="НормыДополнительногоОборудованияНадписьРасходСНадбавкамиРасширеннаяПодсказка" id="332"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="НормыДополнительногоОборудованияГруппаРасходГСМ" id="260">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Нормы дополнительного оборудования группа расход ГСМ</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Нормы дополнительного оборудования группа расход ГСМ</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="НормыДополнительногоОборудованияГруппаРасходГСМРасширеннаяПодсказка" id="261"/>
+									<ChildItems>
+										<ColumnGroup name="НормыДополнительногоОборудованияГруппаРасход" id="262">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Нормы дополнительного оборудования группа расход</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Нормы дополнительного оборудования группа расход</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>InCell</Group>
+											<ExtendedTooltip name="НормыДополнительногоОборудованияГруппаРасходРасширеннаяПодсказка" id="263"/>
+											<ChildItems>
+												<InputField name="НормыДополнительногоОборудованияРасход" id="159">
+													<DataPath>Объект.НормыДополнительногоОборудования.Расход</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>13</Width>
+													<ContextMenu name="НормыДополнительногоОборудованияРасходКонтекстноеМеню" id="160"/>
+													<ExtendedTooltip name="НормыДополнительногоОборудованияРасходРасширеннаяПодсказка" id="161"/>
+													<Events>
+														<Event name="OnChange">НормыДополнительногоОборудованияРасходПриИзменении</Event>
+													</Events>
+												</InputField>
+												<InputField name="НормыДополнительногоОборудованияНадписьРасход" id="264">
+													<DataPath>Объект.НормыДополнительногоОборудования.НадписьРасход</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>6</Width>
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<ContextMenu name="НормыДополнительногоОборудованияНадписьРасходКонтекстноеМеню" id="265"/>
+													<ExtendedTooltip name="НормыДополнительногоОборудованияНадписьРасходРасширеннаяПодсказка" id="266"/>
+												</InputField>
+											</ChildItems>
+										</ColumnGroup>
+										<ColumnGroup name="НормыДополнительногоОборудованияГруппаИзменениеРасхода" id="267">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Нормы дополнительного оборудования группа изменение расхода</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Нормы дополнительного оборудования группа изменение расхода</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>InCell</Group>
+											<ExtendedTooltip name="НормыДополнительногоОборудованияГруппаИзменениеРасходаРасширеннаяПодсказка" id="268"/>
+											<ChildItems>
+												<InputField name="НормыДополнительногоОборудованияИзменениеРасхода" id="162">
+													<DataPath>Объект.НормыДополнительногоОборудования.ИзменениеРасхода</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>13</Width>
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<ContextMenu name="НормыДополнительногоОборудованияИзменениеРасходаКонтекстноеМеню" id="163"/>
+													<ExtendedTooltip name="НормыДополнительногоОборудованияИзменениеРасходаРасширеннаяПодсказка" id="164"/>
+												</InputField>
+												<InputField name="НормыДополнительногоОборудованияНадписьИзменениеРасхода" id="269">
+													<DataPath>Объект.НормыДополнительногоОборудования.НадписьИзменениеРасхода</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>6</Width>
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<ContextMenu name="НормыДополнительногоОборудованияНадписьИзменениеРасходаКонтекстноеМеню" id="270"/>
+													<ExtendedTooltip name="НормыДополнительногоОборудованияНадписьИзменениеРасходаРасширеннаяПодсказка" id="271"/>
+												</InputField>
+											</ChildItems>
+										</ColumnGroup>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="НормыДополнительногоОборудованияГруппаНадбавки" id="272">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Эксплуатационные нормы (% - надбавка вычисляется как процент от базового расхода; л/час и л/км- надбавка считается исходя из затраченного времени или пройденного расстояния по путевому листу)</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Эксплуатационные нормы (% - надбавка вычисляется как процент от общего расхода; л/час, л/км, л/операция - надбавка считается исходя из затраченного времени,  пройденного расстояния, выполненных операций по путевому листу)</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<ShowInHeader>true</ShowInHeader>
+									<ExtendedTooltip name="НормыДополнительногоОборудованияГруппаНадбавкиРасширеннаяПодсказка" id="273"/>
+									<ChildItems>
+										<ColumnGroup name="НормыДополнительногоОборудованияГруппаКолонка1" id="274">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Нормы дополнительного оборудования группа колонка1</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Нормы дополнительного оборудования группа колонка1</v8:content>
+												</v8:item>
+											</ToolTip>
+											<ExtendedTooltip name="НормыДополнительногоОборудованияГруппаКолонка1РасширеннаяПодсказка" id="275"/>
+											<ChildItems>
+												<ColumnGroup name="НормыДополнительногоОборудованияГруппаЗимний" id="276">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Зима</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Указывается надбавка на расход топлива в зимнее время года в зависимости от климатических районов страны.</v8:content>
+														</v8:item>
+													</ToolTip>
+													<HorizontalStretch>false</HorizontalStretch>
+													<Group>Horizontal</Group>
+													<ShowInHeader>true</ShowInHeader>
+													<ExtendedTooltip name="НормыДополнительногоОборудованияГруппаЗимнийРасширеннаяПодсказка" id="277"/>
+													<ChildItems>
+														<InputField name="НормыДополнительногоОборудованияРасходЗимний" id="171">
+															<DataPath>Объект.НормыДополнительногоОборудования.РасходЗимний</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ShowInHeader>false</ShowInHeader>
+															<ContextMenu name="НормыДополнительногоОборудованияРасходЗимнийКонтекстноеМеню" id="172"/>
+															<ExtendedTooltip name="НормыДополнительногоОборудованияРасходЗимнийРасширеннаяПодсказка" id="173"/>
+															<Events>
+																<Event name="OnChange">НормыДополнительногоОборудованияРасходЗимнийПриИзменении</Event>
+															</Events>
+														</InputField>
+														<InputField name="НормыДополнительногоОборудованияТипРасходаЗимний" id="168">
+															<DataPath>Объект.НормыДополнительногоОборудования.ТипРасходаЗимний</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Тип</v8:content>
+																</v8:item>
+															</Title>
+															<EditMode>EnterOnInput</EditMode>
+															<ShowInHeader>false</ShowInHeader>
+															<Width>8</Width>
+															<AutoMaxWidth>false</AutoMaxWidth>
+															<ContextMenu name="НормыДополнительногоОборудованияТипРасходаЗимнийКонтекстноеМеню" id="169"/>
+															<ExtendedTooltip name="НормыДополнительногоОборудованияТипРасходаЗимнийРасширеннаяПодсказка" id="170"/>
+															<Events>
+																<Event name="OnChange">НормыДополнительногоОборудованияТипРасходаЗимнийПриИзменении</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<ColumnGroup name="НормыДополнительногоОборудованияГруппаДлительнаяЭксплуатация" id="278">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Длительная эксплуатация</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Указывается надбавка на расход топлива для автомобилей, находящихся в эксплуатации более пяти лет или с общим пробегом более 100 тыс. км </v8:content>
+														</v8:item>
+													</ToolTip>
+													<HorizontalStretch>false</HorizontalStretch>
+													<Group>Horizontal</Group>
+													<ShowInHeader>true</ShowInHeader>
+													<ExtendedTooltip name="НормыДополнительногоОборудованияГруппаДлительнаяЭксплуатацияРасширеннаяПодсказка" id="279"/>
+													<ChildItems>
+														<InputField name="НормыДополнительногоОборудованияРасходДлительнаяЭксплуатация" id="189">
+															<DataPath>Объект.НормыДополнительногоОборудования.РасходДлительнаяЭксплуатация</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Длит. эксплуатация</v8:content>
+																</v8:item>
+															</Title>
+															<EditMode>EnterOnInput</EditMode>
+															<ShowInHeader>false</ShowInHeader>
+															<ContextMenu name="НормыДополнительногоОборудованияРасходДлительнаяЭксплуатацияКонтекстноеМеню" id="190"/>
+															<ExtendedTooltip name="НормыДополнительногоОборудованияРасходДлительнаяЭксплуатацияРасширеннаяПодсказка" id="191"/>
+															<Events>
+																<Event name="OnChange">НормыДополнительногоОборудованияРасходДлительнаяЭксплуатацияПриИзменении</Event>
+															</Events>
+														</InputField>
+														<InputField name="НормыДополнительногоОборудованияТипРасходаДлительнаяЭксплуатация" id="186">
+															<DataPath>Объект.НормыДополнительногоОборудования.ТипРасходаДлительнаяЭксплуатация</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Тип</v8:content>
+																</v8:item>
+															</Title>
+															<EditMode>EnterOnInput</EditMode>
+															<ShowInHeader>false</ShowInHeader>
+															<Width>8</Width>
+															<AutoMaxWidth>false</AutoMaxWidth>
+															<ContextMenu name="НормыДополнительногоОборудованияТипРасходаДлительнаяЭксплуатацияКонтекстноеМеню" id="187"/>
+															<ExtendedTooltip name="НормыДополнительногоОборудованияТипРасходаДлительнаяЭксплуатацияРасширеннаяПодсказка" id="188"/>
+															<Events>
+																<Event name="OnChange">НормыДополнительногоОборудованияТипРасходаДлительнаяЭксплуатацияПриИзменении</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+											</ChildItems>
+										</ColumnGroup>
+										<ColumnGroup name="НормыДополнительногоОборудованияГруппаКолонка2" id="280">
+											<Visible>false</Visible>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Нормы дополнительного оборудования группа колонка2</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Нормы дополнительного оборудования группа колонка2</v8:content>
+												</v8:item>
+											</ToolTip>
+											<ExtendedTooltip name="НормыДополнительногоОборудованияГруппаКолонка2РасширеннаяПодсказка" id="281"/>
+											<ChildItems>
+												<ColumnGroup name="НормыДополнительногоОборудованияГруппаКондиционер" id="282">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Кондиционер</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Указывается надбавка на расход топлива при использовании кондиционера при движении автомобиля</v8:content>
+														</v8:item>
+													</ToolTip>
+													<Group>Horizontal</Group>
+													<ShowInHeader>true</ShowInHeader>
+													<ExtendedTooltip name="НормыДополнительногоОборудованияГруппаКондиционерРасширеннаяПодсказка" id="283"/>
+													<ChildItems>
+														<InputField name="НормыДополнительногоОборудованияРасходКондиционер" id="177">
+															<DataPath>Объект.НормыДополнительногоОборудования.РасходКондиционер</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ShowInHeader>false</ShowInHeader>
+															<ContextMenu name="НормыДополнительногоОборудованияРасходКондиционерКонтекстноеМеню" id="178"/>
+															<ExtendedTooltip name="НормыДополнительногоОборудованияРасходКондиционерРасширеннаяПодсказка" id="179"/>
+															<Events>
+																<Event name="OnChange">НормыДополнительногоОборудованияРасходКондиционерПриИзменении</Event>
+															</Events>
+														</InputField>
+														<InputField name="НормыДополнительногоОборудованияТипРасходаКондиционер" id="174">
+															<DataPath>Объект.НормыДополнительногоОборудования.ТипРасходаКондиционер</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Тип</v8:content>
+																</v8:item>
+															</Title>
+															<EditMode>EnterOnInput</EditMode>
+															<ShowInHeader>false</ShowInHeader>
+															<Width>8</Width>
+															<AutoMaxWidth>false</AutoMaxWidth>
+															<ContextMenu name="НормыДополнительногоОборудованияТипРасходаКондиционерКонтекстноеМеню" id="175"/>
+															<ExtendedTooltip name="НормыДополнительногоОборудованияТипРасходаКондиционерРасширеннаяПодсказка" id="176"/>
+															<Events>
+																<Event name="OnChange">НормыДополнительногоОборудованияТипРасходаКондиционерПриИзменении</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<ColumnGroup name="НормыДополнительногоОборудованияГруппаОтопитель" id="284">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Отопитель</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Указывается расход на отопитель </v8:content>
+														</v8:item>
+													</ToolTip>
+													<Group>Horizontal</Group>
+													<ShowInHeader>true</ShowInHeader>
+													<ExtendedTooltip name="НормыДополнительногоОборудованияГруппаОтопительРасширеннаяПодсказка" id="285"/>
+													<ChildItems>
+														<InputField name="НормыДополнительногоОборудованияРасходОтопитель" id="183">
+															<DataPath>Объект.НормыДополнительногоОборудования.РасходОтопитель</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ShowInHeader>false</ShowInHeader>
+															<ContextMenu name="НормыДополнительногоОборудованияРасходОтопительКонтекстноеМеню" id="184"/>
+															<ExtendedTooltip name="НормыДополнительногоОборудованияРасходОтопительРасширеннаяПодсказка" id="185"/>
+															<Events>
+																<Event name="OnChange">НормыДополнительногоОборудованияРасходОтопительПриИзменении</Event>
+															</Events>
+														</InputField>
+														<InputField name="НормыДополнительногоОборудованияТипРасходаОтопитель" id="180">
+															<DataPath>Объект.НормыДополнительногоОборудования.ТипРасходаОтопитель</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Тип</v8:content>
+																</v8:item>
+															</Title>
+															<EditMode>EnterOnInput</EditMode>
+															<ShowInHeader>false</ShowInHeader>
+															<Width>8</Width>
+															<AutoMaxWidth>false</AutoMaxWidth>
+															<ContextMenu name="НормыДополнительногоОборудованияТипРасходаОтопительКонтекстноеМеню" id="181"/>
+															<ExtendedTooltip name="НормыДополнительногоОборудованияТипРасходаОтопительРасширеннаяПодсказка" id="182"/>
+															<Events>
+																<Event name="OnChange">НормыДополнительногоОборудованияТипРасходаОтопительПриИзменении</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+											</ChildItems>
+										</ColumnGroup>
+										<ColumnGroup name="НормыДополнительногоОборудованияГруппаКолонка3" id="371">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Нормы дополнительного оборудования группа колонка3</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Нормы дополнительного оборудования группа колонка3</v8:content>
+												</v8:item>
+											</ToolTip>
+											<ExtendedTooltip name="НормыДополнительногоОборудованияГруппаКолонка3РасширеннаяПодсказка" id="372"/>
+											<ChildItems>
+												<ColumnGroup name="НормыДополнительногоОборудованияРабочаяОперация" id="373">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Рабочая операция</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Указывается надбавка на расход топлива при учете расхода на количество рабочих операций</v8:content>
+														</v8:item>
+													</ToolTip>
+													<Group>Horizontal</Group>
+													<ShowInHeader>true</ShowInHeader>
+													<ExtendedTooltip name="НормыДополнительногоОборудованияРабочаяОперацияРасширеннаяПодсказка" id="374"/>
+													<ChildItems>
+														<InputField name="НормыДополнительногоОборудованияРасходРабочаяОперация" id="375">
+															<DataPath>Объект.НормыДополнительногоОборудования.РасходРабочаяОперация</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ShowInHeader>false</ShowInHeader>
+															<ContextMenu name="НормыДополнительногоОборудованияРасходРабочаяОперацияКонтекстноеМеню" id="376"/>
+															<ExtendedTooltip name="НормыДополнительногоОборудованияРасходРабочаяОперацияРасширеннаяПодсказка" id="377"/>
+															<Events>
+																<Event name="OnChange">НормыДополнительногоОборудованияРасходРабочаяОперацияПриИзменении</Event>
+															</Events>
+														</InputField>
+														<InputField name="НормыДополнительногоОборудованияТипРасходаРабочаяОперация" id="378">
+															<DataPath>Объект.НормыДополнительногоОборудования.ТипРасходаРабочаяОперация</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ShowInHeader>false</ShowInHeader>
+															<Width>8</Width>
+															<AutoMaxWidth>false</AutoMaxWidth>
+															<ContextMenu name="НормыДополнительногоОборудованияТипРасходаРабочаяОперацияКонтекстноеМеню" id="379"/>
+															<ExtendedTooltip name="НормыДополнительногоОборудованияТипРасходаРабочаяОперацияРасширеннаяПодсказка" id="380"/>
+															<Events>
+																<Event name="OnChange">НормыДополнительногоОборудованияТипРасходаРабочаяОперацияПриИзменении</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+											</ChildItems>
+										</ColumnGroup>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="НормыДополнительногоОборудованияГруппа1" id="286">
+									<ExtendedTooltip name="НормыДополнительногоОборудованияГруппа1РасширеннаяПодсказка" id="287"/>
+									<ChildItems>
+										<InputField name="НормыДополнительногоОборудованияФормулаРасчета" id="192">
+											<DataPath>Объект.НормыДополнительногоОборудования.ФормулаРасчета</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="НормыДополнительногоОборудованияФормулаРасчетаКонтекстноеМеню" id="193"/>
+											<ExtendedTooltip name="НормыДополнительногоОборудованияФормулаРасчетаРасширеннаяПодсказка" id="194"/>
+										</InputField>
+										<InputField name="НормыДополнительногоОборудованияШкалаТемпературныхКоэффициентов" id="195">
+											<DataPath>Объект.НормыДополнительногоОборудования.ШкалаТемпературныхКоэффициентов</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="НормыДополнительногоОборудованияШкалаТемпературныхКоэффициентовКонтекстноеМеню" id="196"/>
+											<ExtendedTooltip name="НормыДополнительногоОборудованияШкалаТемпературныхКоэффициентовРасширеннаяПодсказка" id="197"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+							</ChildItems>
+						</Table>
+						<Table name="НормыРежимовРаботыДополнительногоОборудования" id="333">
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Объект.НормыРежимовРаботыДополнительногоОборудования</DataPath>
+							<CommandSet>
+								<ExcludedCommand>MoveDown</ExcludedCommand>
+								<ExcludedCommand>MoveUp</ExcludedCommand>
+								<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
+								<ExcludedCommand>SortListAsc</ExcludedCommand>
+								<ExcludedCommand>SortListDesc</ExcludedCommand>
+							</CommandSet>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="НормыРежимовРаботыДополнительногоОборудованияКонтекстноеМеню" id="334"/>
+							<AutoCommandBar name="НормыРежимовРаботыДополнительногоОборудованияКоманднаяПанель" id="335">
+								<ChildItems>
+									<Button name="НормыРежимовРаботыДополнительногоОборудованияЗаполнитьРежимыРаботыПоДополнительномуОборудованию" id="358">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ЗаполнитьРежимыРаботыПоДополнительномуОборудованию</CommandName>
+										<ExtendedTooltip name="НормыРежимовРаботыДополнительногоОборудованияЗаполнитьРежимыРаботыПоДополнительномуОборудованиюРасширеннаяПодсказка" id="359"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="НормыРежимовРаботыДополнительногоОборудованияРасширеннаяПодсказка" id="336"/>
+							<SearchStringAddition name="НормыРежимовРаботыДополнительногоОборудованияСтрокаПоиска" id="337">
+								<AdditionSource>
+									<Item>НормыРежимовРаботыДополнительногоОборудования</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="НормыРежимовРаботыДополнительногоОборудованияСтрокаПоискаКонтекстноеМеню" id="338"/>
+								<ExtendedTooltip name="НормыРежимовРаботыДополнительногоОборудованияСтрокаПоискаРасширеннаяПодсказка" id="339"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="НормыРежимовРаботыДополнительногоОборудованияСостояниеПросмотра" id="340">
+								<AdditionSource>
+									<Item>НормыРежимовРаботыДополнительногоОборудования</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="НормыРежимовРаботыДополнительногоОборудованияСостояниеПросмотраКонтекстноеМеню" id="341"/>
+								<ExtendedTooltip name="НормыРежимовРаботыДополнительногоОборудованияСостояниеПросмотраРасширеннаяПодсказка" id="342"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="НормыРежимовРаботыДополнительногоОборудованияУправлениеПоиском" id="343">
+								<AdditionSource>
+									<Item>НормыРежимовРаботыДополнительногоОборудования</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="НормыРежимовРаботыДополнительногоОборудованияУправлениеПоискомКонтекстноеМеню" id="344"/>
+								<ExtendedTooltip name="НормыРежимовРаботыДополнительногоОборудованияУправлениеПоискомРасширеннаяПодсказка" id="345"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="BeforeEditEnd">НормыРежимовРаботыДополнительногоОборудованияПередОкончаниемРедактирования</Event>
+							</Events>
+							<ChildItems>
+								<InputField name="НормыРежимовРаботыДополнительногоОборудованияРежимРаботы" id="352">
+									<DataPath>Объект.НормыРежимовРаботыДополнительногоОборудования.РежимРаботы</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ChoiceHistoryOnInput>DontUse</ChoiceHistoryOnInput>
+									<ContextMenu name="НормыРежимовРаботыДополнительногоОборудованияРежимРаботыКонтекстноеМеню" id="353"/>
+									<ExtendedTooltip name="НормыРежимовРаботыДополнительногоОборудованияРежимРаботыРасширеннаяПодсказка" id="354"/>
+									<Events>
+										<Event name="StartChoice">НормыРежимовРаботыДополнительногоОборудованияРежимРаботыНачалоВыбора</Event>
+									</Events>
+								</InputField>
+								<InputField name="НормыРежимовРаботыДополнительногоОборудованияРасход" id="355">
+									<DataPath>Объект.НормыРежимовРаботыДополнительногоОборудования.Расход</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="НормыРежимовРаботыДополнительногоОборудованияРасходКонтекстноеМеню" id="356"/>
+									<ExtendedTooltip name="НормыРежимовРаботыДополнительногоОборудованияРасходРасширеннаяПодсказка" id="357"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаДополнительно" id="198">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дополнительно</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа дополнительно</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаДополнительноРасширеннаяПодсказка" id="199"/>
+					<ChildItems>
+						<InputField name="Автор" id="7">
+							<DataPath>Объект.Автор</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<ContextMenu name="АвторКонтекстноеМеню" id="8"/>
+							<ExtendedTooltip name="АвторРасширеннаяПодсказка" id="9"/>
+						</InputField>
+						<InputField name="Изменил" id="13">
+							<DataPath>Объект.Изменил</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<ContextMenu name="ИзменилКонтекстноеМеню" id="14"/>
+							<ExtendedTooltip name="ИзменилРасширеннаяПодсказка" id="15"/>
+						</InputField>
+						<InputField name="Подразделение" id="294">
+							<DataPath>Объект.Подразделение</DataPath>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<ContextMenu name="ПодразделениеКонтекстноеМеню" id="295"/>
+							<ExtendedTooltip name="ПодразделениеРасширеннаяПодсказка" id="296"/>
+						</InputField>
+						<InputField name="Комментарий" id="16">
+							<DataPath>Объект.Комментарий</DataPath>
+							<TitleLocation>Left</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<ChoiceButton>true</ChoiceButton>
+							<ContextMenu name="КомментарийКонтекстноеМеню" id="17"/>
+							<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="18"/>
+							<Events>
+								<Event name="StartChoice">КомментарийНачалоВыбора</Event>
+							</Events>
+						</InputField>
+						<UsualGroup name="ГруппаДополнительныеРеквизиты" id="212">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Дополнительные реквизиты</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа дополнительные реквизиты</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<ExtendedTooltip name="ГруппаДополнительныеРеквизитыРасширеннаяПодсказка" id="213"/>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DocumentObject.упУстановкаНормРасходаГСМ</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+			<UseAlways>
+				<Field>Объект.RegisterRecords</Field>
+			</UseAlways>
+			<Columns>
+				<AdditionalColumns table="Объект.НормыДополнительногоОборудования">
+					<Column name="НадписьРасход" id="1">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Надпись расход</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:string</v8:Type>
+							<v8:StringQualifiers>
+								<v8:Length>0</v8:Length>
+								<v8:AllowedLength>Variable</v8:AllowedLength>
+							</v8:StringQualifiers>
+						</Type>
+					</Column>
+					<Column name="НадписьИзменениеРасхода" id="2">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Надпись расход</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:string</v8:Type>
+							<v8:StringQualifiers>
+								<v8:Length>0</v8:Length>
+								<v8:AllowedLength>Variable</v8:AllowedLength>
+							</v8:StringQualifiers>
+						</Type>
+					</Column>
+					<Column name="НадписьРасходСНадбавками" id="3">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Надпись расход с надбавками</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:string</v8:Type>
+							<v8:StringQualifiers>
+								<v8:Length>0</v8:Length>
+								<v8:AllowedLength>Variable</v8:AllowedLength>
+							</v8:StringQualifiers>
+						</Type>
+					</Column>
+					<Column name="РасходСНадбавками" id="4">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Расход с надбавками</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.Количество</v8:TypeSet>
+						</Type>
+					</Column>
+				</AdditionalColumns>
+				<AdditionalColumns table="Объект.НормыТранспортныхСредств">
+					<Column name="НадписьРасход" id="1">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Надпись расход</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:string</v8:Type>
+							<v8:StringQualifiers>
+								<v8:Length>0</v8:Length>
+								<v8:AllowedLength>Variable</v8:AllowedLength>
+							</v8:StringQualifiers>
+						</Type>
+					</Column>
+					<Column name="НадписьИзменениеРасхода" id="2">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Надпись расход</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:string</v8:Type>
+							<v8:StringQualifiers>
+								<v8:Length>0</v8:Length>
+								<v8:AllowedLength>Variable</v8:AllowedLength>
+							</v8:StringQualifiers>
+						</Type>
+					</Column>
+					<Column name="НадписьРасходСНадбавками" id="3">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Надпись расход с надбавками</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:string</v8:Type>
+							<v8:StringQualifiers>
+								<v8:Length>0</v8:Length>
+								<v8:AllowedLength>Variable</v8:AllowedLength>
+							</v8:StringQualifiers>
+						</Type>
+					</Column>
+					<Column name="РасходСНадбавками" id="4">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Расход с надбавками</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.Количество</v8:TypeSet>
+						</Type>
+					</Column>
+				</AdditionalColumns>
+			</Columns>
+		</Attribute>
+		<Attribute name="ИспользуетсяУчетПодразделений" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Используется территориальное деление предприятия</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>НормыТранспортныхСредствИзменениеРасхода</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.НормыТранспортныхСредств.ТипНормыРасходаГСМ</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.упТипыНормРасходаГСМ.НаОдинЧасРаботы</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:НедоступныеДанныеЦвет</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>Доступность</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>НормыДополнительногоОборудованияИзменениеРасхода</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.НормыДополнительногоОборудования.ТипНормыРасходаГСМ</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.упТипыНормРасходаГСМ.НаОдинЧасРаботы</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:НедоступныеДанныеЦвет</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>Доступность</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="Подобрать" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подобрать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подобрать</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Подобрать</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ЗаполнитьПоНорме" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>По норме</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить по норме</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗаполнитьПоНорме</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ЗаполнитьПоИстории" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>По истории</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить по истории</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗаполнитьПоИстории</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ЗаполнитьРежимыРаботыПоДополнительномуОборудованию" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить заполнение режимов работы по дополнительному оборудованию</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗаполнитьРежимыРаботыПоДополнительномуОборудованию</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

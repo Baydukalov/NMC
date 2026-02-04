@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Получатель</dataPath>
+			<field>Получатель</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Дата</dataPath>
+			<field>Дата</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Соглашение</dataPath>
+			<field>Соглашение</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОтправлениеГрузаПо</dataPath>
+			<field>ОтправлениеГрузаПо</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОтправлениеГрузаС</dataPath>
+			<field>ОтправлениеГрузаС</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗонаПолучения</dataPath>
+			<field>ЗонаПолучения</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОбщийГруз</dataPath>
+			<field>ОбщийГруз</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Ссылка</dataPath>
+			<field>Ссылка</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АдресОтправления</dataPath>
+			<field>АдресОтправления</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Отправитель</dataPath>
+			<field>Отправитель</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПолучениеГрузаПо</dataPath>
+			<field>ПолучениеГрузаПо</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Заказчик</dataPath>
+			<field>Заказчик</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗонаОтправления</dataPath>
+			<field>ЗонаОтправления</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Проведен</dataPath>
+			<field>Проведен</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПолучениеГрузаС</dataPath>
+			<field>ПолучениеГрузаС</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Статус</dataPath>
+			<field>Статус</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидПеревозки</dataPath>
+			<field>ВидПеревозки</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АдресПолучения</dataPath>
+			<field>АдресПолучения</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КонтрагентЗаказчика</dataPath>
+			<field>КонтрагентЗаказчика</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КонтрагентПолучателя</dataPath>
+			<field>КонтрагентПолучателя</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КонтрагентОтправителя</dataPath>
+			<field>КонтрагентОтправителя</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЕстьОтмененныеЗадания</dataPath>
+			<field>ЕстьОтмененныеЗадания</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Есть отмененные задания</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	упЗаданиеНаПеревозкуГруза.Ссылка КАК Задание
+ПОМЕСТИТЬ втЗадания
+ИЗ
+	Документ.упЗаданиеНаПеревозкуГруза КАК упЗаданиеНаПеревозкуГруза
+{ГДЕ
+	упЗаданиеНаПеревозкуГруза.ЗаявкаНаПеревозкуГруза.* КАК Ссылка}
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	упСтатусыЗаданий.Документ.ЗаявкаНаПеревозкуГруза КАК ЗаявкаНаПеревозкуГруза,
+	КОЛИЧЕСТВО(упСтатусыЗаданий.Документ) КАК КоличествоОтмененныхЗаданий
+ПОМЕСТИТЬ втДанныеОбОтменах
+ИЗ
+	РегистрСведений.упСтатусыЗаданийНаПеревозкуГруза.СрезПоследних(
+			,
+			Документ В
+				(ВЫБРАТЬ
+					втЗадания.Задание
+				ИЗ
+					втЗадания)) КАК упСтатусыЗаданий
+ГДЕ
+	упСтатусыЗаданий.Статус = ЗНАЧЕНИЕ(Перечисление.упСтатусыЗаданияНаПеревозкуГруза.Отменено)
+
+СГРУППИРОВАТЬ ПО
+	упСтатусыЗаданий.Документ.ЗаявкаНаПеревозкуГруза
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	упЗаявкаНаПеревозкуГруза.Ссылка,
+	упЗаявкаНаПеревозкуГруза.Дата,
+	упЗаявкаНаПеревозкуГруза.Проведен,
+	упЗаявкаНаПеревозкуГруза.Заказчик,
+	упЗаявкаНаПеревозкуГруза.Соглашение,
+	упЗаявкаНаПеревозкуГруза.Отправитель,
+	упЗаявкаНаПеревозкуГруза.АдресОтправления,
+	упЗаявкаНаПеревозкуГруза.Получатель,
+	упЗаявкаНаПеревозкуГруза.АдресПолучения,
+	упЗаявкаНаПеревозкуГруза.ОтправлениеГрузаС,
+	упЗаявкаНаПеревозкуГруза.ОтправлениеГрузаПо,
+	упЗаявкаНаПеревозкуГруза.ПолучениеГрузаС,
+	упЗаявкаНаПеревозкуГруза.ПолучениеГрузаПо,
+	упЗаявкаНаПеревозкуГруза.Организация,
+	упЗаявкаНаПеревозкуГруза.ОбщийГруз,
+	упЗаявкаНаПеревозкуГруза.ЗонаОтправления,
+	упЗаявкаНаПеревозкуГруза.ЗонаПолучения,
+	упЗаявкаНаПеревозкуГруза.ВидПеревозки,
+	ЕСТЬNULL(упСтатусыЗаявокНаПеревозкуГрузаСрезПоследних.Статус, ЗНАЧЕНИЕ(Перечисление.упСтатусыЗаявкиНаПеревозкуГруза.Новая)) КАК Статус,
+	упЗаявкаНаПеревозкуГруза.КонтрагентЗаказчика,
+	упЗаявкаНаПеревозкуГруза.КонтрагентОтправителя,
+	упЗаявкаНаПеревозкуГруза.КонтрагентПолучателя,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(втДанныеОбОтменах.КоличествоОтмененныхЗаданий, 0) &gt; 0
+			ТОГДА ИСТИНА
+		ИНАЧЕ ЛОЖЬ
+	КОНЕЦ КАК ЕстьОтмененныеЗадания
+ИЗ
+	РегистрСведений.упСтатусыЗаявокНаПеревозкуГруза.СрезПоследних(, ) КАК упСтатусыЗаявокНаПеревозкуГрузаСрезПоследних
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.упЗаявкаНаПеревозкуГруза КАК упЗаявкаНаПеревозкуГруза
+		ПО упСтатусыЗаявокНаПеревозкуГрузаСрезПоследних.Документ = упЗаявкаНаПеревозкуГруза.Ссылка
+		ЛЕВОЕ СОЕДИНЕНИЕ втДанныеОбОтменах КАК втДанныеОбОтменах
+		ПО упСтатусыЗаявокНаПеревозкуГрузаСрезПоследних.Документ = втДанныеОбОтменах.ЗаявкаНаПеревозкуГруза
+{ГДЕ
+	упСтатусыЗаявокНаПеревозкуГрузаСрезПоследних.Статус.*}</query>
+	</dataSet>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Ссылка</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemAuto"/>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

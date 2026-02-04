@@ -1,0 +1,494 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаОбъектов" id="107">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа объектов</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа объектов</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаОбъектовРасширеннаяПодсказка" id="108"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаВыбора" id="109">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа выбора</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа выбора</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаВыбораРасширеннаяПодсказка" id="110"/>
+					<ChildItems>
+						<Table name="Список" id="129">
+							<Representation>List</Representation>
+							<CommandBarLocation>None</CommandBarLocation>
+							<DefaultItem>true</DefaultItem>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<InitialTreeView>ExpandTopLevel</InitialTreeView>
+							<EnableStartDrag>true</EnableStartDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Список</DataPath>
+							<RowPictureDataPath>Список.ИндексКартинки</RowPictureDataPath>
+							<RowsPicture>
+								<xr:Ref>CommonPicture.упСтатусыРемонтаИТОТС</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</RowsPicture>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="СписокКонтекстноеМеню" id="130"/>
+							<AutoCommandBar name="СписокКоманднаяПанель" id="131">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
+							<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="132"/>
+							<SearchStringAddition name="СписокСтрокаПоиска" id="133">
+								<AdditionSource>
+									<Item>Список</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="134"/>
+								<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="135"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СписокСостояниеПросмотра" id="136">
+								<AdditionSource>
+									<Item>Список</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="137"/>
+								<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="138"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СписокУправлениеПоиском" id="139">
+								<AdditionSource>
+									<Item>Список</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="140"/>
+								<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="141"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">СписокВыбор</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="Статус" id="142">
+									<DataPath>Список.Статус</DataPath>
+									<Width>12</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="СтатусКонтекстноеМеню" id="143"/>
+									<ExtendedTooltip name="СтатусРасширеннаяПодсказка" id="144"/>
+								</LabelField>
+								<LabelField name="Дата" id="145">
+									<DataPath>Список.Дата</DataPath>
+									<DefaultItem>true</DefaultItem>
+									<ContextMenu name="ДатаКонтекстноеМеню" id="146"/>
+									<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="147"/>
+								</LabelField>
+								<LabelField name="Номер" id="148">
+									<DataPath>Список.Номер</DataPath>
+									<ContextMenu name="НомерКонтекстноеМеню" id="149"/>
+									<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="150"/>
+								</LabelField>
+								<LabelField name="ТранспортноеСредство" id="151">
+									<DataPath>Список.ТранспортноеСредство</DataPath>
+									<ContextMenu name="ТранспортноеСредствоКонтекстноеМеню" id="152"/>
+									<ExtendedTooltip name="ТранспортноеСредствоРасширеннаяПодсказка" id="153"/>
+								</LabelField>
+								<PictureField name="ЦветЗаметки" id="154">
+									<DataPath>Список.ЦветЗаметки</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<HeaderPicture>
+										<xr:Ref>CommonPicture.Заметка</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</HeaderPicture>
+									<Width>2</Width>
+									<ValuesPicture>
+										<xr:Ref>CommonPicture.КоллекцияЗаметки</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</ValuesPicture>
+									<FileDragMode>AsFile</FileDragMode>
+									<ContextMenu name="ЦветЗаметкиКонтекстноеМеню" id="155"/>
+									<ExtendedTooltip name="ЦветЗаметкиРасширеннаяПодсказка" id="156"/>
+								</PictureField>
+								<PictureField name="ЕстьФайлы" id="157">
+									<DataPath>Список.ЕстьФайлы</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<HeaderPicture>
+										<xr:Ref>CommonPicture.Скрепка</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</HeaderPicture>
+									<Width>2</Width>
+									<ValuesPicture>
+										<xr:Ref>CommonPicture.КоллекцияСкрепка</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</ValuesPicture>
+									<FileDragMode>AsFile</FileDragMode>
+									<ContextMenu name="ЕстьФайлыКонтекстноеМеню" id="158"/>
+									<ExtendedTooltip name="ЕстьФайлыРасширеннаяПодсказка" id="159"/>
+								</PictureField>
+								<LabelField name="Ссылка" id="160">
+									<DataPath>Список.Ссылка</DataPath>
+									<UserVisible>
+										<xr:Common>false</xr:Common>
+									</UserVisible>
+									<ContextMenu name="СсылкаКонтекстноеМеню" id="161"/>
+									<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="162"/>
+								</LabelField>
+								<LabelField name="ВидРемонта" id="163">
+									<DataPath>Список.ВидРемонта</DataPath>
+									<ContextMenu name="ВидРемонтаКонтекстноеМеню" id="164"/>
+									<ExtendedTooltip name="ВидРемонтаРасширеннаяПодсказка" id="165"/>
+								</LabelField>
+								<LabelField name="СпособРемонта" id="166">
+									<DataPath>Список.СпособРемонта</DataPath>
+									<ContextMenu name="СпособРемонтаКонтекстноеМеню" id="167"/>
+									<ExtendedTooltip name="СпособРемонтаРасширеннаяПодсказка" id="168"/>
+								</LabelField>
+								<LabelField name="Гараж" id="169">
+									<DataPath>Список.Гараж</DataPath>
+									<ContextMenu name="ГаражКонтекстноеМеню" id="170"/>
+									<ExtendedTooltip name="ГаражРасширеннаяПодсказка" id="171"/>
+								</LabelField>
+								<LabelField name="Подразделение" id="172">
+									<DataPath>Список.Подразделение</DataPath>
+									<ContextMenu name="ПодразделениеКонтекстноеМеню" id="173"/>
+									<ExtendedTooltip name="ПодразделениеРасширеннаяПодсказка" id="174"/>
+								</LabelField>
+								<LabelField name="ОбъектРемонта" id="175">
+									<DataPath>Список.ОбъектРемонта</DataPath>
+									<ContextMenu name="ОбъектРемонтаКонтекстноеМеню" id="176"/>
+									<ExtendedTooltip name="ОбъектРемонтаРасширеннаяПодсказка" id="177"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаПодобрать" id="111">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа подобрать</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа подобрать</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаПодобратьРасширеннаяПодсказка" id="112"/>
+					<ChildItems>
+						<Table name="ТаблицаПодбора" id="113">
+							<Representation>List</Representation>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>ТаблицаПодбора</DataPath>
+							<CommandSet>
+								<ExcludedCommand>Add</ExcludedCommand>
+								<ExcludedCommand>Change</ExcludedCommand>
+								<ExcludedCommand>Copy</ExcludedCommand>
+								<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+								<ExcludedCommand>EndEdit</ExcludedCommand>
+								<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
+							</CommandSet>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ТаблицаПодбораКонтекстноеМеню" id="114"/>
+							<AutoCommandBar name="ТаблицаПодбораКоманднаяПанель" id="115"/>
+							<ExtendedTooltip name="ТаблицаПодбораРасширеннаяПодсказка" id="116"/>
+							<SearchStringAddition name="ТаблицаПодбораСтрокаПоиска" id="117">
+								<AdditionSource>
+									<Item>ТаблицаПодбора</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ТаблицаПодбораСтрокаПоискаКонтекстноеМеню" id="118"/>
+								<ExtendedTooltip name="ТаблицаПодбораСтрокаПоискаРасширеннаяПодсказка" id="119"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ТаблицаПодбораСостояниеПросмотра" id="120">
+								<AdditionSource>
+									<Item>ТаблицаПодбора</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ТаблицаПодбораСостояниеПросмотраКонтекстноеМеню" id="121"/>
+								<ExtendedTooltip name="ТаблицаПодбораСостояниеПросмотраРасширеннаяПодсказка" id="122"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ТаблицаПодбораУправлениеПоиском" id="123">
+								<AdditionSource>
+									<Item>ТаблицаПодбора</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ТаблицаПодбораУправлениеПоискомКонтекстноеМеню" id="124"/>
+								<ExtendedTooltip name="ТаблицаПодбораУправлениеПоискомРасширеннаяПодсказка" id="125"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="DragCheck">ТаблицаПодбораПроверкаПеретаскивания</Event>
+								<Event name="AfterDeleteRow">ТаблицаПодбораПослеУдаления</Event>
+							</Events>
+							<ChildItems>
+								<InputField name="ТаблицаПодбораРейс" id="126">
+									<DataPath>ТаблицаПодбора.Ремонт</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ТаблицаПодбораРейсКонтекстноеМеню" id="127"/>
+									<ExtendedTooltip name="ТаблицаПодбораРейсРасширеннаяПодсказка" id="128"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Группа1" id="178">
+			<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+			<Group>Horizontal</Group>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="179"/>
+			<ChildItems>
+				<Button name="ФормаВыбрать" id="103">
+					<Type>UsualButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<CommandName>Form.Command.Выбрать</CommandName>
+					<ExtendedTooltip name="ФормаВыбратьРасширеннаяПодсказка" id="104"/>
+				</Button>
+				<Button name="ФормаЗакрыть" id="105">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.Закрыть</CommandName>
+					<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="106"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ТаблицаПодбора" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Таблица подбора</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Ремонт" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ремонт</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:DocumentRef.упРемонтИТОТС</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="РежимВыбора" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Режим выбора</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Список" id="1">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<UseAlways>
+				<Field>~Список.Ref</Field>
+				<Field>Список.Ссылка</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	ДокументупРемонтИТОТС.Ссылка КАК Ссылка,
+	ДокументупРемонтИТОТС.ПометкаУдаления КАК ПометкаУдаления,
+	ДокументупРемонтИТОТС.Номер КАК Номер,
+	ДокументупРемонтИТОТС.Дата КАК Дата,
+	ДокументупРемонтИТОТС.Проведен КАК Проведен,
+	ДокументупРемонтИТОТС.Автор КАК Автор,
+	ДокументупРемонтИТОТС.Валюта КАК Валюта,
+	ДокументупРемонтИТОТС.ВидРемонта КАК ВидРемонта,
+	ДокументупРемонтИТОТС.Гараж КАК Гараж,
+	ДокументупРемонтИТОТС.Комментарий КАК Комментарий,
+	ДокументупРемонтИТОТС.КонтрагентСервиснойОрганизации КАК КонтрагентСервиснойОрганизации,
+	ДокументупРемонтИТОТС.МестоРемонта КАК МестоРемонта,
+	ДокументупРемонтИТОТС.НачалоРемонтаПлан КАК НачалоРемонтаПлан,
+	ДокументупРемонтИТОТС.НачалоРемонтаФакт КАК НачалоРемонтаФакт,
+	ДокументупРемонтИТОТС.ОкончаниеРемонтаПлан КАК ОкончаниеРемонтаПлан,
+	ДокументупРемонтИТОТС.ОкончаниеРемонтаФакт КАК ОкончаниеРемонтаФакт,
+	ДокументупРемонтИТОТС.Организация КАК Организация,
+	ДокументупРемонтИТОТС.ПериодРаспределенияЗатратНачало КАК ПериодРаспределенияЗатратНачало,
+	ДокументупРемонтИТОТС.ПериодРаспределенияЗатратОкончание КАК ПериодРаспределенияЗатратОкончание,
+	ДокументупРемонтИТОТС.СервиснаяОрганизация КАК СервиснаяОрганизация,
+	ДокументупРемонтИТОТС.Соглашение КАК Соглашение,
+	ДокументупРемонтИТОТС.СпособРемонта КАК СпособРемонта,
+	ДокументупРемонтИТОТС.ТранспортноеСредство КАК ТранспортноеСредство,
+	ДокументупРемонтИТОТС.ОбъектРемонта КАК ОбъектРемонта,
+	ДокументупРемонтИТОТС.МоментВремени КАК МоментВремени,
+	ВЫБОР
+		КОГДА ДокументупРемонтИТОТС.ПометкаУдаления
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.упСтатусыРемонтаИТОТС.Отменен)
+		ИНАЧЕ ВЫБОР
+				КОГДА упСтатусы.Статус ЕСТЬ NULL
+					ТОГДА ВЫБОР
+							КОГДА ДокументупРемонтИТОТС.ЗаявкаНаРемонтИТО = ЗНАЧЕНИЕ(Документ.упЗаявкаНаРемонтИТОТС.ПустаяСсылка)
+								ТОГДА ЗНАЧЕНИЕ(Перечисление.упСтатусыРемонтаИТОТС.Новый)
+							ИНАЧЕ ЗНАЧЕНИЕ(Перечисление.упСтатусыРемонтаИТОТС.Запланирован)
+						КОНЕЦ
+				ИНАЧЕ упСтатусы.Статус
+			КОНЕЦ
+	КОНЕЦ КАК Статус,
+	ВЫБОР
+		КОГДА ДокументупРемонтИТОТС.ПометкаУдаления
+			ТОГДА 4
+		ИНАЧЕ ВЫБОР
+				КОГДА упСтатусы.Статус.Порядок ЕСТЬ NULL
+					ТОГДА ВЫБОР
+							КОГДА ДокументупРемонтИТОТС.ЗаявкаНаРемонтИТО = ЗНАЧЕНИЕ(Документ.упЗаявкаНаРемонтИТОТС.ПустаяСсылка)
+								ТОГДА 0
+							ИНАЧЕ 1
+						КОНЕЦ
+				ИНАЧЕ упСтатусы.Статус.Порядок
+			КОНЕЦ
+	КОНЕЦ КАК ИндексКартинки,
+	ЕСТЬNULL(НаличиеЗаметокПоПредмету.ЕстьЗаметки, ЛОЖЬ) КАК ЕстьЗаметки,
+	ЕСТЬNULL(НаличиеЗаметокПоПредмету.Цвет, -3) + 2 КАК ЦветЗаметки,
+	ДокументупРемонтИТОТС.СуммаРасходыПлан КАК ПлановаяСтоимость,
+	ДокументупРемонтИТОТС.СуммаРасходы КАК Стоимость,
+	ВЫБОР
+		КОГДА НаличиеФайлов.ЕстьФайлы ЕСТЬ NULL
+			ТОГДА 0
+		КОГДА НаличиеФайлов.ЕстьФайлы
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ КАК ЕстьФайлы,
+	ДокументупРемонтИТОТС.Подразделение КАК Подразделение
+ИЗ
+	Документ.упРемонтИТОТС КАК ДокументупРемонтИТОТС
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упСтатусыРемонтовИТОТС.СрезПоследних КАК упСтатусы
+		ПО (упСтатусы.Документ = ДокументупРемонтИТОТС.Ссылка)
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упНаличиеЗаметокПоПредмету КАК НаличиеЗаметокПоПредмету
+		ПО (ДокументупРемонтИТОТС.Ссылка = НаличиеЗаметокПоПредмету.Предмет)
+			И (НаличиеЗаметокПоПредмету.Автор = &amp;Пользователь)
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.НаличиеПрисоединенныхФайлов КАК НаличиеФайлов
+		ПО (ДокументупРемонтИТОТС.Ссылка = НаличиеФайлов.ОбъектСФайлами)
+ГДЕ
+	ВЫБОР
+			КОГДА ДокументупРемонтИТОТС.ПометкаУдаления
+					ИЛИ упСтатусы.Статус = ЗНАЧЕНИЕ(Перечисление.упСтатусыРемонтаИТОТС.Отменен)
+				ТОГДА ЛОЖЬ
+			ИНАЧЕ ИСТИНА
+		КОНЕЦ
+	И ВЫБОР
+			КОГДА &amp;МассивТС = ЗНАЧЕНИЕ(Справочник.упТранспортныеСредства.ПустаяСсылка)
+					И &amp;МассивАгрегаты = ЗНАЧЕНИЕ(Справочник.упШиныУзлыИАгрегаты.ПустаяСсылка)
+				ТОГДА ЛОЖЬ
+			ИНАЧЕ ВЫБОР
+					КОГДА ДокументупРемонтИТОТС.ОбъектРемонта = ЗНАЧЕНИЕ(Перечисление.упОбъектыРемонта.ТранспортноеСредство)
+							И НЕ &amp;МассивТС = ЗНАЧЕНИЕ(Справочник.упТранспортныеСредства.ПустаяСсылка)
+						ТОГДА ДокументупРемонтИТОТС.ТранспортноеСредство В (&amp;МассивТС)
+					КОГДА ДокументупРемонтИТОТС.ОбъектРемонта = ЗНАЧЕНИЕ(Перечисление.упОбъектыРемонта.Агрегат)
+							И НЕ &amp;МассивАгрегаты = ЗНАЧЕНИЕ(Справочник.упШиныУзлыИАгрегаты.ПустаяСсылка)
+						ТОГДА ДокументупРемонтИТОТС.Агрегат В (&amp;МассивАгрегаты)
+					ИНАЧЕ ЛОЖЬ
+				КОНЕЦ
+		КОНЕЦ
+	И ДокументупРемонтИТОТС.НачалоРемонтаФакт МЕЖДУ &amp;НачалоПериода И &amp;ОкончаниеПериода</QueryText>
+				<MainTable>Document.упРемонтИТОТС</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Выбрать" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Выбрать</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="Закрыть" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Закрыть</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Закрыть</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Close</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ЗакрытьКоманда</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаСохранитьПараметрыПодключения" id="13">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.СохранитьПараметрыПодключения</CommandName>
+				<ExtendedTooltip name="ФормаСохранитьПараметрыПодключенияРасширеннаяПодсказка" id="14"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<ChildItems>
+		<UsualGroup name="Группа1" id="15">
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="16"/>
+			<ChildItems>
+				<InputField name="ТипКоннектора" id="19">
+					<DataPath>Объект.ТипКоннектора</DataPath>
+					<ContextMenu name="ТипКоннектораКонтекстноеМеню" id="20"/>
+					<ExtendedTooltip name="ТипКоннектораРасширеннаяПодсказка" id="21"/>
+				</InputField>
+				<InputField name="ФорматОбмена" id="1">
+					<DataPath>Объект.ФорматОбмена</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ФорматОбменаКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="ФорматОбменаРасширеннаяПодсказка" id="3"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Группа2" id="17">
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="18"/>
+			<ChildItems>
+				<InputField name="СерверАдаптеров" id="22">
+					<DataPath>Объект.СерверАдаптеров</DataPath>
+					<ContextMenu name="СерверАдаптеровКонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="СерверАдаптеровРасширеннаяПодсказка" id="24"/>
+				</InputField>
+				<InputField name="ИмяАдаптера" id="7">
+					<DataPath>Объект.ИмяАдаптера</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ИмяАдаптераКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="ИмяАдаптераРасширеннаяПодсказка" id="9"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.сшпПодключениеКАдаптеру</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="СохранитьПараметрыПодключения" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить параметры подключения</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить параметры подключения</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СохранитьПараметрыПодключения</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

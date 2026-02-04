@@ -1,0 +1,305 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
+	<SaveDataInSettings>UseList</SaveDataInSettings>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаВыбратьФайл" id="15">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ВыбратьФайл</CommandName>
+				<ExtendedTooltip name="ФормаВыбратьФайлРасширеннаяПодсказка" id="16"/>
+			</Button>
+			<Button name="ФормаЗавершитьВыборОбласти" id="13">
+				<Type>CommandBarButton</Type>
+				<Enabled>false</Enabled>
+				<CommandName>Form.Command.ЗавершитьВыборОбласти</CommandName>
+				<ExtendedTooltip name="ФормаЗавершитьВыборОбластиРасширеннаяПодсказка" id="14"/>
+			</Button>
+			<Button name="ФормаЗагрузитьДанные" id="17">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ЗагрузитьДанные</CommandName>
+				<ExtendedTooltip name="ФормаЗагрузитьДанныеРасширеннаяПодсказка" id="18"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<CheckBoxField name="ОкрашиватьЦветФонаПриЗагрузке" id="41">
+			<DataPath>НеОкрашиватьЦветФонаПриЗагрузке</DataPath>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="ОкрашиватьЦветФонаПриЗагрузкеКонтекстноеМеню" id="42"/>
+			<ExtendedTooltip name="ОкрашиватьЦветФонаПриЗагрузкеРасширеннаяПодсказка" id="43"/>
+		</CheckBoxField>
+		<UsualGroup name="Группа1" id="25">
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="26"/>
+			<ChildItems>
+				<InputField name="ОбластьЗначенийПоказателяСтрок" id="7">
+					<DataPath>ОбластьЗначенийПоказателяСтрок</DataPath>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Область с шириной 1, содержащая значения показателя строк</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ChoiceButton>true</ChoiceButton>
+					<ContextMenu name="ОбластьЗначенийПоказателяСтрокКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="ОбластьЗначенийПоказателяСтрокРасширеннаяПодсказка" id="9"/>
+					<Events>
+						<Event name="StartChoice">ОбластьЗначенийПоказателяСтрокНачалоВыбора</Event>
+					</Events>
+				</InputField>
+				<InputField name="ТипПоказателяСтрок" id="38">
+					<DataPath>ТипПоказателяСтрок</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<ContextMenu name="ТипПоказателяСтрокКонтекстноеМеню" id="39"/>
+					<ExtendedTooltip name="ТипПоказателяСтрокРасширеннаяПодсказка" id="40"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Группа2" id="27">
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="28"/>
+			<ChildItems>
+				<InputField name="ОбластьЗначенийПоказателяКолонок" id="4">
+					<DataPath>ОбластьЗначенийПоказателяКолонок</DataPath>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Область с высотой 1, содержащая значения показателя колонок</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ChoiceButton>true</ChoiceButton>
+					<ContextMenu name="ОбластьЗначенийПоказателяКолонокКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="ОбластьЗначенийПоказателяКолонокРасширеннаяПодсказка" id="6"/>
+					<Events>
+						<Event name="StartChoice">ОбластьЗначенийПоказателяКолонокНачалоВыбора</Event>
+					</Events>
+				</InputField>
+				<InputField name="ТипПоказателяКолонок" id="35">
+					<DataPath>ТипПоказателяКолонок</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<ContextMenu name="ТипПоказателяКолонокКонтекстноеМеню" id="36"/>
+					<ExtendedTooltip name="ТипПоказателяКолонокРасширеннаяПодсказка" id="37"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<SpreadSheetDocumentField name="ТабличныйДокумент" id="1">
+			<DataPath>ТабличныйДокумент</DataPath>
+			<VerticalScrollBar>true</VerticalScrollBar>
+			<HorizontalScrollBar>true</HorizontalScrollBar>
+			<Edit>true</Edit>
+			<ContextMenu name="ТабличныйДокументКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="ТабличныйДокументРасширеннаяПодсказка" id="3"/>
+			<Events>
+				<Event name="OnActivate">ТабличныйДокументПриАктивизацииОбласти</Event>
+				<Event name="Selection">ТабличныйДокументВыбор</Event>
+			</Events>
+		</SpreadSheetDocumentField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ТабличныйДокумент" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Табличный документ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type xmlns:mxl="http://v8.1c.ru/8.2/data/spreadsheet">mxl:SpreadsheetDocument</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОбластьЗначенийПоказателяСтрок" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Область значений показателя строк</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<Save>
+				<Field>ОбластьЗначенийПоказателяСтрок</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ОбластьЗначенийПоказателяКолонок" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Область значений показателя колонок</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<Save>
+				<Field>ОбластьЗначенийПоказателяКолонок</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ВыбираемаяОбласть" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбираемая область</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТипПоказателяСтрок" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип показателя строк</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:TypeDescription</v8:Type>
+			</Type>
+			<Save>
+				<Field>ТипПоказателяСтрок</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ТипПоказателяКолонок" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип показателя колонок</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:TypeDescription</v8:Type>
+			</Type>
+			<Save>
+				<Field>ТипПоказателяКолонок</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ПредставлениеТипаПоказателяСтрок" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Представление типа показателя строк</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПредставлениеТипаПоказателяКолонок" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Представление типа показателя колонок</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НеОкрашиватьЦветФонаПриЗагрузке" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Не окрашивать цвет фона при загрузке</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>НеОкрашиватьЦветФонаПриЗагрузке</Field>
+			</Save>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ЗавершитьВыборОбласти" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Завершить выбор области</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Завершить выбор области</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗавершитьВыборОбласти</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ВыбратьФайл" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать файл</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать файл</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ВыбратьФайл</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ЗагрузитьДанные" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Загрузить данные</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Загрузить данные</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗагрузитьДанные</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+	<Parameters>
+		<Parameter name="ПоказательПоСтрокам">
+			<Type>
+				<v8:Type>cfg:CatalogRef.упПоказателиРасчета</v8:Type>
+			</Type>
+		</Parameter>
+		<Parameter name="ПоказательПоСтолбцам">
+			<Type>
+				<v8:Type>cfg:CatalogRef.упПоказателиРасчета</v8:Type>
+			</Type>
+		</Parameter>
+	</Parameters>
+</Form>

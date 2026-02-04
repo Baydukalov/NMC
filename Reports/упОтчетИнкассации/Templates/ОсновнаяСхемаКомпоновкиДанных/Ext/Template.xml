@@ -1,0 +1,514 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Экспедитор</dataPath>
+			<field>Экспедитор</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Экспедитор</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаКИС</dataPath>
+			<field>ДатаКИС</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата отгрузки (дата КИС документа Заявки на перевозку груза)</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АдресПолучения</dataPath>
+			<field>АдресПолучения</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Рейс</dataPath>
+			<field>Рейс</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Рейс</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Статус</dataPath>
+			<field>Статус</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Статус рейса</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Грузополучатель</dataPath>
+			<field>Грузополучатель</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Грузополучатель</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаПлан</dataPath>
+			<field>СуммаПлан</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>План</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Груз</dataPath>
+			<field>Груз</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Груз</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Валюта</dataPath>
+			<field>Валюта</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаФакт</dataPath>
+			<field>СуммаФакт</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Факт</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Период</dataPath>
+			<field>Период</field>
+			<role>
+				<dcscom:periodNumber>1</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаявкаНаПеревозкуГруза</dataPath>
+			<field>ЗаявкаНаПеревозкуГруза</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	упИнкассацияДенежныхСредств.ЗаявкаНаПеревозкуГруза КАК Заявка,
+	упРаботыПоРейсуСрезПоследних.Задание КАК Задание,
+	упРаботыПоРейсуСрезПоследних.Рейс КАК Рейс
+ПОМЕСТИТЬ вт_Документы
+ИЗ
+	РегистрНакопления.упИнкассацияДенежныхСредств КАК упИнкассацияДенежныхСредств
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упРаботыПоРейсу.СрезПоследних КАК упРаботыПоРейсуСрезПоследних
+		ПО упИнкассацияДенежныхСредств.ЗаявкаНаПеревозкуГруза = упРаботыПоРейсуСрезПоследних.Задание.ЗаявкаНаПеревозкуГруза
+			И (НЕ упРаботыПоРейсуСрезПоследних.Отменена)
+
+СГРУППИРОВАТЬ ПО
+	упИнкассацияДенежныхСредств.ЗаявкаНаПеревозкуГруза,
+	упРаботыПоРейсуСрезПоследних.Рейс,
+	упРаботыПоРейсуСрезПоследних.Задание
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	вт_Документы.Рейс
+ПОМЕСТИТЬ вт_Рейсы
+ИЗ
+	вт_Документы КАК вт_Документы
+ГДЕ
+	НЕ вт_Документы.Рейс ЕСТЬ NULL
+
+СГРУППИРОВАТЬ ПО
+	вт_Документы.Рейс
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	вт_Рейсы.Рейс,
+	упПеревозчикПоРейсуСрезПоследних.Экспедитор КАК Сотрудник,
+	0 КАК Рейтинг
+ПОМЕСТИТЬ вт_Сотрудники
+ИЗ
+	вт_Рейсы КАК вт_Рейсы
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упПеревозчикПоРейсу.СрезПоследних КАК упПеревозчикПоРейсуСрезПоследних
+		ПО вт_Рейсы.Рейс = упПеревозчикПоРейсуСрезПоследних.Рейс
+ГДЕ
+	НЕ упПеревозчикПоРейсуСрезПоследних.Экспедитор ЕСТЬ NULL
+	И НЕ упПеревозчикПоРейсуСрезПоследних.Экспедитор = ЗНАЧЕНИЕ(Справочник.упСотрудники.ПустаяСсылка)
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	вт_Рейсы.Рейс,
+	упПеревозчикПоРейсуСрезПоследних.Водитель1,
+	1
+ИЗ
+	вт_Рейсы КАК вт_Рейсы
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упПеревозчикПоРейсу.СрезПоследних КАК упПеревозчикПоРейсуСрезПоследних
+		ПО вт_Рейсы.Рейс = упПеревозчикПоРейсуСрезПоследних.Рейс
+ГДЕ
+	НЕ упПеревозчикПоРейсуСрезПоследних.Водитель1 ЕСТЬ NULL
+	И НЕ упПеревозчикПоРейсуСрезПоследних.Водитель1 = ЗНАЧЕНИЕ(Справочник.упСотрудники.ПустаяСсылка)
+	И упПеревозчикПоРейсуСрезПоследних.Водитель1.ТипСотрудника = ЗНАЧЕНИЕ(Перечисление.упТипыСотрудников.ВодительЭкспедитор)
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	вт_Рейсы.Рейс,
+	упПеревозчикПоРейсуСрезПоследних.Водитель2,
+	2
+ИЗ
+	вт_Рейсы КАК вт_Рейсы
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упПеревозчикПоРейсу.СрезПоследних КАК упПеревозчикПоРейсуСрезПоследних
+		ПО вт_Рейсы.Рейс = упПеревозчикПоРейсуСрезПоследних.Рейс
+ГДЕ
+	НЕ упПеревозчикПоРейсуСрезПоследних.Водитель2 ЕСТЬ NULL
+	И НЕ упПеревозчикПоРейсуСрезПоследних.Водитель2 = ЗНАЧЕНИЕ(Справочник.упСотрудники.ПустаяСсылка)
+	И упПеревозчикПоРейсуСрезПоследних.Водитель2.ТипСотрудника = ЗНАЧЕНИЕ(Перечисление.упТипыСотрудников.ВодительЭкспедитор)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	вт_Сотрудники.Рейс,
+	МИНИМУМ(вт_Сотрудники.Рейтинг) КАК Рейтинг
+ПОМЕСТИТЬ вт_С_Рейса
+ИЗ
+	вт_Сотрудники КАК вт_Сотрудники
+
+СГРУППИРОВАТЬ ПО
+	вт_Сотрудники.Рейс
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	вт_Сотрудники.Рейс,
+	вт_Сотрудники.Сотрудник,
+	вт_Сотрудники.Рейтинг
+ПОМЕСТИТЬ вт_Н_Сотрудники
+ИЗ
+	вт_Сотрудники КАК вт_Сотрудники
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ вт_С_Рейса КАК вт_С_Рейса
+		ПО вт_Сотрудники.Рейс = вт_С_Рейса.Рейс
+			И вт_Сотрудники.Рейтинг = вт_С_Рейса.Рейтинг
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	упИнкассацияДенежныхСредств.Период КАК Период,
+	упИнкассацияДенежныхСредств.ЗаявкаНаПеревозкуГруза КАК ЗаявкаНаПеревозкуГруза,
+	тбчГрузовыеМеста.Ссылка.ДатаКИС КАК ДатаКИС,
+	тбчГрузовыеМеста.Отправитель КАК Грузополучатель,
+	тбчГрузовыеМеста.АдресОтправления КАК АдресПолучения,
+	ЕСТЬNULL(вт_Документы.Рейс, ЗНАЧЕНИЕ(Документ.упРейс.ПустаяСсылка)) КАК Рейс,
+	ЕСТЬNULL(упСтатусыРейсовСрезПоследних.Статус, ЗНАЧЕНИЕ(Перечисление.упСтатусыРейса.ПустаяСсылка)) КАК Статус,
+	ЕСТЬNULL(вт_Н_Сотрудники.Сотрудник, ЗНАЧЕНИЕ(Справочник.упСотрудники.ПустаяСсылка)) КАК Экспедитор,
+	упИнкассацияДенежныхСредств.ГрузовоеМесто КАК Груз,
+	СУММА(ВЫБОР
+			КОГДА ТИПЗНАЧЕНИЯ(упИнкассацияДенежныхСредств.Регистратор) = ТИП(Документ.упЗаявкаНаПеревозкуГруза)
+				ТОГДА упИнкассацияДенежныхСредств.СуммаПлан
+			ИНАЧЕ 0
+		КОНЕЦ) КАК СуммаПлан,
+	СУММА(ВЫБОР
+			КОГДА НЕ ТИПЗНАЧЕНИЯ(упИнкассацияДенежныхСредств.Регистратор) = ТИП(Документ.упЗаявкаНаПеревозкуГруза)
+				ТОГДА упИнкассацияДенежныхСредств.СуммаФакт
+			ИНАЧЕ 0
+		КОНЕЦ) КАК СуммаФакт,
+	упИнкассацияДенежныхСредств.Валюта КАК Валюта
+ИЗ
+	РегистрНакопления.упИнкассацияДенежныхСредств КАК упИнкассацияДенежныхСредств
+		ЛЕВОЕ СОЕДИНЕНИЕ вт_Документы КАК вт_Документы
+			ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упСтатусыРейсов.СрезПоследних КАК упСтатусыРейсовСрезПоследних
+			ПО вт_Документы.Рейс = упСтатусыРейсовСрезПоследних.Документ
+			ЛЕВОЕ СОЕДИНЕНИЕ вт_Н_Сотрудники КАК вт_Н_Сотрудники
+			ПО вт_Документы.Рейс = вт_Н_Сотрудники.Рейс
+		ПО упИнкассацияДенежныхСредств.ЗаявкаНаПеревозкуГруза = вт_Документы.Заявка
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.упЗаявкаНаПеревозкуГруза.ГрузовыеМеста КАК тбчГрузовыеМеста
+		ПО упИнкассацияДенежныхСредств.ЗаявкаНаПеревозкуГруза = тбчГрузовыеМеста.Ссылка
+			И упИнкассацияДенежныхСредств.ГрузовоеМесто = тбчГрузовыеМеста.ГрузовоеМесто
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упСтатусыЗаявокНаПеревозкуГруза.СрезПоследних КАК упСтатусыЗаявокНаПеревозкуГрузаСрезПоследних
+		ПО упИнкассацияДенежныхСредств.ЗаявкаНаПеревозкуГруза = упСтатусыЗаявокНаПеревозкуГрузаСрезПоследних.Документ
+ГДЕ
+	ВЫБОР
+			КОГДА упСтатусыЗаявокНаПеревозкуГрузаСрезПоследних.Статус ЕСТЬ NULL
+				ТОГДА ЛОЖЬ
+			ИНАЧЕ НЕ упСтатусыЗаявокНаПеревозкуГрузаСрезПоследних.Статус В (ЗНАЧЕНИЕ(Перечисление.упСтатусыЗаявкиНаПеревозкуГруза.Отменена))
+		КОНЕЦ
+{ГДЕ
+	(тбчГрузовыеМеста.Ссылка.ДатаКИС МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода)}
+
+СГРУППИРОВАТЬ ПО
+	упИнкассацияДенежныхСредств.Период,
+	упИнкассацияДенежныхСредств.ЗаявкаНаПеревозкуГруза,
+	ЕСТЬNULL(вт_Документы.Рейс, ЗНАЧЕНИЕ(Документ.упРейс.ПустаяСсылка)),
+	ЕСТЬNULL(упСтатусыРейсовСрезПоследних.Статус, ЗНАЧЕНИЕ(Перечисление.упСтатусыРейса.ПустаяСсылка)),
+	ЕСТЬNULL(вт_Н_Сотрудники.Сотрудник, ЗНАЧЕНИЕ(Справочник.упСотрудники.ПустаяСсылка)),
+	упИнкассацияДенежныхСредств.ГрузовоеМесто,
+	упИнкассацияДенежныхСредств.Валюта,
+	тбчГрузовыеМеста.Ссылка.ДатаКИС,
+	тбчГрузовыеМеста.Отправитель,
+	тбчГрузовыеМеста.АдресОтправления</query>
+	</dataSet>
+	<totalField>
+		<dataPath>СуммаПлан</dataPath>
+		<expression>Сумма(СуммаПлан)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаФакт</dataPath>
+		<expression>Сумма(СуммаФакт)</expression>
+	</totalField>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ПериодКИС</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период КИС</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:StandardPeriod</v8:Type>
+		</valueType>
+		<value xsi:type="v8:StandardPeriod">
+			<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+			<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+			<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+		</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;ПериодКИС.ДатаОкончания</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;ПериодКИС.ДатаНачала</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>ОтчетИнкассации</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Отчет инкассации</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЗаявкаНаПеревозкуГруза</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаКИС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Грузополучатель</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>АдресПолучения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Рейс</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Статус</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Экспедитор</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Груз</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаПлан</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаФакт</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Валюта</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ЗаявкаНаПеревозкуГруза</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:string">00000000-0000-0000-0000-000000000000</dcsset:right>
+					<dcsset:userSettingID>52d03722-2b41-42d6-a856-8028c6dd1c37</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Грузополучатель</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:string">00000000-0000-0000-0000-000000000000</dcsset:right>
+					<dcsset:userSettingID>b79e3020-9417-4a15-a74a-f2c79fe34401</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Рейс</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:string">00000000-0000-0000-0000-000000000000</dcsset:right>
+					<dcsset:userSettingID>dbb271d5-98b0-4eed-9cc6-234b6d5af5be</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Статус</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:string"/>
+					<dcsset:userSettingID>74b2e063-6389-4e52-9925-3d0ec9a2f581</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Экспедитор</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:string">00000000-0000-0000-0000-000000000000</dcsset:right>
+					<dcsset:userSettingID>9e62efd6-5145-4c35-b1c6-370a4b5fb0c5</dcsset:userSettingID>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardBeginningDate">
+						<v8:variant xsi:type="v8:StandardBeginningDateVariant">BeginningOfThisDay</v8:variant>
+					</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ПериодКИС</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">ThisMonth</v8:variant>
+					</dcscor:value>
+					<dcsset:userSettingID>6cf587fe-f982-410c-ba58-3404584a0b09</dcsset:userSettingID>
+					<dcsset:userSettingPresentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Период</v8:content>
+						</v8:item>
+					</dcsset:userSettingPresentation>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МакетОформления</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">упМакетОформленияОтчетов</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьЗаголовок</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">Output</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отчет инкассации</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>ЗаявкаНаПеревозкуГруза</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Груз</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

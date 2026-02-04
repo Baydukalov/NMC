@@ -1,0 +1,521 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
+		<Event name="FillCheckProcessingAtServer">ОбработкаПроверкиЗаполненияНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаШапка" id="34">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа шапка</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа шапка</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаШапкаРасширеннаяПодсказка" id="35"/>
+			<ChildItems>
+				<InputField name="МодельТС" id="1">
+					<DataPath>Запись.МодельТС</DataPath>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<ContextMenu name="МодельТСКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="МодельТСРасширеннаяПодсказка" id="3"/>
+				</InputField>
+				<InputField name="ВидРемонта" id="4">
+					<DataPath>Запись.ВидРемонта</DataPath>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<ContextMenu name="ВидРемонтаКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="ВидРемонтаРасширеннаяПодсказка" id="6"/>
+				</InputField>
+				<UsualGroup name="Группа16" id="128">
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа16РасширеннаяПодсказка" id="129"/>
+					<ChildItems>
+						<InputField name="ПлановыеРасходы" id="31">
+							<DataPath>Запись.ПлановыеРасходы</DataPath>
+							<Width>12</Width>
+							<ContextMenu name="ПлановыеРасходыКонтекстноеМеню" id="32"/>
+							<ExtendedTooltip name="ПлановыеРасходыРасширеннаяПодсказка" id="33"/>
+						</InputField>
+						<InputField name="Валюта" id="28">
+							<DataPath>Запись.Валюта</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<Width>12</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<InputHint>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>валюта</v8:content>
+								</v8:item>
+							</InputHint>
+							<ContextMenu name="ВалютаКонтекстноеМеню" id="29"/>
+							<ExtendedTooltip name="ВалютаРасширеннаяПодсказка" id="30"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаНормыТО" id="36">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Нормативы наработки технического обслуживания (ТО)</v8:content>
+				</v8:item>
+			</Title>
+			<TitleFont ref="style:упСреднийШрифт" kind="StyleItem"/>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа нормы ТО</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Representation>StrongSeparation</Representation>
+			<ExtendedTooltip name="ГруппаНормыТОРасширеннаяПодсказка" id="37"/>
+			<ChildItems>
+				<InputField name="ТипТО" id="7">
+					<DataPath>Запись.ТипТО</DataPath>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<ContextMenu name="ТипТОКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="ТипТОРасширеннаяПодсказка" id="9"/>
+					<Events>
+						<Event name="OnChange">ТипТОПриИзменении</Event>
+					</Events>
+				</InputField>
+				<Pages name="ГруппаСтраницы" id="38">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа страницы</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа страницы</v8:content>
+						</v8:item>
+					</ToolTip>
+					<PagesRepresentation>None</PagesRepresentation>
+					<ExtendedTooltip name="ГруппаСтраницыРасширеннаяПодсказка" id="39"/>
+					<ChildItems>
+						<Page name="ГруппаРазовоеТО" id="40">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа разовое ТО</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа разовое ТО</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="ГруппаРазовоеТОРасширеннаяПодсказка" id="41"/>
+							<ChildItems>
+								<UsualGroup name="Группа1" id="44">
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="45"/>
+									<ChildItems>
+										<InputField name="Пробег" id="10">
+											<DataPath>Запись.Пробег</DataPath>
+											<SpinButton>true</SpinButton>
+											<ContextMenu name="ПробегКонтекстноеМеню" id="11"/>
+											<ExtendedTooltip name="ПробегРасширеннаяПодсказка" id="12"/>
+										</InputField>
+										<LabelDecoration name="Декорация1" id="46">
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>км</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="Декорация1КонтекстноеМеню" id="47"/>
+											<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="48"/>
+										</LabelDecoration>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="Группа12" id="96">
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа12РасширеннаяПодсказка" id="97"/>
+									<ChildItems>
+										<InputField name="Моточасы" id="101">
+											<DataPath>Запись.Моточасы</DataPath>
+											<SpinButton>true</SpinButton>
+											<ContextMenu name="МоточасыКонтекстноеМеню" id="102"/>
+											<ExtendedTooltip name="МоточасыРасширеннаяПодсказка" id="103"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="Группа2" id="49">
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="50"/>
+									<ChildItems>
+										<InputField name="Срок" id="13">
+											<DataPath>Запись.Срок</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Срок</v8:content>
+												</v8:item>
+											</Title>
+											<SpinButton>true</SpinButton>
+											<ContextMenu name="СрокКонтекстноеМеню" id="14"/>
+											<ExtendedTooltip name="СрокРасширеннаяПодсказка" id="15"/>
+										</InputField>
+										<LabelDecoration name="Декорация2" id="51">
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>мес.</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="Декорация2КонтекстноеМеню" id="52"/>
+											<ExtendedTooltip name="Декорация2РасширеннаяПодсказка" id="53"/>
+										</LabelDecoration>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</Page>
+						<Page name="ГруппаПериодическоеТО" id="42">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа периодическое ТО</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа периодическое ТО</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<ExtendedTooltip name="ГруппаПериодическоеТОРасширеннаяПодсказка" id="43"/>
+							<ChildItems>
+								<UsualGroup name="Группа4" id="62">
+									<Group>Vertical</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="63"/>
+									<ChildItems>
+										<UsualGroup name="Группа6" id="84">
+											<Group>Horizontal</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Группа6РасширеннаяПодсказка" id="85"/>
+											<ChildItems>
+												<InputField name="ПробегКаждые" id="54">
+													<DataPath>Запись.Пробег</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Каждые</v8:content>
+														</v8:item>
+													</Title>
+													<SpinButton>true</SpinButton>
+													<ContextMenu name="ПробегКаждыеКонтекстноеМеню" id="55"/>
+													<ExtendedTooltip name="ПробегКаждыеРасширеннаяПодсказка" id="56"/>
+												</InputField>
+												<LabelDecoration name="Декорация3" id="64">
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>км</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="Декорация3КонтекстноеМеню" id="65"/>
+													<ExtendedTooltip name="Декорация3РасширеннаяПодсказка" id="66"/>
+												</LabelDecoration>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="Группа13" id="104">
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Группа13РасширеннаяПодсказка" id="105"/>
+											<ChildItems>
+												<InputField name="МоточасыКаждые" id="106">
+													<DataPath>Запись.Моточасы</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Каждые</v8:content>
+														</v8:item>
+													</Title>
+													<SpinButton>true</SpinButton>
+													<ContextMenu name="МоточасыКаждыеКонтекстноеМеню" id="107"/>
+													<ExtendedTooltip name="МоточасыКаждыеРасширеннаяПодсказка" id="108"/>
+												</InputField>
+												<LabelDecoration name="Декорация9" id="109">
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>моточаса</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="Декорация9КонтекстноеМеню" id="110"/>
+													<ExtendedTooltip name="Декорация9РасширеннаяПодсказка" id="111"/>
+												</LabelDecoration>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="Группа7" id="86">
+											<Group>Horizontal</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Группа7РасширеннаяПодсказка" id="87"/>
+											<ChildItems>
+												<InputField name="СрокКаждые" id="57">
+													<DataPath>Запись.Срок</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Каждые</v8:content>
+														</v8:item>
+													</Title>
+													<SpinButton>true</SpinButton>
+													<ContextMenu name="СрокКаждыеКонтекстноеМеню" id="58"/>
+													<ExtendedTooltip name="СрокКаждыеРасширеннаяПодсказка" id="59"/>
+												</InputField>
+												<LabelDecoration name="Декорация6" id="73">
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>мес.</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="Декорация6КонтекстноеМеню" id="74"/>
+													<ExtendedTooltip name="Декорация6РасширеннаяПодсказка" id="75"/>
+												</LabelDecoration>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="Группа3" id="60">
+									<Group>Vertical</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="61"/>
+									<ChildItems>
+										<UsualGroup name="Группа8" id="88">
+											<Group>Horizontal</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Группа8РасширеннаяПодсказка" id="89"/>
+											<ChildItems>
+												<InputField name="ПробегС" id="16">
+													<DataPath>Запись.ПробегС</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>(начиная с</v8:content>
+														</v8:item>
+													</Title>
+													<SpinButton>true</SpinButton>
+													<ContextMenu name="ПробегСКонтекстноеМеню" id="17"/>
+													<ExtendedTooltip name="ПробегСРасширеннаяПодсказка" id="18"/>
+												</InputField>
+												<LabelDecoration name="Декорация4" id="67">
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>км</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="Декорация4КонтекстноеМеню" id="68"/>
+													<ExtendedTooltip name="Декорация4РасширеннаяПодсказка" id="69"/>
+												</LabelDecoration>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="Группа14" id="112">
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Группа14РасширеннаяПодсказка" id="113"/>
+											<ChildItems>
+												<InputField name="МоточасыС" id="114">
+													<DataPath>Запись.МоточасыС</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>(начиная с</v8:content>
+														</v8:item>
+													</Title>
+													<SpinButton>true</SpinButton>
+													<ContextMenu name="МоточасыСКонтекстноеМеню" id="115"/>
+													<ExtendedTooltip name="МоточасыСРасширеннаяПодсказка" id="116"/>
+												</InputField>
+												<LabelDecoration name="Декорация10" id="117">
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>моточасов</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="Декорация10КонтекстноеМеню" id="118"/>
+													<ExtendedTooltip name="Декорация10РасширеннаяПодсказка" id="119"/>
+												</LabelDecoration>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="Группа9" id="90">
+											<Group>Horizontal</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Группа9РасширеннаяПодсказка" id="91"/>
+											<ChildItems>
+												<InputField name="СрокС" id="22">
+													<DataPath>Запись.СрокС</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>(начиная с</v8:content>
+														</v8:item>
+													</Title>
+													<SpinButton>true</SpinButton>
+													<ContextMenu name="СрокСКонтекстноеМеню" id="23"/>
+													<ExtendedTooltip name="СрокСРасширеннаяПодсказка" id="24"/>
+												</InputField>
+												<LabelDecoration name="Декорация7" id="76">
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>мес.</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="Декорация7КонтекстноеМеню" id="77"/>
+													<ExtendedTooltip name="Декорация7РасширеннаяПодсказка" id="78"/>
+												</LabelDecoration>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="Группа5" id="82">
+									<Group>Vertical</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа5РасширеннаяПодсказка" id="83"/>
+									<ChildItems>
+										<UsualGroup name="Группа10" id="92">
+											<Group>Horizontal</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Группа10РасширеннаяПодсказка" id="93"/>
+											<ChildItems>
+												<InputField name="ПробегПо" id="19">
+													<DataPath>Запись.ПробегПо</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>до</v8:content>
+														</v8:item>
+													</Title>
+													<SpinButton>true</SpinButton>
+													<ContextMenu name="ПробегПоКонтекстноеМеню" id="20"/>
+													<ExtendedTooltip name="ПробегПоРасширеннаяПодсказка" id="21"/>
+												</InputField>
+												<LabelDecoration name="Декорация5" id="70">
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>км, не включая)</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="Декорация5КонтекстноеМеню" id="71"/>
+													<ExtendedTooltip name="Декорация5РасширеннаяПодсказка" id="72"/>
+												</LabelDecoration>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="Группа15" id="120">
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Группа15РасширеннаяПодсказка" id="121"/>
+											<ChildItems>
+												<InputField name="МоточасыПо" id="122">
+													<DataPath>Запись.МоточасыПо</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>до</v8:content>
+														</v8:item>
+													</Title>
+													<SpinButton>true</SpinButton>
+													<ContextMenu name="МоточасыПоКонтекстноеМеню" id="123"/>
+													<ExtendedTooltip name="МоточасыПоРасширеннаяПодсказка" id="124"/>
+												</InputField>
+												<LabelDecoration name="Декорация11" id="125">
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>моточасов, не включая)</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="Декорация11КонтекстноеМеню" id="126"/>
+													<ExtendedTooltip name="Декорация11РасширеннаяПодсказка" id="127"/>
+												</LabelDecoration>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="Группа11" id="94">
+											<Group>Horizontal</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Группа11РасширеннаяПодсказка" id="95"/>
+											<ChildItems>
+												<InputField name="СрокПо" id="25">
+													<DataPath>Запись.СрокПо</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>до</v8:content>
+														</v8:item>
+													</Title>
+													<SpinButton>true</SpinButton>
+													<ContextMenu name="СрокПоКонтекстноеМеню" id="26"/>
+													<ExtendedTooltip name="СрокПоРасширеннаяПодсказка" id="27"/>
+												</InputField>
+												<LabelDecoration name="Декорация8" id="79">
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>мес., не включая)</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="Декорация8КонтекстноеМеню" id="80"/>
+													<ExtendedTooltip name="Декорация8РасширеннаяПодсказка" id="81"/>
+												</LabelDecoration>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</Page>
+					</ChildItems>
+				</Pages>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Запись" id="1">
+			<Type>
+				<v8:Type>cfg:InformationRegisterRecordManager.упНормыТО</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+</Form>

@@ -1,0 +1,331 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Экспедитор</dataPath>
+			<field>Экспедитор</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Экспедитор</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТипТС</dataPath>
+			<field>ТипТС</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип ТС</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВыполненыРаботы</dataPath>
+			<field>ВыполненыРаботы</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнены работы</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоДобавленныхРабот</dataPath>
+			<field>КоличествоДобавленныхРабот</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество добавленных работ</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Перевозчик</dataPath>
+			<field>Перевозчик</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перевозчик</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТранспортноеСредство</dataPath>
+			<field>ТранспортноеСредство</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Транспортное средство</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Рейс</dataPath>
+			<field>Рейс</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОтмененыРаботы</dataPath>
+			<field>ОтмененыРаботы</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отменены работы</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Статус</dataPath>
+			<field>Статус</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоОтмененныхРабот</dataPath>
+			<field>КоличествоОтмененныхРабот</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество отмененных работ</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Соглашение</dataPath>
+			<field>Соглашение</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Соглашение</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Водитель1</dataPath>
+			<field>Водитель1</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Водитель1</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Ссылка</dataPath>
+			<field>Ссылка</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ссылка</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДобавленыРаботы</dataPath>
+			<field>ДобавленыРаботы</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавлены работы</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Водитель2</dataPath>
+			<field>Водитель2</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Водитель2</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоВыполненныхРабот</dataPath>
+			<field>КоличествоВыполненныхРабот</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество выполненных работ</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	упРаботыПоРейсу.Период КАК Период,
+	упРаботыПоРейсу.Регистратор КАК Ссылка,
+	упРаботыПоРейсу.Рейс КАК Рейс,
+	упРаботыПоРейсу.Идентификатор КАК Идентификатор,
+	упРаботыПоРейсу.ИдентификаторРаботы КАК ИдентификаторРаботы,
+	упРаботыПоРейсу.Отменена КАК Отменена,
+	упРаботыПоРейсу.Выполнена КАК Выполнена
+ПОМЕСТИТЬ втТекущиеЗаписи
+ИЗ
+	РегистрСведений.упРаботыПоРейсу КАК упРаботыПоРейсу
+{ГДЕ
+	упРаботыПоРейсу.Регистратор КАК Ссылка}
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	упРаботыПоРейсу.Рейс КАК Рейс,
+	упРаботыПоРейсу.Идентификатор КАК Идентификатор,
+	упРаботыПоРейсу.ИдентификаторРаботы КАК ИдентификаторРаботы,
+	МАКСИМУМ(упРаботыПоРейсу.Отменена) КАК Отменена,
+	МАКСИМУМ(упРаботыПоРейсу.Выполнена) КАК Выполнена
+ПОМЕСТИТЬ втПредшествующиеЗаписи
+ИЗ
+	РегистрСведений.упРаботыПоРейсу КАК упРаботыПоРейсу
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			упРаботыПоРейсу.Рейс КАК Рейс,
+			упРаботыПоРейсу.Идентификатор КАК Идентификатор,
+			упРаботыПоРейсу.ИдентификаторРаботы КАК ИдентификаторРаботы,
+			МАКСИМУМ(упРаботыПоРейсу.Период) КАК Период
+		ИЗ
+			РегистрСведений.упРаботыПоРейсу КАК упРаботыПоРейсу
+				ВНУТРЕННЕЕ СОЕДИНЕНИЕ втТекущиеЗаписи КАК втТекущиеЗаписи
+				ПО упРаботыПоРейсу.Рейс = втТекущиеЗаписи.Рейс
+					И упРаботыПоРейсу.Идентификатор = втТекущиеЗаписи.Идентификатор
+					И упРаботыПоРейсу.ИдентификаторРаботы = втТекущиеЗаписи.ИдентификаторРаботы
+					И упРаботыПоРейсу.Период &lt; втТекущиеЗаписи.Период
+		
+		СГРУППИРОВАТЬ ПО
+			упРаботыПоРейсу.Рейс,
+			упРаботыПоРейсу.Идентификатор,
+			упРаботыПоРейсу.ИдентификаторРаботы) КАК ВложенныйЗапрос
+		ПО упРаботыПоРейсу.Период = ВложенныйЗапрос.Период
+			И упРаботыПоРейсу.Рейс = ВложенныйЗапрос.Рейс
+			И упРаботыПоРейсу.Идентификатор = ВложенныйЗапрос.Идентификатор
+			И упРаботыПоРейсу.ИдентификаторРаботы = ВложенныйЗапрос.ИдентификаторРаботы
+
+СГРУППИРОВАТЬ ПО
+	упРаботыПоРейсу.Рейс,
+	упРаботыПоРейсу.Идентификатор,
+	упРаботыПоРейсу.ИдентификаторРаботы
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	втТекущиеЗаписи.Ссылка,
+	втТекущиеЗаписи.Рейс,
+	упСтатусыРейсов.Статус,
+	ЕСТЬNULL(упПеревозчикПоРейсу.ТранспортноеСредство, ЗНАЧЕНИЕ(Справочник.упТранспортныеСредства.ПустаяСсылка)) КАК ТранспортноеСредство,
+	ЕСТЬNULL(упПеревозчикПоРейсу.Перевозчик, ЗНАЧЕНИЕ(Справочник.упПартнеры.ПустаяСсылка)) КАК Перевозчик,
+	ЕСТЬNULL(упПеревозчикПоРейсу.Соглашение, ЗНАЧЕНИЕ(Справочник.упСоглашенияСПеревозчиками.ПустаяСсылка)) КАК Соглашение,
+	ЕСТЬNULL(упПеревозчикПоРейсу.ТипТС, ЗНАЧЕНИЕ(Справочник.упТипыТС.ПустаяСсылка)) КАК ТипТС,
+	ЕСТЬNULL(упПеревозчикПоРейсу.Водитель1, ЗНАЧЕНИЕ(Справочник.упСотрудники.ПустаяСсылка)) КАК Водитель1,
+	ЕСТЬNULL(упПеревозчикПоРейсу.Водитель2, ЗНАЧЕНИЕ(Справочник.упСотрудники.ПустаяСсылка)) КАК Водитель2,
+	ЕСТЬNULL(упПеревозчикПоРейсу.Экспедитор, ЗНАЧЕНИЕ(Справочник.упСотрудники.ПустаяСсылка)) КАК Экспедитор,
+	МАКСИМУМ(ВЫБОР
+			КОГДА втПредшествующиеЗаписи.ИдентификаторРаботы ЕСТЬ NULL
+				ТОГДА ИСТИНА
+			ИНАЧЕ ЛОЖЬ
+		КОНЕЦ) КАК ДобавленыРаботы,
+	СУММА(ВЫБОР
+			КОГДА втПредшествующиеЗаписи.ИдентификаторРаботы ЕСТЬ NULL
+				ТОГДА 1
+			ИНАЧЕ 0
+		КОНЕЦ) КАК КоличествоДобавленныхРабот,
+	МАКСИМУМ(ВЫБОР
+			КОГДА втТекущиеЗаписи.Выполнена
+					И НЕ ЕСТЬNULL(втПредшествующиеЗаписи.Выполнена, ИСТИНА)
+				ТОГДА ИСТИНА
+			ИНАЧЕ ЛОЖЬ
+		КОНЕЦ) КАК ВыполненыРаботы,
+	СУММА(ВЫБОР
+			КОГДА втТекущиеЗаписи.Выполнена
+					И НЕ ЕСТЬNULL(втПредшествующиеЗаписи.Выполнена, ИСТИНА)
+				ТОГДА 1
+			ИНАЧЕ 0
+		КОНЕЦ) КАК КоличествоВыполненныхРабот,
+	МАКСИМУМ(ВЫБОР
+			КОГДА втТекущиеЗаписи.Отменена
+					И НЕ ЕСТЬNULL(втПредшествующиеЗаписи.Отменена, ИСТИНА)
+				ТОГДА ИСТИНА
+			ИНАЧЕ ЛОЖЬ
+		КОНЕЦ) КАК ОтмененыРаботы,
+	СУММА(ВЫБОР
+			КОГДА втТекущиеЗаписи.Отменена
+					И НЕ ЕСТЬNULL(втПредшествующиеЗаписи.Отменена, ИСТИНА)
+				ТОГДА 1
+			ИНАЧЕ 0
+		КОНЕЦ) КАК КоличествоОтмененныхРабот
+ИЗ
+	втТекущиеЗаписи КАК втТекущиеЗаписи
+		ЛЕВОЕ СОЕДИНЕНИЕ втПредшествующиеЗаписи КАК втПредшествующиеЗаписи
+		ПО втТекущиеЗаписи.Рейс = втПредшествующиеЗаписи.Рейс
+			И втТекущиеЗаписи.Идентификатор = втПредшествующиеЗаписи.Идентификатор
+			И втТекущиеЗаписи.ИдентификаторРаботы = втПредшествующиеЗаписи.ИдентификаторРаботы
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.упСтатусыРейсов.СрезПоследних(
+				,
+				Документ В
+					(ВЫБРАТЬ
+						втТекущиеЗаписи.Рейс
+					ИЗ
+						втТекущиеЗаписи)) КАК упСтатусыРейсов
+		ПО втТекущиеЗаписи.Рейс = упСтатусыРейсов.Документ
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упПеревозчикПоРейсу.СрезПоследних(
+				,
+				Рейс В
+					(ВЫБРАТЬ
+						втТекущиеЗаписи.Рейс
+					ИЗ
+						втТекущиеЗаписи)) КАК упПеревозчикПоРейсу
+		ПО втТекущиеЗаписи.Рейс = упПеревозчикПоРейсу.Рейс
+
+СГРУППИРОВАТЬ ПО
+	втТекущиеЗаписи.Ссылка,
+	втТекущиеЗаписи.Рейс,
+	упСтатусыРейсов.Статус,
+	ЕСТЬNULL(упПеревозчикПоРейсу.ТранспортноеСредство, ЗНАЧЕНИЕ(Справочник.упТранспортныеСредства.ПустаяСсылка)),
+	ЕСТЬNULL(упПеревозчикПоРейсу.Перевозчик, ЗНАЧЕНИЕ(Справочник.упПартнеры.ПустаяСсылка)),
+	ЕСТЬNULL(упПеревозчикПоРейсу.Соглашение, ЗНАЧЕНИЕ(Справочник.упСоглашенияСПеревозчиками.ПустаяСсылка)),
+	ЕСТЬNULL(упПеревозчикПоРейсу.ТипТС, ЗНАЧЕНИЕ(Справочник.упТипыТС.ПустаяСсылка)),
+	ЕСТЬNULL(упПеревозчикПоРейсу.Водитель1, ЗНАЧЕНИЕ(Справочник.упСотрудники.ПустаяСсылка)),
+	ЕСТЬNULL(упПеревозчикПоРейсу.Водитель2, ЗНАЧЕНИЕ(Справочник.упСотрудники.ПустаяСсылка)),
+	ЕСТЬNULL(упПеревозчикПоРейсу.Экспедитор, ЗНАЧЕНИЕ(Справочник.упСотрудники.ПустаяСсылка))</query>
+	</dataSet>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Ссылка</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

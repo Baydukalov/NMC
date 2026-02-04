@@ -1,0 +1,616 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
+	<SaveDataInSettings>UseList</SaveDataInSettings>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаРассчитать" id="56">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Рассчитать</CommandName>
+				<ExtendedTooltip name="ФормаРассчитатьРасширеннаяПодсказка" id="57"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаФормула" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Формула</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа формула</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<ExtendedTooltip name="ГруппаФормулаРасширеннаяПодсказка" id="2"/>
+			<ChildItems>
+				<LabelField name="Формула" id="3">
+					<DataPath>Формула</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<HorizontalAlign>Center</HorizontalAlign>
+					<Height>2</Height>
+					<HorizontalStretch>true</HorizontalStretch>
+					<TextColor>style:упЦветТекстаФормулы</TextColor>
+					<Font ref="style:упШрифтТекстаФормулы" kind="StyleItem"/>
+					<ContextMenu name="ФормулаКонтекстноеМеню" id="4"/>
+					<ExtendedTooltip name="ФормулаРасширеннаяПодсказка" id="5"/>
+				</LabelField>
+				<LabelDecoration name="Декорация1" id="6">
+					<Height>2</Height>
+					<TextColor>style:упЦветТекстаФормулы</TextColor>
+					<Font ref="style:упШрифтТекстаФормулы" kind="StyleItem"/>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>=</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="Декорация1КонтекстноеМеню" id="7"/>
+					<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="8"/>
+				</LabelDecoration>
+				<LabelField name="Результат" id="9">
+					<DataPath>Результат</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<HorizontalAlign>Center</HorizontalAlign>
+					<Width>12</Width>
+					<Height>2</Height>
+					<HorizontalStretch>true</HorizontalStretch>
+					<TextColor>style:упЦветТекстаФормулы</TextColor>
+					<Font ref="style:упШрифтТекстаФормулы" kind="StyleItem"/>
+					<ContextMenu name="РезультатКонтекстноеМеню" id="10"/>
+					<ExtendedTooltip name="РезультатРасширеннаяПодсказка" id="11"/>
+				</LabelField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаТестовыеДанные" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тестовые данные</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа тестовые данные</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<ExtendedTooltip name="ГруппаТестовыеДанныеРасширеннаяПодсказка" id="13"/>
+			<ChildItems>
+				<InputField name="СуммаДляРаспределения" id="14">
+					<DataPath>СуммаДляРаспределения</DataPath>
+					<ContextMenu name="СуммаДляРаспределенияКонтекстноеМеню" id="15"/>
+					<ExtendedTooltip name="СуммаДляРаспределенияРасширеннаяПодсказка" id="16"/>
+				</InputField>
+				<UsualGroup name="ГруппаДокументы" id="54">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Документы</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа документы</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<ExtendedTooltip name="ГруппаДокументыРасширеннаяПодсказка" id="55"/>
+					<ChildItems>
+						<Table name="ТаблицаДляРаспределения" id="17">
+							<Representation>List</Representation>
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>ТаблицаДляРаспределения</DataPath>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ТаблицаДляРаспределенияКонтекстноеМеню" id="18"/>
+							<AutoCommandBar name="ТаблицаДляРаспределенияКоманднаяПанель" id="19"/>
+							<ExtendedTooltip name="ТаблицаДляРаспределенияРасширеннаяПодсказка" id="20"/>
+							<SearchStringAddition name="ТаблицаДляРаспределенияСтрокаПоиска" id="58">
+								<AdditionSource>
+									<Item>ТаблицаДляРаспределения</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ТаблицаДляРаспределенияСтрокаПоискаКонтекстноеМеню" id="59"/>
+								<ExtendedTooltip name="ТаблицаДляРаспределенияСтрокаПоискаРасширеннаяПодсказка" id="60"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ТаблицаДляРаспределенияСостояниеПросмотра" id="61">
+								<AdditionSource>
+									<Item>ТаблицаДляРаспределения</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ТаблицаДляРаспределенияСостояниеПросмотраКонтекстноеМеню" id="62"/>
+								<ExtendedTooltip name="ТаблицаДляРаспределенияСостояниеПросмотраРасширеннаяПодсказка" id="63"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ТаблицаДляРаспределенияУправлениеПоиском" id="64">
+								<AdditionSource>
+									<Item>ТаблицаДляРаспределения</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ТаблицаДляРаспределенияУправлениеПоискомКонтекстноеМеню" id="65"/>
+								<ExtendedTooltip name="ТаблицаДляРаспределенияУправлениеПоискомРасширеннаяПодсказка" id="66"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="OnStartEdit">ТаблицаДляРаспределенияПриНачалеРедактирования</Event>
+							</Events>
+							<ChildItems>
+								<InputField name="ТаблицаДляРаспределенияДокумент" id="21">
+									<DataPath>ТаблицаДляРаспределения.Документ</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ТаблицаДляРаспределенияДокументКонтекстноеМеню" id="22"/>
+									<ExtendedTooltip name="ТаблицаДляРаспределенияДокументРасширеннаяПодсказка" id="23"/>
+								</InputField>
+								<InputField name="ТаблицаДляРаспределенияВремя" id="24">
+									<DataPath>ТаблицаДляРаспределения.Время</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ТаблицаДляРаспределенияВремяКонтекстноеМеню" id="25"/>
+									<ExtendedTooltip name="ТаблицаДляРаспределенияВремяРасширеннаяПодсказка" id="26"/>
+								</InputField>
+								<InputField name="ТаблицаДляРаспределенияРасстояние" id="27">
+									<DataPath>ТаблицаДляРаспределения.Расстояние</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ТаблицаДляРаспределенияРасстояниеКонтекстноеМеню" id="28"/>
+									<ExtendedTooltip name="ТаблицаДляРаспределенияРасстояниеРасширеннаяПодсказка" id="29"/>
+								</InputField>
+								<InputField name="ТаблицаДляРаспределенияМасса" id="30">
+									<DataPath>ТаблицаДляРаспределения.Масса</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ТаблицаДляРаспределенияМассаКонтекстноеМеню" id="31"/>
+									<ExtendedTooltip name="ТаблицаДляРаспределенияМассаРасширеннаяПодсказка" id="32"/>
+								</InputField>
+								<InputField name="ТаблицаДляРаспределенияОбъем" id="33">
+									<DataPath>ТаблицаДляРаспределения.Объем</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ТаблицаДляРаспределенияОбъемКонтекстноеМеню" id="34"/>
+									<ExtendedTooltip name="ТаблицаДляРаспределенияОбъемРасширеннаяПодсказка" id="35"/>
+								</InputField>
+								<InputField name="ТаблицаДляРаспределенияКоличествоМест" id="36">
+									<DataPath>ТаблицаДляРаспределения.КоличествоМест</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ТаблицаДляРаспределенияКоличествоМестКонтекстноеМеню" id="37"/>
+									<ExtendedTooltip name="ТаблицаДляРаспределенияКоличествоМестРасширеннаяПодсказка" id="38"/>
+								</InputField>
+								<InputField name="ТаблицаДляРаспределенияКоличествоЗагрузочныхМетров" id="39">
+									<DataPath>ТаблицаДляРаспределения.КоличествоЗагрузочныхМетров</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ТаблицаДляРаспределенияКоличествоЗагрузочныхМетровКонтекстноеМеню" id="40"/>
+									<ExtendedTooltip name="ТаблицаДляРаспределенияКоличествоЗагрузочныхМетровРасширеннаяПодсказка" id="41"/>
+								</InputField>
+								<InputField name="ТаблицаДляРаспределенияПлановыеРасходыПоРейсу" id="67">
+									<DataPath>ТаблицаДляРаспределения.ПлановыеРасходыПоРейсу</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ТаблицаДляРаспределенияПлановыеРасходыПоРейсуКонтекстноеМеню" id="68"/>
+									<ExtendedTooltip name="ТаблицаДляРаспределенияПлановыеРасходыПоРейсуРасширеннаяПодсказка" id="69"/>
+								</InputField>
+								<InputField name="ТаблицаДляРаспределенияКоличествоТоварныхНакладных" id="45">
+									<DataPath>ТаблицаДляРаспределения.КоличествоТоварныхНакладных</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ТаблицаДляРаспределенияКоличествоТоварныхНакладныхКонтекстноеМеню" id="46"/>
+									<ExtendedTooltip name="ТаблицаДляРаспределенияКоличествоТоварныхНакладныхРасширеннаяПодсказка" id="47"/>
+								</InputField>
+								<InputField name="ТаблицаДляРаспределенияКоэффициент" id="48">
+									<DataPath>ТаблицаДляРаспределения.Коэффициент</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ТаблицаДляРаспределенияКоэффициентКонтекстноеМеню" id="49"/>
+									<ExtendedTooltip name="ТаблицаДляРаспределенияКоэффициентРасширеннаяПодсказка" id="50"/>
+								</InputField>
+								<InputField name="ТаблицаДляРаспределенияСумма" id="51">
+									<DataPath>ТаблицаДляРаспределения.Сумма</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ТаблицаДляРаспределенияСуммаКонтекстноеМеню" id="52"/>
+									<ExtendedTooltip name="ТаблицаДляРаспределенияСуммаРасширеннаяПодсказка" id="53"/>
+								</InputField>
+								<InputField name="ТаблицаДляРаспределенияОценочнаяСтоимостьГруза" id="70">
+									<DataPath>ТаблицаДляРаспределения.ОценочнаяСтоимостьГруза</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ТаблицаДляРаспределенияОценочнаяСтоимостьГрузаКонтекстноеМеню" id="71"/>
+									<ExtendedTooltip name="ТаблицаДляРаспределенияОценочнаяСтоимостьГрузаРасширеннаяПодсказка" id="72"/>
+								</InputField>
+								<InputField name="ТаблицаДляРаспределенияФактическиеРасходыПоРейсу" id="73">
+									<DataPath>ТаблицаДляРаспределения.ФактическиеРасходыПоРейсу</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ТаблицаДляРаспределенияФактическиеРасходыПоРейсуКонтекстноеМеню" id="74"/>
+									<ExtendedTooltip name="ТаблицаДляРаспределенияФактическиеРасходыПоРейсуРасширеннаяПодсказка" id="75"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="СуммаДляРаспределения" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма для распределения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>12</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+			<Save>
+				<Field>СуммаДляРаспределения</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="Формула" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Формула</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ФормулаРасчета" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Формула расчета</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Результат" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Результат</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТаблицаДляРаспределения" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Таблица для распределения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Save>
+				<Field>ТаблицаДляРаспределения</Field>
+			</Save>
+			<Columns>
+				<Column name="Документ" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Документ</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Время" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Время</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>8</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Расстояние" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Расстояние</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>8</v8:Digits>
+							<v8:FractionDigits>3</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Масса" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Масса</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>12</v8:Digits>
+							<v8:FractionDigits>3</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+					<FunctionalOptions>
+						<Item>FunctionalOption.упУчитыватьМассу</Item>
+					</FunctionalOptions>
+				</Column>
+				<Column name="Объем" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Объем</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>6</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+					<FunctionalOptions>
+						<Item>FunctionalOption.упУчитыватьОбъем</Item>
+					</FunctionalOptions>
+				</Column>
+				<Column name="КоличествоМест" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Количество мест</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>8</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+					<FunctionalOptions>
+						<Item>FunctionalOption.упУчитыватьКоличествоМест</Item>
+					</FunctionalOptions>
+				</Column>
+				<Column name="КоличествоЗагрузочныхМетров" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Количество загрузочных метров</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>8</v8:Digits>
+							<v8:FractionDigits>3</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+					<FunctionalOptions>
+						<Item>FunctionalOption.упУчитыватьКоличествоЗагрузочныхМетров</Item>
+					</FunctionalOptions>
+				</Column>
+				<Column name="ПлановыеРасходыПоРейсу" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Плановые расходы по рейсу</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>12</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="КоличествоТоварныхНакладных" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Количество товарных накладных</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>5</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+					<FunctionalOptions>
+						<Item>FunctionalOption.упИспользоватьДопАналитическийРазрезПриРаспределенииРасходов</Item>
+					</FunctionalOptions>
+				</Column>
+				<Column name="Коэффициент" id="10">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Коэффициент распределения</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>5</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Сумма" id="11">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>12</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ОценочнаяСтоимостьГруза" id="12">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Оценочная стоимость груза</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>12</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ФактическиеРасходыПоРейсу" id="13">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Фактические расходы по рейсу</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>12</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>Результат</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Результат</dcsset:left>
+						<dcsset:comparisonType>Contains</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:string">Ошибка:</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:ПоясняющийОшибкуТекст</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">#FF0000</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="Рассчитать" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Рассчитать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Рассчитать</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.Рассчитать</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>Рассчитать</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+	<Parameters>
+		<Parameter name="Формула">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Parameter>
+		<Parameter name="ФормулаРасчета">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Parameter>
+	</Parameters>
+</Form>

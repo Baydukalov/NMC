@@ -1,0 +1,434 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Параметры заполнения перевозки (по умолчанию)</v8:content>
+		</v8:item>
+	</Title>
+	<Customizable>false</Customizable>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаЗавершитьРедактирование" id="21">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ЗавершитьРедактирование</CommandName>
+				<ExtendedTooltip name="ФормаЗавершитьРедактированиеРасширеннаяПодсказка" id="22"/>
+			</Button>
+			<Button name="ФормаОтмена" id="19">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Cancel</CommandName>
+				<ExtendedTooltip name="ФормаОтменаРасширеннаяПодсказка" id="20"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаПолучение" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа получение</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа получение</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<BackColor>style:упЦветФонаГруппыПолучения</BackColor>
+			<ExtendedTooltip name="ГруппаПолучениеРасширеннаяПодсказка" id="16"/>
+			<ChildItems>
+				<InputField name="Получатель" id="7">
+					<DataPath>Получатель</DataPath>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<ContextMenu name="ПолучательКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="ПолучательРасширеннаяПодсказка" id="9"/>
+					<Events>
+						<Event name="OnChange">ПолучательПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="КонтрагентПолучателя" id="26">
+					<DataPath>КонтрагентПолучателя</DataPath>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<ChoiceParameterLinks>
+						<xr:Link>
+							<xr:Name>Отбор.Партнер</xr:Name>
+							<xr:DataPath xsi:type="xs:string">Получатель</xr:DataPath>
+							<xr:ValueChange>Clear</xr:ValueChange>
+						</xr:Link>
+					</ChoiceParameterLinks>
+					<ContextMenu name="КонтрагентПолучателяКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="КонтрагентПолучателяРасширеннаяПодсказка" id="28"/>
+				</InputField>
+				<InputField name="КонтактноеЛицоПолучателя" id="10">
+					<DataPath>КонтактноеЛицоПолучателя</DataPath>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<ContextMenu name="КонтактноеЛицоПолучателяКонтекстноеМеню" id="11"/>
+					<ExtendedTooltip name="КонтактноеЛицоПолучателяРасширеннаяПодсказка" id="12"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаОтправление" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа отправление</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа отправление</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<BackColor>style:упЦветФонаГруппыОтправления</BackColor>
+			<ExtendedTooltip name="ГруппаОтправлениеРасширеннаяПодсказка" id="14"/>
+			<ChildItems>
+				<InputField name="Отправитель" id="1">
+					<DataPath>Отправитель</DataPath>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<ContextMenu name="ОтправительКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="ОтправительРасширеннаяПодсказка" id="3"/>
+					<Events>
+						<Event name="OnChange">ОтправительПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="КонтрагентОтправителя" id="23">
+					<DataPath>КонтрагентОтправителя</DataPath>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<ChoiceParameterLinks>
+						<xr:Link>
+							<xr:Name>Отбор.Партнер</xr:Name>
+							<xr:DataPath xsi:type="xs:string">Отправитель</xr:DataPath>
+							<xr:ValueChange>Clear</xr:ValueChange>
+						</xr:Link>
+					</ChoiceParameterLinks>
+					<ContextMenu name="КонтрагентОтправителяКонтекстноеМеню" id="24"/>
+					<ExtendedTooltip name="КонтрагентОтправителяРасширеннаяПодсказка" id="25"/>
+				</InputField>
+				<InputField name="КонтактноеЛицоОтправителя" id="4">
+					<DataPath>КонтактноеЛицоОтправителя</DataPath>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<ContextMenu name="КонтактноеЛицоОтправителяКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="КонтактноеЛицоОтправителяРасширеннаяПодсказка" id="6"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="ЧасовойПояс" id="32">
+			<DataPath>ЧасовойПояс</DataPath>
+			<ContextMenu name="ЧасовойПоясКонтекстноеМеню" id="33"/>
+			<ExtendedTooltip name="ЧасовойПоясРасширеннаяПодсказка" id="34"/>
+		</InputField>
+		<UsualGroup name="ГруппаВремяВПути" id="38">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа время в пути</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа время в пути</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаВремяВПутиРасширеннаяПодсказка" id="39"/>
+			<ChildItems>
+				<InputField name="ВремяВПути" id="29">
+					<DataPath>ВремяВПути</DataPath>
+					<ChoiceButton>false</ChoiceButton>
+					<SpinButton>true</SpinButton>
+					<ContextMenu name="ВремяВПутиКонтекстноеМеню" id="30"/>
+					<ExtendedTooltip name="ВремяВПутиРасширеннаяПодсказка" id="31"/>
+				</InputField>
+				<LabelDecoration name="Декорация2" id="40">
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ч</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="Декорация2КонтекстноеМеню" id="41"/>
+					<ExtendedTooltip name="Декорация2РасширеннаяПодсказка" id="42"/>
+				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаВремяНахожденияВТочке" id="43">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа время нахождения в точке</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа время нахождения в точке</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаВремяНахожденияВТочкеРасширеннаяПодсказка" id="44"/>
+			<ChildItems>
+				<InputField name="ВремяНахожденияВТочке" id="35">
+					<DataPath>ВремяНахожденияВТочке</DataPath>
+					<ChoiceButton>false</ChoiceButton>
+					<SpinButton>true</SpinButton>
+					<ContextMenu name="ВремяНахожденияВТочкеКонтекстноеМеню" id="36"/>
+					<ExtendedTooltip name="ВремяНахожденияВТочкеРасширеннаяПодсказка" id="37"/>
+				</InputField>
+				<LabelDecoration name="Декорация1" id="45">
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ч</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="Декорация1КонтекстноеМеню" id="46"/>
+					<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="47"/>
+				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="ВариантОпределенияВременногоОкнаПолучения" id="51">
+			<DataPath>ВариантОпределенияВременногоОкнаПолучения</DataPath>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<ContextMenu name="ВариантОпределенияВременногоОкнаПолученияКонтекстноеМеню" id="52"/>
+			<ExtendedTooltip name="ВариантОпределенияВременногоОкнаПолученияРасширеннаяПодсказка" id="53"/>
+		</InputField>
+		<InputField name="ГрафикРаботыАдресаПолучения" id="57">
+			<DataPath>ГрафикРаботыАдресаПолучения</DataPath>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<ContextMenu name="ГрафикРаботыАдресаПолученияКонтекстноеМеню" id="58"/>
+			<ExtendedTooltip name="ГрафикРаботыАдресаПолученияРасширеннаяПодсказка" id="59"/>
+		</InputField>
+		<InputField name="ВариантОпределенияВременногоОкнаОтправления" id="48">
+			<DataPath>ВариантОпределенияВременногоОкнаОтправления</DataPath>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<ContextMenu name="ВариантОпределенияВременногоОкнаОтправленияКонтекстноеМеню" id="49"/>
+			<ExtendedTooltip name="ВариантОпределенияВременногоОкнаОтправленияРасширеннаяПодсказка" id="50"/>
+		</InputField>
+		<InputField name="ГрафикРаботыАдресаОтправления" id="54">
+			<DataPath>ГрафикРаботыАдресаОтправления</DataPath>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<ContextMenu name="ГрафикРаботыАдресаОтправленияКонтекстноеМеню" id="55"/>
+			<ExtendedTooltip name="ГрафикРаботыАдресаОтправленияРасширеннаяПодсказка" id="56"/>
+		</InputField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Отправитель" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отправитель</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.упПартнеры</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Получатель" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Получатель</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.упПартнеры</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="КонтактноеЛицоОтправителя" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Контактное лицо отправителя</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.упКонтактныеЛицаПартнеров</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="КонтактноеЛицоПолучателя" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Контактное лицо получателя</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.упКонтактныеЛицаПартнеров</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="НомерСтроки" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номер строки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="КонтрагентОтправителя" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Грузоотправитель</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.упКонтрагенты</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="КонтрагентПолучателя" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Грузополучатель</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.упКонтрагенты</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ВремяВПути" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Время в пути</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:DefinedType.ВремяРаботы</v8:TypeSet>
+			</Type>
+		</Attribute>
+		<Attribute name="ЧасовойПояс" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Часовой пояс</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.упЧасовыеПояса</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ВремяНахожденияВТочке" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Время нахождения в точке</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:DefinedType.ВремяРаботы</v8:TypeSet>
+			</Type>
+		</Attribute>
+		<Attribute name="ВариантОпределенияВременногоОкнаПолучения" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вариант ВО получения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.упВариантыОпределенияВременныхОкон</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ВариантОпределенияВременногоОкнаОтправления" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вариант ВО отправления</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.упВариантыОпределенияВременныхОкон</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОпределятьВременныеОкнаЗаданий" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Определять временные окна заданий</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ГрафикРаботыАдресаОтправления" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>График работы адреса отправления</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Календари</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ГрафикРаботыАдресаПолучения" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>График работы адреса получения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Календари</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ФормироватьВременныеОкнаПоГрафикамРаботыАдресов" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Формировать временные окна по графикам работы адресов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ЗавершитьРедактирование" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Завершить редактирование</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Завершить редактирование</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗавершитьРедактирование</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

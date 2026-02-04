@@ -1,0 +1,945 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>Рейсы</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Автор</dataPath>
+			<field>Автор</field>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ИндексКартинки</dataPath>
+			<field>ИндексКартинки</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Индекс картинки</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТипТС</dataPath>
+			<field>ТипТС</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип ТС</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Соглашение</dataPath>
+			<field>Соглашение</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Соглашение</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПлановоеНачалоВыполнения</dataPath>
+			<field>ПлановоеНачалоВыполнения</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Плановое начало выполнения</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НачалоВыполнения</dataPath>
+			<field>НачалоВыполнения</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Начало выполнения</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Водитель2</dataPath>
+			<field>Водитель2</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Водитель2</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОкончаниеВыполнения</dataPath>
+			<field>ОкончаниеВыполнения</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Окончание выполнения</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПеревозкаТранспортнойКомпанией</dataPath>
+			<field>ПеревозкаТранспортнойКомпанией</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПланируемоеКоличествоЗаданий</dataPath>
+			<field>ПланируемоеКоличествоЗаданий</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Планируемое количество заданий</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПлановоеОкончаниеВыполнения</dataPath>
+			<field>ПлановоеОкончаниеВыполнения</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Плановое окончание выполнения</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОценочнаяСтоимость</dataPath>
+			<field>ОценочнаяСтоимость</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оценочная стоимость</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗонаПогрузки</dataPath>
+			<field>ЗонаПогрузки</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Зона погрузки</v8:content>
+				</v8:item>
+			</title>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Перевозчик</dataPath>
+			<field>Перевозчик</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перевозчик</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Дата</dataPath>
+			<field>Дата</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата документа</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидПеревозки</dataPath>
+			<field>ВидПеревозки</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПредставлениеМаршрута</dataPath>
+			<field>ПредставлениеМаршрута</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Представление маршрута</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Трекер</dataPath>
+			<field>Трекер</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Комментарий</dataPath>
+			<field>Комментарий</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Водитель1</dataPath>
+			<field>Водитель1</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Водитель1</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номер</dataPath>
+			<field>Номер</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗонаРазгрузки</dataPath>
+			<field>ЗонаРазгрузки</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Зона разгрузки</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ФактическаяСуммаИнкассации</dataPath>
+			<field>ФактическаяСуммаИнкассации</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Фактическая сумма инкассации</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Экспедитор</dataPath>
+			<field>Экспедитор</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Экспедитор</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Статус</dataPath>
+			<field>Статус</field>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаИнкассации</dataPath>
+			<field>СуммаИнкассации</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Долгота</dataPath>
+			<field>Долгота</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Широта</dataPath>
+			<field>Широта</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Высота</dataPath>
+			<field>Высота</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НаправлениеДвижения</dataPath>
+			<field>НаправлениеДвижения</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТипУстройства</dataPath>
+			<field>ТипУстройства</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип устройства</v8:content>
+				</v8:item>
+			</title>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Скорость</dataPath>
+			<field>Скорость</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПоследнееОбновление</dataPath>
+			<field>ПоследнееОбновление</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Последнее обновление</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Рейс</dataPath>
+			<field>Рейс</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Рейс</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПлановоеВремяРейса</dataPath>
+			<field>ПлановоеВремяРейса</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Плановое время рейса</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПлановоеВремяВПути</dataPath>
+			<field>ПлановоеВремяВПути</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Плановое время в пути</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПлановаяМасса</dataPath>
+			<field>ПлановаяМасса</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПлановоеКоличествоМест</dataPath>
+			<field>ПлановоеКоличествоМест</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Плановое количество мест</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПлановоеРасстояние</dataPath>
+			<field>ПлановоеРасстояние</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Плановое расстояние</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПлановоеКоличествоЗагрузочныхМетров</dataPath>
+			<field>ПлановоеКоличествоЗагрузочныхМетров</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Плановое количество загрузочных метров</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПлановыйОбъем</dataPath>
+			<field>ПлановыйОбъем</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Плановый объем</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТранспортноеСредство</dataPath>
+			<field>ТранспортноеСредство</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТочекПройдено</dataPath>
+			<field>ТочекПройдено</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Точек пройдено</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТочекОтменено</dataPath>
+			<field>ТочекОтменено</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Точек отменено</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТочекПосетить</dataPath>
+			<field>ТочекПосетить</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Точек посетить</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ИстинаСлужебный</dataPath>
+			<field>ИстинаСлужебный</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Истина служебный</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЦветЛинии</dataPath>
+			<field>ЦветЛинии</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Цвет линии</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтильМаркера</dataPath>
+			<field>СтильМаркера</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Стиль маркера</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПрозрачностьЛинии</dataPath>
+			<field>ПрозрачностьЛинии</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прозрачность линии</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТолщинаЛинии</dataPath>
+			<field>ТолщинаЛинии</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Толщина линии</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Возраст</dataPath>
+			<field>Возраст</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прошло после завершения рейса</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПредставлениеКоординаты</dataPath>
+			<field>ПредставлениеКоординаты</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПлановоеНулевойПробег</dataPath>
+			<field>ПлановоеНулевойПробег</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Плановое нулевой пробег</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтильЛиний</dataPath>
+			<field>СтильЛиний</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Стиль линий</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ДокументупРейс.Ссылка КАК Рейс,
+	ДокументупРейс.Номер КАК Номер,
+	ДокументупРейс.Дата КАК Дата,
+	ДокументупРейс.ПеревозкаТранспортнойКомпанией КАК ПеревозкаТранспортнойКомпанией,
+	ДокументупРейс.Организация КАК Организация,
+	ДокументупРейс.ВидПеревозки КАК ВидПеревозки,
+	ДокументупРейс.Автор КАК Автор,
+	ДокументупРейс.Комментарий КАК Комментарий,
+	упСтатусы.Статус КАК Статус,
+	упСтатусы.Период КАК Период,
+	упСтатусы.Статус.Порядок КАК ИндексКартинки
+ПОМЕСТИТЬ втРейсыПодготовка
+ИЗ
+	Документ.упРейс КАК ДокументупРейс
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.упСтатусыРейсов.СрезПоследних КАК упСтатусы
+		ПО (упСтатусы.Документ = ДокументупРейс.Ссылка)
+{ГДЕ
+	упСтатусы.Статус.* КАК Статус}
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	втРейсы.Рейс КАК Рейс,
+	втРейсы.Номер КАК Номер,
+	втРейсы.Дата КАК Дата,
+	втРейсы.ПеревозкаТранспортнойКомпанией КАК ПеревозкаТранспортнойКомпанией,
+	втРейсы.Организация КАК Организация,
+	втРейсы.ВидПеревозки КАК ВидПеревозки,
+	втРейсы.Автор КАК Автор,
+	втРейсы.Комментарий КАК Комментарий,
+	втРейсы.Статус КАК Статус,
+	втРейсы.ИндексКартинки КАК ИндексКартинки
+ПОМЕСТИТЬ втРейсы
+ИЗ
+	втРейсыПодготовка КАК втРейсы
+ГДЕ
+	втРейсы.Статус = ЗНАЧЕНИЕ(Перечисление.упСтатусыРейса.Выполняется)
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	втРейсы.Рейс,
+	втРейсы.Номер,
+	втРейсы.Дата,
+	втРейсы.ПеревозкаТранспортнойКомпанией,
+	втРейсы.Организация,
+	втРейсы.ВидПеревозки,
+	втРейсы.Автор,
+	втРейсы.Комментарий,
+	втРейсы.Статус,
+	втРейсы.ИндексКартинки
+ИЗ
+	втРейсыПодготовка КАК втРейсы
+ГДЕ
+	втРейсы.Статус &lt;&gt; ЗНАЧЕНИЕ(Перечисление.упСтатусыРейса.Выполняется)
+{ГДЕ
+	(РАЗНОСТЬДАТ(втРейсы.Период, &amp;ТекущаяДата, ЧАС)) КАК Возраст}
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	упМаршрутПоРейсу.Рейс КАК Рейс,
+	СУММА(ВЫБОР
+			КОГДА упМаршрутПоРейсу.Пройдена
+				ТОГДА 1
+			ИНАЧЕ 0
+		КОНЕЦ) КАК ТочекПройдено,
+	СУММА(ВЫБОР
+			КОГДА упМаршрутПоРейсу.Отменена
+				ТОГДА 1
+			ИНАЧЕ 0
+		КОНЕЦ) КАК ТочекОтменено,
+	КОЛИЧЕСТВО(упМаршрутПоРейсу.Идентификатор) - СУММА(ВЫБОР
+			КОГДА упМаршрутПоРейсу.Пройдена
+				ТОГДА 1
+			ИНАЧЕ 0
+		КОНЕЦ) - СУММА(ВЫБОР
+			КОГДА упМаршрутПоРейсу.Отменена
+				ТОГДА 1
+			ИНАЧЕ 0
+		КОНЕЦ) КАК ТочекПосетить
+ПОМЕСТИТЬ втСтатистикаПоТочкам
+ИЗ
+	РегистрСведений.упМаршрутПоРейсу.СрезПоследних(
+			,
+			Рейс В
+				(ВЫБРАТЬ
+					втРейсы.Рейс
+				ИЗ
+					втРейсы)) КАК упМаршрутПоРейсу
+
+СГРУППИРОВАТЬ ПО
+	упМаршрутПоРейсу.Рейс
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	упДанныеТрекеров.Рейс КАК Рейс,
+	упДанныеТрекеров.Широта КАК Широта,
+	упДанныеТрекеров.Долгота КАК Долгота,
+	упДанныеТрекеров.Высота КАК Высота,
+	упДанныеТрекеров.Скорость КАК Скорость,
+	упДанныеТрекеров.НаправлениеДвижения КАК НаправлениеДвижения,
+	упДанныеТрекеров.Период КАК ПоследнееОбновление,
+	упДанныеТрекеров.Трекер КАК Трекер,
+	упДанныеТрекеров.Трекер.Модель.ТипУстройства КАК ТипУстройства,
+	упДанныеТрекеров.ПредставлениеКоординаты КАК ПредставлениеКоординаты
+ПОМЕСТИТЬ втДанныеТрекеров
+ИЗ
+	РегистрСведений.упДанныеТрекеров.СрезПоследних(&amp;КонецПериода, ) КАК упДанныеТрекеров
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	втРейсы.Рейс КАК Рейс,
+	втРейсы.Номер КАК Номер,
+	втРейсы.Дата КАК Дата,
+	втРейсы.ПеревозкаТранспортнойКомпанией КАК ПеревозкаТранспортнойКомпанией,
+	втРейсы.Организация КАК Организация,
+	втРейсы.ВидПеревозки КАК ВидПеревозки,
+	втРейсы.Автор КАК Автор,
+	втРейсы.Комментарий КАК Комментарий,
+	втРейсы.Статус КАК Статус,
+	втРейсы.ИндексКартинки КАК ИндексКартинки,
+	упПеревозчикПоРейсу.ТранспортноеСредство КАК ТранспортноеСредство,
+	упПеревозчикПоРейсу.Перевозчик КАК Перевозчик,
+	упПеревозчикПоРейсу.Соглашение КАК Соглашение,
+	упПеревозчикПоРейсу.ТипТС КАК ТипТС,
+	упПеревозчикПоРейсу.Водитель1 КАК Водитель1,
+	упПеревозчикПоРейсу.Водитель2 КАК Водитель2,
+	упПеревозчикПоРейсу.Экспедитор КАК Экспедитор,
+	упПлановыеПараметрыРейса.Расстояние КАК ПлановоеРасстояние,
+	упПлановыеПараметрыРейса.НулевойПробег КАК ПлановоеНулевойПробег,
+	упПлановыеПараметрыРейса.Время КАК ПлановоеВремяРейса,
+	упПлановыеПараметрыРейса.ВремяВПути КАК ПлановоеВремяВПути,
+	упПлановыеПараметрыРейса.ЗонаПогрузки КАК ЗонаПогрузки,
+	упПлановыеПараметрыРейса.ЗонаРазгрузки КАК ЗонаРазгрузки,
+	упПлановыеПараметрыРейса.ПредставлениеМаршрута КАК ПредставлениеМаршрута,
+	упПлановыеПараметрыРейса.Объем КАК ПлановыйОбъем,
+	упПлановыеПараметрыРейса.КоличествоМест КАК ПлановоеКоличествоМест,
+	упПлановыеПараметрыРейса.КоличествоЗагрузочныхМетров КАК ПлановоеКоличествоЗагрузочныхМетров,
+	упПлановыеПараметрыРейса.Масса КАК ПлановаяМасса,
+	упПлановыеПараметрыРейса.ПлановоеНачалоВыполнения КАК ПлановоеНачалоВыполнения,
+	упПлановыеПараметрыРейса.ПлановоеОкончаниеВыполнения КАК ПлановоеОкончаниеВыполнения,
+	упПлановыеПараметрыРейса.ОценочнаяСтоимость КАК ОценочнаяСтоимость,
+	упПлановыеПараметрыРейса.ПланируемоеКоличествоЗаданий КАК ПланируемоеКоличествоЗаданий,
+	упПлановыеПараметрыРейса.СуммаИнкассации КАК СуммаИнкассации,
+	ЕСТЬNULL(упФактическиеПараметрыРейса.НачалоВыполнения, ДАТАВРЕМЯ(1, 1, 1)) КАК НачалоВыполнения,
+	ЕСТЬNULL(упФактическиеПараметрыРейса.ОкончаниеВыполнения, ДАТАВРЕМЯ(1, 1, 1)) КАК ОкончаниеВыполнения,
+	ЕСТЬNULL(упФактическиеПараметрыРейса.СуммаИнкассации, 0) КАК ФактическаяСуммаИнкассации,
+	втДанныеТрекеров.Широта КАК Широта,
+	втДанныеТрекеров.Долгота КАК Долгота,
+	втДанныеТрекеров.Высота КАК Высота,
+	втДанныеТрекеров.Скорость КАК Скорость,
+	втДанныеТрекеров.НаправлениеДвижения КАК НаправлениеДвижения,
+	втДанныеТрекеров.ПоследнееОбновление КАК ПоследнееОбновление,
+	втДанныеТрекеров.Трекер КАК Трекер,
+	втДанныеТрекеров.ТипУстройства КАК ТипУстройства,
+	втДанныеТрекеров.ПредставлениеКоординаты КАК ПредставлениеКоординаты,
+	втСтатистикаПоТочкам.ТочекПройдено КАК ТочекПройдено,
+	втСтатистикаПоТочкам.ТочекОтменено КАК ТочекОтменено,
+	втСтатистикаПоТочкам.ТочекПосетить КАК ТочекПосетить,
+	ВЫБОР
+		КОГДА упПеревозчикПоРейсу.ТранспортноеСредство.СтильМаркера = ЗНАЧЕНИЕ(Справочник.упСтилиМаркеров.ПустаяСсылка)
+			ТОГДА ЗНАЧЕНИЕ(Справочник.упСтилиМаркеров.ТранспортноеСредство)
+		ИНАЧЕ упПеревозчикПоРейсу.ТранспортноеСредство.СтильМаркера
+	КОНЕЦ КАК СтильМаркера,
+	ЕСТЬNULL(упПеревозчикПоРейсу.ТранспортноеСредство.СтильЛиний.Цвет, ВЫРАЗИТЬ(ЗНАЧЕНИЕ(Справочник.упСтилиЛиний.Основной) КАК Справочник.упСтилиЛиний).Цвет) КАК ЦветЛинии,
+	ЕСТЬNULL(упПеревозчикПоРейсу.ТранспортноеСредство.СтильЛиний.Толщина, ВЫРАЗИТЬ(ЗНАЧЕНИЕ(Справочник.упСтилиЛиний.Основной) КАК Справочник.упСтилиЛиний).Толщина) КАК ТолщинаЛинии,
+	ЕСТЬNULL(упПеревозчикПоРейсу.ТранспортноеСредство.СтильЛиний.Прозрачность, ВЫРАЗИТЬ(ЗНАЧЕНИЕ(Справочник.упСтилиЛиний.Основной) КАК Справочник.упСтилиЛиний).Прозрачность) КАК ПрозрачностьЛинии,
+	ИСТИНА КАК ИстинаСлужебный,
+	упПеревозчикПоРейсу.ТранспортноеСредство.СтильЛиний КАК СтильЛиний
+ИЗ
+	втРейсы КАК втРейсы
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упПеревозчикПоРейсу.СрезПоследних КАК упПеревозчикПоРейсу
+		ПО (упПеревозчикПоРейсу.Рейс = втРейсы.Рейс)
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упПлановыеПараметрыРейса КАК упПлановыеПараметрыРейса
+		ПО (упПлановыеПараметрыРейса.Рейс = втРейсы.Рейс)
+		ЛЕВОЕ СОЕДИНЕНИЕ втСтатистикаПоТочкам КАК втСтатистикаПоТочкам
+		ПО втРейсы.Рейс = втСтатистикаПоТочкам.Рейс
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упФактическиеПараметрыРейса КАК упФактическиеПараметрыРейса
+		ПО (упФактическиеПараметрыРейса.Рейс = втРейсы.Рейс)
+		ЛЕВОЕ СОЕДИНЕНИЕ втДанныеТрекеров КАК втДанныеТрекеров
+		ПО (упПеревозчикПоРейсу.Рейс = втДанныеТрекеров.Рейс)
+ГДЕ
+	НЕ втДанныеТрекеров.Широта = 0
+	И НЕ втДанныеТрекеров.Долгота = 0
+	И втДанныеТрекеров.ПоследнееОбновление &gt; &amp;НачалоПериода</query>
+	</dataSet>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>ТекущаяДата</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Текущая дата</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Долгота</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Автор</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВидПеревозки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Водитель1</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Водитель2</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Высота</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Дата</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЗонаПогрузки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЗонаРазгрузки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ИндексКартинки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ИстинаСлужебный</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Комментарий</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НаправлениеДвижения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НачалоВыполнения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Номер</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОкончаниеВыполнения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Организация</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОценочнаяСтоимость</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПеревозкаТранспортнойКомпанией</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Перевозчик</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПланируемоеКоличествоЗаданий</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПлановаяМасса</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПлановоеВремяВПути</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПлановоеВремяРейса</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПлановоеКоличествоЗагрузочныхМетров</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПлановоеКоличествоМест</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПлановоеНачалоВыполнения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПлановоеОкончаниеВыполнения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПлановоеРасстояние</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПлановоеНулевойПробег</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПлановыйОбъем</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПоследнееОбновление</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПредставлениеМаршрута</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтильЛиний</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПрозрачностьЛинии</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Рейс</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Скорость</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Соглашение</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Статус</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтильЛиний</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтильМаркера</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаИнкассации</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТипТС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТипУстройства</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТолщинаЛинии</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТочекОтменено</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТочекПосетить</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТочекПройдено</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТранспортноеСредство</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Трекер</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ФактическаяСуммаИнкассации</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЦветЛинии</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Широта</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Экспедитор</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Статус</dcsset:left>
+					<dcsset:comparisonType>InList</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.упСтатусыРейса.Выполняется</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.упСтатусыРейса.Выполнен</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.упСтатусыРейса.ВыполненЧастично</dcsset:right>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Возраст</dcsset:left>
+					<dcsset:comparisonType>Less</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:decimal">4</dcsset:right>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Рейс</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+			</dcsset:order>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

@@ -1,0 +1,676 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoTime>CurrentOrLast</AutoTime>
+	<UsePostingMode>Auto</UsePostingMode>
+	<RepostOnWrite>true</RepostOnWrite>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаШапка" id="41">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа шапка</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа шапка</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаШапкаРасширеннаяПодсказка" id="42"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаШапкаЛевая" id="43">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа шапка левая</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа шапка левая</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаШапкаЛеваяРасширеннаяПодсказка" id="44"/>
+					<ChildItems>
+						<InputField name="Номер" id="1">
+							<DataPath>Объект.Number</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>11</Width>
+							<ContextMenu name="НомерКонтекстноеМеню" id="2"/>
+							<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="3"/>
+						</InputField>
+						<InputField name="Дата" id="4">
+							<DataPath>Объект.Date</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>14</Width>
+							<ContextMenu name="ДатаКонтекстноеМеню" id="5"/>
+							<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="6"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаШапкаПравая" id="51">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа шапка правая</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа шапка правая</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаШапкаПраваяРасширеннаяПодсказка" id="52"/>
+					<ChildItems>
+						<InputField name="ЗаявкаНаПеревозкуГруза" id="7">
+							<DataPath>Объект.ЗаявкаНаПеревозкуГруза</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<ContextMenu name="ЗаявкаНаПеревозкуГрузаКонтекстноеМеню" id="8"/>
+							<ExtendedTooltip name="ЗаявкаНаПеревозкуГрузаРасширеннаяПодсказка" id="9"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<Pages name="ГруппаСтраницы" id="35">
+			<ReadOnly>true</ReadOnly>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="ГруппаСтраницыРасширеннаяПодсказка" id="36"/>
+			<ChildItems>
+				<Page name="ГруппаГлавное" id="37">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Главное</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа главное</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<ExtendedTooltip name="ГруппаГлавноеРасширеннаяПодсказка" id="38"/>
+					<ChildItems>
+						<Table name="ИзмененияПлановПеревозки" id="71">
+							<ChangeRowSet>false</ChangeRowSet>
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Объект.ИзмененияПлановПеревозки</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ИзмененияПлановПеревозкиКонтекстноеМеню" id="72"/>
+							<AutoCommandBar name="ИзмененияПлановПеревозкиКоманднаяПанель" id="73"/>
+							<ExtendedTooltip name="ИзмененияПлановПеревозкиРасширеннаяПодсказка" id="74"/>
+							<SearchStringAddition name="ИзмененияПлановПеревозкиСтрокаПоиска" id="75">
+								<AdditionSource>
+									<Item>ИзмененияПлановПеревозки</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ИзмененияПлановПеревозкиСтрокаПоискаКонтекстноеМеню" id="76"/>
+								<ExtendedTooltip name="ИзмененияПлановПеревозкиСтрокаПоискаРасширеннаяПодсказка" id="77"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ИзмененияПлановПеревозкиСостояниеПросмотра" id="78">
+								<AdditionSource>
+									<Item>ИзмененияПлановПеревозки</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ИзмененияПлановПеревозкиСостояниеПросмотраКонтекстноеМеню" id="79"/>
+								<ExtendedTooltip name="ИзмененияПлановПеревозкиСостояниеПросмотраРасширеннаяПодсказка" id="80"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ИзмененияПлановПеревозкиУправлениеПоиском" id="81">
+								<AdditionSource>
+									<Item>ИзмененияПлановПеревозки</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ИзмененияПлановПеревозкиУправлениеПоискомКонтекстноеМеню" id="82"/>
+								<ExtendedTooltip name="ИзмененияПлановПеревозкиУправлениеПоискомРасширеннаяПодсказка" id="83"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="ПлановыеЭтапыМультимодальнойПеревозкиНомерСтроки" id="84">
+									<DataPath>Объект.ИзмененияПлановПеревозки.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПлановыеЭтапыМультимодальнойПеревозкиНомерСтрокиКонтекстноеМеню" id="85"/>
+									<ExtendedTooltip name="ПлановыеЭтапыМультимодальнойПеревозкиНомерСтрокиРасширеннаяПодсказка" id="86"/>
+								</LabelField>
+								<InputField name="ПлановыеЭтапыМультимодальнойПеревозкиАдресОтправления" id="87">
+									<DataPath>Объект.ИзмененияПлановПеревозки.АдресОтправления</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПлановыеЭтапыМультимодальнойПеревозкиАдресОтправленияКонтекстноеМеню" id="88"/>
+									<ExtendedTooltip name="ПлановыеЭтапыМультимодальнойПеревозкиАдресОтправленияРасширеннаяПодсказка" id="89"/>
+								</InputField>
+								<InputField name="ПлановыеЭтапыМультимодальнойПеревозкиАдресПолучения" id="90">
+									<DataPath>Объект.ИзмененияПлановПеревозки.АдресПолучения</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПлановыеЭтапыМультимодальнойПеревозкиАдресПолученияКонтекстноеМеню" id="91"/>
+									<ExtendedTooltip name="ПлановыеЭтапыМультимодальнойПеревозкиАдресПолученияРасширеннаяПодсказка" id="92"/>
+								</InputField>
+								<InputField name="ПлановыеЭтапыМультимодальнойПеревозкиВидПеревозки" id="93">
+									<DataPath>Объект.ИзмененияПлановПеревозки.ВидПеревозки</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПлановыеЭтапыМультимодальнойПеревозкиВидПеревозкиКонтекстноеМеню" id="94"/>
+									<ExtendedTooltip name="ПлановыеЭтапыМультимодальнойПеревозкиВидПеревозкиРасширеннаяПодсказка" id="95"/>
+								</InputField>
+								<InputField name="ПлановыеЭтапыМультимодальнойПеревозкиГрафикРаботыАдресаОтправления" id="96">
+									<DataPath>Объект.ИзмененияПлановПеревозки.ГрафикРаботыАдресаОтправления</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПлановыеЭтапыМультимодальнойПеревозкиГрафикРаботыАдресаОтправленияКонтекстноеМеню" id="97"/>
+									<ExtendedTooltip name="ПлановыеЭтапыМультимодальнойПеревозкиГрафикРаботыАдресаОтправленияРасширеннаяПодсказка" id="98"/>
+								</InputField>
+								<InputField name="ПлановыеЭтапыМультимодальнойПеревозкиГрафикРаботыАдресаПолучения" id="99">
+									<DataPath>Объект.ИзмененияПлановПеревозки.ГрафикРаботыАдресаПолучения</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПлановыеЭтапыМультимодальнойПеревозкиГрафикРаботыАдресаПолученияКонтекстноеМеню" id="100"/>
+									<ExtendedTooltip name="ПлановыеЭтапыМультимодальнойПеревозкиГрафикРаботыАдресаПолученияРасширеннаяПодсказка" id="101"/>
+								</InputField>
+								<InputField name="ПлановыеЭтапыМультимодальнойПеревозкиГрузовоеМесто" id="102">
+									<DataPath>Объект.ИзмененияПлановПеревозки.ГрузовоеМесто</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПлановыеЭтапыМультимодальнойПеревозкиГрузовоеМестоКонтекстноеМеню" id="103"/>
+									<ExtendedTooltip name="ПлановыеЭтапыМультимодальнойПеревозкиГрузовоеМестоРасширеннаяПодсказка" id="104"/>
+								</InputField>
+								<InputField name="ПлановыеЭтапыМультимодальнойПеревозкиЗаказчик" id="105">
+									<DataPath>Объект.ИзмененияПлановПеревозки.Заказчик</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПлановыеЭтапыМультимодальнойПеревозкиЗаказчикКонтекстноеМеню" id="106"/>
+									<ExtendedTooltip name="ПлановыеЭтапыМультимодальнойПеревозкиЗаказчикРасширеннаяПодсказка" id="107"/>
+								</InputField>
+								<InputField name="ПлановыеЭтапыМультимодальнойПеревозкиЗонаОтправления" id="108">
+									<DataPath>Объект.ИзмененияПлановПеревозки.ЗонаОтправления</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПлановыеЭтапыМультимодальнойПеревозкиЗонаОтправленияКонтекстноеМеню" id="109"/>
+									<ExtendedTooltip name="ПлановыеЭтапыМультимодальнойПеревозкиЗонаОтправленияРасширеннаяПодсказка" id="110"/>
+								</InputField>
+								<InputField name="ПлановыеЭтапыМультимодальнойПеревозкиЗонаПолучения" id="111">
+									<DataPath>Объект.ИзмененияПлановПеревозки.ЗонаПолучения</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПлановыеЭтапыМультимодальнойПеревозкиЗонаПолученияКонтекстноеМеню" id="112"/>
+									<ExtendedTooltip name="ПлановыеЭтапыМультимодальнойПеревозкиЗонаПолученияРасширеннаяПодсказка" id="113"/>
+								</InputField>
+								<InputField name="ПлановыеЭтапыМультимодальнойПеревозкиКоличествоГрузов" id="114">
+									<DataPath>Объект.ИзмененияПлановПеревозки.КоличествоГрузов</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПлановыеЭтапыМультимодальнойПеревозкиКоличествоГрузовКонтекстноеМеню" id="115"/>
+									<ExtendedTooltip name="ПлановыеЭтапыМультимодальнойПеревозкиКоличествоГрузовРасширеннаяПодсказка" id="116"/>
+								</InputField>
+								<InputField name="ПлановыеЭтапыМультимодальнойПеревозкиКонтактноеЛицоЗаказчика" id="117">
+									<DataPath>Объект.ИзмененияПлановПеревозки.КонтактноеЛицоЗаказчика</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПлановыеЭтапыМультимодальнойПеревозкиКонтактноеЛицоЗаказчикаКонтекстноеМеню" id="118"/>
+									<ExtendedTooltip name="ПлановыеЭтапыМультимодальнойПеревозкиКонтактноеЛицоЗаказчикаРасширеннаяПодсказка" id="119"/>
+								</InputField>
+								<InputField name="ПлановыеЭтапыМультимодальнойПеревозкиКонтактноеЛицоОтправителя" id="120">
+									<DataPath>Объект.ИзмененияПлановПеревозки.КонтактноеЛицоОтправителя</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПлановыеЭтапыМультимодальнойПеревозкиКонтактноеЛицоОтправителяКонтекстноеМеню" id="121"/>
+									<ExtendedTooltip name="ПлановыеЭтапыМультимодальнойПеревозкиКонтактноеЛицоОтправителяРасширеннаяПодсказка" id="122"/>
+								</InputField>
+								<InputField name="ПлановыеЭтапыМультимодальнойПеревозкиКонтактноеЛицоПолучателя" id="123">
+									<DataPath>Объект.ИзмененияПлановПеревозки.КонтактноеЛицоПолучателя</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПлановыеЭтапыМультимодальнойПеревозкиКонтактноеЛицоПолучателяКонтекстноеМеню" id="124"/>
+									<ExtendedTooltip name="ПлановыеЭтапыМультимодальнойПеревозкиКонтактноеЛицоПолучателяРасширеннаяПодсказка" id="125"/>
+								</InputField>
+								<InputField name="ПлановыеЭтапыМультимодальнойПеревозкиКонтрагентЗаказчика" id="126">
+									<DataPath>Объект.ИзмененияПлановПеревозки.КонтрагентЗаказчика</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПлановыеЭтапыМультимодальнойПеревозкиКонтрагентЗаказчикаКонтекстноеМеню" id="127"/>
+									<ExtendedTooltip name="ПлановыеЭтапыМультимодальнойПеревозкиКонтрагентЗаказчикаРасширеннаяПодсказка" id="128"/>
+								</InputField>
+								<InputField name="ПлановыеЭтапыМультимодальнойПеревозкиКонтрагентОтправителя" id="129">
+									<DataPath>Объект.ИзмененияПлановПеревозки.КонтрагентОтправителя</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПлановыеЭтапыМультимодальнойПеревозкиКонтрагентОтправителяКонтекстноеМеню" id="130"/>
+									<ExtendedTooltip name="ПлановыеЭтапыМультимодальнойПеревозкиКонтрагентОтправителяРасширеннаяПодсказка" id="131"/>
+								</InputField>
+								<InputField name="ПлановыеЭтапыМультимодальнойПеревозкиКонтрагентПолучателя" id="132">
+									<DataPath>Объект.ИзмененияПлановПеревозки.КонтрагентПолучателя</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПлановыеЭтапыМультимодальнойПеревозкиКонтрагентПолучателяКонтекстноеМеню" id="133"/>
+									<ExtendedTooltip name="ПлановыеЭтапыМультимодальнойПеревозкиКонтрагентПолучателяРасширеннаяПодсказка" id="134"/>
+								</InputField>
+								<InputField name="ПлановыеЭтапыМультимодальнойПеревозкиНаправлениеДеятельности" id="135">
+									<DataPath>Объект.ИзмененияПлановПеревозки.НаправлениеДеятельности</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПлановыеЭтапыМультимодальнойПеревозкиНаправлениеДеятельностиКонтекстноеМеню" id="136"/>
+									<ExtendedTooltip name="ПлановыеЭтапыМультимодальнойПеревозкиНаправлениеДеятельностиРасширеннаяПодсказка" id="137"/>
+								</InputField>
+								<InputField name="ПлановыеЭтапыМультимодальнойПеревозкиНомерВЦепиПоставок" id="138">
+									<DataPath>Объект.ИзмененияПлановПеревозки.НомерВЦепиПоставок</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПлановыеЭтапыМультимодальнойПеревозкиНомерВЦепиПоставокКонтекстноеМеню" id="139"/>
+									<ExtendedTooltip name="ПлановыеЭтапыМультимодальнойПеревозкиНомерВЦепиПоставокРасширеннаяПодсказка" id="140"/>
+								</InputField>
+								<InputField name="ПлановыеЭтапыМультимодальнойПеревозкиНомерВЦепиПоставокКонец" id="141">
+									<DataPath>Объект.ИзмененияПлановПеревозки.НомерВЦепиПоставокКонец</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПлановыеЭтапыМультимодальнойПеревозкиНомерВЦепиПоставокКонецКонтекстноеМеню" id="142"/>
+									<ExtendedTooltip name="ПлановыеЭтапыМультимодальнойПеревозкиНомерВЦепиПоставокКонецРасширеннаяПодсказка" id="143"/>
+								</InputField>
+								<InputField name="ПлановыеЭтапыМультимодальнойПеревозкиОрганизация" id="144">
+									<DataPath>Объект.ИзмененияПлановПеревозки.Организация</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПлановыеЭтапыМультимодальнойПеревозкиОрганизацияКонтекстноеМеню" id="145"/>
+									<ExtendedTooltip name="ПлановыеЭтапыМультимодальнойПеревозкиОрганизацияРасширеннаяПодсказка" id="146"/>
+								</InputField>
+								<CheckBoxField name="ПлановыеЭтапыМультимодальнойПеревозкиОтменен" id="147">
+									<DataPath>Объект.ИзмененияПлановПеревозки.Отменен</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ПлановыеЭтапыМультимодальнойПеревозкиОтмененКонтекстноеМеню" id="148"/>
+									<ExtendedTooltip name="ПлановыеЭтапыМультимодальнойПеревозкиОтмененРасширеннаяПодсказка" id="149"/>
+								</CheckBoxField>
+								<InputField name="ПлановыеЭтапыМультимодальнойПеревозкиОтправитель" id="150">
+									<DataPath>Объект.ИзмененияПлановПеревозки.Отправитель</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПлановыеЭтапыМультимодальнойПеревозкиОтправительКонтекстноеМеню" id="151"/>
+									<ExtendedTooltip name="ПлановыеЭтапыМультимодальнойПеревозкиОтправительРасширеннаяПодсказка" id="152"/>
+								</InputField>
+								<InputField name="ПлановыеЭтапыМультимодальнойПеревозкиОтправлениеГрузаПо" id="153">
+									<DataPath>Объект.ИзмененияПлановПеревозки.ОтправлениеГрузаПо</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПлановыеЭтапыМультимодальнойПеревозкиОтправлениеГрузаПоКонтекстноеМеню" id="154"/>
+									<ExtendedTooltip name="ПлановыеЭтапыМультимодальнойПеревозкиОтправлениеГрузаПоРасширеннаяПодсказка" id="155"/>
+								</InputField>
+								<InputField name="ПлановыеЭтапыМультимодальнойПеревозкиОтправлениеГрузаС" id="156">
+									<DataPath>Объект.ИзмененияПлановПеревозки.ОтправлениеГрузаС</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПлановыеЭтапыМультимодальнойПеревозкиОтправлениеГрузаСКонтекстноеМеню" id="157"/>
+									<ExtendedTooltip name="ПлановыеЭтапыМультимодальнойПеревозкиОтправлениеГрузаСРасширеннаяПодсказка" id="158"/>
+								</InputField>
+								<InputField name="ПлановыеЭтапыМультимодальнойПеревозкиПодразделение" id="159">
+									<DataPath>Объект.ИзмененияПлановПеревозки.Подразделение</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПлановыеЭтапыМультимодальнойПеревозкиПодразделениеКонтекстноеМеню" id="160"/>
+									<ExtendedTooltip name="ПлановыеЭтапыМультимодальнойПеревозкиПодразделениеРасширеннаяПодсказка" id="161"/>
+								</InputField>
+								<InputField name="ПлановыеЭтапыМультимодальнойПеревозкиПолучатель" id="162">
+									<DataPath>Объект.ИзмененияПлановПеревозки.Получатель</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПлановыеЭтапыМультимодальнойПеревозкиПолучательКонтекстноеМеню" id="163"/>
+									<ExtendedTooltip name="ПлановыеЭтапыМультимодальнойПеревозкиПолучательРасширеннаяПодсказка" id="164"/>
+								</InputField>
+								<InputField name="ПлановыеЭтапыМультимодальнойПеревозкиПолучениеГрузаПо" id="165">
+									<DataPath>Объект.ИзмененияПлановПеревозки.ПолучениеГрузаПо</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПлановыеЭтапыМультимодальнойПеревозкиПолучениеГрузаПоКонтекстноеМеню" id="166"/>
+									<ExtendedTooltip name="ПлановыеЭтапыМультимодальнойПеревозкиПолучениеГрузаПоРасширеннаяПодсказка" id="167"/>
+								</InputField>
+								<InputField name="ПлановыеЭтапыМультимодальнойПеревозкиПолучениеГрузаС" id="168">
+									<DataPath>Объект.ИзмененияПлановПеревозки.ПолучениеГрузаС</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПлановыеЭтапыМультимодальнойПеревозкиПолучениеГрузаСКонтекстноеМеню" id="169"/>
+									<ExtendedTooltip name="ПлановыеЭтапыМультимодальнойПеревозкиПолучениеГрузаСРасширеннаяПодсказка" id="170"/>
+								</InputField>
+								<InputField name="ПлановыеЭтапыМультимодальнойПеревозкиПриоритет" id="171">
+									<DataPath>Объект.ИзмененияПлановПеревозки.Приоритет</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПлановыеЭтапыМультимодальнойПеревозкиПриоритетКонтекстноеМеню" id="172"/>
+									<ExtendedTooltip name="ПлановыеЭтапыМультимодальнойПеревозкиПриоритетРасширеннаяПодсказка" id="173"/>
+								</InputField>
+								<InputField name="ПлановыеЭтапыМультимодальнойПеревозкиСоглашение" id="174">
+									<DataPath>Объект.ИзмененияПлановПеревозки.Соглашение</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПлановыеЭтапыМультимодальнойПеревозкиСоглашениеКонтекстноеМеню" id="175"/>
+									<ExtendedTooltip name="ПлановыеЭтапыМультимодальнойПеревозкиСоглашениеРасширеннаяПодсказка" id="176"/>
+								</InputField>
+								<InputField name="ПлановыеЭтапыМультимодальнойПеревозкиСхемаМультимодальнойПеревозки" id="177">
+									<DataPath>Объект.ИзмененияПлановПеревозки.СхемаМультимодальнойПеревозки</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПлановыеЭтапыМультимодальнойПеревозкиСхемаМультимодальнойПеревозкиКонтекстноеМеню" id="178"/>
+									<ExtendedTooltip name="ПлановыеЭтапыМультимодальнойПеревозкиСхемаМультимодальнойПеревозкиРасширеннаяПодсказка" id="179"/>
+								</InputField>
+								<InputField name="ПлановыеЭтапыМультимодальнойПеревозкиТара" id="180">
+									<DataPath>Объект.ИзмененияПлановПеревозки.Тара</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПлановыеЭтапыМультимодальнойПеревозкиТараКонтекстноеМеню" id="181"/>
+									<ExtendedTooltip name="ПлановыеЭтапыМультимодальнойПеревозкиТараРасширеннаяПодсказка" id="182"/>
+								</InputField>
+								<InputField name="ПлановыеЭтапыМультимодальнойПеревозкиЧасовойПояс" id="183">
+									<DataPath>Объект.ИзмененияПлановПеревозки.ЧасовойПояс</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПлановыеЭтапыМультимодальнойПеревозкиЧасовойПоясКонтекстноеМеню" id="184"/>
+									<ExtendedTooltip name="ПлановыеЭтапыМультимодальнойПеревозкиЧасовойПоясРасширеннаяПодсказка" id="185"/>
+								</InputField>
+								<InputField name="ПлановыеЭтапыМультимодальнойПеревозкиТипПеревозки" id="186">
+									<DataPath>Объект.ИзмененияПлановПеревозки.ТипПеревозки</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПлановыеЭтапыМультимодальнойПеревозкиТипПеревозкиКонтекстноеМеню" id="187"/>
+									<ExtendedTooltip name="ПлановыеЭтапыМультимодальнойПеревозкиТипПеревозкиРасширеннаяПодсказка" id="188"/>
+								</InputField>
+								<CheckBoxField name="ИзмененияПлановПеревозкиОбработкаПрерывания" id="189">
+									<DataPath>Объект.ИзмененияПлановПеревозки.ОбработкаПрерывания</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ИзмененияПлановПеревозкиОбработкаПрерыванияКонтекстноеМеню" id="190"/>
+									<ExtendedTooltip name="ИзмененияПлановПеревозкиОбработкаПрерыванияРасширеннаяПодсказка" id="191"/>
+								</CheckBoxField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаДополнительно" id="39">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дополнительно</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа дополнительно</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаДополнительноРасширеннаяПодсказка" id="40"/>
+					<ChildItems>
+						<InputField name="Автор" id="16">
+							<DataPath>Объект.Автор</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<ContextMenu name="АвторКонтекстноеМеню" id="17"/>
+							<ExtendedTooltip name="АвторРасширеннаяПодсказка" id="18"/>
+						</InputField>
+						<InputField name="Изменил" id="10">
+							<DataPath>Объект.Изменил</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<ContextMenu name="ИзменилКонтекстноеМеню" id="11"/>
+							<ExtendedTooltip name="ИзменилРасширеннаяПодсказка" id="12"/>
+						</InputField>
+						<InputField name="Комментарий" id="13">
+							<DataPath>Объект.Комментарий</DataPath>
+							<TitleLocation>Left</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<ChoiceButton>true</ChoiceButton>
+							<ContextMenu name="КомментарийКонтекстноеМеню" id="14"/>
+							<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="15"/>
+							<Events>
+								<Event name="StartChoice">КомментарийНачалоВыбора</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DocumentObject.упКорректировкаЭтаповПеревозки</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+			<UseAlways>
+				<Field>Объект.RegisterRecords</Field>
+			</UseAlways>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ПлановыеЭтапыМультимодальнойПеревозкиГрузовоеМесто</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПлановыеЭтапыМультимодальнойПеревозкиТара</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПлановыеЭтапыМультимодальнойПеревозкиОтправитель</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПлановыеЭтапыМультимодальнойПеревозкиКонтрагентОтправителя</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПлановыеЭтапыМультимодальнойПеревозкиЗонаОтправления</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПлановыеЭтапыМультимодальнойПеревозкиАдресОтправления</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПлановыеЭтапыМультимодальнойПеревозкиГрафикРаботыАдресаОтправления</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПлановыеЭтапыМультимодальнойПеревозкиОтправлениеГрузаС</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПлановыеЭтапыМультимодальнойПеревозкиОтправлениеГрузаПо</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПлановыеЭтапыМультимодальнойПеревозкиПолучатель</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПлановыеЭтапыМультимодальнойПеревозкиКонтрагентПолучателя</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПлановыеЭтапыМультимодальнойПеревозкиЗонаПолучения</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПлановыеЭтапыМультимодальнойПеревозкиАдресПолучения</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПлановыеЭтапыМультимодальнойПеревозкиПолучениеГрузаС</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПлановыеЭтапыМультимодальнойПеревозкиПолучениеГрузаПо</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПлановыеЭтапыМультимодальнойПеревозкиОрганизация</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПлановыеЭтапыМультимодальнойПеревозкиПодразделение</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПлановыеЭтапыМультимодальнойПеревозкиВидПеревозки</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПлановыеЭтапыМультимодальнойПеревозкиВидТранспорта</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПлановыеЭтапыМультимодальнойПеревозкиЗаказчик</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПлановыеЭтапыМультимодальнойПеревозкиКонтрагентЗаказчика</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПлановыеЭтапыМультимодальнойПеревозкиСхемаМультимодальнойПеревозки</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПлановыеЭтапыМультимодальнойПеревозкиЧасовойПояс</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПлановыеЭтапыМультимодальнойПеревозкиИдентификаторЦепиПоставок</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПлановыеЭтапыМультимодальнойПеревозкиКоличествоГрузов</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ПлановыеЭтапыМультимодальнойПеревозки.СтрокаДокумента</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ПлановыеЭтапыМультимодальнойПеревозки.Ветвь</dcsset:left>
+						<dcsset:comparisonType>Filled</dcsset:comparisonType>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ПлановыеЭтапыМультимодальнойПеревозки.НомерВЦепиПоставок</dcsset:left>
+						<dcsset:comparisonType>Greater</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">#CCFFCC</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">#339966</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Доступность</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ПлановыеЭтапыМультимодальнойПеревозки</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ПлановыеЭтапыМультимодальнойПеревозки.Отменена</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:SpecialTextColor</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" height="9" bold="false" italic="false" underline="false" strikeout="true" kind="WindowsFont"/>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ПлановыеЭтапыМультимодальнойПеревозки</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ПлановыеЭтапыМультимодальнойПеревозки.Выполнена</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">#339966</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="false" italic="true" underline="false" strikeout="false" kind="WindowsFont"/>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType"/>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ПлановыеЭтапыМультимодальнойПеревозкиГрузовоеМесто</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПлановыеЭтапыМультимодальнойПеревозкиТара</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПлановыеЭтапыМультимодальнойПеревозкиКоличествоГрузов</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ПлановыеЭтапыМультимодальнойПеревозки.СтрокаДокумента</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ПлановыеЭтапыМультимодальнойПеревозки.Ветвь</dcsset:left>
+						<dcsset:comparisonType>Filled</dcsset:comparisonType>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ПлановыеЭтапыМультимодальнойПеревозки.НомерВЦепиПоставок</dcsset:left>
+						<dcsset:comparisonType>Greater</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ПлановыеЭтапыМультимодальнойПеревозки.Отменена</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">#CCFFCC</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">#339966</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>Доступность</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+</Form>

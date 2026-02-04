@@ -1,0 +1,409 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoTitle>false</AutoTitle>
+	<CommandSet>
+		<ExcludedCommand>Close</ExcludedCommand>
+	</CommandSet>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="BeforeClose">ПередЗакрытием</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаИнформация" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Информация</v8:content>
+				</v8:item>
+			</Title>
+			<TitleFont ref="sys:DefaultGUIFont" kind="WindowsFont"/>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа информация</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаИнформацияРасширеннаяПодсказка" id="19"/>
+			<ChildItems>
+				<LabelField name="ТекстДополнительногоСообщения" id="23">
+					<DataPath>ТекстДополнительногоСообщения</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<HorizontalStretch>true</HorizontalStretch>
+					<TextColor>style:упЦветДополнительногоСообщения</TextColor>
+					<Font ref="style:упШрифтПодсказки" kind="StyleItem"/>
+					<ContextMenu name="ТекстДополнительногоСообщенияКонтекстноеМеню" id="24"/>
+					<ExtendedTooltip name="ТекстДополнительногоСообщенияРасширеннаяПодсказка" id="25"/>
+				</LabelField>
+				<LabelField name="ТекстДополнительногоСообщения1" id="32">
+					<DataPath>ТекстДополнительногоСообщения1</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<Height>4</Height>
+					<HorizontalStretch>true</HorizontalStretch>
+					<TextColor>style:упЦветДополнительногоСообщения</TextColor>
+					<Font ref="style:упШрифтПодсказки" kind="StyleItem"/>
+					<ContextMenu name="ТекстДополнительногоСообщения1КонтекстноеМеню" id="33"/>
+					<ExtendedTooltip name="ТекстДополнительногоСообщения1РасширеннаяПодсказка" id="34"/>
+				</LabelField>
+				<LabelField name="ТекстПодсказки" id="20">
+					<DataPath>ТекстПодсказки</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<HorizontalAlign>Center</HorizontalAlign>
+					<VerticalAlign>Center</VerticalAlign>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<Height>3</Height>
+					<HorizontalStretch>true</HorizontalStretch>
+					<TextColor>style:упЦветПодсказки</TextColor>
+					<Font ref="style:упШрифтПодсказки" kind="StyleItem"/>
+					<ContextMenu name="ТекстПодсказкиКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="ТекстПодсказкиExtendedTooltip" id="22"/>
+				</LabelField>
+				<LabelField name="ТекстОшибки" id="29">
+					<DataPath>ТекстОшибки</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<HorizontalAlign>Center</HorizontalAlign>
+					<VerticalAlign>Center</VerticalAlign>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<Height>2</Height>
+					<HorizontalStretch>true</HorizontalStretch>
+					<TextColor>style:упЦветТекстаОшибки</TextColor>
+					<Font ref="style:упШрифтОшибки" kind="StyleItem"/>
+					<ContextMenu name="ТекстОшибкиКонтекстноеМеню" id="30"/>
+					<ExtendedTooltip name="ТекстОшибкиExtendedTooltip" id="31"/>
+				</LabelField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаКнопки" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа кнопки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа кнопки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаКнопкиРасширеннаяПодсказка" id="2"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаРаспорка1" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа распорка1</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа распорка1</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>3</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРаспорка1РасширеннаяПодсказка" id="4"/>
+					<ChildItems>
+						<PictureDecoration name="Декорация3" id="5">
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<Height>4</Height>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="Декорация3КонтекстноеМеню" id="6"/>
+							<ExtendedTooltip name="Декорация3РасширеннаяПодсказка" id="7"/>
+						</PictureDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаКнопкаПечать" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа кнопка печать</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа кнопка печать</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<BackColor>style:упЦветФонаКнопкиПечать</BackColor>
+					<ExtendedTooltip name="ГруппаКнопкаПечатьРасширеннаяПодсказка" id="9"/>
+					<ChildItems>
+						<PictureDecoration name="КнопкаПовторнаяПечать" id="10">
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<Height>4</Height>
+							<HorizontalStretch>true</HorizontalStretch>
+							<Font ref="style:упШрифтКнопки" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Повторная печать</v8:content>
+								</v8:item>
+							</Title>
+							<GroupHorizontalAlign>Center</GroupHorizontalAlign>
+							<Hyperlink>true</Hyperlink>
+							<NonselectedPictureText>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Повторная печать</v8:content>
+								</v8:item>
+							</NonselectedPictureText>
+							<BorderColor>style:упЦветРамкиКнопкиПечать</BorderColor>
+							<Border width="4">
+								<v8ui:style xsi:type="v8ui:ControlBorderType">Single</v8ui:style>
+							</Border>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="КнопкаПовторнаяПечатьКонтекстноеМеню" id="11"/>
+							<ExtendedTooltip name="КнопкаПовторнаяПечатьРасширеннаяПодсказка" id="12"/>
+							<Events>
+								<Event name="Click">КнопкаПовторнаяПечатьНажатие</Event>
+							</Events>
+						</PictureDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаКнопкаВыход" id="37">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа кнопка выход</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа кнопка выход</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<BackColor>style:упЦветФонаКнопкиВыходОтмена</BackColor>
+					<ExtendedTooltip name="ГруппаКнопкаВыходРасширеннаяПодсказка" id="38"/>
+					<ChildItems>
+						<PictureDecoration name="КнопкаВыход" id="39">
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<Height>4</Height>
+							<HorizontalStretch>true</HorizontalStretch>
+							<Font ref="style:упШрифтКнопки" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Кнопка выход</v8:content>
+								</v8:item>
+							</Title>
+							<Hyperlink>true</Hyperlink>
+							<NonselectedPictureText>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Выход</v8:content>
+								</v8:item>
+							</NonselectedPictureText>
+							<BorderColor>style:упЦветРамкиКнопкиВыходОтмена</BorderColor>
+							<Border width="4">
+								<v8ui:style xsi:type="v8ui:ControlBorderType">Single</v8ui:style>
+							</Border>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="КнопкаВыходКонтекстноеМеню" id="40"/>
+							<ExtendedTooltip name="КнопкаВыходРасширеннаяПодсказка" id="41"/>
+							<Events>
+								<Event name="Click">КнопкаВыходНажатие</Event>
+							</Events>
+						</PictureDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаРаспорка2" id="13">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа распорка2</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа распорка2</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>3</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРаспорка2РасширеннаяПодсказка" id="14"/>
+					<ChildItems>
+						<PictureDecoration name="Декорация4" id="15">
+							<Width>3</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<Height>4</Height>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="Декорация4КонтекстноеМеню" id="16"/>
+							<ExtendedTooltip name="Декорация4РасширеннаяПодсказка" id="17"/>
+						</PictureDecoration>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="ШтрихКодДокумента" id="26">
+			<DataPath>Штрихкод</DataPath>
+			<UserVisible>
+				<xr:Common>false</xr:Common>
+				<xr:Value name="Role.упРазработчик">true</xr:Value>
+			</UserVisible>
+			<TitleFont ref="style:упШрифтЗаголовкаПоляВводаРабочееМесто" kind="StyleItem"/>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<Font ref="style:упШрифтПоляВводаРабочееМесто" kind="StyleItem"/>
+			<ContextMenu name="ШтрихКодДокументаКонтекстноеМеню" id="27"/>
+			<ExtendedTooltip name="ШтрихКодДокументаРасширеннаяПодсказка" id="28"/>
+			<Events>
+				<Event name="OnChange">ШтрихКодДокументаПриИзменении</Event>
+			</Events>
+		</InputField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.упРМВодителя</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ТекстПодсказки" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текст подсказки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТекстДополнительногоСообщения" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текст дополнительного сообщения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Штрихкод" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Штрихкод</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<View>
+				<xr:Common>false</xr:Common>
+				<xr:Value name="Role.упРазработчик">true</xr:Value>
+			</View>
+		</Attribute>
+		<Attribute name="ТекстОшибки" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текст ошибки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТекстДополнительногоСообщения1" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текст дополнительного сообщения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗакрытьТекущуюФорму" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Закрыть текущую форму</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ИспользоватьДополнительныеОтчетыИОбработки" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использовать дополнительные отчеты и обработки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="сткРезультатПриЗакрытииФормы" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Стк результат при закрытии формы</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="ФормаЗаблокирована" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Форма заблокирована</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Parameters>
+		<Parameter name="Объект">
+			<Type/>
+		</Parameter>
+	</Parameters>
+</Form>

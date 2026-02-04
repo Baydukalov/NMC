@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="AfterWriteAtServer">ПослеЗаписиНаСервере</Event>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="BeforeWrite">ПередЗаписью</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Наименование" id="1">
+			<DataPath>Объект.Description</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="НаименованиеКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<Table name="ПакетДокументов" id="4">
+			<Representation>List</Representation>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Объект.ПакетДокументов</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ПакетДокументовКонтекстноеМеню" id="5"/>
+			<AutoCommandBar name="ПакетДокументовКоманднаяПанель" id="6"/>
+			<ExtendedTooltip name="ПакетДокументовРасширеннаяПодсказка" id="7"/>
+			<SearchStringAddition name="ПакетДокументовСтрокаПоиска" id="8">
+				<AdditionSource>
+					<Item>ПакетДокументов</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ПакетДокументовСтрокаПоискаКонтекстноеМеню" id="9"/>
+				<ExtendedTooltip name="ПакетДокументовСтрокаПоискаРасширеннаяПодсказка" id="10"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ПакетДокументовСостояниеПросмотра" id="11">
+				<AdditionSource>
+					<Item>ПакетДокументов</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ПакетДокументовСостояниеПросмотраКонтекстноеМеню" id="12"/>
+				<ExtendedTooltip name="ПакетДокументовСостояниеПросмотраРасширеннаяПодсказка" id="13"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ПакетДокументовУправлениеПоиском" id="14">
+				<AdditionSource>
+					<Item>ПакетДокументов</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ПакетДокументовУправлениеПоискомКонтекстноеМеню" id="15"/>
+				<ExtendedTooltip name="ПакетДокументовУправлениеПоискомРасширеннаяПодсказка" id="16"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="ПакетДокументовНомерСтроки" id="17">
+					<DataPath>Объект.ПакетДокументов.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ПакетДокументовНомерСтрокиКонтекстноеМеню" id="18"/>
+					<ExtendedTooltip name="ПакетДокументовНомерСтрокиРасширеннаяПодсказка" id="19"/>
+				</LabelField>
+				<InputField name="ПакетДокументовТипДокумента" id="20">
+					<DataPath>Объект.ПакетДокументов.ТипРегламентногоДокумента</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тип документа</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ПакетДокументовТипДокументаКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="ПакетДокументовТипДокументаРасширеннаяПодсказка" id="22"/>
+				</InputField>
+				<InputField name="ПакетДокументовУчастник" id="23">
+					<DataPath>Объект.ПакетДокументов.Участник</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<Width>18</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="ПакетДокументовУчастникКонтекстноеМеню" id="24"/>
+					<ExtendedTooltip name="ПакетДокументовУчастникРасширеннаяПодсказка" id="25"/>
+					<Events>
+						<Event name="OnChange">ПакетДокументовУчастникПриИзменении</Event>
+					</Events>
+				</InputField>
+				<ColumnGroup name="ПакетДокументовГруппа1" id="35">
+					<ExtendedTooltip name="ПакетДокументовГруппа1РасширеннаяПодсказка" id="36"/>
+					<ChildItems>
+						<InputField name="ПакетДокументовКоличествоПолучитьОтУчастника" id="26">
+							<DataPath>Объект.ПакетДокументов.КоличествоПолучитьОтУчастника</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Получить (кол. экземпляров)</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<HeaderPicture>
+								<xr:Ref>CommonPicture.ПереслатьЭлектронноеПисьмо</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</HeaderPicture>
+							<Width>22</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<SpinButton>true</SpinButton>
+							<ContextMenu name="ПакетДокументовКоличествоПолучитьОтУчастникаКонтекстноеМеню" id="27"/>
+							<ExtendedTooltip name="ПакетДокументовКоличествоПолучитьОтУчастникаРасширеннаяПодсказка" id="28"/>
+						</InputField>
+						<InputField name="ПакетДокументовКоличествоПередатьУчастнику" id="29">
+							<DataPath>Объект.ПакетДокументов.КоличествоПередатьУчастнику</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Передать (кол. экземпляров)</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<HeaderPicture>
+								<xr:Ref>CommonPicture.ОтветитьНаЭлектронноеПисьмо</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</HeaderPicture>
+							<Width>22</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<SpinButton>true</SpinButton>
+							<ContextMenu name="ПакетДокументовКоличествоПередатьУчастникуКонтекстноеМеню" id="30"/>
+							<ExtendedTooltip name="ПакетДокументовКоличествоПередатьУчастникуРасширеннаяПодсказка" id="31"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<CheckBoxField name="ПакетДокументовВозвратДокументовПослеИсполненияРейса" id="32">
+					<DataPath>Объект.ПакетДокументов.ВозвратДокументовПослеИсполненияРейса</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ПакетДокументовВозвратДокументовПослеИсполненияРейсаКонтекстноеМеню" id="33"/>
+					<ExtendedTooltip name="ПакетДокументовВозвратДокументовПослеИсполненияРейсаРасширеннаяПодсказка" id="34"/>
+				</CheckBoxField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.упПакетыРегламентныхДокументов</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ПакетДокументовВозвратДокументовПослеИсполненияРейса</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ПакетДокументов.Участник</dcsset:left>
+						<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.упУчастникиДокументооборотаПеревозки.Заказчик</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:НедоступныеДанныеЦвет</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Доступность</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+</Form>

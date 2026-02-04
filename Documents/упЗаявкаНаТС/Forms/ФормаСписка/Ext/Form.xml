@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="СписокКомпоновщикНастроекПользовательскиеНастройки" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа пользовательских настроек</v8:content>
+				</v8:item>
+			</Title>
+			<VerticalStretch>false</VerticalStretch>
+			<Group>Vertical</Group>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="СписокКомпоновщикНастроекПользовательскиеНастройкиРасширеннаяПодсказка" id="2"/>
+		</UsualGroup>
+		<Table name="Список" id="3">
+			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
+			<DefaultItem>true</DefaultItem>
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<InitialTreeView>ExpandTopLevel</InitialTreeView>
+			<EnableStartDrag>true</EnableStartDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Список</DataPath>
+			<RowPictureDataPath>Список.ИндексКартинки</RowPictureDataPath>
+			<RowsPicture>
+				<xr:Ref>CommonPicture.упСтатусыЗаявкиНаТС</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</RowsPicture>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<UserSettingsGroup>СписокКомпоновщикНастроекПользовательскиеНастройки</UserSettingsGroup>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
+			<SearchStringAddition name="СписокСтрокаПоиска" id="7">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="10"/>
+				<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="11"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокСостояниеПросмотра" id="12">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="15"/>
+				<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="16"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокУправлениеПоиском" id="17">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="20"/>
+				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="21"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="Статус" id="28">
+					<DataPath>Список.Статус</DataPath>
+					<ContextMenu name="СтатусКонтекстноеМеню" id="29"/>
+					<ExtendedTooltip name="СтатусРасширеннаяПодсказка" id="30"/>
+				</LabelField>
+				<LabelField name="СтатусДляПеревозчика" id="64">
+					<DataPath>Список.СтатусДляПеревозчика</DataPath>
+					<Visible>false</Visible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Статус</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="СтатусДляПеревозчикаКонтекстноеМеню" id="65"/>
+					<ExtendedTooltip name="СтатусДляПеревозчикаРасширеннаяПодсказка" id="66"/>
+				</LabelField>
+				<LabelField name="Дата" id="22">
+					<DataPath>Список.Date</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<ContextMenu name="ДатаКонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="24"/>
+				</LabelField>
+				<LabelField name="Номер" id="25">
+					<DataPath>Список.Number</DataPath>
+					<ContextMenu name="НомерКонтекстноеМеню" id="26"/>
+					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="27"/>
+				</LabelField>
+				<PictureField name="ЦветЗаметки" id="34">
+					<DataPath>Список.ЦветЗаметки</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<HeaderPicture>
+						<xr:Ref>CommonPicture.Заметка</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</HeaderPicture>
+					<Width>2</Width>
+					<ValuesPicture>
+						<xr:Ref>CommonPicture.КоллекцияЗаметки</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</ValuesPicture>
+					<FileDragMode>AsFile</FileDragMode>
+					<ContextMenu name="ЦветЗаметкиКонтекстноеМеню" id="35"/>
+					<ExtendedTooltip name="ЦветЗаметкиРасширеннаяПодсказка" id="36"/>
+				</PictureField>
+				<LabelField name="Перевозчик" id="37">
+					<DataPath>Список.Перевозчик</DataPath>
+					<ContextMenu name="ПеревозчикКонтекстноеМеню" id="38"/>
+					<ExtendedTooltip name="ПеревозчикРасширеннаяПодсказка" id="39"/>
+				</LabelField>
+				<CheckBoxField name="Тендер" id="61">
+					<DataPath>Список.Тендер</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ТендерКонтекстноеМеню" id="62"/>
+					<ExtendedTooltip name="ТендерРасширеннаяПодсказка" id="63"/>
+				</CheckBoxField>
+				<LabelField name="ТипТС" id="40">
+					<DataPath>Список.ТипТС</DataPath>
+					<ContextMenu name="ТипТСКонтекстноеМеню" id="41"/>
+					<ExtendedTooltip name="ТипТСРасширеннаяПодсказка" id="42"/>
+				</LabelField>
+				<LabelField name="Рейс" id="43">
+					<DataPath>Список.Рейс</DataPath>
+					<CellHyperlink>true</CellHyperlink>
+					<ContextMenu name="РейсКонтекстноеМеню" id="44"/>
+					<ExtendedTooltip name="РейсРасширеннаяПодсказка" id="45"/>
+				</LabelField>
+				<LabelField name="НачалоРейса" id="46">
+					<DataPath>Список.НачалоРейса</DataPath>
+					<ContextMenu name="НачалоРейсаКонтекстноеМеню" id="47"/>
+					<ExtendedTooltip name="НачалоРейсаРасширеннаяПодсказка" id="48"/>
+				</LabelField>
+				<LabelField name="ОкончаниеРейса" id="49">
+					<DataPath>Список.ОкончаниеРейса</DataPath>
+					<ContextMenu name="ОкончаниеРейсаКонтекстноеМеню" id="50"/>
+					<ExtendedTooltip name="ОкончаниеРейсаРасширеннаяПодсказка" id="51"/>
+				</LabelField>
+				<LabelField name="РейсВремяВПути" id="52">
+					<ContextMenu name="РейсВремяВПутиКонтекстноеМеню" id="53"/>
+					<ExtendedTooltip name="РейсВремяВПутиРасширеннаяПодсказка" id="54"/>
+				</LabelField>
+				<LabelField name="РейсРасстояние" id="55">
+					<ContextMenu name="РейсРасстояниеКонтекстноеМеню" id="56"/>
+					<ExtendedTooltip name="РейсРасстояниеРасширеннаяПодсказка" id="57"/>
+				</LabelField>
+				<LabelField name="РейсПредставлениеМаршрута" id="58">
+					<Height>1</Height>
+					<ContextMenu name="РейсПредставлениеМаршрутаКонтекстноеМеню" id="59"/>
+					<ExtendedTooltip name="РейсПредставлениеМаршрутаРасширеннаяПодсказка" id="60"/>
+				</LabelField>
+				<LabelField name="Ссылка" id="31">
+					<DataPath>Список.Ref</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="СсылкаКонтекстноеМеню" id="32"/>
+					<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="33"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Список" id="1">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ДокументупЗаявкаНаТС.Ссылка,
+	ДокументупЗаявкаНаТС.ПометкаУдаления,
+	ДокументупЗаявкаНаТС.Номер,
+	ДокументупЗаявкаНаТС.Дата,
+	ДокументупЗаявкаНаТС.Проведен,
+	ДокументупЗаявкаНаТС.Рейс,
+	ДокументупЗаявкаНаТС.Перевозчик,
+	ДокументупЗаявкаНаТС.Соглашение,
+	ДокументупЗаявкаНаТС.ТипТС,
+	ДокументупЗаявкаНаТС.НачалоРейса,
+	ДокументупЗаявкаНаТС.ОкончаниеРейса,
+	ДокументупЗаявкаНаТС.Масса,
+	ДокументупЗаявкаНаТС.Объем,
+	ДокументупЗаявкаНаТС.КоличествоМест,
+	ДокументупЗаявкаНаТС.КоличествоЗагрузочныхМетров,
+	ДокументупЗаявкаНаТС.КлассОпасности,
+	ДокументупЗаявкаНаТС.ТемпературныйРежим,
+	ДокументупЗаявкаНаТС.Хрупкий,
+	ДокументупЗаявкаНаТС.БеречьОтВлаги,
+	ДокументупЗаявкаНаТС.БеречьОтИзлучения,
+	ДокументупЗаявкаНаТС.БеречьОтНагрева,
+	ДокументупЗаявкаНаТС.МаксимальнаяВысота,
+	ДокументупЗаявкаНаТС.МаксимальнаяДлина,
+	ДокументупЗаявкаНаТС.МаксимальнаяШирина,
+	ДокументупЗаявкаНаТС.Тендер,
+	ДокументупЗаявкаНаТС.МоментВремени,
+	ВЫБОР
+		КОГДА ДокументупЗаявкаНаТС.ПометкаУдаления
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.упСтатусыЗаявкиНаТС.Отклонена)
+		ИНАЧЕ ЕСТЬNULL(упСтатусыЗаявокНаТССрезПоследних.Статус, ЗНАЧЕНИЕ(Перечисление.упСтатусыЗаявкиНаТС.Создана))
+	КОНЕЦ КАК Статус,
+	ВЫБОР
+		КОГДА упСтатусыЗаявокНаТССрезПоследних.Статус = ЗНАЧЕНИЕ(Перечисление.упСтатусыЗаявкиНаТС.Отправлена)
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.упСтатусыЗаявкиНаТСДляПеревозчика.Новая)
+		КОГДА упСтатусыЗаявокНаТССрезПоследних.Статус = ЗНАЧЕНИЕ(Перечисление.упСтатусыЗаявкиНаТС.ПолученоПредложение)
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.упСтатусыЗаявкиНаТСДляПеревозчика.ОтправленоПредложение)
+		КОГДА упСтатусыЗаявокНаТССрезПоследних.Статус = ЗНАЧЕНИЕ(Перечисление.упСтатусыЗаявкиНаТС.Подтверждена)
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.упСтатусыЗаявкиНаТСДляПеревозчика.Подтверждена)
+		КОГДА упСтатусыЗаявокНаТССрезПоследних.Статус = ЗНАЧЕНИЕ(Перечисление.упСтатусыЗаявкиНаТС.Отклонена)
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.упСтатусыЗаявкиНаТСДляПеревозчика.Отклонена)
+	КОНЕЦ КАК СтатусДляПеревозчика,
+
+	ВЫБОР
+		КОГДА ДокументупЗаявкаНаТС.ПометкаУдаления
+			ТОГДА 4
+		ИНАЧЕ ЕСТЬNULL(упСтатусыЗаявокНаТССрезПоследних.Статус.Порядок, 0)
+	КОНЕЦ КАК ИндексКартинки,
+	ЕСТЬNULL(НаличиеЗаметокПоПредмету.ЕстьЗаметки, ЛОЖЬ) КАК ЕстьЗаметка,
+	ЕСТЬNULL(НаличиеЗаметокПоПредмету.Цвет, -3) + 2 КАК ЦветЗаметки
+ИЗ
+	Документ.упЗаявкаНаТС КАК ДокументупЗаявкаНаТС
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упСтатусыЗаявокНаТС.СрезПоследних КАК упСтатусыЗаявокНаТССрезПоследних
+		ПО (упСтатусыЗаявокНаТССрезПоследних.Документ = ДокументупЗаявкаНаТС.Ссылка)
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упНаличиеЗаметокПоПредмету КАК НаличиеЗаметокПоПредмету
+		ПО ДокументупЗаявкаНаТС.Ссылка = НаличиеЗаметокПоПредмету.Предмет
+			И (НаличиеЗаметокПоПредмету.Автор = &amp;Пользователь)</QueryText>
+				<MainTable>Document.упЗаявкаНаТС</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+	<CommandInterface>
+		<CommandBar>
+			<Item>
+				<Command>Document.упЗаявкаНаТС.Command.УстановитьСтатусОтклонить</Command>
+				<Type>Auto</Type>
+				<CommandGroup>CommandGroup.упУстановитьСтатус</CommandGroup>
+				<Index>2</Index>
+			</Item>
+			<Item>
+				<Command>Document.упЗаявкаНаТС.Command.УстановитьСтатусОтправить</Command>
+				<Type>Auto</Type>
+				<CommandGroup>CommandGroup.упУстановитьСтатус</CommandGroup>
+			</Item>
+			<Item>
+				<Command>0:e629b4a9-e928-4f55-a53b-840a5aaeba76</Command>
+				<Type>Auto</Type>
+				<CommandGroup>CommandGroup.упУстановитьСтатус</CommandGroup>
+				<Index>1</Index>
+			</Item>
+			<Item>
+				<Command>0:2baf6d7a-12ed-4f22-ad96-92bb31b747ff</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</CommandBar>
+	</CommandInterface>
+</Form>

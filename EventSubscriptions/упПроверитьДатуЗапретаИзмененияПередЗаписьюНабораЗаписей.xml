@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<EventSubscription uuid="a3f32398-3e80-4aaa-9b0d-6794f7a800a8">
+		<Properties>
+			<Name>упПроверитьДатуЗапретаИзмененияПередЗаписьюНабораЗаписей</Name>
+			<Synonym>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Проверить дату запрета изменения перед записью набора записей</v8:content>
+				</v8:item>
+			</Synonym>
+			<Comment/>
+			<Source>
+				<v8:Type>cfg:InformationRegisterRecordSet.упПлановыеПараметрыРейса</v8:Type>
+				<v8:Type>cfg:AccumulationRegisterRecordSet.упРасходыНаТС</v8:Type>
+				<v8:Type>cfg:AccumulationRegisterRecordSet.упРасходы</v8:Type>
+				<v8:Type>cfg:AccumulationRegisterRecordSet.упПрочиеРасходы</v8:Type>
+				<v8:Type>cfg:AccumulationRegisterRecordSet.упДоходыРасходыПредприятия</v8:Type>
+				<v8:Type>cfg:InformationRegisterRecordSet.упВсегоРасходыПоРейсу</v8:Type>
+				<v8:Type>cfg:AccumulationRegisterRecordSet.упОстаткиГСМ</v8:Type>
+				<v8:Type>cfg:InformationRegisterRecordSet.упУстановленныеТрекеры</v8:Type>
+				<v8:Type>cfg:AccumulationRegisterRecordSet.упОстаткиМатериалов</v8:Type>
+				<v8:Type>cfg:AccumulationRegisterRecordSet.упАгрегатыНаСкладах</v8:Type>
+				<v8:Type>cfg:InformationRegisterRecordSet.упВыдачаТопливныхКарт</v8:Type>
+				<v8:Type>cfg:InformationRegisterRecordSet.упУчетнаяПолитика</v8:Type>
+				<v8:Type>cfg:AccumulationRegisterRecordSet.упДоходы</v8:Type>
+				<v8:Type>cfg:InformationRegisterRecordSet.упФактическиеПараметрыРейса</v8:Type>
+				<v8:Type>cfg:AccumulationRegisterRecordSet.упОстаткиГрузовыхМест</v8:Type>
+			</Source>
+			<Event>BeforeWrite</Event>
+			<Handler>CommonModule.ДатыЗапретаИзменения.ПроверитьДатуЗапретаИзмененияПередЗаписьюНабораЗаписей</Handler>
+		</Properties>
+	</EventSubscription>
+</MetaDataObject>

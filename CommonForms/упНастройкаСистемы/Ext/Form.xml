@@ -1,0 +1,3453 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаКонсольСервераЗащиты" id="816">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.КонсольСервераЗащиты</CommandName>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаКонсольСервераЗащитыРасширеннаяПодсказка" id="817"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="AfterWrite">ПослеЗаписи</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="BeforeWrite">ПередЗаписью</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
+		<Event name="FillCheckProcessingAtServer">ОбработкаПроверкиЗаполненияНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Группа28" id="742">
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа28РасширеннаяПодсказка" id="743"/>
+			<ChildItems>
+				<InputField name="СтрокаПоиска" id="713">
+					<DataPath>СтрокаПоиска</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Поиск настроек</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>При вводе искомой строки остаются видимими только страницы, содержащие элементы с вхождением строки поиска в заголовке, а сами заголовки окрашиваются красным цветом. </v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>19</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ClearButton>true</ClearButton>
+					<EditTextUpdate>OnValueChange</EditTextUpdate>
+					<ContextMenu name="СтрокаПоискаКонтекстноеМеню" id="714"/>
+					<ExtendedTooltip name="СтрокаПоискаРасширеннаяПодсказка" id="715"/>
+					<Events>
+						<Event name="OnChange">СтрокаПоискаПриИзменении</Event>
+						<Event name="EditTextChange">СтрокаПоискаИзменениеТекстаРедактирования</Event>
+					</Events>
+				</InputField>
+				<UsualGroup name="СостояниеИспользованияКомпонент" id="716">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Состояние использования компонент</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Состояние использования компонент</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Height>1</Height>
+					<Group>Horizontal</Group>
+					<HorizontalSpacing>Half</HorizontalSpacing>
+					<VerticalSpacing>None</VerticalSpacing>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ChildItemsWidth>Equal</ChildItemsWidth>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="СостояниеИспользованияКомпонентРасширеннаяПодсказка" id="717"/>
+					<ChildItems>
+						<UsualGroup name="КомпонентаУправлениеПеревозками" id="718">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Компонента управление перевозками</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Компонента управление перевозками</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="КомпонентаУправлениеПеревозкамиРасширеннаяПодсказка" id="719"/>
+							<ChildItems>
+								<PictureDecoration name="КартинкаУП" id="720">
+									<Width>3</Width>
+									<Height>1</Height>
+									<MaxHeight>2</MaxHeight>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Картинка УП</v8:content>
+										</v8:item>
+									</Title>
+									<FileDragMode>AsFile</FileDragMode>
+									<ContextMenu name="КартинкаУПКонтекстноеМеню" id="721"/>
+									<ExtendedTooltip name="КартинкаУПРасширеннаяПодсказка" id="722"/>
+								</PictureDecoration>
+								<LabelDecoration name="СостояниеУП" id="723">
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<TextColor>style:ПоясняющийТекст</TextColor>
+									<Font ref="style:упШрифтСтатуса" bold="false" italic="true" underline="false" strikeout="false" kind="StyleItem"/>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>управление перевозками</v8:content>
+										</v8:item>
+									</Title>
+									<VerticalAlign>Center</VerticalAlign>
+									<ContextMenu name="СостояниеУПКонтекстноеМеню" id="724"/>
+									<ExtendedTooltip name="СостояниеУПРасширеннаяПодсказка" id="725"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="КомпонентаУправлениеТранспортом" id="726">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Компонента управление транспортом</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Компонента управление транспортом</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="КомпонентаУправлениеТранспортомРасширеннаяПодсказка" id="727"/>
+							<ChildItems>
+								<PictureDecoration name="КартинкаУТ" id="728">
+									<Width>3</Width>
+									<Height>1</Height>
+									<MaxHeight>2</MaxHeight>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Картинка УТ</v8:content>
+										</v8:item>
+									</Title>
+									<FileDragMode>AsFile</FileDragMode>
+									<ContextMenu name="КартинкаУТКонтекстноеМеню" id="729"/>
+									<ExtendedTooltip name="КартинкаУТРасширеннаяПодсказка" id="730"/>
+								</PictureDecoration>
+								<LabelDecoration name="СостояниеУТ" id="731">
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<AutoMaxHeight>false</AutoMaxHeight>
+									<TextColor>style:ПоясняющийТекст</TextColor>
+									<Font ref="style:упШрифтСтатуса" bold="false" italic="true" underline="false" strikeout="false" kind="StyleItem"/>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>управление транспортом</v8:content>
+										</v8:item>
+									</Title>
+									<VerticalAlign>Center</VerticalAlign>
+									<ContextMenu name="СостояниеУТКонтекстноеМеню" id="732"/>
+									<ExtendedTooltip name="СостояниеУТРасширеннаяПодсказка" id="733"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="КомпонентаСпутниковыйМониторинг" id="734">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Компонента спутниковый мониторинг</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Компонента спутниковый мониторинг</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="КомпонентаСпутниковыйМониторингРасширеннаяПодсказка" id="735"/>
+							<ChildItems>
+								<PictureDecoration name="КартинкаСМ" id="736">
+									<Width>3</Width>
+									<Height>1</Height>
+									<MaxHeight>2</MaxHeight>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Картинка СМ</v8:content>
+										</v8:item>
+									</Title>
+									<FileDragMode>AsFile</FileDragMode>
+									<ContextMenu name="КартинкаСМКонтекстноеМеню" id="737"/>
+									<ExtendedTooltip name="КартинкаСМРасширеннаяПодсказка" id="738"/>
+								</PictureDecoration>
+								<LabelDecoration name="СостояниеСМ" id="739">
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<TextColor>style:ПоясняющийТекст</TextColor>
+									<Font ref="style:упШрифтСтатуса" bold="false" italic="true" underline="false" strikeout="false" kind="StyleItem"/>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>спутниковый мониторинг</v8:content>
+										</v8:item>
+									</Title>
+									<VerticalAlign>Center</VerticalAlign>
+									<ContextMenu name="СостояниеСМКонтекстноеМеню" id="740"/>
+									<ExtendedTooltip name="СостояниеСМРасширеннаяПодсказка" id="741"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<Pages name="РазделыСтраницы" id="23">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Разделы страницы</v8:content>
+				</v8:item>
+			</Title>
+			<PagesRepresentation>TabsOnLeftHorizontal</PagesRepresentation>
+			<ExtendedTooltip name="РазделыСтраницыРасширеннаяПодсказка" id="24"/>
+			<ChildItems>
+				<Page name="ОбщиеНастройкиУправленияПеревозками" id="47">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Общие настройки управления перевозками</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Настраиваются общие (глобальные) настройки процесса перевозки и параметры учета...</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Picture>
+						<xr:Ref>CommonPicture.упПодсистемаУправлениеПеревозками</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ExtendedTooltip name="ОбщиеНастройкиУправленияПеревозкамиРасширеннаяПодсказка" id="48"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаНастройкиВалютногоУчета" id="467">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Настройки предприятия</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа настройки валютного учета</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<ExtendedTooltip name="ГруппаНастройкиВалютногоУчетаРасширеннаяПодсказка" id="468"/>
+							<ChildItems>
+								<CheckBoxField name="упИспользуетсяУчетПодразделений" id="469">
+									<DataPath>НаборКонстант.упИспользуетсяУчетПодразделений</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упИспользуетсяУчетПодразделенийКонтекстноеМеню" id="470"/>
+									<ExtendedTooltip name="упИспользуетсяУчетПодразделенийРасширеннаяПодсказка" id="471"/>
+								</CheckBoxField>
+								<CheckBoxField name="упИспользуетсяУчетПоНаправлениямДеятельностиПредприятия" id="472">
+									<DataPath>НаборКонстант.упИспользуетсяУчетПоНаправлениямДеятельности</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упИспользуетсяУчетПоНаправлениямДеятельностиПредприятияКонтекстноеМеню" id="473"/>
+									<ExtendedTooltip name="упИспользуетсяУчетПоНаправлениямДеятельностиПредприятияРасширеннаяПодсказка" id="474"/>
+								</CheckBoxField>
+								<CheckBoxField name="упВедетсяРаботаВРазныхЧасовыхПоясах" id="475">
+									<DataPath>НаборКонстант.упВедетсяРаботаВРазныхЧасовыхПоясах</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упВедетсяРаботаВРазныхЧасовыхПоясахКонтекстноеМеню" id="476"/>
+									<ExtendedTooltip name="упВедетсяРаботаВРазныхЧасовыхПоясахРасширеннаяПодсказка" id="477"/>
+								</CheckBoxField>
+								<CheckBoxField name="упИспользуютсяЗаявкиНаСпецтехнику" id="771">
+									<DataPath>НаборКонстант.упИспользуютсяЗаявкиНаСпецтехнику</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упИспользуютсяЗаявкиНаСпецтехникуКонтекстноеМеню" id="772"/>
+									<ExtendedTooltip name="упИспользуютсяЗаявкиНаСпецтехникуРасширеннаяПодсказка" id="773"/>
+								</CheckBoxField>
+								<CheckBoxField name="упИспользуютсяЗаявкиНаПассажирскиеПеревозки" id="774">
+									<DataPath>НаборКонстант.упИспользуютсяЗаявкиНаПассажирскиеПеревозки</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упИспользуютсяЗаявкиНаПассажирскиеПеревозкиКонтекстноеМеню" id="775"/>
+									<ExtendedTooltip name="упИспользуютсяЗаявкиНаПассажирскиеПеревозкиРасширеннаяПодсказка" id="776"/>
+								</CheckBoxField>
+								<CheckBoxField name="упИспользуютсяМультимодальныеПеревозки" id="497">
+									<DataPath>НаборКонстант.упИспользуютсяМультимодальныеПеревозки</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упИспользуютсяМультимодальныеПеревозкиКонтекстноеМеню" id="498"/>
+									<ExtendedTooltip name="упИспользуютсяМультимодальныеПеревозкиРасширеннаяПодсказка" id="499"/>
+								</CheckBoxField>
+								<CheckBoxField name="упИспользуютсяКонтейнерныеПеревозки" id="834">
+									<DataPath>НаборКонстант.упИспользуютсяКонтейнерныеПеревозки</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упИспользуютсяКонтейнерныеПеревозкиКонтекстноеМеню" id="835"/>
+									<ExtendedTooltip name="упИспользуютсяКонтейнерныеПеревозкиРасширеннаяПодсказка" id="836"/>
+								</CheckBoxField>
+								<CheckBoxField name="упВедетсяВалютныйУчет" id="478">
+									<DataPath>НаборКонстант.упВедетсяВалютныйУчет</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упВедетсяВалютныйУчетКонтекстноеМеню" id="479"/>
+									<ExtendedTooltip name="упВедетсяВалютныйУчетРасширеннаяПодсказка" id="480"/>
+									<Events>
+										<Event name="OnChange">упВедетсяВалютныйУчетПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<UsualGroup name="Группа18" id="481">
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа18РасширеннаяПодсказка" id="482"/>
+									<ChildItems>
+										<LabelDecoration name="Декорация13" id="483">
+											<Width>4</Width>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<ContextMenu name="Декорация13КонтекстноеМеню" id="484"/>
+											<ExtendedTooltip name="Декорация13РасширеннаяПодсказка" id="485"/>
+										</LabelDecoration>
+										<InputField name="упВалютаУправленческогоУчета" id="486">
+											<DataPath>НаборКонстант.упВалютаУправленческогоУчета</DataPath>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<ContextMenu name="упВалютаУправленческогоУчетаКонтекстноеМеню" id="487"/>
+											<ExtendedTooltip name="упВалютаУправленческогоУчетаРасширеннаяПодсказка" id="488"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаНастройкиОформленияЗаявокНаПеревозку" id="489">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Настройки оформления заявок на перевозку</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа настройки оформления заявок на перевозку</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<ExtendedTooltip name="ГруппаНастройкиОформленияЗаявокНаПеревозкуРасширеннаяПодсказка" id="490"/>
+							<ChildItems>
+								<CheckBoxField name="упИспользуютсяУсловияПеревозок" id="491">
+									<DataPath>НаборКонстант.упИспользуютсяУсловияПеревозок</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упИспользуютсяУсловияПеревозокКонтекстноеМеню" id="492"/>
+									<ExtendedTooltip name="упИспользуютсяУсловияПеревозокРасширеннаяПодсказка" id="493"/>
+								</CheckBoxField>
+								<CheckBoxField name="упИспользуютсяДополнительныеОперации" id="494">
+									<DataPath>НаборКонстант.упИспользуютсяДополнительныеОперации</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упИспользуютсяДополнительныеОперацииКонтекстноеМеню" id="495"/>
+									<ExtendedTooltip name="упИспользуютсяДополнительныеОперацииРасширеннаяПодсказка" id="496"/>
+								</CheckBoxField>
+								<CheckBoxField name="упУказываютсяФактическиОказанныеУслуги" id="500">
+									<DataPath>НаборКонстант.упУказываютсяФактическиОказанныеУслуги</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упУказываютсяФактическиОказанныеУслугиКонтекстноеМеню" id="501"/>
+									<ExtendedTooltip name="упУказываютсяФактическиОказанныеУслугиРасширеннаяПодсказка" id="502"/>
+									<Events>
+										<Event name="OnChange">упУказываютсяФактическиОказанныеУслугиПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<UsualGroup name="ГруппаРасчетыСЗаказчиками" id="503">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа расчеты с заказчиками</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа расчеты с заказчиками</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Vertical</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаРасчетыСЗаказчикамиРасширеннаяПодсказка" id="504"/>
+									<ChildItems>
+										<UsualGroup name="ГруппаВестиУчетРасчетовСЗаказчиками" id="505">
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа вести учет расчетов с заказчиками</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Horizontal</Group>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаВестиУчетРасчетовСЗаказчикамиРасширеннаяПодсказка" id="506"/>
+											<ChildItems>
+												<LabelDecoration name="Декорация14" id="507">
+													<Width>2</Width>
+													<ContextMenu name="Декорация14КонтекстноеМеню" id="508"/>
+													<ExtendedTooltip name="Декорация14РасширеннаяПодсказка" id="509"/>
+												</LabelDecoration>
+												<CheckBoxField name="упВестиУчетРасчетовСЗаказчиками" id="510">
+													<DataPath>НаборКонстант.упВестиУчетРасчетовСЗаказчиками</DataPath>
+													<TitleLocation>Right</TitleLocation>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="упВестиУчетРасчетовСЗаказчикамиКонтекстноеМеню" id="511"/>
+													<ExtendedTooltip name="упВестиУчетРасчетовСЗаказчикамиРасширеннаяПодсказка" id="512"/>
+												</CheckBoxField>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаИнкассация" id="513">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа инкассация</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа инкассация</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Vertical</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаИнкассацияРасширеннаяПодсказка" id="514"/>
+									<ChildItems>
+										<CheckBoxField name="упИспользуютсяУслугиИнкассации" id="515">
+											<DataPath>НаборКонстант.упИспользуютсяУслугиИнкассации</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="упИспользуютсяУслугиИнкассацииКонтекстноеМеню" id="516"/>
+											<ExtendedTooltip name="упИспользуютсяУслугиИнкассацииРасширеннаяПодсказка" id="517"/>
+											<Events>
+												<Event name="OnChange">упИспользуютсяУслугиИнкассацииПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+										<UsualGroup name="Группа19" id="518">
+											<Group>Horizontal</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Группа19РасширеннаяПодсказка" id="519"/>
+											<ChildItems>
+												<LabelDecoration name="Декорация15" id="520">
+													<Width>2</Width>
+													<ContextMenu name="Декорация15КонтекстноеМеню" id="521"/>
+													<ExtendedTooltip name="Декорация15РасширеннаяПодсказка" id="522"/>
+												</LabelDecoration>
+												<CheckBoxField name="упВедетсяРозничнаяПродажаВРейсе" id="523">
+													<DataPath>НаборКонстант.упВедетсяРозничнаяПродажаВРейсе</DataPath>
+													<TitleLocation>Right</TitleLocation>
+													<ToolTipRepresentation>Button</ToolTipRepresentation>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="упВедетсяРозничнаяПродажаВРейсеКонтекстноеМеню" id="524"/>
+													<ExtendedTooltip name="упВедетсяРозничнаяПродажаВРейсеРасширеннаяПодсказка" id="525"/>
+												</CheckBoxField>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+								<CheckBoxField name="упВедетсяУчетТары" id="526">
+									<DataPath>НаборКонстант.упВедетсяУчетТары</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упВедетсяУчетТарыКонтекстноеМеню" id="527"/>
+									<ExtendedTooltip name="упВедетсяУчетТарыРасширеннаяПодсказка" id="528"/>
+								</CheckBoxField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаНастройкиИсполненияРейсов" id="529">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Настройки исполнения рейсов</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа настройки исполнения рейсов</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<ExtendedTooltip name="ГруппаНастройкиИсполненияРейсовРасширеннаяПодсказка" id="530"/>
+							<ChildItems>
+								<CheckBoxField name="упИспользуетсяУчетЗанятостиЭкипажейСтороннихПеревозчиков" id="531">
+									<DataPath>НаборКонстант.упИспользуетсяУчетЗанятостиЭкипажейСтороннихПеревозчиков</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упИспользуетсяУчетЗанятостиЭкипажейСтороннихПеревозчиковКонтекстноеМеню" id="532"/>
+									<ExtendedTooltip name="упИспользуетсяУчетЗанятостиЭкипажейСтороннихПеревозчиковРасширеннаяПодсказка" id="533"/>
+								</CheckBoxField>
+								<CheckBoxField name="упИспользуетсяУчетМестоположенийТранспортныхСредств" id="534">
+									<DataPath>НаборКонстант.упИспользуетсяУчетМестоположенийТранспортныхСредств</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упИспользуетсяУчетМестоположенийТранспортныхСредствКонтекстноеМеню" id="535"/>
+									<ExtendedTooltip name="упИспользуетсяУчетМестоположенийТранспортныхСредствРасширеннаяПодсказка" id="536"/>
+								</CheckBoxField>
+								<InputField name="упСтатусРейсаДляНачалаРаботыНаРМВодителя" id="537">
+									<DataPath>НаборКонстант.упСтатусРейсаДляНачалаРаботыНаРМВодителя</DataPath>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<ContextMenu name="упСтатусРейсаДляНачалаРаботыНаРМВодителяКонтекстноеМеню" id="538"/>
+									<ExtendedTooltip name="упСтатусРейсаДляНачалаРаботыНаРМВодителяРасширеннаяПодсказка" id="539"/>
+								</InputField>
+								<CheckBoxField name="упИспользуетсяСкладскойУчетНаХабах" id="540">
+									<DataPath>НаборКонстант.упИспользуетсяСкладскойУчетНаХабах</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упИспользуетсяСкладскойУчетНаХабахКонтекстноеМеню" id="541"/>
+									<ExtendedTooltip name="упИспользуетсяСкладскойУчетНаХабахРасширеннаяПодсказка" id="542"/>
+								</CheckBoxField>
+								<CheckBoxField name="упУчитыватьРежимТрудаИОтдыха" id="543">
+									<DataPath>НаборКонстант.упУчитыватьРежимТрудаИОтдыхаСотрудников</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упУчитыватьРежимТрудаИОтдыхаКонтекстноеМеню" id="544"/>
+									<ExtendedTooltip name="упУчитыватьРежимТрудаИОтдыхаРасширеннаяПодсказка" id="545"/>
+									<Events>
+										<Event name="OnChange">упУчитыватьРежимТрудаИОтдыхаПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<UsualGroup name="ГруппаИспользуютсяДанныеТахографа" id="546">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа используются данные тахографа</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа используются данные тахографа</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаИспользуютсяДанныеТахографаРасширеннаяПодсказка" id="547"/>
+									<ChildItems>
+										<LabelDecoration name="Декорация16" id="548">
+											<Width>2</Width>
+											<ContextMenu name="Декорация16КонтекстноеМеню" id="549"/>
+											<ExtendedTooltip name="Декорация16РасширеннаяПодсказка" id="550"/>
+										</LabelDecoration>
+										<CheckBoxField name="упИспользуетсяЗагрузкаДанныхИзФайловТахографа" id="551">
+											<DataPath>НаборКонстант.упИспользуетсяЗагрузкаДанныхИзФайловТахографа</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="упИспользуетсяЗагрузкаДанныхИзФайловТахографаКонтекстноеМеню" id="552"/>
+											<ExtendedTooltip name="упИспользуетсяЗагрузкаДанныхИзФайловТахографаРасширеннаяПодсказка" id="553"/>
+										</CheckBoxField>
+									</ChildItems>
+								</UsualGroup>
+								<CheckBoxField name="упВедетсяРаботаЧерезТорговыхПредставителей" id="831">
+									<DataPath>НаборКонстант.упВедетсяРаботаЧерезТорговыхПредставителей</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упВедетсяРаботаЧерезТорговыхПредставителейКонтекстноеМеню" id="832"/>
+									<ExtendedTooltip name="упВедетсяРаботаЧерезТорговыхПредставителейРасширеннаяПодсказка" id="833"/>
+								</CheckBoxField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаНастройкиУчетаРасходов" id="554">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Настройки учета расходов</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа настройки учета расходов</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<ExtendedTooltip name="ГруппаНастройкиУчетаРасходовРасширеннаяПодсказка" id="555"/>
+							<ChildItems>
+								<CheckBoxField name="упУказываютсяФактическиеРасходыПоРейсу" id="556">
+									<DataPath>НаборКонстант.упУказываютсяФактическиеРасходыПоРейсу</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упУказываютсяФактическиеРасходыПоРейсуКонтекстноеМеню" id="557"/>
+									<ExtendedTooltip name="упУказываютсяФактическиеРасходыПоРейсуРасширеннаяПодсказка" id="558"/>
+									<Events>
+										<Event name="OnChange">упУказываютсяФактическиеРасходыПоРейсуПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<UsualGroup name="ГруппаУчетРасходовНаТС" id="763">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа учет расходов на ТС</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа учет расходов на ТС</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаУчетРасходовНаТСРасширеннаяПодсказка" id="764"/>
+									<ChildItems>
+										<LabelDecoration name="Декорация22" id="765">
+											<Width>2</Width>
+											<ContextMenu name="Декорация22КонтекстноеМеню" id="766"/>
+											<ExtendedTooltip name="Декорация22РасширеннаяПодсказка" id="767"/>
+										</LabelDecoration>
+										<CheckBoxField name="упИспользуетсяУчетРасходовНаТС" id="760">
+											<DataPath>НаборКонстант.упИспользуетсяУчетРасходовНаТС</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="упИспользуетсяУчетРасходовНаТСКонтекстноеМеню" id="761"/>
+											<ExtendedTooltip name="упИспользуетсяУчетРасходовНаТСРасширеннаяПодсказка" id="762"/>
+										</CheckBoxField>
+									</ChildItems>
+								</UsualGroup>
+								<CheckBoxField name="упИспользоватьДопАналитическийРазрезПриРаспределенииРасходов" id="559">
+									<DataPath>НаборКонстант.упИспользоватьДопАналитическийРазрезПриРаспределенииРасходов</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упИспользоватьДопАналитическийРазрезПриРаспределенииРасходовКонтекстноеМеню" id="560"/>
+									<ExtendedTooltip name="упИспользоватьДопАналитическийРазрезПриРаспределенииРасходовРасширеннаяПодсказка" id="561"/>
+								</CheckBoxField>
+								<CheckBoxField name="упИспользуетсяЗагрузкаДанныхИзСистемыПлатон" id="562">
+									<DataPath>НаборКонстант.упИспользуетсяЗагрузкаДанныхИзСистемыПлатон</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упИспользуетсяЗагрузкаДанныхИзСистемыПлатонКонтекстноеМеню" id="563"/>
+									<ExtendedTooltip name="упИспользуетсяЗагрузкаДанныхИзСистемыПлатонРасширеннаяПодсказка" id="564"/>
+								</CheckBoxField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаНастройкиМониторинга" id="565">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Настройки мониторинга</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа настройки мониторинга</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<ExtendedTooltip name="ГруппаНастройкиМониторингаРасширеннаяПодсказка" id="566"/>
+							<ChildItems>
+								<CheckBoxField name="упИспользуетсяАндроидКлиент" id="567">
+									<DataPath>НаборКонстант.упИспользуетсяАндроидКлиент</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упИспользуетсяАндроидКлиентКонтекстноеМеню" id="568"/>
+									<ExtendedTooltip name="упИспользуетсяАндроидКлиентРасширеннаяПодсказка" id="569"/>
+									<Events>
+										<Event name="OnChange">упИспользуетсяАндроидКлиентПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<UsualGroup name="Группа1" id="859">
+									<Group>AlwaysHorizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="860"/>
+									<ChildItems>
+										<LabelDecoration name="Декорация27" id="842">
+											<Width>2</Width>
+											<ContextMenu name="Декорация27КонтекстноеМеню" id="843"/>
+											<ExtendedTooltip name="Декорация27РасширеннаяПодсказка" id="844"/>
+										</LabelDecoration>
+										<UsualGroup name="Группа2" id="861">
+											<Group>Vertical</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="862"/>
+											<ChildItems>
+												<InputField name="упВерсияМобильногоКлиента" id="839">
+													<DataPath>НаборКонстант.упВерсияМобильногоКлиента</DataPath>
+													<ContextMenu name="упВерсияМобильногоКлиентаКонтекстноеМеню" id="840"/>
+													<ExtendedTooltip name="упВерсияМобильногоКлиентаРасширеннаяПодсказка" id="841"/>
+												</InputField>
+												<InputField name="упКлючСервисаМаршрутизацииGoogleМобильныйКлиент" id="856">
+													<DataPath>НаборКонстант.упКлючСервисаМаршрутизацииGoogleМобильныйКлиент</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Ключ Google</v8:content>
+														</v8:item>
+													</Title>
+													<InputHint>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>маршрутизация объезда точек</v8:content>
+														</v8:item>
+													</InputHint>
+													<ContextMenu name="упКлючСервисаМаршрутизацииGoogleМобильныйКлиентКонтекстноеМеню" id="857"/>
+													<ExtendedTooltip name="упКлючСервисаМаршрутизацииGoogleМобильныйКлиентРасширеннаяПодсказка" id="858"/>
+												</InputField>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаНастройкиУчетаПретензий" id="573">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Настройки учета претензий</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа настройки учета претензий</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<ExtendedTooltip name="ГруппаНастройкиУчетаПретензийРасширеннаяПодсказка" id="574"/>
+							<ChildItems>
+								<CheckBoxField name="упВедетсяУчетВходящихПретензий" id="575">
+									<DataPath>НаборКонстант.упВедетсяУчетВходящихПретензий</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упВедетсяУчетВходящихПретензийКонтекстноеМеню" id="576"/>
+									<ExtendedTooltip name="упВедетсяУчетВходящихПретензийРасширеннаяПодсказка" id="577"/>
+								</CheckBoxField>
+								<CheckBoxField name="упВедетсяУчетИсходящихПретензий" id="578">
+									<DataPath>НаборКонстант.упВедетсяУчетИсходящихПретензий</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упВедетсяУчетИсходящихПретензийКонтекстноеМеню" id="579"/>
+									<ExtendedTooltip name="упВедетсяУчетИсходящихПретензийРасширеннаяПодсказка" id="580"/>
+								</CheckBoxField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="ТранспортныеСредстваИПланирование" id="37">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Транспортные средства и планирование</v8:content>
+						</v8:item>
+					</Title>
+					<Picture>
+						<xr:Ref>CommonPicture.упПодсистемаТранспорт</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ExtendedTooltip name="ТранспортныеСредстваИПланированиеРасширеннаяПодсказка" id="38"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаНастройкиПодбораТС" id="581">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Настройки подбора ТС</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа настройки подбора ТС</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<ExtendedTooltip name="ГруппаНастройкиПодбораТСРасширеннаяПодсказка" id="582"/>
+							<ChildItems>
+								<CheckBoxField name="упИспользоватьВиртуальныеТранспортныеСредства" id="583">
+									<DataPath>НаборКонстант.упИспользоватьВиртуальныеТранспортныеСредства</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упИспользоватьВиртуальныеТранспортныеСредстваКонтекстноеМеню" id="584"/>
+									<ExtendedTooltip name="упИспользоватьВиртуальныеТранспортныеСредстваРасширеннаяПодсказка" id="585"/>
+								</CheckBoxField>
+								<CheckBoxField name="упКонтролироватьДоступностьГеографическихЗон" id="586">
+									<DataPath>НаборКонстант.упКонтролироватьДоступностьГеографическихЗон</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упКонтролироватьДоступностьГеографическихЗонКонтекстноеМеню" id="587"/>
+									<ExtendedTooltip name="упКонтролироватьДоступностьГеографическихЗонРасширеннаяПодсказка" id="588"/>
+								</CheckBoxField>
+								<CheckBoxField name="упКонтролироватьДоступностьРесурсовПартнеру" id="589">
+									<DataPath>НаборКонстант.упКонтролироватьДоступностьРесурсовПартнеру</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упКонтролироватьДоступностьРесурсовПартнеруКонтекстноеМеню" id="590"/>
+									<ExtendedTooltip name="упКонтролироватьДоступностьРесурсовПартнеруРасширеннаяПодсказка" id="591"/>
+								</CheckBoxField>
+								<CheckBoxField name="упКонтролироватьКоличествоПосадочныхМест" id="813">
+									<DataPath>НаборКонстант.упКонтролироватьКоличествоПосадочныхМест</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упКонтролироватьКоличествоПосадочныхМестКонтекстноеМеню" id="814"/>
+									<ExtendedTooltip name="упКонтролироватьКоличествоПосадочныхМестРасширеннаяПодсказка" id="815"/>
+								</CheckBoxField>
+								<CheckBoxField name="упИспользуютсяИндивидуальныеГрафикиРаботыСотрудников" id="810">
+									<DataPath>НаборКонстант.упИспользуютсяИндивидуальныеГрафикиРаботыСотрудников</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упИспользуютсяИндивидуальныеГрафикиРаботыСотрудниковКонтекстноеМеню" id="811"/>
+									<ExtendedTooltip name="упИспользуютсяИндивидуальныеГрафикиРаботыСотрудниковРасширеннаяПодсказка" id="812"/>
+								</CheckBoxField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаНастройкиУкладкиГрузов" id="592">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Настройки укладки грузов</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Настройки сервиса укладки грузов</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<ExtendedTooltip name="ГруппаНастройкиУкладкиГрузовРасширеннаяПодсказка" id="593"/>
+							<ChildItems>
+								<CheckBoxField name="упИспользуетсяИнтеграцияСPacker3D" id="594">
+									<DataPath>НаборКонстант.упИспользуетсяИнтеграцияСPacker3D</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упИспользуетсяИнтеграцияСPacker3DКонтекстноеМеню" id="595"/>
+									<ExtendedTooltip name="упИспользуетсяИнтеграцияСPacker3DРасширеннаяПодсказка" id="596"/>
+									<Events>
+										<Event name="OnChange">упИспользуетсяИнтеграцияСPacker3DПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<UsualGroup name="ГруппаНастройиАвторизацииСервиса" id="597">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа настройи авторизации сервиса</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа настройи авторизации сервиса</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Vertical</Group>
+									<Representation>NormalSeparation</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаНастройиАвторизацииСервисаРасширеннаяПодсказка" id="598"/>
+									<ChildItems>
+										<InputField name="упАдресСервераPacker3D" id="599">
+											<DataPath>НаборКонстант.упАдресСервераPacker3D</DataPath>
+											<InputHint>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>https://www.packer3d.ru</v8:content>
+												</v8:item>
+											</InputHint>
+											<ContextMenu name="упАдресСервераPacker3DКонтекстноеМеню" id="600"/>
+											<ExtendedTooltip name="упАдресСервераPacker3DРасширеннаяПодсказка" id="601"/>
+										</InputField>
+										<InputField name="упПользовательСервисаPacker3D" id="602">
+											<DataPath>НаборКонстант.упПользовательСервисаPacker3D</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Пользователь</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="упПользовательСервисаPacker3DКонтекстноеМеню" id="603"/>
+											<ExtendedTooltip name="упПользовательСервисаPacker3DРасширеннаяПодсказка" id="604"/>
+										</InputField>
+										<InputField name="упПарольСервисаPacker3D" id="605">
+											<DataPath>НаборКонстант.упПарольСервисаPacker3D</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Пароль</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="упПарольСервисаPacker3DКонтекстноеМеню" id="606"/>
+											<ExtendedTooltip name="упПарольСервисаPacker3DРасширеннаяПодсказка" id="607"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаНастройкиУчетаРегламентныхДокументов" id="608">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Настройки учета регламентных документов</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа настройки учета регламентных документов</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<ExtendedTooltip name="ГруппаНастройкиУчетаРегламентныхДокументовРасширеннаяПодсказка" id="609"/>
+							<ChildItems>
+								<CheckBoxField name="упИспользуетсяПолучениеПередачаДокументовВТочкахРейса" id="610">
+									<DataPath>НаборКонстант.упИспользуетсяПолучениеПередачаДокументовВТочкахРейса</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упИспользуетсяПолучениеПередачаДокументовВТочкахРейсаКонтекстноеМеню" id="611"/>
+									<ExtendedTooltip name="упИспользуетсяПолучениеПередачаДокументовВТочкахРейсаРасширеннаяПодсказка" id="612"/>
+								</CheckBoxField>
+								<CheckBoxField name="упИспользуетсяВозвратДокументовПослеИсполненияРейса" id="613">
+									<DataPath>НаборКонстант.упИспользуетсяВозвратДокументовПослеИсполненияРейса</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упИспользуетсяВозвратДокументовПослеИсполненияРейсаКонтекстноеМеню" id="614"/>
+									<ExtendedTooltip name="упИспользуетсяВозвратДокументовПослеИсполненияРейсаРасширеннаяПодсказка" id="615"/>
+								</CheckBoxField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаПрочиеНастройки" id="616">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Прочие настройки</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа прочие настройки</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<ExtendedTooltip name="ГруппаПрочиеНастройкиРасширеннаяПодсказка" id="617"/>
+							<ChildItems>
+								<CheckBoxField name="упИспользуютсяИтерацииОформленияЗаявокНаТС" id="618">
+									<DataPath>НаборКонстант.упИспользуютсяИтерацииОформленияЗаявокНаТС</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упИспользуютсяИтерацииОформленияЗаявокНаТСКонтекстноеМеню" id="619"/>
+									<ExtendedTooltip name="упИспользуютсяИтерацииОформленияЗаявокНаТСРасширеннаяПодсказка" id="620"/>
+								</CheckBoxField>
+								<CheckBoxField name="упИспользуетсяСтрахованиеГруза" id="621">
+									<DataPath>НаборКонстант.упИспользуетсяСтрахованиеГруза</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упИспользуетсяСтрахованиеГрузаКонтекстноеМеню" id="622"/>
+									<ExtendedTooltip name="упИспользуетсяСтрахованиеГрузаРасширеннаяПодсказка" id="623"/>
+								</CheckBoxField>
+								<CheckBoxField name="упИспользуютсяДополнительныеСотрудникиВРейсе" id="624">
+									<DataPath>НаборКонстант.упИспользуютсяДополнительныеСотрудникиВРейсе</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упИспользуютсяДополнительныеСотрудникиВРейсеКонтекстноеМеню" id="625"/>
+									<ExtendedTooltip name="упИспользуютсяДополнительныеСотрудникиВРейсеРасширеннаяПодсказка" id="626"/>
+								</CheckBoxField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаСборСтатистики" id="627">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Сбор статистики</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа сбор статистики</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<ExtendedTooltip name="ГруппаСборСтатистикиРасширеннаяПодсказка" id="628"/>
+							<ChildItems>
+								<CheckBoxField name="упСтатистикаНахождениеВТочкахПартнеровУчитывать" id="629">
+									<DataPath>НаборКонстант.упСтатистикаНахождениеВТочкахПартнеровУчитывать</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упСтатистикаНахождениеВТочкахПартнеровУчитыватьКонтекстноеМеню" id="630"/>
+									<ExtendedTooltip name="упСтатистикаНахождениеВТочкахПартнеровУчитыватьРасширеннаяПодсказка" id="631"/>
+									<Events>
+										<Event name="OnChange">упСтатистикаНахождениеВТочкахПартнеровУчитыватьПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<UsualGroup name="Группа20" id="632">
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа20РасширеннаяПодсказка" id="633"/>
+									<ChildItems>
+										<UsualGroup name="Группа21" id="634">
+											<Group>Horizontal</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Группа21РасширеннаяПодсказка" id="635"/>
+											<ChildItems>
+												<LabelDecoration name="ДекорацияОтступ" id="636">
+													<Width>2</Width>
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<ContextMenu name="ДекорацияОтступКонтекстноеМеню" id="637"/>
+													<ExtendedTooltip name="ДекорацияОтступРасширеннаяПодсказка" id="638"/>
+												</LabelDecoration>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="Группа22" id="639">
+											<Group>Vertical</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Группа22РасширеннаяПодсказка" id="640"/>
+											<ChildItems>
+												<InputField name="упСтатистикаНахождениеВТочкахПартнеровПериодАнализа" id="641">
+													<DataPath>НаборКонстант.упСтатистикаНахождениеВТочкахПартнеровПериодАнализа</DataPath>
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<EditFormat>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>ЧН='за весь период'</v8:content>
+														</v8:item>
+													</EditFormat>
+													<ContextMenu name="упСтатистикаНахождениеВТочкахПартнеровПериодАнализаКонтекстноеМеню" id="642"/>
+													<ExtendedTooltip name="упСтатистикаНахождениеВТочкахПартнеровПериодАнализаРасширеннаяПодсказка" id="643"/>
+													<Events>
+														<Event name="OnChange">упСтатистикаНахождениеВТочкахПартнеровПериодАнализаПриИзменении</Event>
+													</Events>
+												</InputField>
+												<InputField name="упСтатистикаНахождениеВТочкахПартнеровТребуемоеКоличествоПосещений" id="644">
+													<DataPath>НаборКонстант.упСтатистикаНахождениеВТочкахПартнеровТребуемоеКоличествоПосещений</DataPath>
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<ContextMenu name="упСтатистикаНахождениеВТочкахПартнеровТребуемоеКоличествоПосещенийКонтекстноеМеню" id="645"/>
+													<ExtendedTooltip name="упСтатистикаНахождениеВТочкахПартнеровТребуемоеКоличествоПосещенийРасширеннаяПодсказка" id="646"/>
+												</InputField>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="ГрузыИНормативноСправочнаяИнформация" id="27">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Грузы и НСИ</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Настраиваются параметры учета грузов, номенклатуры, упаковок номенклатуры при перевозке...</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Picture>
+						<xr:Ref>CommonPicture.упПодсистемаНормативноСправочнаяИнформация</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ExtendedTooltip name="ГрузыИНормативноСправочнаяИнформацияРасширеннаяПодсказка" id="28"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаКонтролируемыеПараметрыПриПодбореТС" id="84">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Контролируемые параметры при подборе ТС</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<ExtendedTooltip name="ГруппаКонтролируемыеПараметрыПриПодбореТСРасширеннаяПодсказка" id="85"/>
+							<ChildItems>
+								<CheckBoxField name="упУчитыватьКлассыОпасностиГрузов" id="86">
+									<DataPath>НаборКонстант.упУчитыватьКлассыОпасностиГрузов</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упУчитыватьКлассыОпасностиГрузовКонтекстноеМеню" id="87"/>
+									<ExtendedTooltip name="упУчитыватьКлассыОпасностиГрузовРасширеннаяПодсказка" id="88"/>
+								</CheckBoxField>
+								<CheckBoxField name="упИспользуетсяКоличественныйУчетГрузов" id="89">
+									<DataPath>НаборКонстант.упИспользуетсяКоличественныйУчетГрузов</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упИспользуетсяКоличественныйУчетГрузовКонтекстноеМеню" id="90"/>
+									<ExtendedTooltip name="упИспользуетсяКоличественныйУчетГрузовРасширеннаяПодсказка" id="91"/>
+								</CheckBoxField>
+								<CheckBoxField name="упУчитыватьТемпературныеРежимы" id="92">
+									<DataPath>НаборКонстант.упКонтролироватьТемпературныеРежимы</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упУчитыватьТемпературныеРежимыКонтекстноеМеню" id="93"/>
+									<ExtendedTooltip name="упУчитыватьТемпературныеРежимыРасширеннаяПодсказка" id="94"/>
+								</CheckBoxField>
+								<CheckBoxField name="упКонтролироватьСовместимостьТовара" id="95">
+									<DataPath>НаборКонстант.упКонтролироватьСовместимостьТовара</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упКонтролироватьСовместимостьТовараКонтекстноеМеню" id="96"/>
+									<ExtendedTooltip name="упКонтролироватьСовместимостьТовараРасширеннаяПодсказка" id="97"/>
+								</CheckBoxField>
+								<CheckBoxField name="упКонтролироватьТипыКузововДляПогрузкиРазгрузки" id="98">
+									<DataPath>НаборКонстант.упКонтролироватьТипыКузововДляПогрузкиРазгрузки</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упКонтролироватьТипыКузововДляПогрузкиРазгрузкиКонтекстноеМеню" id="99"/>
+									<ExtendedTooltip name="упКонтролироватьТипыКузововДляПогрузкиРазгрузкиРасширеннаяПодсказка" id="100"/>
+								</CheckBoxField>
+								<CheckBoxField name="упКонтролироватьУкладкуГрузов" id="853">
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упКонтролироватьУкладкуГрузовКонтекстноеМеню" id="854"/>
+									<ExtendedTooltip name="упКонтролироватьУкладкуГрузовРасширеннаяПодсказка" id="855"/>
+								</CheckBoxField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаУчитываемыеВГХГрузов" id="101">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Учитываемые ВГХ грузов</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<ExtendedTooltip name="ГруппаУчитываемыеВГХГрузовРасширеннаяПодсказка" id="102"/>
+							<ChildItems>
+								<UsualGroup name="Группа3" id="103">
+									<Group>Vertical</Group>
+									<VerticalSpacing>Half</VerticalSpacing>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="104"/>
+									<ChildItems>
+										<CheckBoxField name="упУчитыватьЛинейныеРазмеры" id="105">
+											<DataPath>НаборКонстант.упУчитыватьЛинейныеРазмеры</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="упУчитыватьЛинейныеРазмерыКонтекстноеМеню" id="106"/>
+											<ExtendedTooltip name="упУчитыватьЛинейныеРазмерыРасширеннаяПодсказка" id="107"/>
+											<Events>
+												<Event name="OnChange">упУчитыватьЛинейныеРазмерыПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+										<UsualGroup name="Группа4" id="108">
+											<Group>Horizontal</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="109"/>
+											<ChildItems>
+												<LabelDecoration name="Декорация1" id="110">
+													<Width>2</Width>
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<ContextMenu name="Декорация1КонтекстноеМеню" id="111"/>
+													<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="112"/>
+												</LabelDecoration>
+												<InputField name="упЕдиницаИзмеренияЛинейныхГабаритов" id="113">
+													<DataPath>НаборКонстант.упЕдиницаИзмеренияЛинейныхГабаритов</DataPath>
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<AutoMarkIncomplete>true</AutoMarkIncomplete>
+													<ContextMenu name="упЕдиницаИзмеренияЛинейныхГабаритовКонтекстноеМеню" id="114"/>
+													<ExtendedTooltip name="упЕдиницаИзмеренияЛинейныхГабаритовРасширеннаяПодсказка" id="115"/>
+												</InputField>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="Группа5" id="116">
+									<Group>Vertical</Group>
+									<VerticalSpacing>Half</VerticalSpacing>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа5РасширеннаяПодсказка" id="117"/>
+									<ChildItems>
+										<CheckBoxField name="упУчитыватьМассу" id="118">
+											<DataPath>НаборКонстант.упУчитыватьМассу</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="упУчитыватьМассуКонтекстноеМеню" id="119"/>
+											<ExtendedTooltip name="упУчитыватьМассуРасширеннаяПодсказка" id="120"/>
+											<Events>
+												<Event name="OnChange">упУчитыватьМассуПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+										<UsualGroup name="Группа6" id="121">
+											<Group>Horizontal</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Группа6РасширеннаяПодсказка" id="122"/>
+											<ChildItems>
+												<LabelDecoration name="Декорация2" id="123">
+													<Width>2</Width>
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<ContextMenu name="Декорация2КонтекстноеМеню" id="124"/>
+													<ExtendedTooltip name="Декорация2РасширеннаяПодсказка" id="125"/>
+												</LabelDecoration>
+												<InputField name="упЕдиницаИзмеренияМассы" id="126">
+													<DataPath>НаборКонстант.упЕдиницаИзмеренияМассы</DataPath>
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<AutoMarkIncomplete>true</AutoMarkIncomplete>
+													<ContextMenu name="упЕдиницаИзмеренияМассыКонтекстноеМеню" id="127"/>
+													<ExtendedTooltip name="упЕдиницаИзмеренияМассыРасширеннаяПодсказка" id="128"/>
+													<Events>
+														<Event name="OnChange">упЕдиницаИзмеренияМассыПриИзменении</Event>
+													</Events>
+												</InputField>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="Группа7" id="129">
+									<Group>Vertical</Group>
+									<VerticalSpacing>Half</VerticalSpacing>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа7РасширеннаяПодсказка" id="130"/>
+									<ChildItems>
+										<CheckBoxField name="упУчитыватьОбъем" id="131">
+											<DataPath>НаборКонстант.упУчитыватьОбъем</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="упУчитыватьОбъемКонтекстноеМеню" id="132"/>
+											<ExtendedTooltip name="упУчитыватьОбъемРасширеннаяПодсказка" id="133"/>
+											<Events>
+												<Event name="OnChange">упУчитыватьОбъемПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+										<UsualGroup name="Группа8" id="134">
+											<Group>Horizontal</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Группа8РасширеннаяПодсказка" id="135"/>
+											<ChildItems>
+												<LabelDecoration name="Декорация3" id="136">
+													<Width>2</Width>
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<ContextMenu name="Декорация3КонтекстноеМеню" id="137"/>
+													<ExtendedTooltip name="Декорация3РасширеннаяПодсказка" id="138"/>
+												</LabelDecoration>
+												<InputField name="упЕдиницаИзмеренияОбъема" id="139">
+													<DataPath>НаборКонстант.упЕдиницаИзмеренияОбъема</DataPath>
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<AutoMarkIncomplete>true</AutoMarkIncomplete>
+													<ContextMenu name="упЕдиницаИзмеренияОбъемаКонтекстноеМеню" id="140"/>
+													<ExtendedTooltip name="упЕдиницаИзмеренияОбъемаРасширеннаяПодсказка" id="141"/>
+												</InputField>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="Группа9" id="142">
+											<Group>Horizontal</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Группа9РасширеннаяПодсказка" id="143"/>
+											<ChildItems>
+												<LabelDecoration name="Декорация4" id="144">
+													<Width>2</Width>
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<ContextMenu name="Декорация4КонтекстноеМеню" id="145"/>
+													<ExtendedTooltip name="Декорация4РасширеннаяПодсказка" id="146"/>
+												</LabelDecoration>
+												<InputField name="упКоэффициентПересчетаОбъема" id="147">
+													<DataPath>НаборКонстант.упКоэффициентПересчетаОбъема</DataPath>
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<HorizontalStretch>true</HorizontalStretch>
+													<ContextMenu name="упКоэффициентПересчетаОбъемаКонтекстноеМеню" id="148"/>
+													<ExtendedTooltip name="упКоэффициентПересчетаОбъемаРасширеннаяПодсказка" id="149"/>
+												</InputField>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="Группа10" id="150">
+									<Group>Vertical</Group>
+									<VerticalSpacing>Half</VerticalSpacing>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа10РасширеннаяПодсказка" id="151"/>
+									<ChildItems>
+										<CheckBoxField name="упУчитыватьКоличествоМест" id="152">
+											<DataPath>НаборКонстант.упУчитыватьКоличествоМест</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="упУчитыватьКоличествоМестКонтекстноеМеню" id="153"/>
+											<ExtendedTooltip name="упУчитыватьКоличествоМестРасширеннаяПодсказка" id="154"/>
+											<Events>
+												<Event name="OnChange">упУчитыватьКоличествоМестПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+										<UsualGroup name="Группа11" id="155">
+											<Group>Horizontal</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Группа11РасширеннаяПодсказка" id="156"/>
+											<ChildItems>
+												<LabelDecoration name="Декорация5" id="157">
+													<Width>2</Width>
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<ContextMenu name="Декорация5КонтекстноеМеню" id="158"/>
+													<ExtendedTooltip name="Декорация5РасширеннаяПодсказка" id="159"/>
+												</LabelDecoration>
+												<InputField name="упЕдиницаИзмеренияГрузовыхМест" id="160">
+													<DataPath>НаборКонстант.упЕдиницаИзмеренияГрузовыхМест</DataPath>
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<AutoMarkIncomplete>true</AutoMarkIncomplete>
+													<ContextMenu name="упЕдиницаИзмеренияГрузовыхМестКонтекстноеМеню" id="161"/>
+													<ExtendedTooltip name="упЕдиницаИзмеренияГрузовыхМестРасширеннаяПодсказка" id="162"/>
+												</InputField>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+								<CheckBoxField name="упУчитыватьКоличествоЗагрузочныхМетров" id="163">
+									<DataPath>НаборКонстант.упУчитыватьКоличествоЗагрузочныхМетров</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упУчитыватьКоличествоЗагрузочныхМетровКонтекстноеМеню" id="164"/>
+									<ExtendedTooltip name="упУчитыватьКоличествоЗагрузочныхМетровРасширеннаяПодсказка" id="165"/>
+									<Events>
+										<Event name="OnChange">упУчитыватьКоличествоЗагрузочныхМетровПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<UsualGroup name="ГруппаКоэффициентПересчетаМассы" id="166">
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа коэффициент пересчета массы</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаКоэффициентПересчетаМассыРасширеннаяПодсказка" id="167"/>
+									<ChildItems>
+										<LabelDecoration name="ДекорацияЗаголовокКоэффициентаПересчетаМассы" id="168">
+											<HorizontalStretch>false</HorizontalStretch>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Коэффициент пересчета массы из кг в кг:</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="ДекорацияЗаголовокКоэффициентаПересчетаМассыКонтекстноеМеню" id="169"/>
+											<ExtendedTooltip name="ДекорацияЗаголовокКоэффициентаПересчетаМассыРасширеннаяПодсказка" id="170"/>
+										</LabelDecoration>
+										<InputField name="упКоэффициентПересчетаМассы" id="171">
+											<DataPath>НаборКонстант.упКоэффициентПересчетаМассы</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Коэффициент используется при расчете расхода топлива</v8:content>
+												</v8:item>
+											</ToolTip>
+											<ToolTipRepresentation>Button</ToolTipRepresentation>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<HorizontalStretch>true</HorizontalStretch>
+											<ContextMenu name="упКоэффициентПересчетаМассыКонтекстноеМеню" id="172"/>
+											<ExtendedTooltip name="упКоэффициентПересчетаМассыРасширеннаяПодсказка" id="173"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+								<CheckBoxField name="упРазрешитьИзменениеПараметровГрузовПриИсполненииРейса" id="807">
+									<DataPath>НаборКонстант.упРазрешитьИзменениеПараметровГрузовПриИсполненииРейса</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Изменение параметров груза при выполнении работ прохождения точек не доступно, если в виде перевозки разрешено выполнение работ погрузки (разгрузки) с точностью до товарного состава</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ToolTipRepresentation>Button</ToolTipRepresentation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упРазрешитьИзменениеПараметровГрузовПриИсполненииРейсаКонтекстноеМеню" id="808"/>
+									<ExtendedTooltip name="упРазрешитьИзменениеПараметровГрузовПриИсполненииРейсаРасширеннаяПодсказка" id="809"/>
+								</CheckBoxField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="УправлениеТранспортом" id="52">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Учет ГСМ и управление транспортом</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Настраиваются учет ГСМ, ремонты и параметры управления собственным транспортным парком...</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Picture>
+						<xr:Ref>CommonPicture.упПодсистемаУчетГСМ</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ExtendedTooltip name="УправлениеТранспортомРасширеннаяПодсказка" id="53"/>
+					<ChildItems>
+						<CheckBoxField name="упИспользуетсяУчетГСМ" id="647">
+							<DataPath>НаборКонстант.упИспользуетсяУчетГСМ</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="упИспользуетсяУчетГСМКонтекстноеМеню" id="648"/>
+							<ExtendedTooltip name="упИспользуетсяУчетГСМРасширеннаяПодсказка" id="649"/>
+							<Events>
+								<Event name="OnChange">упИспользуетсяУчетГСМПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<UsualGroup name="Группа23" id="650">
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа23РасширеннаяПодсказка" id="651"/>
+							<ChildItems>
+								<UsualGroup name="Группа24" id="652">
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа24РасширеннаяПодсказка" id="653"/>
+									<ChildItems>
+										<LabelDecoration name="Декорация17" id="654">
+											<Width>2</Width>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<ContextMenu name="Декорация17КонтекстноеМеню" id="655"/>
+											<ExtendedTooltip name="Декорация17РасширеннаяПодсказка" id="656"/>
+										</LabelDecoration>
+										<CheckBoxField name="упИспользуетсяУчетПутевыхЛистов" id="657">
+											<DataPath>НаборКонстант.упИспользуетсяУчетПутевыхЛистов</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="упИспользуетсяУчетПутевыхЛистовКонтекстноеМеню" id="658"/>
+											<ExtendedTooltip name="упИспользуетсяУчетПутевыхЛистовРасширеннаяПодсказка" id="659"/>
+											<Events>
+												<Event name="OnChange">упИспользуетсяУчетПутевыхЛистовПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаРазрешитьВыпискуПутевогоЛистаДляНесколькихРейсов" id="660">
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа разрешить выписку путевого листа для нескольких рейсов</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаРазрешитьВыпискуПутевогоЛистаДляНесколькихРейсовРасширеннаяПодсказка" id="661"/>
+									<ChildItems>
+										<LabelDecoration name="ДекорацияОтступДляРазрешитьВыпискуПутевогоЛистаДляНесколькихРейсов" id="662">
+											<Width>2</Width>
+											<ContextMenu name="ДекорацияОтступДляРазрешитьВыпискуПутевогоЛистаДляНесколькихРейсовКонтекстноеМеню" id="663"/>
+											<ExtendedTooltip name="ДекорацияОтступДляРазрешитьВыпискуПутевогоЛистаДляНесколькихРейсовРасширеннаяПодсказка" id="664"/>
+										</LabelDecoration>
+										<CheckBoxField name="упРазрешитьВыпискуОдногоПутевогоЛистаНаНесколькоРейсов" id="665">
+											<DataPath>НаборКонстант.упРазрешитьВыпискуОдногоПутевогоЛистаНаНесколькоРейсов</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="упРазрешитьВыпискуОдногоПутевогоЛистаНаНесколькоРейсовКонтекстноеМеню" id="666"/>
+											<ExtendedTooltip name="упРазрешитьВыпискуОдногоПутевогоЛистаНаНесколькоРейсовРасширеннаяПодсказка" id="667"/>
+										</CheckBoxField>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="Группа25" id="668">
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа25РасширеннаяПодсказка" id="669"/>
+									<ChildItems>
+										<LabelDecoration name="Декорация18" id="670">
+											<Width>2</Width>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<ContextMenu name="Декорация18КонтекстноеМеню" id="671"/>
+											<ExtendedTooltip name="Декорация18РасширеннаяПодсказка" id="672"/>
+										</LabelDecoration>
+										<CheckBoxField name="упВестиНумерациюПутевыхЛистовВРазрезеОрганизаций" id="673">
+											<DataPath>НаборКонстант.упВестиНумерациюПутевыхЛистовВРазрезеОрганизаций</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="упВестиНумерациюПутевыхЛистовВРазрезеОрганизацийКонтекстноеМеню" id="674"/>
+											<ExtendedTooltip name="упВестиНумерациюПутевыхЛистовВРазрезеОрганизацийРасширеннаяПодсказка" id="675"/>
+										</CheckBoxField>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="Группа26" id="676">
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа26РасширеннаяПодсказка" id="677"/>
+									<ChildItems>
+										<LabelDecoration name="Декорация19" id="678">
+											<Width>2</Width>
+											<ContextMenu name="Декорация19КонтекстноеМеню" id="679"/>
+											<ExtendedTooltip name="Декорация19РасширеннаяПодсказка" id="680"/>
+										</LabelDecoration>
+										<CheckBoxField name="упИспользуетсяЗагрузкаДанныхОтТопливныхКомпаний" id="681">
+											<DataPath>НаборКонстант.упИспользуетсяЗагрузкаДанныхОтТопливныхКомпаний</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="упИспользуетсяЗагрузкаДанныхОтТопливныхКомпанийКонтекстноеМеню" id="682"/>
+											<ExtendedTooltip name="упИспользуетсяЗагрузкаДанныхОтТопливныхКомпанийРасширеннаяПодсказка" id="683"/>
+										</CheckBoxField>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаЛимитыРасходаГСМ" id="749">
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаЛимитыРасходаГСМРасширеннаяПодсказка" id="750"/>
+									<ChildItems>
+										<LabelDecoration name="Декорация21" id="751">
+											<Width>2</Width>
+											<ContextMenu name="Декорация21КонтекстноеМеню" id="752"/>
+											<ExtendedTooltip name="Декорация21РасширеннаяПодсказка" id="753"/>
+										</LabelDecoration>
+										<CheckBoxField name="упИспользуютсяЛимитыРасходаГСМ" id="754">
+											<DataPath>НаборКонстант.упИспользуютсяЛимитыРасходаГСМ</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="упИспользуютсяЛимитыРасходаГСМКонтекстноеМеню" id="755"/>
+											<ExtendedTooltip name="упИспользуютсяЛимитыРасходаГСМРасширеннаяПодсказка" id="756"/>
+										</CheckBoxField>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+						<CheckBoxField name="упИспользуютсяРемонтыИТОТС" id="684">
+							<DataPath>НаборКонстант.упИспользуютсяРемонтыИТОТС</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="упИспользуютсяРемонтыИТОТСКонтекстноеМеню" id="685"/>
+							<ExtendedTooltip name="упИспользуютсяРемонтыИТОТСРасширеннаяПодсказка" id="686"/>
+						</CheckBoxField>
+						<CheckBoxField name="упИспользуетсяУчетШинУзловИАгрегатов" id="687">
+							<DataPath>НаборКонстант.упИспользуетсяУчетШинУзловИАгрегатов</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="упИспользуетсяУчетШинУзловИАгрегатовКонтекстноеМеню" id="688"/>
+							<ExtendedTooltip name="упИспользуетсяУчетШинУзловИАгрегатовРасширеннаяПодсказка" id="689"/>
+						</CheckBoxField>
+						<CheckBoxField name="упИспользуетсяУчетДополнительногоОборудования" id="690">
+							<DataPath>НаборКонстант.упИспользуетсяУчетДополнительногоОборудования</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="упИспользуетсяУчетДополнительногоОборудованияКонтекстноеМеню" id="691"/>
+							<ExtendedTooltip name="упИспользуетсяУчетДополнительногоОборудованияРасширеннаяПодсказка" id="692"/>
+						</CheckBoxField>
+						<CheckBoxField name="упИспользуетсяУчетДорожныхПроисшествий" id="693">
+							<DataPath>НаборКонстант.упИспользуетсяУчетДорожныхПроисшествий</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="упИспользуетсяУчетДорожныхПроисшествийКонтекстноеМеню" id="694"/>
+							<ExtendedTooltip name="упИспользуетсяУчетДорожныхПроисшествийРасширеннаяПодсказка" id="695"/>
+						</CheckBoxField>
+						<CheckBoxField name="упИспользуетсяУчетШтрафов" id="696">
+							<DataPath>НаборКонстант.упИспользуетсяУчетШтрафов</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="упИспользуетсяУчетШтрафовКонтекстноеМеню" id="697"/>
+							<ExtendedTooltip name="упИспользуетсяУчетШтрафовРасширеннаяПодсказка" id="698"/>
+						</CheckBoxField>
+						<CheckBoxField name="упВедетсяУчетДокументовТранспортныхСредствВодителей" id="699">
+							<DataPath>НаборКонстант.упВедетсяУчетДокументовТранспортныхСредствВодителей</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="упВедетсяУчетДокументовТранспортныхСредствВодителейКонтекстноеМеню" id="700"/>
+							<ExtendedTooltip name="упВедетсяУчетДокументовТранспортныхСредствВодителейРасширеннаяПодсказка" id="701"/>
+						</CheckBoxField>
+						<CheckBoxField name="упВестиОтдельныйУчетПоказанийОдометровТранспортныхСредств" id="757">
+							<DataPath>НаборКонстант.упВестиОтдельныйУчетПоказанийОдометровТранспортныхСредств</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="упВестиОтдельныйУчетПоказанийОдометровТранспортныхСредствКонтекстноеМеню" id="758"/>
+							<ExtendedTooltip name="упВестиОтдельныйУчетПоказанийОдометровТранспортныхСредствРасширеннаяПодсказка" id="759"/>
+							<Events>
+								<Event name="OnChange">упВестиОтдельныйУчетПоказанийОдометровТранспортныхСредствПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<CheckBoxField name="упИспользуетсяУчетМатериалов" id="702">
+							<DataPath>НаборКонстант.упИспользуетсяУчетМатериалов</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="упИспользуетсяУчетМатериаловКонтекстноеМеню" id="703"/>
+							<ExtendedTooltip name="упИспользуетсяУчетМатериаловРасширеннаяПодсказка" id="704"/>
+							<Events>
+								<Event name="OnChange">упИспользуетсяУчетМатериаловПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<UsualGroup name="Группа27" id="705">
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа27РасширеннаяПодсказка" id="706"/>
+							<ChildItems>
+								<LabelDecoration name="Декорация20" id="707">
+									<Width>2</Width>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<ContextMenu name="Декорация20КонтекстноеМеню" id="708"/>
+									<ExtendedTooltip name="Декорация20РасширеннаяПодсказка" id="709"/>
+								</LabelDecoration>
+								<InputField name="упМетодОценкиСтоимостиМатериалов" id="710">
+									<DataPath>НаборКонстант.упМетодОценкиСтоимостиМатериалов</DataPath>
+									<AutoMarkIncomplete>true</AutoMarkIncomplete>
+									<ContextMenu name="упМетодОценкиСтоимостиМатериаловКонтекстноеМеню" id="711"/>
+									<ExtendedTooltip name="упМетодОценкиСтоимостиМатериаловРасширеннаяПодсказка" id="712"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="КартыИРасчетРасстояний" id="42">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Геоинформационные сервисы</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Настраиваются электронные географические карты, сервисы маршрутизации, геокодирования и спутникового мониторинга...</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Picture>
+						<xr:Ref>CommonPicture.упПодсистемаЭлектронныеГеографическиеКарты</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ExtendedTooltip name="КартыИРасчетРасстоянийРасширеннаяПодсказка" id="43"/>
+					<ChildItems>
+						<Pages name="ГруппаСтраницы" id="174">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа страницы</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа страницы</v8:content>
+								</v8:item>
+							</ToolTip>
+							<PagesRepresentation>TabsOnTop</PagesRepresentation>
+							<ExtendedTooltip name="ГруппаСтраницыРасширеннаяПодсказка" id="175"/>
+							<ChildItems>
+								<Page name="ГруппаНастройкиЭлектроннойГеографическойКарты" id="176">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Электронная карта</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа настройки электронной географической карты</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ГруппаНастройкиЭлектроннойГеографическойКартыРасширеннаяПодсказка" id="177"/>
+									<ChildItems>
+										<CheckBoxField name="упИспользуютсяЭлектронныеГеографическиеКарты" id="178">
+											<DataPath>НаборКонстант.упИспользуютсяЭлектронныеГеографическиеКарты</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="упИспользуютсяЭлектронныеГеографическиеКартыКонтекстноеМеню" id="179"/>
+											<ExtendedTooltip name="упИспользуютсяЭлектронныеГеографическиеКартыРасширеннаяПодсказка" id="180"/>
+											<Events>
+												<Event name="OnChange">упИспользуютсяЭлектронныеГеографическиеКартыПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+										<UsualGroup name="ГруппаТипыКарт" id="181">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа типы карт</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа типы карт</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Horizontal</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаТипыКартРасширеннаяПодсказка" id="182"/>
+											<ChildItems>
+												<LabelDecoration name="Декорация6" id="183">
+													<Width>2</Width>
+													<ContextMenu name="Декорация6КонтекстноеМеню" id="184"/>
+													<ExtendedTooltip name="Декорация6РасширеннаяПодсказка" id="185"/>
+												</LabelDecoration>
+												<UsualGroup name="грпТипыКарт" id="186">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Грп типы карт</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Использовать тип карты</v8:content>
+														</v8:item>
+													</ToolTip>
+													<Group>Vertical</Group>
+													<VerticalSpacing>Half</VerticalSpacing>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="грпТипыКартРасширеннаяПодсказка" id="187"/>
+													<ChildItems>
+														<UsualGroup name="Группа12" id="188">
+															<Group>Horizontal</Group>
+															<Representation>None</Representation>
+															<ShowTitle>false</ShowTitle>
+															<ExtendedTooltip name="Группа12РасширеннаяПодсказка" id="189"/>
+															<ChildItems>
+																<InputField name="упТипКарт" id="190">
+																	<DataPath>НаборКонстант.упТипКарт</DataPath>
+																	<TitleLocation>Left</TitleLocation>
+																	<AutoMaxWidth>false</AutoMaxWidth>
+																	<ContextMenu name="упТипКартКонтекстноеМеню" id="191"/>
+																	<ExtendedTooltip name="упТипКартРасширеннаяПодсказка" id="192"/>
+																	<Events>
+																		<Event name="OnChange">упТипКартПриИзменении</Event>
+																		<Event name="StartChoice">упТипКартНачалоВыбора</Event>
+																	</Events>
+																</InputField>
+																<Button name="кмдПроверитьКарту" id="193">
+																	<Type>UsualButton</Type>
+																	<AutoMaxWidth>false</AutoMaxWidth>
+																	<CommandName>Form.Command.кмдПроверитьКарту</CommandName>
+																	<ExtendedTooltip name="кмдПроверитьКартуРасширеннаяПодсказка" id="194"/>
+																</Button>
+															</ChildItems>
+														</UsualGroup>
+														<UsualGroup name="грпНадпись" id="195">
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Грп надпись</v8:content>
+																</v8:item>
+															</Title>
+															<ToolTip>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Грп надпись</v8:content>
+																</v8:item>
+															</ToolTip>
+															<Group>Vertical</Group>
+															<Representation>None</Representation>
+															<ShowTitle>false</ShowTitle>
+															<ExtendedTooltip name="грпНадписьРасширеннаяПодсказка" id="196"/>
+															<ChildItems>
+																<LabelDecoration name="НадписьПро" id="197">
+																	<AutoMaxWidth>false</AutoMaxWidth>
+																	<TextColor>style:упПоясняющийТекст</TextColor>
+																	<ContextMenu name="НадписьПроКонтекстноеМеню" id="198"/>
+																	<ExtendedTooltip name="НадписьПроРасширеннаяПодсказка" id="199"/>
+																</LabelDecoration>
+																<LabelDecoration name="НадписьСсылка" id="200">
+																	<AutoMaxWidth>false</AutoMaxWidth>
+																	<TextColor>style:упПоясняющийТекст</TextColor>
+																	<Hyperlink>true</Hyperlink>
+																	<ContextMenu name="НадписьСсылкаКонтекстноеМеню" id="201"/>
+																	<ExtendedTooltip name="НадписьСсылкаРасширеннаяПодсказка" id="202"/>
+																	<Events>
+																		<Event name="Click">НадписьСсылкаНажатие</Event>
+																	</Events>
+																</LabelDecoration>
+															</ChildItems>
+														</UsualGroup>
+														<Pages name="СтраницыРежимыКарты" id="203">
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Страницы режимы карты</v8:content>
+																</v8:item>
+															</Title>
+															<ToolTip>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Страницы режимы карты</v8:content>
+																</v8:item>
+															</ToolTip>
+															<PagesRepresentation>None</PagesRepresentation>
+															<ExtendedTooltip name="СтраницыРежимыКартыРасширеннаяПодсказка" id="204"/>
+														</Pages>
+														<UsualGroup name="КартыПодключениеДоступ" id="205">
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Карты подключение доступ</v8:content>
+																</v8:item>
+															</Title>
+															<ToolTip>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Карты подключение доступ</v8:content>
+																</v8:item>
+															</ToolTip>
+															<Group>Vertical</Group>
+															<ShowTitle>false</ShowTitle>
+															<ExtendedTooltip name="КартыПодключениеДоступРасширеннаяПодсказка" id="206"/>
+															<ChildItems>
+																<UsualGroup name="Группа13" id="210">
+																	<Group>Horizontal</Group>
+																	<Representation>None</Representation>
+																	<ShowTitle>false</ShowTitle>
+																	<ExtendedTooltip name="Группа13РасширеннаяПодсказка" id="211"/>
+																	<ChildItems>
+																		<InputField name="упАдресСервераЭлектронныхКарт" id="212">
+																			<DataPath>НаборКонстант.упАдресСервераЭлектронныхКарт</DataPath>
+																			<AutoMaxWidth>false</AutoMaxWidth>
+																			<DropListButton>true</DropListButton>
+																			<ContextMenu name="упАдресСервераЭлектронныхКартКонтекстноеМеню" id="213"/>
+																			<ExtendedTooltip name="упАдресСервераЭлектронныхКартРасширеннаяПодсказка" id="214"/>
+																		</InputField>
+																		<InputField name="упКлючЭлектронныхГеографическихКарт" id="215">
+																			<DataPath>НаборКонстант.упКлючЭлектронныхГеографическихКарт</DataPath>
+																			<Title>
+																				<v8:item>
+																					<v8:lang>ru</v8:lang>
+																					<v8:content>Ключ</v8:content>
+																				</v8:item>
+																			</Title>
+																			<AutoMaxWidth>false</AutoMaxWidth>
+																			<InputHint>
+																				<v8:item>
+																					<v8:lang>ru</v8:lang>
+																					<v8:content>ключ доступа</v8:content>
+																				</v8:item>
+																			</InputHint>
+																			<ContextMenu name="упКлючЭлектронныхГеографическихКартКонтекстноеМеню" id="216"/>
+																			<ExtendedTooltip name="упКлючЭлектронныхГеографическихКартРасширеннаяПодсказка" id="217"/>
+																		</InputField>
+																	</ChildItems>
+																</UsualGroup>
+															</ChildItems>
+														</UsualGroup>
+														<InputField name="упКоличествоТочекДляАвтоматическогоИспользованияКластеризации" id="218">
+															<DataPath>НаборКонстант.упКоличествоТочекДляАвтоматическогоИспользованияКластеризации</DataPath>
+															<AutoMaxWidth>false</AutoMaxWidth>
+															<SpinButton>true</SpinButton>
+															<ContextMenu name="упКоличествоТочекДляАвтоматическогоИспользованияКластеризацииКонтекстноеМеню" id="219"/>
+															<ExtendedTooltip name="упКоличествоТочекДляАвтоматическогоИспользованияКластеризацииРасширеннаяПодсказка" id="220"/>
+														</InputField>
+														<UsualGroup name="Координаты" id="221">
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Настройка начального позиционирования</v8:content>
+																</v8:item>
+															</Title>
+															<ToolTip>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Для мониторинга и маршрутизации</v8:content>
+																</v8:item>
+															</ToolTip>
+															<Group>Vertical</Group>
+															<Representation>None</Representation>
+															<ExtendedTooltip name="КоординатыРасширеннаяПодсказка" id="222"/>
+															<ChildItems>
+																<InputField name="упДолготаНачальная" id="223">
+																	<DataPath>НаборКонстант.упДолготаНачальная</DataPath>
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Долгота</v8:content>
+																		</v8:item>
+																	</Title>
+																	<ToolTip>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Укажите долготу начальной позиции, используется в мониторинге ТС</v8:content>
+																		</v8:item>
+																	</ToolTip>
+																	<AutoMaxWidth>false</AutoMaxWidth>
+																	<ContextMenu name="упДолготаНачальнаяКонтекстноеМеню" id="224"/>
+																	<ExtendedTooltip name="упДолготаНачальнаяРасширеннаяПодсказка" id="225"/>
+																</InputField>
+																<InputField name="упШиротаДляРасчетаКоличестваМетровВГрадусе" id="226">
+																	<DataPath>НаборКонстант.упШиротаДляРасчетаКоличестваМетровВГрадусе</DataPath>
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Широта</v8:content>
+																		</v8:item>
+																	</Title>
+																	<ToolTip>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Широта для расчета количества метров в градусе, также используется для указания начальной позиции в мониторинге</v8:content>
+																		</v8:item>
+																	</ToolTip>
+																	<AutoMaxWidth>false</AutoMaxWidth>
+																	<ContextMenu name="упШиротаДляРасчетаКоличестваМетровВГрадусеКонтекстноеМеню" id="227"/>
+																	<ExtendedTooltip name="упШиротаДляРасчетаКоличестваМетровВГрадусеРасширеннаяПодсказка" id="228"/>
+																</InputField>
+															</ChildItems>
+														</UsualGroup>
+														<InputField name="упДельтаОтклоненияОтТочкиМаршрута" id="229">
+															<DataPath>НаборКонстант.упДельтаОтклоненияОтТочкиМаршрута</DataPath>
+															<AutoMaxWidth>false</AutoMaxWidth>
+															<ContextMenu name="упДельтаОтклоненияОтТочкиМаршрутаКонтекстноеМеню" id="230"/>
+															<ExtendedTooltip name="упДельтаОтклоненияОтТочкиМаршрутаРасширеннаяПодсказка" id="231"/>
+														</InputField>
+														<UsualGroup name="ГруппаНастройкиКартыДляОтчетов" id="232">
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Настройки карты для отчетов</v8:content>
+																</v8:item>
+															</Title>
+															<ToolTip>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Группа настройки карты для отчетов</v8:content>
+																</v8:item>
+															</ToolTip>
+															<Group>Vertical</Group>
+															<Representation>None</Representation>
+															<ExtendedTooltip name="ГруппаНастройкиКартыДляОтчетовРасширеннаяПодсказка" id="233"/>
+															<ChildItems>
+																<InputField name="упГеографическаяСхема" id="234">
+																	<DataPath>НаборКонстант.упГеографическаяСхема</DataPath>
+																	<AutoMaxWidth>false</AutoMaxWidth>
+																	<ContextMenu name="упГеографическаяСхемаКонтекстноеМеню" id="235"/>
+																	<ExtendedTooltip name="упГеографическаяСхемаРасширеннаяПодсказка" id="236"/>
+																</InputField>
+															</ChildItems>
+														</UsualGroup>
+													</ChildItems>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</Page>
+								<Page name="ГруппаНастройкиМаршрутизатора" id="237">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Маршрутизация</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа настройки маршрутизатора</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ГруппаНастройкиМаршрутизатораРасширеннаяПодсказка" id="238"/>
+									<ChildItems>
+										<CheckBoxField name="упИспользуетсяПостроительМаршрутов" id="239">
+											<DataPath>НаборКонстант.упИспользуетсяПостроительМаршрутов</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="упИспользуетсяПостроительМаршрутовКонтекстноеМеню" id="240"/>
+											<ExtendedTooltip name="упИспользуетсяПостроительМаршрутовРасширеннаяПодсказка" id="241"/>
+											<Events>
+												<Event name="OnChange">упИспользуетсяПостроительМаршрутовПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+										<UsualGroup name="ГруппаТипМаршрутизатора" id="242">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа тип маршрутизатора</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа тип маршрутизатора</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Horizontal</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаТипМаршрутизатораРасширеннаяПодсказка" id="243"/>
+											<ChildItems>
+												<LabelDecoration name="Декорация7" id="244">
+													<Width>2</Width>
+													<ContextMenu name="Декорация7КонтекстноеМеню" id="245"/>
+													<ExtendedTooltip name="Декорация7РасширеннаяПодсказка" id="246"/>
+												</LabelDecoration>
+												<UsualGroup name="грпТипМаршрутизации" id="247">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Грп тип маршрутизации</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Грп тип маршрутизации</v8:content>
+														</v8:item>
+													</ToolTip>
+													<Group>Vertical</Group>
+													<VerticalSpacing>Half</VerticalSpacing>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="грпТипМаршрутизацииРасширеннаяПодсказка" id="248"/>
+													<ChildItems>
+														<UsualGroup name="ГруппаТипМаршрутизации" id="249">
+															<Group>Horizontal</Group>
+															<Representation>None</Representation>
+															<ShowTitle>false</ShowTitle>
+															<ExtendedTooltip name="ГруппаТипМаршрутизацииРасширеннаяПодсказка" id="250"/>
+															<ChildItems>
+																<InputField name="упТипМаршрутизатора" id="251">
+																	<DataPath>НаборКонстант.упТипМаршрутизатора</DataPath>
+																	<AutoMaxWidth>false</AutoMaxWidth>
+																	<ContextMenu name="упТипМаршрутизатораКонтекстноеМеню" id="252"/>
+																	<ExtendedTooltip name="упТипМаршрутизатораРасширеннаяПодсказка" id="253"/>
+																	<Events>
+																		<Event name="OnChange">упТипМаршрутизатораПриИзменении</Event>
+																		<Event name="StartChoice">упТипМаршрутизатораНачалоВыбора</Event>
+																	</Events>
+																</InputField>
+																<Button name="кмдПроверка" id="254">
+																	<Type>UsualButton</Type>
+																	<AutoMaxWidth>false</AutoMaxWidth>
+																	<CommandName>Form.Command.кмдПроверирьМаршрутизатор</CommandName>
+																	<ExtendedTooltip name="кмдПроверкаРасширеннаяПодсказка" id="255"/>
+																</Button>
+															</ChildItems>
+														</UsualGroup>
+														<UsualGroup name="МаршрутизацияПодключениеДоступ" id="256">
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Маршрутизация подключение доступ</v8:content>
+																</v8:item>
+															</Title>
+															<ToolTip>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Маршрутизация подключение доступ</v8:content>
+																</v8:item>
+															</ToolTip>
+															<Group>Vertical</Group>
+															<ShowTitle>false</ShowTitle>
+															<ExtendedTooltip name="МаршрутизацияПодключениеДоступРасширеннаяПодсказка" id="257"/>
+															<ChildItems>
+																<UsualGroup name="ГруппаОграниченияСитиГИД" id="258">
+																	<Group>Vertical</Group>
+																	<Representation>None</Representation>
+																	<ShowTitle>false</ShowTitle>
+																	<ExtendedTooltip name="ГруппаОграниченияСитиГИДРасширеннаяПодсказка" id="259"/>
+																	<ChildItems>
+																		<Button name="кмдПараметрыСитиГИД" id="260">
+																			<Type>UsualButton</Type>
+																			<CommandName>Form.Command.кмдПараметрыСитиГИД</CommandName>
+																			<ExtendedTooltip name="кмдПараметрыСитиГИДРасширеннаяПодсказка" id="261"/>
+																		</Button>
+																		<CheckBoxField name="упРассчитыватьРасстоянияСУчетомДополнительныхОграниченийСитиГИД" id="262">
+																			<DataPath>НаборКонстант.упРассчитыватьРасстоянияСУчетомДополнительныхОграниченийСитиГИД</DataPath>
+																			<TitleLocation>Right</TitleLocation>
+																			<CheckBoxType>Auto</CheckBoxType>
+																			<ContextMenu name="упРассчитыватьРасстоянияСУчетомДополнительныхОграниченийСитиГИДКонтекстноеМеню" id="263"/>
+																			<ExtendedTooltip name="упРассчитыватьРасстоянияСУчетомДополнительныхОграниченийСитиГИДРасширеннаяПодсказка" id="264"/>
+																			<Events>
+																				<Event name="OnChange">упРассчитыватьРасстоянияСУчетомДополнительныхОграниченийСитиГИДПриИзменении</Event>
+																			</Events>
+																		</CheckBoxField>
+																		<Table name="ДополнительныеОграниченияСитиГИД" id="265">
+																			<Representation>List</Representation>
+																			<CommandBarLocation>None</CommandBarLocation>
+																			<ChangeRowSet>false</ChangeRowSet>
+																			<Height>4</Height>
+																			<AutoAddIncomplete>false</AutoAddIncomplete>
+																			<SearchOnInput>DontUse</SearchOnInput>
+																			<VerticalStretch>false</VerticalStretch>
+																			<EnableStartDrag>true</EnableStartDrag>
+																			<EnableDrag>true</EnableDrag>
+																			<FileDragMode>AsFile</FileDragMode>
+																			<DataPath>ДополнительныеОграниченияСитиГИД</DataPath>
+																			<CommandSet>
+																				<ExcludedCommand>Add</ExcludedCommand>
+																				<ExcludedCommand>Change</ExcludedCommand>
+																				<ExcludedCommand>Copy</ExcludedCommand>
+																				<ExcludedCommand>Delete</ExcludedCommand>
+																				<ExcludedCommand>EndEdit</ExcludedCommand>
+																			</CommandSet>
+																			<RowFilter xsi:nil="true"/>
+																			<ContextMenu name="ДополнительныеОграниченияСитиГИДКонтекстноеМеню" id="266"/>
+																			<AutoCommandBar name="ДополнительныеОграниченияСитиГИДКоманднаяПанель" id="267"/>
+																			<ExtendedTooltip name="ДополнительныеОграниченияСитиГИДРасширеннаяПодсказка" id="268"/>
+																			<SearchStringAddition name="ДополнительныеОграниченияСитиГИДСтрокаПоиска" id="269">
+																				<AdditionSource>
+																					<Item>ДополнительныеОграниченияСитиГИД</Item>
+																					<Type>SearchStringRepresentation</Type>
+																				</AdditionSource>
+																				<ContextMenu name="ДополнительныеОграниченияСитиГИДСтрокаПоискаКонтекстноеМеню" id="270"/>
+																				<ExtendedTooltip name="ДополнительныеОграниченияСитиГИДСтрокаПоискаРасширеннаяПодсказка" id="271"/>
+																			</SearchStringAddition>
+																			<ViewStatusAddition name="ДополнительныеОграниченияСитиГИДСостояниеПросмотра" id="272">
+																				<AdditionSource>
+																					<Item>ДополнительныеОграниченияСитиГИД</Item>
+																					<Type>ViewStatusRepresentation</Type>
+																				</AdditionSource>
+																				<ContextMenu name="ДополнительныеОграниченияСитиГИДСостояниеПросмотраКонтекстноеМеню" id="273"/>
+																				<ExtendedTooltip name="ДополнительныеОграниченияСитиГИДСостояниеПросмотраРасширеннаяПодсказка" id="274"/>
+																			</ViewStatusAddition>
+																			<SearchControlAddition name="ДополнительныеОграниченияСитиГИДУправлениеПоиском" id="275">
+																				<AdditionSource>
+																					<Item>ДополнительныеОграниченияСитиГИД</Item>
+																					<Type>SearchControl</Type>
+																				</AdditionSource>
+																				<ContextMenu name="ДополнительныеОграниченияСитиГИДУправлениеПоискомКонтекстноеМеню" id="276"/>
+																				<ExtendedTooltip name="ДополнительныеОграниченияСитиГИДУправлениеПоискомРасширеннаяПодсказка" id="277"/>
+																			</SearchControlAddition>
+																			<Events>
+																				<Event name="BeforeAddRow">ДополнительныеОграниченияСитиГИДПередНачаломДобавления</Event>
+																			</Events>
+																			<ChildItems>
+																				<CheckBoxField name="ДополнительныеОграниченияСитиГИДПометка" id="278">
+																					<DataPath>ДополнительныеОграниченияСитиГИД.Пометка</DataPath>
+																					<TitleLocation>None</TitleLocation>
+																					<EditMode>EnterOnInput</EditMode>
+																					<CheckBoxType>Auto</CheckBoxType>
+																					<ContextMenu name="ДополнительныеОграниченияСитиГИДПометкаКонтекстноеМеню" id="279"/>
+																					<ExtendedTooltip name="ДополнительныеОграниченияСитиГИДПометкаРасширеннаяПодсказка" id="280"/>
+																					<Events>
+																						<Event name="OnChange">ДополнительныеОграниченияСитиГИДПометкаПриИзменении</Event>
+																					</Events>
+																				</CheckBoxField>
+																				<InputField name="ДополнительныеОграниченияСитиГИДОграничение" id="281">
+																					<DataPath>ДополнительныеОграниченияСитиГИД.Ограничение</DataPath>
+																					<ReadOnly>true</ReadOnly>
+																					<EditMode>EnterOnInput</EditMode>
+																					<TextEdit>false</TextEdit>
+																					<ContextMenu name="ДополнительныеОграниченияСитиГИДОграничениеКонтекстноеМеню" id="282"/>
+																					<ExtendedTooltip name="ДополнительныеОграниченияСитиГИДОграничениеРасширеннаяПодсказка" id="283"/>
+																				</InputField>
+																			</ChildItems>
+																		</Table>
+																	</ChildItems>
+																</UsualGroup>
+																<UsualGroup name="ГруппаКлючСервисаМаршрутизации" id="284">
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Группа ключ сервиса маршрутизации</v8:content>
+																		</v8:item>
+																	</Title>
+																	<ToolTip>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Группа ключ сервиса маршрутизации</v8:content>
+																		</v8:item>
+																	</ToolTip>
+																	<Group>Horizontal</Group>
+																	<ShowTitle>false</ShowTitle>
+																	<ExtendedTooltip name="ГруппаКлючСервисаМаршрутизацииРасширеннаяПодсказка" id="285"/>
+																	<ChildItems>
+																		<InputField name="упКлючСервисаМаршрутизации" id="286">
+																			<DataPath>НаборКонстант.упКлючСервисаМаршрутизации</DataPath>
+																			<AutoMaxWidth>false</AutoMaxWidth>
+																			<ContextMenu name="упКлючСервисаМаршрутизацииКонтекстноеМеню" id="287"/>
+																			<ExtendedTooltip name="упКлючСервисаМаршрутизацииРасширеннаяПодсказка" id="288"/>
+																		</InputField>
+																		<Button name="ПрименитьКлючМаршрутизации" id="289">
+																			<Type>UsualButton</Type>
+																			<CommandName>Form.Command.ПрименитьКлючМаршрутизации</CommandName>
+																			<ExtendedTooltip name="ПрименитьКлючМаршрутизацииРасширеннаяПодсказка" id="290"/>
+																		</Button>
+																	</ChildItems>
+																</UsualGroup>
+																<InputField name="упКлючДоступаСервисаМаршрутизацииСитиГИД" id="291">
+																	<DataPath>НаборКонстант.упКлючДоступаСервисаМаршрутизацииСитиГИД</DataPath>
+																	<AutoMaxWidth>false</AutoMaxWidth>
+																	<ContextMenu name="упКлючДоступаСервисаМаршрутизацииСитиГИДКонтекстноеМеню" id="292"/>
+																	<ExtendedTooltip name="упКлючДоступаСервисаМаршрутизацииСитиГИДРасширеннаяПодсказка" id="293"/>
+																</InputField>
+																<InputField name="упАдресСервераМаршрутизацииСитиГИД" id="294">
+																	<DataPath>НаборКонстант.упАдресСервераМаршрутизацииСитиГИД</DataPath>
+																	<AutoMaxWidth>false</AutoMaxWidth>
+																	<InputHint>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>service.probki.net</v8:content>
+																		</v8:item>
+																	</InputHint>
+																	<ContextMenu name="упАдресСервераМаршрутизацииСитиГИДКонтекстноеМеню" id="295"/>
+																	<ExtendedTooltip name="упАдресСервераМаршрутизацииСитиГИДРасширеннаяПодсказка" id="296"/>
+																</InputField>
+																<InputField name="упРесурсСитиГИД" id="801">
+																	<DataPath>НаборКонстант.упРесурсСитиГИД</DataPath>
+																	<AutoMaxWidth>false</AutoMaxWidth>
+																	<InputHint>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>/cgsdk_v3/api/route</v8:content>
+																		</v8:item>
+																	</InputHint>
+																	<ContextMenu name="упРесурсСитиГИДКонтекстноеМеню" id="802"/>
+																	<ExtendedTooltip name="упРесурсСитиГИДРасширеннаяПодсказка" id="803"/>
+																</InputField>
+																<CheckBoxField name="упЛогироватьОбращенияКСервисуМаршрутизацииСитиГИД" id="804">
+																	<DataPath>НаборКонстант.упЛогироватьОбращенияКСервисуМаршрутизацииСитиГИД</DataPath>
+																	<TitleLocation>Right</TitleLocation>
+																	<CheckBoxType>Auto</CheckBoxType>
+																	<ContextMenu name="упЛогироватьОбращенияКСервисуМаршрутизацииСитиГИДКонтекстноеМеню" id="805"/>
+																	<ExtendedTooltip name="упЛогироватьОбращенияКСервисуМаршрутизацииСитиГИДРасширеннаяПодсказка" id="806"/>
+																</CheckBoxField>
+																<UsualGroup name="ГруппаМаршрутизацияЯндекс" id="297">
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Группа маршрутизация яндекс</v8:content>
+																		</v8:item>
+																	</Title>
+																	<ToolTip>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Группа маршрутизация яндекс</v8:content>
+																		</v8:item>
+																	</ToolTip>
+																	<Group>Vertical</Group>
+																	<Representation>None</Representation>
+																	<ShowTitle>false</ShowTitle>
+																	<ExtendedTooltip name="ГруппаМаршрутизацияЯндексРасширеннаяПодсказка" id="298"/>
+																	<ChildItems>
+																		<InputField name="упАдресСервераМаршрутизацииЯндекс" id="299">
+																			<DataPath>НаборКонстант.упАдресСервераМаршрутизацииЯндекс</DataPath>
+																			<ContextMenu name="упАдресСервераМаршрутизацииЯндексКонтекстноеМеню" id="300"/>
+																			<ExtendedTooltip name="упАдресСервераМаршрутизацииЯндексРасширеннаяПодсказка" id="301"/>
+																		</InputField>
+																	</ChildItems>
+																</UsualGroup>
+																<UsualGroup name="ГруппаЯндексМаршрутизация" id="818">
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Группа яндекс маршрутизация</v8:content>
+																		</v8:item>
+																	</Title>
+																	<ToolTip>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Группа яндекс маршрутизация</v8:content>
+																		</v8:item>
+																	</ToolTip>
+																	<Group>Vertical</Group>
+																	<Representation>None</Representation>
+																	<ShowTitle>false</ShowTitle>
+																	<ExtendedTooltip name="ГруппаЯндексМаршрутизацияРасширеннаяПодсказка" id="819"/>
+																	<ChildItems>
+																		<UsualGroup name="ГруппаОтображенияЯндексМаршрутизация" id="823">
+																			<Title>
+																				<v8:item>
+																					<v8:lang>ru</v8:lang>
+																					<v8:content>Группа отображения яндекс маршрутизация</v8:content>
+																				</v8:item>
+																			</Title>
+																			<ToolTip>
+																				<v8:item>
+																					<v8:lang>ru</v8:lang>
+																					<v8:content>Группа отображения яндекс маршрутизация</v8:content>
+																				</v8:item>
+																			</ToolTip>
+																			<Group>AlwaysHorizontal</Group>
+																			<ShowTitle>false</ShowTitle>
+																			<ExtendedTooltip name="ГруппаОтображенияЯндексМаршрутизацияРасширеннаяПодсказка" id="824"/>
+																			<ChildItems>
+																				<InputField name="упВремяОтправленияПоУмолчаниюЯндексМаршрутизация" id="820">
+																					<DataPath>НаборКонстант.упВремяОтправленияПоУмолчаниюЯндексМаршрутизация</DataPath>
+																					<SpinButton>true</SpinButton>
+																					<ContextMenu name="упВремяОтправленияПоУмолчаниюЯндексМаршрутизацияКонтекстноеМеню" id="821"/>
+																					<ExtendedTooltip name="упВремяОтправленияПоУмолчаниюЯндексМаршрутизацияРасширеннаяПодсказка" id="822"/>
+																				</InputField>
+																				<LabelDecoration name="Декорация26" id="825">
+																					<Title formatted="false">
+																						<v8:item>
+																							<v8:lang>ru</v8:lang>
+																							<v8:content>ч.</v8:content>
+																						</v8:item>
+																					</Title>
+																					<ContextMenu name="Декорация26КонтекстноеМеню" id="826"/>
+																					<ExtendedTooltip name="Декорация26РасширеннаяПодсказка" id="827"/>
+																				</LabelDecoration>
+																			</ChildItems>
+																		</UsualGroup>
+																	</ChildItems>
+																</UsualGroup>
+																<UsualGroup name="грпСервисМаршрутизацииGraphhopper" id="302">
+																	<Group>Vertical</Group>
+																	<Representation>None</Representation>
+																	<ShowTitle>false</ShowTitle>
+																	<ExtendedTooltip name="грпСервисМаршрутизацииGraphhopperРасширеннаяПодсказка" id="303"/>
+																	<ChildItems>
+																		<InputField name="упАдресСервераМаршрутизации" id="304">
+																			<DataPath>НаборКонстант.упАдресСервераМаршрутизацииGraphhopper</DataPath>
+																			<AutoMaxWidth>false</AutoMaxWidth>
+																			<ContextMenu name="упАдресСервераМаршрутизацииКонтекстноеМеню" id="305"/>
+																			<ExtendedTooltip name="упАдресСервераМаршрутизацииРасширеннаяПодсказка" id="306"/>
+																		</InputField>
+																		<UsualGroup name="грпАвторизацияПодключения" id="307">
+																			<Visible>false</Visible>
+																			<Group>Vertical</Group>
+																			<Representation>None</Representation>
+																			<ShowTitle>false</ShowTitle>
+																			<ExtendedTooltip name="грпАвторизацияПодключенияРасширеннаяПодсказка" id="308"/>
+																			<ChildItems>
+																				<InputField name="упПользовательСервисаМаршрутизацииИКартографииAXELOT" id="309">
+																					<DataPath>НаборКонстант.упПользовательСервисаМаршрутизацииИКартографииAXELOT</DataPath>
+																					<ContextMenu name="упПользовательСервисаМаршрутизацииИКартографииAXELOTКонтекстноеМеню" id="310"/>
+																					<ExtendedTooltip name="упПользовательСервисаМаршрутизацииИКартографииAXELOTРасширеннаяПодсказка" id="311"/>
+																				</InputField>
+																				<InputField name="упПарольСервисаМаршрутизацииИКартографииAXELOT" id="312">
+																					<DataPath>НаборКонстант.упПарольСервисаМаршрутизацииИКартографииAXELOT</DataPath>
+																					<ContextMenu name="упПарольСервисаМаршрутизацииИКартографииAXELOTКонтекстноеМеню" id="313"/>
+																					<ExtendedTooltip name="упПарольСервисаМаршрутизацииИКартографииAXELOTРасширеннаяПодсказка" id="314"/>
+																				</InputField>
+																			</ChildItems>
+																		</UsualGroup>
+																	</ChildItems>
+																</UsualGroup>
+																<InputField name="ДополнительныйПараметрыЗапросаМаршрутизации" id="315">
+																	<DataPath>НаборКонстант.упДополнительныеПараметрыЗапросаМаршрутизатора</DataPath>
+																	<AutoMaxWidth>false</AutoMaxWidth>
+																	<ContextMenu name="ДополнительныйПараметрыЗапросаМаршрутизацииКонтекстноеМеню" id="316"/>
+																	<ExtendedTooltip name="ДополнительныйПараметрыЗапросаМаршрутизацииРасширеннаяПодсказка" id="317"/>
+																</InputField>
+															</ChildItems>
+														</UsualGroup>
+														<Pages name="СтраницыРежимыМаршрутизация" id="321">
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Страницы режимы маршрутизация</v8:content>
+																</v8:item>
+															</Title>
+															<ToolTip>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Страницы режимы маршрутизация</v8:content>
+																</v8:item>
+															</ToolTip>
+															<PagesRepresentation>None</PagesRepresentation>
+															<ExtendedTooltip name="СтраницыРежимыМаршрутизацияРасширеннаяПодсказка" id="322"/>
+														</Pages>
+														<InputField name="упМаксимальноеКоличествоТочекМаршрутизатора" id="323">
+															<DataPath>НаборКонстант.упКоличествоОбрабатываемыхТочекМаршрутизатора</DataPath>
+															<AutoMaxWidth>false</AutoMaxWidth>
+															<ContextMenu name="упМаксимальноеКоличествоТочекМаршрутизатораКонтекстноеМеню" id="324"/>
+															<ExtendedTooltip name="упМаксимальноеКоличествоТочекМаршрутизатораРасширеннаяПодсказка" id="325"/>
+														</InputField>
+														<UsualGroup name="ГруппаДополнительныеНастройки" id="326">
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Дополнительные настройки</v8:content>
+																</v8:item>
+															</Title>
+															<ToolTip>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Группа дополнительные настройки</v8:content>
+																</v8:item>
+															</ToolTip>
+															<Group>Vertical</Group>
+															<Representation>None</Representation>
+															<ExtendedTooltip name="ГруппаДополнительныеНастройкиРасширеннаяПодсказка" id="327"/>
+															<ChildItems>
+																<CheckBoxField name="упУчитыватьКоэффициентыРасчетаВремениВПути" id="328">
+																	<DataPath>НаборКонстант.упУчитыватьКоэффициентыРасчетаВремениВПути</DataPath>
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Учитывать "пробочные" коэффициенты при расчете времени в пути </v8:content>
+																		</v8:item>
+																	</Title>
+																	<TitleLocation>Right</TitleLocation>
+																	<CheckBoxType>Auto</CheckBoxType>
+																	<ContextMenu name="упУчитыватьКоэффициентыРасчетаВремениВПутиКонтекстноеМеню" id="329"/>
+																	<ExtendedTooltip name="упУчитыватьКоэффициентыРасчетаВремениВПутиРасширеннаяПодсказка" id="330"/>
+																</CheckBoxField>
+																<CheckBoxField name="упПроизводитьРасчетПопарныхРасстоянийПриРешенииЗадачиКоммивояжера" id="331">
+																	<DataPath>НаборКонстант.упПроизводитьРасчетПопарныхРасстоянийПриРешенииЗадачиКоммивояжера</DataPath>
+																	<TitleLocation>Right</TitleLocation>
+																	<CheckBoxType>Auto</CheckBoxType>
+																	<ContextMenu name="упПроизводитьРасчетПопарныхРасстоянийПриРешенииЗадачиКоммивояжераКонтекстноеМеню" id="332"/>
+																	<ExtendedTooltip name="упПроизводитьРасчетПопарныхРасстоянийПриРешенииЗадачиКоммивояжераРасширеннаяПодсказка" id="333"/>
+																</CheckBoxField>
+																<CheckBoxField name="упПрямойРасчетГеографическиБлизкихТочекПриНеудаче" id="777">
+																	<DataPath>НаборКонстант.упПрямойРасчетГеографическиБлизкихТочекПриНеудаче</DataPath>
+																	<TitleLocation>Right</TitleLocation>
+																	<CheckBoxType>Auto</CheckBoxType>
+																	<ContextMenu name="упПрямойРасчетГеографическиБлизкихТочекПриНеудачеКонтекстноеМеню" id="778"/>
+																	<ExtendedTooltip name="упПрямойРасчетГеографическиБлизкихТочекПриНеудачеРасширеннаяПодсказка" id="779"/>
+																	<Events>
+																		<Event name="OnChange">упПрямойРасчетГеографическиБлизкихТочекПриНеудачеПриИзменении</Event>
+																	</Events>
+																</CheckBoxField>
+																<UsualGroup name="ГруппаКритерийБлизостиТочек" id="783">
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Группа критерий близости точек</v8:content>
+																		</v8:item>
+																	</Title>
+																	<ToolTip>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Группа критерий близости точек</v8:content>
+																		</v8:item>
+																	</ToolTip>
+																	<Group>Vertical</Group>
+																	<Representation>None</Representation>
+																	<ShowTitle>false</ShowTitle>
+																	<ExtendedTooltip name="ГруппаКритерийБлизостиТочекРасширеннаяПодсказка" id="784"/>
+																	<ChildItems>
+																		<UsualGroup name="ГруппаЗначениеКритерия" id="794">
+																			<Title>
+																				<v8:item>
+																					<v8:lang>ru</v8:lang>
+																					<v8:content>Группа значение критерия</v8:content>
+																				</v8:item>
+																			</Title>
+																			<ToolTip>
+																				<v8:item>
+																					<v8:lang>ru</v8:lang>
+																					<v8:content>Группа значение критерия</v8:content>
+																				</v8:item>
+																			</ToolTip>
+																			<Group>Horizontal</Group>
+																			<Representation>None</Representation>
+																			<ShowTitle>false</ShowTitle>
+																			<ExtendedTooltip name="ГруппаЗначениеКритерияРасширеннаяПодсказка" id="795"/>
+																			<ChildItems>
+																				<LabelDecoration name="Декорация23" id="785">
+																					<Width>1</Width>
+																					<ContextMenu name="Декорация23КонтекстноеМеню" id="786"/>
+																					<ExtendedTooltip name="Декорация23РасширеннаяПодсказка" id="787"/>
+																				</LabelDecoration>
+																				<InputField name="упКритерийБлизостиТочекВМетрах" id="780">
+																					<DataPath>НаборКонстант.упКритерийБлизостиТочекВМетрах</DataPath>
+																					<Title>
+																						<v8:item>
+																							<v8:lang>ru</v8:lang>
+																							<v8:content>при расстоянии между точками не более</v8:content>
+																						</v8:item>
+																					</Title>
+																					<AutoMaxWidth>false</AutoMaxWidth>
+																					<SpinButton>true</SpinButton>
+																					<ContextMenu name="упКритерийБлизостиТочекВМетрахКонтекстноеМеню" id="781"/>
+																					<ExtendedTooltip name="упКритерийБлизостиТочекВМетрахРасширеннаяПодсказка" id="782"/>
+																				</InputField>
+																				<LabelDecoration name="Декорация24" id="788">
+																					<Title formatted="false">
+																						<v8:item>
+																							<v8:lang>ru</v8:lang>
+																							<v8:content>м</v8:content>
+																						</v8:item>
+																					</Title>
+																					<ContextMenu name="Декорация24КонтекстноеМеню" id="789"/>
+																					<ExtendedTooltip name="Декорация24РасширеннаяПодсказка" id="790"/>
+																				</LabelDecoration>
+																			</ChildItems>
+																		</UsualGroup>
+																		<UsualGroup name="ГруппаПорядокПрямогоРасчета" id="796">
+																			<Title>
+																				<v8:item>
+																					<v8:lang>ru</v8:lang>
+																					<v8:content>Группа порядок прямого расчета</v8:content>
+																				</v8:item>
+																			</Title>
+																			<ToolTip>
+																				<v8:item>
+																					<v8:lang>ru</v8:lang>
+																					<v8:content>Группа порядок прямого расчета</v8:content>
+																				</v8:item>
+																			</ToolTip>
+																			<Representation>None</Representation>
+																			<ShowTitle>false</ShowTitle>
+																			<ExtendedTooltip name="ГруппаПорядокПрямогоРасчетаРасширеннаяПодсказка" id="797"/>
+																			<ChildItems>
+																				<LabelDecoration name="Декорация25" id="798">
+																					<Width>1</Width>
+																					<ContextMenu name="Декорация25КонтекстноеМеню" id="799"/>
+																					<ExtendedTooltip name="Декорация25РасширеннаяПодсказка" id="800"/>
+																				</LabelDecoration>
+																				<InputField name="упПорядокПрямогоРасчетаГеографическиБлизкихТочек" id="791">
+																					<DataPath>НаборКонстант.упПорядокПрямогоРасчетаГеографическиБлизкихТочек</DataPath>
+																					<AutoMaxWidth>false</AutoMaxWidth>
+																					<AutoMarkIncomplete>true</AutoMarkIncomplete>
+																					<ContextMenu name="упПорядокПрямогоРасчетаГеографическиБлизкихТочекКонтекстноеМеню" id="792"/>
+																					<ExtendedTooltip name="упПорядокПрямогоРасчетаГеографическиБлизкихТочекРасширеннаяПодсказка" id="793"/>
+																				</InputField>
+																			</ChildItems>
+																		</UsualGroup>
+																	</ChildItems>
+																</UsualGroup>
+															</ChildItems>
+														</UsualGroup>
+														<UsualGroup name="ГруппаРасчетРасстояний" id="334">
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Расчет расстояний</v8:content>
+																</v8:item>
+															</Title>
+															<ToolTip>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Группа расчет расстояний</v8:content>
+																</v8:item>
+															</ToolTip>
+															<Group>Vertical</Group>
+															<ExtendedTooltip name="ГруппаРасчетРасстоянийРасширеннаяПодсказка" id="335"/>
+															<ChildItems>
+																<InputField name="упКоличествоГеографическиБлизкихТочек" id="336">
+																	<DataPath>НаборКонстант.упКоличествоГеографическиБлизкихТочек</DataPath>
+																	<AutoMaxWidth>false</AutoMaxWidth>
+																	<SpinButton>true</SpinButton>
+																	<ContextMenu name="упКоличествоГеографическиБлизкихТочекКонтекстноеМеню" id="337"/>
+																	<ExtendedTooltip name="упКоличествоГеографическиБлизкихТочекРасширеннаяПодсказка" id="338"/>
+																</InputField>
+																<InputField name="упКоличествоПотоковРасчета" id="339">
+																	<DataPath>НаборКонстант.упКоличествоПотоковРасчета</DataPath>
+																	<Width>7</Width>
+																	<AutoMaxWidth>false</AutoMaxWidth>
+																	<SpinButton>true</SpinButton>
+																	<ContextMenu name="упКоличествоПотоковРасчетаКонтекстноеМеню" id="340"/>
+																	<ExtendedTooltip name="упКоличествоПотоковРасчетаРасширеннаяПодсказка" id="341"/>
+																</InputField>
+																<CheckBoxField name="упПакетныйРежимОтправкиЗапросаСервису" id="342">
+																	<DataPath>НаборКонстант.упПакетныйРежимЗапросовСервисуМаршрутизации</DataPath>
+																	<TitleLocation>Right</TitleLocation>
+																	<CheckBoxType>Auto</CheckBoxType>
+																	<ContextMenu name="упПакетныйРежимОтправкиЗапросаСервисуКонтекстноеМеню" id="343"/>
+																	<ExtendedTooltip name="упПакетныйРежимОтправкиЗапросаСервисуРасширеннаяПодсказка" id="344"/>
+																</CheckBoxField>
+																<UsualGroup name="ГруппаНастройкаПотоковРасчета" id="345">
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Регламентный расчет</v8:content>
+																		</v8:item>
+																	</Title>
+																	<ToolTip>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Группа настройка потоков расчета</v8:content>
+																		</v8:item>
+																	</ToolTip>
+																	<Group>Vertical</Group>
+																	<Representation>None</Representation>
+																	<ExtendedTooltip name="ГруппаНастройкаПотоковРасчетаРасширеннаяПодсказка" id="346"/>
+																	<ChildItems>
+																		<CheckBoxField name="упРассчитыватьРасстоянияТолькоМеждуГеографическиБлизкимиТочками" id="347">
+																			<DataPath>НаборКонстант.упРассчитыватьРасстоянияТолькоМеждуГеографическиБлизкимиТочками</DataPath>
+																			<TitleLocation>Right</TitleLocation>
+																			<CheckBoxType>Auto</CheckBoxType>
+																			<ContextMenu name="упРассчитыватьРасстоянияТолькоМеждуГеографическиБлизкимиТочкамиКонтекстноеМеню" id="348"/>
+																			<ExtendedTooltip name="упРассчитыватьРасстоянияТолькоМеждуГеографическиБлизкимиТочкамиРасширеннаяПодсказка" id="349"/>
+																			<Events>
+																				<Event name="OnChange">упРассчитыватьРасстоянияТолькоМеждуГеографическиБлизкимиТочкамиПриИзменении</Event>
+																			</Events>
+																		</CheckBoxField>
+																		<UsualGroup name="Группа14" id="350">
+																			<Group>Horizontal</Group>
+																			<Representation>None</Representation>
+																			<ShowTitle>false</ShowTitle>
+																			<ExtendedTooltip name="Группа14РасширеннаяПодсказка" id="351"/>
+																			<ChildItems>
+																				<LabelDecoration name="Декорация8" id="352">
+																					<Width>2</Width>
+																					<AutoMaxWidth>false</AutoMaxWidth>
+																					<ContextMenu name="Декорация8КонтекстноеМеню" id="353"/>
+																					<ExtendedTooltip name="Декорация8РасширеннаяПодсказка" id="354"/>
+																				</LabelDecoration>
+																				<UsualGroup name="ГруппаНастройкиРасчетаБлизкихТочек" id="355">
+																					<Title>
+																						<v8:item>
+																							<v8:lang>ru</v8:lang>
+																							<v8:content>Группа настройки расчета близких точек</v8:content>
+																						</v8:item>
+																					</Title>
+																					<ToolTip>
+																						<v8:item>
+																							<v8:lang>ru</v8:lang>
+																							<v8:content>Группа настройки расчета близких точек</v8:content>
+																						</v8:item>
+																					</ToolTip>
+																					<Group>Vertical</Group>
+																					<VerticalSpacing>None</VerticalSpacing>
+																					<Representation>None</Representation>
+																					<ShowTitle>false</ShowTitle>
+																					<ExtendedTooltip name="ГруппаНастройкиРасчетаБлизкихТочекРасширеннаяПодсказка" id="356"/>
+																					<ChildItems>
+																						<CheckBoxField name="упРассчитыватьРасстоянияТолькоДляЗаданийВСтатусеКПланированию" id="357">
+																							<DataPath>НаборКонстант.упРассчитыватьРасстоянияТолькоДляЗаданийВСтатусеКПланированию</DataPath>
+																							<TitleLocation>Right</TitleLocation>
+																							<CheckBoxType>Auto</CheckBoxType>
+																							<ContextMenu name="упРассчитыватьРасстоянияТолькоДляЗаданийВСтатусеКПланированиюКонтекстноеМеню" id="358"/>
+																							<ExtendedTooltip name="упРассчитыватьРасстоянияТолькоДляЗаданийВСтатусеКПланированиюРасширеннаяПодсказка" id="359"/>
+																						</CheckBoxField>
+																					</ChildItems>
+																				</UsualGroup>
+																			</ChildItems>
+																		</UsualGroup>
+																		<InputField name="упРазмерПорцииРассчитываемыхДанных" id="360">
+																			<DataPath>НаборКонстант.упРазмерПорцииРассчитываемыхДанных</DataPath>
+																			<AutoMaxWidth>false</AutoMaxWidth>
+																			<SpinButton>true</SpinButton>
+																			<ContextMenu name="упРазмерПорцииРассчитываемыхДанныхКонтекстноеМеню" id="361"/>
+																			<ExtendedTooltip name="упРазмерПорцииРассчитываемыхДанныхРасширеннаяПодсказка" id="362"/>
+																		</InputField>
+																		<UsualGroup name="Группа15" id="363">
+																			<Group>Horizontal</Group>
+																			<Representation>None</Representation>
+																			<ShowTitle>false</ShowTitle>
+																			<ExtendedTooltip name="Группа15РасширеннаяПодсказка" id="364"/>
+																			<ChildItems>
+																				<InputField name="упПериодАктуальностиРасчета" id="365">
+																					<DataPath>НаборКонстант.упПериодАктуальностиРасчета</DataPath>
+																					<Title>
+																						<v8:item>
+																							<v8:lang>ru</v8:lang>
+																							<v8:content>Период актуальности расчета</v8:content>
+																						</v8:item>
+																					</Title>
+																					<AutoMaxWidth>false</AutoMaxWidth>
+																					<SpinButton>true</SpinButton>
+																					<ContextMenu name="упПериодАктуальностиРасчетаКонтекстноеМеню" id="366"/>
+																					<ExtendedTooltip name="упПериодАктуальностиРасчетаРасширеннаяПодсказка" id="367"/>
+																				</InputField>
+																				<LabelField name="НадписьДней" id="368">
+																					<DataPath>3</DataPath>
+																					<TitleLocation>None</TitleLocation>
+																					<HorizontalAlign>Left</HorizontalAlign>
+																					<AutoMaxWidth>false</AutoMaxWidth>
+																					<ContextMenu name="НадписьДнейКонтекстноеМеню" id="369"/>
+																					<ExtendedTooltip name="НадписьДнейРасширеннаяПодсказка" id="370"/>
+																				</LabelField>
+																			</ChildItems>
+																		</UsualGroup>
+																	</ChildItems>
+																</UsualGroup>
+															</ChildItems>
+														</UsualGroup>
+													</ChildItems>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</Page>
+								<Page name="ГруппаНастройкиГеокодера" id="371">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Геокодирование</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа настройки геокодера</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ГруппаНастройкиГеокодераРасширеннаяПодсказка" id="372"/>
+									<ChildItems>
+										<CheckBoxField name="упИспользуетсяГеокодированиеАдресов" id="373">
+											<DataPath>НаборКонстант.упИспользуетсяГеокодированиеАдресов</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="упИспользуетсяГеокодированиеАдресовКонтекстноеМеню" id="374"/>
+											<ExtendedTooltip name="упИспользуетсяГеокодированиеАдресовРасширеннаяПодсказка" id="375"/>
+											<Events>
+												<Event name="OnChange">упИспользуетсяГеокодированиеАдресовПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+										<UsualGroup name="ГруппаГеокодирование" id="376">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа геокодирование</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа геокодирование</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Horizontal</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаГеокодированиеРасширеннаяПодсказка" id="377"/>
+											<ChildItems>
+												<LabelDecoration name="Декорация9" id="378">
+													<Width>2</Width>
+													<ContextMenu name="Декорация9КонтекстноеМеню" id="379"/>
+													<ExtendedTooltip name="Декорация9РасширеннаяПодсказка" id="380"/>
+												</LabelDecoration>
+												<UsualGroup name="грпГеокодер" id="381">
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Грп геокодер</v8:content>
+														</v8:item>
+													</ToolTip>
+													<Group>Vertical</Group>
+													<VerticalSpacing>Half</VerticalSpacing>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="грпГеокодерРасширеннаяПодсказка" id="382"/>
+													<ChildItems>
+														<UsualGroup name="грпГеоКодирование" id="383">
+															<Group>Horizontal</Group>
+															<Representation>None</Representation>
+															<ShowTitle>false</ShowTitle>
+															<ExtendedTooltip name="грпГеоКодированиеРасширеннаяПодсказка" id="384"/>
+															<ChildItems>
+																<InputField name="упТипГеокодера" id="385">
+																	<DataPath>НаборКонстант.упТипГеокодера</DataPath>
+																	<AutoMaxWidth>false</AutoMaxWidth>
+																	<AutoMarkIncomplete>true</AutoMarkIncomplete>
+																	<ContextMenu name="упТипГеокодераКонтекстноеМеню" id="386"/>
+																	<ExtendedTooltip name="упТипГеокодераРасширеннаяПодсказка" id="387"/>
+																	<Events>
+																		<Event name="OnChange">упТипГеокодераПриИзменении</Event>
+																		<Event name="StartChoice">упТипГеокодераНачалоВыбора</Event>
+																	</Events>
+																</InputField>
+																<Button name="кмдПроверитьГеокодер" id="388">
+																	<Type>UsualButton</Type>
+																	<CommandName>Form.Command.кмдПроверитьГеокодер</CommandName>
+																	<ExtendedTooltip name="кмдПроверитьГеокодерРасширеннаяПодсказка" id="389"/>
+																</Button>
+															</ChildItems>
+														</UsualGroup>
+														<CheckBoxField name="упГеокодироватьБезАдресныхСокращений" id="390">
+															<DataPath>НаборКонстант.упГеокодироватьБезАдресныхСокращений</DataPath>
+															<TitleLocation>Right</TitleLocation>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="упГеокодироватьБезАдресныхСокращенийКонтекстноеМеню" id="391"/>
+															<ExtendedTooltip name="упГеокодироватьБезАдресныхСокращенийРасширеннаяПодсказка" id="392"/>
+														</CheckBoxField>
+														<InputField name="упАдресСервераГеокодирования" id="393">
+															<DataPath>НаборКонстант.упАдресСервераГеокодирования</DataPath>
+															<ContextMenu name="упАдресСервераГеокодированияКонтекстноеМеню" id="394"/>
+															<ExtendedTooltip name="упАдресСервераГеокодированияРасширеннаяПодсказка" id="395"/>
+														</InputField>
+														<InputField name="упАдресСервераГеокодированияСитиГИД" id="396">
+															<DataPath>НаборКонстант.упАдресСервераГеокодированияСитиГИД</DataPath>
+															<DropListButton>true</DropListButton>
+															<InputHint>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>win6fvds.probki.net</v8:content>
+																</v8:item>
+															</InputHint>
+															<ContextMenu name="упАдресСервераГеокодированияСитиГИДКонтекстноеМеню" id="397"/>
+															<ExtendedTooltip name="упАдресСервераГеокодированияСитиГИДРасширеннаяПодсказка" id="398"/>
+														</InputField>
+														<InputField name="упАдресСервераГеокодированияNominatim" id="399">
+															<DataPath>НаборКонстант.упАдресСервераГеокодированияNominatim</DataPath>
+															<AutoMaxWidth>false</AutoMaxWidth>
+															<DropListButton>true</DropListButton>
+															<InputHint>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>https://nominatim.openstreetmap.org/</v8:content>
+																</v8:item>
+															</InputHint>
+															<ContextMenu name="упАдресСервераГеокодированияNominatimКонтекстноеМеню" id="400"/>
+															<ExtendedTooltip name="упАдресСервераГеокодированияNominatimРасширеннаяПодсказка" id="401"/>
+														</InputField>
+														<InputField name="упКлючСервисаГеоКодирования" id="402">
+															<DataPath>НаборКонстант.упКлючСервисаГеоКодирования</DataPath>
+															<AutoMaxWidth>false</AutoMaxWidth>
+															<ContextMenu name="упКлючСервисаГеоКодированияКонтекстноеМеню" id="403"/>
+															<ExtendedTooltip name="упКлючСервисаГеоКодированияРасширеннаяПодсказка" id="404"/>
+														</InputField>
+														<InputField name="упПределОтветовГеосервиса" id="405">
+															<DataPath>НаборКонстант.упПределОтветовГеосервиса</DataPath>
+															<AutoMaxWidth>false</AutoMaxWidth>
+															<ContextMenu name="упПределОтветовГеосервисаКонтекстноеМеню" id="406"/>
+															<ExtendedTooltip name="упПределОтветовГеосервисаРасширеннаяПодсказка" id="407"/>
+														</InputField>
+													</ChildItems>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+										<CheckBoxField name="упНормализоватьАдресаСервисомDadata" id="408">
+											<DataPath>НаборКонстант.упНормализоватьАдресаСервисомDaData</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="упНормализоватьАдресаСервисомDadataКонтекстноеМеню" id="409"/>
+											<ExtendedTooltip name="упНормализоватьАдресаСервисомDadataРасширеннаяПодсказка" id="410"/>
+											<Events>
+												<Event name="OnChange">упНормализоватьАдресаСервисомDadataПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+										<UsualGroup name="ГруппаСервисDaData" id="411">
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа сервис da data</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Horizontal</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаСервисDaDataРасширеннаяПодсказка" id="412"/>
+											<ChildItems>
+												<LabelDecoration name="Декорация10" id="413">
+													<Width>2</Width>
+													<ContextMenu name="Декорация10КонтекстноеМеню" id="414"/>
+													<ExtendedTooltip name="Декорация10РасширеннаяПодсказка" id="415"/>
+												</LabelDecoration>
+												<UsualGroup name="Группа16" id="416">
+													<Group>Vertical</Group>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="Группа16РасширеннаяПодсказка" id="417"/>
+													<ChildItems>
+														<InputField name="упAPIКлючСервисаDaData" id="418">
+															<DataPath>НаборКонстант.упAPIКлючСервисаDaData</DataPath>
+															<AutoMarkIncomplete>true</AutoMarkIncomplete>
+															<ContextMenu name="упAPIКлючСервисаDaDataКонтекстноеМеню" id="419"/>
+															<ExtendedTooltip name="упAPIКлючСервисаDaDataРасширеннаяПодсказка" id="420"/>
+														</InputField>
+														<InputField name="упСекретныйКлючСервисаDaData" id="421">
+															<DataPath>НаборКонстант.упСекретныйКлючСервисаDaData</DataPath>
+															<AutoMarkIncomplete>true</AutoMarkIncomplete>
+															<ContextMenu name="упСекретныйКлючСервисаDaDataКонтекстноеМеню" id="422"/>
+															<ExtendedTooltip name="упСекретныйКлючСервисаDaDataРасширеннаяПодсказка" id="423"/>
+														</InputField>
+													</ChildItems>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</Page>
+								<Page name="ГруппаМониторинг" id="424">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Мониторинг</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа мониторинг</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ГруппаМониторингРасширеннаяПодсказка" id="425"/>
+									<ChildItems>
+										<InputField name="упКоличествоПотоковЗагрузкиССервераСбораДанных" id="426">
+											<DataPath>НаборКонстант.упКоличествоПотоковЗагрузкиССервераСбораДанных</DataPath>
+											<TitleLocation>Left</TitleLocation>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<SpinButton>true</SpinButton>
+											<ContextMenu name="упКоличествоПотоковЗагрузкиССервераСбораДанныхКонтекстноеМеню" id="427"/>
+											<ExtendedTooltip name="упКоличествоПотоковЗагрузкиССервераСбораДанныхРасширеннаяПодсказка" id="428"/>
+										</InputField>
+										<UsualGroup name="Группа17" id="429">
+											<Group>Horizontal</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Группа17РасширеннаяПодсказка" id="430"/>
+											<ChildItems>
+												<InputField name="упПериодХраненияСпутниковыхДанных" id="431">
+													<DataPath>НаборКонстант.упПериодХраненияСпутниковыхДанных</DataPath>
+													<ToolTipRepresentation>None</ToolTipRepresentation>
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<SpinButton>true</SpinButton>
+													<ContextMenu name="упПериодХраненияСпутниковыхДанныхКонтекстноеМеню" id="432"/>
+													<ExtendedTooltip name="упПериодХраненияСпутниковыхДанныхРасширеннаяПодсказка" id="433"/>
+												</InputField>
+												<LabelDecoration name="Декорация11" id="434">
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>мес.</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Очистка устаревших данных выполняется регламентным заданием "Удаление неактуальных данных спутникового мониторинга"</v8:content>
+														</v8:item>
+													</ToolTip>
+													<ToolTipRepresentation>Button</ToolTipRepresentation>
+													<ContextMenu name="Декорация11КонтекстноеМеню" id="435"/>
+													<ExtendedTooltip name="Декорация11РасширеннаяПодсказка" id="436"/>
+												</LabelDecoration>
+											</ChildItems>
+										</UsualGroup>
+										<CheckBoxField name="упОпределятьАвтоматическиНаправлениеДвиженияТранспортногоСредства" id="437">
+											<DataPath>НаборКонстант.упОпределятьАвтоматическиНаправлениеДвиженияТранспортногоСредства</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>При получении данных о местоположении транспортного средства направление движения определяется автоматически по последним координатам</v8:content>
+												</v8:item>
+											</ToolTip>
+											<ToolTipRepresentation>Button</ToolTipRepresentation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="упОпределятьАвтоматическиНаправлениеДвиженияТранспортногоСредстваКонтекстноеМеню" id="438"/>
+											<ExtendedTooltip name="упОпределятьАвтоматическиНаправлениеДвиженияТранспортногоСредстваРасширеннаяПодсказка" id="439"/>
+										</CheckBoxField>
+									</ChildItems>
+								</Page>
+							</ChildItems>
+						</Pages>
+					</ChildItems>
+				</Page>
+				<Page name="СервисИДополнительныеНастройки" id="57">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сервис и дополнительные настройки</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Настраиваются параметры общие для работы системы...</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Picture>
+						<xr:Ref>CommonPicture.упПодсистемаСервисИНастройки</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ExtendedTooltip name="СервисИДополнительныеНастройкиРасширеннаяПодсказка" id="58"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаОсновная" id="440">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа основная</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа основная</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаОсновнаяРасширеннаяПодсказка" id="441"/>
+							<ChildItems>
+								<CheckBoxField name="упКэшироватьЗначенияКонстант" id="442">
+									<DataPath>НаборКонстант.упКэшироватьЗначенияКонстант</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упКэшироватьЗначенияКонстантКонтекстноеМеню" id="443"/>
+									<ExtendedTooltip name="упКэшироватьЗначенияКонстантРасширеннаяПодсказка" id="444"/>
+								</CheckBoxField>
+								<CheckBoxField name="упЛогироватьСодержимоеПакетовВебСервиса" id="768">
+									<DataPath>НаборКонстант.упЛогироватьСодержимоеПакетовВебСервиса</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упЛогироватьСодержимоеПакетовВебСервисаКонтекстноеМеню" id="769"/>
+									<ExtendedTooltip name="упЛогироватьСодержимоеПакетовВебСервисаРасширеннаяПодсказка" id="770"/>
+								</CheckBoxField>
+								<CheckBoxField name="упРегистрироватьВызовыВебСервиса" id="445">
+									<DataPath>НаборКонстант.упРегистрироватьВызовыВебСервиса</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упРегистрироватьВызовыВебСервисаКонтекстноеМеню" id="446"/>
+									<ExtendedTooltip name="упРегистрироватьВызовыВебСервисаРасширеннаяПодсказка" id="447"/>
+								</CheckBoxField>
+								<CheckBoxField name="упРегистрироватьВызовыHTTPСервисов" id="828">
+									<DataPath>НаборКонстант.упРегистрироватьВызовыHTTPСервисов</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<ToolTipRepresentation>Button</ToolTipRepresentation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упРегистрироватьВызовыHTTPСервисовКонтекстноеМеню" id="829"/>
+									<ExtendedTooltip name="упРегистрироватьВызовыHTTPСервисовРасширеннаяПодсказка" id="830"/>
+								</CheckBoxField>
+								<CheckBoxField name="упЗапретитьПроверкуРаботыФоновыхЗаданийПриНачалеРаботыСистемы" id="448">
+									<DataPath>НаборКонстант.упЗапретитьПроверкуРаботыФоновыхЗаданийПриНачалеРаботыСистемы</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="упЗапретитьПроверкуРаботыФоновыхЗаданийПриНачалеРаботыСистемыКонтекстноеМеню" id="449"/>
+									<ExtendedTooltip name="упЗапретитьПроверкуРаботыФоновыхЗаданийПриНачалеРаботыСистемыРасширеннаяПодсказка" id="450"/>
+								</CheckBoxField>
+								<InputField name="упКаталогВнешнихОбработокДляОтладки" id="451">
+									<DataPath>НаборКонстант.упКаталогВнешнихОбработокДляОтладки</DataPath>
+									<ToolTipRepresentation>Button</ToolTipRepresentation>
+									<ChoiceButton>true</ChoiceButton>
+									<ClearButton>true</ClearButton>
+									<ContextMenu name="упКаталогВнешнихОбработокДляОтладкиКонтекстноеМеню" id="452"/>
+									<ExtendedTooltip name="упКаталогВнешнихОбработокДляОтладкиРасширеннаяПодсказка" id="453"/>
+									<Events>
+										<Event name="StartChoice">упКаталогВнешнихОбработокДляОтладкиНачалоВыбора</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаОбработкаСобытий" id="454">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Обработка событий</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа обработка событий</v8:content>
+								</v8:item>
+							</ToolTip>
+							<HorizontalStretch>true</HorizontalStretch>
+							<Group>Vertical</Group>
+							<ExtendedTooltip name="ГруппаОбработкаСобытийРасширеннаяПодсказка" id="455"/>
+							<ChildItems>
+								<InputField name="упКоличествоПотоковОбработкиСобытий" id="456">
+									<DataPath>НаборКонстант.упКоличествоПотоковОбработкиСобытий</DataPath>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<SpinButton>true</SpinButton>
+									<ContextMenu name="упКоличествоПотоковОбработкиСобытийКонтекстноеМеню" id="457"/>
+									<ExtendedTooltip name="упКоличествоПотоковОбработкиСобытийРасширеннаяПодсказка" id="458"/>
+								</InputField>
+								<UsualGroup name="ГруппаМаксимальноеВремяФоновойобработки" id="459">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа максимальное время фоновойобработки</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа максимальное время фоновойобработки</v8:content>
+										</v8:item>
+									</ToolTip>
+									<HorizontalStretch>true</HorizontalStretch>
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаМаксимальноеВремяФоновойобработкиРасширеннаяПодсказка" id="460"/>
+									<ChildItems>
+										<InputField name="упМаксимальноеВремяФоновойОбработки" id="461">
+											<DataPath>НаборКонстант.упМаксимальноеВремяФоновойОбработки</DataPath>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<SpinButton>true</SpinButton>
+											<ContextMenu name="упМаксимальноеВремяФоновойОбработкиКонтекстноеМеню" id="462"/>
+											<ExtendedTooltip name="упМаксимальноеВремяФоновойОбработкиРасширеннаяПодсказка" id="463"/>
+										</InputField>
+										<LabelDecoration name="Декорация12" id="464">
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>сек.</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="Декорация12КонтекстноеМеню" id="465"/>
+											<ExtendedTooltip name="Декорация12РасширеннаяПодсказка" id="466"/>
+										</LabelDecoration>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="Взаиморасчеты" id="25">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Взаиморасчеты</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Настройка получения данных по взаиморасчетам из внешней системы...</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Picture>
+						<xr:Ref>CommonPicture.упПодсистемаФинансы</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ExtendedTooltip name="ВзаиморасчетыРасширеннаяПодсказка" id="26"/>
+					<ChildItems>
+						<CheckBoxField name="упЗагружатьВзаиморасчетыСПартнерами" id="69">
+							<DataPath>НаборКонстант.упЗагружатьВзаиморасчетыСПартнерами</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="упЗагружатьВзаиморасчетыСПартнерамиКонтекстноеМеню" id="70"/>
+							<ExtendedTooltip name="упЗагружатьВзаиморасчетыСПартнерамиРасширеннаяПодсказка" id="71"/>
+							<Events>
+								<Event name="OnChange">упЗагружатьВзаиморасчетыСПартнерамиПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<CheckBoxField name="упВзаиморасчетыИспользоватьАутентификациюОС" id="72">
+							<DataPath>НаборКонстант.упВзаиморасчетыИспользоватьАутентификациюОС</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="упВзаиморасчетыИспользоватьАутентификациюОСКонтекстноеМеню" id="73"/>
+							<ExtendedTooltip name="упВзаиморасчетыИспользоватьАутентификациюОСРасширеннаяПодсказка" id="74"/>
+							<Events>
+								<Event name="OnChange">упВзаиморасчетыИспользоватьАутентификациюОСПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<InputField name="упВзаиморасчетыПользователь" id="75">
+							<DataPath>НаборКонстант.упВзаиморасчетыПользователь</DataPath>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<ContextMenu name="упВзаиморасчетыПользовательКонтекстноеМеню" id="76"/>
+							<ExtendedTooltip name="упВзаиморасчетыПользовательРасширеннаяПодсказка" id="77"/>
+						</InputField>
+						<InputField name="упВзаиморасчетыПароль" id="78">
+							<DataPath>НаборКонстант.упВзаиморасчетыПароль</DataPath>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<ContextMenu name="упВзаиморасчетыПарольКонтекстноеМеню" id="79"/>
+							<ExtendedTooltip name="упВзаиморасчетыПарольРасширеннаяПодсказка" id="80"/>
+						</InputField>
+						<InputField name="упВзаиморасчетыПутьКСервису" id="81">
+							<DataPath>НаборКонстант.упВзаиморасчетыПутьКСервису</DataPath>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<InputHint>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>http://localhost:8090/ut11/</v8:content>
+								</v8:item>
+							</InputHint>
+							<ContextMenu name="упВзаиморасчетыПутьКСервисуКонтекстноеМеню" id="82"/>
+							<ExtendedTooltip name="упВзаиморасчетыПутьКСервисуРасширеннаяПодсказка" id="83"/>
+						</InputField>
+					</ChildItems>
+				</Page>
+				<Page name="ОбменДанными" id="744">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Обмен данными</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Настройка параметров обмена данными...</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Picture>
+						<xr:Ref>CommonPicture.сшпКартинкаПодсистемы_ESB</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ExtendedTooltip name="ОбменДаннымиРасширеннаяПодсказка" id="745"/>
+					<ChildItems>
+						<LabelDecoration name="ДекорацияОбменДанными" id="746">
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Настройка параметров обмена данными...</v8:content>
+								</v8:item>
+							</Title>
+							<Hyperlink>true</Hyperlink>
+							<VerticalAlign>Top</VerticalAlign>
+							<ContextMenu name="ДекорацияОбменДаннымиКонтекстноеМеню" id="747"/>
+							<ExtendedTooltip name="ДекорацияОбменДаннымиРасширеннаяПодсказка" id="748"/>
+							<Events>
+								<Event name="Click">ДекорацияОбменДаннымиНажатие</Event>
+							</Events>
+						</LabelDecoration>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="НаборКонстант" id="1">
+			<Type>
+				<v8:Type>cfg:ConstantsSet</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="HTMLДокумент" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>HTML Документ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="АдресаСерверовЭлектронныхКарт" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Адреса серверов электронных карт</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ДополнительныеОграниченияСитиГИД" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дополнительные ограничения сити ГИД</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Пометка" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пометка</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Ограничение" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ограничение на въезд</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.упОграниченияМаршрутизаторов</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="НадписьДней" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Надпись дней</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<FunctionalOptions>
+				<Item>FunctionalOption.упИспользуетсяГлобальнаяПодсистемаУправлениеПеревозками</Item>
+			</FunctionalOptions>
+		</Attribute>
+		<Attribute name="ТекущееЗначениеЭлемента" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текущее значение элемента</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="СтрокаПоиска" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Строка поиска</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="АдресСтарыхСвойствПоиска" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Адрес старых свойств поиска</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ОповеститьРМПланированиеРейсов" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оповестить РМПланирование рейсов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="кмдПараметрыСитиГИД" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Параметры Сити ГИД</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Уажите параметры сервиса маршрутизации Сити ГИД</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.упНастройкаПараметров</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>кмдПараметрыСитиГИД</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="кмдПроверитьГеокодер" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Проверить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить проверку геокодирования</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.Успешно</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>кмдПроверитьГеокодер</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="кмдПроверитьКарту" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Проверить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить проверку подключения карты</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.Успешно</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>кмдПроверитьКарту</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="кмдПроверирьМаршрутизатор" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Проверить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить проверку маршрутизатора</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.Успешно</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>кмдПроверка</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПрименитьКлючМаршрутизации" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Применить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отправить ключ для регистрации, на сервисе маршрутизации</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПрименитьКлючМаршрутизации</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="КонсольСервераЗащиты" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Консоль сервера защиты</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Консоль сервера защиты</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.InputFieldOpen</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>КонсольСервераЗащиты</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+	</Commands>
+</Form>

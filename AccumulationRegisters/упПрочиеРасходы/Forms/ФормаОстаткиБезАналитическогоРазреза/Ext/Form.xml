@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Остатки</v8:content>
+		</v8:item>
+	</Title>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="Выбрать" id="44">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Выбрать</CommandName>
+				<ExtendedTooltip name="ВыбратьРасширеннаяПодсказка" id="45"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Table name="Список" id="1">
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<EnableStartDrag>true</EnableStartDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Список</DataPath>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="4"/>
+			<SearchStringAddition name="СписокСтрокаПоиска" id="5">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="6"/>
+				<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="7"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокСостояниеПросмотра" id="8">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="9"/>
+				<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="10"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокУправлениеПоиском" id="11">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="12"/>
+				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="13"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="Selection">СписокВыбор</Event>
+			</Events>
+			<ChildItems>
+				<LabelField name="Организация" id="23">
+					<DataPath>Список.Организация</DataPath>
+					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="24"/>
+					<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="25"/>
+				</LabelField>
+				<LabelField name="Подразделение" id="26">
+					<DataPath>Список.Подразделение</DataPath>
+					<ContextMenu name="ПодразделениеКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="ПодразделениеРасширеннаяПодсказка" id="28"/>
+				</LabelField>
+				<LabelField name="СтатьяРасходов" id="29">
+					<DataPath>Список.СтатьяРасходов</DataPath>
+					<ContextMenu name="СтатьяРасходовКонтекстноеМеню" id="30"/>
+					<ExtendedTooltip name="СтатьяРасходовРасширеннаяПодсказка" id="31"/>
+				</LabelField>
+				<LabelField name="НаправлениеДеятельности" id="20">
+					<DataPath>Список.НаправлениеДеятельности</DataPath>
+					<ContextMenu name="НаправлениеДеятельностиКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="НаправлениеДеятельностиРасширеннаяПодсказка" id="22"/>
+				</LabelField>
+				<LabelField name="Валюта" id="17">
+					<DataPath>Список.Валюта</DataPath>
+					<ContextMenu name="ВалютаКонтекстноеМеню" id="18"/>
+					<ExtendedTooltip name="ВалютаРасширеннаяПодсказка" id="19"/>
+				</LabelField>
+				<LabelField name="СуммаБезНДСОстаток" id="32">
+					<DataPath>Список.СуммаБезНДСBalance</DataPath>
+					<ContextMenu name="СуммаБезНДСОстатокКонтекстноеМеню" id="33"/>
+					<ExtendedTooltip name="СуммаБезНДСОстатокРасширеннаяПодсказка" id="34"/>
+				</LabelField>
+				<LabelField name="СуммаВалютаБезНДСОстаток" id="35">
+					<DataPath>Список.СуммаВалютаБезНДСBalance</DataPath>
+					<ContextMenu name="СуммаВалютаБезНДСОстатокКонтекстноеМеню" id="36"/>
+					<ExtendedTooltip name="СуммаВалютаБезНДСОстатокРасширеннаяПодсказка" id="37"/>
+				</LabelField>
+				<LabelField name="СуммаВалютаСНДСОстаток" id="38">
+					<DataPath>Список.СуммаВалютаСНДСBalance</DataPath>
+					<ContextMenu name="СуммаВалютаСНДСОстатокКонтекстноеМеню" id="39"/>
+					<ExtendedTooltip name="СуммаВалютаСНДСОстатокРасширеннаяПодсказка" id="40"/>
+				</LabelField>
+				<LabelField name="СуммаСНДСОстаток" id="41">
+					<DataPath>Список.СуммаСНДСBalance</DataPath>
+					<ContextMenu name="СуммаСНДСОстатокКонтекстноеМеню" id="42"/>
+					<ExtendedTooltip name="СуммаСНДСОстатокРасширеннаяПодсказка" id="43"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Список" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	упПрочиеРасходыОстатки.Организация,
+	упПрочиеРасходыОстатки.Подразделение,
+	упПрочиеРасходыОстатки.НаправлениеДеятельности,
+	упПрочиеРасходыОстатки.СтатьяРасходов,
+	упПрочиеРасходыОстатки.Валюта,
+	упПрочиеРасходыОстатки.СуммаБезНДСОстаток,
+	упПрочиеРасходыОстатки.СуммаСНДСОстаток,
+	упПрочиеРасходыОстатки.СуммаВалютаБезНДСОстаток,
+	упПрочиеРасходыОстатки.СуммаВалютаСНДСОстаток
+ИЗ
+	РегистрНакопления.упПрочиеРасходы.Остатки(&amp;Период,) КАК упПрочиеРасходыОстатки</QueryText>
+				<MainTable>AccumulationRegister.упПрочиеРасходы.Balance</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ВедетсяВалютныйУчет" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ведется валютный учет</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Выбрать" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.ChooseValue</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>Выбрать</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+	<Parameters>
+		<Parameter name="Период">
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Parameter>
+		<Parameter name="Подразделение">
+			<Type>
+				<v8:Type>cfg:CatalogRef.упСтруктураПредприятия</v8:Type>
+			</Type>
+		</Parameter>
+		<Parameter name="Организация">
+			<Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Type>
+		</Parameter>
+		<Parameter name="СтатьяРасходов">
+			<Type>
+				<v8:Type>cfg:CatalogRef.упСтатьиДоходовРасходов</v8:Type>
+			</Type>
+		</Parameter>
+		<Parameter name="ВариантРасходов">
+			<Type>
+				<v8:Type>cfg:EnumRef.упВариантыРасходов</v8:Type>
+			</Type>
+		</Parameter>
+		<Parameter name="АналитическийРазрез">
+			<Type>
+				<v8:Type>cfg:CatalogRef.упАналитическиеРазрезы</v8:Type>
+			</Type>
+		</Parameter>
+		<Parameter name="Валюта">
+			<Type>
+				<v8:Type>cfg:CatalogRef.Валюты</v8:Type>
+			</Type>
+		</Parameter>
+	</Parameters>
+</Form>

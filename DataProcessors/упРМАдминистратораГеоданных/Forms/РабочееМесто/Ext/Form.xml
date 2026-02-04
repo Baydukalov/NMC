@@ -1,0 +1,1498 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаОбновитьВсе" id="124">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ОбновитьВсе</CommandName>
+				<ExtendedTooltip name="ФормаОбновитьВсеРасширеннаяПодсказка" id="125"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГеоинформационныеСервисы" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Геоинформационные сервисы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Геоинформационные сервисы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГеоинформационныеСервисыРасширеннаяПодсказка" id="2"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаАдреса" id="126">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Адреса</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа адреса</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаАдресаРасширеннаяПодсказка" id="127"/>
+					<ChildItems>
+						<Table name="СписокАдресов" id="128">
+							<Representation>List</Representation>
+							<ReadOnly>true</ReadOnly>
+							<ChangeRowSet>false</ChangeRowSet>
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<Height>2</Height>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<VerticalStretch>false</VerticalStretch>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>СписокАдресов</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="СписокАдресовКонтекстноеМеню" id="129"/>
+							<AutoCommandBar name="СписокАдресовКоманднаяПанель" id="130">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
+							<ExtendedTooltip name="СписокАдресовРасширеннаяПодсказка" id="131"/>
+							<SearchStringAddition name="СписокАдресовСтрокаПоиска" id="132">
+								<AdditionSource>
+									<Item>СписокАдресов</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокАдресовСтрокаПоискаКонтекстноеМеню" id="133"/>
+								<ExtendedTooltip name="СписокАдресовСтрокаПоискаРасширеннаяПодсказка" id="134"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СписокАдресовСостояниеПросмотра" id="135">
+								<AdditionSource>
+									<Item>СписокАдресов</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокАдресовСостояниеПросмотраКонтекстноеМеню" id="136"/>
+								<ExtendedTooltip name="СписокАдресовСостояниеПросмотраРасширеннаяПодсказка" id="137"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СписокАдресовУправлениеПоиском" id="138">
+								<AdditionSource>
+									<Item>СписокАдресов</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокАдресовУправлениеПоискомКонтекстноеМеню" id="139"/>
+								<ExtendedTooltip name="СписокАдресовУправлениеПоискомРасширеннаяПодсказка" id="140"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">СписокАдресовВыбор</Event>
+							</Events>
+							<ChildItems>
+								<InputField name="СписокАдресовВсегоДействующихАдресов" id="141">
+									<DataPath>СписокАдресов.ВсегоДействующихАдресов</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Действующих адресов</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<CellHyperlink>true</CellHyperlink>
+									<Width>17</Width>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<TextEdit>false</TextEdit>
+									<ContextMenu name="СписокАдресовВсегоДействующихАдресовКонтекстноеМеню" id="142"/>
+									<ExtendedTooltip name="СписокАдресовВсегоДействующихАдресовРасширеннаяПодсказка" id="143"/>
+								</InputField>
+								<InputField name="СписокАдресовКоличествоНегеокодированных" id="144">
+									<DataPath>СписокАдресов.КоличествоНегеокодированных</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<CellHyperlink>true</CellHyperlink>
+									<Width>15</Width>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<TextEdit>false</TextEdit>
+									<ContextMenu name="СписокАдресовКоличествоНегеокодированныхКонтекстноеМеню" id="145"/>
+									<ExtendedTooltip name="СписокАдресовКоличествоНегеокодированныхРасширеннаяПодсказка" id="146"/>
+								</InputField>
+								<InputField name="СписокАдресовКоличествоНеПодтвержденных" id="147">
+									<DataPath>СписокАдресов.КоличествоНеПодтвержденных</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<CellHyperlink>true</CellHyperlink>
+									<Width>12</Width>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<TextEdit>false</TextEdit>
+									<ContextMenu name="СписокАдресовКоличествоНеПодтвержденныхКонтекстноеМеню" id="148"/>
+									<ExtendedTooltip name="СписокАдресовКоличествоНеПодтвержденныхРасширеннаяПодсказка" id="149"/>
+								</InputField>
+								<InputField name="СписокАдресовКоличествоПомеченныхНаУдаление" id="150">
+									<DataPath>СписокАдресов.КоличествоПомеченныхНаУдаление</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<CellHyperlink>true</CellHyperlink>
+									<Width>24</Width>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<TextEdit>false</TextEdit>
+									<ContextMenu name="СписокАдресовКоличествоПомеченныхНаУдалениеКонтекстноеМеню" id="151"/>
+									<ExtendedTooltip name="СписокАдресовКоличествоПомеченныхНаУдалениеРасширеннаяПодсказка" id="152"/>
+								</InputField>
+								<InputField name="СписокАдресовЗадублированыКоординаты" id="153">
+									<DataPath>СписокАдресов.ЗадублированыКоординаты</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<CellHyperlink>true</CellHyperlink>
+									<Width>19</Width>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<TextEdit>false</TextEdit>
+									<ContextMenu name="СписокАдресовЗадублированыКоординатыКонтекстноеМеню" id="154"/>
+									<ExtendedTooltip name="СписокАдресовЗадублированыКоординатыРасширеннаяПодсказка" id="155"/>
+								</InputField>
+								<InputField name="СписокАдресовЗадублированыНаименования" id="156">
+									<DataPath>СписокАдресов.ЗадублированыНаименования</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<CellHyperlink>true</CellHyperlink>
+									<Width>22</Width>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<TextEdit>false</TextEdit>
+									<ContextMenu name="СписокАдресовЗадублированыНаименованияКонтекстноеМеню" id="157"/>
+									<ExtendedTooltip name="СписокАдресовЗадублированыНаименованияРасширеннаяПодсказка" id="158"/>
+								</InputField>
+								<InputField name="СписокАдресовНеопределеныГеозоны" id="159">
+									<DataPath>СписокАдресов.НеопределеныГеозоны</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<CellHyperlink>true</CellHyperlink>
+									<Width>17</Width>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<TextEdit>false</TextEdit>
+									<ContextMenu name="СписокАдресовНеопределеныГеозоныКонтекстноеМеню" id="160"/>
+									<ExtendedTooltip name="СписокАдресовНеопределеныГеозоныРасширеннаяПодсказка" id="161"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаГеографическиеЗоны" id="162">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Географические зоны</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа географические зоны</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаГеографическиеЗоныРасширеннаяПодсказка" id="163"/>
+					<ChildItems>
+						<Table name="СписокГеозон" id="164">
+							<Representation>List</Representation>
+							<ReadOnly>true</ReadOnly>
+							<ChangeRowSet>false</ChangeRowSet>
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<Height>2</Height>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<VerticalStretch>false</VerticalStretch>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>СписокГеозон</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="СписокГеозонКонтекстноеМеню" id="165"/>
+							<AutoCommandBar name="СписокГеозонКоманднаяПанель" id="166">
+								<Autofill>false</Autofill>
+								<ChildItems>
+									<Button name="СписокГеозонПроверитьПересечениеГеозон" id="195">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ПроверитьПересечениеГеозон</CommandName>
+										<ExtendedTooltip name="СписокГеозонПроверитьПересечениеГеозонРасширеннаяПодсказка" id="196"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="СписокГеозонРасширеннаяПодсказка" id="167"/>
+							<SearchStringAddition name="СписокГеозонСтрокаПоиска" id="168">
+								<AdditionSource>
+									<Item>СписокГеозон</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокГеозонСтрокаПоискаКонтекстноеМеню" id="169"/>
+								<ExtendedTooltip name="СписокГеозонСтрокаПоискаРасширеннаяПодсказка" id="170"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СписокГеозонСостояниеПросмотра" id="171">
+								<AdditionSource>
+									<Item>СписокГеозон</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокГеозонСостояниеПросмотраКонтекстноеМеню" id="172"/>
+								<ExtendedTooltip name="СписокГеозонСостояниеПросмотраРасширеннаяПодсказка" id="173"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СписокГеозонУправлениеПоиском" id="174">
+								<AdditionSource>
+									<Item>СписокГеозон</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокГеозонУправлениеПоискомКонтекстноеМеню" id="175"/>
+								<ExtendedTooltip name="СписокГеозонУправлениеПоискомРасширеннаяПодсказка" id="176"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">СписокГеозонВыбор</Event>
+							</Events>
+							<ChildItems>
+								<InputField name="СписокГеозонВсегоГеозон" id="177">
+									<DataPath>СписокГеозон.ВсегоДействующихГеозон</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<CellHyperlink>true</CellHyperlink>
+									<ContextMenu name="СписокГеозонВсегоГеозонКонтекстноеМеню" id="178"/>
+									<ExtendedTooltip name="СписокГеозонВсегоГеозонРасширеннаяПодсказка" id="179"/>
+								</InputField>
+								<InputField name="СписокГеозонКоличествоНегеокодированных" id="180">
+									<DataPath>СписокГеозон.КоличествоНегеокодированных</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<CellHyperlink>true</CellHyperlink>
+									<ContextMenu name="СписокГеозонКоличествоНегеокодированныхКонтекстноеМеню" id="181"/>
+									<ExtendedTooltip name="СписокГеозонКоличествоНегеокодированныхРасширеннаяПодсказка" id="182"/>
+								</InputField>
+								<InputField name="СписокГеозонКоличествоПодтвержденных" id="183">
+									<DataPath>СписокГеозон.КоличествоПодтвержденных</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<CellHyperlink>true</CellHyperlink>
+									<ContextMenu name="СписокГеозонКоличествоПодтвержденныхКонтекстноеМеню" id="184"/>
+									<ExtendedTooltip name="СписокГеозонКоличествоПодтвержденныхРасширеннаяПодсказка" id="185"/>
+								</InputField>
+								<InputField name="СписокГеозонКоличествоПомеченныхНаУдаление" id="186">
+									<DataPath>СписокГеозон.КоличествоПомеченныхНаУдаление</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<CellHyperlink>true</CellHyperlink>
+									<ContextMenu name="СписокГеозонКоличествоПомеченныхНаУдалениеКонтекстноеМеню" id="187"/>
+									<ExtendedTooltip name="СписокГеозонКоличествоПомеченныхНаУдалениеРасширеннаяПодсказка" id="188"/>
+								</InputField>
+								<InputField name="СписокГеозонСПобочнымиКоэффициентами" id="189">
+									<DataPath>СписокГеозон.СПобочнымиКоэффициентами</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<CellHyperlink>true</CellHyperlink>
+									<ContextMenu name="СписокГеозонСПобочнымиКоэффициентамиКонтекстноеМеню" id="190"/>
+									<ExtendedTooltip name="СписокГеозонСПобочнымиКоэффициентамиРасширеннаяПодсказка" id="191"/>
+								</InputField>
+								<InputField name="СписокГеозонЗадублированыНаименования" id="192">
+									<DataPath>СписокГеозон.ЗадублированыНаименования</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<CellHyperlink>true</CellHyperlink>
+									<ContextMenu name="СписокГеозонЗадублированыНаименованияКонтекстноеМеню" id="193"/>
+									<ExtendedTooltip name="СписокГеозонЗадублированыНаименованияРасширеннаяПодсказка" id="194"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаСервисыМаршрутизации" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сервисы маршрутизации</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сервисы маршрутизации</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаСервисыМаршрутизацииРасширеннаяПодсказка" id="4"/>
+					<ChildItems>
+						<Table name="СервисыМаршрутизации" id="7">
+							<Height>4</Height>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>СервисыМаршрутизации</DataPath>
+							<RowPictureDataPath>СервисыМаршрутизации.DefaultPicture</RowPictureDataPath>
+							<CommandSet>
+								<ExcludedCommand>Refresh</ExcludedCommand>
+							</CommandSet>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>DontUpdate</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="СервисыМаршрутизацииКонтекстноеМеню" id="8"/>
+							<AutoCommandBar name="СервисыМаршрутизацииКоманднаяПанель" id="9">
+								<ChildItems>
+									<Popup name="СервисыМаршрутизацииОчистить" id="116">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Очистить</v8:content>
+											</v8:item>
+										</Title>
+										<ToolTip>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Сервисы маршрутизации очистить</v8:content>
+											</v8:item>
+										</ToolTip>
+										<Picture>
+											<xr:Ref>CommonPicture.упОчиститьПараметры</xr:Ref>
+											<xr:LoadTransparent>true</xr:LoadTransparent>
+										</Picture>
+										<ExtendedTooltip name="СервисыМаршрутизацииОчиститьРасширеннаяПодсказка" id="117"/>
+										<ChildItems>
+											<Button name="СервисыМаршрутизацииСМ_ОчиститьВсюИсторию" id="120">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.СМ_ОчиститьВсюИсторию</CommandName>
+												<ExtendedTooltip name="СервисыМаршрутизацииСМ_ОчиститьВсюИсториюРасширеннаяПодсказка" id="121"/>
+											</Button>
+										</ChildItems>
+									</Popup>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="СервисыМаршрутизацииРасширеннаяПодсказка" id="10"/>
+							<SearchStringAddition name="СервисыМаршрутизацииСтрокаПоиска" id="11">
+								<AdditionSource>
+									<Item>СервисыМаршрутизации</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СервисыМаршрутизацииСтрокаПоискаКонтекстноеМеню" id="12"/>
+								<ExtendedTooltip name="СервисыМаршрутизацииСтрокаПоискаРасширеннаяПодсказка" id="13"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СервисыМаршрутизацииСостояниеПросмотра" id="14">
+								<AdditionSource>
+									<Item>СервисыМаршрутизации</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СервисыМаршрутизацииСостояниеПросмотраКонтекстноеМеню" id="15"/>
+								<ExtendedTooltip name="СервисыМаршрутизацииСостояниеПросмотраРасширеннаяПодсказка" id="16"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СервисыМаршрутизацииУправлениеПоиском" id="17">
+								<AdditionSource>
+									<Item>СервисыМаршрутизации</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СервисыМаршрутизацииУправлениеПоискомКонтекстноеМеню" id="18"/>
+								<ExtendedTooltip name="СервисыМаршрутизацииУправлениеПоискомРасширеннаяПодсказка" id="19"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="СервисыМаршрутизации1Маршрутизатор" id="35">
+									<DataPath>СервисыМаршрутизации.Маршрутизатор</DataPath>
+									<ContextMenu name="СервисыМаршрутизации1МаршрутизаторКонтекстноеМеню" id="36"/>
+									<ExtendedTooltip name="СервисыМаршрутизации1МаршрутизаторРасширеннаяПодсказка" id="37"/>
+								</LabelField>
+								<ColumnGroup name="СервисыМаршрутизации1Группа1" id="56">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Количество запросов</v8:content>
+										</v8:item>
+									</Title>
+									<Group>Horizontal</Group>
+									<ShowInHeader>true</ShowInHeader>
+									<ExtendedTooltip name="СервисыМаршрутизации1Группа1РасширеннаяПодсказка" id="57"/>
+									<ChildItems>
+										<LabelField name="СервисыМаршрутизации1КоличествоЗапросов_сегодня" id="32">
+											<DataPath>СервисыМаршрутизации.КоличествоЗапросов_сегодня</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Сегодня</v8:content>
+												</v8:item>
+											</Title>
+											<Width>12</Width>
+											<ContextMenu name="СервисыМаршрутизации1КоличествоЗапросов_сегодняКонтекстноеМеню" id="33"/>
+											<ExtendedTooltip name="СервисыМаршрутизации1КоличествоЗапросов_сегодняРасширеннаяПодсказка" id="34"/>
+										</LabelField>
+										<LabelField name="СервисыМаршрутизации1КоличествоЗапросов_ЗаТриДня" id="29">
+											<DataPath>СервисыМаршрутизации.КоличествоЗапросов_ЗаТриДня</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>за 3-дня</v8:content>
+												</v8:item>
+											</Title>
+											<Width>12</Width>
+											<ContextMenu name="СервисыМаршрутизации1КоличествоЗапросов_ЗаТриДняКонтекстноеМеню" id="30"/>
+											<ExtendedTooltip name="СервисыМаршрутизации1КоличествоЗапросов_ЗаТриДняРасширеннаяПодсказка" id="31"/>
+										</LabelField>
+										<LabelField name="СервисыМаршрутизации1КоличествоЗапросов_ЗаНеделю" id="26">
+											<DataPath>СервисыМаршрутизации.КоличествоЗапросов_ЗаНеделю</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>за Неделю</v8:content>
+												</v8:item>
+											</Title>
+											<Width>12</Width>
+											<ContextMenu name="СервисыМаршрутизации1КоличествоЗапросов_ЗаНеделюКонтекстноеМеню" id="27"/>
+											<ExtendedTooltip name="СервисыМаршрутизации1КоличествоЗапросов_ЗаНеделюРасширеннаяПодсказка" id="28"/>
+										</LabelField>
+										<LabelField name="СервисыМаршрутизации1КоличествоЗапросов_ЗаМесяц" id="23">
+											<DataPath>СервисыМаршрутизации.КоличествоЗапросов_ЗаМесяц</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>за Месяц</v8:content>
+												</v8:item>
+											</Title>
+											<Width>12</Width>
+											<ContextMenu name="СервисыМаршрутизации1КоличествоЗапросов_ЗаМесяцКонтекстноеМеню" id="24"/>
+											<ExtendedTooltip name="СервисыМаршрутизации1КоличествоЗапросов_ЗаМесяцРасширеннаяПодсказка" id="25"/>
+										</LabelField>
+										<LabelField name="СервисыМаршрутизации1КоличествоЗапросов_Всего" id="20">
+											<DataPath>СервисыМаршрутизации.КоличествоЗапросов_Всего</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Всего</v8:content>
+												</v8:item>
+											</Title>
+											<Width>12</Width>
+											<ContextMenu name="СервисыМаршрутизации1КоличествоЗапросов_ВсегоКонтекстноеМеню" id="21"/>
+											<ExtendedTooltip name="СервисыМаршрутизации1КоличествоЗапросов_ВсегоРасширеннаяПодсказка" id="22"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="СервисыМаршрутизации1Группа2" id="58">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Из них неудачных</v8:content>
+										</v8:item>
+									</Title>
+									<Group>Horizontal</Group>
+									<ShowInHeader>true</ShowInHeader>
+									<ExtendedTooltip name="СервисыМаршрутизации1Группа2РасширеннаяПодсказка" id="59"/>
+									<ChildItems>
+										<LabelField name="СервисыМаршрутизации1НеудачныхЗапросов_сегодня" id="50">
+											<DataPath>СервисыМаршрутизации.НеудачныхЗапросов_сегодня</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Сегодня</v8:content>
+												</v8:item>
+											</Title>
+											<Width>12</Width>
+											<ContextMenu name="СервисыМаршрутизации1НеудачныхЗапросов_сегодняКонтекстноеМеню" id="51"/>
+											<ExtendedTooltip name="СервисыМаршрутизации1НеудачныхЗапросов_сегодняРасширеннаяПодсказка" id="52"/>
+										</LabelField>
+										<LabelField name="СервисыМаршрутизации1НеудачныхЗапросов_ЗаТриДня" id="47">
+											<DataPath>СервисыМаршрутизации.НеудачныхЗапросов_ЗаТриДня</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>за 3-дня</v8:content>
+												</v8:item>
+											</Title>
+											<Width>12</Width>
+											<ContextMenu name="СервисыМаршрутизации1НеудачныхЗапросов_ЗаТриДняКонтекстноеМеню" id="48"/>
+											<ExtendedTooltip name="СервисыМаршрутизации1НеудачныхЗапросов_ЗаТриДняРасширеннаяПодсказка" id="49"/>
+										</LabelField>
+										<LabelField name="СервисыМаршрутизации1НеудачныхЗапросов_ЗаНеделю" id="44">
+											<DataPath>СервисыМаршрутизации.НеудачныхЗапросов_ЗаНеделю</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>за Неделю</v8:content>
+												</v8:item>
+											</Title>
+											<Width>12</Width>
+											<ContextMenu name="СервисыМаршрутизации1НеудачныхЗапросов_ЗаНеделюКонтекстноеМеню" id="45"/>
+											<ExtendedTooltip name="СервисыМаршрутизации1НеудачныхЗапросов_ЗаНеделюРасширеннаяПодсказка" id="46"/>
+										</LabelField>
+										<LabelField name="СервисыМаршрутизации1НеудачныхЗапросов_ЗаМесяц" id="41">
+											<DataPath>СервисыМаршрутизации.НеудачныхЗапросов_ЗаМесяц</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>за Месяц</v8:content>
+												</v8:item>
+											</Title>
+											<Width>12</Width>
+											<ContextMenu name="СервисыМаршрутизации1НеудачныхЗапросов_ЗаМесяцКонтекстноеМеню" id="42"/>
+											<ExtendedTooltip name="СервисыМаршрутизации1НеудачныхЗапросов_ЗаМесяцРасширеннаяПодсказка" id="43"/>
+										</LabelField>
+										<LabelField name="СервисыМаршрутизации1НеудачныхЗапросов_Всего" id="38">
+											<DataPath>СервисыМаршрутизации.НеудачныхЗапросов_Всего</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Всего</v8:content>
+												</v8:item>
+											</Title>
+											<Width>12</Width>
+											<ContextMenu name="СервисыМаршрутизации1НеудачныхЗапросов_ВсегоКонтекстноеМеню" id="39"/>
+											<ExtendedTooltip name="СервисыМаршрутизации1НеудачныхЗапросов_ВсегоРасширеннаяПодсказка" id="40"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаСервисыГеокодирования" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сервисы геокодирования</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сервисы геокодирования</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаСервисыГеокодированияРасширеннаяПодсказка" id="6"/>
+					<ChildItems>
+						<Table name="СервисыГеокодирования" id="60">
+							<Height>4</Height>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>СервисыГеокодирования</DataPath>
+							<RowPictureDataPath>СервисыГеокодирования.DefaultPicture</RowPictureDataPath>
+							<CommandSet>
+								<ExcludedCommand>Refresh</ExcludedCommand>
+							</CommandSet>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>DontUpdate</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="СервисыГеокодированияКонтекстноеМеню" id="61"/>
+							<AutoCommandBar name="СервисыГеокодированияКоманднаяПанель" id="62">
+								<ChildItems>
+									<Popup name="СервисыГеокодированияОчистить" id="118">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Очистить</v8:content>
+											</v8:item>
+										</Title>
+										<ToolTip>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Сервисы геокодирования очистить</v8:content>
+											</v8:item>
+										</ToolTip>
+										<Picture>
+											<xr:Ref>CommonPicture.упОчиститьПараметры</xr:Ref>
+											<xr:LoadTransparent>true</xr:LoadTransparent>
+										</Picture>
+										<ExtendedTooltip name="СервисыГеокодированияОчиститьРасширеннаяПодсказка" id="119"/>
+										<ChildItems>
+											<Button name="СервисыГеокодированияСГ_ОчиститьВсюИсторию" id="122">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.СГ_ОчиститьВсюИсторию</CommandName>
+												<ExtendedTooltip name="СервисыГеокодированияСГ_ОчиститьВсюИсториюРасширеннаяПодсказка" id="123"/>
+											</Button>
+										</ChildItems>
+									</Popup>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="СервисыГеокодированияРасширеннаяПодсказка" id="63"/>
+							<SearchStringAddition name="СервисыГеокодированияСтрокаПоиска" id="64">
+								<AdditionSource>
+									<Item>СервисыГеокодирования</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СервисыГеокодированияСтрокаПоискаКонтекстноеМеню" id="65"/>
+								<ExtendedTooltip name="СервисыГеокодированияСтрокаПоискаРасширеннаяПодсказка" id="66"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СервисыГеокодированияСостояниеПросмотра" id="67">
+								<AdditionSource>
+									<Item>СервисыГеокодирования</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СервисыГеокодированияСостояниеПросмотраКонтекстноеМеню" id="68"/>
+								<ExtendedTooltip name="СервисыГеокодированияСостояниеПросмотраРасширеннаяПодсказка" id="69"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СервисыГеокодированияУправлениеПоиском" id="70">
+								<AdditionSource>
+									<Item>СервисыГеокодирования</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СервисыГеокодированияУправлениеПоискомКонтекстноеМеню" id="71"/>
+								<ExtendedTooltip name="СервисыГеокодированияУправлениеПоискомРасширеннаяПодсказка" id="72"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="СервисыГеокодированияТипГеокодера" id="106">
+									<DataPath>СервисыГеокодирования.ТипГеокодера</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Геокодер</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="СервисыГеокодированияТипГеокодераКонтекстноеМеню" id="107"/>
+									<ExtendedTooltip name="СервисыГеокодированияТипГеокодераРасширеннаяПодсказка" id="108"/>
+								</LabelField>
+								<LabelField name="СервисыГеокодированияВидОперации" id="73">
+									<DataPath>СервисыГеокодирования.ВидОперации</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Вид геокодирования</v8:content>
+										</v8:item>
+									</Title>
+									<Width>18</Width>
+									<ContextMenu name="СервисыГеокодированияВидОперацииКонтекстноеМеню" id="74"/>
+									<ExtendedTooltip name="СервисыГеокодированияВидОперацииРасширеннаяПодсказка" id="75"/>
+								</LabelField>
+								<ColumnGroup name="СервисыГеокодированияГруппа1" id="112">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Количество запросов</v8:content>
+										</v8:item>
+									</Title>
+									<Group>Horizontal</Group>
+									<ShowInHeader>true</ShowInHeader>
+									<ExtendedTooltip name="СервисыГеокодированияГруппа1РасширеннаяПодсказка" id="113"/>
+									<ChildItems>
+										<LabelField name="СервисыГеокодированияКоличествоЗапросов_Сегодня" id="88">
+											<DataPath>СервисыГеокодирования.КоличествоЗапросов_Сегодня</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Сегодня</v8:content>
+												</v8:item>
+											</Title>
+											<Width>12</Width>
+											<ContextMenu name="СервисыГеокодированияКоличествоЗапросов_СегодняКонтекстноеМеню" id="89"/>
+											<ExtendedTooltip name="СервисыГеокодированияКоличествоЗапросов_СегодняРасширеннаяПодсказка" id="90"/>
+										</LabelField>
+										<LabelField name="СервисыГеокодированияКоличествоЗапросов_ЗаТриДня" id="85">
+											<DataPath>СервисыГеокодирования.КоличествоЗапросов_ЗаТриДня</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>за 3-дня</v8:content>
+												</v8:item>
+											</Title>
+											<Width>12</Width>
+											<ContextMenu name="СервисыГеокодированияКоличествоЗапросов_ЗаТриДняКонтекстноеМеню" id="86"/>
+											<ExtendedTooltip name="СервисыГеокодированияКоличествоЗапросов_ЗаТриДняРасширеннаяПодсказка" id="87"/>
+										</LabelField>
+										<LabelField name="СервисыГеокодированияКоличествоЗапросов_ЗаНеделю" id="82">
+											<DataPath>СервисыГеокодирования.КоличествоЗапросов_ЗаНеделю</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>за Неделю</v8:content>
+												</v8:item>
+											</Title>
+											<Width>12</Width>
+											<ContextMenu name="СервисыГеокодированияКоличествоЗапросов_ЗаНеделюКонтекстноеМеню" id="83"/>
+											<ExtendedTooltip name="СервисыГеокодированияКоличествоЗапросов_ЗаНеделюРасширеннаяПодсказка" id="84"/>
+										</LabelField>
+										<LabelField name="СервисыГеокодированияКоличествоЗапросов_ЗаМесяц" id="79">
+											<DataPath>СервисыГеокодирования.КоличествоЗапросов_ЗаМесяц</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>за Месяц</v8:content>
+												</v8:item>
+											</Title>
+											<Width>12</Width>
+											<ContextMenu name="СервисыГеокодированияКоличествоЗапросов_ЗаМесяцКонтекстноеМеню" id="80"/>
+											<ExtendedTooltip name="СервисыГеокодированияКоличествоЗапросов_ЗаМесяцРасширеннаяПодсказка" id="81"/>
+										</LabelField>
+										<LabelField name="СервисыГеокодированияКоличествоЗапросов_Всего" id="76">
+											<DataPath>СервисыГеокодирования.КоличествоЗапросов_Всего</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Всего</v8:content>
+												</v8:item>
+											</Title>
+											<Width>12</Width>
+											<ContextMenu name="СервисыГеокодированияКоличествоЗапросов_ВсегоКонтекстноеМеню" id="77"/>
+											<ExtendedTooltip name="СервисыГеокодированияКоличествоЗапросов_ВсегоРасширеннаяПодсказка" id="78"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="СервисыГеокодированияГруппа2" id="114">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Из них неудачных</v8:content>
+										</v8:item>
+									</Title>
+									<Group>Horizontal</Group>
+									<ShowInHeader>true</ShowInHeader>
+									<ExtendedTooltip name="СервисыГеокодированияГруппа2РасширеннаяПодсказка" id="115"/>
+									<ChildItems>
+										<LabelField name="СервисыГеокодированияНеудачныхЗапросов_Сегодня" id="103">
+											<DataPath>СервисыГеокодирования.НеудачныхЗапросов_Сегодня</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Сегодня</v8:content>
+												</v8:item>
+											</Title>
+											<Width>12</Width>
+											<ContextMenu name="СервисыГеокодированияНеудачныхЗапросов_СегодняКонтекстноеМеню" id="104"/>
+											<ExtendedTooltip name="СервисыГеокодированияНеудачныхЗапросов_СегодняРасширеннаяПодсказка" id="105"/>
+										</LabelField>
+										<LabelField name="СервисыГеокодированияНеудачныхЗапросов_ЗаТриДня" id="100">
+											<DataPath>СервисыГеокодирования.НеудачныхЗапросов_ЗаТриДня</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>за 3-дня</v8:content>
+												</v8:item>
+											</Title>
+											<Width>12</Width>
+											<ContextMenu name="СервисыГеокодированияНеудачныхЗапросов_ЗаТриДняКонтекстноеМеню" id="101"/>
+											<ExtendedTooltip name="СервисыГеокодированияНеудачныхЗапросов_ЗаТриДняРасширеннаяПодсказка" id="102"/>
+										</LabelField>
+										<LabelField name="СервисыГеокодированияНеудачныхЗапросов_ЗаНеделю" id="97">
+											<DataPath>СервисыГеокодирования.НеудачныхЗапросов_ЗаНеделю</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>за Неделю</v8:content>
+												</v8:item>
+											</Title>
+											<Width>12</Width>
+											<ContextMenu name="СервисыГеокодированияНеудачныхЗапросов_ЗаНеделюКонтекстноеМеню" id="98"/>
+											<ExtendedTooltip name="СервисыГеокодированияНеудачныхЗапросов_ЗаНеделюРасширеннаяПодсказка" id="99"/>
+										</LabelField>
+										<LabelField name="СервисыГеокодированияНеудачныхЗапросов_ЗаМесяц" id="94">
+											<DataPath>СервисыГеокодирования.НеудачныхЗапросов_ЗаМесяц</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>за Месяц</v8:content>
+												</v8:item>
+											</Title>
+											<Width>12</Width>
+											<ContextMenu name="СервисыГеокодированияНеудачныхЗапросов_ЗаМесяцКонтекстноеМеню" id="95"/>
+											<ExtendedTooltip name="СервисыГеокодированияНеудачныхЗапросов_ЗаМесяцРасширеннаяПодсказка" id="96"/>
+										</LabelField>
+										<LabelField name="СервисыГеокодированияНеудачныхЗапросов_Всего" id="91">
+											<DataPath>СервисыГеокодирования.НеудачныхЗапросов_Всего</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Всего</v8:content>
+												</v8:item>
+											</Title>
+											<Width>12</Width>
+											<ContextMenu name="СервисыГеокодированияНеудачныхЗапросов_ВсегоКонтекстноеМеню" id="92"/>
+											<ExtendedTooltip name="СервисыГеокодированияНеудачныхЗапросов_ВсегоРасширеннаяПодсказка" id="93"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.упРМАдминистратораГеоданных</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="СервисыМаршрутизации" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сервисы маршрутизации</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	ВложенныйЗапрос.Маршрутизатор,
+	СУММА(ВложенныйЗапрос.КоличествоЗапросов_сегодня) КАК КоличествоЗапросов_сегодня,
+	СУММА(ВложенныйЗапрос.КоличествоЗапросов_ЗаТриДня) КАК КоличествоЗапросов_ЗаТриДня,
+	СУММА(ВложенныйЗапрос.КоличествоЗапросов_ЗаНеделю) КАК КоличествоЗапросов_ЗаНеделю,
+	СУММА(ВложенныйЗапрос.КоличествоЗапросов_ЗаМесяц) КАК КоличествоЗапросов_ЗаМесяц,
+	СУММА(ВложенныйЗапрос.КоличествоЗапросов_Всего) КАК КоличествоЗапросов_Всего,
+	СУММА(ВложенныйЗапрос.НеудачныхЗапросов_сегодня) КАК НеудачныхЗапросов_сегодня,
+	СУММА(ВложенныйЗапрос.НеудачныхЗапросов_ЗаТриДня) КАК НеудачныхЗапросов_ЗаТриДня,
+	СУММА(ВложенныйЗапрос.НеудачныхЗапросов_ЗаНеделю) КАК НеудачныхЗапросов_ЗаНеделю,
+	СУММА(ВложенныйЗапрос.НеудачныхЗапросов_ЗаМесяц) КАК НеудачныхЗапросов_ЗаМесяц,
+	СУММА(ВложенныйЗапрос.НеудачныхЗапросов_Всего) КАК НеудачныхЗапросов_Всего
+ИЗ
+	(ВЫБРАТЬ
+		МаршрутизацииВсего.ТипМаршрутизатора КАК Маршрутизатор,
+		СУММА(0) КАК КоличествоЗапросов_сегодня,
+		СУММА(0) КАК КоличествоЗапросов_ЗаТриДня,
+		СУММА(0) КАК КоличествоЗапросов_ЗаНеделю,
+		СУММА(0) КАК КоличествоЗапросов_ЗаМесяц,
+		СУММА(МаршрутизацииВсего.КоличествоУспешно + МаршрутизацииВсего.КоличествоНеудачно) КАК КоличествоЗапросов_Всего,
+		СУММА(0) КАК НеудачныхЗапросов_сегодня,
+		СУММА(0) КАК НеудачныхЗапросов_ЗаТриДня,
+		СУММА(0) КАК НеудачныхЗапросов_ЗаНеделю,
+		СУММА(0) КАК НеудачныхЗапросов_ЗаМесяц,
+		СУММА(МаршрутизацииВсего.КоличествоНеудачно) КАК НеудачныхЗапросов_Всего
+	ИЗ
+		РегистрСведений.упСтатистикаОбращенийКСервисамМаршрутизации КАК МаршрутизацииВсего
+	
+	СГРУППИРОВАТЬ ПО
+		МаршрутизацииВсего.ТипМаршрутизатора
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		МаршрутизацииЗаМесяц.ТипМаршрутизатора,
+		СУММА(0),
+		СУММА(0),
+		СУММА(0),
+		СУММА(МаршрутизацииЗаМесяц.КоличествоУспешно + МаршрутизацииЗаМесяц.КоличествоНеудачно),
+		СУММА(0),
+		СУММА(0),
+		СУММА(0),
+		СУММА(0),
+		СУММА(МаршрутизацииЗаМесяц.КоличествоНеудачно),
+		СУММА(0)
+	ИЗ
+		РегистрСведений.упСтатистикаОбращенийКСервисамМаршрутизации КАК МаршрутизацииЗаМесяц
+	ГДЕ
+		МаршрутизацииЗаМесяц.Период МЕЖДУ &amp;НачалоМесяца И &amp;КонецМесяца
+	
+	СГРУППИРОВАТЬ ПО
+		МаршрутизацииЗаМесяц.ТипМаршрутизатора
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		МаршрутизацииЗаНеделю.ТипМаршрутизатора,
+		СУММА(0),
+		СУММА(0),
+		СУММА(МаршрутизацииЗаНеделю.КоличествоУспешно + МаршрутизацииЗаНеделю.КоличествоНеудачно),
+		СУММА(0),
+		СУММА(0),
+		СУММА(0),
+		СУММА(0),
+		СУММА(МаршрутизацииЗаНеделю.КоличествоНеудачно),
+		СУММА(0),
+		СУММА(0)
+	ИЗ
+		РегистрСведений.упСтатистикаОбращенийКСервисамМаршрутизации КАК МаршрутизацииЗаНеделю
+	ГДЕ
+		МаршрутизацииЗаНеделю.Период МЕЖДУ &amp;НачалоНедели И &amp;КонецНедели
+	
+	СГРУППИРОВАТЬ ПО
+		МаршрутизацииЗаНеделю.ТипМаршрутизатора
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		МаршрутизацииЗаТриДня.ТипМаршрутизатора,
+		СУММА(0),
+		СУММА(МаршрутизацииЗаТриДня.КоличествоУспешно + МаршрутизацииЗаТриДня.КоличествоНеудачно),
+		СУММА(0),
+		СУММА(0),
+		СУММА(0),
+		СУММА(0),
+		СУММА(МаршрутизацииЗаТриДня.КоличествоНеудачно),
+		СУММА(0),
+		СУММА(0),
+		СУММА(0)
+	ИЗ
+		РегистрСведений.упСтатистикаОбращенийКСервисамМаршрутизации КАК МаршрутизацииЗаТриДня
+	ГДЕ
+		МаршрутизацииЗаТриДня.Период МЕЖДУ &amp;НачалоТрехДней И &amp;КонецТрехДней
+	
+	СГРУППИРОВАТЬ ПО
+		МаршрутизацииЗаТриДня.ТипМаршрутизатора
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		МаршрутизацииСегодня.ТипМаршрутизатора,
+		СУММА(МаршрутизацииСегодня.КоличествоУспешно + МаршрутизацииСегодня.КоличествоНеудачно),
+		СУММА(0),
+		СУММА(0),
+		СУММА(0),
+		СУММА(0),
+		СУММА(МаршрутизацииСегодня.КоличествоНеудачно),
+		СУММА(0),
+		СУММА(0),
+		СУММА(0),
+		СУММА(0)
+	ИЗ
+		РегистрСведений.упСтатистикаОбращенийКСервисамМаршрутизации КАК МаршрутизацииСегодня
+	ГДЕ
+		МаршрутизацииСегодня.Период МЕЖДУ &amp;НачалоСегодня И &amp;КонецСегодня
+	
+	СГРУППИРОВАТЬ ПО
+		МаршрутизацииСегодня.ТипМаршрутизатора) КАК ВложенныйЗапрос
+
+СГРУППИРОВАТЬ ПО
+	ВложенныйЗапрос.Маршрутизатор</QueryText>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="СервисыГеокодирования" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сервисы геокодирования</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	ВложенныйЗапрос.ТипГеокодера,
+	ВложенныйЗапрос.ВидОперации,
+	СУММА(ВложенныйЗапрос.КоличествоЗапросов_Сегодня) КАК КоличествоЗапросов_Сегодня,
+	СУММА(ВложенныйЗапрос.КоличествоЗапросов_ЗаТриДня) КАК КоличествоЗапросов_ЗаТриДня,
+	СУММА(ВложенныйЗапрос.КоличествоЗапросов_ЗаНеделю) КАК КоличествоЗапросов_ЗаНеделю,
+	СУММА(ВложенныйЗапрос.КоличествоЗапросов_ЗаМесяц) КАК КоличествоЗапросов_ЗаМесяц,
+	СУММА(ВложенныйЗапрос.КоличествоЗапросов_Всего) КАК КоличествоЗапросов_Всего,
+	СУММА(ВложенныйЗапрос.НеудачныхЗапросов_Сегодня) КАК НеудачныхЗапросов_Сегодня,
+	СУММА(ВложенныйЗапрос.НеудачныхЗапросов_ЗаТриДня) КАК НеудачныхЗапросов_ЗаТриДня,
+	СУММА(ВложенныйЗапрос.НеудачныхЗапросов_ЗаНеделю) КАК НеудачныхЗапросов_ЗаНеделю,
+	СУММА(ВложенныйЗапрос.НеудачныхЗапросов_ЗаМесяц) КАК НеудачныхЗапросов_ЗаМесяц,
+	СУММА(ВложенныйЗапрос.НеудачныхЗапросов_Всего) КАК НеудачныхЗапросов_Всего
+ИЗ
+	(ВЫБРАТЬ
+		ГеокодированиеВсего.ТипГеокодера КАК ТипГеокодера,
+		ГеокодированиеВсего.ВидОперации КАК ВидОперации,
+		0 КАК КоличествоЗапросов_Сегодня,
+		0 КАК КоличествоЗапросов_ЗаТриДня,
+		0 КАК КоличествоЗапросов_ЗаНеделю,
+		0 КАК КоличествоЗапросов_ЗаМесяц,
+		ГеокодированиеВсего.КоличествоУспешно + ГеокодированиеВсего.КоличествоНеудачно КАК КоличествоЗапросов_Всего,
+		0 КАК НеудачныхЗапросов_Сегодня,
+		0 КАК НеудачныхЗапросов_ЗаТриДня,
+		0 КАК НеудачныхЗапросов_ЗаНеделю,
+		0 КАК НеудачныхЗапросов_ЗаМесяц,
+		ГеокодированиеВсего.КоличествоНеудачно КАК НеудачныхЗапросов_Всего
+	ИЗ
+		РегистрСведений.упСтатистикаОбращенийКСервисамГеокодирования КАК ГеокодированиеВсего
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		ГеокодированиеМесяц.ТипГеокодера,
+		ГеокодированиеМесяц.ВидОперации,
+		0,
+		0,
+		0,
+		ГеокодированиеМесяц.КоличествоУспешно + ГеокодированиеМесяц.КоличествоНеудачно,
+		0,
+		0,
+		0,
+		0,
+		ГеокодированиеМесяц.КоличествоНеудачно,
+		0
+	ИЗ
+		РегистрСведений.упСтатистикаОбращенийКСервисамГеокодирования КАК ГеокодированиеМесяц
+	ГДЕ
+		ГеокодированиеМесяц.Период МЕЖДУ &amp;НачалоМесяца И &amp;КонецМесяца
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		ГеокодированиеНеделю.ТипГеокодера,
+		ГеокодированиеНеделю.ВидОперации,
+		0,
+		0,
+		ГеокодированиеНеделю.КоличествоУспешно + ГеокодированиеНеделю.КоличествоНеудачно,
+		0,
+		0,
+		0,
+		0,
+		ГеокодированиеНеделю.КоличествоНеудачно,
+		0,
+		0
+	ИЗ
+		РегистрСведений.упСтатистикаОбращенийКСервисамГеокодирования КАК ГеокодированиеНеделю
+	ГДЕ
+		ГеокодированиеНеделю.Период МЕЖДУ &amp;НачалоНедели И &amp;КонецНедели
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		ГеокодированиеТриДня.ТипГеокодера,
+		ГеокодированиеТриДня.ВидОперации,
+		0,
+		ГеокодированиеТриДня.КоличествоУспешно + ГеокодированиеТриДня.КоличествоНеудачно,
+		0,
+		0,
+		0,
+		0,
+		ГеокодированиеТриДня.КоличествоНеудачно,
+		0,
+		0,
+		0
+	ИЗ
+		РегистрСведений.упСтатистикаОбращенийКСервисамГеокодирования КАК ГеокодированиеТриДня
+	ГДЕ
+		ГеокодированиеТриДня.Период МЕЖДУ &amp;НачалоТрехДней И &amp;КонецТрехДней
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		ГеокодированиеСегодня.ТипГеокодера,
+		ГеокодированиеСегодня.ВидОперации,
+		ГеокодированиеСегодня.КоличествоУспешно + ГеокодированиеСегодня.КоличествоНеудачно,
+		0,
+		0,
+		0,
+		0,
+		ГеокодированиеСегодня.КоличествоНеудачно,
+		0,
+		0,
+		0,
+		0
+	ИЗ
+		РегистрСведений.упСтатистикаОбращенийКСервисамГеокодирования КАК ГеокодированиеСегодня
+	ГДЕ
+		ГеокодированиеСегодня.Период МЕЖДУ &amp;НачалоСегодня И &amp;КонецСегодня) КАК ВложенныйЗапрос
+
+СГРУППИРОВАТЬ ПО
+	ВложенныйЗапрос.ТипГеокодера,
+	ВложенныйЗапрос.ВидОперации</QueryText>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ТаблицаСервисов" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Таблица сервисов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Команда" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Команда</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="СсылкаНаТип" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ссылка на тип</v8:content>
+						</v8:item>
+					</Title>
+					<Type/>
+				</Column>
+				<Column name="ИмяЭлемента" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Имя элемента</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="СписокАдресов" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список адресов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="ВсегоДействующихАдресов" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Всего действующих адресов</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="КоличествоНегеокодированных" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Негеокодированных</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="КоличествоНеПодтвержденных" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Подтвержденных</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="КоличествоПомеченныхНаУдаление" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Помеченных на удаление</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>0</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ЗадублированыКоординаты" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Задублированы координаты</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ЗадублированыНаименования" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Задублированы наименования</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="НеопределеныГеозоны" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Неопределены геозоны</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="СписокГеозон" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список геозон</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="ВсегоДействующихГеозон" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Действующих геозон</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="КоличествоНегеокодированных" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Негеокодированных</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="КоличествоПодтвержденных" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Подтвержденных</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="КоличествоПомеченныхНаУдаление" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Помеченных на удаление</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="СПобочнымиКоэффициентами" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>С побочными коэффициентами</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ЗадублированыНаименования" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Задублированы наименования</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ФоновоеЗаданиеАдресХранилища" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Фоновое задание адрес хранилища</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ФоновоеЗаданиеИдентификатор" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Фоновое задание идентификатор</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="СМ_ОчиститьВсюИсторию" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Очистить всю историю</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Очистить всю историю</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СМ_ОчиститьВсюИсторию</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="СГ_ОчиститьВсюИсторию" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Очистить всю историю</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Очистить всю историю</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СГ_ОчиститьВсюИсторию</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ОбновитьВсе" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить данные по всем сервисам</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Shortcut>F5</Shortcut>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ОбновитьВсе</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПроверитьПересечениеГеозон" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Проверить пересечение геозон</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Проверить пересечение геозон</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПроверитьПересечениеГеозон</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

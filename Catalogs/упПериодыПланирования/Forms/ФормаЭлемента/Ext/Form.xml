@@ -1,0 +1,790 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="AfterWriteAtServer">ПослеЗаписиНаСервере</Event>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="BeforeWrite">ПередЗаписью</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<RadioButtonField name="ВариантПредставленияНачалаПериода" id="47">
+			<DataPath>Объект.ВариантПредставленияПериода</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вариант представления</v8:content>
+				</v8:item>
+			</Title>
+			<TitleLocation>Left</TitleLocation>
+			<RadioButtonType>Tumbler</RadioButtonType>
+			<ChoiceList>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>В днях</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xs:decimal">0</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>В рабочих днях</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xs:decimal">1</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>В днях недели</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xs:decimal">2</Value>
+					</xr:Value>
+				</xr:Item>
+			</ChoiceList>
+			<ContextMenu name="ВариантПредставленияНачалаПериодаКонтекстноеМеню" id="48"/>
+			<ExtendedTooltip name="ВариантПредставленияНачалаПериодаРасширеннаяПодсказка" id="49"/>
+			<Events>
+				<Event name="OnChange">ВариантПредставленияПериодаПриИзменении</Event>
+			</Events>
+		</RadioButtonField>
+		<InputField name="ПроизводственныйКалендарь" id="13">
+			<DataPath>Объект.ПроизводственныйКалендарь</DataPath>
+			<Visible>false</Visible>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<AutoMarkIncomplete>true</AutoMarkIncomplete>
+			<ContextMenu name="ПроизводственныйКалендарьКонтекстноеМеню" id="14"/>
+			<ExtendedTooltip name="ПроизводственныйКалендарьРасширеннаяПодсказка" id="15"/>
+		</InputField>
+		<LabelDecoration name="НадписьКомментарий" id="58">
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<Height>1</Height>
+			<HorizontalStretch>true</HorizontalStretch>
+			<Title formatted="true">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>&lt;img 0:c08391e1-c4e3-42aa-8738-061031d0cb75/&gt;&lt;b&gt;Период планирования &lt;/&gt;задается со сдвигом от точки отсчета (например, текущей даты). </v8:content>
+				</v8:item>
+			</Title>
+			<BackColor>#E7FFE6</BackColor>
+			<ContextMenu name="НадписьКомментарийКонтекстноеМеню" id="59"/>
+			<ExtendedTooltip name="НадписьКомментарийРасширеннаяПодсказка" id="60"/>
+		</LabelDecoration>
+		<UsualGroup name="ГруппаНастройкиНачалаПериода" id="40">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройки начала периода</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа настройки начала периода</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Behavior>Collapsible</Behavior>
+			<CollapsedRepresentationTitle>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Задать настройки начала периода</v8:content>
+				</v8:item>
+			</CollapsedRepresentationTitle>
+			<ControlRepresentation>Picture</ControlRepresentation>
+			<ExtendedTooltip name="ГруппаНастройкиНачалаПериодаРасширеннаяПодсказка" id="41"/>
+			<ChildItems>
+				<InputField name="ВремяНачалаПериода" id="50">
+					<DataPath>Объект.ВремяНачалаПериода</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Время</v8:content>
+						</v8:item>
+					</Title>
+					<Width>5</Width>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<HorizontalStretch>false</HorizontalStretch>
+					<EditFormat>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ДФ=ЧЧ:мм</v8:content>
+						</v8:item>
+					</EditFormat>
+					<ContextMenu name="ВремяНачалаПериодаКонтекстноеМеню" id="51"/>
+					<ExtendedTooltip name="ВремяНачалаПериодаРасширеннаяПодсказка" id="52"/>
+					<Events>
+						<Event name="OnChange">ВремяНачалаПериодаПриИзменении</Event>
+					</Events>
+				</InputField>
+				<UsualGroup name="ГруппаНачалоПериодаВДнях" id="53">
+					<Visible>false</Visible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа начало периода в днях</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа начало периода в днях</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаНачалоПериодаВДняхРасширеннаяПодсказка" id="54"/>
+					<ChildItems>
+						<LabelDecoration name="НадписьВДнях1" id="61">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Плюс</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="НадписьВДнях1КонтекстноеМеню" id="62"/>
+							<ExtendedTooltip name="НадписьВДнях1РасширеннаяПодсказка" id="63"/>
+						</LabelDecoration>
+						<InputField name="КоличествоДнейПлюсНачалоПериода" id="55">
+							<DataPath>Объект.КоличествоДнейПлюсНачалоПериода</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ContextMenu name="КоличествоДнейПлюсНачалоПериодаКонтекстноеМеню" id="56"/>
+							<ExtendedTooltip name="КоличествоДнейПлюсНачалоПериодаРасширеннаяПодсказка" id="57"/>
+							<Events>
+								<Event name="OnChange">КоличествоДнейПлюсНачалоПериодаПриИзменении</Event>
+							</Events>
+						</InputField>
+						<LabelDecoration name="НадписьВДнях2" id="64">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>дня (-ей) от точки отсчета</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="НадписьВДнях2КонтекстноеМеню" id="65"/>
+							<ExtendedTooltip name="НадписьВДнях2РасширеннаяПодсказка" id="66"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаНачалоПериодаВРабочихДнях" id="75">
+					<Visible>false</Visible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа начало периода в рабочих днях</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа начало периода в рабочих днях</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаНачалоПериодаВРабочихДняхРасширеннаяПодсказка" id="76"/>
+					<ChildItems>
+						<LabelDecoration name="НадписьВРабочихДнях1" id="94">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Плюс</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="НадписьВРабочихДнях1КонтекстноеМеню" id="95"/>
+							<ExtendedTooltip name="НадписьВРабочихДнях1РасширеннаяПодсказка" id="96"/>
+						</LabelDecoration>
+						<InputField name="КоличествоРабочихДнейПлюсНачалоПериода" id="100">
+							<DataPath>Объект.КоличествоДнейПлюсНачалоПериода</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ContextMenu name="КоличествоРабочихДнейПлюсНачалоПериодаКонтекстноеМеню" id="101"/>
+							<ExtendedTooltip name="КоличествоРабочихДнейПлюсНачалоПериодаРасширеннаяПодсказка" id="102"/>
+							<Events>
+								<Event name="OnChange">КоличествоРабочихДнейПлюсНачалоПериодаПриИзменении</Event>
+							</Events>
+						</InputField>
+						<LabelDecoration name="НадписьВРабочихДнях2" id="97">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>рабочих дня (-ей) от точки отсчета</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="НадписьВРабочихДнях2КонтекстноеМеню" id="98"/>
+							<ExtendedTooltip name="НадписьВРабочихДнях2РасширеннаяПодсказка" id="99"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаНачалоПериодаВДняхНедели" id="77">
+					<Visible>false</Visible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа начало периода в днях недели</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа начало периода в днях недели</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаНачалоПериодаВДняхНеделиРасширеннаяПодсказка" id="78"/>
+					<ChildItems>
+						<InputField name="ДеньНеделиНачалоПериода" id="112">
+							<DataPath>Объект.ДеньНеделиНачалоПериода</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>День недели</v8:content>
+								</v8:item>
+							</Title>
+							<Width>17</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ListChoiceMode>true</ListChoiceMode>
+							<MinValue xsi:type="xs:decimal">1</MinValue>
+							<MaxValue xsi:type="xs:decimal">7</MaxValue>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Понедельник</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">1</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Вторник</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">2</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Среда</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">3</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Четверг</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">4</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Пятница</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">5</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Суббота</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">6</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Воскресенье</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">7</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="ДеньНеделиНачалоПериодаКонтекстноеМеню" id="113"/>
+							<ExtendedTooltip name="ДеньНеделиНачалоПериодаРасширеннаяПодсказка" id="114"/>
+							<Events>
+								<Event name="OnChange">ДеньНеделиНачалоПериодаПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="КоличествоНедельПлюсНачалоПериода" id="115">
+							<DataPath>Объект.КоличествоНедельПлюсНачалоПериода</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<Width>21</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ListChoiceMode>true</ListChoiceMode>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Текущая неделя</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">0</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Следующая неделя</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">1</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Через неделю</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">2</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="КоличествоНедельПлюсНачалоПериодаКонтекстноеМеню" id="116"/>
+							<ExtendedTooltip name="КоличествоНедельПлюсНачалоПериодаРасширеннаяПодсказка" id="117"/>
+							<Events>
+								<Event name="OnChange">КоличествоНедельПлюсНачалоПериодаПриИзменении</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаНастройкиОкончанияПериода" id="45">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройки окончания периода</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа настройки окончания периода</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Behavior>Collapsible</Behavior>
+			<CollapsedRepresentationTitle>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Задать настройки окончания периода</v8:content>
+				</v8:item>
+			</CollapsedRepresentationTitle>
+			<ControlRepresentation>Picture</ControlRepresentation>
+			<ExtendedTooltip name="ГруппаНастройкиОкончанияПериодаРасширеннаяПодсказка" id="46"/>
+			<ChildItems>
+				<InputField name="ВремяОкончанияПериода" id="70">
+					<DataPath>Объект.ВремяОкончанияПериода</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Время</v8:content>
+						</v8:item>
+					</Title>
+					<Width>5</Width>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<HorizontalStretch>false</HorizontalStretch>
+					<EditFormat>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ДФ=ЧЧ:мм</v8:content>
+						</v8:item>
+					</EditFormat>
+					<ContextMenu name="ВремяОкончанияПериодаКонтекстноеМеню" id="71"/>
+					<ExtendedTooltip name="ВремяОкончанияПериодаРасширеннаяПодсказка" id="72"/>
+					<Events>
+						<Event name="OnChange">ВремяОкончанияПериодаПриИзменении</Event>
+					</Events>
+				</InputField>
+				<UsualGroup name="ГруппаОкончаниеПериодаВДнях" id="73">
+					<Visible>false</Visible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа окончание периода в днях</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа окончание периода в днях</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаОкончаниеПериодаВДняхРасширеннаяПодсказка" id="74"/>
+					<ChildItems>
+						<LabelDecoration name="НадписьВДнях3" id="84">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Плюс</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="НадписьВДнях3КонтекстноеМеню" id="85"/>
+							<ExtendedTooltip name="НадписьВДнях3РасширеннаяПодсказка" id="86"/>
+						</LabelDecoration>
+						<InputField name="КоличествоДнейПлюсОкончаниеПериода" id="81">
+							<DataPath>Объект.КоличествоДнейПлюсОкончаниеПериода</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ContextMenu name="КоличествоДнейПлюсОкончаниеПериодаКонтекстноеМеню" id="82"/>
+							<ExtendedTooltip name="КоличествоДнейПлюсОкончаниеПериодаРасширеннаяПодсказка" id="83"/>
+							<Events>
+								<Event name="OnChange">КоличествоДнейПлюсОкончаниеПериодаПриИзменении</Event>
+							</Events>
+						</InputField>
+						<LabelDecoration name="НадписьВДнях4" id="87">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>дня (-ей) от точки отсчета</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="НадписьВДнях4КонтекстноеМеню" id="88"/>
+							<ExtendedTooltip name="НадписьВДнях4РасширеннаяПодсказка" id="89"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаОкончаниеПериодаВРабочихДнях" id="90">
+					<Visible>false</Visible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа окончание периода в рабочих днях</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа окончание периода в рабочих днях</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаОкончаниеПериодаВРабочихДняхРасширеннаяПодсказка" id="91"/>
+					<ChildItems>
+						<LabelDecoration name="НадписьВРабочихДнях3" id="103">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Плюс</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="НадписьВРабочихДнях3КонтекстноеМеню" id="104"/>
+							<ExtendedTooltip name="НадписьВРабочихДнях3РасширеннаяПодсказка" id="105"/>
+						</LabelDecoration>
+						<InputField name="КоличествоРабочихДнейПлюсОкончаниеПериода" id="109">
+							<DataPath>Объект.КоличествоДнейПлюсОкончаниеПериода</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ContextMenu name="КоличествоРабочихДнейПлюсОкончаниеПериодаКонтекстноеМеню" id="110"/>
+							<ExtendedTooltip name="КоличествоРабочихДнейПлюсОкончаниеПериодаРасширеннаяПодсказка" id="111"/>
+							<Events>
+								<Event name="OnChange">КоличествоРабочихДнейПлюсОкончаниеПериодаПриИзменении</Event>
+							</Events>
+						</InputField>
+						<LabelDecoration name="НадписьВРабочихДнях4" id="106">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>рабочих дня (-ей) от точки отсчета</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="НадписьВРабочихДнях4КонтекстноеМеню" id="107"/>
+							<ExtendedTooltip name="НадписьВРабочихДнях4РасширеннаяПодсказка" id="108"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаОкончаниеПериодаВДняхНедели" id="92">
+					<Visible>false</Visible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа окончание периода в днях недели</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа окончание периода в днях недели</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаОкончаниеПериодаВДняхНеделиРасширеннаяПодсказка" id="93"/>
+					<ChildItems>
+						<InputField name="ДеньНеделиОкончаниеПериода" id="118">
+							<DataPath>Объект.ДеньНеделиОкончаниеПериода</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>День недели</v8:content>
+								</v8:item>
+							</Title>
+							<Width>17</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ListChoiceMode>true</ListChoiceMode>
+							<MinValue xsi:type="xs:decimal">1</MinValue>
+							<MaxValue xsi:type="xs:decimal">7</MaxValue>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Понедельник</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">1</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Вторник</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">2</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Среда</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">3</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Четверг</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">4</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Пятница</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">5</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Суббота</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">6</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Воскресенье</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">7</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="ДеньНеделиОкончаниеПериодаКонтекстноеМеню" id="119"/>
+							<ExtendedTooltip name="ДеньНеделиОкончаниеПериодаРасширеннаяПодсказка" id="120"/>
+							<Events>
+								<Event name="OnChange">ДеньНеделиОкончаниеПериодаПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="КоличествоНедельПлюсОкончаниеПериода" id="121">
+							<DataPath>Объект.КоличествоНедельПлюсОкончаниеПериода</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<Width>21</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ListChoiceMode>true</ListChoiceMode>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Текущая неделя</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">0</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Следующая неделя</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">1</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Через неделю</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">2</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="КоличествоНедельПлюсОкончаниеПериодаКонтекстноеМеню" id="122"/>
+							<ExtendedTooltip name="КоличествоНедельПлюсОкончаниеПериодаРасширеннаяПодсказка" id="123"/>
+							<Events>
+								<Event name="OnChange">КоличествоНедельПлюсОкончаниеПериодаПриИзменении</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаНаименование" id="79">
+			<Group>Vertical</Group>
+			<ShowTitle>false</ShowTitle>
+			<BackColor>style:упЦветФонаГруппыИтогов</BackColor>
+			<ExtendedTooltip name="ГруппаНаименованиеРасширеннаяПодсказка" id="80"/>
+			<ChildItems>
+				<InputField name="Представление" id="7">
+					<DataPath>Объект.Представление</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<MultiLine>true</MultiLine>
+					<ContextMenu name="ПредставлениеКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="ПредставлениеРасширеннаяПодсказка" id="9"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.упПериодыПланирования</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+</Form>

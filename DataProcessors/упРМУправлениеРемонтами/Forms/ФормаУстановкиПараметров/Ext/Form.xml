@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Параметры управления ремонтами</v8:content>
+		</v8:item>
+	</Title>
+	<AutoTitle>false</AutoTitle>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаЗавершитьРедактирование" id="3">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ЗавершитьРедактирование</CommandName>
+				<ExtendedTooltip name="ФормаЗавершитьРедактированиеРасширеннаяПодсказка" id="4"/>
+			</Button>
+			<Button name="ФормаОтмена" id="5">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Отмена</CommandName>
+				<ExtendedTooltip name="ФормаОтменаРасширеннаяПодсказка" id="6"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="СрокОтсчетаСреднесуточногоПробега" id="7">
+			<DataPath>СрокОтсчетаСреднесуточногоПробега</DataPath>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Указывается срок, за который определяется среднесуточный пробег. Используется при определении прогнозируемой даты ТО.</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ToolTipRepresentation>Button</ToolTipRepresentation>
+			<ContextMenu name="СрокОтсчетаСреднесуточногоПробегаКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="СрокОтсчетаСреднесуточногоПробегаРасширеннаяПодсказка" id="9"/>
+		</InputField>
+		<InputField name="СпособПланированияРемонтныхРабот" id="32">
+			<DataPath>СпособПланированияРемонтныхРабот</DataPath>
+			<ContextMenu name="СпособПланированияРемонтныхРаботКонтекстноеМеню" id="33"/>
+			<ExtendedTooltip name="СпособПланированияРемонтныхРаботРасширеннаяПодсказка" id="34"/>
+		</InputField>
+		<UsualGroup name="ГруппаНастройкиОповещения" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройки оповещения</v8:content>
+				</v8:item>
+			</Title>
+			<TitleFont ref="style:упСреднийШрифт" kind="StyleItem"/>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа настройки оповещения</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Representation>StrongSeparation</Representation>
+			<ExtendedTooltip name="ГруппаНастройкиОповещенияРасширеннаяПодсказка" id="11"/>
+			<ChildItems>
+				<UsualGroup name="Группа1" id="12">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Аналогичные настройки оповещения возможно уточнить в справочнике "Гаражи"</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ToolTipRepresentation>Button</ToolTipRepresentation>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="13"/>
+					<ChildItems>
+						<InputField name="СрокПредупрежденияОТОДней" id="14">
+							<DataPath>СрокПредупрежденияОТОДней</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Предупреждать о наступлении срока ТО за</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>5</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="СрокПредупрежденияОТОДнейКонтекстноеМеню" id="15"/>
+							<ExtendedTooltip name="СрокПредупрежденияОТОДнейРасширеннаяПодсказка" id="16"/>
+						</InputField>
+						<LabelDecoration name="Декорация1" id="17">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>дней /</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="Декорация1КонтекстноеМеню" id="18"/>
+							<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="19"/>
+						</LabelDecoration>
+						<InputField name="СрокПредупрежденияОТОПробег" id="20">
+							<DataPath>СрокПредупрежденияОТОПробег</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Предупреждать о наступлении срока ТО за</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>5</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="СрокПредупрежденияОТОПробегКонтекстноеМеню" id="21"/>
+							<ExtendedTooltip name="СрокПредупрежденияОТОПробегРасширеннаяПодсказка" id="22"/>
+						</InputField>
+						<LabelDecoration name="Декорация2" id="23">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>км /</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="Декорация2КонтекстноеМеню" id="24"/>
+							<ExtendedTooltip name="Декорация2РасширеннаяПодсказка" id="25"/>
+						</LabelDecoration>
+						<InputField name="СрокПредупрежденияОТОМоточасы" id="26">
+							<DataPath>СрокПредупрежденияОТОМоточасы</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<Width>9</Width>
+							<ContextMenu name="СрокПредупрежденияОТОМоточасыКонтекстноеМеню" id="27"/>
+							<ExtendedTooltip name="СрокПредупрежденияОТОМоточасыРасширеннаяПодсказка" id="28"/>
+						</InputField>
+						<LabelDecoration name="Декорация3" id="29">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>моточасов</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="Декорация3КонтекстноеМеню" id="30"/>
+							<ExtendedTooltip name="Декорация3РасширеннаяПодсказка" id="31"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="СрокОтсчетаСреднесуточногоПробега" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Срок отсчета среднесуточного пробега</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.упСрокиОтсчета</v8:Type>
+			</Type>
+			<FillCheck>ShowError</FillCheck>
+		</Attribute>
+		<Attribute name="СрокПредупрежденияОТОДней" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Предупреждать о наступлении срока ТО за ... дней</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="СрокПредупрежденияОТОПробег" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Предупреждать о наступлении срока ТО за ... км</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:DefinedType.Пробег</v8:TypeSet>
+			</Type>
+		</Attribute>
+		<Attribute name="СрокПредупрежденияОТОМоточасы" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Предупреждать о наступлении срока ТО за ... моточасов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:DefinedType.ВремяРаботы</v8:TypeSet>
+			</Type>
+		</Attribute>
+		<Attribute name="СпособПланированияРемонтныхРабот" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Способ планирования ремонтных работ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.упСпособыПланированияРемонтныхРабот</v8:Type>
+			</Type>
+			<FillCheck>ShowError</FillCheck>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ЗавершитьРедактирование" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Завершить редактирование</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Завершить редактирование</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗавершитьРедактирование</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="Отмена" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Отмена</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

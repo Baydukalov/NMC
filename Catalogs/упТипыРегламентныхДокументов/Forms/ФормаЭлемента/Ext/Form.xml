@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Группа4" id="28">
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="29"/>
+			<ChildItems>
+				<InputField name="Наименование" id="1">
+					<DataPath>Объект.Description</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="НаименованиеExtendedTooltip" id="7"/>
+				</InputField>
+				<InputField name="ПрефиксШтрихкода" id="5">
+					<DataPath>Объект.ПрефиксШтрихкода</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ПрефиксШтрихкодаКонтекстноеМеню" id="6"/>
+					<ExtendedTooltip name="ПрефиксШтрихкодаExtendedTooltip" id="9"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<Pages name="Группа1" id="22">
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="23"/>
+			<ChildItems>
+				<Page name="ГруппаСпособОпределенияНомера" id="24">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Способ определения номера экземпляра</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа способ определения номера</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаСпособОпределенияНомераРасширеннаяПодсказка" id="25"/>
+					<ChildItems>
+						<InputField name="СпособОпределенияНомераЭкземпляра" id="13">
+							<DataPath>Объект.СпособОпределенияНомераЭкземпляра</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<ContextMenu name="СпособОпределенияНомераЭкземпляраКонтекстноеМеню" id="14"/>
+							<ExtendedTooltip name="СпособОпределенияНомераЭкземпляраРасширеннаяПодсказка" id="15"/>
+							<Events>
+								<Event name="OnChange">СпособОпределенияНомераЭкземпляраПриИзменении</Event>
+							</Events>
+						</InputField>
+						<TextDocumentField name="ФормулаНомер" id="19">
+							<DataPath>Объект.ФормулаНомер</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Формула</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ФормулаНомерКонтекстноеМеню" id="20"/>
+							<ExtendedTooltip name="ФормулаНомерРасширеннаяПодсказка" id="21"/>
+						</TextDocumentField>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаСпособОпределенияДатыЭкземпляра" id="26">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Способ определения даты экземпляра</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа способ определения даты экземпляра</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаСпособОпределенияДатыЭкземпляраРасширеннаяПодсказка" id="27"/>
+					<ChildItems>
+						<InputField name="СпособОпределенияДатыЭкземпляра" id="10">
+							<DataPath>Объект.СпособОпределенияДатыЭкземпляра</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<ContextMenu name="СпособОпределенияДатыЭкземпляраКонтекстноеМеню" id="11"/>
+							<ExtendedTooltip name="СпособОпределенияДатыЭкземпляраРасширеннаяПодсказка" id="12"/>
+							<Events>
+								<Event name="OnChange">СпособОпределенияДатыЭкземпляраПриИзменении</Event>
+							</Events>
+						</InputField>
+						<TextDocumentField name="ФормулаДата" id="16">
+							<DataPath>Объект.ФормулаДата</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Формула</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ФормулаДатаКонтекстноеМеню" id="17"/>
+							<ExtendedTooltip name="ФормулаДатаРасширеннаяПодсказка" id="18"/>
+						</TextDocumentField>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.упТипыРегламентныхДокументов</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+</Form>

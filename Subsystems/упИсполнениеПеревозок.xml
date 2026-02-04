@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Subsystem uuid="dbcf3743-39e8-480a-808d-d189c06fc119">
+		<Properties>
+			<Name>упИсполнениеПеревозок</Name>
+			<Synonym>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Исполнение</v8:content>
+				</v8:item>
+			</Synonym>
+			<Comment/>
+			<IncludeHelpInContents>true</IncludeHelpInContents>
+			<IncludeInCommandInterface>true</IncludeInCommandInterface>
+			<UseOneCommand>false</UseOneCommand>
+			<Explanation/>
+			<Picture>
+				<xr:Ref>CommonPicture.упПодсистемаМониторингИИсполнениеРейсов</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Content>
+				<xr:Item xsi:type="xr:MDObjectRef">Role.упМониторинг</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonPicture.упПодсистемаМониторингИИсполнениеРейсов</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">DataProcessor.упЭлектроннаяГеографическаяКарта</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.упПанельОтчетовКонтрольИИсполнениеРейсов</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.упДополнительныеОтчетыКонтрольИИсполнениеРейсов</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Report.упЖурналРейсов</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Role.упОтчетыПланированиеРейсов</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Role.упРазделИсполнениеПеревозокНСИИсполнениеПеревозок</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Role.упРазделИсполнениеПеревозокИсполнениеРейса</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Role.упИспользованиеПланированиеПериодическихРейсов</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Role.упРазделИсполнениеПеревозокПутевыеЛисты</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Role.упРазделИсполнениеПеревозокДорожныеПроисшествия</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Role.упРазделИсполнениеПеревозокИсходящиеПретензии</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Role.упРазделИсполнениеПеревозокКонтейнерныеОперации</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Role.упРазделИсполнениеПеревозокСкладскойУчетГрузовыхМест</xr:Item>
+			</Content>
+		</Properties>
+		<ChildObjects>
+			<Subsystem>упНСИИсполнениеПеревозок</Subsystem>
+			<Subsystem>упИсполнениеРейсов</Subsystem>
+			<Subsystem>упКонтейнерныеОперации</Subsystem>
+			<Subsystem>упПутевыеЛисты</Subsystem>
+			<Subsystem>упИсходящиеПретензии</Subsystem>
+			<Subsystem>упСкладскойУчетГрузовыхМест</Subsystem>
+			<Subsystem>упДорожныеПроисшествия</Subsystem>
+		</ChildObjects>
+	</Subsystem>
+</MetaDataObject>

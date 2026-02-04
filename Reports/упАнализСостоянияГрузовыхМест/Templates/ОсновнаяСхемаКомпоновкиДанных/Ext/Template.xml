@@ -1,0 +1,1048 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АдресОтправления</dataPath>
+			<field>АдресОтправления</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Адрес отправления</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоВыполненныхГрузов</dataPath>
+			<field>КоличествоВыполненныхГрузов</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество выполненных грузов</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Заказчик</dataPath>
+			<field>Заказчик</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заказчик</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Местоположение</dataPath>
+			<field>Местоположение</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Местоположение</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АдресПолучения</dataPath>
+			<field>АдресПолучения</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Адрес получения</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Причина</dataPath>
+			<field>Причина</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Причина</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоГрузов</dataPath>
+			<field>КоличествоГрузов</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоМест</dataPath>
+			<field>КоличествоМест</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество мест</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоЗагрузочныхМетров</dataPath>
+			<field>КоличествоЗагрузочныхМетров</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество загрузочных метров</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Масса</dataPath>
+			<field>Масса</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Масса</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Объем</dataPath>
+			<field>Объем</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Объем</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТипГруза</dataPath>
+			<field>ТипГруза</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип груза</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Задание</dataPath>
+			<field>Задание</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГрузовоеМесто</dataPath>
+			<field>ГрузовоеМесто</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПризнакВыполнения</dataPath>
+			<field>ПризнакВыполнения</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Признак выполнения</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПризнакОтменена</dataPath>
+			<field>ПризнакОтменена</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Признак отменена</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Груз</dataPath>
+			<field>Груз</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Груз</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаявкаНаПеревозку</dataPath>
+			<field>ЗаявкаНаПеревозку</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаданиеНаПеревозку</dataPath>
+			<field>ЗаданиеНаПеревозку</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>//{Запрос: 0 ////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ГрузовыеМеста.Ссылка КАК ГрузовоеМесто,
+	ГрузовыеМеста.ТипГруза КАК ТипГруза,
+	ГрузовыеМеста.ДокументОснование КАК Документ,
+	ВЫБОР
+		КОГДА ГрузовыеМеста.ДокументОснование = НЕОПРЕДЕЛЕНО
+			ТОГДА ЗНАЧЕНИЕ(Справочник.упПартнеры.ПустаяСсылка)
+		КОГДА ГрузовыеМеста.ДокументОснование = ЗНАЧЕНИЕ(Документ.упЗаявкаНаПеревозкуГруза.ПустаяСсылка)
+			ТОГДА ЗНАЧЕНИЕ(Справочник.упПартнеры.ПустаяСсылка)
+		КОГДА ГрузовыеМеста.ДокументОснование = ЗНАЧЕНИЕ(Документ.упЗаданиеНаПеревозкуГруза.ПустаяСсылка)
+			ТОГДА ЗНАЧЕНИЕ(Справочник.упПартнеры.ПустаяСсылка)
+		ИНАЧЕ ГрузовыеМеста.ДокументОснование.Заказчик
+	КОНЕЦ КАК Заказчик,
+	ГрузовыеМеста.КоличествоЗагрузочныхМетров КАК КоличествоЗагрузочныхМетров,
+	ГрузовыеМеста.КоличествоМест КАК КоличествоМест,
+	ГрузовыеМеста.Масса КАК Масса,
+	ГрузовыеМеста.Объем КАК Объем,
+	ТЧГрузовыеМеста.КоличествоГрузов КАК КоличествоГрузов,
+	ТЧГрузовыеМеста.АдресОтправления КАК АдресОтправления,
+	ТЧГрузовыеМеста.АдресПолучения КАК АдресПолучения
+ПОМЕСТИТЬ втГрузовыеМеста
+ИЗ
+	Справочник.упГрузовыеМеста КАК ГрузовыеМеста
+	ЛЕВОЕ СОЕДИНЕНИЕ Документ.упЗаявкаНаПеревозкуГруза.ГрузовыеМеста КАК ТЧГрузовыеМеста
+	ПО ИСТИНА
+		И ТЧГрузовыеМеста.ГрузовоеМесто = ГрузовыеМеста.Ссылка
+		И ВЫБОР
+				КОГДА ГрузовыеМеста.ДокументОснование ССЫЛКА Документ.упЗаданиеНаПеревозкуГруза
+					ТОГДА ГрузовыеМеста.ДокументОснование.ЗаявкаНаПеревозкуГруза
+				ИНАЧЕ ГрузовыеМеста.ДокументОснование
+			КОНЕЦ = ТЧГрузовыеМеста.Ссылка
+ГДЕ ИСТИНА
+	И ГрузовыеМеста.ПометкаУдаления = ЛОЖЬ
+	И ТЧГрузовыеМеста.Ссылка.ПометкаУдаления = ЛОЖЬ
+;
+//{Запрос: 1 ////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ РАЗЛИЧНЫЕ
+	упЗаданиеНаПеревозкуГрузаГрузовыеМеста.Ссылка КАК Задание,
+	упЗаданиеНаПеревозкуГрузаГрузовыеМеста.Ссылка.ЗаявкаНаПеревозкуГруза КАК ЗаявкаНаПеревозкуГруза,
+	втГрузовыеМеста.ГрузовоеМесто КАК ГрузовоеМесто
+ПОМЕСТИТЬ втЗадания
+ИЗ
+	втГрузовыеМеста КАК втГрузовыеМеста
+	ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.упЗаданиеНаПеревозкуГруза.ГрузовыеМеста КАК упЗаданиеНаПеревозкуГрузаГрузовыеМеста
+	ПО втГрузовыеМеста.ГрузовоеМесто = упЗаданиеНаПеревозкуГрузаГрузовыеМеста.ГрузовоеМесто
+;
+//{Запрос: 2 ////////////////////////////////////////
+ВЫБРАТЬ
+	ПланПоЗаданиям.Выполнено КАК Выполнено,
+	ПланПоЗаданиям.ГрузовоеМесто КАК ГрузовоеМесто,
+	ПланПоЗаданиям.Задание КАК Задание,
+	ПланПоЗаданиям.Количество КАК Количество,
+	ПланПоЗаданиям.Местоположение КАК Местоположение,
+	ПланПоЗаданиям.Отменено КАК Отменено,
+	ПланПоЗаданиям.Период КАК Период,
+	ПланПоЗаданиям.ПричинаОтмены КАК ПричинаОтмены,
+	ПланПоЗаданиям.Регистратор КАК Регистратор
+ПОМЕСТИТЬ втПланПоЗаданиям
+ИЗ
+	РегистрСведений.упПланПоЗаданиям.СрезПоследних(
+		&amp;Период,
+		) КАК ПланПоЗаданиям
+	ВНУТРЕННЕЕ СОЕДИНЕНИЕ втЗадания КАК втЗадания
+	ПО ИСТИНА
+		И втЗадания.Задание = ПланПоЗаданиям.Задание
+		И ВЫБОР
+				КОГДА ПланПоЗаданиям.ГрузовоеМесто = ЗНАЧЕНИЕ(Справочник.упГрузовыеМеста.ПустаяСсылка)
+					ТОГДА ИСТИНА
+				ИНАЧЕ втЗадания.ГрузовоеМесто = ПланПоЗаданиям.ГрузовоеМесто
+			КОНЕЦ
+		И ПланПоЗаданиям.Количество &gt; 0
+ГДЕ ПланПоЗаданиям.Количество &gt; 0
+;
+//{Запрос: 3 ////////////////////////////////////////
+ВЫБРАТЬ
+	втПланПоЗаданиям.ГрузовоеМесто КАК ГрузовоеМесто,
+	втПланПоЗаданиям.Задание КАК Задание,
+	втПланПоЗаданиям.Количество КАК Количество,
+	втПланПоЗаданиям.Местоположение КАК Местоположение,
+	втПланПоЗаданиям.Выполнено КАК Выполнено,
+	втПланПоЗаданиям.Отменено КАК Отменено,
+	втПланПоЗаданиям.ПричинаОтмены КАК ПричинаОтмены
+ПОМЕСТИТЬ втПланПоЗаданиямСрезПоследних
+ИЗ
+	втПланПоЗаданиям КАК втПланПоЗаданиям
+	ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+		втПланПоЗаданиям.ГрузовоеМесто КАК ГрузовоеМесто,
+		втПланПоЗаданиям.Задание КАК Задание,
+		МАКСИМУМ(втПланПоЗаданиям.Период) КАК Период
+	ИЗ
+		втПланПоЗаданиям КАК втПланПоЗаданиям
+	СГРУППИРОВАТЬ ПО
+		втПланПоЗаданиям.ГрузовоеМесто,
+		втПланПоЗаданиям.Задание) КАК втПланПоЗаданиямСрезПоследних
+	ПО ИСТИНА
+		И втПланПоЗаданиямСрезПоследних.ГрузовоеМесто = втПланПоЗаданиям.ГрузовоеМесто
+		И втПланПоЗаданиямСрезПоследних.Задание = втПланПоЗаданиям.Задание
+		И втПланПоЗаданиямСрезПоследних.Период = втПланПоЗаданиям.Период
+;
+//{Запрос: 4 ////////////////////////////////////////
+ВЫБРАТЬ
+	втЗадания.Задание КАК Задание,
+	втЗадания.ГрузовоеМесто КАК ГрузовоеМесто,
+	ЕСТЬNULL(СостояниеПоЗаданиям.Местоположение, ПланПоЗаданиям.Местоположение) КАК Местоположение,
+	ЕСТЬNULL(СостояниеПоЗаданиям.КоличествоОстаток, ПланПоЗаданиям.Количество) КАК КоличествоГрузов,
+	ЕСТЬNULL(ПланПоЗаданиям.Выполнено, ЛОЖЬ) КАК Выполнено,
+	ЕСТЬNULL(ПланПоЗаданиям.Отменено, ЛОЖЬ) КАК ПризнакОтмены,
+	ЕСТЬNULL(ПланПоЗаданиям.ПричинаОтмены, ЗНАЧЕНИЕ(Справочник.упПроблемы.ПустаяСсылка)) КАК ПричинаОтмены,
+	втЗадания.Задание.НомерВЦепиПоставок КАК НомерВЦепиПоставок
+ПОМЕСТИТЬ втСостоянияПоЗаданиям
+ИЗ
+	втЗадания КАК втЗадания
+	ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.упСостояниеПоЗаданиям.Остатки(
+		&amp;Период,
+		Задание В (
+			ВЫБРАТЬ
+				втЗадания.Задание КАК Задание
+			ИЗ
+				втЗадания КАК втЗадания)) КАК СостояниеПоЗаданиям
+	ПО ИСТИНА
+		И втЗадания.Задание = СостояниеПоЗаданиям.Задание
+		И ВЫБОР
+				КОГДА СостояниеПоЗаданиям.ГрузовоеМесто = ЗНАЧЕНИЕ(Справочник.упГрузовыеМеста.ПустаяСсылка)
+					ТОГДА ИСТИНА
+				ИНАЧЕ втЗадания.ГрузовоеМесто = СостояниеПоЗаданиям.ГрузовоеМесто
+			КОНЕЦ
+		И СостояниеПоЗаданиям.КоличествоОстаток &gt; 0
+	ЛЕВОЕ СОЕДИНЕНИЕ втПланПоЗаданиямСрезПоследних КАК ПланПоЗаданиям
+	ПО ИСТИНА
+		И втЗадания.Задание = ПланПоЗаданиям.Задание
+		И ВЫБОР
+				КОГДА ПланПоЗаданиям.ГрузовоеМесто = ЗНАЧЕНИЕ(Справочник.упГрузовыеМеста.ПустаяСсылка)
+					ТОГДА ИСТИНА
+				ИНАЧЕ втЗадания.ГрузовоеМесто = ПланПоЗаданиям.ГрузовоеМесто
+			КОНЕЦ
+		И ВЫБОР
+				КОГДА СостояниеПоЗаданиям.Местоположение ЕСТЬ NULL
+					ТОГДА ИСТИНА
+				ИНАЧЕ СостояниеПоЗаданиям.Местоположение = ПланПоЗаданиям.Местоположение
+			КОНЕЦ
+;
+//{Запрос: 5 ////////////////////////////////////////
+ВЫБРАТЬ
+	втСостоянияПоЗаданиям.ГрузовоеМесто КАК ГрузовоеМесто,
+	МАКСИМУМ(втСостоянияПоЗаданиям.НомерВЦепиПоставок) КАК МаксимальныйНомерВЦепиПоставок,
+	МИНИМУМ(ВЫБОР
+		КОГДА НЕ втСостоянияПоЗаданиям.Выполнено
+			ТОГДА втСостоянияПоЗаданиям.НомерВЦепиПоставок
+		ИНАЧЕ 9999999999
+	КОНЕЦ) КАК ПервоеНеВыполненноеЗаданиеВЦепиПоставок
+ПОМЕСТИТЬ втНомераЦепочекПоГрузовымМестам
+ИЗ
+	втСостоянияПоЗаданиям КАК втСостоянияПоЗаданиям
+СГРУППИРОВАТЬ ПО
+	втСостоянияПоЗаданиям.ГрузовоеМесто
+;
+//{Запрос: 6 ////////////////////////////////////////
+ВЫБРАТЬ
+	втЗадания.Задание КАК Задание,
+	втЗадания.ЗаявкаНаПеревозкуГруза КАК ЗаявкаНаПеревозкуГруза,
+	втЗадания.ГрузовоеМесто КАК ГрузовоеМесто,
+	ЕСТЬNULL(втСостоянияПоЗаданиям.Выполнено, ЛОЖЬ) КАК Выполнено,
+	ЕСТЬNULL(втСостоянияПоЗаданиям.ПризнакОтмены, ЛОЖЬ) КАК ПризнакОтмены,
+	ЕСТЬNULL(втСостоянияПоЗаданиям.ПричинаОтмены, ЗНАЧЕНИЕ(Справочник.упПроблемы.ПустаяСсылка)) КАК ПричинаОтмены,
+	ЕСТЬNULL(втСостоянияПоЗаданиям.Местоположение, ЗНАЧЕНИЕ(Справочник.упАдреса.ПустаяСсылка)) КАК Местоположение,
+	ЕСТЬNULL(втСостоянияПоЗаданиям.КоличествоГрузов, 0) КАК КоличествоГрузов
+ПОМЕСТИТЬ втДокументыЗаданий
+ИЗ
+	втЗадания КАК втЗадания
+	ЛЕВОЕ СОЕДИНЕНИЕ втСостоянияПоЗаданиям КАК втСостоянияПоЗаданиям
+	ПО ИСТИНА
+		И втЗадания.Задание = втСостоянияПоЗаданиям.Задание
+		И втЗадания.ГрузовоеМесто = втСостоянияПоЗаданиям.ГрузовоеМесто
+	ЛЕВОЕ СОЕДИНЕНИЕ втНомераЦепочекПоГрузовымМестам КАК втНомераЦепочекПоГрузовымМестам
+	ПО втНомераЦепочекПоГрузовымМестам.ГрузовоеМесто = втЗадания.ГрузовоеМесто
+ГДЕ ЛОЖЬ
+	ИЛИ втЗадания.Задание.НомерВЦепиПоставок = ЕСТЬNULL(втНомераЦепочекПоГрузовымМестам.ПервоеНеВыполненноеЗаданиеВЦепиПоставок, 0)
+	ИЛИ (ИСТИНА
+		И ЕСТЬNULL(втСостоянияПоЗаданиям.Выполнено, ЛОЖЬ)
+		И втЗадания.Задание.НомерВЦепиПоставок = ЕСТЬNULL(втНомераЦепочекПоГрузовымМестам.МаксимальныйНомерВЦепиПоставок, 0))
+СГРУППИРОВАТЬ ПО
+	втСостоянияПоЗаданиям.КоличествоГрузов,
+	втЗадания.Задание,
+	втЗадания.ЗаявкаНаПеревозкуГруза,
+	втЗадания.ГрузовоеМесто,
+	втСостоянияПоЗаданиям.Местоположение,
+	втСостоянияПоЗаданиям.Выполнено,
+	втСостоянияПоЗаданиям.ПризнакОтмены,
+	втСостоянияПоЗаданиям.ПричинаОтмены
+;
+//{Запрос: 7 ////////////////////////////////////////
+ВЫБРАТЬ
+	втГрузовыеМеста.Заказчик КАК Заказчик,
+	втГрузовыеМеста.ТипГруза КАК ТипГруза,
+	втГрузовыеМеста.ГрузовоеМесто КАК Груз,
+	втГрузовыеМеста.АдресОтправления КАК АдресОтправления,
+	втГрузовыеМеста.АдресПолучения КАК АдресПолучения,
+	ДокументыЗаданий.Местоположение КАК Местоположение,
+	ДокументыЗаданий.Выполнено КАК ПризнакВыполнения,
+	ДокументыЗаданий.ПризнакОтмены КАК ПризнакОтменена,
+	ДокументыЗаданий.ПричинаОтмены КАК Причина,
+	ДокументыЗаданий.КоличествоГрузов КАК КоличествоГрузов,
+	ЕСТЬNULL(упПараметрыЗаявкиНаПеревозку.Объем, ЕСТЬNULL(упПараметрыЗаданияНаПеревозку.Объем, втГрузовыеМеста.Объем)) * ЕСТЬNULL(ДокументыЗаданий.КоличествоГрузов, 0) КАК Объем,
+	ЕСТЬNULL(упПараметрыЗаявкиНаПеревозку.Масса, ЕСТЬNULL(упПараметрыЗаданияНаПеревозку.Масса, втГрузовыеМеста.Масса)) * ЕСТЬNULL(ДокументыЗаданий.КоличествоГрузов, 0) КАК Масса,
+	ЕСТЬNULL(упПараметрыЗаявкиНаПеревозку.КоличествоМест, ЕСТЬNULL(упПараметрыЗаданияНаПеревозку.КоличествоМест, втГрузовыеМеста.КоличествоМест)) * ЕСТЬNULL(ДокументыЗаданий.КоличествоГрузов, 0) КАК КоличествоМест,
+	ЕСТЬNULL(упПараметрыЗаявкиНаПеревозку.КоличествоЗагрузочныхМетров, ЕСТЬNULL(упПараметрыЗаданияНаПеревозку.КоличествоЗагрузочныхМетров, втГрузовыеМеста.КоличествоЗагрузочныхМетров)) * ЕСТЬNULL(ДокументыЗаданий.КоличествоГрузов, 0) КАК КоличествоЗагрузочныхМетров,
+	ВЫБОР
+		КОГДА ДокументыЗаданий.Выполнено
+			ТОГДА ЕСТЬNULL(ДокументыЗаданий.КоличествоГрузов, 0)
+		ИНАЧЕ 0
+	КОНЕЦ КАК КоличествоВыполненныхГрузов,
+	ДокументыЗаданий.Задание КАК Задание
+ИЗ
+	втГрузовыеМеста КАК втГрузовыеМеста
+	ЛЕВОЕ СОЕДИНЕНИЕ втДокументыЗаданий КАК ДокументыЗаданий
+	ПО втГрузовыеМеста.ГрузовоеМесто = ДокументыЗаданий.ГрузовоеМесто
+	ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упПараметрыЗаявкиНаПеревозку.СрезПоследних(
+		,
+		ЗаявкаНаПеревозку В (
+			ВЫБРАТЬ
+				втЗадания.ЗаявкаНаПеревозкуГруза КАК ЗаявкаНаПеревозкуГруза
+			ИЗ
+				втЗадания КАК втЗадания
+			ГДЕ втЗадания.ЗаявкаНаПеревозкуГруза &lt;&gt; ЗНАЧЕНИЕ(Документ.упЗаявкаНаПеревозкуГруза.ПустаяСсылка))) КАК упПараметрыЗаявкиНаПеревозку
+	ПО ИСТИНА
+		И ДокументыЗаданий.ЗаявкаНаПеревозкуГруза = упПараметрыЗаявкиНаПеревозку.ЗаявкаНаПеревозку
+		И ДокументыЗаданий.ГрузовоеМесто = упПараметрыЗаявкиНаПеревозку.ГрузовоеМесто
+	ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упПараметрыЗаданияНаПеревозку.СрезПоследних(
+		,
+		ЗаданиеНаПеревозку В (
+			ВЫБРАТЬ
+				втЗадания.Задание КАК Задание
+			ИЗ
+				втЗадания КАК втЗадания)) КАК упПараметрыЗаданияНаПеревозку
+	ПО ИСТИНА
+		И ДокументыЗаданий.Задание = упПараметрыЗаданияНаПеревозку.ЗаданиеНаПеревозку
+		И ДокументыЗаданий.ГрузовоеМесто = упПараметрыЗаданияНаПеревозку.ГрузовоеМесто</query>
+	</dataSet>
+	<totalField>
+		<dataPath>КоличествоВыполненныхГрузов</dataPath>
+		<expression>Сумма(КоличествоВыполненныхГрузов)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоГрузов</dataPath>
+		<expression>Сумма(КоличествоГрузов)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоЗагрузочныхМетров</dataPath>
+		<expression>Сумма(КоличествоЗагрузочныхМетров)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоМест</dataPath>
+		<expression>Сумма(КоличествоМест)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Масса</dataPath>
+		<expression>Сумма(Масса)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Объем</dataPath>
+		<expression>Сумма(Объем)</expression>
+	</totalField>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>ДанныеСостоянияГрузовыхМест</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Данные состояния грузовых мест</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Заказчик</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТипГруза</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Груз</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>АдресОтправления</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>АдресПолучения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Местоположение</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПризнакВыполнения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПризнакОтменена</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Причина</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Объем</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Масса</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоМест</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоЗагрузочныхМетров</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоГрузов</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоВыполненныхГрузов</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Заказчик</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>b247b1e7-607e-4c7d-b160-05702ba34f90</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ТипГруза</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>cf764d66-c482-4737-a3ea-075a64b92333</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>b3774f0f-1422-4612-a0df-6b83a71c2939</dcsset:userSettingID>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardBeginningDate">
+						<v8:variant xsi:type="v8:StandardBeginningDateVariant">Custom</v8:variant>
+						<v8:date>0001-01-01T00:00:00</v8:date>
+					</dcscor:value>
+					<dcsset:userSettingID>a79118c8-0cb3-4db5-8930-2b8f45c85e9b</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>3e7de49d-449b-4fd7-98a7-ee23ece3486b</dcsset:userSettingID>
+			</dcsset:order>
+			<dcsset:conditionalAppearance>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ПризнакВыполнения</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ПризнакВыполнения</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:use>false</dcscor:use>
+							<dcscor:parameter>ЦветФона</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Color">style:РезультатУспехЦвет</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ЦветТекста</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Color">web:DarkGreen</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ПризнакВыполнения</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ПризнакВыполнения</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:use>false</dcscor:use>
+							<dcscor:parameter>ЦветФона</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Color">style:РезультатУспехЦвет</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ЦветТекста</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Color">#DE0000</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ПризнакОтменена</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ПризнакОтменена</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:use>false</dcscor:use>
+							<dcscor:parameter>ЦветФона</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Color">style:РезультатУспехЦвет</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ЦветТекста</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Color">web:DarkGreen</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ПризнакОтменена</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ПризнакОтменена</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:use>false</dcscor:use>
+							<dcscor:parameter>ЦветФона</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Color">style:РезультатУспехЦвет</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ЦветТекста</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Color">#DE0000</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>5de172d4-a639-4fb0-a148-e4f12c7ea87b</dcsset:userSettingID>
+			</dcsset:conditionalAppearance>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МакетОформления</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">упМакетОформленияОтчетов</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Данные состояния грузовых мест</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Заказчик</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ТипГруза</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:filter>
+							<dcsset:viewMode>Normal</dcsset:viewMode>
+							<dcsset:userSettingID>1528845a-2654-431f-bf59-be3ba2f3ed92</dcsset:userSettingID>
+						</dcsset:filter>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+						<dcsset:conditionalAppearance>
+							<dcsset:viewMode>Normal</dcsset:viewMode>
+							<dcsset:userSettingID>61d09005-1215-4f2e-b93b-98b8527c0f81</dcsset:userSettingID>
+						</dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>d4760b19-946f-4316-a3ac-cf70f80e4cf7</dcsset:userSettingID>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+			<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+			<dcsset:itemsUserSettingID>bf952cf9-a21a-4bef-887d-20acb0f7dfda</dcsset:itemsUserSettingID>
+		</dcsset:settings>
+	</settingsVariant>
+	<settingsVariant>
+		<dcsset:name>ДиаграммыРаспределениеГрузов</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Диаграммы распределения грузов</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТипГруза</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоВыполненныхГрузов</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоГрузов</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоЗагрузочныхМетров</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоМест</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Масса</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Объем</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Заказчик</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:string">00000000-0000-0000-0000-000000000000</dcsset:right>
+					<dcsset:userSettingID>116d10ca-4940-4b09-b0f0-e2c85fc92326</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ТипГруза</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:string">00000000-0000-0000-0000-000000000000</dcsset:right>
+					<dcsset:userSettingID>9ba47c7f-a663-4aca-b740-79be23b20fa0</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>b10e4a1c-2013-40aa-b400-7f7bef205489</dcsset:userSettingID>
+			</dcsset:filter>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>ТипГруза</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>59562c4a-ae47-4205-a866-f9923648e76c</dcsset:userSettingID>
+			</dcsset:order>
+			<dcsset:conditionalAppearance>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>62dc0c78-51f6-4543-9b4d-cfb2a0aec5c3</dcsset:userSettingID>
+			</dcsset:conditionalAppearance>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МакетОформления</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">упМакетОформленияОтчетов</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ТипДиаграммы</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:ChartType">Pie</dcscor:value>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТипДиаграммы.ВидПодписей</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:ChartLabelType">Percent</dcscor:value>
+					</dcscor:item>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьЗаголовок</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">Auto</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Диаграммы распределения грузов</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemChart">
+				<dcsset:name>Количество выполненных грузов</dcsset:name>
+				<dcsset:point>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ТипГруза</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:point>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>КоличествоВыполненныхГрузов</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:outputParameters>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ВыводитьЗаголовок</dcscor:parameter>
+						<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">Output</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Заголовок</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Количество выполненных грузов</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+				</dcsset:outputParameters>
+			</dcsset:item>
+			<dcsset:item xsi:type="dcsset:StructureItemChart">
+				<dcsset:name>Количество грузов</dcsset:name>
+				<dcsset:point>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ТипГруза</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:point>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>КоличествоГрузов</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:outputParameters>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ВыводитьЗаголовок</dcscor:parameter>
+						<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">Output</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Заголовок</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Количество грузов</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+				</dcsset:outputParameters>
+			</dcsset:item>
+			<dcsset:item xsi:type="dcsset:StructureItemChart">
+				<dcsset:name>Количество загрузочных метров</dcsset:name>
+				<dcsset:point>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ТипГруза</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:point>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>КоличествоЗагрузочныхМетров</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:outputParameters>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ВыводитьЗаголовок</dcscor:parameter>
+						<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">Output</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Заголовок</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Количество загрузочных метров</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+				</dcsset:outputParameters>
+			</dcsset:item>
+			<dcsset:item xsi:type="dcsset:StructureItemChart">
+				<dcsset:name>Количество мест</dcsset:name>
+				<dcsset:point>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ТипГруза</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:point>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>КоличествоМест</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:outputParameters>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ВыводитьЗаголовок</dcscor:parameter>
+						<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">Output</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Заголовок</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Количество мест</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+				</dcsset:outputParameters>
+			</dcsset:item>
+			<dcsset:item xsi:type="dcsset:StructureItemChart">
+				<dcsset:name>Масса</dcsset:name>
+				<dcsset:point>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ТипГруза</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:point>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Масса</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:outputParameters>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ВыводитьЗаголовок</dcscor:parameter>
+						<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">Output</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Заголовок</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Масса</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+				</dcsset:outputParameters>
+			</dcsset:item>
+			<dcsset:item xsi:type="dcsset:StructureItemChart">
+				<dcsset:name>Объем</dcsset:name>
+				<dcsset:point>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ТипГруза</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:point>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Объем</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:outputParameters>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ВыводитьЗаголовок</dcscor:parameter>
+						<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">Output</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Заголовок</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Объем</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+				</dcsset:outputParameters>
+			</dcsset:item>
+			<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+			<dcsset:itemsUserSettingID>79c65beb-0aab-4b37-954b-0e5889e27473</dcsset:itemsUserSettingID>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

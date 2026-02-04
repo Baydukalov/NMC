@@ -1,0 +1,1863 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Пакетная выписка/печать документов</v8:content>
+		</v8:item>
+	</Title>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаЗаголовок" id="125">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа заголовок</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа заголовок</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаЗаголовокРасширеннаяПодсказка" id="126"/>
+			<ChildItems>
+				<LabelField name="ЗаголовокСтраницы" id="127">
+					<DataPath>ЗаголовокСтраницы</DataPath>
+					<TitleFont ref="style:упШрифтТаблицыРМ" kind="StyleItem"/>
+					<TitleLocation>None</TitleLocation>
+					<Font ref="style:упШрифтТаблицыРМ" kind="StyleItem"/>
+					<ContextMenu name="ЗаголовокСтраницыКонтекстноеМеню" id="128"/>
+					<ExtendedTooltip name="ЗаголовокСтраницыРасширеннаяПодсказка" id="129"/>
+				</LabelField>
+			</ChildItems>
+		</UsualGroup>
+		<Pages name="Страницы" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<PagesRepresentation>None</PagesRepresentation>
+			<ExtendedTooltip name="СтраницыРасширеннаяПодсказка" id="2"/>
+			<ChildItems>
+				<Page name="ОтборТС" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отбор ТС</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отбор ТС</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ОтборТСРасширеннаяПодсказка" id="8"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаНастройкиОтбораТС" id="70">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа настройки отбора ТС</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа настройки отбора ТС</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаНастройкиОтбораТСРасширеннаяПодсказка" id="71"/>
+							<ChildItems>
+								<Table name="КомпоновщикНастроекНастройкиОтборДоступныеПоляОтбора" id="57">
+									<Representation>Tree</Representation>
+									<Autofill>true</Autofill>
+									<Width>60</Width>
+									<HeightInTableRows>15</HeightInTableRows>
+									<ChoiceMode>true</ChoiceMode>
+									<HorizontalLines>false</HorizontalLines>
+									<VerticalLines>false</VerticalLines>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<FileDragMode>AsFile</FileDragMode>
+									<DataPath>КомпоновщикНастроек.Settings.Filter.FilterAvailableFields</DataPath>
+									<ContextMenu name="КомпоновщикНастроекНастройкиОтборДоступныеПоляОтбораКонтекстноеМеню" id="58"/>
+									<AutoCommandBar name="КомпоновщикНастроекНастройкиОтборДоступныеПоляОтбораКоманднаяПанель" id="59"/>
+									<ExtendedTooltip name="КомпоновщикНастроекНастройкиОтборДоступныеПоляОтбораРасширеннаяПодсказка" id="60"/>
+									<SearchStringAddition name="КомпоновщикНастроекНастройкиОтборДоступныеПоляОтбораСтрокаПоиска" id="61">
+										<AdditionSource>
+											<Item>КомпоновщикНастроекНастройкиОтборДоступныеПоляОтбора</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="КомпоновщикНастроекНастройкиОтборДоступныеПоляОтбораСтрокаПоискаКонтекстноеМеню" id="62"/>
+										<ExtendedTooltip name="КомпоновщикНастроекНастройкиОтборДоступныеПоляОтбораСтрокаПоискаРасширеннаяПодсказка" id="63"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="КомпоновщикНастроекНастройкиОтборДоступныеПоляОтбораСостояниеПросмотра" id="64">
+										<AdditionSource>
+											<Item>КомпоновщикНастроекНастройкиОтборДоступныеПоляОтбора</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="КомпоновщикНастроекНастройкиОтборДоступныеПоляОтбораСостояниеПросмотраКонтекстноеМеню" id="65"/>
+										<ExtendedTooltip name="КомпоновщикНастроекНастройкиОтборДоступныеПоляОтбораСостояниеПросмотраРасширеннаяПодсказка" id="66"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="КомпоновщикНастроекНастройкиОтборДоступныеПоляОтбораУправлениеПоиском" id="67">
+										<AdditionSource>
+											<Item>КомпоновщикНастроекНастройкиОтборДоступныеПоляОтбора</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="КомпоновщикНастроекНастройкиОтборДоступныеПоляОтбораУправлениеПоискомКонтекстноеМеню" id="68"/>
+										<ExtendedTooltip name="КомпоновщикНастроекНастройкиОтборДоступныеПоляОтбораУправлениеПоискомРасширеннаяПодсказка" id="69"/>
+									</SearchControlAddition>
+								</Table>
+								<Table name="КомпоновщикНастроекНастройкиОтбор" id="72">
+									<Representation>Tree</Representation>
+									<Autofill>true</Autofill>
+									<InitialTreeView>ExpandAllLevels</InitialTreeView>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<FileDragMode>AsFile</FileDragMode>
+									<DataPath>КомпоновщикНастроек.Settings.Filter</DataPath>
+									<ViewMode>All</ViewMode>
+									<SettingsNamedItemDetailedRepresentation>false</SettingsNamedItemDetailedRepresentation>
+									<ContextMenu name="КомпоновщикНастроекНастройкиОтборКонтекстноеМеню" id="73"/>
+									<AutoCommandBar name="КомпоновщикНастроекНастройкиОтборКоманднаяПанель" id="74"/>
+									<ExtendedTooltip name="КомпоновщикНастроекНастройкиОтборРасширеннаяПодсказка" id="75"/>
+									<SearchStringAddition name="КомпоновщикНастроекНастройкиОтборСтрокаПоиска" id="76">
+										<AdditionSource>
+											<Item>КомпоновщикНастроекНастройкиОтбор</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="КомпоновщикНастроекНастройкиОтборСтрокаПоискаКонтекстноеМеню" id="77"/>
+										<ExtendedTooltip name="КомпоновщикНастроекНастройкиОтборСтрокаПоискаРасширеннаяПодсказка" id="78"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="КомпоновщикНастроекНастройкиОтборСостояниеПросмотра" id="79">
+										<AdditionSource>
+											<Item>КомпоновщикНастроекНастройкиОтбор</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="КомпоновщикНастроекНастройкиОтборСостояниеПросмотраКонтекстноеМеню" id="80"/>
+										<ExtendedTooltip name="КомпоновщикНастроекНастройкиОтборСостояниеПросмотраРасширеннаяПодсказка" id="81"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="КомпоновщикНастроекНастройкиОтборУправлениеПоиском" id="82">
+										<AdditionSource>
+											<Item>КомпоновщикНастроекНастройкиОтбор</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="КомпоновщикНастроекНастройкиОтборУправлениеПоискомКонтекстноеМеню" id="83"/>
+										<ExtendedTooltip name="КомпоновщикНастроекНастройкиОтборУправлениеПоискомРасширеннаяПодсказка" id="84"/>
+									</SearchControlAddition>
+								</Table>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="СписокТС" id="11">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Список ТС</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Список ТС</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СписокТСРасширеннаяПодсказка" id="12"/>
+					<ChildItems>
+						<Table name="СписокТранспортныхСредств" id="85">
+							<Representation>List</Representation>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>СписокТранспортныхСредств</DataPath>
+							<RowPictureDataPath>СписокТранспортныхСредств.Пометка</RowPictureDataPath>
+							<CommandSet>
+								<ExcludedCommand>Add</ExcludedCommand>
+								<ExcludedCommand>Change</ExcludedCommand>
+								<ExcludedCommand>Copy</ExcludedCommand>
+								<ExcludedCommand>Delete</ExcludedCommand>
+								<ExcludedCommand>EndEdit</ExcludedCommand>
+							</CommandSet>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="СписокТранспортныхСредствКонтекстноеМеню" id="86"/>
+							<AutoCommandBar name="СписокТранспортныхСредствКоманднаяПанель" id="87">
+								<ChildItems>
+									<Button name="СписокТранспортныхСредствСписокТСОтметитьВсе" id="140">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.СписокТСОтметитьВсе</CommandName>
+										<ExtendedTooltip name="СписокТранспортныхСредствСписокТСОтметитьВсеРасширеннаяПодсказка" id="141"/>
+									</Button>
+									<Button name="СписокТранспортныхСредствСписокТССнятьВсе" id="142">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.СписокТССнятьВсе</CommandName>
+										<ExtendedTooltip name="СписокТранспортныхСредствСписокТССнятьВсеРасширеннаяПодсказка" id="143"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="СписокТранспортныхСредствРасширеннаяПодсказка" id="88"/>
+							<SearchStringAddition name="СписокТранспортныхСредствСтрокаПоиска" id="89">
+								<AdditionSource>
+									<Item>СписокТранспортныхСредств</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокТранспортныхСредствСтрокаПоискаКонтекстноеМеню" id="90"/>
+								<ExtendedTooltip name="СписокТранспортныхСредствСтрокаПоискаРасширеннаяПодсказка" id="91"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СписокТранспортныхСредствСостояниеПросмотра" id="92">
+								<AdditionSource>
+									<Item>СписокТранспортныхСредств</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокТранспортныхСредствСостояниеПросмотраКонтекстноеМеню" id="93"/>
+								<ExtendedTooltip name="СписокТранспортныхСредствСостояниеПросмотраРасширеннаяПодсказка" id="94"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СписокТранспортныхСредствУправлениеПоиском" id="95">
+								<AdditionSource>
+									<Item>СписокТранспортныхСредств</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокТранспортныхСредствУправлениеПоискомКонтекстноеМеню" id="96"/>
+								<ExtendedTooltip name="СписокТранспортныхСредствУправлениеПоискомРасширеннаяПодсказка" id="97"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">СписокТранспортныхСредствВыбор</Event>
+							</Events>
+							<ChildItems>
+								<CheckBoxField name="СписокТранспортныхСредствПометка" id="98">
+									<DataPath>СписокТранспортныхСредств.Пометка</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="СписокТранспортныхСредствПометкаКонтекстноеМеню" id="99"/>
+									<ExtendedTooltip name="СписокТранспортныхСредствПометкаРасширеннаяПодсказка" id="100"/>
+								</CheckBoxField>
+								<InputField name="СписокТранспортныхСредствТранспортноеСредство" id="101">
+									<DataPath>СписокТранспортныхСредств.ТранспортноеСредство</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<DropListButton>false</DropListButton>
+									<ChoiceButton>false</ChoiceButton>
+									<ClearButton>false</ClearButton>
+									<SpinButton>false</SpinButton>
+									<OpenButton>true</OpenButton>
+									<CreateButton>false</CreateButton>
+									<QuickChoice>false</QuickChoice>
+									<TextEdit>false</TextEdit>
+									<ChoiceHistoryOnInput>DontUse</ChoiceHistoryOnInput>
+									<ContextMenu name="СписокТранспортныхСредствТранспортноеСредствоКонтекстноеМеню" id="102"/>
+									<ExtendedTooltip name="СписокТранспортныхСредствТранспортноеСредствоРасширеннаяПодсказка" id="103"/>
+								</InputField>
+								<ColumnGroup name="СписокТранспортныхСредствГруппаСостояниеТС" id="239">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Список транспортных средств группа состояние ТС</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Список транспортных средств группа состояние ТС</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Width>6</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<Group>InCell</Group>
+									<ExtendedTooltip name="СписокТранспортныхСредствГруппаСостояниеТСРасширеннаяПодсказка" id="240"/>
+									<ChildItems>
+										<PictureField name="СписокТранспортныхСредствИндексКартинкиСостояния" id="236">
+											<DataPath>СписокТранспортныхСредств.ИндексКартинкиСостояния</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>2</Width>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<HorizontalStretch>false</HorizontalStretch>
+											<ValuesPicture>
+												<xr:Ref>CommonPicture.упКоллекцияТипыСостоянийТС</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+											</ValuesPicture>
+											<FileDragMode>AsFile</FileDragMode>
+											<ContextMenu name="СписокТранспортныхСредствИндексКартинкиСостоянияКонтекстноеМеню" id="237"/>
+											<ExtendedTooltip name="СписокТранспортныхСредствИндексКартинкиСостоянияРасширеннаяПодсказка" id="238"/>
+										</PictureField>
+										<InputField name="СписокТранспортныхСредствСостояниеТС" id="104">
+											<DataPath>СписокТранспортныхСредств.СостояниеТС</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>4</Width>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<HorizontalStretch>false</HorizontalStretch>
+											<ContextMenu name="СписокТранспортныхСредствСостояниеТСКонтекстноеМеню" id="105"/>
+											<ExtendedTooltip name="СписокТранспортныхСредствСостояниеТСРасширеннаяПодсказка" id="106"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="СписокТранспортныхСредствГруппаПутевойЛист" id="138">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Список транспортных средств группа путевой лист</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Список транспортных средств группа путевой лист</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>InCell</Group>
+									<ExtendedTooltip name="СписокТранспортныхСредствГруппаПутевойЛистРасширеннаяПодсказка" id="139"/>
+									<ChildItems>
+										<PictureField name="СписокТранспортныхСредствСтатусПутевогоЛиста" id="135">
+											<DataPath>СписокТранспортныхСредств.ПорядокСтатусПутевогоЛиста</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<ValuesPicture>
+												<xr:Ref>CommonPicture.упСтатусыПутевогоЛиста</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+											</ValuesPicture>
+											<FileDragMode>AsFile</FileDragMode>
+											<ContextMenu name="СписокТранспортныхСредствСтатусПутевогоЛистаКонтекстноеМеню" id="136"/>
+											<ExtendedTooltip name="СписокТранспортныхСредствСтатусПутевогоЛистаРасширеннаяПодсказка" id="137"/>
+										</PictureField>
+										<InputField name="СписокТранспортныхСредствПутевойЛист" id="107">
+											<DataPath>СписокТранспортныхСредств.ПутевойЛист</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<EditMode>EnterOnInput</EditMode>
+											<TextEdit>false</TextEdit>
+											<ContextMenu name="СписокТранспортныхСредствПутевойЛистКонтекстноеМеню" id="108"/>
+											<ExtendedTooltip name="СписокТранспортныхСредствПутевойЛистРасширеннаяПодсказка" id="109"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<PictureField name="СписокТранспортныхСредствДействует" id="110">
+									<DataPath>СписокТранспортныхСредств.Действует</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Действует</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<ValuesPicture>
+										<xr:Ref>CommonPicture.упСостояниеДокументовТСВодителей</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</ValuesPicture>
+									<FileDragMode>AsFile</FileDragMode>
+									<ContextMenu name="СписокТранспортныхСредствДействуетКонтекстноеМеню" id="111"/>
+									<ExtendedTooltip name="СписокТранспортныхСредствДействуетРасширеннаяПодсказка" id="112"/>
+								</PictureField>
+								<InputField name="СписокТранспортныхСредствДействуетТекст" id="253">
+									<DataPath>СписокТранспортныхСредств.ДействуетТекст</DataPath>
+									<UserVisible>
+										<xr:Common>false</xr:Common>
+									</UserVisible>
+									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СписокТранспортныхСредствДействуетТекстКонтекстноеМеню" id="254"/>
+									<ExtendedTooltip name="СписокТранспортныхСредствДействуетТекстРасширеннаяПодсказка" id="255"/>
+								</InputField>
+								<InputField name="СписокТранспортныхСредствПечатнаяФормаПутевогоЛиста" id="113">
+									<DataPath>СписокТранспортныхСредств.ПечатнаяФормаПутевогоЛиста</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СписокТранспортныхСредствПечатнаяФормаПутевогоЛистаКонтекстноеМеню" id="114"/>
+									<ExtendedTooltip name="СписокТранспортныхСредствПечатнаяФормаПутевогоЛистаРасширеннаяПодсказка" id="115"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+						<InputField name="НачалоРейса" id="233">
+							<DataPath>НачалоРейса</DataPath>
+							<ContextMenu name="НачалоРейсаКонтекстноеМеню" id="234"/>
+							<ExtendedTooltip name="НачалоРейсаРасширеннаяПодсказка" id="235"/>
+						</InputField>
+					</ChildItems>
+				</Page>
+				<Page name="ПутевыеЛисты" id="13">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Путевые листы</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Путевые листы</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ПутевыеЛистыРасширеннаяПодсказка" id="14"/>
+					<ChildItems>
+						<Table name="СписокСозданныхПутевыхЛистов" id="144">
+							<Representation>List</Representation>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>СписокСозданныхПутевыхЛистов</DataPath>
+							<CommandSet>
+								<ExcludedCommand>Add</ExcludedCommand>
+								<ExcludedCommand>Change</ExcludedCommand>
+								<ExcludedCommand>Copy</ExcludedCommand>
+								<ExcludedCommand>Delete</ExcludedCommand>
+								<ExcludedCommand>EndEdit</ExcludedCommand>
+							</CommandSet>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="СписокСозданныхПутевыхЛистовКонтекстноеМеню" id="145"/>
+							<AutoCommandBar name="СписокСозданныхПутевыхЛистовКоманднаяПанель" id="146">
+								<ChildItems>
+									<Button name="СписокСозданныхПутевыхЛистовПутевыеЛистыОтметитьВсе" id="169">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ПутевыеЛистыОтметитьВсе</CommandName>
+										<ExtendedTooltip name="СписокСозданныхПутевыхЛистовПутевыеЛистыОтметитьВсеРасширеннаяПодсказка" id="170"/>
+									</Button>
+									<Button name="СписокСозданныхПутевыхЛистовПутевыеЛистыСнятьВсе" id="171">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ПутевыеЛистыСнятьВсе</CommandName>
+										<ExtendedTooltip name="СписокСозданныхПутевыхЛистовПутевыеЛистыСнятьВсеРасширеннаяПодсказка" id="172"/>
+									</Button>
+									<Button name="СписокСозданныхПутевыхЛистовВыдатьПутевыеЛисты" id="184">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ВыдатьПутевыеЛисты</CommandName>
+										<ExtendedTooltip name="СписокСозданныхПутевыхЛистовВыдатьПутевыеЛистыРасширеннаяПодсказка" id="185"/>
+									</Button>
+									<Button name="СписокСозданныхПутевыхЛистовОтменитьПутевыеЛисты" id="259">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ОтменитьПутевыеЛисты</CommandName>
+										<ExtendedTooltip name="СписокСозданныхПутевыхЛистовОтменитьПутевыеЛистыРасширеннаяПодсказка" id="260"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="СписокСозданныхПутевыхЛистовРасширеннаяПодсказка" id="147"/>
+							<SearchStringAddition name="СписокСозданныхПутевыхЛистовСтрокаПоиска" id="148">
+								<AdditionSource>
+									<Item>СписокСозданныхПутевыхЛистов</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокСозданныхПутевыхЛистовСтрокаПоискаКонтекстноеМеню" id="149"/>
+								<ExtendedTooltip name="СписокСозданныхПутевыхЛистовСтрокаПоискаРасширеннаяПодсказка" id="150"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СписокСозданныхПутевыхЛистовСостояниеПросмотра" id="151">
+								<AdditionSource>
+									<Item>СписокСозданныхПутевыхЛистов</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокСозданныхПутевыхЛистовСостояниеПросмотраКонтекстноеМеню" id="152"/>
+								<ExtendedTooltip name="СписокСозданныхПутевыхЛистовСостояниеПросмотраРасширеннаяПодсказка" id="153"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СписокСозданныхПутевыхЛистовУправлениеПоиском" id="154">
+								<AdditionSource>
+									<Item>СписокСозданныхПутевыхЛистов</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокСозданныхПутевыхЛистовУправлениеПоискомКонтекстноеМеню" id="155"/>
+								<ExtendedTooltip name="СписокСозданныхПутевыхЛистовУправлениеПоискомРасширеннаяПодсказка" id="156"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">СписокСозданныхПутевыхЛистовВыбор</Event>
+							</Events>
+							<ChildItems>
+								<CheckBoxField name="СписокСозданныхПутевыхЛистовПометка" id="157">
+									<DataPath>СписокСозданныхПутевыхЛистов.Пометка</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="СписокСозданныхПутевыхЛистовПометкаКонтекстноеМеню" id="158"/>
+									<ExtendedTooltip name="СписокСозданныхПутевыхЛистовПометкаРасширеннаяПодсказка" id="159"/>
+								</CheckBoxField>
+								<ColumnGroup name="СписокСозданныхПутевыхЛистовГруппа2" id="182">
+									<Group>InCell</Group>
+									<ExtendedTooltip name="СписокСозданныхПутевыхЛистовГруппа2РасширеннаяПодсказка" id="183"/>
+									<ChildItems>
+										<PictureField name="СписокСозданныхПутевыхЛистовПорядокСтатусПутевогоЛиста" id="166">
+											<DataPath>СписокСозданныхПутевыхЛистов.ПорядокСтатусПутевогоЛиста</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<ValuesPicture>
+												<xr:Ref>CommonPicture.упСтатусыПутевогоЛиста</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+											</ValuesPicture>
+											<FileDragMode>AsFile</FileDragMode>
+											<ContextMenu name="СписокСозданныхПутевыхЛистовПорядокСтатусПутевогоЛистаКонтекстноеМеню" id="167"/>
+											<ExtendedTooltip name="СписокСозданныхПутевыхЛистовПорядокСтатусПутевогоЛистаРасширеннаяПодсказка" id="168"/>
+										</PictureField>
+										<InputField name="СписокСозданныхПутевыхЛистовПутевойЛист" id="160">
+											<DataPath>СписокСозданныхПутевыхЛистов.ПутевойЛист</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="СписокСозданныхПутевыхЛистовПутевойЛистКонтекстноеМеню" id="161"/>
+											<ExtendedTooltip name="СписокСозданныхПутевыхЛистовПутевойЛистРасширеннаяПодсказка" id="162"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<InputField name="СписокСозданныхПутевыхЛистовТранспортноеСредство" id="219">
+									<DataPath>СписокСозданныхПутевыхЛистов.ТранспортноеСредство</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СписокСозданныхПутевыхЛистовТранспортноеСредствоКонтекстноеМеню" id="220"/>
+									<ExtendedTooltip name="СписокСозданныхПутевыхЛистовТранспортноеСредствоРасширеннаяПодсказка" id="221"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="ПечатьДокументов" id="15">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Печать документов</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Печать документов</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ПечатьДокументовРасширеннаяПодсказка" id="16"/>
+					<ChildItems>
+						<CheckBoxField name="НапечататьНаПринтер" id="256">
+							<DataPath>НапечататьСразуНаПринтер</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="НапечататьНаПринтерКонтекстноеМеню" id="257"/>
+							<ExtendedTooltip name="НапечататьНаПринтерРасширеннаяПодсказка" id="258"/>
+						</CheckBoxField>
+						<Table name="СписокПутевыеЛистыДляПечати" id="186">
+							<Representation>List</Representation>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>СписокПутевыхЛистовДляПечати</DataPath>
+							<CommandSet>
+								<ExcludedCommand>Add</ExcludedCommand>
+								<ExcludedCommand>Change</ExcludedCommand>
+								<ExcludedCommand>Copy</ExcludedCommand>
+								<ExcludedCommand>Delete</ExcludedCommand>
+								<ExcludedCommand>EndEdit</ExcludedCommand>
+							</CommandSet>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="СписокПутевыеЛистыДляПечатиКонтекстноеМеню" id="187"/>
+							<AutoCommandBar name="СписокПутевыеЛистыДляПечатиКоманднаяПанель" id="188">
+								<ChildItems>
+									<Button name="СписокПутевыеЛистыДляПечатиПечатьДокументовОтметитьВсе" id="229">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ПечатьДокументовОтметитьВсе</CommandName>
+										<ExtendedTooltip name="СписокПутевыеЛистыДляПечатиПечатьДокументовОтметитьВсеРасширеннаяПодсказка" id="230"/>
+									</Button>
+									<Button name="СписокПутевыеЛистыДляПечатиПечатьДокументовСнятьВсе" id="231">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ПечатьДокументовСнятьВсе</CommandName>
+										<ExtendedTooltip name="СписокПутевыеЛистыДляПечатиПечатьДокументовСнятьВсеРасширеннаяПодсказка" id="232"/>
+									</Button>
+									<Button name="СписокПутевыеЛистыДляПечатиПечатьПутевогоЛистаПоУмолчанию" id="225">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ПечатьПутевогоЛистаПоУмолчанию</CommandName>
+										<ExtendedTooltip name="СписокПутевыеЛистыДляПечатиПечатьПутевогоЛистаПоУмолчаниюРасширеннаяПодсказка" id="226"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="СписокПутевыеЛистыДляПечатиРасширеннаяПодсказка" id="189"/>
+							<SearchStringAddition name="СписокПутевыеЛистыДляПечатиСтрокаПоиска" id="190">
+								<AdditionSource>
+									<Item>СписокПутевыеЛистыДляПечати</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокПутевыеЛистыДляПечатиСтрокаПоискаКонтекстноеМеню" id="191"/>
+								<ExtendedTooltip name="СписокПутевыеЛистыДляПечатиСтрокаПоискаРасширеннаяПодсказка" id="192"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СписокПутевыеЛистыДляПечатиСостояниеПросмотра" id="193">
+								<AdditionSource>
+									<Item>СписокПутевыеЛистыДляПечати</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокПутевыеЛистыДляПечатиСостояниеПросмотраКонтекстноеМеню" id="194"/>
+								<ExtendedTooltip name="СписокПутевыеЛистыДляПечатиСостояниеПросмотраРасширеннаяПодсказка" id="195"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СписокПутевыеЛистыДляПечатиУправлениеПоиском" id="196">
+								<AdditionSource>
+									<Item>СписокПутевыеЛистыДляПечати</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокПутевыеЛистыДляПечатиУправлениеПоискомКонтекстноеМеню" id="197"/>
+								<ExtendedTooltip name="СписокПутевыеЛистыДляПечатиУправлениеПоискомРасширеннаяПодсказка" id="198"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">СписокПутевыеЛистыДляПечатиВыбор</Event>
+							</Events>
+							<ChildItems>
+								<CheckBoxField name="СписокПутевыеЛистыДляПечатиПометка" id="199">
+									<DataPath>СписокПутевыхЛистовДляПечати.Пометка</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="СписокПутевыеЛистыДляПечатиПометкаКонтекстноеМеню" id="200"/>
+									<ExtendedTooltip name="СписокПутевыеЛистыДляПечатиПометкаРасширеннаяПодсказка" id="201"/>
+								</CheckBoxField>
+								<ColumnGroup name="СписокПутевыеЛистыДляПечатиГруппаПутевойЛист" id="217">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Список путевые листы для печати группа путевой лист</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Список путевые листы для печати группа путевой лист</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>InCell</Group>
+									<ExtendedTooltip name="СписокПутевыеЛистыДляПечатиГруппаПутевойЛистРасширеннаяПодсказка" id="218"/>
+									<ChildItems>
+										<PictureField name="СписокПутевыеЛистыДляПечатиПорядокСтатусПутевогоЛиста" id="208">
+											<DataPath>СписокПутевыхЛистовДляПечати.ПорядокСтатусПутевогоЛиста</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<ValuesPicture>
+												<xr:Ref>CommonPicture.упСтатусыПутевогоЛиста</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+											</ValuesPicture>
+											<FileDragMode>AsFile</FileDragMode>
+											<ContextMenu name="СписокПутевыеЛистыДляПечатиПорядокСтатусПутевогоЛистаКонтекстноеМеню" id="209"/>
+											<ExtendedTooltip name="СписокПутевыеЛистыДляПечатиПорядокСтатусПутевогоЛистаРасширеннаяПодсказка" id="210"/>
+										</PictureField>
+										<InputField name="СписокПутевыеЛистыДляПечатиПутевойЛист" id="202">
+											<DataPath>СписокПутевыхЛистовДляПечати.ПутевойЛист</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="СписокПутевыеЛистыДляПечатиПутевойЛистКонтекстноеМеню" id="203"/>
+											<ExtendedTooltip name="СписокПутевыеЛистыДляПечатиПутевойЛистРасширеннаяПодсказка" id="204"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<InputField name="СписокПутевыеЛистыДляПечатиТранспортноеСредство" id="214">
+									<DataPath>СписокПутевыхЛистовДляПечати.ТранспортноеСредство</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СписокПутевыеЛистыДляПечатиТранспортноеСредствоКонтекстноеМеню" id="215"/>
+									<ExtendedTooltip name="СписокПутевыеЛистыДляПечатиТранспортноеСредствоРасширеннаяПодсказка" id="216"/>
+								</InputField>
+								<InputField name="СписокПутевыеЛистыДляПечатиПечатнаяФормаПутевогоЛиста" id="211">
+									<DataPath>СписокПутевыхЛистовДляПечати.ПечатнаяФормаПутевогоЛиста</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СписокПутевыеЛистыДляПечатиПечатнаяФормаПутевогоЛистаКонтекстноеМеню" id="212"/>
+									<ExtendedTooltip name="СписокПутевыеЛистыДляПечатиПечатнаяФормаПутевогоЛистаРасширеннаяПодсказка" id="213"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+		<UsualGroup name="Навигация" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Навигация</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Навигация</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="НавигацияРасширеннаяПодсказка" id="4"/>
+			<ChildItems>
+				<Pages name="НавигацияСтраницы" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Навигация страницы</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Навигация страницы</v8:content>
+						</v8:item>
+					</ToolTip>
+					<PagesRepresentation>None</PagesRepresentation>
+					<ExtendedTooltip name="НавигацияСтраницыРасширеннаяПодсказка" id="6"/>
+					<ChildItems>
+						<Page name="НавигацияОтборТС" id="9">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Навигация отбор ТС</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Навигация отбор ТС</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="НавигацияОтборТСРасширеннаяПодсказка" id="10"/>
+							<ChildItems>
+								<CommandBar name="НавигацияОтборТСКоманднаяПанель" id="33">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Навигация отбор ТСКомандная панель</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Навигация отбор ТСКомандная панель</v8:content>
+										</v8:item>
+									</ToolTip>
+									<HorizontalLocation>Right</HorizontalLocation>
+									<ExtendedTooltip name="НавигацияОтборТСКоманднаяПанельРасширеннаяПодсказка" id="34"/>
+									<ChildItems>
+										<Button name="ОтборТСПодобратьТС" id="23">
+											<Type>CommandBarButton</Type>
+											<DefaultButton>true</DefaultButton>
+											<CommandName>Form.Command.ОтборТСПодобратьТС</CommandName>
+											<ExtendedTooltip name="ОтборТСПодобратьТСРасширеннаяПодсказка" id="24"/>
+										</Button>
+										<Button name="ОтборТСЗакрыть" id="120">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.StandardCommand.Close</CommandName>
+											<ExtendedTooltip name="ОтборТСЗакрытьРасширеннаяПодсказка" id="121"/>
+										</Button>
+									</ChildItems>
+								</CommandBar>
+							</ChildItems>
+						</Page>
+						<Page name="НавигацияСписокТС" id="17">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Навигация список ТС</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Навигация список ТС</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<ExtendedTooltip name="НавигацияСписокТСРасширеннаяПодсказка" id="18"/>
+							<ChildItems>
+								<CommandBar name="НавигацияСписокТСКоманднаяПанельНазад" id="37">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Навигация список ТСКомандная панель назад</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Навигация список ТСКомандная панель назад</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="НавигацияСписокТСКоманднаяПанельНазадРасширеннаяПодсказка" id="38"/>
+									<ChildItems>
+										<Button name="СписокТСНазад" id="29">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.СписокТСНазад</CommandName>
+											<ExtendedTooltip name="СписокТСНазадРасширеннаяПодсказка" id="30"/>
+										</Button>
+									</ChildItems>
+								</CommandBar>
+								<CommandBar name="НавигацияСписокТСКоманднаяПанельЗакрыть" id="35">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Навигация список ТСКомандная панель закрыть</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Навигация список ТСКомандная панель закрыть</v8:content>
+										</v8:item>
+									</ToolTip>
+									<HorizontalLocation>Right</HorizontalLocation>
+									<ExtendedTooltip name="НавигацияСписокТСКоманднаяПанельЗакрытьРасширеннаяПодсказка" id="36"/>
+									<ChildItems>
+										<Button name="СписокТСФормированиеПутевыхЛистов" id="25">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.СписокТСФормированиеПутевыхЛистов</CommandName>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Сформировать путевые листы</v8:content>
+												</v8:item>
+											</Title>
+											<ExtendedTooltip name="СписокТСФормированиеПутевыхЛистовРасширеннаяПодсказка" id="26"/>
+										</Button>
+										<Button name="СписокТСПечатьДокументов" id="31">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.СписокТСПечатьДокументов</CommandName>
+											<ExtendedTooltip name="СписокТСПечатьДокументовРасширеннаяПодсказка" id="32"/>
+										</Button>
+										<Button name="СписокТСЗакрыть" id="116">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.StandardCommand.Close</CommandName>
+											<ExtendedTooltip name="СписокТСЗакрытьРасширеннаяПодсказка" id="117"/>
+										</Button>
+										<Button name="ИзменитьФорму" id="241">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
+											<ExtendedTooltip name="ИзменитьФормуРасширеннаяПодсказка" id="242"/>
+										</Button>
+										<Button name="Справка" id="243">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.StandardCommand.Help</CommandName>
+											<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="244"/>
+										</Button>
+									</ChildItems>
+								</CommandBar>
+							</ChildItems>
+						</Page>
+						<Page name="НавигацияПутевыеЛисты" id="19">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Навигация путевые листы</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Навигация путевые листы</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<ExtendedTooltip name="НавигацияПутевыеЛистыРасширеннаяПодсказка" id="20"/>
+							<ChildItems>
+								<CommandBar name="НавигацияПутевыеЛистыНазад" id="39">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Навигация путевые листы назад</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Навигация путевые листы назад</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="НавигацияПутевыеЛистыНазадРасширеннаяПодсказка" id="40"/>
+									<ChildItems>
+										<Button name="ПутевыеЛистыНазад" id="41">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.ПутевыеЛистыНазад</CommandName>
+											<ExtendedTooltip name="ПутевыеЛистыНазадРасширеннаяПодсказка" id="42"/>
+										</Button>
+									</ChildItems>
+								</CommandBar>
+								<CommandBar name="НавигацияПутевыеЛистыЗакрыть" id="43">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Навигация путевые листы закрыть</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Навигация путевые листы закрыть</v8:content>
+										</v8:item>
+									</ToolTip>
+									<HorizontalLocation>Right</HorizontalLocation>
+									<ExtendedTooltip name="НавигацияПутевыеЛистыЗакрытьРасширеннаяПодсказка" id="44"/>
+									<ChildItems>
+										<Button name="ПутевыеЛистыПечатьДокументов" id="45">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.ПутевыеЛистыПечатьДокументов</CommandName>
+											<ExtendedTooltip name="ПутевыеЛистыПечатьДокументовРасширеннаяПодсказка" id="46"/>
+										</Button>
+										<Button name="ПутевыеЛистыЗакрыть" id="118">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.StandardCommand.Close</CommandName>
+											<ExtendedTooltip name="ПутевыеЛистыЗакрытьРасширеннаяПодсказка" id="119"/>
+										</Button>
+										<Button name="ИзменитьФорму1" id="245">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
+											<ExtendedTooltip name="ИзменитьФорму1РасширеннаяПодсказка" id="246"/>
+										</Button>
+										<Button name="Справка1" id="247">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.StandardCommand.Help</CommandName>
+											<ExtendedTooltip name="Справка1РасширеннаяПодсказка" id="248"/>
+										</Button>
+									</ChildItems>
+								</CommandBar>
+							</ChildItems>
+						</Page>
+						<Page name="НавигацияПечатьДокументов" id="21">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Навигация печать документов</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Навигация печать документов</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<ExtendedTooltip name="НавигацияПечатьДокументовРасширеннаяПодсказка" id="22"/>
+							<ChildItems>
+								<CommandBar name="НавигацияПечатьДокументовНазад" id="49">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Навигация печать документов назад</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Навигация печать документов назад</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="НавигацияПечатьДокументовНазадРасширеннаяПодсказка" id="50"/>
+									<ChildItems>
+										<Button name="ПечатьДокументовНазад" id="53">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.ПечатьДокументовНазад</CommandName>
+											<ExtendedTooltip name="ПечатьДокументовНазадРасширеннаяПодсказка" id="54"/>
+										</Button>
+									</ChildItems>
+								</CommandBar>
+								<CommandBar name="НавигацияПечатьДокументовЗакрыть" id="51">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Навигация печать документов закрыть</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Навигация печать документов закрыть</v8:content>
+										</v8:item>
+									</ToolTip>
+									<HorizontalLocation>Right</HorizontalLocation>
+									<ExtendedTooltip name="НавигацияПечатьДокументовЗакрытьРасширеннаяПодсказка" id="52"/>
+									<ChildItems>
+										<Button name="ПечатьДокументовЗакрыть" id="130">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.StandardCommand.Close</CommandName>
+											<ExtendedTooltip name="ПечатьДокументовЗакрытьРасширеннаяПодсказка" id="131"/>
+										</Button>
+										<Button name="ИзменитьФорму2" id="249">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
+											<ExtendedTooltip name="ИзменитьФорму2РасширеннаяПодсказка" id="250"/>
+										</Button>
+										<Button name="Справка2" id="251">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.StandardCommand.Help</CommandName>
+											<ExtendedTooltip name="Справка2РасширеннаяПодсказка" id="252"/>
+										</Button>
+									</ChildItems>
+								</CommandBar>
+							</ChildItems>
+						</Page>
+					</ChildItems>
+				</Pages>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.упРМДиспетчераГаража</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="КомпоновщикНастроек" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Компоновщик настроек</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>dcsset:SettingsComposer</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СписокТранспортныхСредств" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список транспортных средств</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Пометка" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пометка</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ТранспортноеСредство" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Транспортное средство</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упТранспортныеСредства</v8:Type>
+					</Type>
+				</Column>
+				<Column name="СостояниеТС" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Состояние ТС</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упСостоянияТС</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ПутевойЛист" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Путевой лист</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:DocumentRef.упПутевойЛист</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Действует" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Действует</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ПечатнаяФормаПутевогоЛиста" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Печатная форма путевого листа</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.ДополнительныеОтчетыИОбработки</v8:Type>
+						<v8:Type>cfg:EnumRef.упТипыПечатныхФормПутевогоЛиста</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ПорядокСтатусПутевогоЛиста" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Порядок статус путевого листа</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="СтатусПутевогоЛиста" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Статус путевого листа</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.упСтатусыПутевогоЛиста</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ТипСостоянияТС" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тип состояния ТС</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.упТипыСостоянийТС</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ИндексКартинкиСостояния" id="10">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Индекс картинки состояния</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ДействуетТекст" id="11">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Действует текст</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ЗаголовокСтраницы" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заголовок страницы</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НачалоРейса" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Начало рейса</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+			<FillCheck>ShowError</FillCheck>
+		</Attribute>
+		<Attribute name="СписокСозданныхПутевыхЛистов" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список созданных путевых листов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Пометка" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пометка</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ПутевойЛист" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Путевой лист</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:DocumentRef.упПутевойЛист</v8:Type>
+					</Type>
+				</Column>
+				<Column name="СтатусПутевогоЛиста" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Статус путевого листа</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.упСтатусыПутевогоЛиста</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ПорядокСтатусПутевогоЛиста" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Порядок статус путевого листа</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ТранспортноеСредство" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Транспортное средство</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упТранспортныеСредства</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ПечатнаяФормаПутевогоЛиста" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Печатная форма путевого листа</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.ДополнительныеОтчетыИОбработки</v8:Type>
+						<v8:Type>cfg:EnumRef.упТипыПечатныхФормПутевогоЛиста</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="СписокПутевыхЛистовДляПечати" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список путевых листов для печати</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Пометка" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пометка</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ПутевойЛист" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Путевой лист</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:DocumentRef.упПутевойЛист</v8:Type>
+					</Type>
+				</Column>
+				<Column name="СтатусПутевогоЛиста" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Статус путевого листа</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.упСтатусыПутевогоЛиста</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ПорядокСтатусПутевогоЛиста" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Порядок статус путевого листа</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ПечатнаяФормаПутевогоЛиста" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Печатная форма путевого листа</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.ДополнительныеОтчетыИОбработки</v8:Type>
+						<v8:Type>cfg:EnumRef.упТипыПечатныхФормПутевогоЛиста</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ТранспортноеСредство" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Транспортное средство</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упТранспортныеСредства</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ИспользоватьДополнительныеОтчетыИОбработки" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использовать дополнительные отчеты и обработки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Гараж" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Гараж</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.упГаражи</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="НапечататьСразуНаПринтер" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Напечатать сразу на принтер</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПредыдущаяСтраницаСтрока" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Предыдущая страница строка</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>СписокТранспортныхСредствДействует</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СписокТранспортныхСредствДействуетТекст</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">СписокТранспортныхСредств.Действует</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:decimal">1</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:упЦветРамкиНевыбранногоКонтейнера</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Норма</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>СписокТранспортныхСредствДействует</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СписокТранспортныхСредствДействуетТекст</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">СписокТранспортныхСредств.Действует</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:decimal">2</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:упЦветРамкиНевыбранногоКонтейнера</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Скоро подойдет окончание срока действия</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>СписокТранспортныхСредствДействует</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СписокТранспортныхСредствДействуетТекст</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">СписокТранспортныхСредств.Действует</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:decimal">4</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:упЦветРамкиНевыбранногоКонтейнера</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Нет документов или просрочены</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="ОтборТСПодобратьТС" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подобрать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подобрать ТС</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОтборТСПодобратьТС</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="СписокТСФормированиеПутевыхЛистов" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Формирование путевых листов</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сформировать путевые листы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СписокТСФормированиеПутевыхЛистов</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="СписокТСПечатьДокументов" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Печать документов</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Печать документов</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Print</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СписокТСПечатьДокументов</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="СписокТСНазад" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Назад</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Назад</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Shortcut>Ctrl+L</Shortcut>
+			<Picture>
+				<xr:Ref>StdPicture.Back</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СписокТСНазад</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПутевыеЛистыНазад" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Назад</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Назад</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Shortcut>Ctrl+L</Shortcut>
+			<Picture>
+				<xr:Ref>StdPicture.Back</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ПутевыеЛистыНазад</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПутевыеЛистыПечатьДокументов" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Печать документов</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Печать документов</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Print</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ПутевыеЛистыПечатьДокументов</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПечатьДокументовНазад" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Назад</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Назад</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Shortcut>Ctrl+L</Shortcut>
+			<Picture>
+				<xr:Ref>StdPicture.Back</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ПечатьДокументовНазад</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="СписокТСОтметитьВсе" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список ТСОтметить все</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить флажки у всех строк</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СписокТСОтметитьВсе</Action>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="СписокТССнятьВсе" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять все</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять флажки у всех строк</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.UncheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СписокТССнятьВсе</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПутевыеЛистыОтметитьВсе" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отметить все</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить флажки у всех строк</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ПутевыеЛистыОтметитьВсе</Action>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПутевыеЛистыСнятьВсе" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять все</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять флажки у всех строк</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.UncheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ПутевыеЛистыСнятьВсе</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ВыдатьПутевыеЛисты" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выдать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выдать путевые листы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ВыдатьПутевыеЛисты</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПечатьДокументовОтметитьВсе" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отметить все</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить флажки у всех строк</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ПечатьДокументовОтметитьВсе</Action>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПечатьДокументовСнятьВсе" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять все</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять флажки у всех строк</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.UncheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ПечатьДокументовСнятьВсе</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПечатьПутевогоЛистаПоУмолчанию" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Печать (по умолч)</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Печать путевого листа по умолчанию</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Print</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ПечатьПутевогоЛистаПоУмолчанию</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ОтменитьПутевыеЛисты" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отменить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отменить путевые листы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОтменитьПутевыеЛисты</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+	<Parameters>
+		<Parameter name="Гараж">
+			<Type>
+				<v8:Type>cfg:CatalogRef.упГаражи</v8:Type>
+			</Type>
+		</Parameter>
+	</Parameters>
+</Form>

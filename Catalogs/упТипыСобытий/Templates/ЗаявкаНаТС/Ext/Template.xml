@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Ссылка</dataPath>
+			<field>Ссылка</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТипТС</dataPath>
+			<field>ТипТС</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Соглашение</dataPath>
+			<field>Соглашение</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Тендер</dataPath>
+			<field>Тендер</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПометкаУдаления</dataPath>
+			<field>ПометкаУдаления</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТемпературныйРежим</dataPath>
+			<field>ТемпературныйРежим</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоЗагрузочныхМетров</dataPath>
+			<field>КоличествоЗагрузочныхМетров</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МаксимальнаяВысота</dataPath>
+			<field>МаксимальнаяВысота</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОценочнаяСтоимость</dataPath>
+			<field>ОценочнаяСтоимость</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МаксимальнаяДлина</dataPath>
+			<field>МаксимальнаяДлина</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КонтрагентПеревозчика</dataPath>
+			<field>КонтрагентПеревозчика</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Перевозчик</dataPath>
+			<field>Перевозчик</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоМест</dataPath>
+			<field>КоличествоМест</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Дата</dataPath>
+			<field>Дата</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>БеречьОтВлаги</dataPath>
+			<field>БеречьОтВлаги</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Комментарий</dataPath>
+			<field>Комментарий</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОкончаниеРейса</dataPath>
+			<field>ОкончаниеРейса</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НачалоРейса</dataPath>
+			<field>НачалоРейса</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номер</dataPath>
+			<field>Номер</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Проведен</dataPath>
+			<field>Проведен</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>БеречьОтИзлучения</dataPath>
+			<field>БеречьОтИзлучения</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>БеречьОтНагрева</dataPath>
+			<field>БеречьОтНагрева</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Масса</dataPath>
+			<field>Масса</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КлассОпасности</dataPath>
+			<field>КлассОпасности</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Хрупкий</dataPath>
+			<field>Хрупкий</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Рейс</dataPath>
+			<field>Рейс</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МаксимальнаяШирина</dataPath>
+			<field>МаксимальнаяШирина</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Статус</dataPath>
+			<field>Статус</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Объем</dataPath>
+			<field>Объем</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Этап</dataPath>
+			<field>Этап</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	упЗаявкаНаТС.Ссылка,
+	упЗаявкаНаТС.ПометкаУдаления,
+	упЗаявкаНаТС.Номер,
+	упЗаявкаНаТС.Дата,
+	упЗаявкаНаТС.Проведен,
+	упЗаявкаНаТС.БеречьОтВлаги,
+	упЗаявкаНаТС.БеречьОтИзлучения,
+	упЗаявкаНаТС.БеречьОтНагрева,
+	упЗаявкаНаТС.КлассОпасности,
+	упЗаявкаНаТС.КоличествоЗагрузочныхМетров,
+	упЗаявкаНаТС.КоличествоМест,
+	упЗаявкаНаТС.Комментарий,
+	упЗаявкаНаТС.КонтрагентПеревозчика,
+	упЗаявкаНаТС.МаксимальнаяВысота,
+	упЗаявкаНаТС.МаксимальнаяДлина,
+	упЗаявкаНаТС.МаксимальнаяШирина,
+	упЗаявкаНаТС.Масса,
+	упЗаявкаНаТС.НачалоРейса,
+	упЗаявкаНаТС.Объем,
+	упЗаявкаНаТС.ОкончаниеРейса,
+	упЗаявкаНаТС.ОценочнаяСтоимость,
+	упЗаявкаНаТС.Перевозчик,
+	упЗаявкаНаТС.Рейс,
+	упЗаявкаНаТС.Соглашение,
+	упЗаявкаНаТС.ТемпературныйРежим,
+	упЗаявкаНаТС.Тендер,
+	упЗаявкаНаТС.ТипТС,
+	упЗаявкаНаТС.Хрупкий,
+	упЗаявкаНаТС.Этап,
+	ЕСТЬNULL(упСтатусыЗаявокНаТССрезПоследних.Статус, ЗНАЧЕНИЕ(Перечисление.упСтатусыЗаявкиНаТС.Создана)) КАК Статус
+ИЗ
+	Документ.упЗаявкаНаТС КАК упЗаявкаНаТС
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упСтатусыЗаявокНаТС.СрезПоследних КАК упСтатусыЗаявокНаТССрезПоследних
+		ПО (упСтатусыЗаявокНаТССрезПоследних.Документ = упЗаявкаНаТС.Ссылка)</query>
+	</dataSet>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Ссылка</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

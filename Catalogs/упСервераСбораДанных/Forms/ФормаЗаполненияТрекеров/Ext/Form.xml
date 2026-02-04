@@ -1,0 +1,1508 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Pages name="ГруппаСтраницы" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<PagesRepresentation>None</PagesRepresentation>
+			<ExtendedTooltip name="ГруппаСтраницыРасширеннаяПодсказка" id="4"/>
+			<Events>
+				<Event name="OnCurrentPageChange">ГруппаСтраницыПриСменеСтраницы</Event>
+			</Events>
+			<ChildItems>
+				<Page name="СтраницаЭтап1" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница этап1</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница этап1</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаЭтап1РасширеннаяПодсказка" id="6"/>
+					<ChildItems>
+						<LabelDecoration name="Декорация1" id="56">
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Для получения списка трекеров с сервера мониторинга запустите команду «Заполнить с сервера». В списке ниже будут отображены данные установленных трекеров сервиса мониторинга</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="Декорация1КонтекстноеМеню" id="57"/>
+							<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="58"/>
+						</LabelDecoration>
+						<Table name="СписокТрекеров" id="7">
+							<Representation>List</Representation>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>СписокТрекеров</DataPath>
+							<CommandSet>
+								<ExcludedCommand>Add</ExcludedCommand>
+								<ExcludedCommand>CancelSearch</ExcludedCommand>
+								<ExcludedCommand>Change</ExcludedCommand>
+								<ExcludedCommand>Copy</ExcludedCommand>
+								<ExcludedCommand>Delete</ExcludedCommand>
+								<ExcludedCommand>EndEdit</ExcludedCommand>
+							</CommandSet>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="СписокТрекеровКонтекстноеМеню" id="8"/>
+							<AutoCommandBar name="СписокТрекеровКоманднаяПанель" id="9">
+								<ChildItems>
+									<Button name="СписокТрекеровЗаполнитьССервера" id="41">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ЗаполнитьССервера</CommandName>
+										<ExtendedTooltip name="СписокТрекеровЗаполнитьССервераРасширеннаяПодсказка" id="42"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="СписокТрекеровРасширеннаяПодсказка" id="10"/>
+							<SearchStringAddition name="СписокТрекеровСтрокаПоиска" id="11">
+								<AdditionSource>
+									<Item>СписокТрекеров</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокТрекеровСтрокаПоискаКонтекстноеМеню" id="12"/>
+								<ExtendedTooltip name="СписокТрекеровСтрокаПоискаРасширеннаяПодсказка" id="13"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СписокТрекеровСостояниеПросмотра" id="14">
+								<AdditionSource>
+									<Item>СписокТрекеров</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокТрекеровСостояниеПросмотраКонтекстноеМеню" id="15"/>
+								<ExtendedTooltip name="СписокТрекеровСостояниеПросмотраРасширеннаяПодсказка" id="16"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СписокТрекеровУправлениеПоиском" id="17">
+								<AdditionSource>
+									<Item>СписокТрекеров</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокТрекеровУправлениеПоискомКонтекстноеМеню" id="18"/>
+								<ExtendedTooltip name="СписокТрекеровУправлениеПоискомРасширеннаяПодсказка" id="19"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<InputField name="СписокТрекеровID" id="20">
+									<DataPath>СписокТрекеров.ID</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СписокТрекеровIDКонтекстноеМеню" id="21"/>
+									<ExtendedTooltip name="СписокТрекеровIDРасширеннаяПодсказка" id="22"/>
+								</InputField>
+								<InputField name="СписокТрекеровПредставление" id="23">
+									<DataPath>СписокТрекеров.Представление</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СписокТрекеровПредставлениеКонтекстноеМеню" id="24"/>
+									<ExtendedTooltip name="СписокТрекеровПредставлениеРасширеннаяПодсказка" id="25"/>
+								</InputField>
+								<InputField name="СписокТрекеровТелефон" id="26">
+									<DataPath>СписокТрекеров.Телефон</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СписокТрекеровТелефонКонтекстноеМеню" id="27"/>
+									<ExtendedTooltip name="СписокТрекеровТелефонРасширеннаяПодсказка" id="28"/>
+								</InputField>
+								<InputField name="СписокТрекеровОписание" id="29">
+									<DataPath>СписокТрекеров.Описание</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СписокТрекеровОписаниеКонтекстноеМеню" id="30"/>
+									<ExtendedTooltip name="СписокТрекеровОписаниеРасширеннаяПодсказка" id="31"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаЭтап2" id="52">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница этап2</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница этап2</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаЭтап2РасширеннаяПодсказка" id="53"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаНастройкиТрекеров" id="67">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Настройки создания трекеров</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа настройки трекеров</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<ExtendedTooltip name="ГруппаНастройкиТрекеровРасширеннаяПодсказка" id="68"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаШаблонИмени" id="163">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа шаблон имени</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа шаблон имени</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>AlwaysHorizontal</Group>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаШаблонИмениРасширеннаяПодсказка" id="164"/>
+									<ChildItems>
+										<InputField name="ШаблонИмениТрекера" id="157">
+											<DataPath>ШаблонИмениТрекера</DataPath>
+											<ListChoiceMode>true</ListChoiceMode>
+											<ChoiceList>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>ID_Сервер</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:string">ID_Сервер</Value>
+													</xr:Value>
+												</xr:Item>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>ID_Сервер_Представление</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:string">ID_Сервер_Представление</Value>
+													</xr:Value>
+												</xr:Item>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>ID_Сервер_Представление_Описание</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:string">ID_Сервер_Представление_Описание</Value>
+													</xr:Value>
+												</xr:Item>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>ID_Представление</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:string">ID_Представление</Value>
+													</xr:Value>
+												</xr:Item>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>ID_Представление_Описание</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:string">ID_Представление_Описание</Value>
+													</xr:Value>
+												</xr:Item>
+											</ChoiceList>
+											<ContextMenu name="ШаблонИмениТрекераКонтекстноеМеню" id="158"/>
+											<ExtendedTooltip name="ШаблонИмениТрекераРасширеннаяПодсказка" id="159"/>
+											<Events>
+												<Event name="OnChange">ШаблонИмениТрекераПриИзменении</Event>
+											</Events>
+										</InputField>
+										<LabelDecoration name="Декорация2" id="160">
+											<ContextMenu name="Декорация2КонтекстноеМеню" id="161"/>
+											<ExtendedTooltip name="Декорация2РасширеннаяПодсказка" id="162"/>
+										</LabelDecoration>
+									</ChildItems>
+								</UsualGroup>
+								<InputField name="Модель" id="165">
+									<DataPath>Модель</DataPath>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<ContextMenu name="МодельКонтекстноеМеню" id="166"/>
+									<ExtendedTooltip name="МодельРасширеннаяПодсказка" id="167"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаСписокТрекеров" id="69">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа список трекеров</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа список трекеров</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаСписокТрекеровРасширеннаяПодсказка" id="70"/>
+							<ChildItems>
+								<Table name="СписокТрекеров1" id="71">
+									<Representation>List</Representation>
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<DataPath>СписокТрекеров</DataPath>
+									<CommandSet>
+										<ExcludedCommand>Add</ExcludedCommand>
+										<ExcludedCommand>Change</ExcludedCommand>
+										<ExcludedCommand>Copy</ExcludedCommand>
+										<ExcludedCommand>Delete</ExcludedCommand>
+										<ExcludedCommand>EndEdit</ExcludedCommand>
+									</CommandSet>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="СписокТрекеров1КонтекстноеМеню" id="72"/>
+									<AutoCommandBar name="СписокТрекеров1КоманднаяПанель" id="73">
+										<ChildItems>
+											<ButtonGroup name="СписокТрекеров1Группа1" id="147">
+												<ExtendedTooltip name="СписокТрекеров1Группа1РасширеннаяПодсказка" id="148"/>
+												<ChildItems>
+													<Button name="СписокТрекеров1УстановитьПометки" id="149">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command.УстановитьПометки</CommandName>
+														<ExtendedTooltip name="СписокТрекеров1УстановитьПометкиРасширеннаяПодсказка" id="150"/>
+													</Button>
+													<Button name="СписокТрекеров1СнятьПометки" id="151">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command.СнятьПометки</CommandName>
+														<ExtendedTooltip name="СписокТрекеров1СнятьПометкиРасширеннаяПодсказка" id="152"/>
+													</Button>
+												</ChildItems>
+											</ButtonGroup>
+											<Button name="СписокТрекеров1НайтиТрекеры" id="153">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.НайтиТрекеры</CommandName>
+												<ExtendedTooltip name="СписокТрекеров1НайтиТрекерыРасширеннаяПодсказка" id="154"/>
+											</Button>
+											<Button name="СписокТрекеров1СоздатьТрекеры" id="155">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.СоздатьТрекеры</CommandName>
+												<ExtendedTooltip name="СписокТрекеров1СоздатьТрекерыРасширеннаяПодсказка" id="156"/>
+											</Button>
+										</ChildItems>
+									</AutoCommandBar>
+									<ExtendedTooltip name="СписокТрекеров1РасширеннаяПодсказка" id="74"/>
+									<SearchStringAddition name="СписокТрекеров1СтрокаПоиска" id="75">
+										<AdditionSource>
+											<Item>СписокТрекеров1</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="СписокТрекеров1СтрокаПоискаКонтекстноеМеню" id="76"/>
+										<ExtendedTooltip name="СписокТрекеров1СтрокаПоискаРасширеннаяПодсказка" id="77"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="СписокТрекеров1СостояниеПросмотра" id="78">
+										<AdditionSource>
+											<Item>СписокТрекеров1</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="СписокТрекеров1СостояниеПросмотраКонтекстноеМеню" id="79"/>
+										<ExtendedTooltip name="СписокТрекеров1СостояниеПросмотраРасширеннаяПодсказка" id="80"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="СписокТрекеров1УправлениеПоиском" id="81">
+										<AdditionSource>
+											<Item>СписокТрекеров1</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="СписокТрекеров1УправлениеПоискомКонтекстноеМеню" id="82"/>
+										<ExtendedTooltip name="СписокТрекеров1УправлениеПоискомРасширеннаяПодсказка" id="83"/>
+									</SearchControlAddition>
+									<ChildItems>
+										<CheckBoxField name="СписокТрекеровПометка1" id="96">
+											<DataPath>СписокТрекеров.Пометка</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="СписокТрекеровПометка1КонтекстноеМеню" id="97"/>
+											<ExtendedTooltip name="СписокТрекеровПометка1РасширеннаяПодсказка" id="98"/>
+										</CheckBoxField>
+										<InputField name="СписокТрекеровID1" id="84">
+											<DataPath>СписокТрекеров.ID</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="СписокТрекеровID1КонтекстноеМеню" id="85"/>
+											<ExtendedTooltip name="СписокТрекеровID1РасширеннаяПодсказка" id="86"/>
+										</InputField>
+										<InputField name="СписокТрекеровПредставление1" id="87">
+											<DataPath>СписокТрекеров.Представление</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="СписокТрекеровПредставление1КонтекстноеМеню" id="88"/>
+											<ExtendedTooltip name="СписокТрекеровПредставление1РасширеннаяПодсказка" id="89"/>
+										</InputField>
+										<InputField name="СписокТрекеровТелефон1" id="90">
+											<DataPath>СписокТрекеров.Телефон</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="СписокТрекеровТелефон1КонтекстноеМеню" id="91"/>
+											<ExtendedTooltip name="СписокТрекеровТелефон1РасширеннаяПодсказка" id="92"/>
+										</InputField>
+										<InputField name="СписокТрекеровОписание1" id="93">
+											<DataPath>СписокТрекеров.Описание</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="СписокТрекеровОписание1КонтекстноеМеню" id="94"/>
+											<ExtendedTooltip name="СписокТрекеровОписание1РасширеннаяПодсказка" id="95"/>
+										</InputField>
+										<InputField name="СписокТрекеровТрекер1" id="99">
+											<DataPath>СписокТрекеров.Трекер</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="СписокТрекеровТрекер1КонтекстноеМеню" id="100"/>
+											<ExtendedTooltip name="СписокТрекеровТрекер1РасширеннаяПодсказка" id="101"/>
+										</InputField>
+									</ChildItems>
+								</Table>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаЭтап3" id="54">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница этап3</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница этап3</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаЭтап3РасширеннаяПодсказка" id="55"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаНастройкаТС" id="102">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Параметры установки трекеров на транспортные средства</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа настройка ТС</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<ExtendedTooltip name="ГруппаНастройкаТСРасширеннаяПодсказка" id="103"/>
+							<ChildItems>
+								<LabelDecoration name="Декорация5" id="256">
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Выберите устройства которые соответствуют транспортным средствам, если устройства не сопоставлены с транспортными средствами, выберите транспортное средство в строки, выполните команду "Установить трекеры на транспортные средства", на следующем этапе к транспортным средствам можно будет "привязать" датчики</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="Декорация5КонтекстноеМеню" id="257"/>
+									<ExtendedTooltip name="Декорация5РасширеннаяПодсказка" id="258"/>
+								</LabelDecoration>
+								<InputField name="ДатаУстановки" id="140">
+									<DataPath>ДатаУстановки</DataPath>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Укажите дату с которой установлены трекеры на транспортные средства</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ContextMenu name="ДатаУстановкиКонтекстноеМеню" id="141"/>
+									<ExtendedTooltip name="ДатаУстановкиРасширеннаяПодсказка" id="142"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаСписокТрекеровТС" id="104">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа список трекеров ТС</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа список трекеров ТС</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаСписокТрекеровТСРасширеннаяПодсказка" id="105"/>
+							<ChildItems>
+								<Table name="СписокТрекеров2" id="106">
+									<Representation>List</Representation>
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<DataPath>СписокТрекеров</DataPath>
+									<CommandSet>
+										<ExcludedCommand>Add</ExcludedCommand>
+										<ExcludedCommand>Change</ExcludedCommand>
+										<ExcludedCommand>Copy</ExcludedCommand>
+										<ExcludedCommand>Delete</ExcludedCommand>
+										<ExcludedCommand>EndEdit</ExcludedCommand>
+									</CommandSet>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="СписокТрекеров2КонтекстноеМеню" id="107"/>
+									<AutoCommandBar name="СписокТрекеров2КоманднаяПанель" id="108">
+										<ChildItems>
+											<ButtonGroup name="СписокТрекеров2Группа1" id="170">
+												<ExtendedTooltip name="СписокТрекеров2Группа1РасширеннаяПодсказка" id="171"/>
+												<ChildItems>
+													<Button name="СписокТрекеров2УстановитьПометки" id="172">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command.УстановитьПометки</CommandName>
+														<ExtendedTooltip name="СписокТрекеров2УстановитьПометкиРасширеннаяПодсказка" id="173"/>
+													</Button>
+													<Button name="СписокТрекеров2СнятьПометки" id="174">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command.СнятьПометки</CommandName>
+														<ExtendedTooltip name="СписокТрекеров2СнятьПометкиРасширеннаяПодсказка" id="175"/>
+													</Button>
+												</ChildItems>
+											</ButtonGroup>
+											<Button name="СписокТрекеров2УстановитьТрекерыНаТС" id="168">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.УстановитьТрекерыНаТС</CommandName>
+												<ExtendedTooltip name="СписокТрекеров2УстановитьТрекерыНаТСРасширеннаяПодсказка" id="169"/>
+											</Button>
+										</ChildItems>
+									</AutoCommandBar>
+									<ExtendedTooltip name="СписокТрекеров2РасширеннаяПодсказка" id="109"/>
+									<SearchStringAddition name="СписокТрекеров2СтрокаПоиска" id="110">
+										<AdditionSource>
+											<Item>СписокТрекеров2</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="СписокТрекеров2СтрокаПоискаКонтекстноеМеню" id="111"/>
+										<ExtendedTooltip name="СписокТрекеров2СтрокаПоискаРасширеннаяПодсказка" id="112"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="СписокТрекеров2СостояниеПросмотра" id="113">
+										<AdditionSource>
+											<Item>СписокТрекеров2</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="СписокТрекеров2СостояниеПросмотраКонтекстноеМеню" id="114"/>
+										<ExtendedTooltip name="СписокТрекеров2СостояниеПросмотраРасширеннаяПодсказка" id="115"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="СписокТрекеров2УправлениеПоиском" id="116">
+										<AdditionSource>
+											<Item>СписокТрекеров2</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="СписокТрекеров2УправлениеПоискомКонтекстноеМеню" id="117"/>
+										<ExtendedTooltip name="СписокТрекеров2УправлениеПоискомРасширеннаяПодсказка" id="118"/>
+									</SearchControlAddition>
+									<ChildItems>
+										<CheckBoxField name="СписокТрекеров2Пометка" id="131">
+											<DataPath>СписокТрекеров.Пометка</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="СписокТрекеров2ПометкаКонтекстноеМеню" id="132"/>
+											<ExtendedTooltip name="СписокТрекеров2ПометкаРасширеннаяПодсказка" id="133"/>
+										</CheckBoxField>
+										<InputField name="СписокТрекеров2ID" id="119">
+											<DataPath>СписокТрекеров.ID</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="СписокТрекеров2IDКонтекстноеМеню" id="120"/>
+											<ExtendedTooltip name="СписокТрекеров2IDРасширеннаяПодсказка" id="121"/>
+										</InputField>
+										<InputField name="СписокТрекеров2Представление" id="122">
+											<DataPath>СписокТрекеров.Представление</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="СписокТрекеров2ПредставлениеКонтекстноеМеню" id="123"/>
+											<ExtendedTooltip name="СписокТрекеров2ПредставлениеРасширеннаяПодсказка" id="124"/>
+										</InputField>
+										<InputField name="СписокТрекеров2Телефон" id="125">
+											<DataPath>СписокТрекеров.Телефон</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="СписокТрекеров2ТелефонКонтекстноеМеню" id="126"/>
+											<ExtendedTooltip name="СписокТрекеров2ТелефонРасширеннаяПодсказка" id="127"/>
+										</InputField>
+										<InputField name="СписокТрекеров2Описание" id="128">
+											<DataPath>СписокТрекеров.Описание</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="СписокТрекеров2ОписаниеКонтекстноеМеню" id="129"/>
+											<ExtendedTooltip name="СписокТрекеров2ОписаниеРасширеннаяПодсказка" id="130"/>
+										</InputField>
+										<InputField name="СписокТрекеров2Трекер" id="134">
+											<DataPath>СписокТрекеров.Трекер</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="СписокТрекеров2ТрекерКонтекстноеМеню" id="135"/>
+											<ExtendedTooltip name="СписокТрекеров2ТрекерРасширеннаяПодсказка" id="136"/>
+										</InputField>
+										<InputField name="СписокТрекеров2ТранспортноеСредство" id="137">
+											<DataPath>СписокТрекеров.ТранспортноеСредство</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="СписокТрекеров2ТранспортноеСредствоКонтекстноеМеню" id="138"/>
+											<ExtendedTooltip name="СписокТрекеров2ТранспортноеСредствоРасширеннаяПодсказка" id="139"/>
+										</InputField>
+									</ChildItems>
+								</Table>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаЭтап4" id="176">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница этап4</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница этап4</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаЭтап4РасширеннаяПодсказка" id="177"/>
+					<ChildItems>
+						<LabelDecoration name="Декорация4" id="253">
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Выберите трекеры для которых нужно выполнить запрос на сервер для получения списка датчиков, выполните команду "Получить с сервера", после получения списка датчиков, нужно будет выбрать назначения датчиков.</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="Декорация4КонтекстноеМеню" id="254"/>
+							<ExtendedTooltip name="Декорация4РасширеннаяПодсказка" id="255"/>
+						</LabelDecoration>
+						<Table name="СписокТрекеров3" id="178">
+							<Representation>List</Representation>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>СписокТрекеров</DataPath>
+							<CommandSet>
+								<ExcludedCommand>Add</ExcludedCommand>
+								<ExcludedCommand>Change</ExcludedCommand>
+								<ExcludedCommand>Copy</ExcludedCommand>
+								<ExcludedCommand>Delete</ExcludedCommand>
+								<ExcludedCommand>EndEdit</ExcludedCommand>
+							</CommandSet>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="СписокТрекеров3КонтекстноеМеню" id="179"/>
+							<AutoCommandBar name="СписокТрекеров3КоманднаяПанель" id="180">
+								<ChildItems>
+									<ButtonGroup name="СписокТрекеров3Группа1" id="212">
+										<ExtendedTooltip name="СписокТрекеров3Группа1РасширеннаяПодсказка" id="213"/>
+										<ChildItems>
+											<Button name="СписокТрекеров3УстановитьПометки" id="214">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.УстановитьПометки</CommandName>
+												<ExtendedTooltip name="СписокТрекеров3УстановитьПометкиРасширеннаяПодсказка" id="215"/>
+											</Button>
+											<Button name="СписокТрекеров3СнятьПометки" id="216">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.СнятьПометки</CommandName>
+												<ExtendedTooltip name="СписокТрекеров3СнятьПометкиРасширеннаяПодсказка" id="217"/>
+											</Button>
+										</ChildItems>
+									</ButtonGroup>
+									<Button name="СписокТрекеров3ПолучиьССервера" id="218">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ПолучиьССервера</CommandName>
+										<ExtendedTooltip name="СписокТрекеров3ПолучиьССервераРасширеннаяПодсказка" id="219"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="СписокТрекеров3РасширеннаяПодсказка" id="181"/>
+							<SearchStringAddition name="СписокТрекеров3СтрокаПоиска" id="182">
+								<AdditionSource>
+									<Item>СписокТрекеров3</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокТрекеров3СтрокаПоискаКонтекстноеМеню" id="183"/>
+								<ExtendedTooltip name="СписокТрекеров3СтрокаПоискаРасширеннаяПодсказка" id="184"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СписокТрекеров3СостояниеПросмотра" id="185">
+								<AdditionSource>
+									<Item>СписокТрекеров3</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокТрекеров3СостояниеПросмотраКонтекстноеМеню" id="186"/>
+								<ExtendedTooltip name="СписокТрекеров3СостояниеПросмотраРасширеннаяПодсказка" id="187"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СписокТрекеров3УправлениеПоиском" id="188">
+								<AdditionSource>
+									<Item>СписокТрекеров3</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокТрекеров3УправлениеПоискомКонтекстноеМеню" id="189"/>
+								<ExtendedTooltip name="СписокТрекеров3УправлениеПоискомРасширеннаяПодсказка" id="190"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<CheckBoxField name="СписокТрекеров3Пометка" id="203">
+									<DataPath>СписокТрекеров.Пометка</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="СписокТрекеров3ПометкаКонтекстноеМеню" id="204"/>
+									<ExtendedTooltip name="СписокТрекеров3ПометкаРасширеннаяПодсказка" id="205"/>
+								</CheckBoxField>
+								<InputField name="СписокТрекеров3ID" id="191">
+									<DataPath>СписокТрекеров.ID</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СписокТрекеров3IDКонтекстноеМеню" id="192"/>
+									<ExtendedTooltip name="СписокТрекеров3IDРасширеннаяПодсказка" id="193"/>
+								</InputField>
+								<InputField name="СписокТрекеров3Представление" id="194">
+									<DataPath>СписокТрекеров.Представление</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СписокТрекеров3ПредставлениеКонтекстноеМеню" id="195"/>
+									<ExtendedTooltip name="СписокТрекеров3ПредставлениеРасширеннаяПодсказка" id="196"/>
+								</InputField>
+								<InputField name="СписокТрекеров3Трекер" id="206">
+									<DataPath>СписокТрекеров.Трекер</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СписокТрекеров3ТрекерКонтекстноеМеню" id="207"/>
+									<ExtendedTooltip name="СписокТрекеров3ТрекерРасширеннаяПодсказка" id="208"/>
+								</InputField>
+								<InputField name="СписокТрекеров3ТранспортноеСредство" id="209">
+									<DataPath>СписокТрекеров.ТранспортноеСредство</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СписокТрекеров3ТранспортноеСредствоКонтекстноеМеню" id="210"/>
+									<ExtendedTooltip name="СписокТрекеров3ТранспортноеСредствоРасширеннаяПодсказка" id="211"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаЭтап5" id="220">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница этап5</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница этап5</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаЭтап5РасширеннаяПодсказка" id="221"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаПараметрыДатчиков" id="245">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Параметры датчиков</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа параметры датчиков</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<ExtendedTooltip name="ГруппаПараметрыДатчиковРасширеннаяПодсказка" id="246"/>
+							<ChildItems>
+								<LabelDecoration name="Декорация3" id="250">
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Укажите сопоставление для типов датчиков, укажите дату установки датчиков, выполните команду "Создать датчики", в регистр сведений датчики транспортных средств будут добавлены записи для датчиков.</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="Декорация3КонтекстноеМеню" id="251"/>
+									<ExtendedTooltip name="Декорация3РасширеннаяПодсказка" id="252"/>
+								</LabelDecoration>
+								<InputField name="ДатаУстановкиДатчика" id="247">
+									<DataPath>ДатаУстановкиДатчика</DataPath>
+									<ContextMenu name="ДатаУстановкиДатчикаКонтекстноеМеню" id="248"/>
+									<ExtendedTooltip name="ДатаУстановкиДатчикаРасширеннаяПодсказка" id="249"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаТипыДатчиков" id="222">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа типы датчиков</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа типы датчиков</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаТипыДатчиковРасширеннаяПодсказка" id="223"/>
+							<ChildItems>
+								<Table name="СписокТипыДатчиков" id="224">
+									<Representation>List</Representation>
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<DataPath>СписокТипыДатчиков</DataPath>
+									<CommandSet>
+										<ExcludedCommand>Add</ExcludedCommand>
+										<ExcludedCommand>Change</ExcludedCommand>
+										<ExcludedCommand>Copy</ExcludedCommand>
+										<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+										<ExcludedCommand>Delete</ExcludedCommand>
+										<ExcludedCommand>EndEdit</ExcludedCommand>
+									</CommandSet>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="СписокТипыДатчиковКонтекстноеМеню" id="225"/>
+									<AutoCommandBar name="СписокТипыДатчиковКоманднаяПанель" id="226">
+										<ChildItems>
+											<Button name="СписокТипыДатчиковСоздатьДатчики" id="243">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.СоздатьДатчики</CommandName>
+												<ExtendedTooltip name="СписокТипыДатчиковСоздатьДатчикиРасширеннаяПодсказка" id="244"/>
+											</Button>
+										</ChildItems>
+									</AutoCommandBar>
+									<ExtendedTooltip name="СписокТипыДатчиковРасширеннаяПодсказка" id="227"/>
+									<SearchStringAddition name="СписокТипыДатчиковСтрокаПоиска" id="228">
+										<AdditionSource>
+											<Item>СписокТипыДатчиков</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="СписокТипыДатчиковСтрокаПоискаКонтекстноеМеню" id="229"/>
+										<ExtendedTooltip name="СписокТипыДатчиковСтрокаПоискаРасширеннаяПодсказка" id="230"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="СписокТипыДатчиковСостояниеПросмотра" id="231">
+										<AdditionSource>
+											<Item>СписокТипыДатчиков</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="СписокТипыДатчиковСостояниеПросмотраКонтекстноеМеню" id="232"/>
+										<ExtendedTooltip name="СписокТипыДатчиковСостояниеПросмотраРасширеннаяПодсказка" id="233"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="СписокТипыДатчиковУправлениеПоиском" id="234">
+										<AdditionSource>
+											<Item>СписокТипыДатчиков</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="СписокТипыДатчиковУправлениеПоискомКонтекстноеМеню" id="235"/>
+										<ExtendedTooltip name="СписокТипыДатчиковУправлениеПоискомРасширеннаяПодсказка" id="236"/>
+									</SearchControlAddition>
+									<ChildItems>
+										<InputField name="СписокТипыДатчиковТипДатчика" id="237">
+											<DataPath>СписокТипыДатчиков.Тип</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="СписокТипыДатчиковТипДатчикаКонтекстноеМеню" id="238"/>
+											<ExtendedTooltip name="СписокТипыДатчиковТипДатчикаРасширеннаяПодсказка" id="239"/>
+										</InputField>
+										<InputField name="СписокТипыДатчиковНазначение" id="240">
+											<DataPath>СписокТипыДатчиков.Назначение</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="СписокТипыДатчиковНазначениеКонтекстноеМеню" id="241"/>
+											<ExtendedTooltip name="СписокТипыДатчиковНазначениеРасширеннаяПодсказка" id="242"/>
+										</InputField>
+									</ChildItems>
+								</Table>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+		<UsualGroup name="ГруппаКоманд" id="59">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа команд</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа команд</v8:content>
+				</v8:item>
+			</ToolTip>
+			<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаКомандРасширеннаяПодсказка" id="60"/>
+			<ChildItems>
+				<Button name="Назад" id="61">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.Назад</CommandName>
+					<ExtendedTooltip name="НазадРасширеннаяПодсказка" id="62"/>
+				</Button>
+				<Button name="Далее" id="63">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.Далее</CommandName>
+					<ExtendedTooltip name="ДалееРасширеннаяПодсказка" id="64"/>
+				</Button>
+				<Button name="Завершить" id="65">
+					<Type>UsualButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<CommandName>Form.Command.Завершить</CommandName>
+					<ExtendedTooltip name="ЗавершитьРасширеннаяПодсказка" id="66"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="СписокТрекеров" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список трекеров</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="ID" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Уникальный идентификатор устройства(трекера)</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>50</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Представление" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Представление</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Телефон" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Телефон</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>30</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Описание" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Описание</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>100</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Пометка" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пометка</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Трекер" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Трекер</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упМобильныеУстройстваИТрекеры</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ТранспортноеСредство" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Транспортное средство</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упТранспортныеСредства</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="СерверСбораДанных" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сервер сбора данных</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.упСервераСбораДанных</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Сервер" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сервер</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>25</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Порт" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Порт</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>6</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Пользователь" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пользователь</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>25</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Пароль" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пароль</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>25</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗащищенноеСоединение" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Защищенное соединение SSL (HTTPS)</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ДатаУстановки" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата установки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ШаблонИмениТрекера" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Шаблон имени трекера</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Модель" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Модель трекера</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.упМоделиТрекеров</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Тип" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.упТипСервераСбораДанных</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Токен" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Токен</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>100</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ФлагДействия" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Флаг действия</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СписокДатчиков" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список датчиков</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Трекер" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Трекер</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упМобильныеУстройстваИТрекеры</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ТранспортноеСредство" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Транспортное средство</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упТранспортныеСредства</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ID" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Уникальный идентификатор датчика</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>50</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Наименование" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Наименование</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>150</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Тип" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тип датчика</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>30</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="СписокТипыДатчиков" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список типы датчиков</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Тип" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тип датчика</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>30</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Назначение" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Назначение</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упНазначенияДатчиков</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ДатаУстановкиДатчика" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата установки датчика</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ЗаполнитьССервера" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить с сервера</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить с сервера</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ЗаполнитьССервера</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="УстановитьПометки" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить пометки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить пометки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>УстановитьПометки</Action>
+			<Representation>Picture</Representation>
+		</Command>
+		<Command name="СнятьПометки" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять пометки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять пометки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.UncheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СнятьПометки</Action>
+			<Representation>Picture</Representation>
+		</Command>
+		<Command name="Назад" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Назад</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Назад</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Назад</Action>
+		</Command>
+		<Command name="Далее" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Далее</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Далее</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Далее</Action>
+		</Command>
+		<Command name="Завершить" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Завершить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Завершить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Завершить</Action>
+		</Command>
+		<Command name="НайтиТрекеры" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Найти трекеры</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Найти трекеры</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.SyncContents</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>НайтиТрекеры</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="СоздатьТрекеры" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать трекеры</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать трекеры</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CreateListItem</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СоздатьТрекеры</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="УстановитьТрекерыНаТС" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить трекеры на транспортные средства</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить трекеры на выбранные транспортные средства</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.упВыборТранспортныхСредств</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>УстановитьТрекерыНаТС</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="ПолучиьССервера" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Получить с сервера</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Получиь с сервера</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ПолучиьССервера</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="СоздатьДатчики" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать датчики</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать датчики</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CreateListItem</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СоздатьДатчики</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+	</Commands>
+</Form>

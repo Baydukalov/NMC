@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НачальнаяДолгота</dataPath>
+			<field>НачальнаяДолгота</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КонечнаяДолгота</dataPath>
+			<field>КонечнаяДолгота</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НачальнаяШирота</dataPath>
+			<field>НачальнаяШирота</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КонечнаяШирота</dataPath>
+			<field>КонечнаяШирота</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗонаПолучения</dataPath>
+			<field>ЗонаПолучения</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Зона получения</v8:content>
+				</v8:item>
+			</title>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗонаОтправления</dataPath>
+			<field>ЗонаОтправления</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Зона отправления</v8:content>
+				</v8:item>
+			</title>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПопыткаРасчета</dataPath>
+			<field>ПопыткаРасчета</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаИзменения</dataPath>
+			<field>ДатаИзменения</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Ошибка</dataPath>
+			<field>Ошибка</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АвтоматическийРасчет</dataPath>
+			<field>АвтоматическийРасчет</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПытатьсяРассчитатьСнова</dataPath>
+			<field>ПытатьсяРассчитатьСнова</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Ограничение</dataPath>
+			<field>Ограничение</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АдресОтправления</dataPath>
+			<field>АдресОтправления</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Адрес отправления</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АдресПолучения</dataPath>
+			<field>АдресПолучения</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Адрес получения</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	упАдреса1.Ссылка КАК АдресОтправления,
+	упАдреса1.Широта КАК ШиротаОтправления,
+	упАдреса1.Долгота КАК ДолготаОтправления,
+	упАдреса1.ГеографическаяЗона КАК ЗонаОтправления,
+	упАдреса2.Ссылка КАК АдресПолучения,
+	упАдреса2.Широта КАК ШиротаПолучения,
+	упАдреса2.Долгота КАК ДолготаПолучения,
+	упАдреса2.ГеографическаяЗона КАК ЗонаПолучения
+ПОМЕСТИТЬ втАдреса
+ИЗ
+	Справочник.упАдреса КАК упАдреса1
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.упАдреса КАК упАдреса2
+		ПО упАдреса1.Ссылка &lt;&gt; упАдреса2.Ссылка
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	упРасстоянияМеждуТочками.НачальнаяШирота,
+	упРасстоянияМеждуТочками.НачальнаяДолгота,
+	упРасстоянияМеждуТочками.КонечнаяШирота,
+	упРасстоянияМеждуТочками.КонечнаяДолгота,
+	втАдреса.АдресОтправления,
+	втАдреса.АдресПолучения,
+	втАдреса.ЗонаОтправления,
+	втАдреса.ЗонаПолучения,
+	упРасстоянияМеждуТочками.ПытатьсяРассчитатьСнова,
+	упРасстоянияМеждуТочками.ПопыткаРасчета,
+	упРасстоянияМеждуТочками.ДатаИзменения,
+	упРасстоянияМеждуТочками.АвтоматическийРасчет,
+	упРасстоянияМеждуТочками.Ошибка,
+	упРасстоянияМеждуТочками.Ограничение
+ИЗ
+	втАдреса КАК втАдреса
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.упРасстоянияМеждуТочками КАК упРасстоянияМеждуТочками
+		ПО втАдреса.ШиротаОтправления = упРасстоянияМеждуТочками.НачальнаяШирота
+			И втАдреса.ДолготаОтправления = упРасстоянияМеждуТочками.НачальнаяДолгота
+			И втАдреса.ШиротаПолучения = упРасстоянияМеждуТочками.КонечнаяШирота
+			И втАдреса.ДолготаПолучения = упРасстоянияМеждуТочками.КонечнаяДолгота
+			И (упРасстоянияМеждуТочками.Ограничение = ЗНАЧЕНИЕ(Перечисление.упОграниченияМаршрутизаторов.ПустаяСсылка))</query>
+	</dataSet>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НачальнаяШирота</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НачальнаяДолгота</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КонечнаяШирота</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КонечнаяДолгота</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Ограничение</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

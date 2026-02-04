@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<ChildItems>
+		<Table name="Регистр" id="1">
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<EnableStartDrag>true</EnableStartDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Регистр</DataPath>
+			<RowPictureDataPath>Регистр.DefaultPicture</RowPictureDataPath>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="РегистрКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="РегистрКоманднаяПанель" id="3"/>
+			<ExtendedTooltip name="РегистрРасширеннаяПодсказка" id="4"/>
+			<SearchStringAddition name="РегистрСтрокаПоиска" id="5">
+				<AdditionSource>
+					<Item>Регистр</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="РегистрСтрокаПоискаКонтекстноеМеню" id="6"/>
+				<ExtendedTooltip name="РегистрСтрокаПоискаРасширеннаяПодсказка" id="7"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="РегистрСостояниеПросмотра" id="8">
+				<AdditionSource>
+					<Item>Регистр</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="РегистрСостояниеПросмотраКонтекстноеМеню" id="9"/>
+				<ExtendedTooltip name="РегистрСостояниеПросмотраРасширеннаяПодсказка" id="10"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="РегистрУправлениеПоиском" id="11">
+				<AdditionSource>
+					<Item>Регистр</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="РегистрУправлениеПоискомКонтекстноеМеню" id="12"/>
+				<ExtendedTooltip name="РегистрУправлениеПоискомРасширеннаяПодсказка" id="13"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="Selection">РегистрВыбор</Event>
+			</Events>
+			<ChildItems>
+				<LabelField name="РегистрРегистратор" id="14">
+					<DataPath>Регистр.Recorder</DataPath>
+					<ContextMenu name="РегистрРегистраторКонтекстноеМеню" id="15"/>
+					<ExtendedTooltip name="РегистрРегистраторРасширеннаяПодсказка" id="16"/>
+				</LabelField>
+				<LabelField name="РегистрВалюта" id="17">
+					<DataPath>Регистр.Валюта</DataPath>
+					<ContextMenu name="РегистрВалютаКонтекстноеМеню" id="18"/>
+					<ExtendedTooltip name="РегистрВалютаРасширеннаяПодсказка" id="19"/>
+				</LabelField>
+				<LabelField name="РегистрГруппаТарифов" id="20">
+					<DataPath>Регистр.ГруппаТарифов</DataPath>
+					<ContextMenu name="РегистрГруппаТарифовКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="РегистрГруппаТарифовРасширеннаяПодсказка" id="22"/>
+				</LabelField>
+				<LabelField name="РегистрОрганизация" id="23">
+					<DataPath>Регистр.Организация</DataPath>
+					<ContextMenu name="РегистрОрганизацияКонтекстноеМеню" id="24"/>
+					<ExtendedTooltip name="РегистрОрганизацияРасширеннаяПодсказка" id="25"/>
+				</LabelField>
+				<LabelField name="РегистрПравилоРасчета" id="26">
+					<DataPath>Регистр.ПравилоРасчета</DataPath>
+					<ContextMenu name="РегистрПравилоРасчетаКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="РегистрПравилоРасчетаРасширеннаяПодсказка" id="28"/>
+				</LabelField>
+				<LabelField name="РегистрСтатьяДоходовРасходов" id="29">
+					<DataPath>Регистр.СтатьяДоходовРасходов</DataPath>
+					<ContextMenu name="РегистрСтатьяДоходовРасходовКонтекстноеМеню" id="30"/>
+					<ExtendedTooltip name="РегистрСтатьяДоходовРасходовРасширеннаяПодсказка" id="31"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Регистр" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Регистр</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	упПравилаРасчетаТарифовСрезПоследних.Регистратор,
+	упПравилаРасчетаТарифовСрезПоследних.СтатьяДоходовРасходов,
+	упПравилаРасчетаТарифовСрезПоследних.ГруппаТарифов,
+	упПравилаРасчетаТарифовСрезПоследних.Организация,
+	упПравилаРасчетаТарифовСрезПоследних.ПравилоРасчета,
+	упПравилаРасчетаТарифовСрезПоследних.Валюта
+ИЗ
+	РегистрСведений.упПравилаРасчетаТарифов.СрезПоследних(, ) КАК упПравилаРасчетаТарифовСрезПоследних</QueryText>
+				<MainTable>InformationRegister.упПравилаРасчетаТарифов.SliceLast</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+</Form>

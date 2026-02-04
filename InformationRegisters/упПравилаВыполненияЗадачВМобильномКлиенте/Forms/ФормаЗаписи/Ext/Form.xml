@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="ТипОперации" id="1">
+			<DataPath>Запись.ТипОперации</DataPath>
+			<ContextMenu name="ТипОперацииКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="ТипОперацииРасширеннаяПодсказка" id="3"/>
+			<Events>
+				<Event name="OnChange">ТипОперацииПриИзменении</Event>
+			</Events>
+		</InputField>
+		<InputField name="Перевозчик" id="4">
+			<DataPath>Запись.Перевозчик</DataPath>
+			<InputHint>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>&lt;для всех перевозчиков&gt;</v8:content>
+				</v8:item>
+			</InputHint>
+			<ContextMenu name="ПеревозчикКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="ПеревозчикРасширеннаяПодсказка" id="6"/>
+		</InputField>
+		<InputField name="Водитель" id="7">
+			<DataPath>Запись.Водитель</DataPath>
+			<InputHint>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>&lt;для всех водителей&gt;</v8:content>
+				</v8:item>
+			</InputHint>
+			<ContextMenu name="ВодительКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="ВодительРасширеннаяПодсказка" id="9"/>
+		</InputField>
+		<InputField name="ВидАдреса" id="10">
+			<DataPath>Запись.ВидАдреса</DataPath>
+			<InputHint>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>&lt;для всех видов адресов&gt;</v8:content>
+				</v8:item>
+			</InputHint>
+			<ContextMenu name="ВидАдресаКонтекстноеМеню" id="11"/>
+			<ExtendedTooltip name="ВидАдресаРасширеннаяПодсказка" id="12"/>
+		</InputField>
+		<UsualGroup name="Группа1" id="19">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройки</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Representation>NormalSeparation</Representation>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="20"/>
+			<ChildItems>
+				<UsualGroup name="Группа4" id="31">
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="32"/>
+					<ChildItems>
+						<CheckBoxField name="ТребуетсяСканированиеШК" id="13">
+							<DataPath>Запись.ТребуетсяСканированиеШК</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ТребуетсяСканированиеШККонтекстноеМеню" id="14"/>
+							<ExtendedTooltip name="ТребуетсяСканированиеШКРасширеннаяПодсказка" id="15"/>
+							<Events>
+								<Event name="OnChange">ТребуетсяСканированиеШКПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<UsualGroup name="Группа5" id="33">
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа5РасширеннаяПодсказка" id="34"/>
+							<ChildItems>
+								<LabelDecoration name="Декорация2" id="38">
+									<Width>2</Width>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<ContextMenu name="Декорация2КонтекстноеМеню" id="39"/>
+									<ExtendedTooltip name="Декорация2РасширеннаяПодсказка" id="40"/>
+								</LabelDecoration>
+								<CheckBoxField name="РазрешенаУстановкаНовогоШК" id="35">
+									<DataPath>Запись.РазрешенаУстановкаНовогоШК</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="РазрешенаУстановкаНовогоШККонтекстноеМеню" id="36"/>
+									<ExtendedTooltip name="РазрешенаУстановкаНовогоШКРасширеннаяПодсказка" id="37"/>
+								</CheckBoxField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="Группа2" id="24">
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="25"/>
+					<ChildItems>
+						<CheckBoxField name="ТребуетсяФотография" id="16">
+							<DataPath>Запись.ТребуетсяФотография</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ТребуетсяФотографияКонтекстноеМеню" id="17"/>
+							<ExtendedTooltip name="ТребуетсяФотографияРасширеннаяПодсказка" id="18"/>
+						</CheckBoxField>
+						<CheckBoxField name="ТребуетсяФотографияПриОтменеЗадачи" id="58">
+							<DataPath>Запись.ТребуетсяФотографияПриОтменеЗадачи</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ТребуетсяФотографияПриОтменеЗадачиКонтекстноеМеню" id="59"/>
+							<ExtendedTooltip name="ТребуетсяФотографияПриОтменеЗадачиРасширеннаяПодсказка" id="60"/>
+							<Events>
+								<Event name="OnChange">ТребуетсяФотографияПриОтменеЗадачиПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<UsualGroup name="Группа8" id="77">
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа8РасширеннаяПодсказка" id="78"/>
+							<ChildItems>
+								<LabelDecoration name="Декорация4" id="79">
+									<Width>2</Width>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<ContextMenu name="Декорация4КонтекстноеМеню" id="80"/>
+									<ExtendedTooltip name="Декорация4РасширеннаяПодсказка" id="81"/>
+								</LabelDecoration>
+								<CheckBoxField name="НеобходимостьФотографииОпределяетсяНаУровнеПроблемы" id="82">
+									<DataPath>Запись.НеобходимостьФотографииОпределяетсяНаУровнеПроблемы</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="НеобходимостьФотографииОпределяетсяНаУровнеПроблемыКонтекстноеМеню" id="83"/>
+									<ExtendedTooltip name="НеобходимостьФотографииОпределяетсяНаУровнеПроблемыРасширеннаяПодсказка" id="84"/>
+								</CheckBoxField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<CheckBoxField name="ЗапрещеноОтчитыватьсяОРаботе" id="74">
+					<DataPath>Запись.ЗапрещеноОтчитыватьсяОРаботе</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ЗапрещеноОтчитыватьсяОРаботеКонтекстноеМеню" id="75"/>
+					<ExtendedTooltip name="ЗапрещеноОтчитыватьсяОРаботеРасширеннаяПодсказка" id="76"/>
+				</CheckBoxField>
+				<InputField name="СпособПрисоединенияВнешнихФайлов" id="21">
+					<DataPath>Запись.СпособПрисоединенияВнешнихФайлов</DataPath>
+					<InputHint>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>&lt;к прохождению точки&gt;</v8:content>
+						</v8:item>
+					</InputHint>
+					<ContextMenu name="СпособПрисоединенияВнешнихФайловКонтекстноеМеню" id="22"/>
+					<ExtendedTooltip name="СпособПрисоединенияВнешнихФайловРасширеннаяПодсказка" id="23"/>
+				</InputField>
+				<InputField name="СпособФормированияНомераРаботы" id="41">
+					<DataPath>Запись.СпособФормированияНомераРаботы</DataPath>
+					<ToolTipRepresentation>Button</ToolTipRepresentation>
+					<InputHint>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>&lt;номер из задания на перевозку&gt;</v8:content>
+						</v8:item>
+					</InputHint>
+					<ContextMenu name="СпособФормированияНомераРаботыКонтекстноеМеню" id="42"/>
+					<ExtendedTooltip name="СпособФормированияНомераРаботыРасширеннаяПодсказка" id="43"/>
+				</InputField>
+				<CheckBoxField name="ВыводитьКомментарийПоЗаявке" id="44">
+					<DataPath>Запись.ВыводитьКомментарийПоЗаявке</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ВыводитьКомментарийПоЗаявкеКонтекстноеМеню" id="45"/>
+					<ExtendedTooltip name="ВыводитьКомментарийПоЗаявкеРасширеннаяПодсказка" id="46"/>
+				</CheckBoxField>
+				<CheckBoxField name="ВыводитьНомерИсходногоДокумента" id="47">
+					<DataPath>Запись.ВыводитьНомерИсходногоДокумента</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ВыводитьНомерИсходногоДокументаКонтекстноеМеню" id="48"/>
+					<ExtendedTooltip name="ВыводитьНомерИсходногоДокументаРасширеннаяПодсказка" id="49"/>
+					<Events>
+						<Event name="OnChange">ВыводитьНомерИсходногоДокументаПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<UsualGroup name="Группа3" id="53">
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="54"/>
+					<ChildItems>
+						<LabelDecoration name="Декорация1" id="55">
+							<Width>2</Width>
+							<ContextMenu name="Декорация1КонтекстноеМеню" id="56"/>
+							<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="57"/>
+						</LabelDecoration>
+						<InputField name="СпособФормированияНомераДокумента" id="50">
+							<DataPath>Запись.СпособФормированияНомераДокумента</DataPath>
+							<InputHint>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>&lt;номер КИС из заявки на перевозку&gt;</v8:content>
+								</v8:item>
+							</InputHint>
+							<ContextMenu name="СпособФормированияНомераДокументаКонтекстноеМеню" id="51"/>
+							<ExtendedTooltip name="СпособФормированияНомераДокументаРасширеннаяПодсказка" id="52"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="Группа6" id="61">
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа6РасширеннаяПодсказка" id="62"/>
+					<ChildItems>
+						<CheckBoxField name="РазрешенаПогрузкаРазгрузкаСТочностьюДоТоварногоСостава" id="63">
+							<DataPath>Запись.РазрешенаПогрузкаРазгрузкаСТочностьюДоТоварногоСостава</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="РазрешенаПогрузкаРазгрузкаСТочностьюДоТоварногоСоставаКонтекстноеМеню" id="64"/>
+							<ExtendedTooltip name="РазрешенаПогрузкаРазгрузкаСТочностьюДоТоварногоСоставаРасширеннаяПодсказка" id="65"/>
+							<Events>
+								<Event name="OnChange">РазрешенаПогрузкаРазгрузкаСТочностьюДоТоварногоСоставаПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<UsualGroup name="Группа7" id="69">
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа7РасширеннаяПодсказка" id="70"/>
+							<ChildItems>
+								<LabelDecoration name="Декорация3" id="71">
+									<Width>2</Width>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<ContextMenu name="Декорация3КонтекстноеМеню" id="72"/>
+									<ExtendedTooltip name="Декорация3РасширеннаяПодсказка" id="73"/>
+								</LabelDecoration>
+								<CheckBoxField name="ТребуетсяОтчитыватьсяОЗадачеПоКаждойСтрокеТоварногоСостава" id="66">
+									<DataPath>Запись.ТребуетсяОтчитыватьсяОЗадачеПоКаждойСтрокеТоварногоСостава</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ТребуетсяОтчитыватьсяОЗадачеПоКаждойСтрокеТоварногоСоставаКонтекстноеМеню" id="67"/>
+									<ExtendedTooltip name="ТребуетсяОтчитыватьсяОЗадачеПоКаждойСтрокеТоварногоСоставаРасширеннаяПодсказка" id="68"/>
+								</CheckBoxField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаРозница" id="85">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа розница</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа розница</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРозницаРасширеннаяПодсказка" id="86"/>
+					<ChildItems>
+						<CheckBoxField name="РазрешеноПробитиеКассовогоЧека" id="87">
+							<DataPath>Запись.РазрешеноПробитиеКассовогоЧека</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="РазрешеноПробитиеКассовогоЧекаКонтекстноеМеню" id="88"/>
+							<ExtendedTooltip name="РазрешеноПробитиеКассовогоЧекаРасширеннаяПодсказка" id="89"/>
+							<Events>
+								<Event name="OnChange">РазрешеноПробитиеКассовогоЧекаПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<UsualGroup name="Группа9" id="93">
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа9РасширеннаяПодсказка" id="94"/>
+							<ChildItems>
+								<LabelDecoration name="Декорация5" id="95">
+									<Width>2</Width>
+									<ContextMenu name="Декорация5КонтекстноеМеню" id="96"/>
+									<ExtendedTooltip name="Декорация5РасширеннаяПодсказка" id="97"/>
+								</LabelDecoration>
+								<CheckBoxField name="ПробиватьКаждыйЧекОтдельнойКассовойСменой" id="90">
+									<DataPath>Запись.ПробиватьКаждыйЧекОтдельнойКассовойСменой</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ПробиватьКаждыйЧекОтдельнойКассовойСменойКонтекстноеМеню" id="91"/>
+									<ExtendedTooltip name="ПробиватьКаждыйЧекОтдельнойКассовойСменойРасширеннаяПодсказка" id="92"/>
+								</CheckBoxField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Запись" id="1">
+			<Type>
+				<v8:Type>cfg:InformationRegisterRecordManager.упПравилаВыполненияЗадачВМобильномКлиенте</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+</Form>

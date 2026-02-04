@@ -1,0 +1,472 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="AfterWriteAtServer">ПослеЗаписиНаСервере</Event>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаШапка" id="47">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа шапка</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа шапка</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаШапкаРасширеннаяПодсказка" id="48"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаНаименование" id="49">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа наименование</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа наименование</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаНаименованиеРасширеннаяПодсказка" id="50"/>
+					<ChildItems>
+						<UsualGroup name="Группа2" id="128">
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="129"/>
+							<ChildItems>
+								<InputField name="Наименование" id="4">
+									<DataPath>Объект.Description</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
+									<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="6"/>
+								</InputField>
+								<InputField name="ДатаВыпуска" id="57">
+									<DataPath>Объект.ДатаВыпуска</DataPath>
+									<ContextMenu name="ДатаВыпускаКонтекстноеМеню" id="58"/>
+									<ExtendedTooltip name="ДатаВыпускаРасширеннаяПодсказка" id="59"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<InputField name="НаименованиеПолное" id="51">
+							<DataPath>Объект.НаименованиеПолное</DataPath>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<ContextMenu name="НаименованиеПолноеКонтекстноеМеню" id="52"/>
+							<ExtendedTooltip name="НаименованиеПолноеРасширеннаяПодсказка" id="53"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<InputField name="ТипДополнительногоОборудования" id="7">
+					<DataPath>Объект.ТипДополнительногоОборудования</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<ContextMenu name="ТипДополнительногоОборудованияКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="ТипДополнительногоОборудованияРасширеннаяПодсказка" id="9"/>
+				</InputField>
+				<CheckBoxField name="ИспользуютсяРазличныеРежимыРаботы" id="109">
+					<DataPath>Объект.ИспользуютсяРазличныеРежимыРаботы</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>После записи элемента справочника с опцией "Используются различные режимы работы" открывается доступ для ввода режимов</v8:content>
+						</v8:item>
+					</ToolTip>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ИспользуютсяРазличныеРежимыРаботыКонтекстноеМеню" id="110"/>
+					<ExtendedTooltip name="ИспользуютсяРазличныеРежимыРаботыРасширеннаяПодсказка" id="111"/>
+				</CheckBoxField>
+				<InputField name="ЗаводскойНомер" id="54">
+					<DataPath>Объект.ЗаводскойНомер</DataPath>
+					<ContextMenu name="ЗаводскойНомерКонтекстноеМеню" id="55"/>
+					<ExtendedTooltip name="ЗаводскойНомерРасширеннаяПодсказка" id="56"/>
+				</InputField>
+				<InputField name="ИнвентарныйНомер" id="60">
+					<DataPath>Объект.ИнвентарныйНомер</DataPath>
+					<ContextMenu name="ИнвентарныйНомерКонтекстноеМеню" id="61"/>
+					<ExtendedTooltip name="ИнвентарныйНомерРасширеннаяПодсказка" id="62"/>
+				</InputField>
+				<UsualGroup name="ГруппаТО" id="112">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Показатели последнего ТО</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Показатели последнего пройденного технического обслуживания (ТО) оборудованием используются для начального отсчета при вычислении плановых дат ТО</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ToolTipRepresentation>Button</ToolTipRepresentation>
+					<HorizontalStretch>true</HorizontalStretch>
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ExtendedTooltip name="ГруппаТОРасширеннаяПодсказка" id="113"/>
+					<ChildItems>
+						<InputField name="ДатаОтсчетаТО" id="114">
+							<DataPath>Объект.ДатаОтсчетаТО</DataPath>
+							<Width>10</Width>
+							<ContextMenu name="ДатаОтсчетаТОКонтекстноеМеню" id="115"/>
+							<ExtendedTooltip name="ДатаОтсчетаТОРасширеннаяПодсказка" id="116"/>
+						</InputField>
+						<UsualGroup name="Группа1" id="117">
+							<EnableContentChange>true</EnableContentChange>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="118"/>
+							<ChildItems>
+								<InputField name="ПробегОтсчетаТО" id="119">
+									<DataPath>Объект.ПробегОтсчетаТО</DataPath>
+									<Width>10</Width>
+									<SpinButton>true</SpinButton>
+									<ContextMenu name="ПробегОтсчетаТОКонтекстноеМеню" id="120"/>
+									<ExtendedTooltip name="ПробегОтсчетаТОРасширеннаяПодсказка" id="121"/>
+								</InputField>
+								<LabelDecoration name="Декорация3" id="122">
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>км</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="Декорация3КонтекстноеМеню" id="123"/>
+									<ExtendedTooltip name="Декорация3РасширеннаяПодсказка" id="124"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+						<InputField name="МоточасыОтсчетаТО" id="125">
+							<DataPath>Объект.МоточасыОтсчетаТО</DataPath>
+							<Width>10</Width>
+							<SpinButton>true</SpinButton>
+							<ContextMenu name="МоточасыОтсчетаТОКонтекстноеМеню" id="126"/>
+							<ExtendedTooltip name="МоточасыОтсчетаТОРасширеннаяПодсказка" id="127"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<LabelField name="СостояниеОборудывания" id="72">
+					<DataPath>СостояниеОборудования</DataPath>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<ContextMenu name="СостояниеОборудыванияКонтекстноеМеню" id="73"/>
+					<ExtendedTooltip name="СостояниеОборудыванияРасширеннаяПодсказка" id="74"/>
+				</LabelField>
+			</ChildItems>
+		</UsualGroup>
+		<Pages name="Страницы" id="63">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="СтраницыРасширеннаяПодсказка" id="64"/>
+			<ChildItems>
+				<Page name="ГруппаВидыГСМ" id="65">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Виды ГСМ</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа виды ГСМ</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаВидыГСМРасширеннаяПодсказка" id="66"/>
+					<ChildItems>
+						<CheckBoxField name="ИспользуетсяУчетГСМ" id="97">
+							<DataPath>Объект.ИспользуетсяУчетГСМ</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ИспользуетсяУчетГСМКонтекстноеМеню" id="98"/>
+							<ExtendedTooltip name="ИспользуетсяУчетГСМРасширеннаяПодсказка" id="99"/>
+							<Events>
+								<Event name="OnChange">ИспользуетсяУчетГСМПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<Table name="ВидыГСМ" id="75">
+							<Height>3</Height>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Объект.ВидыГСМ</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ВидыГСМКонтекстноеМеню" id="76"/>
+							<AutoCommandBar name="ВидыГСМКоманднаяПанель" id="77"/>
+							<ExtendedTooltip name="ВидыГСМРасширеннаяПодсказка" id="78"/>
+							<SearchStringAddition name="ВидыГСМСтрокаПоиска" id="79">
+								<AdditionSource>
+									<Item>ВидыГСМ</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ВидыГСМСтрокаПоискаКонтекстноеМеню" id="80"/>
+								<ExtendedTooltip name="ВидыГСМСтрокаПоискаРасширеннаяПодсказка" id="81"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ВидыГСМСостояниеПросмотра" id="82">
+								<AdditionSource>
+									<Item>ВидыГСМ</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ВидыГСМСостояниеПросмотраКонтекстноеМеню" id="83"/>
+								<ExtendedTooltip name="ВидыГСМСостояниеПросмотраРасширеннаяПодсказка" id="84"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ВидыГСМУправлениеПоиском" id="85">
+								<AdditionSource>
+									<Item>ВидыГСМ</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ВидыГСМУправлениеПоискомКонтекстноеМеню" id="86"/>
+								<ExtendedTooltip name="ВидыГСМУправлениеПоискомРасширеннаяПодсказка" id="87"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="OnEditEnd">ВидыГСМПриОкончанииРедактирования</Event>
+								<Event name="Selection">ВидыГСМВыбор</Event>
+								<Event name="BeforeEditEnd">ВидыГСМПередОкончаниемРедактирования</Event>
+								<Event name="OnStartEdit">ВидыГСМПриНачалеРедактирования</Event>
+								<Event name="OnChange">ВидыГСМПриИзменении</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="ВидыГСМНомерСтроки" id="88">
+									<DataPath>Объект.ВидыГСМ.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ВидыГСМНомерСтрокиКонтекстноеМеню" id="89"/>
+									<ExtendedTooltip name="ВидыГСМНомерСтрокиРасширеннаяПодсказка" id="90"/>
+								</LabelField>
+								<InputField name="ВидыГСМИзменить" id="100">
+									<DataPath>Объект.ВидыГСМ.Изменить</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<SkipOnInput>true</SkipOnInput>
+									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<CellHyperlink>true</CellHyperlink>
+									<Width>8</Width>
+									<ContextMenu name="ВидыГСМИзменитьКонтекстноеМеню" id="101"/>
+									<ExtendedTooltip name="ВидыГСМИзменитьРасширеннаяПодсказка" id="102"/>
+								</InputField>
+								<InputField name="ВидыГСМВидГСМ" id="91">
+									<DataPath>Объект.ВидыГСМ.ВидГСМ</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ВидыГСМВидГСМКонтекстноеМеню" id="92"/>
+									<ExtendedTooltip name="ВидыГСМВидГСМРасширеннаяПодсказка" id="93"/>
+								</InputField>
+								<CheckBoxField name="ВидыГСМОсновной" id="94">
+									<DataPath>Объект.ВидыГСМ.Основной</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ВидыГСМОсновнойКонтекстноеМеню" id="95"/>
+									<ExtendedTooltip name="ВидыГСМОсновнойРасширеннаяПодсказка" id="96"/>
+									<Events>
+										<Event name="OnChange">ВидыГСМОсновнойПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<InputField name="ВидыГСМКоличествоОстаток" id="103">
+									<DataPath>Объект.ВидыГСМ.КоличествоОстаток</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<Format>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ЧН=</v8:content>
+										</v8:item>
+									</Format>
+									<EditFormat>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ЧН=</v8:content>
+										</v8:item>
+									</EditFormat>
+									<ContextMenu name="ВидыГСМКоличествоОстатокКонтекстноеМеню" id="104"/>
+									<ExtendedTooltip name="ВидыГСМКоличествоОстатокРасширеннаяПодсказка" id="105"/>
+								</InputField>
+								<InputField name="ВидыГСМСтоимостьОстаток" id="106">
+									<DataPath>Объект.ВидыГСМ.СтоимостьОстаток</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<Format>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ЧН=</v8:content>
+										</v8:item>
+									</Format>
+									<EditFormat>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ЧН=</v8:content>
+										</v8:item>
+									</EditFormat>
+									<ContextMenu name="ВидыГСМСтоимостьОстатокКонтекстноеМеню" id="107"/>
+									<ExtendedTooltip name="ВидыГСМСтоимостьОстатокРасширеннаяПодсказка" id="108"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаКомментарий" id="67">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Комментарий</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа комментарий</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Picture>
+						<xr:Ref>CommonPicture.Комментарий</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ExtendedTooltip name="ГруппаКомментарийРасширеннаяПодсказка" id="68"/>
+					<ChildItems>
+						<InputField name="Комментарий" id="69">
+							<DataPath>Объект.Комментарий</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<Height>3</Height>
+							<VerticalStretch>true</VerticalStretch>
+							<MultiLine>true</MultiLine>
+							<ContextMenu name="КомментарийКонтекстноеМеню" id="70"/>
+							<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="71"/>
+							<Events>
+								<Event name="OnChange">КомментарийПриИзменении</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.упДополнительноеОборудование</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+			<Columns>
+				<AdditionalColumns table="Объект.УдалитьНормыРасходаГСМ"/>
+				<AdditionalColumns table="Объект.ВидыГСМ">
+					<Column name="Изменить" id="1">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Изменить</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:string</v8:Type>
+							<v8:StringQualifiers>
+								<v8:Length>0</v8:Length>
+								<v8:AllowedLength>Variable</v8:AllowedLength>
+							</v8:StringQualifiers>
+						</Type>
+					</Column>
+					<Column name="КоличествоОстаток" id="2">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Количество (л.)</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.Количество</v8:TypeSet>
+						</Type>
+					</Column>
+					<Column name="СтоимостьОстаток" id="3">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Стоимость</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.Сумма</v8:TypeSet>
+						</Type>
+					</Column>
+				</AdditionalColumns>
+			</Columns>
+		</Attribute>
+		<Attribute name="СостояниеОборудования" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Состояние оборудования</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.упСостоянияОборудования</v8:Type>
+			</Type>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>НормыРасходаГСМ</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.УдалитьНормыРасходаГСМ.Основной</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" height="10" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ВидыГСМ</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ВидыГСМ.Основной</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" height="10" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+</Form>

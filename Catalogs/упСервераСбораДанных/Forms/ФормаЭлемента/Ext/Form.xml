@@ -1,0 +1,515 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормакмдПолучитьТССКАУТ" id="59">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.кмдПолучитьТССКАУТ</CommandName>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормакмдПолучитьТССКАУТРасширеннаяПодсказка" id="60"/>
+			</Button>
+			<Button name="ФормаПолучитьТСOMNICOMM" id="61">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ПолучитьТСOMNICOMM</CommandName>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаПолучитьТСOMNICOMMРасширеннаяПодсказка" id="62"/>
+			</Button>
+			<Button name="ФормаПолучитьТСWialonPro" id="86">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ПолучитьТСWialonPro</CommandName>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаПолучитьТСWialonProРасширеннаяПодсказка" id="87"/>
+			</Button>
+			<Button name="ФормаПолучитьТСWialonHosting" id="90">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ПолучитьТСWialonHosting</CommandName>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаПолучитьТСWialonHostingРасширеннаяПодсказка" id="91"/>
+			</Button>
+			<Button name="ФормаСопоставитьТрекерыWialonPro" id="88">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.СопоставитьТрекерыWialonPro</CommandName>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаСопоставитьТрекерыWialonProРасширеннаяПодсказка" id="89"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаНаименование" id="45">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа наименование</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа наименование</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаНаименованиеРасширеннаяПодсказка" id="46"/>
+			<ChildItems>
+				<InputField name="Наименование" id="1">
+					<DataPath>Объект.Description</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="3"/>
+				</InputField>
+				<CheckBoxField name="Активен" id="47">
+					<DataPath>Объект.Активен</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="АктивенКонтекстноеМеню" id="48"/>
+					<ExtendedTooltip name="АктивенРасширеннаяПодсказка" id="49"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаИнтервал" id="63">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа интервал</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Horizontal</Group>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаИнтервалРасширеннаяПодсказка" id="64"/>
+			<ChildItems>
+				<InputField name="ИнтервалПолученияДанных" id="65">
+					<DataPath>Объект.ИнтервалПолученияДанных</DataPath>
+					<ContextMenu name="ИнтервалПолученияДанныхКонтекстноеМеню" id="66"/>
+					<ExtendedTooltip name="ИнтервалПолученияДанныхРасширеннаяПодсказка" id="67"/>
+				</InputField>
+				<LabelDecoration name="Декорация1" id="68">
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>мин.</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="Декорация1КонтекстноеМеню" id="69"/>
+					<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="70"/>
+				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Тип" id="4">
+			<DataPath>Объект.Тип</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<ContextMenu name="ТипКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="ТипРасширеннаяПодсказка" id="6"/>
+			<Events>
+				<Event name="OnChange">ТипПриИзменении</Event>
+			</Events>
+		</InputField>
+		<InputField name="КонтактыСлужбыПоддержки" id="53">
+			<DataPath>Объект.КонтактыСлужбыПоддержки</DataPath>
+			<ToolTipRepresentation>Button</ToolTipRepresentation>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<ContextMenu name="КонтактыСлужбыПоддержкиКонтекстноеМеню" id="54"/>
+			<ExtendedTooltip name="КонтактыСлужбыПоддержкиРасширеннаяПодсказка" id="55"/>
+		</InputField>
+		<UsualGroup name="грпДопо" id="33">
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="грпДопоРасширеннаяПодсказка" id="34"/>
+			<ChildItems>
+				<CheckBoxField name="СобытияМониторинга" id="35">
+					<DataPath>Объект.СобытияМониторинга</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="СобытияМониторингаКонтекстноеМеню" id="36"/>
+					<ExtendedTooltip name="СобытияМониторингаРасширеннаяПодсказка" id="37"/>
+				</CheckBoxField>
+				<InputField name="ПериодОтсрочкиПолученияДанныхПоСобытиям" id="71">
+					<DataPath>Объект.ПериодОтсрочкиПолученияДанныхПоСобытиям</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<ContextMenu name="ПериодОтсрочкиПолученияДанныхПоСобытиямКонтекстноеМеню" id="72"/>
+					<ExtendedTooltip name="ПериодОтсрочкиПолученияДанныхПоСобытиямРасширеннаяПодсказка" id="73"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Группа2" id="21">
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ChildItemsWidth>Equal</ChildItemsWidth>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="22"/>
+			<ChildItems>
+				<UsualGroup name="грпСервер" id="19">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Грп сервер</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Грп сервер</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="грпСерверРасширеннаяПодсказка" id="20"/>
+					<ChildItems>
+						<InputField name="Сервер" id="7">
+							<DataPath>Объект.Сервер</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<ContextMenu name="СерверКонтекстноеМеню" id="8"/>
+							<ExtendedTooltip name="СерверРасширеннаяПодсказка" id="9"/>
+							<Events>
+								<Event name="OnChange">СерверПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="Порт" id="10">
+							<DataPath>Объект.Порт</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ПортКонтекстноеМеню" id="11"/>
+							<ExtendedTooltip name="ПортРасширеннаяПодсказка" id="12"/>
+							<Events>
+								<Event name="OnChange">ПортПриИзменении</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<CheckBoxField name="ЗащищенноеСоединение" id="77">
+					<DataPath>Объект.ЗащищенноеСоединение</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ЗащищенноеСоединениеКонтекстноеМеню" id="78"/>
+					<ExtendedTooltip name="ЗащищенноеСоединениеРасширеннаяПодсказка" id="79"/>
+				</CheckBoxField>
+				<UsualGroup name="грпАутентификация" id="23">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Грп аутентификация</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Грп аутентификация</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="грпАутентификацияРасширеннаяПодсказка" id="24"/>
+					<ChildItems>
+						<UsualGroup name="грпТокен" id="80">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Грп токен</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Грп токен</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="грпТокенРасширеннаяПодсказка" id="81"/>
+							<ChildItems>
+								<InputField name="Токен" id="74">
+									<DataPath>Объект.Токен</DataPath>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<ContextMenu name="ТокенКонтекстноеМеню" id="75"/>
+									<ExtendedTooltip name="ТокенРасширеннаяПодсказка" id="76"/>
+								</InputField>
+								<Button name="ПолучитьТокен" id="84">
+									<Type>UsualButton</Type>
+									<CommandName>Form.Command.ПолучитьТокен</CommandName>
+									<ExtendedTooltip name="ПолучитьТокенРасширеннаяПодсказка" id="85"/>
+								</Button>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="грпПользователи" id="82">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Грп пользователи</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Грп пользователи</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>AlwaysHorizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="грпПользователиРасширеннаяПодсказка" id="83"/>
+							<ChildItems>
+								<InputField name="Пользователь" id="13">
+									<DataPath>Объект.Пользователь</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПользовательКонтекстноеМеню" id="14"/>
+									<ExtendedTooltip name="ПользовательРасширеннаяПодсказка" id="15"/>
+								</InputField>
+								<InputField name="Пароль" id="16">
+									<DataPath>Объект.Пароль</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПарольКонтекстноеМеню" id="17"/>
+									<ExtendedTooltip name="ПарольРасширеннаяПодсказка" id="18"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<CheckBoxField name="ДобавлятьВQRКодДанныеАутентификацииНаМобильномКлиенте" id="50">
+					<DataPath>Объект.ДобавлятьВQRКодДанныеАутентификацииНаМобильномКлиенте</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ДобавлятьВQRКодДанныеАутентификацииНаМобильномКлиентеКонтекстноеМеню" id="51"/>
+					<ExtendedTooltip name="ДобавлятьВQRКодДанныеАутентификацииНаМобильномКлиентеРасширеннаяПодсказка" id="52"/>
+				</CheckBoxField>
+				<InputField name="ДатаЗагрузкиScout" id="56">
+					<DataPath>Объект.ДатаЗагрузки</DataPath>
+					<ContextMenu name="ДатаЗагрузкиScoutКонтекстноеМеню" id="57"/>
+					<ExtendedTooltip name="ДатаЗагрузкиScoutРасширеннаяПодсказка" id="58"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="грпДополнительно" id="28">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Параметры подключения</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Грп дополнительно</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<ExtendedTooltip name="грпДополнительноРасширеннаяПодсказка" id="29"/>
+			<ChildItems>
+				<UsualGroup name="Группа1" id="43">
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="44"/>
+					<ChildItems>
+						<InputField name="Схема" id="30">
+							<DataPath>Объект.Схема</DataPath>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<ContextMenu name="СхемаКонтекстноеМеню" id="31"/>
+							<ExtendedTooltip name="СхемаРасширеннаяПодсказка" id="32"/>
+						</InputField>
+						<Button name="кмдПолучитьСхемы" id="38">
+							<Type>UsualButton</Type>
+							<CommandName>Form.Command.кмдПолучитьСхемы</CommandName>
+							<ExtendedTooltip name="кмдПолучитьСхемыРасширеннаяПодсказка" id="39"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
+				<InputField name="ДатаЗагрузки" id="40">
+					<DataPath>Объект.ДатаЗагрузки</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата начала загрузки данных</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ДатаЗагрузкиКонтекстноеМеню" id="41"/>
+					<ExtendedTooltip name="ДатаЗагрузкиРасширеннаяПодсказка" id="42"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<PictureField name="Картинка" id="25">
+			<DataPath>Картинка</DataPath>
+			<TitleLocation>None</TitleLocation>
+			<FileDragMode>AsFile</FileDragMode>
+			<ContextMenu name="КартинкаКонтекстноеМеню" id="26"/>
+			<ExtendedTooltip name="КартинкаРасширеннаяПодсказка" id="27"/>
+		</PictureField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.упСервераСбораДанных</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="Картинка" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Картинка</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="кмдПолучитьСхемы" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Получить схемы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Получить схемы от сервиса</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>кмдПолучитьСхемы</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="кмдПолучитьТССКАУТ" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вывести объекты мониторинга</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вывести печатную форму со списком объектов мониторинга СКАУТ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.SpreadsheetInsertPageBreak</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>кмдПолучитьТССКАУТ</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПолучитьТСOMNICOMM" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вывести объекты мониторинга</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вывести печатную форму со списком объектов мониторинга OMNICOMM</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.SpreadsheetInsertPageBreak</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ПолучитьТСOMNICOMM</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПолучитьТокен" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Получить токен</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Получить токен</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.АдминистрированиеСервиса</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ПолучитьТокен</Action>
+			<Representation>Picture</Representation>
+		</Command>
+		<Command name="ПолучитьТСWialonPro" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вывести объекты мониторинга</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вывести печатную форму со списком объектов мониторинга Wialon</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.SpreadsheetInsertPageBreak</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ПолучитьТСWialonPro</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="СопоставитьТрекерыWialonPro" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сопоставить объекты из сервиса с объектами TMS</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Получим список трекеров с сервиса Wialon для сопостовления с объектами системы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.ПоказатьОтличия</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СопоставитьТрекерыWialonPro</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПолучитьТСWialonHosting" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вывести объекты мониторинга</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вывести печатную форму со списком объектов мониторинга Wialon</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.SpreadsheetInsertPageBreak</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ПолучитьТСWialonHosting</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

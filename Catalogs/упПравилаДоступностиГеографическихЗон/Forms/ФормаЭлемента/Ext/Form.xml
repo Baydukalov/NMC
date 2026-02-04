@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="AfterWriteAtServer">ПослеЗаписиНаСервере</Event>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Наименование" id="1">
+			<DataPath>Объект.Description</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="НаименованиеКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<UsualGroup name="ГруппаГеографическиеЗоны" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Географические зоны</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа географические зоны</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<ExtendedTooltip name="ГруппаГеографическиеЗоныРасширеннаяПодсказка" id="18"/>
+			<ChildItems>
+				<CheckBoxField name="ЗапрещенаРаботаВУказанныхЗонах" id="4">
+					<DataPath>Объект.ЗапрещенаРаботаВУказанныхЗонах</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ЗапрещенаРаботаВУказанныхЗонахКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="ЗапрещенаРаботаВУказанныхЗонахРасширеннаяПодсказка" id="6"/>
+					<Events>
+						<Event name="OnChange">ЗапрещенаРаботаВУказанныхЗонахПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<Table name="ГеографическиеЗоны" id="7">
+					<Representation>List</Representation>
+					<AutoInsertNewRow>true</AutoInsertNewRow>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>Объект.ГеографическиеЗоны</DataPath>
+					<SearchStringLocation>None</SearchStringLocation>
+					<ViewStatusLocation>None</ViewStatusLocation>
+					<SearchControlLocation>None</SearchControlLocation>
+					<RowFilter xsi:nil="true"/>
+					<ContextMenu name="ГеографическиеЗоныКонтекстноеМеню" id="8"/>
+					<AutoCommandBar name="ГеографическиеЗоныКоманднаяПанель" id="9"/>
+					<ExtendedTooltip name="ГеографическиеЗоныРасширеннаяПодсказка" id="10"/>
+					<SearchStringAddition name="ГеографическиеЗоныСтрокаПоиска" id="27">
+						<AdditionSource>
+							<Item>ГеографическиеЗоны</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ГеографическиеЗоныСтрокаПоискаКонтекстноеМеню" id="28"/>
+						<ExtendedTooltip name="ГеографическиеЗоныСтрокаПоискаРасширеннаяПодсказка" id="29"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="ГеографическиеЗоныСостояниеПросмотра" id="30">
+						<AdditionSource>
+							<Item>ГеографическиеЗоны</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ГеографическиеЗоныСостояниеПросмотраКонтекстноеМеню" id="31"/>
+						<ExtendedTooltip name="ГеографическиеЗоныСостояниеПросмотраРасширеннаяПодсказка" id="32"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="ГеографическиеЗоныУправлениеПоиском" id="33">
+						<AdditionSource>
+							<Item>ГеографическиеЗоны</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="ГеографическиеЗоныУправлениеПоискомКонтекстноеМеню" id="34"/>
+						<ExtendedTooltip name="ГеографическиеЗоныУправлениеПоискомРасширеннаяПодсказка" id="35"/>
+					</SearchControlAddition>
+					<Events>
+						<Event name="OnChange">ГеографическиеЗоныПриИзменении</Event>
+					</Events>
+					<ChildItems>
+						<LabelField name="ГеографическиеЗоныНомерСтроки" id="11">
+							<DataPath>Объект.ГеографическиеЗоны.LineNumber</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ГеографическиеЗоныНомерСтрокиКонтекстноеМеню" id="12"/>
+							<ExtendedTooltip name="ГеографическиеЗоныНомерСтрокиРасширеннаяПодсказка" id="13"/>
+						</LabelField>
+						<InputField name="ГеографическиеЗоныГеографическаяЗона" id="14">
+							<DataPath>Объект.ГеографическиеЗоны.ГеографическаяЗона</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ГеографическиеЗоныГеографическаяЗонаКонтекстноеМеню" id="15"/>
+							<ExtendedTooltip name="ГеографическиеЗоныГеографическаяЗонаРасширеннаяПодсказка" id="16"/>
+						</InputField>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаКомментарий" id="19">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа комментарий</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа комментарий</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаКомментарийРасширеннаяПодсказка" id="20"/>
+			<ChildItems>
+				<LabelDecoration name="Декорация1" id="21">
+					<ContextMenu name="Декорация1КонтекстноеМеню" id="22"/>
+					<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="23"/>
+				</LabelDecoration>
+				<LabelField name="Комментарий" id="24">
+					<DataPath>Комментарий</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<Height>2</Height>
+					<TextColor>style:ПоясняющийТекст</TextColor>
+					<ContextMenu name="КомментарийКонтекстноеМеню" id="25"/>
+					<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="26"/>
+				</LabelField>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.упПравилаДоступностиГеографическихЗон</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="Комментарий" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Комментарий</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>Комментарий</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Комментарий</dcsset:left>
+						<dcsset:comparisonType>Contains</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:string">Запрещена</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:ЗапрещенноеПравоДоступа</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+</Form>

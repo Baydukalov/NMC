@@ -1,0 +1,5604 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Редактирование маршрута</v8:content>
+		</v8:item>
+	</Title>
+	<AutoTitle>false</AutoTitle>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаЗавершитьРедактирование" id="103">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ЗавершитьРедактирование</CommandName>
+				<ExtendedTooltip name="ФормаЗавершитьРедактированиеРасширеннаяПодсказка" id="104"/>
+			</Button>
+			<Button name="ФормаОтмена" id="105">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Отмена</CommandName>
+				<ExtendedTooltip name="ФормаОтменаРасширеннаяПодсказка" id="106"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаРешениеЗК" id="123">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа решение ЗК</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа решение ЗК</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаРешениеЗКРасширеннаяПодсказка" id="124"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаМетодРешенияЗК" id="638">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа метод решения ЗК</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа метод решения ЗК</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаМетодРешенияЗКРасширеннаяПодсказка" id="639"/>
+					<ChildItems>
+						<InputField name="МетодРешенияЗК" id="125">
+							<DataPath>МетодРешенияЗК</DataPath>
+							<Width>30</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<BackColor>style:ФонУправляющегоПоля</BackColor>
+							<ContextMenu name="МетодРешенияЗККонтекстноеМеню" id="126"/>
+							<ExtendedTooltip name="МетодРешенияЗКРасширеннаяПодсказка" id="127"/>
+							<Events>
+								<Event name="OnChange">МетодРешенияЗКПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ВариантОптимизацииМаршрута" id="128">
+							<DataPath>ВариантОптимизацииМаршрута</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Вариант оптимизации</v8:content>
+								</v8:item>
+							</Title>
+							<Width>12</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<BackColor>style:ФонУправляющегоПоля</BackColor>
+							<ContextMenu name="ВариантОптимизацииМаршрутаКонтекстноеМеню" id="129"/>
+							<ExtendedTooltip name="ВариантОптимизацииМаршрутаРасширеннаяПодсказка" id="130"/>
+						</InputField>
+						<CommandBar name="ГруппаРешениеЗККоманднаяПанель" id="131">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа решение ЗККомандная панель</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа решение ЗККомандная панель</v8:content>
+								</v8:item>
+							</ToolTip>
+							<HorizontalLocation>Right</HorizontalLocation>
+							<ExtendedTooltip name="ГруппаРешениеЗККоманднаяПанельРасширеннаяПодсказка" id="132"/>
+							<ChildItems>
+								<Popup name="ГруппаПодменюЗК" id="133">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Пересчитать маршрут</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Оптимизировать порядок объезда точек маршрута рейса</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Picture>
+										<xr:Ref>CommonPicture.упРасчетМаршрута</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</Picture>
+									<ExtendedTooltip name="ГруппаПодменюЗКРасширеннаяПодсказка" id="134"/>
+									<ChildItems>
+										<Button name="ПересчитатьМаршрутПоВсемТочкам" id="135">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.ПересчитатьМаршрутПоВсемТочкам</CommandName>
+											<ExtendedTooltip name="ПересчитатьМаршрутПоВсемТочкамРасширеннаяПодсказка" id="136"/>
+										</Button>
+										<Button name="ПересчитатьМаршрутПоАктивнымТочкам" id="137">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.ПересчитатьМаршрутПоАктивнымТочкам</CommandName>
+											<ExtendedTooltip name="ПересчитатьМаршрутПоАктивнымТочкамРасширеннаяПодсказка" id="138"/>
+										</Button>
+									</ChildItems>
+								</Popup>
+								<Button name="ИзменитьФорму" id="655">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
+									<ExtendedTooltip name="ИзменитьФормуРасширеннаяПодсказка" id="656"/>
+								</Button>
+							</ChildItems>
+						</CommandBar>
+					</ChildItems>
+				</UsualGroup>
+				<Pages name="СтраницыНастройкиЗК" id="614">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страницы настройки ЗК</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страницы настройки ЗК</v8:content>
+						</v8:item>
+					</ToolTip>
+					<PagesRepresentation>None</PagesRepresentation>
+					<ExtendedTooltip name="СтраницыНастройкиЗКРасширеннаяПодсказка" id="615"/>
+					<ChildItems>
+						<Page name="СтраницаЗК" id="616">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Страница ЗК</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Страница ЗК</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="СтраницаЗКРасширеннаяПодсказка" id="617"/>
+							<ChildItems>
+								<LabelDecoration name="Декорация2" id="618">
+									<ContextMenu name="Декорация2КонтекстноеМеню" id="619"/>
+									<ExtendedTooltip name="Декорация2РасширеннаяПодсказка" id="620"/>
+								</LabelDecoration>
+							</ChildItems>
+						</Page>
+						<Page name="СтраницаЗКВО" id="621">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Страница ЗКВО</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Страница ЗКВО</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<ExtendedTooltip name="СтраницаЗКВОРасширеннаяПодсказка" id="622"/>
+							<ChildItems>
+								<CheckBoxField name="УменьшатьВремяОжидания" id="623">
+									<DataPath>УменьшатьВремяОжидания</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="УменьшатьВремяОжиданияКонтекстноеМеню" id="624"/>
+									<ExtendedTooltip name="УменьшатьВремяОжиданияРасширеннаяПодсказка" id="625"/>
+								</CheckBoxField>
+								<InputField name="ПространственныйВес" id="629">
+									<DataPath>ПространственныйВес</DataPath>
+									<ToolTipRepresentation>Button</ToolTipRepresentation>
+									<MinValue xsi:type="xs:decimal">0</MinValue>
+									<MaxValue xsi:type="xs:decimal">1</MaxValue>
+									<BackColor>style:упЦветФонаЗаголовка01</BackColor>
+									<ContextMenu name="ПространственныйВесКонтекстноеМеню" id="630"/>
+									<ExtendedTooltip name="ПространственныйВесРасширеннаяПодсказка" id="631">
+										<Title formatted="true">
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Вес значений времени в пути между точками. Рекомендуемое значение:&lt;b&gt; 0,&lt;/&gt;&lt;b&gt;4&lt;/&gt;.</v8:content>
+											</v8:item>
+										</Title>
+									</ExtendedTooltip>
+									<Events>
+										<Event name="OnChange">ПространственныйВесПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="ВременнойВес" id="632">
+									<DataPath>ВременнойВес</DataPath>
+									<ToolTipRepresentation>Button</ToolTipRepresentation>
+									<MinValue xsi:type="xs:decimal">0</MinValue>
+									<MaxValue xsi:type="xs:decimal">1</MaxValue>
+									<BackColor>style:упЦветФонаЗаголовка01</BackColor>
+									<ContextMenu name="ВременнойВесКонтекстноеМеню" id="633"/>
+									<ExtendedTooltip name="ВременнойВесРасширеннаяПодсказка" id="634">
+										<Title formatted="true">
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Вес значений разниц между временем окончания работ в исходной точке и началом работ в точке, следующей за исходной. Рекомендуемое значение: &lt;b&gt;0,&lt;/&gt;&lt;b&gt;4&lt;/&gt;.</v8:content>
+											</v8:item>
+										</Title>
+									</ExtendedTooltip>
+									<Events>
+										<Event name="OnChange">ВременнойВесПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="ВесСрочности" id="635">
+									<DataPath>ВесСрочности</DataPath>
+									<ToolTipRepresentation>Button</ToolTipRepresentation>
+									<MinValue xsi:type="xs:decimal">0</MinValue>
+									<MaxValue xsi:type="xs:decimal">1</MaxValue>
+									<BackColor>style:упЦветФонаЗаголовка01</BackColor>
+									<ContextMenu name="ВесСрочностиКонтекстноеМеню" id="636"/>
+									<ExtendedTooltip name="ВесСрочностиРасширеннаяПодсказка" id="637">
+										<Title formatted="true">
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Вес значений срочности доставки в конкретную точку, выражаяемых отношением к позднейшему началу временного окна среди всех точек. Рекомендуемое значение: &lt;b&gt;0,&lt;/&gt;&lt;b&gt;2&lt;/&gt;.</v8:content>
+											</v8:item>
+										</Title>
+									</ExtendedTooltip>
+									<Events>
+										<Event name="OnChange">ВесСрочностиПриИзменении</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</Page>
+					</ChildItems>
+				</Pages>
+				<CheckBoxField name="ВызыватьМаршрутизацию" id="699">
+					<DataPath>ВызыватьМаршрутизацию</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>При вызове команды "Пересчитать время" обращение к маршрутизатору выполняется всегда</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ToolTipRepresentation>Button</ToolTipRepresentation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ВызыватьМаршрутизациюКонтекстноеМеню" id="700"/>
+					<ExtendedTooltip name="ВызыватьМаршрутизациюРасширеннаяПодсказка" id="701"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаВерх" id="142">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа верх</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа верх</v8:content>
+				</v8:item>
+			</ToolTip>
+			<VerticalStretch>true</VerticalStretch>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаВерхРасширеннаяПодсказка" id="143"/>
+			<ChildItems>
+				<Pages name="ГруппаВерхЛево" id="191">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа верх лево</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа верх лево</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>40</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<PagesRepresentation>TabsOnTop</PagesRepresentation>
+					<ExtendedTooltip name="ГруппаВерхЛевоРасширеннаяПодсказка" id="192"/>
+					<ChildItems>
+						<Page name="ГруппаСтраницаПоказатели" id="193">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Показатели</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Показатели загрузки</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="ГруппаСтраницаПоказателиРасширеннаяПодсказка" id="194"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаИсходныеПоказатели" id="148">
+									<EnableContentChange>true</EnableContentChange>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Исходные показатели</v8:content>
+										</v8:item>
+									</Title>
+									<TitleTextColor>style:FormTextColor</TitleTextColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="11" bold="true" italic="false" underline="true" strikeout="false" kind="WindowsFont"/>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Исходные показатели загрузки</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<ChildItemsWidth>Equal</ChildItemsWidth>
+									<ExtendedTooltip name="ГруппаИсходныеПоказателиРасширеннаяПодсказка" id="149"/>
+									<ChildItems>
+										<UsualGroup name="ГруппаИсходныеПоказателиЛево" id="449">
+											<EnableContentChange>true</EnableContentChange>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа исходные показатели лево</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа исходные показатели лево</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Vertical</Group>
+											<VerticalSpacing>Half</VerticalSpacing>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаИсходныеПоказателиЛевоРасширеннаяПодсказка" id="450"/>
+											<ChildItems>
+												<LabelDecoration name="НадписьРасстояниеИсходное" id="453">
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Длина маршрута:</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="НадписьРасстояниеИсходноеКонтекстноеМеню" id="454"/>
+													<ExtendedTooltip name="НадписьРасстояниеИсходноеРасширеннаяПодсказка" id="455"/>
+												</LabelDecoration>
+												<LabelDecoration name="НадписьВремяРейсаИсходное" id="459">
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Время рейса:</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="НадписьВремяРейсаИсходноеКонтекстноеМеню" id="460"/>
+													<ExtendedTooltip name="НадписьВремяРейсаИсходноеРасширеннаяПодсказка" id="461"/>
+												</LabelDecoration>
+												<LabelDecoration name="НадписьВремяВПутиИсходное" id="465">
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Время в пути:</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="НадписьВремяВПутиИсходноеКонтекстноеМеню" id="466"/>
+													<ExtendedTooltip name="НадписьВремяВПутиИсходноеРасширеннаяПодсказка" id="467"/>
+												</LabelDecoration>
+												<LabelDecoration name="НадписьВремяОтдыхаВПутиИсходное" id="716">
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Время отдыха:</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="НадписьВремяОтдыхаВПутиИсходноеКонтекстноеМеню" id="717"/>
+													<ExtendedTooltip name="НадписьВремяОтдыхаВПутиИсходноеРасширеннаяПодсказка" id="718"/>
+												</LabelDecoration>
+												<LabelDecoration name="ДекорацияРазделитель01" id="471">
+													<ContextMenu name="ДекорацияРазделитель01КонтекстноеМеню" id="472"/>
+													<ExtendedTooltip name="ДекорацияРазделитель01РасширеннаяПодсказка" id="473"/>
+												</LabelDecoration>
+												<LabelDecoration name="НадписьМассаИсходная" id="477">
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Масса:</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="НадписьМассаИсходнаяКонтекстноеМеню" id="478"/>
+													<ExtendedTooltip name="НадписьМассаИсходнаяРасширеннаяПодсказка" id="479"/>
+												</LabelDecoration>
+												<LabelDecoration name="НадписьОбъемИсходный" id="480">
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Объем:</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="НадписьОбъемИсходныйКонтекстноеМеню" id="481"/>
+													<ExtendedTooltip name="НадписьОбъемИсходныйРасширеннаяПодсказка" id="482"/>
+												</LabelDecoration>
+												<LabelDecoration name="НадписьКоличествоМестИсходное" id="483">
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Кол. мест:</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="НадписьКоличествоМестИсходноеКонтекстноеМеню" id="484"/>
+													<ExtendedTooltip name="НадписьКоличествоМестИсходноеРасширеннаяПодсказка" id="485"/>
+												</LabelDecoration>
+												<LabelDecoration name="НадписьКоличествоЗагрузочныхМетровИсходное" id="486">
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Кол. метров:</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="НадписьКоличествоЗагрузочныхМетровИсходноеКонтекстноеМеню" id="487"/>
+													<ExtendedTooltip name="НадписьКоличествоЗагрузочныхМетровИсходноеРасширеннаяПодсказка" id="488"/>
+												</LabelDecoration>
+												<LabelDecoration name="НадписьКоличествоАктивныхТочекИсходное" id="722">
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Кол. точек:</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="НадписьКоличествоАктивныхТочекИсходноеКонтекстноеМеню" id="723"/>
+													<ExtendedTooltip name="НадписьКоличествоАктивныхТочекИсходноеРасширеннаяПодсказка" id="724"/>
+												</LabelDecoration>
+												<LabelDecoration name="ДекорацияРазделитель05" id="553">
+													<Height>1</Height>
+													<ContextMenu name="ДекорацияРазделитель05КонтекстноеМеню" id="554"/>
+													<ExtendedTooltip name="ДекорацияРазделитель05РасширеннаяПодсказка" id="555"/>
+												</LabelDecoration>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ГруппаИсходныеПоказателиПраво" id="451">
+											<EnableContentChange>true</EnableContentChange>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа исходные показатели право</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа исходные показатели право</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Vertical</Group>
+											<VerticalSpacing>Half</VerticalSpacing>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаИсходныеПоказателиПравоРасширеннаяПодсказка" id="452"/>
+											<ChildItems>
+												<LabelField name="ЗначениеРасстояниеИсходное" id="580">
+													<DataPath>ЗначениеРасстояниеИсходное</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<ContextMenu name="ЗначениеРасстояниеИсходноеКонтекстноеМеню" id="581"/>
+													<ExtendedTooltip name="ЗначениеРасстояниеИсходноеРасширеннаяПодсказка" id="582"/>
+												</LabelField>
+												<LabelField name="ЗначениеВремяРейсаИсходное" id="583">
+													<DataPath>ЗначениеВремяРейсаИсходное</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<ContextMenu name="ЗначениеВремяРейсаИсходноеКонтекстноеМеню" id="584"/>
+													<ExtendedTooltip name="ЗначениеВремяРейсаИсходноеРасширеннаяПодсказка" id="585"/>
+												</LabelField>
+												<LabelField name="ЗначениеВремяВПутиИсходное" id="586">
+													<DataPath>ЗначениеВремяВПутиИсходное</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<ContextMenu name="ЗначениеВремяВПутиИсходноеКонтекстноеМеню" id="587"/>
+													<ExtendedTooltip name="ЗначениеВремяВПутиИсходноеРасширеннаяПодсказка" id="588"/>
+												</LabelField>
+												<LabelField name="ЗначениеВремяОтдыхаВПутиИсходное" id="707">
+													<DataPath>ЗначениеВремяОтдыхаВПутиИсходное</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<ContextMenu name="ЗначениеВремяОтдыхаВПутиИсходноеКонтекстноеМеню" id="708"/>
+													<ExtendedTooltip name="ЗначениеВремяОтдыхаВПутиИсходноеРасширеннаяПодсказка" id="709"/>
+												</LabelField>
+												<LabelDecoration name="ДекорацияРазделитель02" id="474">
+													<Height>1</Height>
+													<ContextMenu name="ДекорацияРазделитель02КонтекстноеМеню" id="475"/>
+													<ExtendedTooltip name="ДекорацияРазделитель02РасширеннаяПодсказка" id="476"/>
+												</LabelDecoration>
+												<LabelField name="ЗначениеМассаИсходная" id="589">
+													<DataPath>ЗначениеМассаИсходная</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<ContextMenu name="ЗначениеМассаИсходнаяКонтекстноеМеню" id="590"/>
+													<ExtendedTooltip name="ЗначениеМассаИсходнаяРасширеннаяПодсказка" id="591"/>
+												</LabelField>
+												<LabelField name="ЗначениеОбъемИсходный" id="592">
+													<DataPath>ЗначениеОбъемИсходный</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<ContextMenu name="ЗначениеОбъемИсходныйКонтекстноеМеню" id="593"/>
+													<ExtendedTooltip name="ЗначениеОбъемИсходныйРасширеннаяПодсказка" id="594"/>
+												</LabelField>
+												<LabelField name="ЗначениеКоличествоМестИсходное" id="595">
+													<DataPath>ЗначениеКоличествоМестИсходное</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<ContextMenu name="ЗначениеКоличествоМестИсходноеКонтекстноеМеню" id="596"/>
+													<ExtendedTooltip name="ЗначениеКоличествоМестИсходноеРасширеннаяПодсказка" id="597"/>
+												</LabelField>
+												<LabelField name="ЗначениеКоличествоЗагрузочныхМетровИсходное" id="598">
+													<DataPath>ЗначениеКоличествоЗагрузочныхМетровИсходное</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<ContextMenu name="ЗначениеКоличествоЗагрузочныхМетровИсходноеКонтекстноеМеню" id="599"/>
+													<ExtendedTooltip name="ЗначениеКоличествоЗагрузочныхМетровИсходноеРасширеннаяПодсказка" id="600"/>
+												</LabelField>
+												<LabelField name="ЗначениеКоличествоАктивныхТочекИсходное" id="728">
+													<DataPath>ЗначениеКоличествоАктивныхТочекИсходное</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<ContextMenu name="ЗначениеКоличествоАктивныхТочекИсходноеКонтекстноеМеню" id="729"/>
+													<ExtendedTooltip name="ЗначениеКоличествоАктивныхТочекИсходноеРасширеннаяПодсказка" id="730"/>
+												</LabelField>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаТекущиеПоказатели" id="150">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Текущие показатели</v8:content>
+										</v8:item>
+									</Title>
+									<TitleTextColor>style:FormTextColor</TitleTextColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="11" bold="true" italic="false" underline="true" strikeout="false" kind="WindowsFont"/>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Текущие показатели загрузки</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<ChildItemsWidth>Equal</ChildItemsWidth>
+									<ExtendedTooltip name="ГруппаТекущиеПоказателиРасширеннаяПодсказка" id="151"/>
+									<ChildItems>
+										<UsualGroup name="ГруппаТекущиеПоказателиЛево" id="501">
+											<EnableContentChange>true</EnableContentChange>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа текущие показатели лево</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа текущие показатели лево</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Vertical</Group>
+											<VerticalSpacing>Half</VerticalSpacing>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаТекущиеПоказателиЛевоРасширеннаяПодсказка" id="502"/>
+											<ChildItems>
+												<LabelDecoration name="НадписьРасстояниеТекущее" id="505">
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Длина маршрута:</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="НадписьРасстояниеТекущееКонтекстноеМеню" id="506"/>
+													<ExtendedTooltip name="НадписьРасстояниеТекущееРасширеннаяПодсказка" id="507"/>
+												</LabelDecoration>
+												<LabelDecoration name="НадписьВремяРейсаТекущее" id="526">
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Время рейса:</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="НадписьВремяРейсаТекущееКонтекстноеМеню" id="527"/>
+													<ExtendedTooltip name="НадписьВремяРейсаТекущееРасширеннаяПодсказка" id="528"/>
+												</LabelDecoration>
+												<LabelDecoration name="НадписьВремяВПутиТекущее" id="523">
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Время в пути:</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="НадписьВремяВПутиТекущееКонтекстноеМеню" id="524"/>
+													<ExtendedTooltip name="НадписьВремяВПутиТекущееРасширеннаяПодсказка" id="525"/>
+												</LabelDecoration>
+												<LabelDecoration name="НадписьВремяОтдыхаВПутиТекущее" id="713">
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Время отдыха:</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="НадписьВремяОтдыхаВПутиТекущееКонтекстноеМеню" id="714"/>
+													<ExtendedTooltip name="НадписьВремяОтдыхаВПутиТекущееРасширеннаяПодсказка" id="715"/>
+												</LabelDecoration>
+												<LabelDecoration name="ДекорацияРазделитель03" id="520">
+													<Height>1</Height>
+													<ContextMenu name="ДекорацияРазделитель03КонтекстноеМеню" id="521"/>
+													<ExtendedTooltip name="ДекорацияРазделитель03РасширеннаяПодсказка" id="522"/>
+												</LabelDecoration>
+												<LabelDecoration name="НадписьМассаТекущая" id="517">
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Масса:</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="НадписьМассаТекущаяКонтекстноеМеню" id="518"/>
+													<ExtendedTooltip name="НадписьМассаТекущаяРасширеннаяПодсказка" id="519"/>
+												</LabelDecoration>
+												<LabelDecoration name="НадписьОбъемТекущий" id="514">
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Объем:</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="НадписьОбъемТекущийКонтекстноеМеню" id="515"/>
+													<ExtendedTooltip name="НадписьОбъемТекущийРасширеннаяПодсказка" id="516"/>
+												</LabelDecoration>
+												<LabelDecoration name="НадписьКоличествоМестТекущее" id="511">
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Кол. мест:</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="НадписьКоличествоМестТекущееКонтекстноеМеню" id="512"/>
+													<ExtendedTooltip name="НадписьКоличествоМестТекущееРасширеннаяПодсказка" id="513"/>
+												</LabelDecoration>
+												<LabelDecoration name="НадписьКоличествоЗагрузочныхМетровТекущее" id="508">
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Кол. метров:</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="НадписьКоличествоЗагрузочныхМетровТекущееКонтекстноеМеню" id="509"/>
+													<ExtendedTooltip name="НадписьКоличествоЗагрузочныхМетровТекущееРасширеннаяПодсказка" id="510"/>
+												</LabelDecoration>
+												<LabelDecoration name="НадписьКоличествоАктивныхТочекТекущее" id="725">
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Кол. точек:</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="НадписьКоличествоАктивныхТочекТекущееКонтекстноеМеню" id="726"/>
+													<ExtendedTooltip name="НадписьКоличествоАктивныхТочекТекущееРасширеннаяПодсказка" id="727"/>
+												</LabelDecoration>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ГруппаТекущиеПоказателиПраво" id="503">
+											<EnableContentChange>true</EnableContentChange>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа текущие показатели право</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа текущие показатели право</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Vertical</Group>
+											<VerticalSpacing>Half</VerticalSpacing>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаТекущиеПоказателиПравоРасширеннаяПодсказка" id="504"/>
+											<ChildItems>
+												<LabelField name="ЗначениеРасстояниеТекущее" id="562">
+													<DataPath>ЗначениеРасстояниеТекущее</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<ContextMenu name="ЗначениеРасстояниеТекущееКонтекстноеМеню" id="563"/>
+													<ExtendedTooltip name="ЗначениеРасстояниеТекущееРасширеннаяПодсказка" id="564"/>
+												</LabelField>
+												<LabelField name="ЗначениеВремяРейсаТекущее" id="565">
+													<DataPath>ЗначениеВремяРейсаТекущее</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<ContextMenu name="ЗначениеВремяРейсаТекущееКонтекстноеМеню" id="566"/>
+													<ExtendedTooltip name="ЗначениеВремяРейсаТекущееРасширеннаяПодсказка" id="567"/>
+												</LabelField>
+												<LabelField name="ЗначениеВремяВПутиТекущее" id="568">
+													<DataPath>ЗначениеВремяВПутиТекущее</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<ContextMenu name="ЗначениеВремяВПутиТекущееКонтекстноеМеню" id="569"/>
+													<ExtendedTooltip name="ЗначениеВремяВПутиТекущееРасширеннаяПодсказка" id="570"/>
+												</LabelField>
+												<LabelField name="ЗначениеВремяОтдыхаВПутиТекущее" id="710">
+													<DataPath>ЗначениеВремяОтдыхаВПутиТекущее</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<ContextMenu name="ЗначениеВремяОтдыхаВПутиТекущееКонтекстноеМеню" id="711"/>
+													<ExtendedTooltip name="ЗначениеВремяОтдыхаВПутиТекущееРасширеннаяПодсказка" id="712"/>
+												</LabelField>
+												<LabelDecoration name="ДекорацияРазделитель04" id="538">
+													<Height>1</Height>
+													<ContextMenu name="ДекорацияРазделитель04КонтекстноеМеню" id="539"/>
+													<ExtendedTooltip name="ДекорацияРазделитель04РасширеннаяПодсказка" id="540"/>
+												</LabelDecoration>
+												<LabelField name="ЗначениеМассаТекущая" id="559">
+													<DataPath>ЗначениеМассаТекущая</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<ContextMenu name="ЗначениеМассаТекущаяКонтекстноеМеню" id="560"/>
+													<ExtendedTooltip name="ЗначениеМассаТекущаяРасширеннаяПодсказка" id="561"/>
+												</LabelField>
+												<LabelField name="ЗначениеОбъемТекущий" id="571">
+													<DataPath>ЗначениеОбъемТекущий</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<ContextMenu name="ЗначениеОбъемТекущийКонтекстноеМеню" id="572"/>
+													<ExtendedTooltip name="ЗначениеОбъемТекущийРасширеннаяПодсказка" id="573"/>
+												</LabelField>
+												<LabelField name="ЗначениеКоличествоМестТекущее" id="574">
+													<DataPath>ЗначениеКоличествоМестТекущее</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<ContextMenu name="ЗначениеКоличествоМестТекущееКонтекстноеМеню" id="575"/>
+													<ExtendedTooltip name="ЗначениеКоличествоМестТекущееРасширеннаяПодсказка" id="576"/>
+												</LabelField>
+												<LabelField name="ЗначениеКоличествоЗагрузочныхМетровТекущее" id="577">
+													<DataPath>ЗначениеКоличествоЗагрузочныхМетровТекущее</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<ContextMenu name="ЗначениеКоличествоЗагрузочныхМетровТекущееКонтекстноеМеню" id="578"/>
+													<ExtendedTooltip name="ЗначениеКоличествоЗагрузочныхМетровТекущееРасширеннаяПодсказка" id="579"/>
+												</LabelField>
+												<LabelField name="ЗначениеКоличествоАктивныхТочекТекущее" id="731">
+													<DataPath>ЗначениеКоличествоАктивныхТочекТекущее</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<ContextMenu name="ЗначениеКоличествоАктивныхТочекТекущееКонтекстноеМеню" id="732"/>
+													<ExtendedTooltip name="ЗначениеКоличествоАктивныхТочекТекущееРасширеннаяПодсказка" id="733"/>
+												</LabelField>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</Page>
+						<Page name="ГруппаСтраницаТС" id="195">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Транспортное средство</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Данные о ТС и составе рейса</v8:content>
+								</v8:item>
+							</ToolTip>
+							<VerticalStretch>true</VerticalStretch>
+							<ExtendedTooltip name="ГруппаСтраницаТСРасширеннаяПодсказка" id="196"/>
+							<ChildItems>
+								<LabelField name="ТранспортноеСредство" id="179">
+									<DataPath>ТранспортноеСредство</DataPath>
+									<ContextMenu name="ТранспортноеСредствоКонтекстноеМеню" id="180"/>
+									<ExtendedTooltip name="ТранспортноеСредствоРасширеннаяПодсказка" id="181"/>
+								</LabelField>
+								<LabelField name="ТипТС" id="693">
+									<DataPath>ТипТС</DataPath>
+									<ContextMenu name="ТипТСКонтекстноеМеню" id="694"/>
+									<ExtendedTooltip name="ТипТСРасширеннаяПодсказка" id="695"/>
+								</LabelField>
+								<LabelField name="Водитель1" id="182">
+									<DataPath>Водитель1</DataPath>
+									<ContextMenu name="Водитель1КонтекстноеМеню" id="183"/>
+									<ExtendedTooltip name="Водитель1РасширеннаяПодсказка" id="184"/>
+								</LabelField>
+								<LabelField name="Водитель2" id="185">
+									<DataPath>Водитель2</DataPath>
+									<ContextMenu name="Водитель2КонтекстноеМеню" id="186"/>
+									<ExtendedTooltip name="Водитель2РасширеннаяПодсказка" id="187"/>
+								</LabelField>
+								<LabelField name="Экспедитор" id="188">
+									<DataPath>Экспедитор</DataPath>
+									<ContextMenu name="ЭкспедиторКонтекстноеМеню" id="189"/>
+									<ExtendedTooltip name="ЭкспедиторРасширеннаяПодсказка" id="190"/>
+								</LabelField>
+							</ChildItems>
+						</Page>
+					</ChildItems>
+				</Pages>
+				<Pages name="ГруппаВерхПраво" id="407">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа верх право</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа верх право</v8:content>
+						</v8:item>
+					</ToolTip>
+					<PagesRepresentation>TabsOnTop</PagesRepresentation>
+					<ExtendedTooltip name="ГруппаВерхПравоРасширеннаяПодсказка" id="408"/>
+					<Events>
+						<Event name="OnCurrentPageChange">ГруппаВерхПравоПриСменеСтраницы</Event>
+					</Events>
+					<ChildItems>
+						<Page name="ГруппаКарта" id="92">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Карта</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Карта</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Picture>
+								<xr:Ref>CommonPicture.КонтактнаяИнформацияПерейтиПоСсылке</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</Picture>
+							<ExtendedTooltip name="ГруппаКартаРасширеннаяПодсказка" id="93"/>
+							<ChildItems>
+								<CommandBar name="ГруппаКоманднаяПанельКарты" id="612">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа командная панель карты</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа командная панель карты</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ГруппаКоманднаяПанельКартыРасширеннаяПодсказка" id="613"/>
+									<ChildItems>
+										<Button name="МасштабироватьКартуПоТочкамРейса" id="438">
+											<Type>CommandBarButton</Type>
+											<Width>4</Width>
+											<CommandName>Form.Command.МасштабироватьКартуПоТочкамРейса</CommandName>
+											<BorderColor>style:упЦветЗаголовковФорм</BorderColor>
+											<ExtendedTooltip name="МасштабироватьКартуПоТочкамРейсаРасширеннаяПодсказка" id="439"/>
+										</Button>
+										<Button name="МасштабироватьКартуПоАктивнымТочкамРейса" id="444">
+											<Type>CommandBarButton</Type>
+											<Width>4</Width>
+											<CommandName>Form.Command.МасштабироватьКартуПоАктивнымТочкамРейса</CommandName>
+											<BorderColor>style:упЦветЗаголовковФорм</BorderColor>
+											<ExtendedTooltip name="МасштабироватьКартуПоАктивнымТочкамРейсаРасширеннаяПодсказка" id="445"/>
+										</Button>
+									</ChildItems>
+								</CommandBar>
+								<HTMLDocumentField name="HTMLДокумент" id="94">
+									<DataPath>HTMLДокумент</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<ContextMenu name="HTMLДокументКонтекстноеМеню" id="95"/>
+									<ExtendedTooltip name="HTMLДокументРасширеннаяПодсказка" id="96"/>
+									<Events>
+										<Event name="DocumentComplete">HTMLДокументДокументСформирован</Event>
+										<Event name="OnClick">HTMLДокументПриНажатии</Event>
+									</Events>
+								</HTMLDocumentField>
+							</ChildItems>
+						</Page>
+						<Page name="ГруппаДиаграмма" id="409">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Диаграмма Ганта</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Диаграмма Ганта</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Picture>
+								<xr:Ref>StdPicture.GanttChart</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</Picture>
+							<ExtendedTooltip name="ГруппаДиаграммаРасширеннаяПодсказка" id="410"/>
+							<ChildItems>
+								<GanttChartField name="Диаграмма" id="411">
+									<DataPath>Диаграмма</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<ContextMenu name="ДиаграммаКонтекстноеМеню" id="412"/>
+									<ExtendedTooltip name="ДиаграммаРасширеннаяПодсказка" id="413"/>
+								</GanttChartField>
+							</ChildItems>
+						</Page>
+						<Page name="ГруппаДиаграммаЗагрузки" id="640">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Загрузка по точкам</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа диаграмма загрузки</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Picture>
+								<xr:Ref>StdPicture.Chart</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</Picture>
+							<ExtendedTooltip name="ГруппаДиаграммаЗагрузкиРасширеннаяПодсказка" id="641"/>
+							<ChildItems>
+								<UsualGroup name="Группа1" id="668">
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="669"/>
+									<ChildItems>
+										<LabelDecoration name="Декорация3" id="670">
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<HorizontalStretch>true</HorizontalStretch>
+											<ContextMenu name="Декорация3КонтекстноеМеню" id="671"/>
+											<ExtendedTooltip name="Декорация3РасширеннаяПодсказка" id="672"/>
+										</LabelDecoration>
+										<InputField name="ГрузоваяЕдиница" id="665">
+											<DataPath>ГрузоваяЕдиница</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Контролируемый показатель</v8:content>
+												</v8:item>
+											</Title>
+											<Width>20</Width>
+											<HorizontalStretch>false</HorizontalStretch>
+											<ListChoiceMode>true</ListChoiceMode>
+											<ContextMenu name="ГрузоваяЕдиницаКонтекстноеМеню" id="666"/>
+											<ExtendedTooltip name="ГрузоваяЕдиницаРасширеннаяПодсказка" id="667"/>
+											<Events>
+												<Event name="OnChange">ГрузоваяЕдиницаПриИзменении</Event>
+											</Events>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+								<ChartField name="ДиаграммаЗагрузки" id="642">
+									<DataPath>ДиаграммаЗагрузки</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<ContextMenu name="ДиаграммаЗагрузкиКонтекстноеМеню" id="643"/>
+									<ExtendedTooltip name="ДиаграммаЗагрузкиРасширеннаяПодсказка" id="644"/>
+								</ChartField>
+							</ChildItems>
+						</Page>
+					</ChildItems>
+				</Pages>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаНиз" id="113">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа низ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа низ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаНизРасширеннаяПодсказка" id="114"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаНизЛево" id="175">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа низ лево</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа низ лево</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаНизЛевоРасширеннаяПодсказка" id="176"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаМаршрут" id="20">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Маршрут</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаМаршрутРасширеннаяПодсказка" id="21"/>
+							<ChildItems>
+								<CommandBar name="ГруппаКомандМаршрут" id="442">
+									<EnableContentChange>true</EnableContentChange>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа команд маршрут</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа команд маршрут</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ГруппаКомандМаршрутРасширеннаяПодсказка" id="443"/>
+									<ChildItems>
+										<Button name="МаршрутПереместитьТочкуВверх" id="109">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.ПереместитьТочкуВверх</CommandName>
+											<BorderColor>style:упЦветЗаголовковФорм</BorderColor>
+											<ExtendedTooltip name="МаршрутПереместитьТочкуВверхРасширеннаяПодсказка" id="110"/>
+										</Button>
+										<Button name="МаршрутПереместитьТочкуВниз" id="111">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.ПереместитьТочкуВниз</CommandName>
+											<BorderColor>style:упЦветЗаголовковФорм</BorderColor>
+											<ExtendedTooltip name="МаршрутПереместитьТочкуВнизРасширеннаяПодсказка" id="112"/>
+										</Button>
+										<Button name="ИзменитьВремяНачалаРейса" id="610">
+											<Type>CommandBarButton</Type>
+											<Visible>false</Visible>
+											<CommandName>Form.Command.ИзменитьВремяНачалаРейса</CommandName>
+											<ExtendedTooltip name="ИзменитьВремяНачалаРейсаРасширеннаяПодсказка" id="611"/>
+										</Button>
+										<Button name="РедактироватьПосещениеГаража" id="673">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.РедактироватьПосещениеГаража</CommandName>
+											<ExtendedTooltip name="РедактироватьПосещениеГаражаРасширеннаяПодсказка" id="674"/>
+										</Button>
+										<Button name="МаршрутВывестиСписок" id="683">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Item.Маршрут.StandardCommand.OutputList</CommandName>
+											<ExtendedTooltip name="МаршрутВывестиСписокРасширеннаяПодсказка" id="684"/>
+										</Button>
+										<Button name="МаршрутОбновитьМаршрут" id="107">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.ОбновитьМаршрут</CommandName>
+											<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+											<ExtendedTooltip name="МаршрутОбновитьМаршрутРасширеннаяПодсказка" id="108"/>
+										</Button>
+										<Button name="ПересчитатьВременнойГрафикМаршрута" id="685">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.ПересчитатьВременнойГрафикМаршрута</CommandName>
+											<ExtendedTooltip name="ПересчитатьВременнойГрафикМаршрутаРасширеннаяПодсказка" id="686"/>
+										</Button>
+										<Button name="ПодобратьИДобавитьКонтрольныеТочки" id="767">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.ПодобратьИДобавитьКонтрольныеТочки</CommandName>
+											<ExtendedTooltip name="ПодобратьИДобавитьКонтрольныеТочкиРасширеннаяПодсказка" id="768"/>
+										</Button>
+										<Button name="МаршрутВернутьИсходноеЗначениеВременногоОкна" id="756">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.ВернутьИсходноеЗначениеВременногоОкнаМаршрута</CommandName>
+											<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+											<ExtendedTooltip name="МаршрутВернутьИсходноеЗначениеВременногоОкнаРасширеннаяПодсказка" id="757"/>
+										</Button>
+									</ChildItems>
+								</CommandBar>
+								<Table name="Маршрут" id="22">
+									<Representation>List</Representation>
+									<ChangeRowSet>false</ChangeRowSet>
+									<ChangeRowOrder>false</ChangeRowOrder>
+									<SelectionMode>SingleRow</SelectionMode>
+									<RowSelectionMode>Row</RowSelectionMode>
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<FileDragMode>AsFile</FileDragMode>
+									<DataPath>Маршрут</DataPath>
+									<BackColor>style:КонтактнаяИнформацияСРедактированиемВДиалогеЦвет</BackColor>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="МаршрутКонтекстноеМеню" id="23">
+										<ChildItems>
+											<Button name="МаршрутКонтекстноеМенюВернутьИсходноеЗначениеВременногоОкна" id="754">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ВернутьИсходноеЗначениеВременногоОкнаМаршрута</CommandName>
+												<ExtendedTooltip name="МаршрутКонтекстноеМенюВернутьИсходноеЗначениеВременногоОкнаРасширеннаяПодсказка" id="755"/>
+											</Button>
+											<Button name="МаршрутКонтекстноеМенюПоказатьПредшественников" id="758">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ПоказатьПредшественников</CommandName>
+												<ExtendedTooltip name="МаршрутКонтекстноеМенюПоказатьПредшественниковРасширеннаяПодсказка" id="759"/>
+											</Button>
+											<Button name="МаршрутКонтекстноеМенюПереключитьОжиданиеПослеРабот" id="765">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ПереключитьОжиданиеПослеРабот</CommandName>
+												<ExtendedTooltip name="МаршрутКонтекстноеМенюПереключитьОжиданиеПослеРаботРасширеннаяПодсказка" id="766"/>
+											</Button>
+										</ChildItems>
+									</ContextMenu>
+									<AutoCommandBar name="МаршрутКоманднаяПанель" id="24">
+										<Autofill>false</Autofill>
+									</AutoCommandBar>
+									<ExtendedTooltip name="МаршрутРасширеннаяПодсказка" id="25"/>
+									<SearchStringAddition name="МаршрутСтрокаПоиска" id="26">
+										<AdditionSource>
+											<Item>Маршрут</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="МаршрутСтрокаПоискаКонтекстноеМеню" id="29"/>
+										<ExtendedTooltip name="МаршрутСтрокаПоискаРасширеннаяПодсказка" id="30"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="МаршрутСостояниеПросмотра" id="31">
+										<AdditionSource>
+											<Item>Маршрут</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="МаршрутСостояниеПросмотраКонтекстноеМеню" id="34"/>
+										<ExtendedTooltip name="МаршрутСостояниеПросмотраРасширеннаяПодсказка" id="35"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="МаршрутУправлениеПоиском" id="36">
+										<AdditionSource>
+											<Item>Маршрут</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="МаршрутУправлениеПоискомКонтекстноеМеню" id="39"/>
+										<ExtendedTooltip name="МаршрутУправлениеПоискомРасширеннаяПодсказка" id="40"/>
+									</SearchControlAddition>
+									<Events>
+										<Event name="DragCheck">МаршрутПроверкаПеретаскивания</Event>
+										<Event name="Selection">МаршрутВыбор</Event>
+										<Event name="OnActivateRow">МаршрутПриАктивизацииСтроки</Event>
+										<Event name="Drag">МаршрутПеретаскивание</Event>
+									</Events>
+									<ChildItems>
+										<PictureField name="МаршрутПометка" id="80">
+											<DataPath>Маршрут.Пометка</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<FixingInTable>Left</FixingInTable>
+											<HeaderPicture>
+												<xr:Ref>CommonPicture.упПредставлениеПлюсМинус</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+											</HeaderPicture>
+											<HeaderHorizontalAlign>Center</HeaderHorizontalAlign>
+											<Width>2</Width>
+											<ValuesPicture>
+												<xr:Ref>CommonPicture.упПлюсМинус</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+											</ValuesPicture>
+											<FileDragMode>AsFile</FileDragMode>
+											<ContextMenu name="МаршрутПометкаКонтекстноеМеню" id="81"/>
+											<ExtendedTooltip name="МаршрутПометкаРасширеннаяПодсказка" id="82"/>
+										</PictureField>
+										<PictureField name="МаршрутПопадаетВоВременноеОкно" id="604">
+											<DataPath>Маршрут.ПопадаетВоВременноеОкно</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<TitleLocation>None</TitleLocation>
+											<FixingInTable>Left</FixingInTable>
+											<HeaderPicture>
+												<xr:Ref>CommonPicture.упПредставлениеВремени</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+											</HeaderPicture>
+											<Width>2</Width>
+											<ValuesPicture>
+												<xr:Ref>CommonPicture.упПопаданиеВоВременныеОкна</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+											</ValuesPicture>
+											<FileDragMode>AsFile</FileDragMode>
+											<ContextMenu name="МаршрутПопадаетВоВременноеОкноКонтекстноеМеню" id="605"/>
+											<ExtendedTooltip name="МаршрутПопадаетВоВременноеОкноРасширеннаяПодсказка" id="606"/>
+										</PictureField>
+										<PictureField name="МаршрутПозиционирование" id="139">
+											<DataPath>Маршрут.Позиционирование</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<FixingInTable>Left</FixingInTable>
+											<HeaderPicture>
+												<xr:Ref>CommonPicture.упПозиционированиеНаТочкеПредставление</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+											</HeaderPicture>
+											<Width>2</Width>
+											<ValuesPicture>
+												<xr:Ref>CommonPicture.упПозиционированиеНаТочке</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+											</ValuesPicture>
+											<FileDragMode>AsFile</FileDragMode>
+											<ContextMenu name="МаршрутПозиционированиеКонтекстноеМеню" id="140"/>
+											<ExtendedTooltip name="МаршрутПозиционированиеРасширеннаяПодсказка" id="141"/>
+										</PictureField>
+										<InputField name="МаршрутНомерСтроки" id="675">
+											<DataPath>Маршрут.НомерСтроки</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>№</v8:content>
+												</v8:item>
+											</Title>
+											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<HeaderPicture>
+												<xr:Ref>CommonPicture.упНомерСтроки</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+											</HeaderPicture>
+											<Width>4</Width>
+											<HorizontalStretch>false</HorizontalStretch>
+											<ContextMenu name="МаршрутНомерСтрокиКонтекстноеМеню" id="676"/>
+											<ExtendedTooltip name="МаршрутНомерСтрокиРасширеннаяПодсказка" id="677"/>
+										</InputField>
+										<ColumnGroup name="МаршрутГруппа4" id="678">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Адрес</v8:content>
+												</v8:item>
+											</Title>
+											<Group>InCell</Group>
+											<ExtendedTooltip name="МаршрутГруппа4РасширеннаяПодсказка" id="679"/>
+											<ChildItems>
+												<PictureField name="МаршрутИндексКартинки" id="680">
+													<DataPath>Маршрут.ИндексКартинки</DataPath>
+													<ReadOnly>true</ReadOnly>
+													<TitleLocation>None</TitleLocation>
+													<EditMode>EnterOnInput</EditMode>
+													<ValuesPicture>
+														<xr:Ref>CommonPicture.упКоллекцияТипыТочекМаршрута</xr:Ref>
+														<xr:LoadTransparent>true</xr:LoadTransparent>
+													</ValuesPicture>
+													<FileDragMode>AsFile</FileDragMode>
+													<ContextMenu name="МаршрутИндексКартинкиКонтекстноеМеню" id="681"/>
+													<ExtendedTooltip name="МаршрутИндексКартинкиРасширеннаяПодсказка" id="682"/>
+												</PictureField>
+												<InputField name="МаршрутАдрес" id="41">
+													<DataPath>Маршрут.Адрес</DataPath>
+													<ReadOnly>true</ReadOnly>
+													<EditMode>EnterOnInput</EditMode>
+													<OpenButton>true</OpenButton>
+													<ContextMenu name="МаршрутАдресКонтекстноеМеню" id="42"/>
+													<ExtendedTooltip name="МаршрутАдресРасширеннаяПодсказка" id="43"/>
+												</InputField>
+											</ChildItems>
+										</ColumnGroup>
+										<ColumnGroup name="МаршрутГруппа3" id="663">
+											<ExtendedTooltip name="МаршрутГруппа3РасширеннаяПодсказка" id="664"/>
+											<ChildItems>
+												<InputField name="МаршрутРасстояниеОтПредыдущейТочкиПредставление" id="657">
+													<DataPath>Маршрут.РасстояниеОтПредыдущейТочкиПредставление</DataPath>
+													<ReadOnly>true</ReadOnly>
+													<HorizontalAlign>Left</HorizontalAlign>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>12</Width>
+													<HorizontalStretch>false</HorizontalStretch>
+													<ContextMenu name="МаршрутРасстояниеОтПредыдущейТочкиПредставлениеКонтекстноеМеню" id="658"/>
+													<ExtendedTooltip name="МаршрутРасстояниеОтПредыдущейТочкиПредставлениеРасширеннаяПодсказка" id="659"/>
+												</InputField>
+												<ColumnGroup name="МаршрутГруппа5" id="705">
+													<Group>Horizontal</Group>
+													<ExtendedTooltip name="МаршрутГруппа5РасширеннаяПодсказка" id="706"/>
+													<ChildItems>
+														<InputField name="МаршрутВремяОтПредыдущейТочкиПредставление" id="660">
+															<DataPath>Маршрут.ВремяОтПредыдущейТочкиПредставление</DataPath>
+															<ReadOnly>true</ReadOnly>
+															<HorizontalAlign>Left</HorizontalAlign>
+															<EditMode>EnterOnInput</EditMode>
+															<Width>12</Width>
+															<HorizontalStretch>false</HorizontalStretch>
+															<ContextMenu name="МаршрутВремяОтПредыдущейТочкиПредставлениеКонтекстноеМеню" id="661"/>
+															<ExtendedTooltip name="МаршрутВремяОтПредыдущейТочкиПредставлениеРасширеннаяПодсказка" id="662"/>
+														</InputField>
+														<InputField name="МаршрутВремяОтдыхаВПутиОтПредыдущейТочкиПредставление" id="702">
+															<DataPath>Маршрут.ВремяОтдыхаВПутиОтПредыдущейТочкиПредставление</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>+ отдых</v8:content>
+																</v8:item>
+															</Title>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="МаршрутВремяОтдыхаВПутиОтПредыдущейТочкиПредставлениеКонтекстноеМеню" id="703"/>
+															<ExtendedTooltip name="МаршрутВремяОтдыхаВПутиОтПредыдущейТочкиПредставлениеРасширеннаяПодсказка" id="704"/>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+											</ChildItems>
+										</ColumnGroup>
+										<InputField name="МаршрутПлановоеПрибытие" id="44">
+											<DataPath>Маршрут.ПлановоеПрибытие</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Прибытие (план)</v8:content>
+												</v8:item>
+											</Title>
+											<HorizontalAlign>Left</HorizontalAlign>
+											<EditMode>EnterOnInput</EditMode>
+											<HeaderPicture>
+												<xr:Ref>StdPicture.Change</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+											</HeaderPicture>
+											<Width>11</Width>
+											<HorizontalStretch>false</HorizontalStretch>
+											<Format>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Л=ru; ДФ='dd.MM.yy ЧЧ:mm'; ДП='Пустая дата'</v8:content>
+												</v8:item>
+											</Format>
+											<EditFormat>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Л=ru; ДФ='dd.MM.yy ЧЧ:mm'; ДП='Пустая дата'</v8:content>
+												</v8:item>
+											</EditFormat>
+											<ContextMenu name="МаршрутПлановоеПрибытиеКонтекстноеМеню" id="45"/>
+											<ExtendedTooltip name="МаршрутПлановоеПрибытиеРасширеннаяПодсказка" id="46"/>
+											<Events>
+												<Event name="OnChange">МаршрутПлановоеПрибытиеПриИзменении</Event>
+											</Events>
+										</InputField>
+										<ColumnGroup name="МаршрутГруппа1" id="645">
+											<ExtendedTooltip name="МаршрутГруппа1РасширеннаяПодсказка" id="646"/>
+											<ChildItems>
+												<ColumnGroup name="МаршрутГруппа2" id="647">
+													<Group>Horizontal</Group>
+													<ExtendedTooltip name="МаршрутГруппа2РасширеннаяПодсказка" id="648"/>
+													<ChildItems>
+														<InputField name="МаршрутВремяОжиданияВТочкеПредставление" id="427">
+															<DataPath>Маршрут.ВремяОжиданияВТочкеПредставление</DataPath>
+															<ReadOnly>true</ReadOnly>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Ожидание</v8:content>
+																</v8:item>
+															</Title>
+															<ToolTip>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Длительность ожидания в точке до первой работы и между работами</v8:content>
+																</v8:item>
+															</ToolTip>
+															<HorizontalAlign>Left</HorizontalAlign>
+															<EditMode>EnterOnInput</EditMode>
+															<Width>10</Width>
+															<HorizontalStretch>false</HorizontalStretch>
+															<ContextMenu name="МаршрутВремяОжиданияВТочкеПредставлениеКонтекстноеМеню" id="428"/>
+															<ExtendedTooltip name="МаршрутВремяОжиданияВТочкеПредставлениеРасширеннаяПодсказка" id="429"/>
+														</InputField>
+														<InputField name="МаршрутВремяРаботПредставление" id="424">
+															<DataPath>Маршрут.ВремяРаботПредставление</DataPath>
+															<ReadOnly>true</ReadOnly>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Работы</v8:content>
+																</v8:item>
+															</Title>
+															<HorizontalAlign>Left</HorizontalAlign>
+															<EditMode>EnterOnInput</EditMode>
+															<Width>11</Width>
+															<HorizontalStretch>false</HorizontalStretch>
+															<ContextMenu name="МаршрутВремяРаботПредставлениеКонтекстноеМеню" id="425"/>
+															<ExtendedTooltip name="МаршрутВремяРаботПредставлениеРасширеннаяПодсказка" id="426"/>
+														</InputField>
+														<InputField name="МаршрутВремяОжиданияВТочкеПослеРаботПредставление" id="762">
+															<DataPath>Маршрут.ВремяОжиданияВТочкеПослеРаботПредставление</DataPath>
+															<ReadOnly>true</ReadOnly>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Ожидание после</v8:content>
+																</v8:item>
+															</Title>
+															<ToolTip>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Длительность ожидания в точке после последней работы</v8:content>
+																</v8:item>
+															</ToolTip>
+															<EditMode>EnterOnInput</EditMode>
+															<Width>10</Width>
+															<ContextMenu name="МаршрутВремяОжиданияВТочкеПослеРаботПредставлениеКонтекстноеМеню" id="763"/>
+															<ExtendedTooltip name="МаршрутВремяОжиданияВТочкеПослеРаботПредставлениеРасширеннаяПодсказка" id="764"/>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<InputField name="МаршрутВременноеОкноПредставление" id="649">
+													<DataPath>Маршрут.ВременноеОкноПредставление</DataPath>
+													<ReadOnly>true</ReadOnly>
+													<HorizontalAlign>Left</HorizontalAlign>
+													<EditMode>EnterOnInput</EditMode>
+													<HeaderHorizontalAlign>Center</HeaderHorizontalAlign>
+													<Width>23</Width>
+													<HorizontalStretch>false</HorizontalStretch>
+													<ContextMenu name="МаршрутВременноеОкноПредставлениеКонтекстноеМеню" id="650"/>
+													<ExtendedTooltip name="МаршрутВременноеОкноПредставлениеРасширеннаяПодсказка" id="651"/>
+												</InputField>
+											</ChildItems>
+										</ColumnGroup>
+										<InputField name="МаршрутПлановоеУбытие" id="47">
+											<DataPath>Маршрут.ПлановоеУбытие</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Убытие (план)</v8:content>
+												</v8:item>
+											</Title>
+											<HorizontalAlign>Left</HorizontalAlign>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>11</Width>
+											<HorizontalStretch>false</HorizontalStretch>
+											<Format>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Л=ru; ДФ='dd.MM.yy ЧЧ:mm'; ДП='Пустая дата'</v8:content>
+												</v8:item>
+											</Format>
+											<EditFormat>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Л=ru; ДФ='dd.MM.yy ЧЧ:mm'; ДП='Пустая дата'</v8:content>
+												</v8:item>
+											</EditFormat>
+											<ContextMenu name="МаршрутПлановоеУбытиеКонтекстноеМеню" id="48"/>
+											<ExtendedTooltip name="МаршрутПлановоеУбытиеРасширеннаяПодсказка" id="49"/>
+										</InputField>
+										<InputField name="МаршрутИсходноеВременноеОкноПредставление" id="751">
+											<DataPath>Маршрут.ИсходноеВременноеОкноПредставление</DataPath>
+											<UserVisible>
+												<xr:Common>false</xr:Common>
+											</UserVisible>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="МаршрутИсходноеВременноеОкноПредставлениеКонтекстноеМеню" id="752"/>
+											<ExtendedTooltip name="МаршрутИсходноеВременноеОкноПредставлениеРасширеннаяПодсказка" id="753"/>
+										</InputField>
+									</ChildItems>
+								</Table>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаНизПраво" id="177">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа низ право</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа низ право</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаНизПравоРасширеннаяПодсказка" id="178"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаРаботы" id="197">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа работы</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа работы</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаРаботыРасширеннаяПодсказка" id="198"/>
+							<ChildItems>
+								<CommandBar name="ГруппаКомандРаботы" id="742">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа команд работы</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа команд работы</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ГруппаКомандРаботыРасширеннаяПодсказка" id="743"/>
+									<ChildItems>
+										<Button name="ВернутьИсходноеЗначениеВременногоОкна" id="749">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.ВернутьИсходноеЗначениеВременногоОкна</CommandName>
+											<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+											<ExtendedTooltip name="ВернутьИсходноеЗначениеВременногоОкнаРасширеннаяПодсказка" id="750"/>
+										</Button>
+										<Button name="РаботыОпределитьВременноеОкноДляТочки" id="740">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.ОпределитьВременноеОкноДляТочки</CommandName>
+											<ExtendedTooltip name="РаботыОпределитьВременноеОкноДляТочкиРасширеннаяПодсказка" id="741"/>
+										</Button>
+										<Button name="РазделитьРаботы" id="760">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.РазделитьРаботы</CommandName>
+											<ExtendedTooltip name="РазделитьРаботыРасширеннаяПодсказка" id="761"/>
+										</Button>
+									</ChildItems>
+								</CommandBar>
+								<Table name="Работы" id="199">
+									<Representation>List</Representation>
+									<ReadOnly>true</ReadOnly>
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<FileDragMode>AsFile</FileDragMode>
+									<DataPath>Работы</DataPath>
+									<BackColor>style:КонтактнаяИнформацияСРедактированиемВДиалогеЦвет</BackColor>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="РаботыКонтекстноеМеню" id="200">
+										<ChildItems>
+											<Button name="РаботыКонтекстноеМенюВернутьИсходноеЗначениеВременногоОкна" id="747">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ВернутьИсходноеЗначениеВременногоОкна</CommandName>
+												<ExtendedTooltip name="РаботыКонтекстноеМенюВернутьИсходноеЗначениеВременногоОкнаРасширеннаяПодсказка" id="748"/>
+											</Button>
+										</ChildItems>
+									</ContextMenu>
+									<AutoCommandBar name="РаботыКоманднаяПанель" id="201">
+										<Autofill>false</Autofill>
+									</AutoCommandBar>
+									<ExtendedTooltip name="РаботыРасширеннаяПодсказка" id="202"/>
+									<SearchStringAddition name="РаботыСтрокаПоиска" id="203">
+										<AdditionSource>
+											<Item>Работы</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="РаботыСтрокаПоискаКонтекстноеМеню" id="206"/>
+										<ExtendedTooltip name="РаботыСтрокаПоискаРасширеннаяПодсказка" id="207"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="РаботыСостояниеПросмотра" id="208">
+										<AdditionSource>
+											<Item>Работы</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="РаботыСостояниеПросмотраКонтекстноеМеню" id="211"/>
+										<ExtendedTooltip name="РаботыСостояниеПросмотраРасширеннаяПодсказка" id="212"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="РаботыУправлениеПоиском" id="213">
+										<AdditionSource>
+											<Item>Работы</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="РаботыУправлениеПоискомКонтекстноеМеню" id="216"/>
+										<ExtendedTooltip name="РаботыУправлениеПоискомРасширеннаяПодсказка" id="217"/>
+									</SearchControlAddition>
+									<Events>
+										<Event name="Selection">РаботыВыбор</Event>
+									</Events>
+									<ChildItems>
+										<PictureField name="РаботыПометка" id="272">
+											<DataPath>Работы.Пометка</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<FixingInTable>Left</FixingInTable>
+											<HeaderPicture>
+												<xr:Ref>CommonPicture.упПредставлениеПлюсМинус</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+											</HeaderPicture>
+											<Width>2</Width>
+											<HorizontalStretch>false</HorizontalStretch>
+											<ValuesPicture>
+												<xr:Ref>CommonPicture.упПлюсМинус</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+											</ValuesPicture>
+											<FileDragMode>AsFile</FileDragMode>
+											<ContextMenu name="РаботыПометкаКонтекстноеМеню" id="273"/>
+											<ExtendedTooltip name="РаботыПометкаРасширеннаяПодсказка" id="274"/>
+										</PictureField>
+										<PictureField name="РаботыПопадаетВоВременноеОкно" id="601">
+											<DataPath>Работы.ПопадаетВоВременноеОкно</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<FixingInTable>Left</FixingInTable>
+											<HeaderPicture>
+												<xr:Ref>CommonPicture.упПредставлениеВремени</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+											</HeaderPicture>
+											<Width>2</Width>
+											<ValuesPicture>
+												<xr:Ref>CommonPicture.упПопаданиеВоВременныеОкна</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+											</ValuesPicture>
+											<FileDragMode>AsFile</FileDragMode>
+											<ContextMenu name="РаботыПопадаетВоВременноеОкноКонтекстноеМеню" id="602"/>
+											<ExtendedTooltip name="РаботыПопадаетВоВременноеОкноРасширеннаяПодсказка" id="603"/>
+										</PictureField>
+										<PictureField name="РаботыТипОперации" id="607">
+											<DataPath>Работы.ТипОперации</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Тип операции</v8:content>
+												</v8:item>
+											</ToolTip>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>2</Width>
+											<HorizontalStretch>false</HorizontalStretch>
+											<ValuesPicture>
+												<xr:Ref>CommonPicture.упКоллекцияТипыОпераций</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+											</ValuesPicture>
+											<FileDragMode>AsFile</FileDragMode>
+											<ContextMenu name="РаботыТипОперацииКонтекстноеМеню" id="608"/>
+											<ExtendedTooltip name="РаботыТипОперацииРасширеннаяПодсказка" id="609"/>
+										</PictureField>
+										<ColumnGroup name="РаботыГруппаЗаказчикГрузовоеМесто" id="419">
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Работы группа заказчик грузовое место</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>InCell</Group>
+											<ExtendedTooltip name="РаботыГруппаЗаказчикГрузовоеМестоРасширеннаяПодсказка" id="420"/>
+											<ChildItems>
+												<InputField name="РаботыЗаказчик" id="416">
+													<DataPath>Работы.Заказчик</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="РаботыЗаказчикКонтекстноеМеню" id="417"/>
+													<ExtendedTooltip name="РаботыЗаказчикРасширеннаяПодсказка" id="418"/>
+												</InputField>
+												<InputField name="РаботыГрузовоеМесто" id="242">
+													<DataPath>Работы.ГрузовоеМесто</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Груз. место</v8:content>
+														</v8:item>
+													</Title>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="РаботыГрузовоеМестоКонтекстноеМеню" id="243"/>
+													<ExtendedTooltip name="РаботыГрузовоеМестоРасширеннаяПодсказка" id="244"/>
+												</InputField>
+											</ChildItems>
+										</ColumnGroup>
+										<InputField name="РаботыОперация" id="224">
+											<DataPath>Работы.Операция</DataPath>
+											<UserVisible>
+												<xr:Common>false</xr:Common>
+											</UserVisible>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="РаботыОперацияКонтекстноеМеню" id="225"/>
+											<ExtendedTooltip name="РаботыОперацияРасширеннаяПодсказка" id="226"/>
+										</InputField>
+										<InputField name="РаботыТара" id="719">
+											<DataPath>Работы.Тара</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="РаботыТараКонтекстноеМеню" id="720"/>
+											<ExtendedTooltip name="РаботыТараРасширеннаяПодсказка" id="721"/>
+										</InputField>
+										<InputField name="РаботыМасса" id="275">
+											<DataPath>Работы.Масса</DataPath>
+											<HorizontalAlign>Left</HorizontalAlign>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>10</Width>
+											<HorizontalStretch>false</HorizontalStretch>
+											<ContextMenu name="РаботыМассаКонтекстноеМеню" id="276"/>
+											<ExtendedTooltip name="РаботыМассаРасширеннаяПодсказка" id="277"/>
+										</InputField>
+										<InputField name="РаботыОбъем" id="278">
+											<DataPath>Работы.Объем</DataPath>
+											<HorizontalAlign>Left</HorizontalAlign>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>10</Width>
+											<HorizontalStretch>false</HorizontalStretch>
+											<ContextMenu name="РаботыОбъемКонтекстноеМеню" id="279"/>
+											<ExtendedTooltip name="РаботыОбъемРасширеннаяПодсказка" id="280"/>
+										</InputField>
+										<InputField name="РаботыКоличествоМест" id="281">
+											<DataPath>Работы.КоличествоМест</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Кол. мест</v8:content>
+												</v8:item>
+											</Title>
+											<HorizontalAlign>Left</HorizontalAlign>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>10</Width>
+											<HorizontalStretch>false</HorizontalStretch>
+											<ContextMenu name="РаботыКоличествоМестКонтекстноеМеню" id="282"/>
+											<ExtendedTooltip name="РаботыКоличествоМестРасширеннаяПодсказка" id="283"/>
+										</InputField>
+										<InputField name="РаботыКоличествоЗагрузочныхМетров" id="284">
+											<DataPath>Работы.КоличествоЗагрузочныхМетров</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Кол. метров</v8:content>
+												</v8:item>
+											</Title>
+											<HorizontalAlign>Left</HorizontalAlign>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>10</Width>
+											<HorizontalStretch>false</HorizontalStretch>
+											<ContextMenu name="РаботыКоличествоЗагрузочныхМетровКонтекстноеМеню" id="285"/>
+											<ExtendedTooltip name="РаботыКоличествоЗагрузочныхМетровРасширеннаяПодсказка" id="286"/>
+										</InputField>
+										<InputField name="РаботыКоличествоГрузов" id="257">
+											<DataPath>Работы.КоличествоГрузов</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Кол. грузов</v8:content>
+												</v8:item>
+											</Title>
+											<HorizontalAlign>Left</HorizontalAlign>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>10</Width>
+											<HorizontalStretch>false</HorizontalStretch>
+											<ContextMenu name="РаботыКоличествоГрузовКонтекстноеМеню" id="258"/>
+											<ExtendedTooltip name="РаботыКоличествоГрузовРасширеннаяПодсказка" id="259"/>
+										</InputField>
+										<InputField name="РаботыВремяОжиданияПредставление" id="433">
+											<DataPath>Работы.ВремяОжиданияПредставление</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="РаботыВремяОжиданияПредставлениеКонтекстноеМеню" id="434"/>
+											<ExtendedTooltip name="РаботыВремяОжиданияПредставлениеРасширеннаяПодсказка" id="435"/>
+										</InputField>
+										<InputField name="РаботыПлановоеВремяНачалаРабот" id="248">
+											<DataPath>Работы.ПлановоеВремяНачалаРабот</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Начало работ</v8:content>
+												</v8:item>
+											</Title>
+											<HorizontalAlign>Left</HorizontalAlign>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>14</Width>
+											<HorizontalStretch>false</HorizontalStretch>
+											<ContextMenu name="РаботыПлановоеВремяНачалаРаботКонтекстноеМеню" id="249"/>
+											<ExtendedTooltip name="РаботыПлановоеВремяНачалаРаботРасширеннаяПодсказка" id="250"/>
+										</InputField>
+										<InputField name="РаботыВремяРаботПредставление" id="430">
+											<DataPath>Работы.ВремяРаботПредставление</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="РаботыВремяРаботПредставлениеКонтекстноеМеню" id="431"/>
+											<ExtendedTooltip name="РаботыВремяРаботПредставлениеРасширеннаяПодсказка" id="432"/>
+										</InputField>
+										<InputField name="РаботыВременноеОкноПредставление" id="652">
+											<DataPath>Работы.ВременноеОкноПредставление</DataPath>
+											<HorizontalAlign>Left</HorizontalAlign>
+											<EditMode>EnterOnInput</EditMode>
+											<HeaderPicture>
+												<xr:Ref>StdPicture.Change</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+											</HeaderPicture>
+											<Width>23</Width>
+											<HorizontalStretch>false</HorizontalStretch>
+											<ContextMenu name="РаботыВременноеОкноПредставлениеКонтекстноеМеню" id="653"/>
+											<ExtendedTooltip name="РаботыВременноеОкноПредставлениеРасширеннаяПодсказка" id="654"/>
+										</InputField>
+										<InputField name="РаботыИсходноеВременноеОкноПредставление" id="744">
+											<DataPath>Работы.ИсходноеВременноеОкноПредставление</DataPath>
+											<UserVisible>
+												<xr:Common>false</xr:Common>
+											</UserVisible>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="РаботыИсходноеВременноеОкноПредставлениеКонтекстноеМеню" id="745"/>
+											<ExtendedTooltip name="РаботыИсходноеВременноеОкноПредставлениеРасширеннаяПодсказка" id="746"/>
+										</InputField>
+										<InputField name="РаботыДополнительнаяОперация" id="230">
+											<DataPath>Работы.ДополнительнаяОперация</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Доп. операция</v8:content>
+												</v8:item>
+											</Title>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="РаботыДополнительнаяОперацияКонтекстноеМеню" id="231"/>
+											<ExtendedTooltip name="РаботыДополнительнаяОперацияРасширеннаяПодсказка" id="232"/>
+										</InputField>
+										<InputField name="РаботыКоличествоДопОпераций" id="254">
+											<DataPath>Работы.КоличествоДопОпераций</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="РаботыКоличествоДопОперацийКонтекстноеМеню" id="255"/>
+											<ExtendedTooltip name="РаботыКоличествоДопОперацийРасширеннаяПодсказка" id="256"/>
+										</InputField>
+										<InputField name="РаботыТипРегламентногоДокумента" id="687">
+											<DataPath>Работы.ТипРегламентногоДокумента</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Тип документа</v8:content>
+												</v8:item>
+											</Title>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="РаботыТипРегламентногоДокументаКонтекстноеМеню" id="688"/>
+											<ExtendedTooltip name="РаботыТипРегламентногоДокументаРасширеннаяПодсказка" id="689"/>
+										</InputField>
+										<InputField name="РаботыКоличествоЭкземпляровДокумента" id="690">
+											<DataPath>Работы.КоличествоЭкземпляровДокумента</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Кол. экземпляров</v8:content>
+												</v8:item>
+											</Title>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="РаботыКоличествоЭкземпляровДокументаКонтекстноеМеню" id="691"/>
+											<ExtendedTooltip name="РаботыКоличествоЭкземпляровДокументаРасширеннаяПодсказка" id="692"/>
+										</InputField>
+										<InputField name="РаботыСумма" id="734">
+											<DataPath>Работы.Сумма</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="РаботыСуммаКонтекстноеМеню" id="735"/>
+											<ExtendedTooltip name="РаботыСуммаРасширеннаяПодсказка" id="736"/>
+										</InputField>
+										<InputField name="РаботыВалюта" id="737">
+											<DataPath>Работы.Валюта</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="РаботыВалютаКонтекстноеМеню" id="738"/>
+											<ExtendedTooltip name="РаботыВалютаРасширеннаяПодсказка" id="739"/>
+										</InputField>
+									</ChildItems>
+								</Table>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.упРМПланированиеРейсов</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="Рейс" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Рейс</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DocumentRef.упРейс</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Маршрут" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Маршрут</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+			<Columns>
+				<Column name="Адрес" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Адрес</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упАдреса</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ПлановоеПрибытие" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Прибытие (план)</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="ПлановоеУбытие" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Убытие (план)</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="ВремяРабот" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Время работ (с.)</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>3</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ТипТочки" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тип точки</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.упТипыТочекМаршрута</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ВременноеОкноНачало" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Временное окно начало</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="ВременноеОкноОкончание" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Временное окно окончание</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="РасстояниеОтПредыдущейТочки" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Расстояние от предыдущей точки (км.)</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.Расстояние</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="ВремяОтПредыдущейТочки" id="10">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Время от предыдущей точки (с.)</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>3</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ВремяОжиданияВТочке" id="11">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Время ожидания в точке</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>3</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Пометка" id="15">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пометка</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="НомерСтроки" id="18">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номер строки</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>5</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Координаты" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Координаты</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ИндексВМассиве" id="19">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Индекс в массиве</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>3</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Позиционирование" id="20">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Позиционирование</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Идентификатор" id="21">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Идентификатор</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>v8:UUID</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ВремяРаботПредставление" id="12">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Время работ</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>12</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ВремяОжиданияВТочкеПредставление" id="13">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Время ожидания</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>12</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ПопадаетВоВременноеОкно" id="14">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Попадает во временное окно</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="АдресПредставление" id="16">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Адрес представление</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ВременноеОкноПредставление" id="17">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Временное окно</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="РасстояниеОтПредыдущейТочкиПредставление" id="22">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Путь до точки</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ВремяОтПредыдущейТочкиПредставление" id="23">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Время до точки</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ПроездНеРассчитан" id="24">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Проезд не рассчитан</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Гараж" id="25">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Гараж</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упГаражи</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ИндексКартинки" id="26">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Индекс картинки</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>1</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Предшественники" id="27">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Предшественники</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Пройдена" id="28">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пройдена</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Отменена" id="29">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отменена</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ВремяОтдыхаВПутиОтПредыдущейТочки" id="30">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Время отдыха в пути от предыдущей точки (с.)</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>3</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ВремяОтдыхаВПутиОтПредыдущейТочкиПредставление" id="31">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Время отдыха до точки</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+					<FunctionalOptions>
+						<Item>FunctionalOption.упУчитыватьРежимТрудаИОтдыхаСотрудников</Item>
+					</FunctionalOptions>
+				</Column>
+				<Column name="ИсходноеВременноеОкноНачало" id="32">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Исходное временное окно начало</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="ИсходноеВременноеОкноОкончание" id="33">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Исходное временное окно окончание</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="ИсходноеВременноеОкноПредставление" id="34">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Исходое временное окно</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ВремяОжиданияВТочкеПослеРаботПредставление" id="35">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ВремяОжиданияВТочкеПослеРабот" id="36">
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.ВремяРаботы</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="НеИспользоватьАвторасчетУбытияИзТочки" id="37">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Не использовать авторасчет убытия из точки</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="HTMLДокумент" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>HTML документ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<FunctionalOptions>
+				<Item>FunctionalOption.упИспользуютсяЭлектронныеГеографическиеКарты</Item>
+			</FunctionalOptions>
+		</Attribute>
+		<Attribute name="СохраненныеМаркеры" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохраненные маркеры</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Стиль" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Стиль</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упСтилиМаркеров</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Маркер" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Маркер</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.упКартинкиМаркеров</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Адрес" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Адрес</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="КартаСформирована" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Карта сформирована</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="НачальнаяДолгота" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Начальная долгота</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<Save>
+				<Field>НачальнаяДолгота</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="НачальнаяШирота" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Начальная широта</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<Save>
+				<Field>НачальнаяШирота</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="НачальныйЗум" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Начальный зум</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>3</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+			<Save>
+				<Field>НачальныйЗум</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ДанныеСтандартнойТочки" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Данные стандартной точки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДанныеИсключеннойТочки" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Данные исключенной точки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Расстояния" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расстояния</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="НачальныйАдрес" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Начальный адрес</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упАдреса</v8:Type>
+					</Type>
+				</Column>
+				<Column name="КонечныйАдрес" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Конечный адрес</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упАдреса</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Расстояние" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Расстояние</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.Расстояние</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="Время" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Время</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.Время</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="Путь" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Путь</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ИндексВМассиве" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Индекс в массиве</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>5</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="РасстояниеРассчитано" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Расстояние рассчитано</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ВремяПонедельник" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Время</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.Время</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="ВремяВторник" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Время</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.Время</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="ВремяСреда" id="10">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Время</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.Время</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="ВремяЧетверг" id="11">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Время</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.Время</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="ВремяПятница" id="12">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Время</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.Время</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="ВремяСуббота" id="13">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Время</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.Время</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="ВремяВоскресенье" id="14">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Время</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.Время</v8:TypeSet>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="РасстояниеИсходное" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расстояние исходное</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:DefinedType.Расстояние</v8:TypeSet>
+			</Type>
+		</Attribute>
+		<Attribute name="ВремяВПутиИсходное" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Время в пути исходное</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:DefinedType.ВремяРаботы</v8:TypeSet>
+			</Type>
+		</Attribute>
+		<Attribute name="МетодРешенияЗК" id="19">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Метод решения ЗК</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.упМетодыРешенияЗК</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ВариантОптимизацииМаршрута" id="20">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вариант оптимизации маршрута</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.упВариантыОптимизацииМаршрута</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РасстояниеТекущее" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расстояние текущее</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:DefinedType.Расстояние</v8:TypeSet>
+			</Type>
+		</Attribute>
+		<Attribute name="ВремяВПутиТекущее" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Время в пути текущее</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:DefinedType.ВремяРаботы</v8:TypeSet>
+			</Type>
+		</Attribute>
+		<Attribute name="ВремяРейсаИсходное" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Время рейса исходное</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:DefinedType.ВремяРаботы</v8:TypeSet>
+			</Type>
+		</Attribute>
+		<Attribute name="ВремяРейсаТекущее" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Время рейса текущее</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:DefinedType.ВремяРаботы</v8:TypeSet>
+			</Type>
+		</Attribute>
+		<Attribute name="ОбъемИсходный" id="21">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Объем исходный</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:DefinedType.Объем</v8:TypeSet>
+			</Type>
+			<FunctionalOptions>
+				<Item>FunctionalOption.упУчитыватьОбъем</Item>
+			</FunctionalOptions>
+		</Attribute>
+		<Attribute name="ТранспортноеСредство" id="22">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Транспортное средство</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.упТипыТС</v8:Type>
+				<v8:Type>cfg:CatalogRef.упТранспортныеСредства</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Водитель1" id="23">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Водитель 1</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.упСотрудники</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Водитель2" id="24">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Водитель 2</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.упСотрудники</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Экспедитор" id="25">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Экспедитор</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.упСотрудники</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Работы" id="26">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Работы</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Идентификатор" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Идентификатор</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>v8:UUID</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Задание" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Задание</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:DocumentRef.упЗаданиеНаПеревозкуГруза</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Операция" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Операция</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.упТипыОпераций</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ДополнительнаяОперация" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дополнительная операция</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упДополнительныеОперации</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ВремяРабот" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Время работ (с.)</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>3</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ВременноеОкноНачало" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Временное окно начало</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="ВременноеОкноОкончание" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Временное окно окончание</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="ГрузовоеМесто" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Грузовое место</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упГрузовыеМеста</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ВремяОжидания" id="10">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Время ожидания (ч.)</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>3</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ПлановоеВремяНачалаРабот" id="11">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Плановое время начала работ</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="КоличествоДопОпераций" id="13">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Количество доп. операций</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.КоличествоОпераций</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="КоличествоГрузов" id="14">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Количество грузов</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.КоличествоГрузов</v8:TypeSet>
+					</Type>
+					<FunctionalOptions>
+						<Item>FunctionalOption.упИспользуетсяКоличественныйУчетГрузов</Item>
+					</FunctionalOptions>
+				</Column>
+				<Column name="Пометка" id="19">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пометка</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Масса" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Масса</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.Масса</v8:TypeSet>
+					</Type>
+					<FunctionalOptions>
+						<Item>FunctionalOption.упУчитыватьМассу</Item>
+					</FunctionalOptions>
+				</Column>
+				<Column name="Объем" id="20">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Объем</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.Объем</v8:TypeSet>
+					</Type>
+					<FunctionalOptions>
+						<Item>FunctionalOption.упУчитыватьОбъем</Item>
+					</FunctionalOptions>
+				</Column>
+				<Column name="КоличествоМест" id="21">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Количество мест</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.КоличествоМест</v8:TypeSet>
+					</Type>
+					<FunctionalOptions>
+						<Item>FunctionalOption.упУчитыватьКоличествоМест</Item>
+					</FunctionalOptions>
+				</Column>
+				<Column name="КоличествоЗагрузочныхМетров" id="22">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Количество загрузочных метров</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.КоличествоЗагрузочныхМетров</v8:TypeSet>
+					</Type>
+					<FunctionalOptions>
+						<Item>FunctionalOption.упУчитыватьКоличествоЗагрузочныхМетров</Item>
+					</FunctionalOptions>
+				</Column>
+				<Column name="Заказчик" id="23">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Заказчик</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упПартнеры</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ВремяРаботПредставление" id="15">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Работы</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>12</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ВремяОжиданияПредставление" id="16">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ожидание</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>12</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ПопадаетВоВременноеОкно" id="17">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Попадает во временное окно</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ТипОперации" id="18">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тип операции</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ВременноеОкноПредставление" id="24">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Временное окно</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ИдентификаторРаботы" id="25">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Идентификатор работы</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>v8:UUID</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ТипРегламентногоДокумента" id="26">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тип регламентного документа</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упТипыРегламентныхДокументов</v8:Type>
+					</Type>
+				</Column>
+				<Column name="КоличествоЭкземпляровДокумента" id="27">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Количество экземпляров документа</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>3</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Тара" id="28">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тара</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упГрузовыеМеста</v8:Type>
+					</Type>
+					<FunctionalOptions>
+						<Item>FunctionalOption.упВедетсяУчетТары</Item>
+					</FunctionalOptions>
+				</Column>
+				<Column name="Сумма" id="29">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.Сумма</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="Валюта" id="30">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Валюта</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Валюты</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ИсходноеВременноеОкноНачало" id="31">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Исходное временное окно начало</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="ИсходноеВременноеОкноОкончание" id="32">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Исходное временное окно окончание</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="ИсходноеВременноеОкноПредставление" id="33">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Исходое временное окно</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ОбъемТекущий" id="27">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Объем текущий</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:DefinedType.Объем</v8:TypeSet>
+			</Type>
+			<FunctionalOptions>
+				<Item>FunctionalOption.упУчитыватьОбъем</Item>
+			</FunctionalOptions>
+		</Attribute>
+		<Attribute name="МассаИсходная" id="28">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Масса исходная</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:DefinedType.Масса</v8:TypeSet>
+			</Type>
+			<FunctionalOptions>
+				<Item>FunctionalOption.упУчитыватьМассу</Item>
+			</FunctionalOptions>
+		</Attribute>
+		<Attribute name="МассаТекущая" id="29">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Масса текущая</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:DefinedType.Масса</v8:TypeSet>
+			</Type>
+			<FunctionalOptions>
+				<Item>FunctionalOption.упУчитыватьМассу</Item>
+			</FunctionalOptions>
+		</Attribute>
+		<Attribute name="КоличествоМестИсходное" id="30">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество мест исходное</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:DefinedType.КоличествоМест</v8:TypeSet>
+			</Type>
+			<FunctionalOptions>
+				<Item>FunctionalOption.упУчитыватьКоличествоМест</Item>
+			</FunctionalOptions>
+		</Attribute>
+		<Attribute name="КоличествоМестТекущее" id="31">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество мест текущее</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:DefinedType.КоличествоМест</v8:TypeSet>
+			</Type>
+			<FunctionalOptions>
+				<Item>FunctionalOption.упУчитыватьКоличествоМест</Item>
+			</FunctionalOptions>
+		</Attribute>
+		<Attribute name="КоличествоЗагрузочныхМетровИсходное" id="32">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество загрузочных метров исходное</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:DefinedType.КоличествоЗагрузочныхМетров</v8:TypeSet>
+			</Type>
+			<FunctionalOptions>
+				<Item>FunctionalOption.упУчитыватьКоличествоЗагрузочныхМетров</Item>
+			</FunctionalOptions>
+		</Attribute>
+		<Attribute name="КоличествоЗагрузочныхМетровТекущее" id="33">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество загрузочных метров текущее</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:DefinedType.КоличествоЗагрузочныхМетров</v8:TypeSet>
+			</Type>
+			<FunctionalOptions>
+				<Item>FunctionalOption.упУчитыватьКоличествоЗагрузочныхМетров</Item>
+			</FunctionalOptions>
+		</Attribute>
+		<Attribute name="ГрузоподъемностьТС" id="34">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Грузоподъемность ТС</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:DefinedType.Масса</v8:TypeSet>
+			</Type>
+			<FunctionalOptions>
+				<Item>FunctionalOption.упУчитыватьМассу</Item>
+			</FunctionalOptions>
+		</Attribute>
+		<Attribute name="ОбъемТС" id="35">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Объем ТС</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:DefinedType.Объем</v8:TypeSet>
+			</Type>
+			<FunctionalOptions>
+				<Item>FunctionalOption.упУчитыватьОбъем</Item>
+			</FunctionalOptions>
+		</Attribute>
+		<Attribute name="КоличествоМестТС" id="36">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество мест ТС</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:DefinedType.КоличествоМест</v8:TypeSet>
+			</Type>
+			<FunctionalOptions>
+				<Item>FunctionalOption.упУчитыватьКоличествоМест</Item>
+			</FunctionalOptions>
+		</Attribute>
+		<Attribute name="КоличествоЗагрузочныхМетровТС" id="37">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество загрузочных метров ТС</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:DefinedType.КоличествоЗагрузочныхМетров</v8:TypeSet>
+			</Type>
+			<FunctionalOptions>
+				<Item>FunctionalOption.упУчитыватьКоличествоЗагрузочныхМетров</Item>
+			</FunctionalOptions>
+		</Attribute>
+		<Attribute name="УчитыватьКоличествоЗагрузочныхМетров" id="38">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Учитывать количество загрузочных метров</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="УчитыватьКоличествоМест" id="39">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Учитывать количество мест</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="УчитыватьМассу" id="40">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Учитывать массу</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="УчитыватьОбъем" id="41">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Учитывать объем</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Диаграмма" id="42">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Диаграмма</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.2/data/chart">d5p1:GanttChart</v8:Type>
+			</Type>
+			<Settings xmlns:d4p1="http://v8.1c.ru/8.2/data/chart" xsi:type="d4p1:GanttChart">
+				<d4p1:chart>
+					<d4p1:seriesCurId>1</d4p1:seriesCurId>
+					<d4p1:pointsCurId>0</d4p1:pointsCurId>
+					<d4p1:isSeriesDesign>true</d4p1:isSeriesDesign>
+					<d4p1:realSeriesCount>0</d4p1:realSeriesCount>
+					<d4p1:realExSeriesData>
+						<d4p1:id>1</d4p1:id>
+						<d4p1:color>#991919</d4p1:color>
+						<d4p1:line width="2" gap="false">
+							<v8ui:style xsi:type="v8ui:ChartLineType">Solid</v8ui:style>
+						</d4p1:line>
+						<d4p1:marker>Rhomb</d4p1:marker>
+						<d4p1:text>
+							<v8:item>
+								<v8:lang>#</v8:lang>
+								<v8:content>Сводная</v8:content>
+							</v8:item>
+						</d4p1:text>
+						<d4p1:strIsChanged>false</d4p1:strIsChanged>
+						<d4p1:isExpand>false</d4p1:isExpand>
+						<d4p1:isIndicator>false</d4p1:isIndicator>
+						<d4p1:colorPriority>false</d4p1:colorPriority>
+					</d4p1:realExSeriesData>
+					<d4p1:isPointsDesign>true</d4p1:isPointsDesign>
+					<d4p1:realPointCount>0</d4p1:realPointCount>
+					<d4p1:curSeries>-1</d4p1:curSeries>
+					<d4p1:curPoint>0</d4p1:curPoint>
+					<d4p1:chartType>Column3D</d4p1:chartType>
+					<d4p1:circleLabelType>None</d4p1:circleLabelType>
+					<d4p1:labelsDelimiter>, </d4p1:labelsDelimiter>
+					<d4p1:labelsLocation>Edge</d4p1:labelsLocation>
+					<d4p1:lbFormat/>
+					<d4p1:lbpFormat/>
+					<d4p1:labelsColor>style:FormTextColor</d4p1:labelsColor>
+					<d4p1:labelsFont kind="AutoFont"/>
+					<d4p1:transparentLabelsBkg>true</d4p1:transparentLabelsBkg>
+					<d4p1:labelsBkgColor>auto</d4p1:labelsBkgColor>
+					<d4p1:labelsBorder width="1">
+						<v8ui:style xsi:type="v8ui:ControlBorderType">Single</v8ui:style>
+					</d4p1:labelsBorder>
+					<d4p1:labelsBorderColor>auto</d4p1:labelsBorderColor>
+					<d4p1:circleExpandMode>None</d4p1:circleExpandMode>
+					<d4p1:chart3Dcrd>SouthWest</d4p1:chart3Dcrd>
+					<d4p1:title/>
+					<d4p1:isShowTitle>true</d4p1:isShowTitle>
+					<d4p1:isShowLegend>true</d4p1:isShowLegend>
+					<d4p1:ttlBorder width="0">
+						<v8ui:style xsi:type="v8ui:ControlBorderType">WithoutBorder</v8ui:style>
+					</d4p1:ttlBorder>
+					<d4p1:ttlBorderColor>style:BorderColor</d4p1:ttlBorderColor>
+					<d4p1:lgBorder width="0">
+						<v8ui:style xsi:type="v8ui:ControlBorderType">WithoutBorder</v8ui:style>
+					</d4p1:lgBorder>
+					<d4p1:lgBorderColor>style:BorderColor</d4p1:lgBorderColor>
+					<d4p1:chBorder width="1">
+						<v8ui:style xsi:type="v8ui:ControlBorderType">Single</v8ui:style>
+					</d4p1:chBorder>
+					<d4p1:chBorderColor>style:BorderColor</d4p1:chBorderColor>
+					<d4p1:transparent>false</d4p1:transparent>
+					<d4p1:bkgColor>style:FieldBackColor</d4p1:bkgColor>
+					<d4p1:isTrnspTtl>false</d4p1:isTrnspTtl>
+					<d4p1:ttlColor>style:FieldBackColor</d4p1:ttlColor>
+					<d4p1:isTrnspLeg>false</d4p1:isTrnspLeg>
+					<d4p1:legColor>style:FieldBackColor</d4p1:legColor>
+					<d4p1:isTrnspCh>false</d4p1:isTrnspCh>
+					<d4p1:chColor>style:FieldBackColor</d4p1:chColor>
+					<d4p1:ttlTxtColor>style:FormTextColor</d4p1:ttlTxtColor>
+					<d4p1:legTxtColor>style:FormTextColor</d4p1:legTxtColor>
+					<d4p1:chTxtColor>style:FormTextColor</d4p1:chTxtColor>
+					<d4p1:ttlFont ref="style:TextFont" kind="StyleItem"/>
+					<d4p1:legFont ref="style:TextFont" kind="StyleItem"/>
+					<d4p1:chFont ref="style:TextFont" kind="StyleItem"/>
+					<d4p1:isShowScale>true</d4p1:isShowScale>
+					<d4p1:isShowScaleVL>true</d4p1:isShowScaleVL>
+					<d4p1:isShowSeriesScale>true</d4p1:isShowSeriesScale>
+					<d4p1:isShowPointsScale>true</d4p1:isShowPointsScale>
+					<d4p1:isShowValuesScale>true</d4p1:isShowValuesScale>
+					<d4p1:vsFormat/>
+					<d4p1:xLabelsOrientation>Auto</d4p1:xLabelsOrientation>
+					<d4p1:scaleLine width="1" gap="false">
+						<v8ui:style xsi:type="v8ui:ChartLineType">Solid</v8ui:style>
+					</d4p1:scaleLine>
+					<d4p1:scaleColor>#A9A9A9</d4p1:scaleColor>
+					<d4p1:isAutoSeriesName>true</d4p1:isAutoSeriesName>
+					<d4p1:isAutoPointName>true</d4p1:isAutoPointName>
+					<d4p1:maxMode>NotDefined</d4p1:maxMode>
+					<d4p1:maxSeries>4</d4p1:maxSeries>
+					<d4p1:maxSeriesPrc>30</d4p1:maxSeriesPrc>
+					<d4p1:spaceMode>Half</d4p1:spaceMode>
+					<d4p1:baseVal>0</d4p1:baseVal>
+					<d4p1:isOutline>true</d4p1:isOutline>
+					<d4p1:realPiePoint>0</d4p1:realPiePoint>
+					<d4p1:realStockSeries>0</d4p1:realStockSeries>
+					<d4p1:isLight>true</d4p1:isLight>
+					<d4p1:isGradient>false</d4p1:isGradient>
+					<d4p1:isTransposition>false</d4p1:isTransposition>
+					<d4p1:hideBaseVal>false</d4p1:hideBaseVal>
+					<d4p1:dataTable>false</d4p1:dataTable>
+					<d4p1:dtVerLines>true</d4p1:dtVerLines>
+					<d4p1:dtHorLines>true</d4p1:dtHorLines>
+					<d4p1:dtHAlign>Right</d4p1:dtHAlign>
+					<d4p1:dtFormat/>
+					<d4p1:dtKeys>true</d4p1:dtKeys>
+					<d4p1:paletteKind>Palette32</d4p1:paletteKind>
+					<d4p1:animation>Use</d4p1:animation>
+					<d4p1:rebuildTime>0</d4p1:rebuildTime>
+					<d4p1:isTransposed>false</d4p1:isTransposed>
+					<d4p1:autoTransposition>false</d4p1:autoTransposition>
+					<d4p1:legendScrollEnable>true</d4p1:legendScrollEnable>
+					<d4p1:surfaceColor>#A90000</d4p1:surfaceColor>
+					<d4p1:radarScaleType>Circle</d4p1:radarScaleType>
+					<d4p1:gaugeValuesPresentation>Needle</d4p1:gaugeValuesPresentation>
+					<d4p1:gaugeQualityBands useTextStr="false" useTooltipStr="false"/>
+					<d4p1:beginGaugeAngle>0</d4p1:beginGaugeAngle>
+					<d4p1:endGaugeAngle>180</d4p1:endGaugeAngle>
+					<d4p1:gaugeThickness>5</d4p1:gaugeThickness>
+					<d4p1:gaugeLabelsLocation>InsideScale</d4p1:gaugeLabelsLocation>
+					<d4p1:gaugeLabelsArcDirection>false</d4p1:gaugeLabelsArcDirection>
+					<d4p1:gaugeBushThickness>4</d4p1:gaugeBushThickness>
+					<d4p1:gaugeBushColor>#A9A9A9</d4p1:gaugeBushColor>
+					<d4p1:autoMaxValue>true</d4p1:autoMaxValue>
+					<d4p1:userMaxValue>0</d4p1:userMaxValue>
+					<d4p1:autoMinValue>true</d4p1:autoMinValue>
+					<d4p1:userMinValue>0</d4p1:userMinValue>
+					<d4p1:elementsIsInit>true</d4p1:elementsIsInit>
+					<d4p1:titleIsInit>true</d4p1:titleIsInit>
+					<d4p1:legendIsInit>true</d4p1:legendIsInit>
+					<d4p1:chartIsInit>true</d4p1:chartIsInit>
+					<d4p1:elementsChart>
+						<d4p1:left>0</d4p1:left>
+						<d4p1:right>0.1677316293929713</d4p1:right>
+						<d4p1:top>0</d4p1:top>
+						<d4p1:bottom>0</d4p1:bottom>
+					</d4p1:elementsChart>
+					<d4p1:elementsLegend>
+						<d4p1:left>0.8328025477707001</d4p1:left>
+						<d4p1:right>0</d4p1:right>
+						<d4p1:top>0.0405982905982906</d4p1:top>
+						<d4p1:bottom>0</d4p1:bottom>
+					</d4p1:elementsLegend>
+					<d4p1:elementsTitle>
+						<d4p1:left>0.8328025477707001</d4p1:left>
+						<d4p1:right>0</d4p1:right>
+						<d4p1:top>0</d4p1:top>
+						<d4p1:bottom>0.9594017094017091</d4p1:bottom>
+					</d4p1:elementsTitle>
+					<d4p1:borderColor>style:BorderColor</d4p1:borderColor>
+					<d4p1:border width="1">
+						<v8ui:style xsi:type="v8ui:ControlBorderType">Single</v8ui:style>
+					</d4p1:border>
+					<d4p1:dataSourceDescription/>
+					<d4p1:isDataSourceMode>false</d4p1:isDataSourceMode>
+					<d4p1:isRandomizedNewValues>true</d4p1:isRandomizedNewValues>
+					<d4p1:splineStrain>95</d4p1:splineStrain>
+					<d4p1:translucencePercent>0</d4p1:translucencePercent>
+					<d4p1:funnelNeckHeightPercent>10</d4p1:funnelNeckHeightPercent>
+					<d4p1:funnelNeckWidthPercent>10</d4p1:funnelNeckWidthPercent>
+					<d4p1:funnelGapSumPercent>3</d4p1:funnelGapSumPercent>
+					<d4p1:multiStageLinkLine width="1" gap="false">
+						<v8ui:style xsi:type="v8ui:ChartLineType">Solid</v8ui:style>
+					</d4p1:multiStageLinkLine>
+					<d4p1:multiStageLinkColor>#000000</d4p1:multiStageLinkColor>
+					<d4p1:valuesAxis/>
+					<d4p1:pointsAxis/>
+					<d4p1:legendPlacement>UseCoordinates</d4p1:legendPlacement>
+					<d4p1:plotAreaPlacement>UseCoordinates</d4p1:plotAreaPlacement>
+					<d4p1:titleAreaPlacement>UseCoordinates</d4p1:titleAreaPlacement>
+					<d4p1:colorPaletteDescription>
+						<d4p1:colorPalette>Palette32</d4p1:colorPalette>
+					</d4p1:colorPaletteDescription>
+				</d4p1:chart>
+				<d4p1:points>
+					<d4p1:testMode>false</d4p1:testMode>
+					<d4p1:value>
+						<d4p1:itemKey>0</d4p1:itemKey>
+						<d4p1:key>0</d4p1:key>
+						<d4p1:parentKey>0</d4p1:parentKey>
+						<d4p1:leftKey>0</d4p1:leftKey>
+						<d4p1:rightKey>0</d4p1:rightKey>
+						<d4p1:extKey>0</d4p1:extKey>
+						<d4p1:title/>
+						<d4p1:cacheKey>0</d4p1:cacheKey>
+						<d4p1:baseData>4294901761</d4p1:baseData>
+						<d4p1:font kind="AutoFont"/>
+						<d4p1:picture/>
+					</d4p1:value>
+					<d4p1:contentCacheItem>
+						<d4p1:mainColor>#000000</d4p1:mainColor>
+						<d4p1:secondColor>#000000</d4p1:secondColor>
+						<d4p1:backColor>auto</d4p1:backColor>
+						<d4p1:textColor>auto</d4p1:textColor>
+					</d4p1:contentCacheItem>
+					<d4p1:autoText>true</d4p1:autoText>
+					<d4p1:useValuesReverseBehavior>false</d4p1:useValuesReverseBehavior>
+				</d4p1:points>
+				<d4p1:series>
+					<d4p1:testMode>false</d4p1:testMode>
+					<d4p1:value>
+						<d4p1:itemKey>0</d4p1:itemKey>
+						<d4p1:key>0</d4p1:key>
+						<d4p1:parentKey>0</d4p1:parentKey>
+						<d4p1:leftKey>0</d4p1:leftKey>
+						<d4p1:rightKey>0</d4p1:rightKey>
+						<d4p1:extKey>0</d4p1:extKey>
+						<d4p1:title/>
+						<d4p1:cacheKey>0</d4p1:cacheKey>
+						<d4p1:baseData>4294901761</d4p1:baseData>
+					</d4p1:value>
+					<d4p1:contentCacheItem>
+						<d4p1:mainColor>#000000</d4p1:mainColor>
+						<d4p1:secondColor>#000000</d4p1:secondColor>
+						<d4p1:hatchBetweenIntervalsColor>#000000</d4p1:hatchBetweenIntervalsColor>
+					</d4p1:contentCacheItem>
+					<d4p1:autoText>true</d4p1:autoText>
+					<d4p1:useValuesReverseBehavior>false</d4p1:useValuesReverseBehavior>
+				</d4p1:series>
+				<d4p1:drawEmpty>true</d4p1:drawEmpty>
+				<d4p1:timeScale>
+					<d4p1:placement>Top</d4p1:placement>
+					<d4p1:level>
+						<d4p1:measure>Day</d4p1:measure>
+						<d4p1:interval>1</d4p1:interval>
+						<d4p1:show>true</d4p1:show>
+						<d4p1:line width="1" gap="false">
+							<v8ui:style xsi:type="v8ui:ChartLineType">Dotted</v8ui:style>
+						</d4p1:line>
+						<d4p1:scaleColor>#C0C0C0</d4p1:scaleColor>
+						<d4p1:dayFormatRule>MonthDayWeekDay</d4p1:dayFormatRule>
+						<d4p1:format/>
+						<d4p1:labels>
+							<d4p1:ticks>0</d4p1:ticks>
+						</d4p1:labels>
+						<d4p1:backColor>auto</d4p1:backColor>
+						<d4p1:textColor>auto</d4p1:textColor>
+						<d4p1:showPereodicalLabels>true</d4p1:showPereodicalLabels>
+					</d4p1:level>
+					<d4p1:level>
+						<d4p1:measure>Day</d4p1:measure>
+						<d4p1:interval>1</d4p1:interval>
+						<d4p1:show>true</d4p1:show>
+						<d4p1:line width="1" gap="false">
+							<v8ui:style xsi:type="v8ui:ChartLineType">Dotted</v8ui:style>
+						</d4p1:line>
+						<d4p1:scaleColor>#C0C0C0</d4p1:scaleColor>
+						<d4p1:dayFormatRule>MonthDayWeekDay</d4p1:dayFormatRule>
+						<d4p1:format/>
+						<d4p1:labels>
+							<d4p1:ticks>0</d4p1:ticks>
+						</d4p1:labels>
+						<d4p1:backColor>auto</d4p1:backColor>
+						<d4p1:textColor>auto</d4p1:textColor>
+						<d4p1:showPereodicalLabels>true</d4p1:showPereodicalLabels>
+					</d4p1:level>
+					<d4p1:transparent>false</d4p1:transparent>
+					<d4p1:backColor>style:FieldBackColor</d4p1:backColor>
+					<d4p1:textColor>style:FormTextColor</d4p1:textColor>
+					<d4p1:currentLevel>1</d4p1:currentLevel>
+				</d4p1:timeScale>
+				<d4p1:keepScaleVariant>Auto</d4p1:keepScaleVariant>
+				<d4p1:fixedVariantMeasure>Month</d4p1:fixedVariantMeasure>
+				<d4p1:fixedVariantInterval>1</d4p1:fixedVariantInterval>
+				<d4p1:autoFullInterval>true</d4p1:autoFullInterval>
+				<d4p1:fullIntervalBegin>2016-07-01T00:00:00</d4p1:fullIntervalBegin>
+				<d4p1:fullIntervalEnd>2016-08-01T00:00:00</d4p1:fullIntervalEnd>
+				<d4p1:visualBegin>2016-07-01T00:00:00</d4p1:visualBegin>
+				<d4p1:intervalDrawType>Gradient</d4p1:intervalDrawType>
+				<d4p1:noneVariantChars>3</d4p1:noneVariantChars>
+				<d4p1:noneVariantMeasure>Day</d4p1:noneVariantMeasure>
+				<d4p1:verticalStretch>None</d4p1:verticalStretch>
+				<d4p1:verticalScrollEnable>true</d4p1:verticalScrollEnable>
+				<d4p1:showValueText>None</d4p1:showValueText>
+				<d4p1:extTitle/>
+				<d4p1:outboundColor>#FFFFFF</d4p1:outboundColor>
+				<d4p1:backIntervals>
+					<d4p1:collection>
+						<d4p1:ticks>0</d4p1:ticks>
+					</d4p1:collection>
+					<d4p1:ticks>0</d4p1:ticks>
+				</d4p1:backIntervals>
+				<d4p1:linksColor>#000080</d4p1:linksColor>
+				<d4p1:linksLine width="1" gap="false">
+					<v8ui:style xsi:type="v8ui:ChartLineType">Solid</v8ui:style>
+				</d4p1:linksLine>
+				<d4p1:showPointsText>Auto</d4p1:showPointsText>
+				<d4p1:showData>Auto</d4p1:showData>
+				<d4p1:textPlacement>Auto</d4p1:textPlacement>
+				<d4p1:intervalTextRepresentation>Auto</d4p1:intervalTextRepresentation>
+			</Settings>
+		</Attribute>
+		<Attribute name="РазрешитьАктивизациюПоля" id="43">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Разрешить активизацию поля</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ВремяРейсаИсходноеПредставление" id="44">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЕдМассы" id="45">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ед массы</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЕдОбъема" id="46">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ед объема</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЕдКоличестваМест" id="47">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ед количества мест</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЕдКоличестваЗагрузочныхМетров" id="48">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ед количества загрузочных метров</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗначениеМассаТекущая" id="49">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Значение масса текущая</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗначениеРасстояниеТекущее" id="50">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Значение расстояние текущее</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗначениеВремяРейсаТекущее" id="51">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Значение время рейса текущее</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗначениеВремяВПутиТекущее" id="52">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Значение время в пути текущее</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗначениеОбъемТекущий" id="53">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Значение объем текущий</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗначениеКоличествоМестТекущее" id="54">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Значение количество мест текущее</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗначениеКоличествоЗагрузочныхМетровТекущее" id="55">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Значение количество загрузочных метров текущее</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗначениеРасстояниеИсходное" id="56">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Значение расстояние исходное</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗначениеВремяРейсаИсходное" id="57">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Значение время рейса исходное</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗначениеВремяВПутиИсходное" id="58">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Значение время в пути исходное</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗначениеМассаИсходная" id="59">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Значение масса исходная</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗначениеОбъемИсходный" id="60">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Значение объем исходный</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗначениеКоличествоМестИсходное" id="61">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Значение количество мест исходное</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗначениеКоличествоЗагрузочныхМетровИсходное" id="62">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Значение количество загрузочных метров исходное</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЦветУлучшениеПоказания" id="63">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Цвет улучшение показания</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8ui:Color</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ЦветУхудшениеПоказания" id="64">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Цвет ухудшение показания</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8ui:Color</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ЦветИнтервалаФона" id="65">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Цвет интервала фона</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8ui:Color</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="КодЯзыка" id="66">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Код языка</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДанныеДепо" id="67">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Данные депо</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДанныеНарушенийПоВремени" id="68">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Данные нарушений по времени</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ОкончаниеПериодаПланирования" id="69">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Окончание периода планирования</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НачалоПериодаПланирования" id="70">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Начало периода планирования</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПространственныйВес" id="71">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пространственный вес</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>3</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ВременнойВес" id="72">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Временной вес</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>3</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ВесСрочности" id="73">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вес срочности</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>3</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="УменьшатьВремяОжидания" id="74">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Уменьшать время ожидания</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ДиаграммаЗагрузки" id="75">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Диаграмма загрузки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.2/data/chart">d5p1:Chart</v8:Type>
+			</Type>
+			<Settings xmlns:d4p1="http://v8.1c.ru/8.2/data/chart" xsi:type="d4p1:Chart">
+				<d4p1:seriesCurId>1</d4p1:seriesCurId>
+				<d4p1:pointsCurId>0</d4p1:pointsCurId>
+				<d4p1:isSeriesDesign>true</d4p1:isSeriesDesign>
+				<d4p1:realSeriesCount>0</d4p1:realSeriesCount>
+				<d4p1:realExSeriesData>
+					<d4p1:id>1</d4p1:id>
+					<d4p1:color>#991919</d4p1:color>
+					<d4p1:line width="2" gap="false">
+						<v8ui:style xsi:type="v8ui:ChartLineType">Solid</v8ui:style>
+					</d4p1:line>
+					<d4p1:marker>None</d4p1:marker>
+					<d4p1:text>
+						<v8:item>
+							<v8:lang>#</v8:lang>
+							<v8:content>Сводная</v8:content>
+						</v8:item>
+					</d4p1:text>
+					<d4p1:strIsChanged>false</d4p1:strIsChanged>
+					<d4p1:isExpand>false</d4p1:isExpand>
+					<d4p1:isIndicator>false</d4p1:isIndicator>
+					<d4p1:colorPriority>false</d4p1:colorPriority>
+				</d4p1:realExSeriesData>
+				<d4p1:isPointsDesign>true</d4p1:isPointsDesign>
+				<d4p1:realPointCount>0</d4p1:realPointCount>
+				<d4p1:curSeries>-1</d4p1:curSeries>
+				<d4p1:curPoint>0</d4p1:curPoint>
+				<d4p1:chartType>Column</d4p1:chartType>
+				<d4p1:circleLabelType>Value</d4p1:circleLabelType>
+				<d4p1:labelsDelimiter>.</d4p1:labelsDelimiter>
+				<d4p1:labelsLocation>Edge</d4p1:labelsLocation>
+				<d4p1:lbFormat/>
+				<d4p1:lbpFormat/>
+				<d4p1:labelsColor>style:FormTextColor</d4p1:labelsColor>
+				<d4p1:labelsFont kind="AutoFont"/>
+				<d4p1:transparentLabelsBkg>true</d4p1:transparentLabelsBkg>
+				<d4p1:labelsBkgColor>auto</d4p1:labelsBkgColor>
+				<d4p1:labelsBorder width="1">
+					<v8ui:style xsi:type="v8ui:ControlBorderType">Single</v8ui:style>
+				</d4p1:labelsBorder>
+				<d4p1:labelsBorderColor>#000000</d4p1:labelsBorderColor>
+				<d4p1:circleExpandMode>None</d4p1:circleExpandMode>
+				<d4p1:chart3Dcrd>SouthWest</d4p1:chart3Dcrd>
+				<d4p1:title/>
+				<d4p1:isShowTitle>true</d4p1:isShowTitle>
+				<d4p1:isShowLegend>true</d4p1:isShowLegend>
+				<d4p1:ttlBorder width="0">
+					<v8ui:style xsi:type="v8ui:ControlBorderType">WithoutBorder</v8ui:style>
+				</d4p1:ttlBorder>
+				<d4p1:ttlBorderColor>style:BorderColor</d4p1:ttlBorderColor>
+				<d4p1:lgBorder width="0">
+					<v8ui:style xsi:type="v8ui:ControlBorderType">WithoutBorder</v8ui:style>
+				</d4p1:lgBorder>
+				<d4p1:lgBorderColor>style:BorderColor</d4p1:lgBorderColor>
+				<d4p1:chBorder width="0">
+					<v8ui:style xsi:type="v8ui:ControlBorderType">WithoutBorder</v8ui:style>
+				</d4p1:chBorder>
+				<d4p1:chBorderColor>style:BorderColor</d4p1:chBorderColor>
+				<d4p1:transparent>false</d4p1:transparent>
+				<d4p1:bkgColor>#FFFFFF</d4p1:bkgColor>
+				<d4p1:isTrnspTtl>false</d4p1:isTrnspTtl>
+				<d4p1:ttlColor>style:FieldBackColor</d4p1:ttlColor>
+				<d4p1:isTrnspLeg>false</d4p1:isTrnspLeg>
+				<d4p1:legColor>style:FieldBackColor</d4p1:legColor>
+				<d4p1:isTrnspCh>false</d4p1:isTrnspCh>
+				<d4p1:chColor>style:FieldBackColor</d4p1:chColor>
+				<d4p1:ttlTxtColor>style:FormTextColor</d4p1:ttlTxtColor>
+				<d4p1:legTxtColor>style:FormTextColor</d4p1:legTxtColor>
+				<d4p1:chTxtColor>style:FormTextColor</d4p1:chTxtColor>
+				<d4p1:ttlFont ref="style:TextFont" kind="StyleItem"/>
+				<d4p1:legFont ref="style:TextFont" kind="StyleItem"/>
+				<d4p1:chFont ref="style:TextFont" kind="StyleItem"/>
+				<d4p1:isShowScale>true</d4p1:isShowScale>
+				<d4p1:isShowScaleVL>true</d4p1:isShowScaleVL>
+				<d4p1:isShowSeriesScale>true</d4p1:isShowSeriesScale>
+				<d4p1:isShowPointsScale>true</d4p1:isShowPointsScale>
+				<d4p1:isShowValuesScale>true</d4p1:isShowValuesScale>
+				<d4p1:vsFormat/>
+				<d4p1:xLabelsOrientation>Auto</d4p1:xLabelsOrientation>
+				<d4p1:scaleLine width="1" gap="false">
+					<v8ui:style xsi:type="v8ui:ChartLineType">Solid</v8ui:style>
+				</d4p1:scaleLine>
+				<d4p1:scaleColor>#A9A9A9</d4p1:scaleColor>
+				<d4p1:isAutoSeriesName>true</d4p1:isAutoSeriesName>
+				<d4p1:isAutoPointName>true</d4p1:isAutoPointName>
+				<d4p1:maxMode>NotDefined</d4p1:maxMode>
+				<d4p1:maxSeries>4</d4p1:maxSeries>
+				<d4p1:maxSeriesPrc>30</d4p1:maxSeriesPrc>
+				<d4p1:spaceMode>Half</d4p1:spaceMode>
+				<d4p1:baseVal>0</d4p1:baseVal>
+				<d4p1:isOutline>false</d4p1:isOutline>
+				<d4p1:realPiePoint>0</d4p1:realPiePoint>
+				<d4p1:realStockSeries>0</d4p1:realStockSeries>
+				<d4p1:isLight>true</d4p1:isLight>
+				<d4p1:isGradient>false</d4p1:isGradient>
+				<d4p1:isTransposition>false</d4p1:isTransposition>
+				<d4p1:hideBaseVal>false</d4p1:hideBaseVal>
+				<d4p1:dataTable>false</d4p1:dataTable>
+				<d4p1:dtVerLines>true</d4p1:dtVerLines>
+				<d4p1:dtHorLines>true</d4p1:dtHorLines>
+				<d4p1:dtHAlign>Right</d4p1:dtHAlign>
+				<d4p1:dtFormat/>
+				<d4p1:dtKeys>true</d4p1:dtKeys>
+				<d4p1:paletteKind>Palette32</d4p1:paletteKind>
+				<d4p1:animation>Auto</d4p1:animation>
+				<d4p1:rebuildTime>6689928</d4p1:rebuildTime>
+				<d4p1:isTransposed>false</d4p1:isTransposed>
+				<d4p1:autoTransposition>false</d4p1:autoTransposition>
+				<d4p1:legendScrollEnable>false</d4p1:legendScrollEnable>
+				<d4p1:surfaceColor>#A90000</d4p1:surfaceColor>
+				<d4p1:radarScaleType>Circle</d4p1:radarScaleType>
+				<d4p1:gaugeValuesPresentation>Needle</d4p1:gaugeValuesPresentation>
+				<d4p1:gaugeQualityBands useTextStr="false" useTooltipStr="false"/>
+				<d4p1:beginGaugeAngle>0</d4p1:beginGaugeAngle>
+				<d4p1:endGaugeAngle>180</d4p1:endGaugeAngle>
+				<d4p1:gaugeThickness>5</d4p1:gaugeThickness>
+				<d4p1:gaugeLabelsLocation>InsideScale</d4p1:gaugeLabelsLocation>
+				<d4p1:gaugeLabelsArcDirection>false</d4p1:gaugeLabelsArcDirection>
+				<d4p1:gaugeBushThickness>4</d4p1:gaugeBushThickness>
+				<d4p1:gaugeBushColor>#A9A9A9</d4p1:gaugeBushColor>
+				<d4p1:autoMaxValue>true</d4p1:autoMaxValue>
+				<d4p1:userMaxValue>0</d4p1:userMaxValue>
+				<d4p1:autoMinValue>true</d4p1:autoMinValue>
+				<d4p1:userMinValue>0</d4p1:userMinValue>
+				<d4p1:elementsIsInit>true</d4p1:elementsIsInit>
+				<d4p1:titleIsInit>true</d4p1:titleIsInit>
+				<d4p1:legendIsInit>true</d4p1:legendIsInit>
+				<d4p1:chartIsInit>true</d4p1:chartIsInit>
+				<d4p1:elementsChart>
+					<d4p1:left>0</d4p1:left>
+					<d4p1:right>0.1671974522292994</d4p1:right>
+					<d4p1:top>0</d4p1:top>
+					<d4p1:bottom>0</d4p1:bottom>
+				</d4p1:elementsChart>
+				<d4p1:elementsLegend>
+					<d4p1:left>0.84185303514377</d4p1:left>
+					<d4p1:right>0</d4p1:right>
+					<d4p1:top>0.0407725321888412</d4p1:top>
+					<d4p1:bottom>0</d4p1:bottom>
+				</d4p1:elementsLegend>
+				<d4p1:elementsTitle>
+					<d4p1:left>0.8328025477707001</d4p1:left>
+					<d4p1:right>0</d4p1:right>
+					<d4p1:top>0</d4p1:top>
+					<d4p1:bottom>0.9594017094017091</d4p1:bottom>
+				</d4p1:elementsTitle>
+				<d4p1:borderColor>style:BorderColor</d4p1:borderColor>
+				<d4p1:border width="1">
+					<v8ui:style xsi:type="v8ui:ControlBorderType">Single</v8ui:style>
+				</d4p1:border>
+				<d4p1:dataSourceDescription/>
+				<d4p1:isDataSourceMode>false</d4p1:isDataSourceMode>
+				<d4p1:isRandomizedNewValues>true</d4p1:isRandomizedNewValues>
+				<d4p1:splineStrain>95</d4p1:splineStrain>
+				<d4p1:translucencePercent>0</d4p1:translucencePercent>
+				<d4p1:funnelNeckHeightPercent>10</d4p1:funnelNeckHeightPercent>
+				<d4p1:funnelNeckWidthPercent>10</d4p1:funnelNeckWidthPercent>
+				<d4p1:funnelGapSumPercent>3</d4p1:funnelGapSumPercent>
+				<d4p1:multiStageLinkLine width="1" gap="false">
+					<v8ui:style xsi:type="v8ui:ChartLineType">Solid</v8ui:style>
+				</d4p1:multiStageLinkLine>
+				<d4p1:multiStageLinkColor>#000000</d4p1:multiStageLinkColor>
+				<d4p1:valuesAxis/>
+				<d4p1:pointsAxis/>
+				<d4p1:legendPlacement>UseCoordinates</d4p1:legendPlacement>
+				<d4p1:plotAreaPlacement>UseCoordinates</d4p1:plotAreaPlacement>
+				<d4p1:titleAreaPlacement>UseCoordinates</d4p1:titleAreaPlacement>
+				<d4p1:colorPaletteDescription>
+					<d4p1:colorPalette>Palette32</d4p1:colorPalette>
+				</d4p1:colorPaletteDescription>
+			</Settings>
+		</Attribute>
+		<Attribute name="ГрузоваяЕдиница" id="76">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Грузовая единица</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>1</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПредставлениеПоказателей" id="77">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Представление показателей</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Показатель" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Показатель</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>1</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Представление" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Представление</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ТипТС" id="78">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип ТС</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.упТипыТС</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ВремяДеньНедели" id="79">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Время день недели</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПараметрыМаршрутизацииСитиГИД" id="80">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Параметры маршрутизации сити ГИД</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="ЭтоЯндекс" id="81">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Это яндекс</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ВыполняетОбращениеКДокументу" id="82">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполняет обращение к документу</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ВызыватьМаршрутизацию" id="83">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обращаться к маршрутизатору при изменении маршрута</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ЗначениеВремяОтдыхаВПутиИсходное" id="84">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Значение время отдыха в пути исходное</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<FunctionalOptions>
+				<Item>FunctionalOption.упУчитыватьРежимТрудаИОтдыхаСотрудников</Item>
+			</FunctionalOptions>
+		</Attribute>
+		<Attribute name="ЗначениеВремяОтдыхаВПутиТекущее" id="85">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Значение время отдыха в пути текущее</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<FunctionalOptions>
+				<Item>FunctionalOption.упУчитыватьРежимТрудаИОтдыхаСотрудников</Item>
+			</FunctionalOptions>
+		</Attribute>
+		<Attribute name="ВремяОтдыхаВПутиИсходное" id="86">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Время отдыха в пути исходное</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>3</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ВремяОтдыхаВПутиТекущее" id="87">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Время отдыха в пути текущее</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>3</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="УчитыватьРежимТрудаИОтдыхаСотрудников" id="88">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Учитывать режим труда и отдыха сотрудников</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="КоличествоАктивныхТочекИсходное" id="89">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество активных точек исходное</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>8</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="КоличествоАктивныхТочекТекущее" id="90">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество активных точек Текущее</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>8</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗначениеКоличествоАктивныхТочекИсходное" id="91">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Значение количество точек исходное</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗначениеКоличествоАктивныхТочекТекущее" id="92">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Значение количество точек Текущее</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="РежимКорректировки" id="93">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Режим корректировки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ДанныеПройденнойТочки" id="94">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Данные пройденной точки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИдентификаторДляИзмененияВременногоОкна" id="95">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Идентификатор для изменения временного окна</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИндексПервойНеПройденнойТочки" id="96">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Индекс первой не пройденной точки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ВерсияДанных" id="97">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Версия данных</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>20</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="КоэффициентРасчетаВремениВПути" id="98">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Коэффициент расчета времени в пути</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>4</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПодобранныеКонтрольныеТочки" id="99">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подобранные контрольные точки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="НомерЗвена" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номер звена</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Адрес" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Адрес</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упАдреса</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Широта" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Широта</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.ГеографическаяКоордината</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="Долгота" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Долгота</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.ГеографическаяКоордината</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="АдресПредставление" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Адрес представление</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ПравилаПодбораТочек" id="100">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Правила подбора точек</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="НомерЗвена" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номер звена</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="АдресНачало" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Адрес начало</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упАдреса</v8:Type>
+					</Type>
+				</Column>
+				<Column name="АдресКонец" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Адрес конец</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упАдреса</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ИдентификаторНачало" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Идентификатор начало</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>36</v8:Length>
+							<v8:AllowedLength>Fixed</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ИдентификаторКонец" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Идентификатор конец</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>36</v8:Length>
+							<v8:AllowedLength>Fixed</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ПредшественникиНачало" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Предшественники начало</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Правило" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Правило</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упПравилаВключенияКонтрольныхТочекВРейс</v8:Type>
+					</Type>
+				</Column>
+				<Column name="СдвигатьВремяНачалаРейсаНаРазницуОтИзмененияМаршрута" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сдвигать время начала рейса на разницу от изменения маршрута</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ЗапрещеноМногократноеПрименениеПравилаКРейсу" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Запрещено многократное применение правила к рейсу</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ПримененныеПравилаВключенияКонтрольныхТочек" id="101">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Примененные правила включения контрольных точек</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПроизводитьРасчетПопарныхРасстоянийПриРешенииЗадачиКоммивояжера" id="102">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Производить расчет попарных расстояний при решении задачи коммивояжера</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>Маршрут</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Маршрут.Пометка</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" faceName="MS Shell Dlg" height="10" bold="false" italic="false" underline="false" strikeout="true" kind="Absolute" scale="100"/>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>Маршрут</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Маршрут.Гараж</dcsset:left>
+						<dcsset:comparisonType>Filled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">#FFF5CD</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>Работы</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Работы.Пометка</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" faceName="MS Shell Dlg" height="10" bold="false" italic="false" underline="false" strikeout="true" kind="Absolute" scale="100"/>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>МаршрутПопадаетВоВременноеОкно</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Маршрут.Пометка</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" faceName="MS Shell Dlg" height="10" bold="false" italic="false" underline="false" strikeout="true" kind="Absolute" scale="100"/>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Отображать</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>РаботыПопадаетВоВременноеОкно</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Работы.Пометка</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" faceName="MS Shell Dlg" height="10" bold="false" italic="false" underline="false" strikeout="true" kind="Absolute" scale="100"/>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Отображать</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>МаршрутРасстояниеОтПредыдущейТочкиПредставление</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>МаршрутВремяОтПредыдущейТочкиПредставление</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Маршрут.ПроездНеРассчитан</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:SpecialTextColor</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>Маршрут</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>Работы</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Маршрут.Пройдена</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">#339966</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="ПересчитатьМаршрутПоВсемТочкам" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>по всем точкам</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оптимизировать порядок объезда точек маршрута рейса</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Attribute</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ПересчитатьМаршрутПоВсемТочкам</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ЗавершитьРедактирование" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Завершить редактирование</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Завершить редактирование</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗавершитьРедактирование</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="Отмена" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Отмена</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ОбновитьМаршрут" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить маршрут</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить маршрут</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ОбновитьМаршрут</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПереместитьТочкуВверх" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Переместить точку вверх</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Переместить точку вверх</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.упПеремещениеВверх</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ПереместитьТочкуВверх</Action>
+			<Representation>Picture</Representation>
+			<ModifiesSavedData>true</ModifiesSavedData>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПереместитьТочкуВниз" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Переместить точку вниз</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Переместить точку вниз</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.упПеремещениеВниз</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ПереместитьТочкуВниз</Action>
+			<Representation>Picture</Representation>
+			<ModifiesSavedData>true</ModifiesSavedData>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПересчитатьМаршрутПоАктивнымТочкам" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>по активным</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пересчитать маршрут по активным точкам</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Attribute</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ПересчитатьМаршрутПоАктивнымТочкам</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="МасштабироватьКартуПоТочкамРейса" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Масштабировать карту по всем точкам рейса</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Масштабировать карту по всем точкам рейса</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.упМасштабированиеПоТочкам</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>МасштабироватьКартуПоТочкамРейса</Action>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="МасштабироватьКартуПоАктивнымТочкамРейса" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Масштабировать карту по активным точкам рейса</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Масштабировать карту по активным точкам рейса</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.упМасштабированиеПоАктивнымТочкам</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>МасштабироватьКартуПоАктивнымТочкамРейса</Action>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ИзменитьВремяНачалаРейса" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Начало рейса</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Изменить время начала рейса</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.упИзменитьВремя</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ИзменитьВремяНачалаРейса</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="РедактироватьПосещениеГаража" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Редактировать посещение гаража</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Редактировать посещение гаража</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.упРедактироватьПосещениеГаража</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>РедактироватьПосещениеГаража</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПересчитатьВременнойГрафикМаршрута" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пересчитать время</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пересчитать временной график маршрута</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.упИзменитьВремя</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ФормаПересчитатьВременнойГрафикМаршрута</Action>
+			<Representation>TextPicture</Representation>
+			<ModifiesSavedData>true</ModifiesSavedData>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ОпределитьВременноеОкноДляТочки" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Определить временное окно для точки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Определить временное окно для точки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.упИзменитьВремя</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ОпределитьВременноеОкноДляТочки</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ВернутьИсходноеЗначениеВременногоОкна" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вернуть исходное значение временного окна</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вернуть исходное значение временного окна</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ВернутьИсходноеЗначениеВременногоОкна</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ВернутьИсходноеЗначениеВременногоОкнаМаршрута" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вернуть исходное значение временного окна</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вернуть исходное значение временного окна</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ВернутьИсходноеЗначениеВременногоОкнаМаршрута</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПоказатьПредшественников" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать предшественников</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать предшественников</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПоказатьПредшественников</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="РазделитьРаботы" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Разделить работы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Разделить работы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>РазделитьРаботы</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПереключитьОжиданиеПослеРабот" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Переключить ожидание после работ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Включить/выключить расчет времени ожидания после работ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПереключитьОжиданиеПослеРабот</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПодобратьИДобавитьКонтрольныеТочки" id="19">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подобрать контрольные точки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подобрать и добавить контрольные точки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CreateListItem</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ПодобратьИДобавитьКонтрольныеТочки</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+	</Commands>
+	<Parameters>
+		<Parameter name="Рейс">
+			<Type>
+				<v8:Type>cfg:DocumentRef.упРейс</v8:Type>
+			</Type>
+		</Parameter>
+		<Parameter name="РежимКорректировки">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Parameter>
+	</Parameters>
+</Form>

@@ -1,0 +1,382 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПробегКм</dataPath>
+			<field>ПробегКм</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пробег км</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Сумма</dataPath>
+			<field>Сумма</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Место</dataPath>
+			<field>Место</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Место</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Агрегат</dataPath>
+			<field>Агрегат</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПробегМотоЧасы</dataPath>
+			<field>ПробегМотоЧасы</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пробег мото часы</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Склад</dataPath>
+			<field>Склад</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НормаКм</dataPath>
+			<field>НормаКм</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Норма км</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НормаМотоЧасы</dataPath>
+			<field>НормаМотоЧасы</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Норма мото часы</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДельтаКм</dataPath>
+			<field>ДельтаКм</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дельта км</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДельтаМотоЧасы</dataPath>
+			<field>ДельтаМотоЧасы</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дельта мото часы</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ВыработкаАгрегатов.Агрегат,
+	ВыработкаАгрегатов.ПробегКмОстаток КАК ПробегКм,
+	ВыработкаАгрегатов.ПробегМотоЧасыОстаток КАК ПробегМотоЧасы,
+	ВыработкаАгрегатов.СуммаОстаток КАК Сумма,
+	ВыработкаАгрегатов.Агрегат.Тип.ЭксплуатационнаяНормаКм КАК НормаКм,
+	ВыработкаАгрегатов.Агрегат.Тип.ЭксплуатационнаяНормаМотоЧасы КАК НормаМотоЧасы
+ПОМЕСТИТЬ втАгрегаты
+ИЗ
+	РегистрНакопления.упВыработкаАгрегатов.Остатки(&amp;Период, ) КАК ВыработкаАгрегатов
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	АгрегатыНаСкладах.Агрегат,
+	АгрегатыНаСкладах.Склад,
+	АгрегатыНаСкладах.КоличествоОстаток КАК Количество
+ПОМЕСТИТЬ втНаСкладах
+ИЗ
+	РегистрНакопления.упАгрегатыНаСкладах.Остатки(
+			&amp;Период,
+			Агрегат В
+				(ВЫБРАТЬ
+					втАгрегаты.Агрегат
+				ИЗ
+					втАгрегаты КАК втАгрегаты)) КАК АгрегатыНаСкладах
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	АгрегатыТС.Агрегат,
+	АгрегатыТС.ТранспортноеСредство КАК ТС
+ПОМЕСТИТЬ втНаТС
+ИЗ
+	РегистрСведений.упАгрегатыТранспортныхСредств.СрезПоследних(
+			&amp;Период,
+			Операция = ЗНАЧЕНИЕ(Перечисление.упТипыОперацийМонтажа.Установлено)
+				И Агрегат В
+					(ВЫБРАТЬ
+						втАгрегаты.Агрегат
+					ИЗ
+						втАгрегаты КАК втАгрегаты)) КАК АгрегатыТС
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	втАгрегаты.Агрегат,
+	ВЫБОР
+		КОГДА НЕ втНаСкладах.Склад ЕСТЬ NULL 
+			ТОГДА втНаСкладах.Склад
+		КОГДА НЕ втНаТС.ТС ЕСТЬ NULL 
+			ТОГДА втНаТС.ТС
+		ИНАЧЕ ЗНАЧЕНИЕ(Справочник.упСклады.ПустаяСсылка)
+	КОНЕЦ КАК Место,
+	втАгрегаты.ПробегКм,
+	втАгрегаты.ПробегМотоЧасы,
+	втАгрегаты.Сумма,
+	втАгрегаты.НормаКм,
+	втАгрегаты.НормаМотоЧасы,
+	ВЫБОР
+		КОГДА втАгрегаты.НормаКм &gt;= втАгрегаты.ПробегКм
+			ТОГДА втАгрегаты.НормаКм - втАгрегаты.ПробегКм
+		ИНАЧЕ втАгрегаты.ПробегКм - втАгрегаты.НормаКм
+	КОНЕЦ КАК ДельтаКм,
+	ВЫБОР
+		КОГДА втАгрегаты.НормаМотоЧасы &gt;= втАгрегаты.ПробегМотоЧасы
+			ТОГДА втАгрегаты.НормаМотоЧасы - втАгрегаты.ПробегМотоЧасы
+		ИНАЧЕ втАгрегаты.ПробегМотоЧасы - втАгрегаты.НормаМотоЧасы
+	КОНЕЦ КАК ДельтаМотоЧасы
+ИЗ
+	втАгрегаты КАК втАгрегаты
+		ЛЕВОЕ СОЕДИНЕНИЕ втНаСкладах КАК втНаСкладах
+		ПО втАгрегаты.Агрегат = втНаСкладах.Агрегат
+			И (втНаСкладах.Количество &gt; 0)
+		ЛЕВОЕ СОЕДИНЕНИЕ втНаТС КАК втНаТС
+		ПО втАгрегаты.Агрегат = втНаТС.Агрегат</query>
+	</dataSet>
+	<totalField>
+		<dataPath>ДельтаКм</dataPath>
+		<expression>Сумма(ДельтаКм)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ДельтаМотоЧасы</dataPath>
+		<expression>Сумма(ДельтаМотоЧасы)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>НормаКм</dataPath>
+		<expression>Сумма(НормаКм)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>НормаМотоЧасы</dataPath>
+		<expression>Сумма(НормаМотоЧасы)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПробегКм</dataPath>
+		<expression>Сумма(ПробегКм)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПробегМотоЧасы</dataPath>
+		<expression>Сумма(ПробегМотоЧасы)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Сумма</dataPath>
+		<expression>Сумма(Сумма)</expression>
+	</totalField>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>ВыработкаАгрегатов</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Выработка агрегатов</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Агрегат</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Место</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Склад/ТС</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Выработка</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПробегКм</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>км</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПробегМотоЧасы</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>м/ч</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Сумма</dcsset:field>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Норматив</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>НормаКм</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>км</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>НормаМотоЧасы</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>м/ч</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отклонение</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ДельтаКм</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>км</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ДельтаМотоЧасы</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>м/ч</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardBeginningDate">
+						<v8:variant xsi:type="v8:StandardBeginningDateVariant">BeginningOfThisDay</v8:variant>
+					</dcscor:value>
+					<dcsset:userSettingID>3c4364f4-39eb-4823-8941-6263424443fb</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МакетОформления</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">упМакетОформленияОтчетов</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Выработка агрегатов</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Агрегат</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

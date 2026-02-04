@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<head>
+     <meta http-equiv=X-UA-Compatible content="IE=9" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="https://enterprise.api-maps.yandex.ru/2.1/?load=package.standard;&lang=ru_RU%КлючAPI%" type="text/javascript"></script>
+    <!-- <script src="//yandex.st/jquery/1.6.4/jquery.min.js" type="text/javascript"></script> -->
+
+    <script type="text/javascript">
+        var Length = 0;
+        var Time = 0;
+        var Status = false;
+        var Coordinates = '';
+
+        ymaps.ready(init);
+
+        function init() {
+
+            var myMap = new ymaps.Map("map", {
+                center: [55.76, 37.64],
+                zoom: 13
+            });
+
+        } //init()
+
+        function setExecut() {
+
+            var div = document.getElementById('GetData')
+            var elems = div.getElementsByTagName('*')
+            var curData = '';
+            for (var i = 0; i < elems.length; i++) {
+                curData = elems[i].value;
+            };
+
+            var masCode = curData.split(';');
+            var ArrayPoint = [];
+            var FirstPoint = masCode[0].split(',');
+            var Nmas = [Number(FirstPoint[0]), Number(FirstPoint[1])];
+            ArrayPoint.push(Nmas);
+
+            for (var x = 0; x < masCode.length; x++) {
+                var curPoint = masCode[x].split(',');
+                ArrayPoint.push({
+                    type: 'viaPoint',
+                    point: [Number(curPoint[0]), Number(curPoint[1])]
+                });
+            }
+            var LastPoint = masCode[masCode.length - 1].split(',');
+            var Kmas = [Number(LastPoint[0]), Number(LastPoint[1])];
+            ArrayPoint.push(Kmas);
+
+            ymaps.route(ArrayPoint).then(function(route) {
+                var Length = route.getLength();
+                var Time = route.getTime();
+
+                for (var i = 0; i < route.getPaths().getLength(); i++) {
+                    var way = route.getPaths().get(i);
+                    var segments = way.getSegments();
+                    for (var j = 0; j < segments.length; j++) {
+                        var JamsTime = segments[j].getJamsTime();
+                        var arrCoord = segments[j].getCoordinates();
+                        var cL = arrCoord.length;
+                        var sr = JamsTime / cL;
+                        var strText = '';
+                        for (var jj = 0; jj < cL; jj++) {
+                            strText = strText + arrCoord[jj][0] + ',' + arrCoord[jj][1] + ',' + String(sr) + ',';
+                        }
+                        Coordinates += strText + ';';
+                    }
+                }
+                var div = document.getElementById('GetStatus')
+                var elems = div.getElementsByTagName('*')
+                for (var i = 0; i < elems.length; i++) {
+                    elems[i].value = 'ok';
+                };
+                var div = document.getElementById('GetLength')
+                var elems = div.getElementsByTagName('*')
+                for (var i = 0; i < elems.length; i++) {
+                    elems[i].value = Length;
+                };
+                var div = document.getElementById('GetTime')
+                var elems = div.getElementsByTagName('*')
+                for (var i = 0; i < elems.length; i++) {
+                    elems[i].value = Time;
+                };
+                var div = document.getElementById('GetCoordinates')
+                var elems = div.getElementsByTagName('*')
+                for (var i = 0; i < elems.length; i++) {
+                    elems[i].value = Coordinates;
+                };
+            }, function(error) {
+                var div = document.getElementById('GetStatus')
+                var elems = div.getElementsByTagName('*')
+                for (var i = 0; i < elems.length; i++) {
+                    elems[i].value = 'Возникла ошибка: ' + error.message;
+                };
+            });
+
+        } //setExecut()
+    </script>
+</head>
+
+<body>
+    <div id="map"></div>
+    <div id="GetStatus">
+        <input type="text" value='bad' name="Status" />
+    </div>
+    <div id="GetData">
+        <input type="text" value='' name="Data" />
+    </div>
+    <div id="GetLength">
+        <input type="text" value='0' name="Length" />
+    </div>
+    <div id="GetTime">
+        <input type="text" value='0' name="Time" />
+    </div>
+    <div id="GetCoordinates">
+        <input type="text" value='' name="Coordinates" />
+    </div>
+    <div id="buttons">
+        <input type="button" id="ButtonExe" value="Exec" onclick="setExecut();" />
+    </div>
+</body>
+
+</html>

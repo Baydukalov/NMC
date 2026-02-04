@@ -1,0 +1,427 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Наименование" id="4">
+			<DataPath>Объект.Description</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="6"/>
+		</InputField>
+		<InputField name="Родитель" id="7">
+			<DataPath>Объект.Parent</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<ContextMenu name="РодительКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="РодительРасширеннаяПодсказка" id="9"/>
+		</InputField>
+		<UsualGroup name="ГруппаОформлениеДокумента" id="29">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оформление документа</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа оформление документа</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Representation>StrongSeparation</Representation>
+			<ExtendedTooltip name="ГруппаОформлениеДокументаРасширеннаяПодсказка" id="30"/>
+			<ChildItems>
+				<InputField name="ДокументВыдается" id="10">
+					<DataPath>Объект.ДокументВыдается</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<ContextMenu name="ДокументВыдаетсяКонтекстноеМеню" id="11"/>
+					<ExtendedTooltip name="ДокументВыдаетсяРасширеннаяПодсказка" id="12"/>
+					<Events>
+						<Event name="OnChange">ДокументВыдаетсяПриИзменении</Event>
+					</Events>
+				</InputField>
+				<UsualGroup name="ГруппаКоличествоТС" id="37">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа количество ТС</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа количество ТС</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаКоличествоТСРасширеннаяПодсказка" id="38"/>
+					<ChildItems>
+						<LabelDecoration name="Декорация3" id="39">
+							<ContextMenu name="Декорация3КонтекстноеМеню" id="40"/>
+							<ExtendedTooltip name="Декорация3РасширеннаяПодсказка" id="41"/>
+						</LabelDecoration>
+						<RadioButtonField name="КоличествоТС" id="31">
+							<DataPath>Объект.КоличествоТС</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Допустимое количество транспортных средств, указываемых в документе</v8:content>
+								</v8:item>
+							</Title>
+							<RadioButtonType>Auto</RadioButtonType>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Документ оформляется на одно транспортное средство</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xr:DesignTimeRef">Enum.упКоличествоОбъектовДокументовТСВодителей.EnumValue.Один</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Возможно оформление документа на несколько транспортных средств</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xr:DesignTimeRef">Enum.упКоличествоОбъектовДокументовТСВодителей.EnumValue.Несколько</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Возможно оформление документа как на несколько, так и на неограниченное число транспортных средств</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xr:DesignTimeRef">Enum.упКоличествоОбъектовДокументовТСВодителей.EnumValue.ВозможноНеограниченноеЧисло</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="КоличествоТСКонтекстноеМеню" id="32"/>
+							<ExtendedTooltip name="КоличествоТСРасширеннаяПодсказка" id="33"/>
+						</RadioButtonField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаКоличествоВодителей" id="42">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа количество водителей</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа количество водителей</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаКоличествоВодителейРасширеннаяПодсказка" id="43"/>
+					<ChildItems>
+						<LabelDecoration name="Декорация4" id="44">
+							<ContextMenu name="Декорация4КонтекстноеМеню" id="45"/>
+							<ExtendedTooltip name="Декорация4РасширеннаяПодсказка" id="46"/>
+						</LabelDecoration>
+						<RadioButtonField name="КоличествоВодителей" id="34">
+							<DataPath>Объект.КоличествоВодителей</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Допустимое количество водителей, указываемых в документе</v8:content>
+								</v8:item>
+							</Title>
+							<RadioButtonType>Auto</RadioButtonType>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Документ оформляется на одного водителя</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xr:DesignTimeRef">Enum.упКоличествоОбъектовДокументовТСВодителей.EnumValue.Один</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Возможно оформление документа на несколько водителей</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xr:DesignTimeRef">Enum.упКоличествоОбъектовДокументовТСВодителей.EnumValue.Несколько</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Возможно оформление документа как на несколько, так и на неограниченное число водителей</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xr:DesignTimeRef">Enum.упКоличествоОбъектовДокументовТСВодителей.EnumValue.ВозможноНеограниченноеЧисло</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="КоличествоВодителейКонтекстноеМеню" id="35"/>
+							<ExtendedTooltip name="КоличествоВодителейРасширеннаяПодсказка" id="36"/>
+						</RadioButtonField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаСрокДействия" id="27">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Срок действия</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа срок действия</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Representation>StrongSeparation</Representation>
+			<ExtendedTooltip name="ГруппаСрокДействияРасширеннаяПодсказка" id="28"/>
+			<ChildItems>
+				<RadioButtonField name="СрокДействия" id="47">
+					<DataPath>Объект.СрокДействия</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<RadioButtonType>Auto</RadioButtonType>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Срок действия указывается в документе</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xr:DesignTimeRef">Enum.упСрокДействияДокумента.EnumValue.СрокУказываетсяВДокументе</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="СрокДействияКонтекстноеМеню" id="48"/>
+					<ExtendedTooltip name="СрокДействияРасширеннаяПодсказка" id="49"/>
+					<Events>
+						<Event name="OnChange">СрокДействияПриИзменении</Event>
+					</Events>
+				</RadioButtonField>
+				<UsualGroup name="ГруппаПериодДействия" id="53">
+					<EnableContentChange>true</EnableContentChange>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа период действия</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа период действия</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаПериодДействияРасширеннаяПодсказка" id="54"/>
+					<ChildItems>
+						<RadioButtonField name="СрокДействия1" id="50">
+							<DataPath>Объект.СрокДействия</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<RadioButtonType>Auto</RadioButtonType>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Срок действия</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xr:DesignTimeRef">Enum.упСрокДействияДокумента.EnumValue.ФиксированныйСрок</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="СрокДействия1КонтекстноеМеню" id="51"/>
+							<ExtendedTooltip name="СрокДействия1РасширеннаяПодсказка" id="52"/>
+							<Events>
+								<Event name="OnChange">СрокДействияПриИзменении</Event>
+							</Events>
+						</RadioButtonField>
+						<InputField name="ПериодДействия" id="55">
+							<DataPath>Объект.ПериодДействия</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<SpinButton>true</SpinButton>
+							<ContextMenu name="ПериодДействияКонтекстноеМеню" id="56"/>
+							<ExtendedTooltip name="ПериодДействияРасширеннаяПодсказка" id="57"/>
+						</InputField>
+						<LabelDecoration name="Декорация5" id="58">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>месяцев с даты оформления</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="Декорация5КонтекстноеМеню" id="59"/>
+							<ExtendedTooltip name="Декорация5РасширеннаяПодсказка" id="60"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<RadioButtonField name="СрокДействия2" id="61">
+					<DataPath>Объект.СрокДействия</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<RadioButtonType>Auto</RadioButtonType>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Неограниченный срок действия</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xr:DesignTimeRef">Enum.упСрокДействияДокумента.EnumValue.НеограниченныйСрок</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="СрокДействия2КонтекстноеМеню" id="62"/>
+					<ExtendedTooltip name="СрокДействия2РасширеннаяПодсказка" id="63"/>
+					<Events>
+						<Event name="OnChange">СрокДействияПриИзменении</Event>
+					</Events>
+				</RadioButtonField>
+				<UsualGroup name="ГруппаПредупреждение" id="64">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа предупреждение</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа предупреждение</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Representation>NormalSeparation</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаПредупреждениеРасширеннаяПодсказка" id="65"/>
+					<ChildItems>
+						<CheckBoxField name="ПредупреждатьОбОкончанииСрокаДействия" id="13">
+							<DataPath>Объект.ПредупреждатьОбОкончанииСрокаДействия</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ПредупреждатьОбОкончанииСрокаДействияКонтекстноеМеню" id="14"/>
+							<ExtendedTooltip name="ПредупреждатьОбОкончанииСрокаДействияРасширеннаяПодсказка" id="15"/>
+							<Events>
+								<Event name="OnChange">ПредупреждатьОбОкончанииСрокаДействияПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<UsualGroup name="ГруппаИнтервалПредупреждения" id="19">
+							<EnableContentChange>true</EnableContentChange>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа интервал предупреждения</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа интервал предупреждения</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаИнтервалПредупрежденияРасширеннаяПодсказка" id="20"/>
+							<ChildItems>
+								<LabelDecoration name="Декорация1" id="21">
+									<ContextMenu name="Декорация1КонтекстноеМеню" id="22"/>
+									<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="23"/>
+								</LabelDecoration>
+								<InputField name="ИнтервалПредупреждения" id="16">
+									<DataPath>Объект.ИнтервалПредупреждения</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Предупреждать за</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ИнтервалПредупрежденияКонтекстноеМеню" id="17"/>
+									<ExtendedTooltip name="ИнтервалПредупрежденияРасширеннаяПодсказка" id="18"/>
+								</InputField>
+								<LabelDecoration name="Декорация2" id="24">
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>дней до окончания срока действия документа</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="Декорация2КонтекстноеМеню" id="25"/>
+									<ExtendedTooltip name="Декорация2РасширеннаяПодсказка" id="26"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.упТипыДокументовТСВодителей</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+</Form>

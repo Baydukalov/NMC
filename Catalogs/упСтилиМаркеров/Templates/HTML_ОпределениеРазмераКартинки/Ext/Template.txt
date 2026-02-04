@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style type="text/css">
+	    body { 
+	      overflow: hidden; /* Убраны полосы прокрутки */
+	    } 
+	</style>
+</head>
+<body >
+<script>
+    var dimention = "";
+    function setImageDimention(_icon) {
+			var imag = new Image();
+	        imag.src = _icon;
+	        
+	        // usage of setTimeout function because of the problems with detection of image dimentions on first image load  
+	        setTimeout(function() {getImageDimentionAfterImageLoad(imag)}, 100);
+	        src = _icon;
+		}
+		
+		function getImageDimentionAfterImageLoad(imag) {
+	        dimention = String(imag.width) + ";" + String(imag.height);
+		}
+	function getImageDimention() {
+			return dimention;
+		}	
+		
+</script>
+<p class="description"><img src="%Картинка%" class="leftimg"></p> 
+</body>
+</html>

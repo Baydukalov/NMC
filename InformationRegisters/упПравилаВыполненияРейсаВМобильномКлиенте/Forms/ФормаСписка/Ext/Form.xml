@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<ChildItems>
+		<UsualGroup name="СписокКомпоновщикНастроекПользовательскиеНастройки" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа пользовательских настроек</v8:content>
+				</v8:item>
+			</Title>
+			<VerticalStretch>false</VerticalStretch>
+			<Group>Vertical</Group>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="СписокКомпоновщикНастроекПользовательскиеНастройкиРасширеннаяПодсказка" id="2"/>
+		</UsualGroup>
+		<Table name="Список" id="3">
+			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
+			<DefaultItem>true</DefaultItem>
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<InitialTreeView>ExpandTopLevel</InitialTreeView>
+			<EnableStartDrag>true</EnableStartDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Список</DataPath>
+			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<UserSettingsGroup>СписокКомпоновщикНастроекПользовательскиеНастройки</UserSettingsGroup>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
+			<SearchStringAddition name="СписокСтрокаПоиска" id="7">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="8"/>
+				<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="9"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокСостояниеПросмотра" id="10">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="11"/>
+				<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="12"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокУправлениеПоиском" id="13">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="14"/>
+				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="15"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="Перевозчик" id="16">
+					<DataPath>Список.Перевозчик</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<ContextMenu name="ПеревозчикКонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="ПеревозчикРасширеннаяПодсказка" id="18"/>
+				</LabelField>
+				<LabelField name="Водитель" id="19">
+					<DataPath>Список.Водитель</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<ContextMenu name="ВодительКонтекстноеМеню" id="20"/>
+					<ExtendedTooltip name="ВодительРасширеннаяПодсказка" id="21"/>
+				</LabelField>
+				<CheckBoxField name="РазрешеноИзменятьПорядокТочек" id="22">
+					<DataPath>Список.РазрешеноИзменятьПорядокТочек</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="РазрешеноИзменятьПорядокТочекКонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="РазрешеноИзменятьПорядокТочекРасширеннаяПодсказка" id="24"/>
+				</CheckBoxField>
+				<CheckBoxField name="ВедетсяРозничнаяПродажаВРейсе" id="52">
+					<DataPath>Список.ВедетсяРозничнаяПродажаВРейсе</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ВедетсяРозничнаяПродажаВРейсеКонтекстноеМеню" id="53"/>
+					<ExtendedTooltip name="ВедетсяРозничнаяПродажаВРейсеРасширеннаяПодсказка" id="54"/>
+				</CheckBoxField>
+				<CheckBoxField name="РазрешеноОтменятьНовыеТочки" id="25">
+					<DataPath>Список.РазрешеноОтменятьНовыеТочки</DataPath>
+					<Visible>false</Visible>
+					<DefaultItem>true</DefaultItem>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="РазрешеноОтменятьНовыеТочкиКонтекстноеМеню" id="26"/>
+					<ExtendedTooltip name="РазрешеноОтменятьНовыеТочкиРасширеннаяПодсказка" id="27"/>
+				</CheckBoxField>
+				<CheckBoxField name="ЗакрыватьКассовуюСменуПослеВыполненияРейса" id="49">
+					<DataPath>Список.ЗакрыватьКассовуюСменуПослеВыполненияРейса</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ЗакрыватьКассовуюСменуПослеВыполненияРейсаКонтекстноеМеню" id="50"/>
+					<ExtendedTooltip name="ЗакрыватьКассовуюСменуПослеВыполненияРейсаРасширеннаяПодсказка" id="51"/>
+				</CheckBoxField>
+				<CheckBoxField name="РазрешенаНастройкаКассовогоОборудования" id="46">
+					<DataPath>Список.РазрешенаНастройкаКассовогоОборудования</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="РазрешенаНастройкаКассовогоОборудованияКонтекстноеМеню" id="47"/>
+					<ExtendedTooltip name="РазрешенаНастройкаКассовогоОборудованияРасширеннаяПодсказка" id="48"/>
+				</CheckBoxField>
+				<CheckBoxField name="ТолькоОднаТочка" id="28">
+					<DataPath>Список.ТолькоОднаТочка</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ТолькоОднаТочкаКонтекстноеМеню" id="29"/>
+					<ExtendedTooltip name="ТолькоОднаТочкаРасширеннаяПодсказка" id="30"/>
+				</CheckBoxField>
+				<LabelField name="ВремяОжиданияПодтвержденияНовыхТочек" id="31">
+					<DataPath>Список.ВремяОжиданияПодтвержденияНовыхТочек</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<ContextMenu name="ВремяОжиданияПодтвержденияНовыхТочекКонтекстноеМеню" id="32"/>
+					<ExtendedTooltip name="ВремяОжиданияПодтвержденияНовыхТочекРасширеннаяПодсказка" id="33"/>
+				</LabelField>
+				<LabelField name="ПериодичностьОтправкиКоординат" id="34">
+					<DataPath>Список.ПериодичностьОтправкиКоординат</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<ContextMenu name="ПериодичностьОтправкиКоординатКонтекстноеМеню" id="35"/>
+					<ExtendedTooltip name="ПериодичностьОтправкиКоординатРасширеннаяПодсказка" id="36"/>
+				</LabelField>
+				<LabelField name="ВидНавигатора" id="37">
+					<DataPath>Список.ВидНавигатора</DataPath>
+					<ContextMenu name="ВидНавигатораКонтекстноеМеню" id="38"/>
+					<ExtendedTooltip name="ВидНавигатораРасширеннаяПодсказка" id="39"/>
+				</LabelField>
+				<LabelField name="СпособВыводаИнформацииОПолучателе" id="43">
+					<DataPath>Список.СпособВыводаИнформацииОПолучателе</DataPath>
+					<ContextMenu name="СпособВыводаИнформацииОПолучателеКонтекстноеМеню" id="44"/>
+					<ExtendedTooltip name="СпособВыводаИнформацииОПолучателеРасширеннаяПодсказка" id="45"/>
+				</LabelField>
+				<LabelField name="ВидКассовойТехники" id="55">
+					<DataPath>Список.ВидКассовойТехники</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="ВидКассовойТехникиКонтекстноеМеню" id="56"/>
+					<ExtendedTooltip name="ВидКассовойТехникиРасширеннаяПодсказка" id="57"/>
+				</LabelField>
+				<LabelField name="КассаККМПоУмолчанию" id="58">
+					<DataPath>Список.КассаККМПоУмолчанию</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="КассаККМПоУмолчаниюКонтекстноеМеню" id="59"/>
+					<ExtendedTooltip name="КассаККМПоУмолчаниюРасширеннаяПодсказка" id="60"/>
+				</LabelField>
+				<LabelField name="СпособОпределенияМестоположения" id="40">
+					<DataPath>Список.СпособОпределенияМестоположения</DataPath>
+					<ContextMenu name="СпособОпределенияМестоположенияКонтекстноеМеню" id="41"/>
+					<ExtendedTooltip name="СпособОпределенияМестоположенияРасширеннаяПодсказка" id="42"/>
+				</LabelField>
+				<CheckBoxField name="ЗапрещеноИзменениеПорядкаПогрузкиНаСкладах" id="61">
+					<DataPath>Список.ЗапрещеноИзменениеПорядкаПогрузкиНаСкладах</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ЗапрещеноИзменениеПорядкаПогрузкиНаСкладахКонтекстноеМеню" id="62"/>
+					<ExtendedTooltip name="ЗапрещеноИзменениеПорядкаПогрузкиНаСкладахРасширеннаяПодсказка" id="63"/>
+				</CheckBoxField>
+				<LabelField name="ВидАдресаСклада" id="64">
+					<DataPath>Список.ВидАдресаСклада</DataPath>
+					<ContextMenu name="ВидАдресаСкладаКонтекстноеМеню" id="65"/>
+					<ExtendedTooltip name="ВидАдресаСкладаРасширеннаяПодсказка" id="66"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Список" id="1">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>false</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<MainTable>InformationRegister.упПравилаВыполненияРейсаВМобильномКлиенте</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>Перевозчик</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">Перевозчик</dcsset:left>
+									<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветФона</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">#C0C0C0</dcscor:value>
+								</dcscor:item>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>Текст</dcscor:parameter>
+									<dcscor:value xsi:type="xs:string">&lt;для всех перевозчиков&gt;</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+							<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>Водитель</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">Водитель</dcsset:left>
+									<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветФона</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">#C0C0C0</dcscor:value>
+								</dcscor:item>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>Текст</dcscor:parameter>
+									<dcscor:value xsi:type="xs:string">&lt;для всех водителей&gt;</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+							<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+</Form>

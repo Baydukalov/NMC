@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗвонокПропущен</dataPath>
+			<field>ЗвонокПропущен</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Широта</dataPath>
+			<field>Широта</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номер</dataPath>
+			<field>Номер</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПометкаУдаления</dataPath>
+			<field>ПометкаУдаления</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Комментарий</dataPath>
+			<field>Комментарий</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Проблема</dataPath>
+			<field>Проблема</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТипСобытия</dataPath>
+			<field>ТипСобытия</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаЗаписи</dataPath>
+			<field>ДатаЗаписи</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Дата</dataPath>
+			<field>Дата</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АдресТочки</dataPath>
+			<field>АдресТочки</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Рейс</dataPath>
+			<field>Рейс</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Долгота</dataPath>
+			<field>Долгота</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТелефонныйНомер</dataPath>
+			<field>ТелефонныйНомер</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТекстСообщения</dataPath>
+			<field>ТекстСообщения</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Проведен</dataPath>
+			<field>Проведен</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Ссылка</dataPath>
+			<field>Ссылка</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТранспортноеСредство</dataPath>
+			<field>ТранспортноеСредство</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДлительностьЗвонка</dataPath>
+			<field>ДлительностьЗвонка</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АдресТочкиШирота</dataPath>
+			<field>АдресТочкиШирота</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АдресТочкиДолгота</dataPath>
+			<field>АдресТочкиДолгота</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	упСобытиеМониторинга.Ссылка,
+	упСобытиеМониторинга.ПометкаУдаления,
+	упСобытиеМониторинга.Номер,
+	упСобытиеМониторинга.Дата,
+	упСобытиеМониторинга.Проведен,
+	упСобытиеМониторинга.ТипСобытия,
+	упСобытиеМониторинга.ТранспортноеСредство,
+	упСобытиеМониторинга.Долгота,
+	упСобытиеМониторинга.Широта,
+	упСобытиеМониторинга.Рейс,
+	упСобытиеМониторинга.Комментарий,
+	упСобытиеМониторинга.ДатаЗаписи,
+	упСобытиеМониторинга.Проблема,
+	упСобытиеМониторинга.АдресТочки,
+    упСобытиеМониторинга.АдресТочки.Широта КАК АдресТочкиШирота,
+    упСобытиеМониторинга.АдресТочки.Долгота КАК АдресТочкиДолгота,
+	упСобытиеМониторинга.ТекстСообщения,
+	упСобытиеМониторинга.ТелефонныйНомер,
+	упСобытиеМониторинга.ДлительностьЗвонка,
+	упСобытиеМониторинга.ЗвонокПропущен
+ИЗ
+	Документ.упСобытиеМониторинга КАК упСобытиеМониторинга</query>
+	</dataSet>
+	<calculatedField>
+		<dataPath>РазницаВКоординатахАдреса</dataPath>
+		<expression>ВЫБОР КОГДА Истина
+            И ЗначениеЗаполнено(АдресТочки) 
+            И ЗначениеЗаполнено(Широта) 
+            И ЗначениеЗаполнено(Долгота) 
+ТОГДА  упРаботаСКартамиКлиентСервер.ПолучитьРасстояниеМеждуТочками(АдресТочкиШирота, АдресТочкиДолгота, Широта, Долгота)
+ИНАЧЕ 0 КОНЕЦ</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Разница в координатах адреса (м.)</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:decimal</v8:Type>
+			<v8:NumberQualifiers>
+				<v8:Digits>10</v8:Digits>
+				<v8:FractionDigits>0</v8:FractionDigits>
+				<v8:AllowedSign>Any</v8:AllowedSign>
+			</v8:NumberQualifiers>
+		</valueType>
+	</calculatedField>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Ссылка</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

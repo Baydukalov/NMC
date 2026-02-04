@@ -1,0 +1,544 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnLoadDataFromSettingsAtServer">ПриЗагрузкеДанныхИзНастроекНаСервере</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Гараж" id="71">
+			<DataPath>Объект.Гараж</DataPath>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>В список попадают рейсы, зона погрузки которых совпадает с географической зоной гаража. Если по рейсу есть путевой лист, то его адрес должен совпадать с адресом гаража. </v8:content>
+				</v8:item>
+			</ToolTip>
+			<ToolTipRepresentation>Button</ToolTipRepresentation>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<ChoiceParameters>
+				<app:item name="Отбор.ВидАдреса">
+					<app:value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation/>
+						<Value xsi:type="xr:DesignTimeRef">c4f20cfb-1ca9-45a6-a135-a75b3c1237fc.7f299d1f-5163-48b7-aef2-c60aec2e629e</Value>
+					</app:value>
+				</app:item>
+			</ChoiceParameters>
+			<ContextMenu name="ГаражКонтекстноеМеню" id="72"/>
+			<ExtendedTooltip name="ГаражРасширеннаяПодсказка" id="73"/>
+			<Events>
+				<Event name="OnChange">ГаражПриИзменении</Event>
+			</Events>
+		</InputField>
+		<Table name="Рейсы" id="1">
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<EnableStartDrag>true</EnableStartDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Рейсы</DataPath>
+			<RowPictureDataPath>Рейсы.ИндексКартинкиРейса</RowPictureDataPath>
+			<RowsPicture>
+				<xr:Ref>CommonPicture.упСтатусыРейса</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</RowsPicture>
+			<CommandSet>
+				<ExcludedCommand>Change</ExcludedCommand>
+				<ExcludedCommand>Copy</ExcludedCommand>
+				<ExcludedCommand>Create</ExcludedCommand>
+				<ExcludedCommand>Delete</ExcludedCommand>
+				<ExcludedCommand>Post</ExcludedCommand>
+				<ExcludedCommand>SetDeletionMark</ExcludedCommand>
+				<ExcludedCommand>UndoPosting</ExcludedCommand>
+			</CommandSet>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<UserSettingsGroup>РейсыВыдатьПутевойЛист</UserSettingsGroup>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="РейсыКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="РейсыКоманднаяПанель" id="3">
+				<ChildItems>
+					<Button name="РейсыВыдатьПутевойЛист" id="74">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ВыдатьПутевойЛист</CommandName>
+						<ExtendedTooltip name="РейсыВыдатьПутевойЛистРасширеннаяПодсказка" id="75"/>
+					</Button>
+					<Button name="РейсыОбработкаупРМДиспетчераСкладаЗаправитьТС" id="67">
+						<Type>CommandBarButton</Type>
+						<CommandName>DataProcessor.упРМДиспетчераГаража.Command.ДобавитьЗаправкуПутевойЛист</CommandName>
+						<DataPath>Items.Рейсы.CurrentData.ПутевойЛист</DataPath>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Заправить</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="РейсыОбработкаупРМДиспетчераСкладаЗаправитьТСРасширеннаяПодсказка" id="68"/>
+					</Button>
+					<Button name="РейсыОткрытьПутевойЛист" id="69">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ОткрытьПутевойЛист</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Открыть</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="РейсыОткрытьПутевойЛистРасширеннаяПодсказка" id="70"/>
+					</Button>
+					<Button name="РейсыОбработкаупРМДиспетчераСкладаВернутьПутевойЛист" id="63">
+						<Type>CommandBarButton</Type>
+						<CommandName>DataProcessor.упРМДиспетчераГаража.Command.ВернутьПутевойЛист</CommandName>
+						<DataPath>Items.Рейсы.CurrentData.ПутевойЛист</DataPath>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Вернуть</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="РейсыОбработкаупРМДиспетчераСкладаВернутьПутевойЛистРасширеннаяПодсказка" id="64"/>
+					</Button>
+					<Button name="РейсыОбработкаупРМДиспетчераСкладаЗакрытьПутевойЛист" id="65">
+						<Type>CommandBarButton</Type>
+						<CommandName>DataProcessor.упРМДиспетчераГаража.Command.ЗакрытьПутевойЛист</CommandName>
+						<DataPath>Items.Рейсы.CurrentData.ПутевойЛист</DataPath>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Закрыть путевой лист</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="РейсыОбработкаупРМДиспетчераСкладаЗакрытьПутевойЛистРасширеннаяПодсказка" id="66"/>
+					</Button>
+					<Button name="РейсыДокументупРейсВключитьВПутевойЛист" id="104">
+						<Type>CommandBarButton</Type>
+						<CommandName>Document.упРейс.Command.ВключитьВПутевойЛист</CommandName>
+						<DataPath>Items.Рейсы.CurrentData.Рейс</DataPath>
+						<ExtendedTooltip name="РейсыДокументупРейсВключитьВПутевойЛистРасширеннаяПодсказка" id="105"/>
+					</Button>
+					<Button name="РейсыИзменитьФорму" id="57">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
+						<ExtendedTooltip name="РейсыИзменитьФормуРасширеннаяПодсказка" id="58"/>
+					</Button>
+					<Button name="РейсыСохранитьЗначения" id="59">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.StandardCommand.SaveValues</CommandName>
+						<ExtendedTooltip name="РейсыСохранитьЗначенияРасширеннаяПодсказка" id="60"/>
+					</Button>
+					<Button name="РейсыВосстановитьЗначения" id="61">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.StandardCommand.RestoreValues</CommandName>
+						<ExtendedTooltip name="РейсыВосстановитьЗначенияРасширеннаяПодсказка" id="62"/>
+					</Button>
+					<Button name="РейсыЖурналУчетаПутевыхЛистов" id="96">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ЖурналУчетаПутевыхЛистов</CommandName>
+						<ExtendedTooltip name="РейсыЖурналУчетаПутевыхЛистовРасширеннаяПодсказка" id="97"/>
+					</Button>
+					<ButtonGroup name="РейсыГруппаКомандаПечати" id="98">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Рейсы группа команда печати</v8:content>
+							</v8:item>
+						</Title>
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Рейсы группа команда печати</v8:content>
+							</v8:item>
+						</ToolTip>
+						<ExtendedTooltip name="РейсыГруппаКомандаПечатиРасширеннаяПодсказка" id="99"/>
+					</ButtonGroup>
+					<Button name="РейсыПечатьПутевогоЛиста" id="100">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ПечатьПутевогоЛиста</CommandName>
+						<ExtendedTooltip name="РейсыПечатьПутевогоЛистаРасширеннаяПодсказка" id="101"/>
+					</Button>
+					<Button name="РейсыСправка" id="102">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.StandardCommand.Help</CommandName>
+						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="РейсыСправкаРасширеннаяПодсказка" id="103"/>
+					</Button>
+					<Button name="РейсыОбработкаупРМДиспетчераГаражаПакетнаяОбработкаПутевыхЛистов" id="106">
+						<Type>CommandBarButton</Type>
+						<CommandName>DataProcessor.упРМДиспетчераГаража.Command.ПакетнаяОбработкаПутевыхЛистов</CommandName>
+						<DataPath>Объект.Гараж</DataPath>
+						<ExtendedTooltip name="РейсыОбработкаупРМДиспетчераГаражаПакетнаяОбработкаПутевыхЛистовРасширеннаяПодсказка" id="107"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="РейсыРасширеннаяПодсказка" id="4"/>
+			<SearchStringAddition name="РейсыСтрокаПоиска" id="5">
+				<AdditionSource>
+					<Item>Рейсы</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="РейсыСтрокаПоискаКонтекстноеМеню" id="6"/>
+				<ExtendedTooltip name="РейсыСтрокаПоискаРасширеннаяПодсказка" id="7"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="РейсыСостояниеПросмотра" id="8">
+				<AdditionSource>
+					<Item>Рейсы</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="РейсыСостояниеПросмотраКонтекстноеМеню" id="9"/>
+				<ExtendedTooltip name="РейсыСостояниеПросмотраРасширеннаяПодсказка" id="10"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="РейсыУправлениеПоиском" id="11">
+				<AdditionSource>
+					<Item>Рейсы</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="РейсыУправлениеПоискомКонтекстноеМеню" id="12"/>
+				<ExtendedTooltip name="РейсыУправлениеПоискомРасширеннаяПодсказка" id="13"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="Selection">РейсыВыбор</Event>
+				<Event name="OnActivateRow">РейсыПриАктивизацииСтроки</Event>
+			</Events>
+			<ChildItems>
+				<LabelField name="РейсыСсылка" id="26">
+					<DataPath>Рейсы.Рейс</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Рейс</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="РейсыСсылкаКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="РейсыСсылкаРасширеннаяПодсказка" id="28"/>
+				</LabelField>
+				<ColumnGroup name="РейсыГруппа1" id="79">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Путевой лист</v8:content>
+						</v8:item>
+					</Title>
+					<Group>InCell</Group>
+					<ExtendedTooltip name="РейсыГруппа1РасширеннаяПодсказка" id="80"/>
+					<ChildItems>
+						<PictureField name="РейсыИндексКартинкиПутевогоЛиста" id="76">
+							<DataPath>Рейсы.ИндексКартинкиПутевогоЛиста</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ValuesPicture>
+								<xr:Ref>CommonPicture.упСтатусыПутевогоЛиста</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</ValuesPicture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="РейсыИндексКартинкиПутевогоЛистаКонтекстноеМеню" id="77"/>
+							<ExtendedTooltip name="РейсыИндексКартинкиПутевогоЛистаРасширеннаяПодсказка" id="78"/>
+						</PictureField>
+						<LabelField name="РейсыПутевойЛист" id="41">
+							<DataPath>Рейсы.ПутевойЛист</DataPath>
+							<ContextMenu name="РейсыПутевойЛистКонтекстноеМеню" id="42"/>
+							<ExtendedTooltip name="РейсыПутевойЛистРасширеннаяПодсказка" id="43"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<LabelField name="РейсыТранспортноеСредство" id="35">
+					<DataPath>Рейсы.ТранспортноеСредство</DataPath>
+					<ContextMenu name="РейсыТранспортноеСредствоКонтекстноеМеню" id="36"/>
+					<ExtendedTooltip name="РейсыТранспортноеСредствоРасширеннаяПодсказка" id="37"/>
+				</LabelField>
+				<LabelField name="РейсыПеревозчик" id="108">
+					<DataPath>Рейсы.Перевозчик</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="РейсыПеревозчикКонтекстноеМеню" id="109"/>
+					<ExtendedTooltip name="РейсыПеревозчикРасширеннаяПодсказка" id="110"/>
+				</LabelField>
+				<LabelField name="РейсыПробегОстаток" id="44">
+					<DataPath>Рейсы.ПробегОстаток</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пробег (км.)</v8:content>
+						</v8:item>
+					</Title>
+					<Width>10</Width>
+					<ContextMenu name="РейсыПробегОстатокКонтекстноеМеню" id="45"/>
+					<ExtendedTooltip name="РейсыПробегОстатокРасширеннаяПодсказка" id="46"/>
+				</LabelField>
+				<LabelField name="РейсыВидГСМ" id="50">
+					<DataPath>Рейсы.ВидГСМ</DataPath>
+					<Width>12</Width>
+					<ContextMenu name="РейсыВидГСМКонтекстноеМеню" id="51"/>
+					<ExtendedTooltip name="РейсыВидГСМРасширеннаяПодсказка" id="52"/>
+				</LabelField>
+				<LabelField name="РейсыКоличествоОстаток" id="47">
+					<DataPath>Рейсы.КоличествоОстаток</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Уровень топлива (л.)</v8:content>
+						</v8:item>
+					</Title>
+					<Width>12</Width>
+					<ContextMenu name="РейсыКоличествоОстатокКонтекстноеМеню" id="48"/>
+					<ExtendedTooltip name="РейсыКоличествоОстатокРасширеннаяПодсказка" id="49"/>
+				</LabelField>
+				<LabelField name="РейсыВодитель" id="81">
+					<DataPath>Рейсы.Водитель</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="РейсыВодительКонтекстноеМеню" id="82"/>
+					<ExtendedTooltip name="РейсыВодительРасширеннаяПодсказка" id="83"/>
+				</LabelField>
+				<LabelField name="РейсыДатаНачалаРейса" id="84">
+					<DataPath>Рейсы.ДатаНачалаРейса</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="РейсыДатаНачалаРейсаКонтекстноеМеню" id="85"/>
+					<ExtendedTooltip name="РейсыДатаНачалаРейсаРасширеннаяПодсказка" id="86"/>
+				</LabelField>
+				<LabelField name="РейсыПутевойЛистПредставление" id="87">
+					<DataPath>Рейсы.ПутевойЛистПредставление</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="РейсыПутевойЛистПредставлениеКонтекстноеМеню" id="88"/>
+					<ExtendedTooltip name="РейсыПутевойЛистПредставлениеРасширеннаяПодсказка" id="89"/>
+				</LabelField>
+				<LabelField name="РейсыСтатусПутевогоЛиста" id="90">
+					<DataPath>Рейсы.СтатусПутевогоЛиста</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="РейсыСтатусПутевогоЛистаКонтекстноеМеню" id="91"/>
+					<ExtendedTooltip name="РейсыСтатусПутевогоЛистаРасширеннаяПодсказка" id="92"/>
+				</LabelField>
+				<LabelField name="РейсыСтатусРейса" id="93">
+					<DataPath>Рейсы.СтатусРейса</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="РейсыСтатусРейсаКонтекстноеМеню" id="94"/>
+					<ExtendedTooltip name="РейсыСтатусРейсаРасширеннаяПодсказка" id="95"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.упРМДиспетчераГаража</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<Save>
+				<Field>Объект.Гараж</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="Рейсы" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Рейсы</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>~Рейсы.Ref</Field>
+				<Field>Рейсы.СтатусПутевогоЛиста</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	ДокументупРейс.Ссылка КАК Рейс,
+	ЕСТЬNULL(упСтатусыРейса.Статус, ЗНАЧЕНИЕ(Перечисление.упСтатусыРейса.Новый)) КАК СтатусРейса,
+	ЕСТЬNULL(упСтатусыРейса.Статус.Порядок, 0) КАК ИндексКартинкиРейса,
+	ЕСТЬNULL(упСтатусыПутевыхЛистов.Статус.Порядок, -1) КАК ИндексКартинкиПутевогоЛиста,
+	ЕСТЬNULL(упСтатусыПутевыхЛистов.Статус, ЗНАЧЕНИЕ(Перечисление.упСтатусыПУтевогоЛиста.ПустаяСсылка)) КАК СтатусПутевогоЛиста,
+	упПутевойЛист.Ссылка КАК ПутевойЛист,
+	ПРЕДСТАВЛЕНИЕ(упПутевойЛист.Дата) КАК ПутевойЛистПредставление,
+	ЕСТЬNULL(упПеревозчикПоРейсуСрезПоследних.ТранспортноеСредство, ЗНАЧЕНИЕ(Справочник.упТранспортныеСредства.ПустаяСсылка)) КАК ТранспортноеСредство,
+	ЕСТЬNULL(упПеревозчикПоРейсуСрезПоследних.Перевозчик, ЗНАЧЕНИЕ(Справочник.упПартнеры.ПустаяСсылка)) КАК Перевозчик,
+	упПробегТСОстатки.ПробегОстаток КАК ПробегОстаток,
+	ЕСТЬNULL(тбВидыГСМ.ВидГСМ, ЗНАЧЕНИЕ(Справочник.упВидыГСМ.ПустаяСсылка)) КАК ВидГСМ,
+	ЕСТЬNULL(упДанныеДатчиковСрезПоследних.Значение, ЕСТЬNULL(упОстаткиГСМОстатки.КоличествоОстаток, 0)) КАК КоличествоОстаток,
+	ЕСТЬNULL(упПеревозчикПоРейсуСрезПоследних.Водитель1, ЗНАЧЕНИЕ(Справочник.упСотрудники.ПустаяСсылка)) КАК Водитель,
+	упПлановыеПараметрыРейса.ПлановоеНачалоВыполнения КАК ДатаНачалаРейса,
+	ДокументупРейс.Ссылка КАК Ссылка
+ИЗ
+	Документ.упРейс КАК ДокументупРейс
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упСтатусыРейсов.СрезПоследних КАК упСтатусыРейса
+		ПО (упСтатусыРейса.Документ = ДокументупРейс.Ссылка)
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.упПутевойЛист.Рейсы КАК упПутевойЛистРейс
+			ЛЕВОЕ СОЕДИНЕНИЕ Документ.упПутевойЛист КАК упПутевойЛист
+				ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упСтатусыПутевыхЛистов.СрезПоследних КАК упСтатусыПутевыхЛистов
+				ПО упПутевойЛист.Ссылка = упСтатусыПутевыхЛистов.Документ
+			ПО упПутевойЛистРейс.Ссылка = упПутевойЛист.Ссылка
+		ПО (ИСТИНА)
+			И ДокументупРейс.Ссылка = упПутевойЛистРейс.Рейс
+			И (НЕ упПутевойЛист.ПометкаУдаления)
+			И (упПутевойЛист.Проведен)
+			И (НЕ упСтатусыПутевыхЛистов.Статус = ЗНАЧЕНИЕ(Перечисление.упСтатусыПутевогоЛиста.Отменен))
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упПлановыеПараметрыРейса КАК упПлановыеПараметрыРейса
+		ПО ДокументупРейс.Ссылка = упПлановыеПараметрыРейса.Рейс
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упПеревозчикПоРейсу.СрезПоследних КАК упПеревозчикПоРейсуСрезПоследних
+		ПО ДокументупРейс.Ссылка = упПеревозчикПоРейсуСрезПоследних.Рейс
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упВидыГСМТранспортныхСредств.СрезПоследних(, ) КАК тбВидыГСМ
+		ПО (ИСТИНА)
+			И (упПеревозчикПоРейсуСрезПоследних.ТранспортноеСредство = тбВидыГСМ.ТранспортноеСредство)
+			И (тбВидыГСМ.Основной)
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упДанныеДатчиков.СрезПоследних КАК упДанныеДатчиковСрезПоследних
+		ПО (ИСТИНА)
+			И (упПеревозчикПоРейсуСрезПоследних.ТранспортноеСредство = упДанныеДатчиковСрезПоследних.ТранспортноеСредство)
+			И (упПеревозчикПоРейсуСрезПоследних.ТранспортноеСредство.ДатчикУровняТоплива = упДанныеДатчиковСрезПоследних.Датчик)
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.упОстаткиГСМ.Остатки КАК упОстаткиГСМОстатки
+		ПО (ИСТИНА)
+			И (упПеревозчикПоРейсуСрезПоследних.ТранспортноеСредство = упОстаткиГСМОстатки.ТранспортноеСредство)
+			И (тбВидыГСМ.ВидГСМ = упОстаткиГСМОстатки.ВидГСМ)
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.упПробегТС.Остатки КАК упПробегТСОстатки
+		ПО (упПеревозчикПоРейсуСрезПоследних.ТранспортноеСредство = упПробегТСОстатки.ТранспортноеСредство)
+ГДЕ
+	ИСТИНА
+	И ВЫБОР
+			КОГДА &amp;ЗонаПогрузки = ЗНАЧЕНИЕ(Справочник.упГеографическиеЗоны.ПустаяСсылка)
+				ТОГДА ИСТИНА
+			ИНАЧЕ ЕСТЬNULL(упПлановыеПараметрыРейса.ЗонаПогрузки, ЗНАЧЕНИЕ(Справочник.упГеографическиеЗоны.ПустаяСсылка)) В ИЕРАРХИИ (&amp;ЗонаПогрузки)
+		КОНЕЦ
+	И (ЛОЖЬ
+			ИЛИ упПутевойЛист.Гараж = &amp;Гараж
+			ИЛИ упПутевойЛист.Ссылка ЕСТЬ NULL)
+	И ДокументупРейс.ВидПеревозки.ТребуетсяОформлениеПутевогоЛиста</QueryText>
+				<MainTable>Document.упРейс</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">СтатусРейса</dcsset:left>
+							<dcsset:comparisonType>InList</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.упСтатусыРейса.НазначеноТС</dcsset:right>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.упСтатусыРейса.КВыполнению</dcsset:right>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.упСтатусыРейса.Выполняется</dcsset:right>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.упСтатусыРейса.Выполнен</dcsset:right>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.упСтатусыРейса.ВыполненЧастично</dcsset:right>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ИспользоватьДополнительныеОтчетыИОбработки" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использовать дополнительные отчеты и обработки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ОткрытьПутевойЛист" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть путевой лист</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть путевой лист</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Shortcut>1</Shortcut>
+			<Action>ОткрытьПутевойЛист</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ВыдатьПутевойЛист" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выдать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выдать путевой лист</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ВыдатьПутевойЛист</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ЖурналУчетаПутевыхЛистов" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Журнал учета движения путевых листов по форме № 8</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Журнал учета движения путевых листов по форме № 8</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.DocumentJournal</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ЖурналУчетаПутевыхЛистов</Action>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПечатьПутевогоЛиста" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Печать (по умолч)</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Печать путевого листа</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Print</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ПечатьПутевогоЛиста</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

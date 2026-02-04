@@ -1,0 +1,303 @@
+﻿/* MIT License
+* Copyright (c) 2013 Benjamin Becquet
+
+* Permission is hereby granted, free of charge, to any person obtaining
+* a copy of this software and associated documentation files (the
+* "Software"), to deal in the Software without restriction, including
+* without limitation the rights to use, copy, modify, merge, publish,
+* distribute, sublicense, and/or sell copies of the Software, and to
+* permit persons to whom the Software is furnished to do so, subject to
+* the following conditions:
+* 
+* The above copyright notice and this permission notice shall be
+* included in all copies or substantial portions of the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+* EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+* MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+* NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+* LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+* OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+* WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+L.LineUtil.PolylineDecorator = {
+		    computeAngle: function(a, b) {
+		        return (Math.atan2(b.y - a.y, b.x - a.x) * 180 / Math.PI) + 90;
+		    },
+
+		    getPointPathPixelLength: function(pts) {
+		        var nbPts = pts.length;
+		        if(nbPts < 2) {
+		            return 0;
+		        }
+		        var dist = 0,
+		            prevPt = pts[0],
+		            pt;
+		        for(var i=1; i<nbPts; i++) {
+		            dist += prevPt.distanceTo(pt = pts[i]);
+		            prevPt = pt;
+		        } 
+		        return dist;
+		    },
+
+		    /**
+		    * path: array of L.LatLng
+		    * map: the map, to access the current projection state
+		    */
+		    projectPatternOnPath: function (path, map) {
+		        var pathAsPoints = [], i;
+		        for(i=0, l=path.length; i<l; i++) {
+		            pathAsPoints[i] = map.latLngToLayerPoint(path[i]);
+		        }
+		        // project the pattern as pixel points
+		        var pattern = this.projectPatternOnPointPath(pathAsPoints);
+		        // and convert it to latlngs;
+		        for(i=0, l=pattern.length; i<l; i++) {
+		            pattern[i].latLng = map.layerPointToLatLng(pattern[i].pt);
+		        }        
+		        return pattern;
+		    },
+		    
+		    projectPatternOnPointPath: function (pts) {
+		        var positions = [];
+		        var previous = this.interpolateOnPointPath(pts);
+		        positions.push(previous);
+
+		        return positions;
+		    },
+
+		    /**
+		    * pts: array of L.Point
+		    * Returns null if ll has less than 2 LatLng, or an object with the following properties:
+		    *    latLng: the LatLng of the interpolated point
+		    *    predecessor: the index of the previous vertex on the path
+		    *    heading: the heading of the path at this point, in degrees
+		    */
+		    interpolateOnPointPath: function (pts) {
+		        
+				//ratio = 0.6; // the ratio of the total length where the point should be computed
+				ratio = 0.6; //%pologenie ukazatelj%
+				var nbVertices = pts.length;
+		        if (nbVertices < 2) {
+		            return null;
+		        }
+		        // easy limit cases: ratio negative/zero => first vertex
+		        if (ratio <= 0) {
+		            return {
+		                pt: pts[0],
+		                predecessor: 0,
+		                heading: this.computeAngle(pts[0], pts[1])
+		            };
+		        }
+		        // ratio >=1 => last vertex
+		        if (ratio >= 1) {
+		            return {
+		                pt: pts[nbVertices - 1],
+		                predecessor: nbVertices - 1,
+		                heading: this.computeAngle(pts[nbVertices - 2], pts[nbVertices - 1])
+		            };
+		        }
+		        // 1-segment-only path => direct linear interpolation
+		        if (nbVertices == 2) {
+		            return {
+		                pt: this.interpolateBetweenPoints(pts[0], pts[1], ratio),
+		                predecessor: 0,
+		                heading: this.computeAngle(pts[0], pts[1])
+		            };
+		        }
+		            
+		        var pathLength = this.getPointPathPixelLength(pts);
+		        var a = pts[0], b = a,
+		            ratioA = 0, ratioB = 0,
+		            distB = 0;
+		        // follow the path segments until we find the one
+		        // on which the point must lie => [ab] 
+		        var i = 1;
+		        for (; i < nbVertices && ratioB < ratio; i++) {
+		            a = b;
+		            ratioA = ratioB;
+		            b = pts[i];
+		            distB += a.distanceTo(b);
+		            ratioB = distB / pathLength;
+		        }
+
+		        // compute the ratio relative to the segment [ab]
+		        var segmentRatio = (ratio - ratioA) / (ratioB - ratioA);
+
+		        return {
+		            pt: this.interpolateBetweenPoints(a, b, segmentRatio),
+		            predecessor: i-2,
+		            heading: this.computeAngle(a, b)
+		        };
+		    },
+		    
+		    /**
+		    * Finds the point which lies on the segment defined by points A and B,
+		    * at the given ratio of the distance from A to B, by linear interpolation. 
+		    */
+		    interpolateBetweenPoints: function (ptA, ptB, ratio) {
+		        if(ptB.x != ptA.x) {
+		            return new L.Point(
+		                (ptA.x * (1 - ratio)) + (ratio * ptB.x),
+		                (ptA.y * (1 - ratio)) + (ratio * ptB.y)
+		            );
+		        }
+		        // special case where points lie on the same vertical axis
+		        return new L.Point(ptA.x, ptA.y + (ptB.y - ptA.y) * ratio);
+		    }
+		};
+
+		L.Symbol = L.Symbol || {};
+
+		L.Symbol.ArrowHead = L.Class.extend({
+		    
+		    options: {
+		        pixelSize: 10,
+		        headAngle: 60,
+		        pathOptions: {
+		            stroke: false,
+		            weight: 2,
+					color: "#ff7800",
+					opacity: 0
+		        }
+		    },
+		    
+		    initialize: function (options) {
+		        L.Util.setOptions(this, options);
+		        this.options.pathOptions.clickable = false;
+		    },
+
+		    buildSymbol: function(dirPoint, latLngs, map, index, total) {
+		        var opts = this.options;
+		        var path;
+		        path = new L.Polyline(this._buildArrowPath(dirPoint, map), opts.pathOptions);
+		        return path;
+		    },
+		    
+		    _buildArrowPath: function (dirPoint, map) {
+		        var d2r = Math.PI / 180;
+		        var tipPoint = map.project(dirPoint.latLng);
+		        var direction = (-(dirPoint.heading - 90)) * d2r;
+		        var radianArrowAngle = this.options.headAngle / 2 * d2r;
+		        
+		        var headAngle1 = direction + radianArrowAngle,
+		            headAngle2 = direction - radianArrowAngle;
+		        var arrowHead1 = new L.Point(
+		                tipPoint.x - this.options.pixelSize * Math.cos(headAngle1),
+		                tipPoint.y + this.options.pixelSize * Math.sin(headAngle1)),
+		            arrowHead2 = new L.Point(
+		                tipPoint.x - this.options.pixelSize * Math.cos(headAngle2),
+		                tipPoint.y + this.options.pixelSize * Math.sin(headAngle2));
+
+		        return [
+		            map.unproject(arrowHead1),
+		            dirPoint.latLng,
+		            map.unproject(arrowHead2)
+		        ];
+		    }
+		});
+
+		L.Symbol.arrowHead = function (options) {
+		    return new L.Symbol.ArrowHead(options);
+		};
+
+		L.PolylineDecorator = L.FeatureGroup.extend({
+		    options: {
+		        patterns: []
+		    },
+
+		    initialize: function(paths, options) {
+		        L.FeatureGroup.prototype.initialize.call(this);
+		        L.Util.setOptions(this, options);
+		        this._map = null;
+		        this._initPaths(paths);
+		        this._initPatterns();
+		    },
+
+		    _initPaths: function(p) {
+		        this._paths = [];
+				 var latLngs = [p.getLatLngs()];
+
+		        for(var i=0; i<latLngs.length; i++) {
+		            this._paths.push(latLngs[i]);
+		        }
+		    },
+
+		    _initPatterns: function() {
+		        this._patterns = [];
+		        var pattern;
+		        // parse pattern definitions and precompute some values
+		        for(var i=0;i<this.options.patterns.length;i++) {
+		            pattern = this._parsePatternDef(this.options.patterns[i]);
+		            this._patterns.push(pattern);
+		        }
+		    },
+
+		    /**
+		    * Parse the pattern definition
+		    */
+		    _parsePatternDef: function(patternDef, latLngs) {
+		        var pattern = {
+		            symbolFactory: patternDef.symbol
+		        };
+		        
+		        return(pattern);
+		    },
+
+		    onAdd: function (map) {
+		        this._map = map;
+		        this._draw();
+		    },
+
+		    /**
+		    * Returns an array of ILayers object
+		    */
+		    _buildSymbols: function(latLngs, symbolFactory, directionPoints) {
+		        var symbols = [];
+		        for(var i=0, l=directionPoints.length; i<l; i++) {
+		            symbols.push(symbolFactory.buildSymbol(directionPoints[i], latLngs, this._map, i, l));
+		        }
+		        return symbols;
+		    },
+
+		    /**
+		    * Select pairs of LatLng and heading angle,
+		    * that define positions and directions of the symbols
+		    * on the path 
+		    */
+		    _getDirectionPoints: function(pathIndex, pattern) {
+		        var dirPoints = null;
+				var pathPixelLength = null, latLngs = this._paths[pathIndex];
+				
+				dirPoints = L.LineUtil.PolylineDecorator.projectPatternOnPath(latLngs, this._map);
+		        return dirPoints;			
+		    },	
+		    
+		    /**
+		    * Draw a single pattern
+		    */
+		    _drawPattern: function(pattern) {
+		        var directionPoints, symbols;
+		        for(var i=0; i < this._paths.length; i++) {
+		            directionPoints = this._getDirectionPoints(i, pattern);
+		            symbols = this._buildSymbols(this._paths[i], pattern.symbolFactory, directionPoints);
+		            for(var j=0; j < symbols.length; j++) {
+		                this.addLayer(symbols[j]);
+		            }
+		        }
+		    },
+
+		    /**
+		    * Draw all patterns
+		    */
+		    _draw: function () {
+		        for(var i=0; i<this._patterns.length; i++) {
+		            this._drawPattern(this._patterns[i]);
+		        }
+		    }
+		});
+
+		L.polylineDecorator = function (paths, options) {
+		    return new L.PolylineDecorator(paths, options);
+		};

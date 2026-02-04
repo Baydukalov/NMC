@@ -1,0 +1,484 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<HTTPService uuid="8a9ce292-24bf-482c-bc45-aa6cecee4a1a">
+		<Properties>
+			<Name>MobileClient</Name>
+			<Synonym>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Mobile client</v8:content>
+				</v8:item>
+			</Synonym>
+			<Comment/>
+			<RootURL>MobileClient</RootURL>
+			<ReuseSessions>DontUse</ReuseSessions>
+			<SessionMaxAge>20</SessionMaxAge>
+		</Properties>
+		<ChildObjects>
+			<URLTemplate uuid="88189d87-7216-4ce6-82b0-e0babb63be38">
+				<Properties>
+					<Name>RouteOpt</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Route opt</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Решить задачу коммивояжера по рейсу</Comment>
+					<Template>/Route/Opt</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="986b4e62-d2b3-40b8-95e2-b47870aa2717">
+						<Properties>
+							<Name>GET</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>GET</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>GET</HTTPMethod>
+							<Handler>RouteOptGET</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="61326e2e-4a87-4915-9a51-33feccbe35e8">
+				<Properties>
+					<Name>RouteEarlyExecution</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Route early execution</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Запрос на досрочное прекращение рейса</Comment>
+					<Template>/Route/EarlyExecution</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="2749675c-97ad-44a4-bdb9-6783cfc5ea71">
+						<Properties>
+							<Name>POST</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>POST</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>POST</HTTPMethod>
+							<Handler>RouteEarlyExecutionPOST</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="8c2d07c2-601f-4b8e-b79b-a75dd5483508">
+				<Properties>
+					<Name>RoutePointEarlyDeparture</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Route point early departure</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Запрос на досрочное убытие из точки</Comment>
+					<Template>/RoutePoint/EarlyDeparture</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="bd7de2d3-b581-4a8c-833c-4b1b12a7bcfb">
+						<Properties>
+							<Name>POST</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>POST</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>POST</HTTPMethod>
+							<Handler>RoutePointEarlyDeparturePOST</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="7379f4a6-7dae-44f6-9e18-769cb526703a">
+				<Properties>
+					<Name>RoutePointNextExecution</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Route point next execution</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Запрос на назначение точки следующей по маршруту</Comment>
+					<Template>/RoutePoint/NextExecution</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="c003ac0f-1ea6-441b-934f-62de3a4d5f7c">
+						<Properties>
+							<Name>POST</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>POST</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>POST</HTTPMethod>
+							<Handler>RoutePointNextExecutionPOST</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="da72d97b-a000-4a51-9ec3-80009a062726">
+				<Properties>
+					<Name>RouteMonitoringEvents</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Route monitoring events</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Запрос на получение списка событий, возникновение которых будет отслеживаться на мобильном клиенте</Comment>
+					<Template>/Route/MonitoringEvents</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="7644ebd3-fa93-400e-8991-9eee15655c5d">
+						<Properties>
+							<Name>GET</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>GET</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>GET</HTTPMethod>
+							<Handler>RouteMonitoringEventsGET</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="209d1b0a-1196-4a51-978f-3eb868725b09">
+				<Properties>
+					<Name>RouteMonitoringEvent</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Route monitoring event</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Передается информация о возникшем событии на клиенте</Comment>
+					<Template>/Route/MonitoringEvent</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="7c8571ea-1ac3-41b7-a550-aa8ed9d14db5">
+						<Properties>
+							<Name>POST</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>POST</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>POST</HTTPMethod>
+							<Handler>RouteMonitoringEventPOST</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="4792c267-78fd-4b8a-80cb-d556ecf269c5">
+				<Properties>
+					<Name>RouteMonitoringEventResponse</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Route monitoring event response</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Передается информация с отчетом водителя о причинах возникноаения события</Comment>
+					<Template>/Route/MonitoringEventResponse</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="94f8feb5-b185-45df-aa31-59b3159278d1">
+						<Properties>
+							<Name>POST</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>POST</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>POST</HTTPMethod>
+							<Handler>RouteMonitoringEventResponsePOST</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="4ef9ff97-5f21-48a7-bb8b-762859fbf7df">
+				<Properties>
+					<Name>RouteGetFileList</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Route get file list</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Запрос списка файлов, ожидающих отправки на клиент</Comment>
+					<Template>/Route/GetFileList</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="8a7da274-f736-4131-903e-29cf8578a10a">
+						<Properties>
+							<Name>GET</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>GET</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>GET</HTTPMethod>
+							<Handler>RouteGetFileListGET</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="e957f471-d8e5-417a-9cfc-893807c679d7">
+				<Properties>
+					<Name>RouteFileDownloadComplete</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Route file download complete</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Сообщение об окончании загрузки файла на клиенте</Comment>
+					<Template>/Route/FileDownloadComplete</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="6d067062-ced4-42a6-b13d-b60c6bd04401">
+						<Properties>
+							<Name>POST</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>POST</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>POST</HTTPMethod>
+							<Handler>RouteFileDownloadCompletePOST</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="f5fbf0bb-f0ba-4bd5-b93d-0e7050c5d6a5">
+				<Properties>
+					<Name>RouteGetFile</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Route get file</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Запрос на выгрузку файла (части файла)</Comment>
+					<Template>/Route/GetFile</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="e98600b9-20ba-4d96-bc01-feb576e53fe3">
+						<Properties>
+							<Name>GET</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>GET</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>GET</HTTPMethod>
+							<Handler>RouteGetFileGET</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="19107f6e-cb36-41d1-8e50-bf61cd25d249">
+				<Properties>
+					<Name>AppDriverDebts</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>App driver debts</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Запрос на получение отчета по задолженностям водителя</Comment>
+					<Template>/Route/debtReport</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="a89de8d3-91c9-4563-9dc7-12e1b6ebf165">
+						<Properties>
+							<Name>GET</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>GET</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>GET</HTTPMethod>
+							<Handler>AppDriverDebtsGET</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="fbc441f9-a86f-4c7e-9253-c6b95e3fca38">
+				<Properties>
+					<Name>RouteGetDictionary</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Route get dictionary</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Запрос на получение всех данных по определенному справочнику</Comment>
+					<Template>/Route/GetDictionary</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="9622f922-7633-4494-9f4e-f1c15d2c2e32">
+						<Properties>
+							<Name>GET</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>GET</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>GET</HTTPMethod>
+							<Handler>RouteGetDictionaryGET</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="036cee6d-07de-4f58-878c-a8fdf37265dd">
+				<Properties>
+					<Name>RouteGeopositionInfo</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Route geoposition info</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Template>/Route/GeopositionInfo</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="393477e2-afc0-484e-a8a6-a176f8ab937c">
+						<Properties>
+							<Name>POST</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>POST</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>POST</HTTPMethod>
+							<Handler>RouteGeopositionInfoPOST</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="a3f7239b-85f3-403e-9c8a-e53318d33513">
+				<Properties>
+					<Name>AppGetRoutes</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>App get routes</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Запрос на получение списка рейсов по сотруднику</Comment>
+					<Template>/App/GetRoutes</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="658da228-82c0-40bc-9366-38c2e47fd75e">
+						<Properties>
+							<Name>GET</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>GET</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>GET</HTTPMethod>
+							<Handler>AppGetRoutesGET</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="481158b7-ca07-49f7-94f0-ca8bf64af6a9">
+				<Properties>
+					<Name>AppCheckDevice</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>App check device</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Запрос на получение логина по IMEI устройства</Comment>
+					<Template>/App/CheckDevice</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="cfeb0ba8-90d9-457e-8f27-8124d659bc5d">
+						<Properties>
+							<Name>GET</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>GET</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>GET</HTTPMethod>
+							<Handler>AppCheckDeviceGET</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="74d02910-39e4-439f-a9f5-b3b3e136f439">
+				<Properties>
+					<Name>RouteGetSettings</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Route get settings</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Запрос на получение актуальных настроек по рейсу</Comment>
+					<Template>/Route/Settings</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="2f02659e-3157-4246-8057-3c502fab1272">
+						<Properties>
+							<Name>GET</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>GET</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>GET</HTTPMethod>
+							<Handler>RouteGetSettingsGET</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+		</ChildObjects>
+	</HTTPService>
+</MetaDataObject>

@@ -1,0 +1,447 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Рейс</dataPath>
+			<field>Рейс</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Документ</dataPath>
+			<field>Документ</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КонтрагентПеревозчика</dataPath>
+			<field>КонтрагентПеревозчика</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Перевозчик</dataPath>
+			<field>Перевозчик</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Соглашение</dataPath>
+			<field>Соглашение</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаявкаТС</dataPath>
+			<field>ЗаявкаТС</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заявка ТС</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Доля</dataPath>
+			<field>Доля</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Доля (план)</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТекущаяДоля</dataPath>
+			<field>ТекущаяДоля</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Доля (факт)</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	упПравилаПодбораПеревозчиковНаРейсыПеревозчики.Ссылка КАК ПравилоПодбора,
+	упПравилаПодбораПеревозчиковНаРейсыПеревозчики.НомерСтроки КАК НомерСтроки,
+	упПравилаПодбораПеревозчиковНаРейсыПеревозчики.Перевозчик КАК Перевозчик,
+	упПравилаПодбораПеревозчиковНаРейсыПеревозчики.Соглашение КАК Соглашение,
+	упПравилаПодбораПеревозчиковНаРейсыПеревозчики.КонтрагентПеревозчика КАК КонтрагентПеревозчика,
+	упПравилаПодбораПеревозчиковНаРейсыПеревозчики.Доля КАК Доля
+ПОМЕСТИТЬ вт_Правило
+ИЗ
+	Справочник.упПравилаПодбораПеревозчиковНаРейсы.Перевозчики КАК упПравилаПодбораПеревозчиковНаРейсыПеревозчики
+ГДЕ
+	упПравилаПодбораПеревозчиковНаРейсыПеревозчики.Ссылка = &amp;ПравилоПодбораПеревозчиковНаРейсы
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	упПлановыеПараметрыРейса.Рейс КАК Рейс
+ПОМЕСТИТЬ вт_ПланРейсы
+ИЗ
+	РегистрСведений.упПлановыеПараметрыРейса КАК упПлановыеПараметрыРейса
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.упСтатусыРейсов.СрезПоследних(, ) КАК упСтатусыРейсовСрезПоследних
+		ПО упПлановыеПараметрыРейса.Рейс = упСтатусыРейсовСрезПоследних.Документ
+ГДЕ
+	упПлановыеПараметрыРейса.ПлановоеНачалоВыполнения МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+	И НЕ упСтатусыРейсовСрезПоследних.Статус = ЗНАЧЕНИЕ(Перечисление.упСтатусыРейса.Отменен)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	упЗаявкаНаТС.Рейс КАК Рейс,
+	упЗаявкаНаТС.Ссылка КАК ЗаявкаТС,
+	вт_Правило.Перевозчик КАК Перевозчик,
+	вт_Правило.КонтрагентПеревозчика КАК КонтрагентПеревозчика,
+	вт_Правило.Соглашение КАК Соглашение
+ПОМЕСТИТЬ вт_Заявки
+ИЗ
+	Документ.упЗаявкаНаТС КАК упЗаявкаНаТС
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ вт_Правило КАК вт_Правило
+		ПО упЗаявкаНаТС.Перевозчик = вт_Правило.Перевозчик
+			И (вт_Правило.Соглашение В (ЗНАЧЕНИЕ(Справочник.упСоглашенияСПеревозчиками.ПустаяСсылка), упЗаявкаНаТС.Соглашение))
+			И (вт_Правило.КонтрагентПеревозчика В (ЗНАЧЕНИЕ(Справочник.упКонтрагенты.ПустаяСсылка), упЗаявкаНаТС.КонтрагентПеревозчика))
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.упСтатусыЗаявокНаТС.СрезПоследних(, ) КАК упСтатусыЗаявокНаТССрезПоследних
+		ПО упЗаявкаНаТС.Ссылка = упСтатусыЗаявокНаТССрезПоследних.Документ
+			И (упСтатусыЗаявокНаТССрезПоследних.Статус В (ЗНАЧЕНИЕ(Перечисление.упСтатусыЗаявкиНаТС.Отправлена), ЗНАЧЕНИЕ(Перечисление.упСтатусыЗаявкиНаТС.Создана)))
+ГДЕ
+	упЗаявкаНаТС.НачалоРейса МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+	И упЗаявкаНаТС.Рейс В
+			(ВЫБРАТЬ
+				вт_ПланРейсы.Рейс КАК Рейс
+			ИЗ
+				вт_ПланРейсы КАК вт_ПланРейсы)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	упПеревозчикПоРейсу.Рейс КАК Рейс,
+	вт_Правило.Перевозчик КАК Перевозчик,
+	вт_Правило.КонтрагентПеревозчика КАК КонтрагентПеревозчика,
+	вт_Правило.Соглашение КАК Соглашение
+ПОМЕСТИТЬ вт_Рейсы
+ИЗ
+	РегистрСведений.упПеревозчикПоРейсу.СрезПоследних(
+			,
+			Рейс В
+				(ВЫБРАТЬ
+					вт_ПланРейсы.Рейс КАК Рейс
+				ИЗ
+					вт_ПланРейсы КАК вт_ПланРейсы)) КАК упПеревозчикПоРейсу
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ вт_Правило КАК вт_Правило
+		ПО упПеревозчикПоРейсу.Перевозчик = вт_Правило.Перевозчик
+			И (вт_Правило.Соглашение В (ЗНАЧЕНИЕ(Справочник.упСоглашенияСПеревозчиками.ПустаяСсылка), упПеревозчикПоРейсу.Соглашение))
+			И (вт_Правило.КонтрагентПеревозчика В (ЗНАЧЕНИЕ(Справочник.упКонтрагенты.ПустаяСсылка), упПеревозчикПоРейсу.КонтрагентПеревозчика))
+ГДЕ
+	НЕ упПеревозчикПоРейсу.Перевозчик = ЗНАЧЕНИЕ(Справочник.упПартнеры.ПустаяСсылка)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	вт_Заявки.Рейс КАК Рейс,
+	МИНИМУМ(вт_Заявки.ЗаявкаТС) КАК ЗаявкаТС
+ПОМЕСТИТЬ вт_ПервойЗаявке
+ИЗ
+	вт_Заявки КАК вт_Заявки
+
+СГРУППИРОВАТЬ ПО
+	вт_Заявки.Рейс
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	вт_Заявки.Рейс КАК Рейс,
+	вт_Заявки.Перевозчик КАК Перевозчик,
+	вт_Заявки.КонтрагентПеревозчика КАК КонтрагентПеревозчика,
+	вт_Заявки.Соглашение КАК Соглашение,
+	вт_Заявки.ЗаявкаТС КАК ЗаявкаТС
+ПОМЕСТИТЬ вт_Данные
+ИЗ
+	вт_Заявки КАК вт_Заявки
+		ЛЕВОЕ СОЕДИНЕНИЕ вт_Рейсы КАК вт_Рейсы
+		ПО вт_Заявки.Рейс = вт_Рейсы.Рейс
+ГДЕ
+	вт_Рейсы.Рейс ЕСТЬ NULL
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	вт_Рейсы.Рейс,
+	вт_Рейсы.Перевозчик,
+	вт_Рейсы.КонтрагентПеревозчика,
+	вт_Рейсы.Соглашение,
+	ВЫБОР
+		КОГДА НЕ вт_Заявки.ЗаявкаТС ЕСТЬ NULL
+			ТОГДА вт_Заявки.ЗаявкаТС
+		ИНАЧЕ ЕСТЬNULL(вт_ПервойЗаявке.ЗаявкаТС, ЗНАЧЕНИЕ(Документ.упЗаявкаНаТС.ПустаяСсылка))
+	КОНЕЦ
+ИЗ
+	вт_Рейсы КАК вт_Рейсы
+		ЛЕВОЕ СОЕДИНЕНИЕ вт_Заявки КАК вт_Заявки
+		ПО вт_Рейсы.Рейс = вт_Заявки.Рейс
+			И вт_Рейсы.Перевозчик = вт_Заявки.Перевозчик
+			И вт_Рейсы.КонтрагентПеревозчика = вт_Заявки.КонтрагентПеревозчика
+			И вт_Рейсы.Соглашение = вт_Заявки.Соглашение
+		ЛЕВОЕ СОЕДИНЕНИЕ вт_ПервойЗаявке КАК вт_ПервойЗаявке
+		ПО вт_Рейсы.Рейс = вт_ПервойЗаявке.Рейс
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	вт_Данные.Перевозчик КАК Перевозчик,
+	КОЛИЧЕСТВО(РАЗЛИЧНЫЕ вт_Данные.Рейс) КАК Количество,
+	вт_Данные.КонтрагентПеревозчика КАК КонтрагентПеревозчика,
+	вт_Данные.Соглашение КАК Соглашение
+ПОМЕСТИТЬ вт_КолПерев
+ИЗ
+	вт_Данные КАК вт_Данные
+
+СГРУППИРОВАТЬ ПО
+	вт_Данные.Перевозчик,
+	вт_Данные.КонтрагентПеревозчика,
+	вт_Данные.Соглашение
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	СУММА(вт_КолПерев.Количество) КАК Количество
+ПОМЕСТИТЬ вт_Итого
+ИЗ
+	вт_КолПерев КАК вт_КолПерев
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	вт_Данные.Рейс КАК Рейс,
+	вт_Данные.Перевозчик КАК Перевозчик,
+	вт_Данные.КонтрагентПеревозчика КАК КонтрагентПеревозчика,
+	вт_Данные.Соглашение КАК Соглашение,
+	вт_Данные.ЗаявкаТС КАК ЗаявкаТС,
+	ЕСТЬNULL(вт_Правило.Доля, 0) КАК Доля,
+	ВЫБОР
+		КОГДА вт_КолПерев.Количество ЕСТЬ NULL
+				ИЛИ вт_Итого.Количество ЕСТЬ NULL
+			ТОГДА 0
+		КОГДА вт_КолПерев.Количество = 0
+				ИЛИ вт_Итого.Количество = 0
+			ТОГДА 0
+		ИНАЧЕ вт_КолПерев.Количество / вт_Итого.Количество * 100
+	КОНЕЦ КАК ТекущаяДоля
+ИЗ
+	вт_Данные КАК вт_Данные
+		ЛЕВОЕ СОЕДИНЕНИЕ вт_Правило КАК вт_Правило
+		ПО вт_Данные.Перевозчик = вт_Правило.Перевозчик
+			И (вт_Правило.КонтрагентПеревозчика В (ЗНАЧЕНИЕ(Справочник.упКонтрагенты.ПустаяСсылка), вт_Данные.КонтрагентПеревозчика))
+			И (вт_Правило.Соглашение В (ЗНАЧЕНИЕ(Справочник.упСоглашенияСПеревозчиками.ПустаяСсылка), вт_Данные.Соглашение))
+		ЛЕВОЕ СОЕДИНЕНИЕ вт_КолПерев КАК вт_КолПерев
+		ПО вт_Данные.Перевозчик = вт_КолПерев.Перевозчик
+			И вт_Данные.КонтрагентПеревозчика = вт_КолПерев.КонтрагентПеревозчика
+			И вт_Данные.Соглашение = вт_КолПерев.Соглашение
+		ЛЕВОЕ СОЕДИНЕНИЕ вт_Итого КАК вт_Итого
+		ПО (НЕ вт_Итого.Количество = 0)</query>
+	</dataSet>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;мПериод.ДатаОкончания</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;мПериод.ДатаНачала</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>ПравилоПодбораПеревозчиковНаРейсы</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Правило подбора перевозчиков на рейсы</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.упПравилаПодбораПеревозчиковНаРейсы</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>мПериод</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:StandardPeriod</v8:Type>
+		</valueType>
+		<value xsi:type="v8:StandardPeriod">
+			<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+			<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+			<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+		</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>ТекущаяДата()</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>АнализРаспределенияПеревозчиковНаРейсыПоПравилу</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Анализ распределения перевозчиков на рейсы по правилу</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Рейс</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЗаявкаТС</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ПравилоПодбораПеревозчиковНаРейсы</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">Справочник.упПравилаПодбораПеревозчиковНаРейсы.ПустаяСсылка</dcscor:value>
+					<dcsset:userSettingID>206b5b52-507e-4015-ace8-fea64b9212f2</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>мПериод</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">ThisYear</v8:variant>
+					</dcscor:value>
+					<dcsset:userSettingID>ec044778-1db5-41f2-b930-468efbec6168</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МакетОформления</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">упМакетОформленияОтчетов</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Анализ распределения перевозчиков на рейсы по правилу</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Перевозчик</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>КонтрагентПеревозчика</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Соглашение</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Доля</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>ТекущаяДоля</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

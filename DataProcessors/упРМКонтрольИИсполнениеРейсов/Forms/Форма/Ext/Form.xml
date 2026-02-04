@@ -1,0 +1,5030 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
+	<SaveDataInSettings>UseList</SaveDataInSettings>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаНастройки" id="1">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Настройки</CommandName>
+				<ExtendedTooltip name="ФормаНастройкиРасширеннаяПодсказка" id="2"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаОсновная" id="128">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа основная</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа основная</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаОсновнаяРасширеннаяПодсказка" id="129"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаОтборы" id="236">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отборы</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<Behavior>Collapsible</Behavior>
+					<Collapsed>true</Collapsed>
+					<ControlRepresentation>Picture</ControlRepresentation>
+					<Representation>None</Representation>
+					<ExtendedTooltip name="ГруппаОтборыРасширеннаяПодсказка" id="237"/>
+					<ChildItems>
+						<InputField name="ПериодПланирования" id="238">
+							<DataPath>ПериодПланирования</DataPath>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<ContextMenu name="ПериодПланированияКонтекстноеМеню" id="239"/>
+							<ExtendedTooltip name="ПериодПланированияРасширеннаяПодсказка" id="240"/>
+							<Events>
+								<Event name="OnChange">ПериодПланированияПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ВидПеревозки" id="241">
+							<DataPath>ВидПеревозки</DataPath>
+							<ChoiceParameters>
+								<app:item name="Отбор.СпособПрохожденияТочекМаршрута">
+									<app:value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation/>
+										<Value xsi:type="xr:DesignTimeRef">Enum.упСпособыПрохожденияТочекМаршрута.EnumValue.ОтдельнымДокументом</Value>
+									</app:value>
+								</app:item>
+							</ChoiceParameters>
+							<ContextMenu name="ВидПеревозкиКонтекстноеМеню" id="242"/>
+							<ExtendedTooltip name="ВидПеревозкиРасширеннаяПодсказка" id="243"/>
+							<Events>
+								<Event name="OnChange">ВидПеревозкиПриИзменении</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<Table name="СписокРейсов" id="3">
+					<Height>7</Height>
+					<AutoMaxHeight>false</AutoMaxHeight>
+					<UseAlternationRowColor>true</UseAlternationRowColor>
+					<EnableStartDrag>true</EnableStartDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>СписокРейсов</DataPath>
+					<RowPictureDataPath>СписокРейсов.Статус.Order</RowPictureDataPath>
+					<RowsPicture>
+						<xr:Ref>CommonPicture.упСтатусыРейса</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</RowsPicture>
+					<CommandSet>
+						<ExcludedCommand>Copy</ExcludedCommand>
+						<ExcludedCommand>Create</ExcludedCommand>
+						<ExcludedCommand>Delete</ExcludedCommand>
+						<ExcludedCommand>Post</ExcludedCommand>
+						<ExcludedCommand>SetDeletionMark</ExcludedCommand>
+						<ExcludedCommand>UndoPosting</ExcludedCommand>
+					</CommandSet>
+					<AutoRefresh>false</AutoRefresh>
+					<AutoRefreshPeriod>60</AutoRefreshPeriod>
+					<Period>
+						<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+						<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+						<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+					</Period>
+					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+					<RestoreCurrentRow>false</RestoreCurrentRow>
+					<TopLevelParent xsi:nil="true"/>
+					<ShowRoot>true</ShowRoot>
+					<AllowRootChoice>false</AllowRootChoice>
+					<UpdateOnDataChange>Auto</UpdateOnDataChange>
+					<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+					<ContextMenu name="СписокРейсовКонтекстноеМеню" id="4"/>
+					<AutoCommandBar name="СписокРейсовКоманднаяПанель" id="5">
+						<ChildItems>
+							<ButtonGroup name="ФормаГруппа1" id="115">
+								<CommandSource>Form</CommandSource>
+								<ExtendedTooltip name="ФормаГруппа1РасширеннаяПодсказка" id="116"/>
+							</ButtonGroup>
+						</ChildItems>
+					</AutoCommandBar>
+					<ExtendedTooltip name="СписокРейсовРасширеннаяПодсказка" id="6"/>
+					<SearchStringAddition name="СписокРейсовСтрокаПоиска" id="7">
+						<AdditionSource>
+							<Item>СписокРейсов</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="СписокРейсовСтрокаПоискаКонтекстноеМеню" id="8"/>
+						<ExtendedTooltip name="СписокРейсовСтрокаПоискаРасширеннаяПодсказка" id="9"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="СписокРейсовСостояниеПросмотра" id="10">
+						<AdditionSource>
+							<Item>СписокРейсов</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="СписокРейсовСостояниеПросмотраКонтекстноеМеню" id="11"/>
+						<ExtendedTooltip name="СписокРейсовСостояниеПросмотраРасширеннаяПодсказка" id="12"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="СписокРейсовУправлениеПоиском" id="13">
+						<AdditionSource>
+							<Item>СписокРейсов</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="СписокРейсовУправлениеПоискомКонтекстноеМеню" id="14"/>
+						<ExtendedTooltip name="СписокРейсовУправлениеПоискомРасширеннаяПодсказка" id="15"/>
+					</SearchControlAddition>
+					<Events>
+						<Event name="OnActivateRow">СписокРейсовПриАктивизацииСтроки</Event>
+						<Event name="OnGetDataAtServer">СписокРейсовПриПолученииДанныхНаСервере</Event>
+					</Events>
+					<ChildItems>
+						<LabelField name="СписокРейсовСтатус" id="117">
+							<DataPath>СписокРейсов.Статус</DataPath>
+							<ContextMenu name="СписокРейсовСтатусКонтекстноеМеню" id="118"/>
+							<ExtendedTooltip name="СписокРейсовСтатусРасширеннаяПодсказка" id="119"/>
+						</LabelField>
+						<PictureField name="СписокРейсовЕстьФайлы" id="302">
+							<DataPath>СписокРейсов.ЕстьФайлы</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Есть присоединенные файлы</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ValuesPicture>
+								<xr:Ref>CommonPicture.КоллекцияСкрепка</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</ValuesPicture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="СписокРейсовЕстьФайлыКонтекстноеМеню" id="303"/>
+							<ExtendedTooltip name="СписокРейсовЕстьФайлыРасширеннаяПодсказка" id="304"/>
+						</PictureField>
+						<LabelField name="СписокРейсовДата" id="16">
+							<DataPath>СписокРейсов.Дата</DataPath>
+							<ContextMenu name="СписокРейсовДатаКонтекстноеМеню" id="17"/>
+							<ExtendedTooltip name="СписокРейсовДатаРасширеннаяПодсказка" id="18"/>
+						</LabelField>
+						<LabelField name="СписокРейсовНомер" id="19">
+							<DataPath>СписокРейсов.Номер</DataPath>
+							<ContextMenu name="СписокРейсовНомерКонтекстноеМеню" id="20"/>
+							<ExtendedTooltip name="СписокРейсовНомерРасширеннаяПодсказка" id="21"/>
+						</LabelField>
+						<LabelField name="СписокРейсовВидПеревозки" id="25">
+							<DataPath>СписокРейсов.ВидПеревозки</DataPath>
+							<ContextMenu name="СписокРейсовВидПеревозкиКонтекстноеМеню" id="26"/>
+							<ExtendedTooltip name="СписокРейсовВидПеревозкиРасширеннаяПодсказка" id="27"/>
+						</LabelField>
+						<LabelField name="СписокРейсовТранспортноеСредство" id="106">
+							<DataPath>СписокРейсов.ТранспортноеСредство</DataPath>
+							<ContextMenu name="СписокРейсовТранспортноеСредствоКонтекстноеМеню" id="107"/>
+							<ExtendedTooltip name="СписокРейсовТранспортноеСредствоРасширеннаяПодсказка" id="108"/>
+						</LabelField>
+						<LabelField name="СписокРейсовВодитель1" id="28">
+							<DataPath>СписокРейсов.Водитель1</DataPath>
+							<ContextMenu name="СписокРейсовВодитель1КонтекстноеМеню" id="29"/>
+							<ExtendedTooltip name="СписокРейсовВодитель1РасширеннаяПодсказка" id="30"/>
+						</LabelField>
+						<LabelField name="СписокРейсовПредставлениеМаршрута" id="85">
+							<DataPath>СписокРейсов.ПредставлениеМаршрута</DataPath>
+							<ContextMenu name="СписокРейсовПредставлениеМаршрутаКонтекстноеМеню" id="86"/>
+							<ExtendedTooltip name="СписокРейсовПредставлениеМаршрутаРасширеннаяПодсказка" id="87"/>
+						</LabelField>
+						<LabelField name="СписокРейсовЗонаПогрузки" id="37">
+							<DataPath>СписокРейсов.ЗонаПогрузки</DataPath>
+							<ContextMenu name="СписокРейсовЗонаПогрузкиКонтекстноеМеню" id="38"/>
+							<ExtendedTooltip name="СписокРейсовЗонаПогрузкиРасширеннаяПодсказка" id="39"/>
+						</LabelField>
+						<LabelField name="СписокРейсовЗонаРазгрузки" id="40">
+							<DataPath>СписокРейсов.ЗонаРазгрузки</DataPath>
+							<ContextMenu name="СписокРейсовЗонаРазгрузкиКонтекстноеМеню" id="41"/>
+							<ExtendedTooltip name="СписокРейсовЗонаРазгрузкиРасширеннаяПодсказка" id="42"/>
+						</LabelField>
+						<LabelField name="СписокРейсовПлановоеНачалоВыполнения" id="79">
+							<DataPath>СписокРейсов.ПлановоеНачалоВыполнения</DataPath>
+							<ContextMenu name="СписокРейсовПлановоеНачалоВыполненияКонтекстноеМеню" id="80"/>
+							<ExtendedTooltip name="СписокРейсовПлановоеНачалоВыполненияРасширеннаяПодсказка" id="81"/>
+						</LabelField>
+						<LabelField name="СписокРейсовПлановоеОкончаниеВыполнения" id="82">
+							<DataPath>СписокРейсов.ПлановоеОкончаниеВыполнения</DataPath>
+							<ContextMenu name="СписокРейсовПлановоеОкончаниеВыполненияКонтекстноеМеню" id="83"/>
+							<ExtendedTooltip name="СписокРейсовПлановоеОкончаниеВыполненияРасширеннаяПодсказка" id="84"/>
+						</LabelField>
+						<LabelField name="СписокРейсовПланируемоеКоличествоЗаданий" id="73">
+							<DataPath>СписокРейсов.ПланируемоеКоличествоЗаданий</DataPath>
+							<ContextMenu name="СписокРейсовПланируемоеКоличествоЗаданийКонтекстноеМеню" id="74"/>
+							<ExtendedTooltip name="СписокРейсовПланируемоеКоличествоЗаданийРасширеннаяПодсказка" id="75"/>
+						</LabelField>
+						<LabelField name="СписокРейсовПлановыеРасходыПоРейсу" id="136">
+							<DataPath>СписокРейсов.ПлановыеРасходыПоРейсу</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Плановые расходы</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="СписокРейсовПлановыеРасходыПоРейсуКонтекстноеМеню" id="137"/>
+							<ExtendedTooltip name="СписокРейсовПлановыеРасходыПоРейсуРасширеннаяПодсказка" id="138"/>
+						</LabelField>
+						<LabelField name="СписокРейсовРасстояние" id="91">
+							<DataPath>СписокРейсов.Расстояние</DataPath>
+							<ContextMenu name="СписокРейсовРасстояниеКонтекстноеМеню" id="92"/>
+							<ExtendedTooltip name="СписокРейсовРасстояниеРасширеннаяПодсказка" id="93"/>
+						</LabelField>
+						<LabelField name="СписокРейсовНулевойПробег" id="287">
+							<DataPath>СписокРейсов.НулевойПробег</DataPath>
+							<ContextMenu name="СписокРейсовНулевойПробегКонтекстноеМеню" id="288"/>
+							<ExtendedTooltip name="СписокРейсовНулевойПробегРасширеннаяПодсказка" id="289"/>
+						</LabelField>
+						<LabelField name="СписокРейсовОценочнаяСтоимость" id="267">
+							<DataPath>СписокРейсов.ОценочнаяСтоимость</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<ContextMenu name="СписокРейсовОценочнаяСтоимостьКонтекстноеМеню" id="268"/>
+							<ExtendedTooltip name="СписокРейсовОценочнаяСтоимостьРасширеннаяПодсказка" id="269"/>
+						</LabelField>
+						<LabelField name="СписокРейсовПлановаяСуммаИнкассации" id="275">
+							<DataPath>СписокРейсов.ПлановаяСуммаИнкассации</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<ContextMenu name="СписокРейсовПлановаяСуммаИнкассацииКонтекстноеМеню" id="276"/>
+							<ExtendedTooltip name="СписокРейсовПлановаяСуммаИнкассацииРасширеннаяПодсказка" id="277"/>
+						</LabelField>
+						<LabelField name="СписокРейсовФактическаяСуммаИнкассации" id="272">
+							<DataPath>СписокРейсов.ФактическаяСуммаИнкассации</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<ContextMenu name="СписокРейсовФактическаяСуммаИнкассацииКонтекстноеМеню" id="273"/>
+							<ExtendedTooltip name="СписокРейсовФактическаяСуммаИнкассацииРасширеннаяПодсказка" id="274"/>
+						</LabelField>
+						<PictureField name="СписокРейсовЕстьПроблемы" id="305">
+							<DataPath>СписокРейсов.ЕстьПроблемы</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Есть проблемы</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>В процессе выполнения работ возникали проблемы.</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ValuesPicture>
+								<xr:Ref>CommonPicture.упКоллекцияСостояниеЗаданийКорректировки</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</ValuesPicture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="СписокРейсовЕстьПроблемыКонтекстноеМеню" id="306"/>
+							<ExtendedTooltip name="СписокРейсовЕстьПроблемыРасширеннаяПодсказка" id="307"/>
+						</PictureField>
+						<ColumnGroup name="СписокРейсовГруппаОпоздание" id="329">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Список рейсов группа опоздание</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Список рейсов группа опоздание</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>InCell</Group>
+							<ExtendedTooltip name="СписокРейсовГруппаОпозданиеРасширеннаяПодсказка" id="330"/>
+							<ChildItems>
+								<PictureField name="СписокРейсовЕстьОпозданияПрибытияВТочку" id="308">
+									<DataPath>СписокРейсов.ЕстьОпозданияПрибытияВТочку</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Опоздание</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Имеются опоздания в точках маршрута</v8:content>
+										</v8:item>
+									</ToolTip>
+									<HorizontalAlign>Right</HorizontalAlign>
+									<Width>3</Width>
+									<ValuesPicture>
+										<xr:Ref>CommonPicture.упКоллекцияПопаданиеВоВременныеОкна</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</ValuesPicture>
+									<FileDragMode>AsFile</FileDragMode>
+									<ContextMenu name="СписокРейсовЕстьОпозданияПрибытияВТочкуКонтекстноеМеню" id="309"/>
+									<ExtendedTooltip name="СписокРейсовЕстьОпозданияПрибытияВТочкуРасширеннаяПодсказка" id="310"/>
+								</PictureField>
+								<LabelField name="СписокРейсовКоличествоТочекСОпозданиями" id="326">
+									<DataPath>СписокРейсов.КоличествоТочекСОпозданиями</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Количество опозданий в точках</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>None</TitleLocation>
+									<HorizontalAlign>Left</HorizontalAlign>
+									<Width>3</Width>
+									<ContextMenu name="СписокРейсовКоличествоТочекСОпозданиямиКонтекстноеМеню" id="327"/>
+									<ExtendedTooltip name="СписокРейсовКоличествоТочекСОпозданиямиРасширеннаяПодсказка" id="328"/>
+								</LabelField>
+							</ChildItems>
+						</ColumnGroup>
+						<PictureField name="СписокРейсовЕстьСообщенияОтВодителяНеОтвеченные" id="311">
+							<DataPath>СписокРейсов.ЕстьСообщенияОтВодителяНеОтвеченные</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Ожидается ответ</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Есть неотвеченные сообщения от водителя</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ValuesPicture>
+								<xr:Ref>CommonPicture.упКоллекцияСообщениеДиспетчеру</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</ValuesPicture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="СписокРейсовЕстьСообщенияОтВодителяНеОтвеченныеКонтекстноеМеню" id="312"/>
+							<ExtendedTooltip name="СписокРейсовЕстьСообщенияОтВодителяНеОтвеченныеРасширеннаяПодсказка" id="313"/>
+						</PictureField>
+						<PictureField name="СписокРейсовЕстьИзмененныйПорядокЗаданий" id="314">
+							<DataPath>СписокРейсов.ЕстьИзмененныйПорядокЗаданий</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Изменен порядок</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Порядок прохождения заданий изменен водителем</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ValuesPicture>
+								<xr:Ref>CommonPicture.упКоллекцияРедактироватьПорядокЗаданий</xr:Ref>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</ValuesPicture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="СписокРейсовЕстьИзмененныйПорядокЗаданийКонтекстноеМеню" id="315"/>
+							<ExtendedTooltip name="СписокРейсовЕстьИзмененныйПорядокЗаданийРасширеннаяПодсказка" id="316"/>
+						</PictureField>
+						<LabelField name="СписокРейсовСсылка" id="120">
+							<DataPath>~СписокРейсов.Ref</DataPath>
+							<ContextMenu name="СписокРейсовСсылкаКонтекстноеМеню" id="121"/>
+							<ExtendedTooltip name="СписокРейсовСсылкаРасширеннаяПодсказка" id="122"/>
+						</LabelField>
+					</ChildItems>
+				</Table>
+				<Pages name="ГруппаСтраницы" id="130">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа страницы</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа страницы</v8:content>
+						</v8:item>
+					</ToolTip>
+					<PagesRepresentation>TabsOnTop</PagesRepresentation>
+					<ExtendedTooltip name="ГруппаСтраницыРасширеннаяПодсказка" id="131"/>
+					<ChildItems>
+						<Page name="ГруппаДеревоИсполнения" id="132">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Исполнение рейса</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа дерево исполнения</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="ГруппаДеревоИсполненияРасширеннаяПодсказка" id="133"/>
+							<ChildItems>
+								<Table name="дрвРаботыПоТекущемуРейсу" id="176">
+									<Representation>Tree</Representation>
+									<ChangeRowSet>false</ChangeRowSet>
+									<ChangeRowOrder>false</ChangeRowOrder>
+									<Height>6</Height>
+									<AutoMaxHeight>false</AutoMaxHeight>
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<InitialTreeView>ExpandAllLevels</InitialTreeView>
+									<EnableDrag>true</EnableDrag>
+									<FileDragMode>AsFile</FileDragMode>
+									<DataPath>Объект.дрвРаботыПоТекущемуРейсу</DataPath>
+									<RowPictureDataPath>Объект.дрвРаботыПоТекущемуРейсу.ИндексКартинки</RowPictureDataPath>
+									<RowsPicture>
+										<xr:Ref>CommonPicture.упКоллекцияЭлементыМаршрута</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</RowsPicture>
+									<CommandSet>
+										<ExcludedCommand>Add</ExcludedCommand>
+										<ExcludedCommand>Change</ExcludedCommand>
+										<ExcludedCommand>Copy</ExcludedCommand>
+										<ExcludedCommand>Delete</ExcludedCommand>
+										<ExcludedCommand>EndEdit</ExcludedCommand>
+										<ExcludedCommand>HierarchicalList</ExcludedCommand>
+										<ExcludedCommand>List</ExcludedCommand>
+										<ExcludedCommand>MoveDown</ExcludedCommand>
+										<ExcludedCommand>MoveUp</ExcludedCommand>
+										<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
+										<ExcludedCommand>SortListAsc</ExcludedCommand>
+										<ExcludedCommand>SortListDesc</ExcludedCommand>
+									</CommandSet>
+									<ContextMenu name="дрвРаботыПоТекущемуРейсуКонтекстноеМеню" id="177"/>
+									<AutoCommandBar name="дрвРаботыПоТекущемуРейсуКоманднаяПанель" id="178">
+										<ChildItems>
+											<ButtonGroup name="дрвРаботыПоТекущемуРейсуГруппа1" id="254">
+												<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуГруппа1РасширеннаяПодсказка" id="255"/>
+												<ChildItems>
+													<Button name="дрвРаботыПоТекущемуРейсуСвернутьДерево" id="252">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command.СвернутьДерево</CommandName>
+														<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуСвернутьДеревоРасширеннаяПодсказка" id="253"/>
+													</Button>
+													<Button name="дрвРаботыПоТекущемуРейсуРазвернутьДерево" id="250">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command.РазвернутьДерево</CommandName>
+														<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуРазвернутьДеревоРасширеннаяПодсказка" id="251"/>
+													</Button>
+												</ChildItems>
+											</ButtonGroup>
+											<Button name="дрвРаботыПоТекущемуРейсуОтметитьВсе" id="256">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ОтметитьВсе</CommandName>
+												<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуОтметитьВсеРасширеннаяПодсказка" id="257"/>
+											</Button>
+											<Button name="дрвРаботыПоТекущемуРейсуСнятьВсе" id="258">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.СнятьВсе</CommandName>
+												<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуСнятьВсеРасширеннаяПодсказка" id="259"/>
+											</Button>
+											<Button name="дрвРаботыПоТекущемуРейсуОбновитьИсполнениеРейса" id="263">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ОбновитьИсполнениеРейса</CommandName>
+												<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуОбновитьИсполнениеРейсаРасширеннаяПодсказка" id="264"/>
+											</Button>
+											<Button name="дрвРаботыПоТекущемуРейсуСохранитьИсполнениерейса" id="227">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.СохранитьИсполнениеРейса</CommandName>
+												<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуСохранитьИсполнениерейсаРасширеннаяПодсказка" id="228"/>
+											</Button>
+											<Button name="дрвРаботыПоТекущемуРейсуОтменитьПрохождениеТочки" id="265">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ОтменитьПрохождениеТочки</CommandName>
+												<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуОтменитьПрохождениеТочкиРасширеннаяПодсказка" id="266"/>
+											</Button>
+											<Button name="дрвРаботыПоТекущемуРейсуДосрочноеПрохождениеТочки" id="331">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ДосрочноеПрохождениеТочки</CommandName>
+												<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуДосрочноеПрохождениеТочкиРасширеннаяПодсказка" id="332"/>
+											</Button>
+											<Button name="дрвРаботыПоТекущемуРейсуОбработкаупРМКонтрольИИсполнениеРейсовСформироватьПроисшествиеВПути" id="270">
+												<Type>CommandBarButton</Type>
+												<Representation>PictureAndText</Representation>
+												<CommandName>DataProcessor.упРМКонтрольИИсполнениеРейсов.Command.СформироватьПроиcшествиеВПути</CommandName>
+												<DataPath>Объект.ТекущийРейс</DataPath>
+												<Picture>
+													<xr:Ref>CommonPicture.упПроисшествиеВПути</xr:Ref>
+													<xr:LoadTransparent>true</xr:LoadTransparent>
+												</Picture>
+												<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуОбработкаупРМКонтрольИИсполнениеРейсовСформироватьПроисшествиеВПутиРасширеннаяПодсказка" id="271"/>
+											</Button>
+											<Button name="дрвРаботыПоТекущемуРейсуИзменитьТоварныйСостав" id="290">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ИзменитьТоварныйСостав</CommandName>
+												<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуИзменитьТоварныйСоставРасширеннаяПодсказка" id="291"/>
+											</Button>
+											<Button name="дрвРаботыПоТекущемуРейсуИзменитьВГХ" id="300">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ИзменитьВГХ</CommandName>
+												<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуИзменитьВГХРасширеннаяПодсказка" id="301"/>
+											</Button>
+											<Button name="дрвРаботыПоТекущемуРейсуВвестиВремя" id="298">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ВвестиВремя</CommandName>
+												<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуВвестиВремяРасширеннаяПодсказка" id="299"/>
+											</Button>
+										</ChildItems>
+									</AutoCommandBar>
+									<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуРасширеннаяПодсказка" id="179"/>
+									<SearchStringAddition name="дрвРаботыПоТекущемуРейсуСтрокаПоиска" id="180">
+										<AdditionSource>
+											<Item>дрвРаботыПоТекущемуРейсу</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="дрвРаботыПоТекущемуРейсуСтрокаПоискаКонтекстноеМеню" id="181"/>
+										<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуСтрокаПоискаРасширеннаяПодсказка" id="182"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="дрвРаботыПоТекущемуРейсуСостояниеПросмотра" id="183">
+										<AdditionSource>
+											<Item>дрвРаботыПоТекущемуРейсу</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="дрвРаботыПоТекущемуРейсуСостояниеПросмотраКонтекстноеМеню" id="184"/>
+										<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуСостояниеПросмотраРасширеннаяПодсказка" id="185"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="дрвРаботыПоТекущемуРейсуУправлениеПоиском" id="186">
+										<AdditionSource>
+											<Item>дрвРаботыПоТекущемуРейсу</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="дрвРаботыПоТекущемуРейсуУправлениеПоискомКонтекстноеМеню" id="187"/>
+										<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуУправлениеПоискомРасширеннаяПодсказка" id="188"/>
+									</SearchControlAddition>
+									<Events>
+										<Event name="OnEditEnd">дрвРаботыПоТекущемуРейсуПриОкончанииРедактирования</Event>
+										<Event name="Selection">дрвРаботыПоТекущемуРейсуВыбор</Event>
+										<Event name="OnActivateRow">дрвРаботыПоТекущемуРейсуПриАктивизацииСтроки</Event>
+										<Event name="BeforeRowChange">дрвРаботыПоТекущемуРейсуПередНачаломИзменения</Event>
+									</Events>
+									<ChildItems>
+										<CheckBoxField name="дрвРаботыПоТекущемуРейсуВыполнена" id="192">
+											<DataPath>Объект.дрвРаботыПоТекущемуРейсу.Выполнена</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<ThreeState>true</ThreeState>
+											<BackColor>style:упЦветФонаРазрешенныеДляРедактированииПоля</BackColor>
+											<ContextMenu name="дрвРаботыПоТекущемуРейсуВыполненаКонтекстноеМеню" id="193"/>
+											<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуВыполненаРасширеннаяПодсказка" id="194"/>
+											<Events>
+												<Event name="OnChange">дрвРаботыПоТекущемуРейсуВыполненаПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+										<InputField name="дрвРаботыПоТекущемуРейсуНазначениеСтроки" id="195">
+											<DataPath>Объект.дрвРаботыПоТекущемуРейсу.НазначениеСтроки</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="дрвРаботыПоТекущемуРейсуНазначениеСтрокиКонтекстноеМеню" id="196"/>
+											<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуНазначениеСтрокиРасширеннаяПодсказка" id="197"/>
+										</InputField>
+										<InputField name="дрвРаботыПоТекущемуРейсуТара" id="284">
+											<DataPath>Объект.дрвРаботыПоТекущемуРейсу.Тара</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="дрвРаботыПоТекущемуРейсуТараКонтекстноеМеню" id="285"/>
+											<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуТараРасширеннаяПодсказка" id="286"/>
+										</InputField>
+										<InputField name="дрвРаботыПоТекущемуРейсуПрибытие" id="218">
+											<DataPath>Объект.дрвРаботыПоТекущемуРейсу.ПрибытиеФакт</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="дрвРаботыПоТекущемуРейсуПрибытиеКонтекстноеМеню" id="219"/>
+											<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуПрибытиеРасширеннаяПодсказка" id="220"/>
+										</InputField>
+										<InputField name="дрвРаботыПоТекущемуРейсуНачалоРабот" id="221">
+											<DataPath>Объект.дрвРаботыПоТекущемуРейсу.НачалоРаботФакт</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="дрвРаботыПоТекущемуРейсуНачалоРаботКонтекстноеМеню" id="222"/>
+											<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуНачалоРаботРасширеннаяПодсказка" id="223"/>
+										</InputField>
+										<InputField name="дрвРаботыПоТекущемуРейсуУбытие" id="224">
+											<DataPath>Объект.дрвРаботыПоТекущемуРейсу.УбытиеФакт</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="дрвРаботыПоТекущемуРейсуУбытиеКонтекстноеМеню" id="225"/>
+											<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуУбытиеРасширеннаяПодсказка" id="226"/>
+										</InputField>
+										<InputField name="дрвРаботыПоТекущемуРейсуПроблема" id="204">
+											<DataPath>Объект.дрвРаботыПоТекущемуРейсу.Проблема</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ChoiceHistoryOnInput>DontUse</ChoiceHistoryOnInput>
+											<ContextMenu name="дрвРаботыПоТекущемуРейсуПроблемаКонтекстноеМеню" id="205"/>
+											<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуПроблемаРасширеннаяПодсказка" id="206"/>
+											<Events>
+												<Event name="StartChoice">дрвРаботыПоТекущемуРейсуПроблемаНачалоВыбора</Event>
+												<Event name="ChoiceProcessing">дрвРаботыПоТекущемуРейсуПроблемаОбработкаВыбора</Event>
+											</Events>
+										</InputField>
+										<InputField name="дрвРаботыПоТекущемуРейсуАдресРазгрузки" id="207">
+											<DataPath>Объект.дрвРаботыПоТекущемуРейсу.АдресРазгрузки</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="дрвРаботыПоТекущемуРейсуАдресРазгрузкиКонтекстноеМеню" id="208"/>
+											<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуАдресРазгрузкиРасширеннаяПодсказка" id="209"/>
+										</InputField>
+										<InputField name="дрвРаботыПоТекущемуРейсуСкладскаяЯчейка" id="292">
+											<DataPath>Объект.дрвРаботыПоТекущемуРейсу.СкладскаяЯчейка</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ChoiceParameterLinks>
+												<xr:Link>
+													<xr:Name>Отбор.Владелец</xr:Name>
+													<xr:DataPath xsi:type="xs:string">Items.дрвРаботыПоТекущемуРейсу.CurrentData.Склад</xr:DataPath>
+													<xr:ValueChange>Clear</xr:ValueChange>
+												</xr:Link>
+											</ChoiceParameterLinks>
+											<ContextMenu name="дрвРаботыПоТекущемуРейсуСкладскаяЯчейкаКонтекстноеМеню" id="293"/>
+											<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуСкладскаяЯчейкаРасширеннаяПодсказка" id="294"/>
+										</InputField>
+										<CheckBoxField name="дрвРаботыПоТекущемуРейсуОтменена" id="198">
+											<DataPath>Объект.дрвРаботыПоТекущемуРейсу.Отменена</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<EditMode>EnterOnInput</EditMode>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="дрвРаботыПоТекущемуРейсуОтмененаКонтекстноеМеню" id="199"/>
+											<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуОтмененаРасширеннаяПодсказка" id="200"/>
+										</CheckBoxField>
+										<InputField name="дрвРаботыПоТекущемуРейсуКоличество" id="260">
+											<DataPath>Объект.дрвРаботыПоТекущемуРейсу.Количество</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>10</Width>
+											<ContextMenu name="дрвРаботыПоТекущемуРейсуКоличествоКонтекстноеМеню" id="261"/>
+											<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуКоличествоРасширеннаяПодсказка" id="262"/>
+											<Events>
+												<Event name="OnChange">дрвРаботыПоТекущемуРейсуКоличествоПриИзменении</Event>
+											</Events>
+										</InputField>
+										<InputField name="дрвРаботыПоТекущемуРейсуВалюта" id="278">
+											<DataPath>Объект.дрвРаботыПоТекущемуРейсу.Валюта</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>10</Width>
+											<HorizontalStretch>false</HorizontalStretch>
+											<ContextMenu name="дрвРаботыПоТекущемуРейсуВалютаКонтекстноеМеню" id="279"/>
+											<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуВалютаРасширеннаяПодсказка" id="280"/>
+										</InputField>
+										<InputField name="дрвРаботыПоТекущемуРейсуСумма" id="281">
+											<DataPath>Объект.дрвРаботыПоТекущемуРейсу.Сумма</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>10</Width>
+											<HorizontalStretch>false</HorizontalStretch>
+											<ContextMenu name="дрвРаботыПоТекущемуРейсуСуммаКонтекстноеМеню" id="282"/>
+											<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуСуммаРасширеннаяПодсказка" id="283"/>
+										</InputField>
+										<InputField name="дрвРаботыПоТекущемуРейсуПрохождениеТочки" id="229">
+											<DataPath>Объект.дрвРаботыПоТекущемуРейсу.ПрохождениеТочки</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="дрвРаботыПоТекущемуРейсуПрохождениеТочкиКонтекстноеМеню" id="230"/>
+											<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуПрохождениеТочкиРасширеннаяПодсказка" id="231"/>
+										</InputField>
+										<CheckBoxField name="дрвРаботыПоТекущемуРейсуЕстьПроблемы" id="317">
+											<DataPath>Объект.дрвРаботыПоТекущемуРейсу.ЕстьПроблемы</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<EditMode>EnterOnInput</EditMode>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="дрвРаботыПоТекущемуРейсуЕстьПроблемыКонтекстноеМеню" id="318"/>
+											<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуЕстьПроблемыРасширеннаяПодсказка" id="319"/>
+										</CheckBoxField>
+										<InputField name="дрвРаботыПоТекущемуРейсуСписокПроблем" id="320">
+											<DataPath>Объект.дрвРаботыПоТекущемуРейсу.СписокПроблем</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="дрвРаботыПоТекущемуРейсуСписокПроблемКонтекстноеМеню" id="321"/>
+											<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуСписокПроблемРасширеннаяПодсказка" id="322"/>
+										</InputField>
+										<InputField name="дрвРаботыПоТекущемуРейсуСклад" id="295">
+											<DataPath>Объект.дрвРаботыПоТекущемуРейсу.Склад</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="дрвРаботыПоТекущемуРейсуСкладКонтекстноеМеню" id="296"/>
+											<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуСкладРасширеннаяПодсказка" id="297"/>
+										</InputField>
+										<CheckBoxField name="дрвРаботыПоТекущемуРейсуИзмененыПараметры" id="323">
+											<DataPath>Объект.дрвРаботыПоТекущемуРейсу.ИзмененыПараметры</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Изменены параметры ВГХ грузового места</v8:content>
+												</v8:item>
+											</ToolTip>
+											<EditMode>EnterOnInput</EditMode>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="дрвРаботыПоТекущемуРейсуИзмененыПараметрыКонтекстноеМеню" id="324"/>
+											<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуИзмененыПараметрыРасширеннаяПодсказка" id="325"/>
+										</CheckBoxField>
+										<CheckBoxField name="дрвРаботыПоТекущемуРейсуДосрочноеУбытие" id="333">
+											<DataPath>Объект.дрвРаботыПоТекущемуРейсу.ДосрочноеУбытие</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<EditMode>EnterOnInput</EditMode>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="дрвРаботыПоТекущемуРейсуДосрочноеУбытиеКонтекстноеМеню" id="334"/>
+											<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуДосрочноеУбытиеРасширеннаяПодсказка" id="335"/>
+										</CheckBoxField>
+										<CheckBoxField name="дрвРаботыПоТекущемуРейсуЗапрещеноСозданиеНовойТочкиМаршрута" id="336">
+											<DataPath>Объект.дрвРаботыПоТекущемуРейсу.ЗапрещеноСозданиеНовойТочкиМаршрута</DataPath>
+											<UserVisible>
+												<xr:Common>false</xr:Common>
+											</UserVisible>
+											<ReadOnly>true</ReadOnly>
+											<EditMode>EnterOnInput</EditMode>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="дрвРаботыПоТекущемуРейсуЗапрещеноСозданиеНовойТочкиМаршрутаКонтекстноеМеню" id="337"/>
+											<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуЗапрещеноСозданиеНовойТочкиМаршрутаРасширеннаяПодсказка" id="338"/>
+										</CheckBoxField>
+									</ChildItems>
+								</Table>
+							</ChildItems>
+						</Page>
+						<Page name="ГруппаКарта" id="134">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Карта</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа карта</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="ГруппаКартаРасширеннаяПодсказка" id="135"/>
+							<ChildItems>
+								<HTMLDocumentField name="HTMLДокумент" id="139">
+									<DataPath>HTMLДокумент</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<ContextMenu name="HTMLДокументКонтекстноеМеню" id="140"/>
+									<ExtendedTooltip name="HTMLДокументРасширеннаяПодсказка" id="141"/>
+									<Events>
+										<Event name="DocumentComplete">МаршрутРейсаHTMLДокументСформирован</Event>
+									</Events>
+								</HTMLDocumentField>
+							</ChildItems>
+						</Page>
+						<Page name="ГруппаПланировщик" id="216">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Планировщик</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа планировщик</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="ГруппаПланировщикРасширеннаяПодсказка" id="217"/>
+							<ChildItems>
+								<CommandBar name="ГруппаКоманднаяПанельПланировщик" id="234">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа командная панель планировщик</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа командная панель планировщик</v8:content>
+										</v8:item>
+									</ToolTip>
+									<CommandSource>Item.Планировщик</CommandSource>
+									<ExtendedTooltip name="ГруппаКоманднаяПанельПланировщикРасширеннаяПодсказка" id="235"/>
+									<ChildItems>
+										<Button name="ОбновитьПланировщик" id="232">
+											<Type>CommandBarButton</Type>
+											<Representation>Picture</Representation>
+											<CommandName>Form.Command.ОбновитьПланировщик</CommandName>
+											<ExtendedTooltip name="ОбновитьПланировщикРасширеннаяПодсказка" id="233"/>
+										</Button>
+									</ChildItems>
+								</CommandBar>
+								<PlannerField name="Планировщик" id="123">
+									<DataPath>Планировщик</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<ContextMenu name="ПланировщикКонтекстноеМеню" id="124"/>
+									<ExtendedTooltip name="ПланировщикРасширеннаяПодсказка" id="125"/>
+									<Events>
+										<Event name="BeforeCreate">ПланировщикПередСозданием</Event>
+										<Event name="OnCurrentRepresentationPeriodChange">ПланировщикПриСменеТекущегоПериодаОтображения</Event>
+										<Event name="OnEditEnd">ПланировщикПриОкончанииРедактирования</Event>
+										<Event name="BeforeDelete">ПланировщикПередУдалением</Event>
+										<Event name="BeforeStartEdit">ПланировщикПередНачаломРедактирования</Event>
+										<Event name="BeforeStartQuickEdit">ПланировщикПередНачаломБыстрогоРедактирования</Event>
+										<Event name="Selection">ПланировщикВыбор</Event>
+										<Event name="OnActivate">ПланировщикПриАктивизации</Event>
+									</Events>
+								</PlannerField>
+							</ChildItems>
+						</Page>
+					</ChildItems>
+				</Pages>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.упРМКонтрольИИсполнениеРейсов</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<Columns>
+				<AdditionalColumns table="Объект.АдресаПогрузкиПоРейсу">
+					<Column name="Адрес" id="1">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Адрес</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.упАдреса</v8:Type>
+						</Type>
+					</Column>
+					<Column name="Задание" id="2">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Задание</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:DocumentRef.упЗаданиеНаПеревозкуГруза</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ГрузовоеМесто" id="3">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Грузовое место</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.упГрузовыеМеста</v8:Type>
+						</Type>
+					</Column>
+				</AdditionalColumns>
+				<AdditionalColumns table="Объект.дрвРаботыПоТекущемуРейсу">
+					<Column name="АдресТочки" id="1">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Адрес точки</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.упАдреса</v8:Type>
+						</Type>
+					</Column>
+					<Column name="Выполнена" id="2">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Выполнена</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:decimal</v8:Type>
+							<v8:NumberQualifiers>
+								<v8:Digits>1</v8:Digits>
+								<v8:FractionDigits>0</v8:FractionDigits>
+								<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+							</v8:NumberQualifiers>
+						</Type>
+					</Column>
+					<Column name="НазначениеСтроки" id="4">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Адрес / Задание / Операция / ...</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:DocumentRef.упЗаданиеНаПеревозкуГруза</v8:Type>
+							<v8:Type>cfg:CatalogRef.упГрузовыеМеста</v8:Type>
+							<v8:Type>cfg:CatalogRef.упТипыРегламентныхДокументов</v8:Type>
+							<v8:Type>cfg:CatalogRef.упАдреса</v8:Type>
+							<v8:Type>cfg:EnumRef.упТипыОпераций</v8:Type>
+						</Type>
+					</Column>
+					<Column name="Отменена" id="3">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Отменена</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
+					<Column name="КоличествоГрузов" id="5">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Количество грузов</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.КоличествоГрузов</v8:TypeSet>
+						</Type>
+					</Column>
+					<Column name="Проблема" id="6">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Проблема</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.упПроблемы</v8:Type>
+						</Type>
+					</Column>
+					<Column name="АдресРазгрузки" id="7">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Адрес разгрузки</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.упАдреса</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ДополнительнаяОперация" id="8">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Дополнительная операция</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.упДополнительныеОперации</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ЭтоРабота" id="10">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Это работа</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ПрибытиеФакт" id="11">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Прибытие</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:dateTime</v8:Type>
+							<v8:DateQualifiers>
+								<v8:DateFractions>DateTime</v8:DateFractions>
+							</v8:DateQualifiers>
+						</Type>
+					</Column>
+					<Column name="НачалоРаботФакт" id="12">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Начало работ</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:dateTime</v8:Type>
+							<v8:DateQualifiers>
+								<v8:DateFractions>DateTime</v8:DateFractions>
+							</v8:DateQualifiers>
+						</Type>
+					</Column>
+					<Column name="УбытиеФакт" id="13">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Убытие</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:dateTime</v8:Type>
+							<v8:DateQualifiers>
+								<v8:DateFractions>DateTime</v8:DateFractions>
+							</v8:DateQualifiers>
+						</Type>
+					</Column>
+					<Column name="ЭтоАдрес" id="14">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Это адрес</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ПрибытиеПлан" id="15">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Прибытие план</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:dateTime</v8:Type>
+							<v8:DateQualifiers>
+								<v8:DateFractions>DateTime</v8:DateFractions>
+							</v8:DateQualifiers>
+						</Type>
+					</Column>
+					<Column name="НачалоРаботПлан" id="16">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Начало работ план</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:dateTime</v8:Type>
+							<v8:DateQualifiers>
+								<v8:DateFractions>DateTime</v8:DateFractions>
+							</v8:DateQualifiers>
+						</Type>
+					</Column>
+					<Column name="УбытиеПлан" id="17">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Убытие план</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:dateTime</v8:Type>
+							<v8:DateQualifiers>
+								<v8:DateFractions>DateTime</v8:DateFractions>
+							</v8:DateQualifiers>
+						</Type>
+					</Column>
+					<Column name="ПрохождениеТочки" id="18">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Прохождение / Происшествие</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:DocumentRef.упПрохождениеТочки</v8:Type>
+							<v8:Type>cfg:DocumentRef.упПроисшествиеВПути</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ИдентификаторТочки" id="19">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Идентификатор точки</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>v8:UUID</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ИдентификаторРаботы" id="20">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Идентификатор работы</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>v8:UUID</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ПорядокТочки" id="21">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Порядок точки</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:decimal</v8:Type>
+							<v8:NumberQualifiers>
+								<v8:Digits>10</v8:Digits>
+								<v8:FractionDigits>0</v8:FractionDigits>
+								<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+							</v8:NumberQualifiers>
+						</Type>
+					</Column>
+					<Column name="ТочкаПройдена" id="22">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Точка пройдена</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ТочкаОтменена" id="23">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Точка отменена</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ТочкаТекущая" id="24">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Точка текущая</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ТипТочки" id="25">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Тип точки</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:EnumRef.упТипыТочекМаршрута</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ПроблемаПричинаВозникновенияЭтойРаботы" id="26">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Проблема причина возникновения этой работы</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.упПроблемы</v8:Type>
+						</Type>
+					</Column>
+					<Column name="Операция" id="29">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Операция</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:EnumRef.упТипыОпераций</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ИндексКартинки" id="27">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Индекс картинки</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:decimal</v8:Type>
+							<v8:NumberQualifiers>
+								<v8:Digits>2</v8:Digits>
+								<v8:FractionDigits>0</v8:FractionDigits>
+								<v8:AllowedSign>Any</v8:AllowedSign>
+							</v8:NumberQualifiers>
+						</Type>
+					</Column>
+					<Column name="ЭтоПолучениеПередачаДокументов" id="28">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Это получение передача документов</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ТипРегламентногоДокумента" id="30">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Тип регламентного документа</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.упТипыРегламентныхДокументов</v8:Type>
+						</Type>
+					</Column>
+					<Column name="КоличествоЭкземпляровДокумента" id="31">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Количество экземпляров документа</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:decimal</v8:Type>
+							<v8:NumberQualifiers>
+								<v8:Digits>3</v8:Digits>
+								<v8:FractionDigits>0</v8:FractionDigits>
+								<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+							</v8:NumberQualifiers>
+						</Type>
+					</Column>
+					<Column name="Гараж" id="9">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Гараж</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.упГаражи</v8:Type>
+						</Type>
+					</Column>
+					<Column name="Количество" id="32">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Количество</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:decimal</v8:Type>
+							<v8:NumberQualifiers>
+								<v8:Digits>5</v8:Digits>
+								<v8:FractionDigits>0</v8:FractionDigits>
+								<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+							</v8:NumberQualifiers>
+						</Type>
+					</Column>
+					<Column name="КоличествоДопОпераций" id="33">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Количество доп операций</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.КоличествоОпераций</v8:TypeSet>
+						</Type>
+					</Column>
+					<Column name="ФормироватьПрохождениеТочки" id="34">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Формировать прохождение точки</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
+					<Column name="РасстояниеОтПредыдущейТочки" id="35">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Расстояние от предыдущей точки</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.Расстояние</v8:TypeSet>
+						</Type>
+					</Column>
+					<Column name="Предшественники" id="36">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Предшественники</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:string</v8:Type>
+							<v8:StringQualifiers>
+								<v8:Length>0</v8:Length>
+								<v8:AllowedLength>Variable</v8:AllowedLength>
+							</v8:StringQualifiers>
+						</Type>
+					</Column>
+					<Column name="Сумма" id="37">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Сумма</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.Сумма</v8:TypeSet>
+						</Type>
+					</Column>
+					<Column name="Валюта" id="38">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Валюта</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.Валюты</v8:Type>
+						</Type>
+					</Column>
+					<Column name="Тара" id="39">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Тара</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.упГрузовыеМеста</v8:Type>
+						</Type>
+						<FunctionalOptions>
+							<Item>FunctionalOption.упВедетсяУчетТары</Item>
+						</FunctionalOptions>
+					</Column>
+					<Column name="ГрузРазделен" id="40">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Груз разделен</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
+					<Column name="СкладскаяЯчейка" id="41">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Складская ячейка</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.упСкладскиеЯчейки</v8:Type>
+						</Type>
+						<FunctionalOptions>
+							<Item>FunctionalOption.упИспользуетсяСкладскойУчетНаХабах</Item>
+						</FunctionalOptions>
+					</Column>
+					<Column name="Склад" id="42">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Склад</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.упСклады</v8:Type>
+						</Type>
+					</Column>
+					<Column name="НомерВЦепиПоставок" id="43">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Номер в цепи поставок</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:decimal</v8:Type>
+							<v8:NumberQualifiers>
+								<v8:Digits>10</v8:Digits>
+								<v8:FractionDigits>0</v8:FractionDigits>
+								<v8:AllowedSign>Any</v8:AllowedSign>
+							</v8:NumberQualifiers>
+						</Type>
+					</Column>
+					<Column name="НомерВЦепиПоставокМаксимальный" id="44">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Номер в цепи поставок максимальный</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:decimal</v8:Type>
+							<v8:NumberQualifiers>
+								<v8:Digits>10</v8:Digits>
+								<v8:FractionDigits>0</v8:FractionDigits>
+								<v8:AllowedSign>Any</v8:AllowedSign>
+							</v8:NumberQualifiers>
+						</Type>
+					</Column>
+					<Column name="ВидГруза" id="45">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Вид груза</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:EnumRef.упВидыГрузов</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ТипГруза" id="46">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Тип груза</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.упТипыГрузов</v8:Type>
+						</Type>
+					</Column>
+					<Column name="Высота" id="47">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Высота</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.ЛинейныеРазмеры</v8:TypeSet>
+						</Type>
+						<FunctionalOptions>
+							<Item>FunctionalOption.упУчитыватьЛинейныеРазмеры</Item>
+						</FunctionalOptions>
+					</Column>
+					<Column name="Длина" id="48">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Длина</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.ЛинейныеРазмеры</v8:TypeSet>
+						</Type>
+						<FunctionalOptions>
+							<Item>FunctionalOption.упУчитыватьЛинейныеРазмеры</Item>
+						</FunctionalOptions>
+					</Column>
+					<Column name="Объем" id="49">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Объем</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.Объем</v8:TypeSet>
+						</Type>
+						<FunctionalOptions>
+							<Item>FunctionalOption.упУчитыватьОбъем</Item>
+						</FunctionalOptions>
+					</Column>
+					<Column name="Ширина" id="50">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Ширина</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.ЛинейныеРазмеры</v8:TypeSet>
+						</Type>
+						<FunctionalOptions>
+							<Item>FunctionalOption.упУчитыватьЛинейныеРазмеры</Item>
+						</FunctionalOptions>
+					</Column>
+					<Column name="Масса" id="51">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Масса</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.Масса</v8:TypeSet>
+						</Type>
+						<FunctionalOptions>
+							<Item>FunctionalOption.упУчитыватьМассу</Item>
+						</FunctionalOptions>
+					</Column>
+					<Column name="КоличествоМест" id="52">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Количество мест</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.КоличествоМест</v8:TypeSet>
+						</Type>
+						<FunctionalOptions>
+							<Item>FunctionalOption.упУчитыватьКоличествоМест</Item>
+						</FunctionalOptions>
+					</Column>
+					<Column name="КоличествоЗагрузочныхМетров" id="53">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Количество загрузочных метров</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.КоличествоЗагрузочныхМетров</v8:TypeSet>
+						</Type>
+						<FunctionalOptions>
+							<Item>FunctionalOption.упУчитыватьКоличествоЗагрузочныхМетров</Item>
+						</FunctionalOptions>
+					</Column>
+					<Column name="ИзмененыПараметры" id="54">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Изменены параметры</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ЕстьПроблемы" id="55">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Есть проблемы</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
+					<Column name="СписокПроблем" id="56">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Список проблем</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:string</v8:Type>
+							<v8:StringQualifiers>
+								<v8:Length>0</v8:Length>
+								<v8:AllowedLength>Variable</v8:AllowedLength>
+							</v8:StringQualifiers>
+						</Type>
+					</Column>
+					<Column name="ИдентификаторИсходнойТочки" id="57">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Идентификатор досрочно пройденной точки</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>v8:UUID</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ДосрочноеУбытие" id="58">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Досрочное убытие</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
+					<Column name="Приоритет" id="59">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Приоритет</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:decimal</v8:Type>
+							<v8:NumberQualifiers>
+								<v8:Digits>1</v8:Digits>
+								<v8:FractionDigits>0</v8:FractionDigits>
+								<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+							</v8:NumberQualifiers>
+						</Type>
+					</Column>
+					<Column name="ЗапрещеноСозданиеНовойТочкиМаршрута" id="60">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Запрещено создание новой точки маршрута</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
+					<Column name="Рейс" id="61">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Рейс</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:DocumentRef.упРейс</v8:Type>
+						</Type>
+					</Column>
+				</AdditionalColumns>
+				<AdditionalColumns table="Объект.дрвРаботыПоТекущемуРейсуЭталон">
+					<Column name="АдресТочки" id="1">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Адрес точки</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.упАдреса</v8:Type>
+						</Type>
+					</Column>
+					<Column name="Выполнена" id="2">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Работа выполнена</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:decimal</v8:Type>
+							<v8:NumberQualifiers>
+								<v8:Digits>1</v8:Digits>
+								<v8:FractionDigits>0</v8:FractionDigits>
+								<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+							</v8:NumberQualifiers>
+						</Type>
+					</Column>
+					<Column name="НазначениеСтроки" id="3">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Адрес/Задание/Операция/Груз (Док.)</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:DocumentRef.упЗаданиеНаПеревозкуГруза</v8:Type>
+							<v8:Type>cfg:CatalogRef.упГрузовыеМеста</v8:Type>
+							<v8:Type>cfg:CatalogRef.упТипыРегламентныхДокументов</v8:Type>
+							<v8:Type>cfg:CatalogRef.упАдреса</v8:Type>
+							<v8:Type>cfg:EnumRef.упТипыОпераций</v8:Type>
+						</Type>
+					</Column>
+					<Column name="Отменена" id="4">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Отменена</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
+					<Column name="КоличествоГрузов" id="5">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Количество грузов</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.КоличествоГрузов</v8:TypeSet>
+						</Type>
+					</Column>
+					<Column name="Проблема" id="6">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Проблема</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.упПроблемы</v8:Type>
+						</Type>
+					</Column>
+					<Column name="АдресРазгрузки" id="7">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Адрес разгрузки</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.упАдреса</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ДополнительнаяОперация" id="8">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Дополнительная операция</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.упДополнительныеОперации</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ЭтоРабота" id="10">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Это работа</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ПрибытиеФакт" id="11">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Прибытие</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:dateTime</v8:Type>
+							<v8:DateQualifiers>
+								<v8:DateFractions>DateTime</v8:DateFractions>
+							</v8:DateQualifiers>
+						</Type>
+					</Column>
+					<Column name="НачалоРаботФакт" id="12">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Начало работ</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:dateTime</v8:Type>
+							<v8:DateQualifiers>
+								<v8:DateFractions>DateTime</v8:DateFractions>
+							</v8:DateQualifiers>
+						</Type>
+					</Column>
+					<Column name="УбытиеФакт" id="13">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Убытие</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:dateTime</v8:Type>
+							<v8:DateQualifiers>
+								<v8:DateFractions>DateTime</v8:DateFractions>
+							</v8:DateQualifiers>
+						</Type>
+					</Column>
+					<Column name="ЭтоАдрес" id="14">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Это адрес</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ПрибытиеПлан" id="15">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Прибытие план</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:dateTime</v8:Type>
+							<v8:DateQualifiers>
+								<v8:DateFractions>DateTime</v8:DateFractions>
+							</v8:DateQualifiers>
+						</Type>
+					</Column>
+					<Column name="НачалоРаботПлан" id="16">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Начало работ план</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:dateTime</v8:Type>
+							<v8:DateQualifiers>
+								<v8:DateFractions>DateTime</v8:DateFractions>
+							</v8:DateQualifiers>
+						</Type>
+					</Column>
+					<Column name="УбытиеПлан" id="17">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Убытие план</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:dateTime</v8:Type>
+							<v8:DateQualifiers>
+								<v8:DateFractions>DateTime</v8:DateFractions>
+							</v8:DateQualifiers>
+						</Type>
+					</Column>
+					<Column name="ПрохождениеТочки" id="18">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Прохождение точки</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:DocumentRef.упПрохождениеТочки</v8:Type>
+							<v8:Type>cfg:DocumentRef.упПроисшествиеВПути</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ИдентификаторТочки" id="19">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Идентификатор точки</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>v8:UUID</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ИдентификаторРаботы" id="20">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Идентификатор работы</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>v8:UUID</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ПорядокТочки" id="21">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Порядок точки</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:decimal</v8:Type>
+							<v8:NumberQualifiers>
+								<v8:Digits>10</v8:Digits>
+								<v8:FractionDigits>0</v8:FractionDigits>
+								<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+							</v8:NumberQualifiers>
+						</Type>
+					</Column>
+					<Column name="ТочкаПройдена" id="22">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Точка пройдена</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ТочкаОтменена" id="23">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Точка отменена</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ТочкаТекущая" id="24">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Точка текущая</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ТипТочки" id="25">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Тип точки</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:EnumRef.упТипыТочекМаршрута</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ПроблемаПричинаВозникновенияЭтойРаботы" id="26">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Проблема причина возникновения этой работы</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.упПроблемы</v8:Type>
+						</Type>
+					</Column>
+					<Column name="Операция" id="29">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Операция</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:EnumRef.упТипыОпераций</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ИндексКартинки" id="27">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Индекс картинки</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:decimal</v8:Type>
+							<v8:NumberQualifiers>
+								<v8:Digits>2</v8:Digits>
+								<v8:FractionDigits>0</v8:FractionDigits>
+								<v8:AllowedSign>Any</v8:AllowedSign>
+							</v8:NumberQualifiers>
+						</Type>
+					</Column>
+					<Column name="ЭтоПолучениеПередачаДокументов" id="28">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Это получение передача документов</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ТипРегламентногоДокумента" id="30">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Тип регламентного документа</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.упТипыРегламентныхДокументов</v8:Type>
+						</Type>
+					</Column>
+					<Column name="КоличествоЭкземпляровДокумента" id="31">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Количество экземпляров документа</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:decimal</v8:Type>
+							<v8:NumberQualifiers>
+								<v8:Digits>3</v8:Digits>
+								<v8:FractionDigits>0</v8:FractionDigits>
+								<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+							</v8:NumberQualifiers>
+						</Type>
+					</Column>
+					<Column name="Гараж" id="9">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Гараж</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.упГаражи</v8:Type>
+						</Type>
+					</Column>
+					<Column name="Количество" id="32">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Количество</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:decimal</v8:Type>
+							<v8:NumberQualifiers>
+								<v8:Digits>5</v8:Digits>
+								<v8:FractionDigits>0</v8:FractionDigits>
+								<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+							</v8:NumberQualifiers>
+						</Type>
+					</Column>
+					<Column name="КоличествоДопОпераций" id="33">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Количество доп операций</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.КоличествоОпераций</v8:TypeSet>
+						</Type>
+					</Column>
+					<Column name="ФормироватьПрохождениеТочки" id="34">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Формировать прохождение точки</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
+					<Column name="РасстояниеОтПредыдущейТочки" id="35">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Расстояние от предыдущей точки</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.Расстояние</v8:TypeSet>
+						</Type>
+					</Column>
+					<Column name="Предшественники" id="36">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Предшественники</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:string</v8:Type>
+							<v8:StringQualifiers>
+								<v8:Length>0</v8:Length>
+								<v8:AllowedLength>Variable</v8:AllowedLength>
+							</v8:StringQualifiers>
+						</Type>
+					</Column>
+					<Column name="Сумма" id="37">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Сумма</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.Сумма</v8:TypeSet>
+						</Type>
+					</Column>
+					<Column name="Валюта" id="38">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Валюта</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.Валюты</v8:Type>
+						</Type>
+					</Column>
+					<Column name="Тара" id="39">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Тара</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.упГрузовыеМеста</v8:Type>
+						</Type>
+						<FunctionalOptions>
+							<Item>FunctionalOption.упВедетсяУчетТары</Item>
+						</FunctionalOptions>
+					</Column>
+					<Column name="ГрузРазделен" id="40">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Груз разделен</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
+					<Column name="СкладскаяЯчейка" id="41">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Складская ячейка</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.упСкладскиеЯчейки</v8:Type>
+						</Type>
+						<FunctionalOptions>
+							<Item>FunctionalOption.упИспользуетсяСкладскойУчетНаХабах</Item>
+						</FunctionalOptions>
+					</Column>
+					<Column name="Склад" id="42">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Склад</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.упСклады</v8:Type>
+						</Type>
+					</Column>
+					<Column name="НомерВЦепиПоставок" id="46">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Номер в цепи поставок</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:decimal</v8:Type>
+							<v8:NumberQualifiers>
+								<v8:Digits>10</v8:Digits>
+								<v8:FractionDigits>0</v8:FractionDigits>
+								<v8:AllowedSign>Any</v8:AllowedSign>
+							</v8:NumberQualifiers>
+						</Type>
+					</Column>
+					<Column name="НомерВЦепиПоставокМаксимальный" id="47">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Номер в цепи поставок максимальный</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:decimal</v8:Type>
+							<v8:NumberQualifiers>
+								<v8:Digits>10</v8:Digits>
+								<v8:FractionDigits>0</v8:FractionDigits>
+								<v8:AllowedSign>Any</v8:AllowedSign>
+							</v8:NumberQualifiers>
+						</Type>
+					</Column>
+					<Column name="ВидГруза" id="43">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Вид груза</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:EnumRef.упВидыГрузов</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ТипГруза" id="44">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Тип груза</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.упТипыГрузов</v8:Type>
+						</Type>
+					</Column>
+					<Column name="Высота" id="45">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Высота</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.ЛинейныеРазмеры</v8:TypeSet>
+						</Type>
+						<FunctionalOptions>
+							<Item>FunctionalOption.упУчитыватьЛинейныеРазмеры</Item>
+						</FunctionalOptions>
+					</Column>
+					<Column name="Длина" id="48">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Длина</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.ЛинейныеРазмеры</v8:TypeSet>
+						</Type>
+						<FunctionalOptions>
+							<Item>FunctionalOption.упУчитыватьЛинейныеРазмеры</Item>
+						</FunctionalOptions>
+					</Column>
+					<Column name="Объем" id="49">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Объем</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.Объем</v8:TypeSet>
+						</Type>
+						<FunctionalOptions>
+							<Item>FunctionalOption.упУчитыватьОбъем</Item>
+						</FunctionalOptions>
+					</Column>
+					<Column name="Ширина" id="50">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Ширина</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.ЛинейныеРазмеры</v8:TypeSet>
+						</Type>
+						<FunctionalOptions>
+							<Item>FunctionalOption.упУчитыватьЛинейныеРазмеры</Item>
+						</FunctionalOptions>
+					</Column>
+					<Column name="Масса" id="51">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Масса</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.Масса</v8:TypeSet>
+						</Type>
+						<FunctionalOptions>
+							<Item>FunctionalOption.упУчитыватьМассу</Item>
+						</FunctionalOptions>
+					</Column>
+					<Column name="КоличествоМест" id="52">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Количество мест</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.КоличествоМест</v8:TypeSet>
+						</Type>
+						<FunctionalOptions>
+							<Item>FunctionalOption.упУчитыватьКоличествоМест</Item>
+						</FunctionalOptions>
+					</Column>
+					<Column name="КоличествоЗагрузочныхМетров" id="53">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Количество загрузочных метров</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.КоличествоЗагрузочныхМетров</v8:TypeSet>
+						</Type>
+						<FunctionalOptions>
+							<Item>FunctionalOption.упУчитыватьКоличествоЗагрузочныхМетров</Item>
+						</FunctionalOptions>
+					</Column>
+					<Column name="ИзмененыПараметры" id="54">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Изменены параметры</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ЕстьПроблемы" id="55">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Есть проблемы</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
+					<Column name="СписокПроблем" id="56">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Список проблем</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:string</v8:Type>
+							<v8:StringQualifiers>
+								<v8:Length>0</v8:Length>
+								<v8:AllowedLength>Variable</v8:AllowedLength>
+							</v8:StringQualifiers>
+						</Type>
+					</Column>
+					<Column name="ДосрочноеУбытие" id="57">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Досрочное убытие</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ИдентификаторИсходнойТочки" id="58">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Идентификатор досрочно пройденной точки</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>v8:UUID</v8:Type>
+						</Type>
+					</Column>
+					<Column name="Приоритет" id="59">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Приоритет</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:decimal</v8:Type>
+							<v8:NumberQualifiers>
+								<v8:Digits>1</v8:Digits>
+								<v8:FractionDigits>0</v8:FractionDigits>
+								<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+							</v8:NumberQualifiers>
+						</Type>
+					</Column>
+					<Column name="ЗапрещеноСозданиеНовойТочкиМаршрута" id="60">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Запрещено создание новой точки маршрута</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
+					<Column name="Рейс" id="61">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Рейс</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:DocumentRef.упРейс</v8:Type>
+						</Type>
+					</Column>
+				</AdditionalColumns>
+			</Columns>
+		</Attribute>
+		<Attribute name="СписокРейсов" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список рейсов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>~СписокРейсов.Number</Field>
+				<Field>~СписокРейсов.Ref</Field>
+				<Field>СписокРейсов.Ссылка</Field>
+				<Field>СписокРейсов.Статус</Field>
+				<Field>СписокРейсов.ТранспортноеСредство</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>//{Запрос: 0 ////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ДокументупРейс.Ссылка КАК Ссылка,
+	ДокументупРейс.ПометкаУдаления КАК ПометкаУдаления,
+	ДокументупРейс.Номер КАК Номер,
+	ДокументупРейс.Дата КАК Дата,
+	ДокументупРейс.Проведен КАК Проведен,
+	ДокументупРейс.Автор КАК Автор,
+	ДокументупРейс.ВидПеревозки КАК ВидПеревозки,
+	ЕСТЬNULL(упПлановыеПараметрыРейса.Время, 0) КАК Время,
+	ЕСТЬNULL(упПлановыеПараметрыРейса.ЗонаПогрузки, ЗНАЧЕНИЕ(Справочник.упГеографическиеЗоны.ПустаяСсылка)) КАК ЗонаПогрузки,
+	ЕСТЬNULL(упПлановыеПараметрыРейса.ЗонаРазгрузки, ЗНАЧЕНИЕ(Справочник.упГеографическиеЗоны.ПустаяСсылка)) КАК ЗонаРазгрузки,
+	ЕСТЬNULL(упПлановыеПараметрыРейса.КоличествоЗагрузочныхМетров, 0) КАК КоличествоЗагрузочныхМетров,
+	ЕСТЬNULL(упПлановыеПараметрыРейса.КоличествоМест, 0) КАК КоличествоМест,
+	ДокументупРейс.Комментарий КАК Комментарий,
+	ДокументупРейс.МаксимальныйКоэффициентЗагрузки КАК МаксимальныйКоэффициентЗагрузки,
+	ЕСТЬNULL(упПлановыеПараметрыРейса.Масса, 0) КАК Масса,
+	ЕСТЬNULL(упФактическиеПараметрыРейса.НачалоВыполнения, ДАТАВРЕМЯ(1, 1, 1)) КАК НачалоВыполнения,
+	ЕСТЬNULL(упПлановыеПараметрыРейса.Объем, 0) КАК Объем,
+	ЕСТЬNULL(упПлановыеПараметрыРейса.ОценочнаяСтоимость, 0) КАК ОценочнаяСтоимость,
+	ЕСТЬNULL(упФактическиеПараметрыРейса.ОкончаниеВыполнения, ДАТАВРЕМЯ(1, 1, 1)) КАК ОкончаниеВыполнения,
+	ДокументупРейс.Организация КАК Организация,
+	ЕСТЬNULL(упПлановыеПараметрыРейса.ПланируемоеКоличествоЗаданий, 0) КАК ПланируемоеКоличествоЗаданий,
+	ЕСТЬNULL(упПлановыеПараметрыРейса.ПлановоеНачалоВыполнения, ДАТАВРЕМЯ(1, 1, 1)) КАК ПлановоеНачалоВыполнения,
+	ЕСТЬNULL(упПлановыеПараметрыРейса.ПлановоеОкончаниеВыполнения, ДАТАВРЕМЯ(1, 1, 1)) КАК ПлановоеОкончаниеВыполнения,
+	ЕСТЬNULL(упПлановыеПараметрыРейса.ПредставлениеМаршрута, "") КАК ПредставлениеМаршрута,
+	ДокументупРейс.Расписание КАК Расписание,
+	ЕСТЬNULL(упПлановыеПараметрыРейса.Расстояние, 0) КАК Расстояние,
+	ЕСТЬNULL(упПлановыеПараметрыРейса.НулевойПробег, 0) КАК НулевойПробег,
+	ДокументупРейс.СреднийКоэффициентЗагрузки КАК СреднийКоэффициентЗагрузки,
+	ДокументупРейс.Трекер КАК Трекер,
+	ЕСТЬNULL(упПеревозчикПоРейсуСрезПоследних.Перевозчик, ЗНАЧЕНИЕ(Справочник.упПартнеры.ПустаяСсылка)) КАК Перевозчик,
+	ЕСТЬNULL(упПеревозчикПоРейсуСрезПоследних.Соглашение, ЗНАЧЕНИЕ(Справочник.упСоглашенияСПеревозчиками.ПустаяСсылка)) КАК Соглашение,
+	ЕСТЬNULL(упПеревозчикПоРейсуСрезПоследних.ТранспортноеСредство, ЗНАЧЕНИЕ(Справочник.упТранспортныеСредства.ПустаяСсылка)) КАК ТранспортноеСредство,
+	ЕСТЬNULL(упПеревозчикПоРейсуСрезПоследних.ТипТС, ЗНАЧЕНИЕ(Справочник.упТипыТС.ПустаяСсылка)) КАК ТипТС,
+	ЕСТЬNULL(упПеревозчикПоРейсуСрезПоследних.Водитель1, ЗНАЧЕНИЕ(Справочник.упСотрудники.ПустаяСсылка)) КАК Водитель1,
+	ЕСТЬNULL(упПеревозчикПоРейсуСрезПоследних.Водитель2, ЗНАЧЕНИЕ(Справочник.упСотрудники.ПустаяСсылка)) КАК Водитель2,
+	ЕСТЬNULL(упПеревозчикПоРейсуСрезПоследних.Экспедитор, ЗНАЧЕНИЕ(Справочник.упСотрудники.ПустаяСсылка)) КАК Экспедитор,
+	упСтатусыРейсовСрезПоследних.Статус КАК Статус,
+	ЕСТЬNULL(упПлановыеПараметрыРейса.СуммаИнкассации, 0) КАК ПлановаяСуммаИнкассации,
+	ЕСТЬNULL(упФактическиеПараметрыРейса.СуммаИнкассации, 0) КАК ФактическаяСуммаИнкассации
+ПОМЕСТИТЬ втРейсы
+ИЗ
+	Документ.упРейс КАК ДокументупРейс
+	ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.упСтатусыРейсов.СрезПоследних КАК упСтатусыРейсовСрезПоследних
+	ПО ДокументупРейс.Ссылка = упСтатусыРейсовСрезПоследних.Документ
+	ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упПеревозчикПоРейсу.СрезПоследних(
+		,
+		) КАК упПеревозчикПоРейсуСрезПоследних
+	ПО ДокументупРейс.Ссылка = упПеревозчикПоРейсуСрезПоследних.Рейс
+	ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упПлановыеПараметрыРейса КАК упПлановыеПараметрыРейса
+	ПО ДокументупРейс.Ссылка = упПлановыеПараметрыРейса.Рейс
+	ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упФактическиеПараметрыРейса КАК упФактическиеПараметрыРейса
+	ПО ДокументупРейс.Ссылка = упФактическиеПараметрыРейса.Рейс
+ГДЕ ИСТИНА
+	И ДокументупРейс.ВидПеревозки = &amp;ВидПеревозки
+	И ДокументупРейс.Дата &gt;= &amp;ДатаНачала
+	И ДокументупРейс.Дата &lt;= &amp;ДатаОкончания
+	И НЕ (ЕСТЬNULL(упСтатусыРейсовСрезПоследних.Статус, ЗНАЧЕНИЕ(Перечисление.упСтатусыРейса.Новый)) В (ЗНАЧЕНИЕ(Перечисление.упСтатусыРейса.Новый),
+			ЗНАЧЕНИЕ(Перечисление.упСтатусыРейса.КПланированиюТС),
+			ЗНАЧЕНИЕ(Перечисление.упСтатусыРейса.НазначеноТС),
+			ЗНАЧЕНИЕ(Перечисление.упСтатусыРейса.Отменен)))
+    И ДокументупРейс.ВидТранспортнойУслуги &lt;&gt; ЗНАЧЕНИЕ(Перечисление.упВидыТранспортныхУслуг.ОперацииСКонтейнерами)            
+;
+//{Запрос: 1 ////////////////////////////////////////
+ВЫБРАТЬ
+	упДатыСобытий.Период КАК Период,
+	упДатыСобытий.ТипСобытия КАК ТипСобытия,
+	упДатыСобытий.Рейс КАК Рейс
+ПОМЕСТИТЬ втСобытияДиспетчера
+ИЗ
+	РегистрСведений.упДатыСобытий КАК упДатыСобытий
+	ВНУТРЕННЕЕ СОЕДИНЕНИЕ втРейсы КАК втРейсы
+	ПО упДатыСобытий.Рейс = втРейсы.Ссылка
+ГДЕ ИСТИНА
+	И &amp;ПроверятьНеотвеченныеСообщенияВодителя
+	И упДатыСобытий.ТипСобытия В (ЗНАЧЕНИЕ(Справочник.упТипыСобытийМониторинга.СообщениеДиспетчеру),
+			ЗНАЧЕНИЕ(Справочник.упТипыСобытийМониторинга.СообщениеОтДиспетчера))
+;
+//{Запрос: 2 ////////////////////////////////////////
+ВЫБРАТЬ
+	втСобытияДиспетчераТ.Рейс КАК Рейс,
+	втСобытияДиспетчераТ.ТипСобытия КАК ТипСобытия
+ПОМЕСТИТЬ втПоследниеСобытияДиспетчера
+ИЗ
+	втСобытияДиспетчера КАК втСобытияДиспетчераТ
+	ВНУТРЕННЕЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+		МАКСИМУМ(втСобытияДиспетчераТ.Период) КАК Период,
+		втСобытияДиспетчераТ.Рейс КАК Рейс
+	ИЗ
+		втСобытияДиспетчера КАК втСобытияДиспетчераТ
+	СГРУППИРОВАТЬ ПО
+		втСобытияДиспетчераТ.Рейс) КАК втСобытияДиспетчераТ1
+	ПО ИСТИНА
+		И &amp;ПроверятьНеотвеченныеСообщенияВодителя
+		И втСобытияДиспетчераТ1.Рейс = втСобытияДиспетчераТ.Рейс
+		И втСобытияДиспетчераТ1.Период = втСобытияДиспетчераТ.Период
+		И втСобытияДиспетчераТ.ТипСобытия = ЗНАЧЕНИЕ(Справочник.упТипыСобытийМониторинга.СообщениеДиспетчеру)
+;
+//{Запрос: 3 ////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	втРейсы.Автор КАК Автор,
+	втРейсы.ВидПеревозки КАК ВидПеревозки,
+	втРейсы.Водитель1 КАК Водитель1,
+	втРейсы.Водитель2 КАК Водитель2,
+	втРейсы.Время КАК Время,
+	втРейсы.Дата КАК Дата,
+	втРейсы.ЗонаПогрузки КАК ЗонаПогрузки,
+	втРейсы.ЗонаРазгрузки КАК ЗонаРазгрузки,
+	втРейсы.КоличествоЗагрузочныхМетров КАК КоличествоЗагрузочныхМетров,
+	втРейсы.КоличествоМест КАК КоличествоМест,
+	втРейсы.Комментарий КАК Комментарий,
+	втРейсы.МаксимальныйКоэффициентЗагрузки КАК МаксимальныйКоэффициентЗагрузки,
+	втРейсы.Масса КАК Масса,
+	втРейсы.НачалоВыполнения КАК НачалоВыполнения,
+	втРейсы.Номер КАК Номер,
+	втРейсы.НулевойПробег КАК НулевойПробег,
+	втРейсы.Объем КАК Объем,
+	втРейсы.ОкончаниеВыполнения КАК ОкончаниеВыполнения,
+	втРейсы.Организация КАК Организация,
+	втРейсы.ОценочнаяСтоимость КАК ОценочнаяСтоимость,
+	втРейсы.Перевозчик КАК Перевозчик,
+	втРейсы.ПланируемоеКоличествоЗаданий КАК ПланируемоеКоличествоЗаданий,
+	втРейсы.ПлановаяСуммаИнкассации КАК ПлановаяСуммаИнкассации,
+	втРейсы.ПлановоеНачалоВыполнения КАК ПлановоеНачалоВыполнения,
+	втРейсы.ПлановоеОкончаниеВыполнения КАК ПлановоеОкончаниеВыполнения,
+	втРейсы.ПометкаУдаления КАК ПометкаУдаления,
+	втРейсы.ПредставлениеМаршрута КАК ПредставлениеМаршрута,
+	втРейсы.Проведен КАК Проведен,
+	втРейсы.Расписание КАК Расписание,
+	втРейсы.Расстояние КАК Расстояние,
+	втРейсы.Соглашение КАК Соглашение,
+	втРейсы.СреднийКоэффициентЗагрузки КАК СреднийКоэффициентЗагрузки,
+	втРейсы.Ссылка КАК Ссылка,
+	втРейсы.Статус КАК Статус,
+	втРейсы.ТипТС КАК ТипТС,
+	втРейсы.ТранспортноеСредство КАК ТранспортноеСредство,
+	втРейсы.Трекер КАК Трекер,
+	втРейсы.ФактическаяСуммаИнкассации КАК ФактическаяСуммаИнкассации,
+	втРейсы.Экспедитор КАК Экспедитор,
+	ВЫБОР
+		КОГДА &amp;ВедетсяВалютныйУчет
+			ТОГДА ЕСТЬNULL(упВсегоРасходыПоРейсу.СуммаПланВалютаСНДС, 0)
+		ИНАЧЕ ЕСТЬNULL(упВсегоРасходыПоРейсу.СуммаПланСНДС, 0)
+	КОНЕЦ КАК ПлановыеРасходыПоРейсу,
+	ВЫБОР
+		КОГДА НаличиеФайлов.ЕстьФайлы ЕСТЬ NULL
+			ТОГДА 0
+		КОГДА НаличиеФайлов.ЕстьФайлы
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ КАК ЕстьФайлы,
+	ВЫБОР
+		КОГДА втРаботыПоРейсу.Рейс ЕСТЬ NULL
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ КАК ЕстьПроблемы,
+	ВЫБОР
+		КОГДА втМаршрутПоРейсу.Рейс ЕСТЬ NULL
+			ТОГДА 0
+		ИНАЧЕ 1
+	КОНЕЦ КАК ЕстьОпозданияПрибытияВТочку,
+	ЕСТЬNULL(втМаршрутПоРейсу.КоличествоТочекСОпозданиями, 0) КАК КоличествоТочекСОпозданиями,
+	ВЫБОР
+		КОГДА втПоследниеСобытияДиспетчера.Рейс ЕСТЬ NULL
+			ТОГДА 0
+		ИНАЧЕ 1
+	КОНЕЦ КАК ЕстьСообщенияОтВодителяНеОтвеченные,
+	ВЫБОР
+		КОГДА втКорректировки.Рейс ЕСТЬ NULL
+			ТОГДА 0
+		ИНАЧЕ 1
+	КОНЕЦ КАК ЕстьИзмененныйПорядокЗаданий
+ИЗ
+	втРейсы КАК втРейсы
+	ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.упРейс КАК ДокументупРейс
+	ПО ДокументупРейс.Ссылка = втРейсы.Ссылка
+	ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упВсегоРасходыПоРейсу КАК упВсегоРасходыПоРейсу
+	ПО упВсегоРасходыПоРейсу.Рейс = втРейсы.Ссылка
+	{ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.НаличиеПрисоединенныхФайлов КАК НаличиеФайлов
+	ПО втРейсы.Ссылка = НаличиеФайлов.ОбъектСФайлами
+	}{ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ РАЗЛИЧНЫЕ
+		РаботыПоРейсу_СрезПоследнихТ.Рейс КАК Рейс
+	ИЗ
+		РегистрСведений.упРаботыПоРейсу.СрезПоследних(
+			,
+			Рейс В (
+				ВЫБРАТЬ
+					втРейсы.Ссылка КАК Ссылка
+				ИЗ
+					втРейсы КАК втРейсы)) КАК РаботыПоРейсу_СрезПоследнихТ
+	ГДЕ РаботыПоРейсу_СрезПоследнихТ.Проблема &lt;&gt; ЗНАЧЕНИЕ(Справочник.упПроблемы.ПустаяСсылка)) КАК втРаботыПоРейсу
+	ПО втРейсы.Ссылка = втРаботыПоРейсу.Рейс
+	}{ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+		Маршрут.Рейс КАК Рейс,
+		КОЛИЧЕСТВО(Маршрут.Идентификатор) КАК КоличествоТочекСОпозданиями
+	ИЗ
+		РегистрСведений.упМаршрутПоРейсу.СрезПоследних(
+			,
+			Рейс В (
+				ВЫБРАТЬ
+					втРейсы.Ссылка КАК Ссылка
+				ИЗ
+					втРейсы КАК втРейсы)) КАК Маршрут
+	ГДЕ ИСТИНА
+		И Маршрут.ПрибытиеФакт &gt; Маршрут.ПлановоеУбытие
+		И Маршрут.Пройдена
+	СГРУППИРОВАТЬ ПО
+		Маршрут.Рейс) КАК втМаршрутПоРейсу
+	ПО втРейсы.Ссылка = втМаршрутПоРейсу.Рейс
+	}{ЛЕВОЕ СОЕДИНЕНИЕ втПоследниеСобытияДиспетчера КАК втПоследниеСобытияДиспетчера
+	ПО втПоследниеСобытияДиспетчера.Рейс = втРейсы.Ссылка
+	}{ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ РАЗЛИЧНЫЕ
+		Корректировки.Рейс КАК Рейс
+	ИЗ
+		Документ.упКорректировкаРейса КАК Корректировки
+		{ЛЕВОЕ СОЕДИНЕНИЕ втРейсы КАК втРейсыТ
+		ПО втРейсыТ.Ссылка = Корректировки.Рейс}
+	ГДЕ ИСТИНА
+		И Корректировки.СобытиеИзмененияСледующейТочки &lt;&gt; ЗНАЧЕНИЕ(Документ.упСобытиеМониторинга.ПустаяСсылка)
+		И Корректировки.Проведен) КАК втКорректировки
+	ПО втРейсы.Ссылка = втКорректировки.Рейс}</QueryText>
+				<MainTable>Document.упРейс</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Статус</dcsset:left>
+							<dcsset:comparisonType>InList</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.упСтатусыРейса.КВыполнению</dcsset:right>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.упСтатусыРейса.Выполняется</dcsset:right>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="Автообновление" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Автообновление</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>Автообновление</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ПериодАвтообновления" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период автообновления (сек.)</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>5</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+			<Save>
+				<Field>ПериодАвтообновления</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="Планировщик" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Планировщик</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type xmlns:pl="http://v8.1c.ru/8.3/data/planner">pl:Planner</v8:Type>
+			</Type>
+			<Settings xmlns:pl="http://v8.1c.ru/8.3/data/planner" xsi:type="pl:Planner">
+				<pl:item>
+					<pl:value xsi:nil="true"/>
+					<pl:text>Встреча</pl:text>
+					<pl:tooltip/>
+					<pl:begin>2015-05-27T01:00:00</pl:begin>
+					<pl:end>2015-05-27T04:00:00</pl:end>
+					<pl:borderColor>auto</pl:borderColor>
+					<pl:backColor>auto</pl:backColor>
+					<pl:textColor>auto</pl:textColor>
+					<pl:font kind="AutoFont"/>
+					<pl:dimensionValues/>
+					<pl:replacementDate>0001-01-01T00:00:00</pl:replacementDate>
+					<pl:deleted>false</pl:deleted>
+					<pl:id>37bc6684-4009-4b7f-ae18-db12a304471b</pl:id>
+					<pl:textFormatted>false</pl:textFormatted>
+					<pl:border width="1">
+						<v8ui:style xsi:type="v8ui:ControlBorderType">Single</v8ui:style>
+					</pl:border>
+					<pl:editMode>EnableEdit</pl:editMode>
+				</pl:item>
+				<pl:dimension>
+					<pl:value xsi:type="xs:string">Рейс</pl:value>
+					<pl:text/>
+					<pl:borderColor>auto</pl:borderColor>
+					<pl:backColor>auto</pl:backColor>
+					<pl:textColor>auto</pl:textColor>
+					<pl:font kind="AutoFont"/>
+					<pl:textFormatted>false</pl:textFormatted>
+				</pl:dimension>
+				<pl:borderColor>auto</pl:borderColor>
+				<pl:backColor>auto</pl:backColor>
+				<pl:textColor>style:FormTextColor</pl:textColor>
+				<pl:lineColor>style:ButtonTextColor</pl:lineColor>
+				<pl:font kind="AutoFont"/>
+				<pl:beginOfRepresentationPeriod>0001-01-01T00:00:00</pl:beginOfRepresentationPeriod>
+				<pl:endOfRepresentationPeriod>0001-01-01T00:00:00</pl:endOfRepresentationPeriod>
+				<pl:alignElementsOfTimeScale>false</pl:alignElementsOfTimeScale>
+				<pl:displayTimeScaleWrapHeaders>true</pl:displayTimeScaleWrapHeaders>
+				<pl:displayWrapHeaders>true</pl:displayWrapHeaders>
+				<pl:timeScaleWrapHeadersFormat>
+					<v8:item>
+						<v8:lang>#</v8:lang>
+						<v8:content>ДФ=' '</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>ДФ=' '</v8:content>
+					</v8:item>
+				</pl:timeScaleWrapHeadersFormat>
+				<pl:periodicVariantUnit>Year</pl:periodicVariantUnit>
+				<pl:periodicVariantRepetition>1</pl:periodicVariantRepetition>
+				<pl:timeScaleWrapBeginIndent>0</pl:timeScaleWrapBeginIndent>
+				<pl:timeScaleWrapEndIndent>0</pl:timeScaleWrapEndIndent>
+				<pl:timeScale>
+					<placement xmlns="http://v8.1c.ru/8.2/data/chart">Top</placement>
+					<level xmlns="http://v8.1c.ru/8.2/data/chart">
+						<measure>Day</measure>
+						<interval>1</interval>
+						<show>true</show>
+						<line width="1" gap="false">
+							<v8ui:style xsi:type="v8ui:ChartLineType">Solid</v8ui:style>
+						</line>
+						<scaleColor>style:FormTextColor</scaleColor>
+						<dayFormatRule>MonthDayWeekDay</dayFormatRule>
+						<format>
+							<v8:item>
+								<v8:lang>#</v8:lang>
+								<v8:content>ДФ='dd.MM dddd'</v8:content>
+							</v8:item>
+						</format>
+						<labels>
+							<ticks>0</ticks>
+						</labels>
+						<backColor>auto</backColor>
+						<textColor>style:FormTextColor</textColor>
+						<showPereodicalLabels>true</showPereodicalLabels>
+					</level>
+					<level xmlns="http://v8.1c.ru/8.2/data/chart">
+						<measure>Hour</measure>
+						<interval>1</interval>
+						<show>true</show>
+						<line width="1" gap="false">
+							<v8ui:style xsi:type="v8ui:ChartLineType">Solid</v8ui:style>
+						</line>
+						<scaleColor>auto</scaleColor>
+						<dayFormatRule>MonthDayWeekDay</dayFormatRule>
+						<format>
+							<v8:item>
+								<v8:lang>#</v8:lang>
+								<v8:content>DF="HH:mm"</v8:content>
+							</v8:item>
+						</format>
+						<labels>
+							<ticks>0</ticks>
+						</labels>
+						<backColor>auto</backColor>
+						<textColor>style:FormTextColor</textColor>
+						<showPereodicalLabels>true</showPereodicalLabels>
+					</level>
+					<transparent xmlns="http://v8.1c.ru/8.2/data/chart">false</transparent>
+					<backColor xmlns="http://v8.1c.ru/8.2/data/chart">auto</backColor>
+					<textColor xmlns="http://v8.1c.ru/8.2/data/chart">auto</textColor>
+					<currentLevel xmlns="http://v8.1c.ru/8.2/data/chart">1</currentLevel>
+				</pl:timeScale>
+				<pl:period>
+					<pl:begin>2015-05-27T00:00:00</pl:begin>
+					<pl:end>2015-05-27T23:59:59</pl:end>
+				</pl:period>
+				<pl:displayCurrentDate>true</pl:displayCurrentDate>
+				<pl:itemsTimeRepresentation>DontDisplay</pl:itemsTimeRepresentation>
+				<pl:itemsBehaviorWhenSpaceInsufficient>CollapseItems</pl:itemsBehaviorWhenSpaceInsufficient>
+				<pl:autoMinColumnWidth>true</pl:autoMinColumnWidth>
+				<pl:autoMinRowHeight>true</pl:autoMinRowHeight>
+				<pl:minColumnWidth>0</pl:minColumnWidth>
+				<pl:minRowHeight>0</pl:minRowHeight>
+				<pl:fixDimensionsHeader>auto</pl:fixDimensionsHeader>
+				<pl:fixTimeScaleHeader>auto</pl:fixTimeScaleHeader>
+				<pl:border width="1">
+					<v8ui:style xsi:type="v8ui:ControlBorderType">Single</v8ui:style>
+				</pl:border>
+				<pl:newItemsTextType>String</pl:newItemsTextType>
+			</Settings>
+		</Attribute>
+		<Attribute name="ОтображатьФакт" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отображать факт</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>ОтображатьФакт</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="HTMLДокумент" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>HTMLДокумент</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<FunctionalOptions>
+				<Item>FunctionalOption.упИспользуютсяЭлектронныеГеографическиеКарты</Item>
+			</FunctionalOptions>
+		</Attribute>
+		<Attribute name="МаршрутРейсаHTMLСформирован" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Маршрут рейса HTMLСформирован</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПоказыватьКарту" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показывать карту</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>ПоказыватьКарту</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="сткЦвета" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Стк цвета</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="сткДанныеСтрокиРаботаДоРедактирования" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Стк данные строки работа до редактирования</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="ПериодПланирования" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период планирования</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:StandardPeriod</v8:Type>
+				<v8:Type>cfg:CatalogRef.упПериодыПланирования</v8:Type>
+			</Type>
+			<Save>
+				<Field>ПериодПланирования</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ВидПеревозки" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вид перевозки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.упВидыПеревозок</v8:Type>
+			</Type>
+			<Save>
+				<Field>ВидПеревозки</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ПериодПланированияНачало" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период планирования начало</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+			<Save>
+				<Field>ПериодПланированияНачало</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ПериодПланированияОкончание" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период планирования окончание</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+			<Save>
+				<Field>ПериодПланированияОкончание</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ВедетсяВалютныйУчет" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ведется валютный учет</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="спзИндексыРейсовНаКарте" id="19">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Спз индексы рейсов на карте</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ЭтоЯндекс" id="20">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Это яндекс</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ВыполняетОбращениеКДокументу" id="21">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполняет обращение к документу</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Маршрут" id="22">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Маршрут</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+			<Columns>
+				<Column name="Адрес" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Адрес</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упАдреса</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ПлановоеПрибытие" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Прибытие (план)</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="ПлановоеУбытие" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Убытие (план)</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="ВремяРабот" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Время работ (с.)</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>3</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ТипТочки" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тип точки</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.упТипыТочекМаршрута</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ВременноеОкноНачало" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Временное окно начало</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="ВременноеОкноОкончание" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Временное окно окончание</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="РасстояниеОтПредыдущейТочки" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Расстояние от предыдущей точки (км.)</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.Расстояние</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="ВремяОтПредыдущейТочки" id="10">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Время от предыдущей точки (с.)</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>3</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ВремяОжиданияВТочке" id="11">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Время ожидания в точке</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>3</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Пометка" id="15">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пометка</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="НомерСтроки" id="18">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номер строки</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>5</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Координаты" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Координаты</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ИндексВМассиве" id="19">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Индекс в массиве</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>3</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Позиционирование" id="20">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Позиционирование</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Идентификатор" id="21">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Идентификатор</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>v8:UUID</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ПопадаетВоВременноеОкно" id="14">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Попадает во временное окно</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="АдресПредставление" id="16">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Адрес представление</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ПроездНеРассчитан" id="24">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Проезд не рассчитан</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Гараж" id="25">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Гараж</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упГаражи</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ИндексКартинки" id="26">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Индекс картинки</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>1</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Предшественники" id="27">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Предшественники</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Пройдена" id="28">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пройдена</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Отменена" id="29">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отменена</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ВремяОтдыхаВПутиОтПредыдущейТочки" id="30">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Время отдыха в пути от предыдущей точки (с.)</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>3</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="Работы" id="23">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Работы</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Идентификатор" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Идентификатор</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>v8:UUID</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Задание" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Задание</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:DocumentRef.упЗаданиеНаПеревозкуГруза</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Операция" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Операция</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.упТипыОпераций</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ДополнительнаяОперация" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дополнительная операция</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упДополнительныеОперации</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ВремяРабот" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Время работ (с.)</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>3</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ВременноеОкноНачало" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Временное окно начало</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="ВременноеОкноОкончание" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Временное окно окончание</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="ГрузовоеМесто" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Грузовое место</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упГрузовыеМеста</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ВремяОжидания" id="10">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Время ожидания (ч.)</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>3</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ПлановоеВремяНачалаРабот" id="11">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Плановое время начала работ</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="СтрокаНомер" id="12">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Строка номер</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="КоличествоДопОпераций" id="13">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Количество доп. операций</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.КоличествоОпераций</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="КоличествоГрузов" id="14">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Количество грузов</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.КоличествоГрузов</v8:TypeSet>
+					</Type>
+					<FunctionalOptions>
+						<Item>FunctionalOption.упИспользуетсяКоличественныйУчетГрузов</Item>
+					</FunctionalOptions>
+				</Column>
+				<Column name="Пометка" id="19">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пометка</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Масса" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Масса</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.Масса</v8:TypeSet>
+					</Type>
+					<FunctionalOptions>
+						<Item>FunctionalOption.упУчитыватьМассу</Item>
+					</FunctionalOptions>
+				</Column>
+				<Column name="Объем" id="20">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Объем</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.Объем</v8:TypeSet>
+					</Type>
+					<FunctionalOptions>
+						<Item>FunctionalOption.упУчитыватьОбъем</Item>
+					</FunctionalOptions>
+				</Column>
+				<Column name="КоличествоМест" id="21">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Количество мест</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.КоличествоМест</v8:TypeSet>
+					</Type>
+					<FunctionalOptions>
+						<Item>FunctionalOption.упУчитыватьКоличествоМест</Item>
+					</FunctionalOptions>
+				</Column>
+				<Column name="КоличествоЗагрузочныхМетров" id="22">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Количество загрузочных метров</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.КоличествоЗагрузочныхМетров</v8:TypeSet>
+					</Type>
+					<FunctionalOptions>
+						<Item>FunctionalOption.упУчитыватьКоличествоЗагрузочныхМетров</Item>
+					</FunctionalOptions>
+				</Column>
+				<Column name="Заказчик" id="23">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Заказчик</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упПартнеры</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ПопадаетВоВременноеОкно" id="17">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Попадает во временное окно</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ТипОперации" id="18">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тип операции</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ИдентификаторРаботы" id="25">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Идентификатор работы</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>v8:UUID</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ТипРегламентногоДокумента" id="26">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тип регламентного документа</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упТипыРегламентныхДокументов</v8:Type>
+					</Type>
+				</Column>
+				<Column name="КоличествоЭкземпляровДокумента" id="27">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Количество экземпляров документа</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>3</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ДанныеДепо" id="26">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Данные депо</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДанныеСтандартнойТочки" id="27">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Данные стандартной точки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДанныеНарушенийПоВремени" id="28">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Данные нарушений по времени</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПараметрыМаршрутизацииСитиГИД" id="29">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Параметры маршрутизации сити ГИД</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="РазрешеноИзменятьТоварныйСостав" id="30">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Разрешено изменять товарный состав</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ИспользуетсяСкладскойУчетНаХабах" id="31">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Используется складской учет на хабах</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПоказыватьПланировщик" id="32">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показывать планировщик</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>ПоказыватьПланировщик</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ПроверятьНеотвеченныеСообщенияВодителя" id="33">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Проверять неотвеченные сообщения водителя</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>ПроверятьНеотвеченныеСообщенияВодителя</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ПроверятьНаличиеФайлов" id="34">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Проверять наличие файлов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>ПроверятьНаличиеФайлов</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ПроверятьРаботыСПроблемами" id="35">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Проверять работы с проблемами</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>ПроверятьРаботыСПроблемами</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ПроверятьОпозданияВТочкиЗаданий" id="36">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Проверять опоздания в точки заданий</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>ПроверятьОпозданияВТочкиЗаданий</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ПроверятьИзмененныйПорядокЗаданий" id="37">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Проверять измененный порядок заданий</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>ПроверятьИзмененныйПорядокЗаданий</Field>
+			</Save>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:use>false</dcsset:use>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>дрвРаботыПоТекущемуРейсуПроблема</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>дрвРаботыПоТекущемуРейсуАдресРазгрузки</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.Выполнена</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:decimal">1</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>дрвРаботыПоТекущемуРейсуВыполнена</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:groupType>OrGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.АдресРазгрузки</dcsset:left>
+							<dcsset:comparisonType>Filled</dcsset:comparisonType>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.Отменена</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.Проблема</dcsset:left>
+							<dcsset:comparisonType>Filled</dcsset:comparisonType>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.ДосрочноеУбытие</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>дрвРаботыПоТекущемуРейсу</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.ТочкаПройдена</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.ТочкаОтменена</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">#CCFFCC</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>дрвРаботыПоТекущемуРейсу</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:groupType>AndGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.ТочкаОтменена</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.ГрузРазделен</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:ОшибкаПолнотекстовыйПоискФон</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>дрвРаботыПоТекущемуРейсу</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.ТочкаПройдена</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>дрвРаботыПоТекущемуРейсуПроблема</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:use>false</dcsset:use>
+						<dcsset:groupType>OrGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.Операция</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.упТипыОпераций.Погрузка</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.Операция</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.упТипыОпераций.Разгрузка</dcsset:right>
+						</dcsset:item>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.ТочкаПройдена</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.Операция</dcsset:left>
+						<dcsset:comparisonType>Filled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:упЦветФонаРазрешенныеДляРедактированииПоля</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>дрвРаботыПоТекущемуРейсуАдресРазгрузки</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.Операция</dcsset:left>
+						<dcsset:comparisonType>InList</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.упТипыОпераций.Разгрузка</dcsset:right>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.упТипыОпераций.ПередачаДокументов</dcsset:right>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.упТипыОпераций.ПередачаЦенностей</dcsset:right>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.ТочкаПройдена</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.ЗапрещеноСозданиеНовойТочкиМаршрута</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:упЦветФонаРазрешенныеДляРедактированииПоля</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>дрвРаботыПоТекущемуРейсуПрибытие</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>дрвРаботыПоТекущемуРейсуНачалоРабот</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>дрвРаботыПоТекущемуРейсуУбытие</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:groupType>AndGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.ЭтоАдрес</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.ТочкаОтменена</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.ТочкаПройдена</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:упЦветФонаРазрешенныеДляРедактированииПоля</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>ОтметкаНезаполненного</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>дрвРаботыПоТекущемуРейсуПроблема</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.ЭтоРабота</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:groupType>OrGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.ЭтоПолучениеПередачаДокументов</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemGroup">
+							<dcsset:groupType>AndGroup</dcsset:groupType>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.ЭтоПолучениеПередачаДокументов</dcsset:left>
+								<dcsset:comparisonType>Equal</dcsset:comparisonType>
+								<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.КоличествоЭкземпляровДокумента</dcsset:left>
+								<dcsset:comparisonType>Equal</dcsset:comparisonType>
+								<dcsset:right xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.Количество</dcsset:right>
+							</dcsset:item>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">auto</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>дрвРаботыПоТекущемуРейсуАдресРазгрузки</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:groupType>OrGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.Операция</dcsset:left>
+							<dcsset:comparisonType>NotInList</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.упТипыОпераций.Разгрузка</dcsset:right>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.упТипыОпераций.ПередачаДокументов</dcsset:right>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.упТипыОпераций.ПередачаЦенностей</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.ЗапрещеноСозданиеНовойТочкиМаршрута</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">auto</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>дрвРаботыПоТекущемуРейсуПрибытие</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>дрвРаботыПоТекущемуРейсуНачалоРабот</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>дрвРаботыПоТекущемуРейсуУбытие</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.ЭтоАдрес</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">auto</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>дрвРаботыПоТекущемуРейсуПрибытие</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:groupType>AndGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.ЭтоАдрес</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.ПрибытиеФакт</dcsset:left>
+							<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.Отменена</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.ТочкаОтменена</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:упЦветФонаРазрешенныеДляРедактированииПоля</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ОтметкаНезаполненного</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>дрвРаботыПоТекущемуРейсуНачалоРабот</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:groupType>AndGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.ЭтоАдрес</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.НачалоРаботФакт</dcsset:left>
+							<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.Отменена</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.ТочкаОтменена</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.ДосрочноеУбытие</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:упЦветФонаРазрешенныеДляРедактированииПоля</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ОтметкаНезаполненного</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>дрвРаботыПоТекущемуРейсуУбытие</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:groupType>AndGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.ЭтоАдрес</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.УбытиеФакт</dcsset:left>
+							<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.ТочкаОтменена</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.Отменена</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:упЦветФонаРазрешенныеДляРедактированииПоля</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ОтметкаНезаполненного</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>дрвРаботыПоТекущемуРейсуКоличество</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.ЭтоПолучениеПередачаДокументов</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:упЦветФонаРазрешенныеДляРедактированииПоля</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:упЦветФонаРазрешенныеДляРедактированииПоля</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>дрвРаботыПоТекущемуРейсуНазначениеСтроки</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.ЭтоРабота</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.ЭтоПолучениеПередачаДокументов</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.НазначениеСтроки</dcsset:left>
+						<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Груз по заданию</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>дрвРаботыПоТекущемуРейсуСумма</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.ЭтоРабота</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.Операция</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.упТипыОпераций.ВыемкаЦенностей</dcsset:right>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.Отменена</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>дрвРаботыПоТекущемуРейсуСумма</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.ЭтоРабота</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.Операция</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.упТипыОпераций.ВыемкаЦенностей</dcsset:right>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.Отменена</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:упЦветФонаРазрешенныеДляРедактированииПоля</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>дрвРаботыПоТекущемуРейсуСкладскаяЯчейка</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.ТочкаПройдена</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.ЭтоРабота</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.Склад</dcsset:left>
+						<dcsset:comparisonType>Filled</dcsset:comparisonType>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:groupType>OrGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemGroup">
+							<dcsset:groupType>AndGroup</dcsset:groupType>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.НомерВЦепиПоставок</dcsset:left>
+								<dcsset:comparisonType>Equal</dcsset:comparisonType>
+								<dcsset:right xsi:type="xs:decimal">1</dcsset:right>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.Операция</dcsset:left>
+								<dcsset:comparisonType>Equal</dcsset:comparisonType>
+								<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.упТипыОпераций.Разгрузка</dcsset:right>
+							</dcsset:item>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemGroup">
+							<dcsset:groupType>AndGroup</dcsset:groupType>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.НомерВЦепиПоставок</dcsset:left>
+								<dcsset:comparisonType>Equal</dcsset:comparisonType>
+								<dcsset:right xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.НомерВЦепиПоставокМаксимальный</dcsset:right>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.НомерВЦепиПоставок</dcsset:left>
+								<dcsset:comparisonType>Greater</dcsset:comparisonType>
+								<dcsset:right xsi:type="xs:decimal">1</dcsset:right>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.Операция</dcsset:left>
+								<dcsset:comparisonType>Equal</dcsset:comparisonType>
+								<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.упТипыОпераций.Погрузка</dcsset:right>
+							</dcsset:item>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemGroup">
+							<dcsset:groupType>AndGroup</dcsset:groupType>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.НомерВЦепиПоставок</dcsset:left>
+								<dcsset:comparisonType>Greater</dcsset:comparisonType>
+								<dcsset:right xsi:type="xs:decimal">1</dcsset:right>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.НомерВЦепиПоставок</dcsset:left>
+								<dcsset:comparisonType>Less</dcsset:comparisonType>
+								<dcsset:right xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.НомерВЦепиПоставокМаксимальный</dcsset:right>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.Операция</dcsset:left>
+								<dcsset:comparisonType>InList</dcsset:comparisonType>
+								<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.упТипыОпераций.Погрузка</dcsset:right>
+								<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.упТипыОпераций.Разгрузка</dcsset:right>
+							</dcsset:item>
+						</dcsset:item>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.Отменена</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:упЦветФонаРазрешенныеДляРедактированииПоля</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>дрвРаботыПоТекущемуРейсуСкладскаяЯчейка</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:groupType>OrGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.ТочкаПройдена</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.ЭтоРабота</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.Склад</dcsset:left>
+							<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.Операция</dcsset:left>
+							<dcsset:comparisonType>NotInList</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.упТипыОпераций.Разгрузка</dcsset:right>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.упТипыОпераций.Погрузка</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.НомерВЦепиПоставок</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:упЦветФонаРазрешенныеДляРедактированииПоля</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ОтметкаНезаполненного</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>дрвРаботыПоТекущемуРейсуСкладскаяЯчейка</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.ТочкаПройдена</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.ЭтоРабота</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.Склад</dcsset:left>
+						<dcsset:comparisonType>Filled</dcsset:comparisonType>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:groupType>OrGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemGroup">
+							<dcsset:groupType>AndGroup</dcsset:groupType>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.НомерВЦепиПоставок</dcsset:left>
+								<dcsset:comparisonType>Equal</dcsset:comparisonType>
+								<dcsset:right xsi:type="xs:decimal">1</dcsset:right>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.Операция</dcsset:left>
+								<dcsset:comparisonType>Equal</dcsset:comparisonType>
+								<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.упТипыОпераций.Разгрузка</dcsset:right>
+							</dcsset:item>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemGroup">
+							<dcsset:groupType>AndGroup</dcsset:groupType>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.НомерВЦепиПоставок</dcsset:left>
+								<dcsset:comparisonType>Equal</dcsset:comparisonType>
+								<dcsset:right xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.НомерВЦепиПоставокМаксимальный</dcsset:right>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.НомерВЦепиПоставок</dcsset:left>
+								<dcsset:comparisonType>Greater</dcsset:comparisonType>
+								<dcsset:right xsi:type="xs:decimal">1</dcsset:right>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.Операция</dcsset:left>
+								<dcsset:comparisonType>Equal</dcsset:comparisonType>
+								<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.упТипыОпераций.Погрузка</dcsset:right>
+							</dcsset:item>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemGroup">
+							<dcsset:groupType>AndGroup</dcsset:groupType>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.НомерВЦепиПоставок</dcsset:left>
+								<dcsset:comparisonType>Greater</dcsset:comparisonType>
+								<dcsset:right xsi:type="xs:decimal">1</dcsset:right>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.НомерВЦепиПоставок</dcsset:left>
+								<dcsset:comparisonType>Less</dcsset:comparisonType>
+								<dcsset:right xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.НомерВЦепиПоставокМаксимальный</dcsset:right>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.Операция</dcsset:left>
+								<dcsset:comparisonType>InList</dcsset:comparisonType>
+								<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.упТипыОпераций.Погрузка</dcsset:right>
+								<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.упТипыОпераций.Разгрузка</dcsset:right>
+							</dcsset:item>
+						</dcsset:item>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.Отменена</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.СкладскаяЯчейка</dcsset:left>
+						<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:упЦветФонаРазрешенныеДляРедактированииПоля</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ОтметкаНезаполненного</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>СписокРейсовКоличествоТочекСОпозданиями</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">СписокРейсов.КоличествоТочекСОпозданиями</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:decimal">1</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="xs:string"/>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="Настройки" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.упСервис</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>Настройки</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ОбновитьПланировщик" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить планировщик</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить планировщик</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>Обновить</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="СохранитьИсполнениеРейса" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить изменения</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить исполнение рейса</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.SaveFile</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СохранитьИсполнениеРейса</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="РазвернутьДерево" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Развернуть дерево</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Развернуть дерево</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.упРазвернутьГруппировки</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>РазвернутьДерево</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="СвернутьДерево" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Свернуть дерево</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Свернуть дерево</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.упСвернутьГруппировки</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СвернутьДерево</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ОтметитьВсе" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отметить все</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить флажки у всех строк</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ОтметитьВсе</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="СнятьВсе" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять все</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять все</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.UncheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СнятьВсе</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ОбновитьИсполнениеРейса" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить исполнение рейса</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить исполнение рейса</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Shortcut>F5</Shortcut>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ОбновитьИсполнениеРейса</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ОтменитьПрохождениеТочки" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отменить точку</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отменить прохождение точки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.упСтатусОтменено</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ОтменитьПрохождениеТочки</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ИзменитьТоварныйСостав" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Товарный состав</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Изменить товарный состав</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Change</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ИзменитьТоварныйСостав</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ВвестиВремя" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ввести время</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ввести время</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.упИзменитьВремя</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ВвестиВремя</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ИзменитьВГХ" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Изменить ВГХ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Изменить ВГХ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Change</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ИзменитьВГХ</Action>
+			<FunctionalOptions>
+				<Item>FunctionalOption.упРазрешитьИзменениеПараметровГрузовПриИсполненииРейса</Item>
+			</FunctionalOptions>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ДосрочноеПрохождениеТочки" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Завершить досрочно</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Досрочное прохождение точки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ДосрочноеПрохождениеТочки</Action>
+		</Command>
+	</Commands>
+</Form>

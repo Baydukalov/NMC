@@ -1,0 +1,603 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаНачальнаяТочка" id="34">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа начальная точка</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа начальная точка</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаНачальнаяТочкаРасширеннаяПодсказка" id="35"/>
+			<ChildItems>
+				<InputField name="НачальнаяШирота" id="1">
+					<DataPath>Запись.НачальнаяШирота</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Начальная точка, широта</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="НачальнаяШиротаКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="НачальнаяШиротаРасширеннаяПодсказка" id="3"/>
+				</InputField>
+				<InputField name="НачальнаяДолгота" id="4">
+					<DataPath>Запись.НачальнаяДолгота</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>долгота</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="НачальнаяДолготаКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="НачальнаяДолготаРасширеннаяПодсказка" id="6"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаКонечнаяТочка" id="36">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа конечная точка</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа конечная точка</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаКонечнаяТочкаРасширеннаяПодсказка" id="37"/>
+			<ChildItems>
+				<InputField name="КонечнаяШирота" id="7">
+					<DataPath>Запись.КонечнаяШирота</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Конечная точка, широта</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="КонечнаяШиротаКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="КонечнаяШиротаРасширеннаяПодсказка" id="9"/>
+				</InputField>
+				<InputField name="КонечнаяДолгота" id="10">
+					<DataPath>Запись.КонечнаяДолгота</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>долгота</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="КонечнаяДолготаКонтекстноеМеню" id="11"/>
+					<ExtendedTooltip name="КонечнаяДолготаРасширеннаяПодсказка" id="12"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаОграничения" id="108">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа ограничения</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа ограничения</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаОграниченияРасширеннаяПодсказка" id="109"/>
+			<ChildItems>
+				<InputField name="Ограничение" id="110">
+					<DataPath>Запись.Ограничение</DataPath>
+					<ContextMenu name="ОграничениеКонтекстноеМеню" id="111"/>
+					<ExtendedTooltip name="ОграничениеРасширеннаяПодсказка" id="112"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаПуть" id="38">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расстояние и маршрут</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа путь</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Representation>StrongSeparation</Representation>
+			<ExtendedTooltip name="ГруппаПутьРасширеннаяПодсказка" id="39"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаРасстояние" id="40">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа расстояние</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа расстояние</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРасстояниеРасширеннаяПодсказка" id="41"/>
+					<ChildItems>
+						<InputField name="Расстояние" id="16">
+							<DataPath>Запись.Расстояние</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Расстояние</v8:content>
+								</v8:item>
+							</Title>
+							<Width>15</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="РасстояниеКонтекстноеМеню" id="17"/>
+							<ExtendedTooltip name="РасстояниеРасширеннаяПодсказка" id="18"/>
+						</InputField>
+						<LabelDecoration name="Декорация1" id="42">
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>км.</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="Декорация1КонтекстноеМеню" id="43"/>
+							<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="44"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаВремя" id="45">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа время</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа время</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаВремяРасширеннаяПодсказка" id="46"/>
+					<ChildItems>
+						<InputField name="Время" id="19">
+							<DataPath>Запись.Время</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Время</v8:content>
+								</v8:item>
+							</Title>
+							<Width>15</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ВремяКонтекстноеМеню" id="20"/>
+							<ExtendedTooltip name="ВремяРасширеннаяПодсказка" id="21"/>
+						</InputField>
+						<LabelDecoration name="Декорация2" id="47">
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>сек.</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="Декорация2КонтекстноеМеню" id="48"/>
+							<ExtendedTooltip name="Декорация2РасширеннаяПодсказка" id="49"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаВремяПонедельник" id="52">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа время</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа время</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаВремяПонедельникРасширеннаяПодсказка" id="53"/>
+					<ChildItems>
+						<InputField name="ВремяПонедельник" id="54">
+							<DataPath>Запись.ВремяПонедельник</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Время (пн)</v8:content>
+								</v8:item>
+							</Title>
+							<Width>15</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ВремяПонедельникКонтекстноеМеню" id="55"/>
+							<ExtendedTooltip name="ВремяПонедельникРасширеннаяПодсказка" id="56"/>
+						</InputField>
+						<LabelDecoration name="Декорация3" id="57">
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>сек.</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="Декорация3КонтекстноеМеню" id="58"/>
+							<ExtendedTooltip name="Декорация3РасширеннаяПодсказка" id="59"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаВремяВторник" id="60">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа время</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа время</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаВремяВторникРасширеннаяПодсказка" id="61"/>
+					<ChildItems>
+						<InputField name="ВремяВторник" id="62">
+							<DataPath>Запись.ВремяВторник</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Время (вт)</v8:content>
+								</v8:item>
+							</Title>
+							<Width>15</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ВремяВторникКонтекстноеМеню" id="63"/>
+							<ExtendedTooltip name="ВремяВторникРасширеннаяПодсказка" id="64"/>
+						</InputField>
+						<LabelDecoration name="Декорация4" id="65">
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>сек.</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="Декорация4КонтекстноеМеню" id="66"/>
+							<ExtendedTooltip name="Декорация4РасширеннаяПодсказка" id="67"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаВремяСреда" id="68">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа время</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа время</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаВремяСредаРасширеннаяПодсказка" id="69"/>
+					<ChildItems>
+						<InputField name="ВремяСреда" id="70">
+							<DataPath>Запись.ВремяСреда</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Время (ср)</v8:content>
+								</v8:item>
+							</Title>
+							<Width>15</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ВремяСредаКонтекстноеМеню" id="71"/>
+							<ExtendedTooltip name="ВремяСредаРасширеннаяПодсказка" id="72"/>
+						</InputField>
+						<LabelDecoration name="Декорация5" id="73">
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>сек.</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="Декорация5КонтекстноеМеню" id="74"/>
+							<ExtendedTooltip name="Декорация5РасширеннаяПодсказка" id="75"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаВремяЧетверг" id="76">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа время</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа время</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаВремяЧетвергРасширеннаяПодсказка" id="77"/>
+					<ChildItems>
+						<InputField name="ВремяЧетверг" id="78">
+							<DataPath>Запись.ВремяЧетверг</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Время (чт)</v8:content>
+								</v8:item>
+							</Title>
+							<Width>15</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ВремяЧетвергКонтекстноеМеню" id="79"/>
+							<ExtendedTooltip name="ВремяЧетвергРасширеннаяПодсказка" id="80"/>
+						</InputField>
+						<LabelDecoration name="Декорация6" id="81">
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>сек.</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="Декорация6КонтекстноеМеню" id="82"/>
+							<ExtendedTooltip name="Декорация6РасширеннаяПодсказка" id="83"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаВремяПятница" id="84">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа время</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа время</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаВремяПятницаРасширеннаяПодсказка" id="85"/>
+					<ChildItems>
+						<InputField name="ВремяПятница" id="86">
+							<DataPath>Запись.ВремяПятница</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Время (пт)</v8:content>
+								</v8:item>
+							</Title>
+							<Width>15</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ВремяПятницаКонтекстноеМеню" id="87"/>
+							<ExtendedTooltip name="ВремяПятницаРасширеннаяПодсказка" id="88"/>
+						</InputField>
+						<LabelDecoration name="Декорация7" id="89">
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>сек.</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="Декорация7КонтекстноеМеню" id="90"/>
+							<ExtendedTooltip name="Декорация7РасширеннаяПодсказка" id="91"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаВремяСуббота" id="92">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа время</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа время</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаВремяСубботаРасширеннаяПодсказка" id="93"/>
+					<ChildItems>
+						<InputField name="ВремяСуббота" id="94">
+							<DataPath>Запись.ВремяСуббота</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Время (сб)</v8:content>
+								</v8:item>
+							</Title>
+							<Width>15</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ВремяСубботаКонтекстноеМеню" id="95"/>
+							<ExtendedTooltip name="ВремяСубботаРасширеннаяПодсказка" id="96"/>
+						</InputField>
+						<LabelDecoration name="Декорация8" id="97">
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>сек.</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="Декорация8КонтекстноеМеню" id="98"/>
+							<ExtendedTooltip name="Декорация8РасширеннаяПодсказка" id="99"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаВремяВоскресенье" id="100">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа время</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа время</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаВремяВоскресеньеРасширеннаяПодсказка" id="101"/>
+					<ChildItems>
+						<InputField name="ВремяВоскресенье" id="102">
+							<DataPath>Запись.ВремяВоскресенье</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Время (вс)</v8:content>
+								</v8:item>
+							</Title>
+							<Width>15</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ВремяВоскресеньеКонтекстноеМеню" id="103"/>
+							<ExtendedTooltip name="ВремяВоскресеньеРасширеннаяПодсказка" id="104"/>
+						</InputField>
+						<LabelDecoration name="Декорация9" id="105">
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>сек.</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="Декорация9КонтекстноеМеню" id="106"/>
+							<ExtendedTooltip name="Декорация9РасширеннаяПодсказка" id="107"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<InputField name="ВремяБазовое" id="119">
+					<DataPath>Запись.ВремяБазовое</DataPath>
+					<ContextMenu name="ВремяБазовоеКонтекстноеМеню" id="120"/>
+					<ExtendedTooltip name="ВремяБазовоеРасширеннаяПодсказка" id="121"/>
+				</InputField>
+				<InputField name="Путь" id="22">
+					<DataPath>Запись.Путь</DataPath>
+					<TitleLocation>Left</TitleLocation>
+					<ContextMenu name="ПутьКонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="ПутьРасширеннаяПодсказка" id="24"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаСлужебнаяИнформация" id="50">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Служебная информация</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа служебная информация</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Representation>StrongSeparation</Representation>
+			<ExtendedTooltip name="ГруппаСлужебнаяИнформацияРасширеннаяПодсказка" id="51"/>
+			<ChildItems>
+				<InputField name="ДатаИзменения" id="25">
+					<DataPath>Запись.ДатаИзменения</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<ContextMenu name="ДатаИзмененияКонтекстноеМеню" id="26"/>
+					<ExtendedTooltip name="ДатаИзмененияРасширеннаяПодсказка" id="27"/>
+				</InputField>
+				<InputField name="ПопыткаРасчета" id="28">
+					<DataPath>Запись.ПопыткаРасчета</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<ContextMenu name="ПопыткаРасчетаКонтекстноеМеню" id="29"/>
+					<ExtendedTooltip name="ПопыткаРасчетаРасширеннаяПодсказка" id="30"/>
+				</InputField>
+				<InputField name="Ошибка" id="116">
+					<DataPath>Запись.Ошибка</DataPath>
+					<ContextMenu name="ОшибкаКонтекстноеМеню" id="117"/>
+					<ExtendedTooltip name="ОшибкаРасширеннаяПодсказка" id="118"/>
+				</InputField>
+				<CheckBoxField name="АвтоматическийРасчет" id="31">
+					<DataPath>Запись.АвтоматическийРасчет</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="АвтоматическийРасчетКонтекстноеМеню" id="32"/>
+					<ExtendedTooltip name="АвтоматическийРасчетРасширеннаяПодсказка" id="33"/>
+				</CheckBoxField>
+				<CheckBoxField name="ПытатьсяРассчитатьСнова" id="113">
+					<DataPath>Запись.ПытатьсяРассчитатьСнова</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ПытатьсяРассчитатьСноваКонтекстноеМеню" id="114"/>
+					<ExtendedTooltip name="ПытатьсяРассчитатьСноваРасширеннаяПодсказка" id="115"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Запись" id="1">
+			<Type>
+				<v8:Type>cfg:InformationRegisterRecordManager.упРасстоянияМеждуТочками</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+</Form>

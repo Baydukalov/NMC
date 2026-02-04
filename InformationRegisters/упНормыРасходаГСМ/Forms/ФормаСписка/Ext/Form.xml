@@ -1,0 +1,739 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<ChildItems>
+		<UsualGroup name="СписокКомпоновщикНастроекПользовательскиеНастройки" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа пользовательских настроек</v8:content>
+				</v8:item>
+			</Title>
+			<VerticalStretch>false</VerticalStretch>
+			<Group>Vertical</Group>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="СписокКомпоновщикНастроекПользовательскиеНастройкиРасширеннаяПодсказка" id="2"/>
+		</UsualGroup>
+		<Table name="Список" id="3">
+			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
+			<DefaultItem>true</DefaultItem>
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<InitialTreeView>ExpandTopLevel</InitialTreeView>
+			<EnableStartDrag>true</EnableStartDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Список</DataPath>
+			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<UserSettingsGroup>СписокКомпоновщикНастроекПользовательскиеНастройки</UserSettingsGroup>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
+			<SearchStringAddition name="СписокСтрокаПоиска" id="7">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="8"/>
+				<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="9"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокСостояниеПросмотра" id="10">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="11"/>
+				<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="12"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокУправлениеПоиском" id="13">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="14"/>
+				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="15"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="Период" id="16">
+					<DataPath>Список.Период</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<ContextMenu name="ПериодКонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="ПериодРасширеннаяПодсказка" id="18"/>
+				</LabelField>
+				<LabelField name="Регистратор" id="19">
+					<DataPath>Список.Регистратор</DataPath>
+					<ContextMenu name="РегистраторКонтекстноеМеню" id="20"/>
+					<ExtendedTooltip name="РегистраторРасширеннаяПодсказка" id="21"/>
+				</LabelField>
+				<LabelField name="НомерСтроки" id="22">
+					<DataPath>Список.НомерСтроки</DataPath>
+					<ContextMenu name="НомерСтрокиКонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="НомерСтрокиРасширеннаяПодсказка" id="24"/>
+				</LabelField>
+				<InputField name="ОбъектНормРасхода" id="25">
+					<DataPath>Список.ОбъектНормРасхода</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Транспортное средство / Дополнительное оборудование</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ОбъектНормРасходаКонтекстноеМеню" id="26"/>
+					<ExtendedTooltip name="ОбъектНормРасходаРасширеннаяПодсказка" id="27"/>
+				</InputField>
+				<LabelField name="ВидГСМ" id="28">
+					<DataPath>Список.ВидГСМ</DataPath>
+					<ContextMenu name="ВидГСМКонтекстноеМеню" id="29"/>
+					<ExtendedTooltip name="ВидГСМРасширеннаяПодсказка" id="30"/>
+				</LabelField>
+				<LabelField name="ТипНормыРасходаГСМ" id="31">
+					<DataPath>Список.ТипНормыРасходаГСМ</DataPath>
+					<ContextMenu name="ТипНормыРасходаГСМКонтекстноеМеню" id="32"/>
+					<ExtendedTooltip name="ТипНормыРасходаГСМРасширеннаяПодсказка" id="33"/>
+				</LabelField>
+				<ColumnGroup name="ГруппаРасходГСМ" id="34">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа расход ГСМ</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа расход ГСМ</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаРасходГСМРасширеннаяПодсказка" id="35"/>
+					<ChildItems>
+						<ColumnGroup name="ГруппаРасход" id="36">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа расход</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа расход</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="ГруппаРасходРасширеннаяПодсказка" id="37"/>
+							<ChildItems>
+								<LabelField name="Расход" id="38">
+									<DataPath>Список.Расход</DataPath>
+									<ContextMenu name="РасходКонтекстноеМеню" id="39"/>
+									<ExtendedTooltip name="РасходРасширеннаяПодсказка" id="40"/>
+								</LabelField>
+							</ChildItems>
+						</ColumnGroup>
+						<LabelField name="ИзменениеРасхода" id="41">
+							<DataPath>Список.ИзменениеРасхода</DataPath>
+							<ContextMenu name="ИзменениеРасходаКонтекстноеМеню" id="42"/>
+							<ExtendedTooltip name="ИзменениеРасходаРасширеннаяПодсказка" id="43"/>
+						</LabelField>
+						<CheckBoxField name="УчитыватьТемпературуВоздухаВПутевомЛисте" id="44">
+							<DataPath>Список.УчитыватьТемпературуВоздухаВПутевомЛисте</DataPath>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="УчитыватьТемпературуВоздухаВПутевомЛистеКонтекстноеМеню" id="45"/>
+							<ExtendedTooltip name="УчитыватьТемпературуВоздухаВПутевомЛистеРасширеннаяПодсказка" id="46"/>
+						</CheckBoxField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ГруппаНадбавки" id="47">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Эксплуатационные нормы (% - надбавка вычисляется как процент от базового расхода; л/час и л/км- надбавка считается исходя из затраченного времени или пройденного расстояния по путевому листу)</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>листу)</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<ShowInHeader>true</ShowInHeader>
+					<ExtendedTooltip name="ГруппаНадбавкиРасширеннаяПодсказка" id="48"/>
+					<ChildItems>
+						<ColumnGroup name="ГруппаКолонка4" id="49">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа колонка4</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа колонка4</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="ГруппаКолонка4РасширеннаяПодсказка" id="50"/>
+							<ChildItems>
+								<ColumnGroup name="ГруппаСпецОборудование" id="51">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Специальное оборудование</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Указывается надбавка на расход топлива на работу специального оборудования</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<ShowInHeader>true</ShowInHeader>
+									<ExtendedTooltip name="ГруппаСпецОборудованиеРасширеннаяПодсказка" id="52"/>
+									<ChildItems>
+										<LabelField name="РасходСпециальноеОборудование" id="53">
+											<DataPath>Список.РасходСпециальноеОборудование</DataPath>
+											<ShowInHeader>false</ShowInHeader>
+											<ContextMenu name="РасходСпециальноеОборудованиеКонтекстноеМеню" id="54"/>
+											<ExtendedTooltip name="РасходСпециальноеОборудованиеРасширеннаяПодсказка" id="55"/>
+										</LabelField>
+										<LabelField name="ТипРасходаСпециальноеОборудование" id="56">
+											<DataPath>Список.ТипРасходаСпециальноеОборудование</DataPath>
+											<ShowInHeader>false</ShowInHeader>
+											<ContextMenu name="ТипРасходаСпециальноеОборудованиеКонтекстноеМеню" id="57"/>
+											<ExtendedTooltip name="ТипРасходаСпециальноеОборудованиеРасширеннаяПодсказка" id="58"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="ГруппаПростой" id="59">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Простой</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Указывается дополнительный расход топлива на простой автомобиля с работающим двигателем</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<ShowInHeader>true</ShowInHeader>
+									<ExtendedTooltip name="ГруппаПростойРасширеннаяПодсказка" id="60"/>
+									<ChildItems>
+										<LabelField name="РасходПростой" id="61">
+											<DataPath>Список.РасходПростой</DataPath>
+											<ShowInHeader>false</ShowInHeader>
+											<ContextMenu name="РасходПростойКонтекстноеМеню" id="62"/>
+											<ExtendedTooltip name="РасходПростойРасширеннаяПодсказка" id="63"/>
+										</LabelField>
+										<LabelField name="ТипРасходаПростой" id="64">
+											<DataPath>Список.ТипРасходаПростой</DataPath>
+											<ShowInHeader>false</ShowInHeader>
+											<ContextMenu name="ТипРасходаПростойКонтекстноеМеню" id="65"/>
+											<ExtendedTooltip name="ТипРасходаПростойРасширеннаяПодсказка" id="66"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+							</ChildItems>
+						</ColumnGroup>
+						<ColumnGroup name="ГруппаКолонка1" id="67">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа колонка1</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа колонка1</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="ГруппаКолонка1РасширеннаяПодсказка" id="68"/>
+							<ChildItems>
+								<ColumnGroup name="ГруппаЗимний" id="69">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Зима</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Указывается надбавка на расход топлива в зимнее время года в зависимости от климатических районов страны.</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<ShowInHeader>true</ShowInHeader>
+									<ExtendedTooltip name="ГруппаЗимнийРасширеннаяПодсказка" id="70"/>
+									<ChildItems>
+										<LabelField name="РасходЗимний" id="71">
+											<DataPath>Список.РасходЗимний</DataPath>
+											<ShowInHeader>false</ShowInHeader>
+											<ContextMenu name="РасходЗимнийКонтекстноеМеню" id="72"/>
+											<ExtendedTooltip name="РасходЗимнийРасширеннаяПодсказка" id="73"/>
+										</LabelField>
+										<LabelField name="ТипРасходаЗимний" id="74">
+											<DataPath>Список.ТипРасходаЗимний</DataPath>
+											<ShowInHeader>false</ShowInHeader>
+											<ContextMenu name="ТипРасходаЗимнийКонтекстноеМеню" id="75"/>
+											<ExtendedTooltip name="ТипРасходаЗимнийРасширеннаяПодсказка" id="76"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="ГруппаОтопитель" id="77">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отопитель</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Указывается расход на отопитель </v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<ShowInHeader>true</ShowInHeader>
+									<ExtendedTooltip name="ГруппаОтопительРасширеннаяПодсказка" id="78"/>
+									<ChildItems>
+										<LabelField name="РасходОтопитель" id="79">
+											<DataPath>Список.РасходОтопитель</DataPath>
+											<ShowInHeader>false</ShowInHeader>
+											<ContextMenu name="РасходОтопительКонтекстноеМеню" id="80"/>
+											<ExtendedTooltip name="РасходОтопительРасширеннаяПодсказка" id="81"/>
+										</LabelField>
+										<LabelField name="ТипРасходаОтопитель" id="82">
+											<DataPath>Список.ТипРасходаОтопитель</DataPath>
+											<ShowInHeader>false</ShowInHeader>
+											<ContextMenu name="ТипРасходаОтопительКонтекстноеМеню" id="83"/>
+											<ExtendedTooltip name="ТипРасходаОтопительРасширеннаяПодсказка" id="84"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+							</ChildItems>
+						</ColumnGroup>
+						<ColumnGroup name="ГруппаКолонка2" id="85">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа колонка2</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа колонка2</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="ГруппаКолонка2РасширеннаяПодсказка" id="86"/>
+							<ChildItems>
+								<ColumnGroup name="ГруппаКондиционер" id="87">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Кондиционер</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Указывается надбавка на расход топлива при использовании кондиционера при движении автомобиля</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<ShowInHeader>true</ShowInHeader>
+									<ExtendedTooltip name="ГруппаКондиционерРасширеннаяПодсказка" id="88"/>
+									<ChildItems>
+										<LabelField name="РасходКондиционер" id="89">
+											<DataPath>Список.РасходКондиционер</DataPath>
+											<ShowInHeader>false</ShowInHeader>
+											<ContextMenu name="РасходКондиционерКонтекстноеМеню" id="90"/>
+											<ExtendedTooltip name="РасходКондиционерРасширеннаяПодсказка" id="91"/>
+										</LabelField>
+										<LabelField name="ТипРасходаКондиционер" id="92">
+											<DataPath>Список.ТипРасходаКондиционер</DataPath>
+											<ShowInHeader>false</ShowInHeader>
+											<ContextMenu name="ТипРасходаКондиционерКонтекстноеМеню" id="93"/>
+											<ExtendedTooltip name="ТипРасходаКондиционерРасширеннаяПодсказка" id="94"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="ГруппаКлиматКонтроль" id="95">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>"Климат-контроль"</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Указывается надбавка на расход топлива при использовании установки "климат-контроль"  (независимо от времени года) при движении автомобиля </v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<ShowInHeader>true</ShowInHeader>
+									<ExtendedTooltip name="ГруппаКлиматКонтрольРасширеннаяПодсказка" id="96"/>
+									<ChildItems>
+										<LabelField name="РасходКлиматКонтроль" id="100">
+											<DataPath>Список.РасходКлиматКонтроль</DataPath>
+											<ShowInHeader>false</ShowInHeader>
+											<ContextMenu name="РасходКлиматКонтрольКонтекстноеМеню" id="101"/>
+											<ExtendedTooltip name="РасходКлиматКонтрольРасширеннаяПодсказка" id="102"/>
+										</LabelField>
+										<LabelField name="ТипРасходаКлиматКонтроль" id="97">
+											<DataPath>Список.ТипРасходаКлиматКонтроль</DataPath>
+											<ShowInHeader>false</ShowInHeader>
+											<ContextMenu name="ТипРасходаКлиматКонтрольКонтекстноеМеню" id="98"/>
+											<ExtendedTooltip name="ТипРасходаКлиматКонтрольРасширеннаяПодсказка" id="99"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+							</ChildItems>
+						</ColumnGroup>
+						<ColumnGroup name="ГруппаКолонка3" id="103">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа колонка3</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа колонка3</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="ГруппаКолонка3РасширеннаяПодсказка" id="104"/>
+							<ChildItems>
+								<ColumnGroup name="ГруппаГрузовой" id="105">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Грузовой</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Указывается надбавка на расход топлива при работе нагруженного грузового транспорта</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<ShowInHeader>true</ShowInHeader>
+									<ExtendedTooltip name="ГруппаГрузовойРасширеннаяПодсказка" id="106"/>
+									<ChildItems>
+										<LabelField name="РасходГрузовой" id="107">
+											<DataPath>Список.РасходГрузовой</DataPath>
+											<ShowInHeader>false</ShowInHeader>
+											<ContextMenu name="РасходГрузовойКонтекстноеМеню" id="108"/>
+											<ExtendedTooltip name="РасходГрузовойРасширеннаяПодсказка" id="109"/>
+										</LabelField>
+										<LabelField name="ТипРасходаГрузовой" id="110">
+											<DataPath>Список.ТипРасходаГрузовой</DataPath>
+											<ShowInHeader>false</ShowInHeader>
+											<ContextMenu name="ТипРасходаГрузовойКонтекстноеМеню" id="111"/>
+											<ExtendedTooltip name="ТипРасходаГрузовойРасширеннаяПодсказка" id="112"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="ГруппаЭксплуатация" id="113">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Эксплуатация</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Указывается надбавка на расход топлива для автомобилей, находящихся в эксплуатации более пяти лет или с общим пробегом более 100 тыс. км </v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<ShowInHeader>true</ShowInHeader>
+									<ExtendedTooltip name="ГруппаЭксплуатацияРасширеннаяПодсказка" id="114"/>
+									<ChildItems>
+										<LabelField name="РасходДлительнаяЭксплуатация" id="115">
+											<DataPath>Список.РасходДлительнаяЭксплуатация</DataPath>
+											<ShowInHeader>false</ShowInHeader>
+											<ContextMenu name="РасходДлительнаяЭксплуатацияКонтекстноеМеню" id="116"/>
+											<ExtendedTooltip name="РасходДлительнаяЭксплуатацияРасширеннаяПодсказка" id="117"/>
+										</LabelField>
+										<LabelField name="ТипРасходаДлительнаяЭксплуатация" id="118">
+											<DataPath>Список.ТипРасходаДлительнаяЭксплуатация</DataPath>
+											<ShowInHeader>false</ShowInHeader>
+											<ContextMenu name="ТипРасходаДлительнаяЭксплуатацияКонтекстноеМеню" id="119"/>
+											<ExtendedTooltip name="ТипРасходаДлительнаяЭксплуатацияРасширеннаяПодсказка" id="120"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+							</ChildItems>
+						</ColumnGroup>
+						<ColumnGroup name="ГруппаКолонка5" id="121">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа колонка5</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа колонка5</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="ГруппаКолонка5РасширеннаяПодсказка" id="122"/>
+							<ChildItems>
+								<ColumnGroup name="ГруппаСложность" id="123">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сложность</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Указывается надбавка на расход топлива при работе автотранспорта на дорогах общего пользования со сложным планом (вне пределов городов и пригородных зон), где в среднем на 1 км пути имеется более пяти закруглений (поворотов) радиусом менее 40 м</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<ShowInHeader>true</ShowInHeader>
+									<ExtendedTooltip name="ГруппаСложностьРасширеннаяПодсказка" id="124"/>
+									<ChildItems>
+										<LabelField name="РасходСложностьДорог" id="127">
+											<DataPath>Список.РасходСложностьДорог</DataPath>
+											<ShowInHeader>false</ShowInHeader>
+											<ContextMenu name="РасходСложностьДорогКонтекстноеМеню" id="128"/>
+											<ExtendedTooltip name="РасходСложностьДорогРасширеннаяПодсказка" id="129"/>
+										</LabelField>
+										<LabelField name="ТипРасходаСложностьДорог" id="133">
+											<DataPath>Список.ТипРасходаСложностьДорог</DataPath>
+											<ShowInHeader>false</ShowInHeader>
+											<ContextMenu name="ТипРасходаСложностьДорогКонтекстноеМеню" id="134"/>
+											<ExtendedTooltip name="ТипРасходаСложностьДорогРасширеннаяПодсказка" id="135"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="ГруппаГорность" id="125">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Горность</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Указывается надбавка на расход топлива при работе автотранспорта на дорогах общего пользования в горной местности.</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<ShowInHeader>true</ShowInHeader>
+									<ExtendedTooltip name="ГруппаГорностьРасширеннаяПодсказка" id="126"/>
+									<ChildItems>
+										<LabelField name="РасходГорнаяМестность" id="130">
+											<DataPath>Список.РасходГорнаяМестность</DataPath>
+											<ShowInHeader>false</ShowInHeader>
+											<ContextMenu name="РасходГорнаяМестностьКонтекстноеМеню" id="131"/>
+											<ExtendedTooltip name="РасходГорнаяМестностьРасширеннаяПодсказка" id="132"/>
+										</LabelField>
+										<LabelField name="ТипРасходаГорнаяМестность" id="136">
+											<DataPath>Список.ТипРасходаГорнаяМестность</DataPath>
+											<ShowInHeader>false</ShowInHeader>
+											<ContextMenu name="ТипРасходаГорнаяМестностьКонтекстноеМеню" id="137"/>
+											<ExtendedTooltip name="ТипРасходаГорнаяМестностьРасширеннаяПодсказка" id="138"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+							</ChildItems>
+						</ColumnGroup>
+						<ColumnGroup name="ГруппаКолонка6" id="139">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа колонка6</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа колонка6</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="ГруппаКолонка6РасширеннаяПодсказка" id="140"/>
+							<ChildItems>
+								<ColumnGroup name="ГруппаНаселенныйПункт" id="141">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Населенный пункт</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Указывается надбавка на расход топлива при работе автотранспорта в населенных пунктах с повышенной численностью населения</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<ShowInHeader>true</ShowInHeader>
+									<ExtendedTooltip name="ГруппаНаселенныйПунктРасширеннаяПодсказка" id="142"/>
+									<ChildItems>
+										<LabelField name="РасходНаселенныйПункт" id="143">
+											<DataPath>Список.РасходНаселенныйПункт</DataPath>
+											<ShowInHeader>false</ShowInHeader>
+											<ContextMenu name="РасходНаселенныйПунктКонтекстноеМеню" id="144"/>
+											<ExtendedTooltip name="РасходНаселенныйПунктРасширеннаяПодсказка" id="145"/>
+										</LabelField>
+										<LabelField name="ТипРасходаНаселенныйПункт" id="146">
+											<DataPath>Список.ТипРасходаНаселенныйПункт</DataPath>
+											<ShowInHeader>false</ShowInHeader>
+											<ContextMenu name="ТипРасходаНаселенныйПунктКонтекстноеМеню" id="147"/>
+											<ExtendedTooltip name="ТипРасходаНаселенныйПунктРасширеннаяПодсказка" id="148"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="ГруппаРабочаяОперация" id="157">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Рабочая операция</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа рабочая операция</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<ShowInHeader>true</ShowInHeader>
+									<ExtendedTooltip name="ГруппаРабочаяОперацияРасширеннаяПодсказка" id="158"/>
+									<ChildItems>
+										<LabelField name="РасходРабочаяОперация" id="162">
+											<DataPath>Список.РасходРабочаяОперация</DataPath>
+											<ShowInHeader>false</ShowInHeader>
+											<ContextMenu name="РасходРабочаяОперацияКонтекстноеМеню" id="163"/>
+											<ExtendedTooltip name="РасходРабочаяОперацияРасширеннаяПодсказка" id="164"/>
+										</LabelField>
+										<LabelField name="ТипРасходаРабочаяОперация" id="159">
+											<DataPath>Список.ТипРасходаРабочаяОперация</DataPath>
+											<ShowInHeader>false</ShowInHeader>
+											<ContextMenu name="ТипРасходаРабочаяОперацияКонтекстноеМеню" id="160"/>
+											<ExtendedTooltip name="ТипРасходаРабочаяОперацияРасширеннаяПодсказка" id="161"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+							</ChildItems>
+						</ColumnGroup>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="Группа1" id="149">
+					<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="150"/>
+					<ChildItems>
+						<LabelField name="ФормулаРасчета" id="151">
+							<DataPath>Список.ФормулаРасчета</DataPath>
+							<ContextMenu name="ФормулаРасчетаКонтекстноеМеню" id="152"/>
+							<ExtendedTooltip name="ФормулаРасчетаРасширеннаяПодсказка" id="153"/>
+						</LabelField>
+						<LabelField name="ШкалаТемпературныхКоэффициентов" id="154">
+							<DataPath>Список.ШкалаТемпературныхКоэффициентов</DataPath>
+							<ContextMenu name="ШкалаТемпературныхКоэффициентовКонтекстноеМеню" id="155"/>
+							<ExtendedTooltip name="ШкалаТемпературныхКоэффициентовРасширеннаяПодсказка" id="156"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Список" id="1">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+    РегистрСведенийупНормыРасходаГСМ.Период КАК Период,
+    РегистрСведенийупНормыРасходаГСМ.Регистратор КАК Регистратор,
+    РегистрСведенийупНормыРасходаГСМ.НомерСтроки КАК НомерСтроки,
+    РегистрСведенийупНормыРасходаГСМ.Активность КАК Активность,
+    РегистрСведенийупНормыРасходаГСМ.ОбъектНормРасхода КАК ОбъектНормРасхода,
+    РегистрСведенийупНормыРасходаГСМ.ВидГСМ КАК ВидГСМ,
+    РегистрСведенийупНормыРасходаГСМ.ТипНормыРасходаГСМ КАК ТипНормыРасходаГСМ,
+    РегистрСведенийупНормыРасходаГСМ.Расход КАК Расход,
+    РегистрСведенийупНормыРасходаГСМ.ИзменениеРасхода КАК ИзменениеРасхода,
+    РегистрСведенийупНормыРасходаГСМ.УчитыватьТемпературуВоздухаВПутевомЛисте КАК УчитыватьТемпературуВоздухаВПутевомЛисте,
+    РегистрСведенийупНормыРасходаГСМ.РасходСпециальноеОборудование КАК РасходСпециальноеОборудование,
+    РегистрСведенийупНормыРасходаГСМ.ТипРасходаСпециальноеОборудование КАК ТипРасходаСпециальноеОборудование,
+    РегистрСведенийупНормыРасходаГСМ.РасходПростой КАК РасходПростой,
+    РегистрСведенийупНормыРасходаГСМ.ТипРасходаПростой КАК ТипРасходаПростой,
+    РегистрСведенийупНормыРасходаГСМ.РасходЗимний КАК РасходЗимний,
+    РегистрСведенийупНормыРасходаГСМ.ТипРасходаЗимний КАК ТипРасходаЗимний,
+    РегистрСведенийупНормыРасходаГСМ.РасходОтопитель КАК РасходОтопитель,
+    РегистрСведенийупНормыРасходаГСМ.ТипРасходаОтопитель КАК ТипРасходаОтопитель,
+    РегистрСведенийупНормыРасходаГСМ.РасходКлиматКонтроль КАК РасходКлиматКонтроль,
+    РегистрСведенийупНормыРасходаГСМ.ТипРасходаКлиматКонтроль КАК ТипРасходаКлиматКонтроль,
+    РегистрСведенийупНормыРасходаГСМ.РасходКондиционер КАК РасходКондиционер,
+    РегистрСведенийупНормыРасходаГСМ.ТипРасходаКондиционер КАК ТипРасходаКондиционер,
+    РегистрСведенийупНормыРасходаГСМ.РасходГрузовой КАК РасходГрузовой,
+    РегистрСведенийупНормыРасходаГСМ.ТипРасходаГрузовой КАК ТипРасходаГрузовой,
+    РегистрСведенийупНормыРасходаГСМ.РасходДлительнаяЭксплуатация КАК РасходДлительнаяЭксплуатация,
+    РегистрСведенийупНормыРасходаГСМ.ТипРасходаДлительнаяЭксплуатация КАК ТипРасходаДлительнаяЭксплуатация,
+    РегистрСведенийупНормыРасходаГСМ.РасходСложностьДорог КАК РасходСложностьДорог,
+    РегистрСведенийупНормыРасходаГСМ.ТипРасходаСложностьДорог КАК ТипРасходаСложностьДорог,
+    РегистрСведенийупНормыРасходаГСМ.РасходГорнаяМестность КАК РасходГорнаяМестность,
+    РегистрСведенийупНормыРасходаГСМ.ТипРасходаГорнаяМестность КАК ТипРасходаГорнаяМестность,
+    РегистрСведенийупНормыРасходаГСМ.РасходНаселенныйПункт КАК РасходНаселенныйПункт,
+    РегистрСведенийупНормыРасходаГСМ.ТипРасходаНаселенныйПункт КАК ТипРасходаНаселенныйПункт,
+    РегистрСведенийупНормыРасходаГСМ.ФормулаРасчета КАК ФормулаРасчета,
+    РегистрСведенийупНормыРасходаГСМ.ШкалаТемпературныхКоэффициентов КАК ШкалаТемпературныхКоэффициентов,
+    РегистрСведенийупНормыРасходаГСМ.МоментВремени КАК МоментВремени,
+    РегистрСведенийупНормыРасходаГСМ.РасходРабочаяОперация КАК РасходРабочаяОперация,
+    РегистрСведенийупНормыРасходаГСМ.ТипРасходаРабочаяОперация КАК ТипРасходаРабочаяОперация
+ИЗ
+    РегистрСведений.упНормыРасходаГСМ КАК РегистрСведенийупНормыРасходаГСМ</QueryText>
+				<MainTable>InformationRegister.упНормыРасходаГСМ</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+</Form>

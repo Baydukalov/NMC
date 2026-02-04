@@ -1,0 +1,1759 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Pages name="Группа1" id="38">
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="39"/>
+			<ChildItems>
+				<Page name="рейсов" id="40">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Правила выполнения рейсов</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Рейсов</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="рейсовРасширеннаяПодсказка" id="41"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаПравилаВыполненияРейсов" id="42">
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа правила выполнения рейсов</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<ExtendedTooltip name="ГруппаПравилаВыполненияРейсовРасширеннаяПодсказка" id="43"/>
+							<ChildItems>
+								<Table name="ПравилаВыполненияРейса" id="1">
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<FileDragMode>AsFile</FileDragMode>
+									<DataPath>ПравилаВыполненияРейса</DataPath>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="ПравилаВыполненияРейсаКонтекстноеМеню" id="2"/>
+									<AutoCommandBar name="ПравилаВыполненияРейсаКоманднаяПанель" id="3"/>
+									<ExtendedTooltip name="ПравилаВыполненияРейсаРасширеннаяПодсказка" id="4"/>
+									<SearchStringAddition name="ПравилаВыполненияРейсаСтрокаПоиска" id="5">
+										<AdditionSource>
+											<Item>ПравилаВыполненияРейса</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ПравилаВыполненияРейсаСтрокаПоискаКонтекстноеМеню" id="6"/>
+										<ExtendedTooltip name="ПравилаВыполненияРейсаСтрокаПоискаРасширеннаяПодсказка" id="7"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="ПравилаВыполненияРейсаСостояниеПросмотра" id="8">
+										<AdditionSource>
+											<Item>ПравилаВыполненияРейса</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ПравилаВыполненияРейсаСостояниеПросмотраКонтекстноеМеню" id="9"/>
+										<ExtendedTooltip name="ПравилаВыполненияРейсаСостояниеПросмотраРасширеннаяПодсказка" id="10"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="ПравилаВыполненияРейсаУправлениеПоиском" id="11">
+										<AdditionSource>
+											<Item>ПравилаВыполненияРейса</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="ПравилаВыполненияРейсаУправлениеПоискомКонтекстноеМеню" id="12"/>
+										<ExtendedTooltip name="ПравилаВыполненияРейсаУправлениеПоискомРасширеннаяПодсказка" id="13"/>
+									</SearchControlAddition>
+									<Events>
+										<Event name="OnEditEnd">ПравилаВыполненияРейсаПриОкончанииРедактирования</Event>
+										<Event name="BeforeDeleteRow">ПравилаВыполненияРейсаПередУдалением</Event>
+										<Event name="BeforeEditEnd">ПравилаВыполненияРейсаПередОкончаниемРедактирования</Event>
+										<Event name="OnActivateRow">ПравилаВыполненияРейсаПриАктивизацииСтроки</Event>
+									</Events>
+									<ChildItems>
+										<InputField name="ПравилаВыполненияРейсаПеревозчик" id="14">
+											<DataPath>ПравилаВыполненияРейса.Перевозчик</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ПравилаВыполненияРейсаПеревозчикКонтекстноеМеню" id="15"/>
+											<ExtendedTooltip name="ПравилаВыполненияРейсаПеревозчикРасширеннаяПодсказка" id="16"/>
+										</InputField>
+										<InputField name="ПравилаВыполненияРейсаВодитель" id="17">
+											<DataPath>ПравилаВыполненияРейса.Водитель</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ПравилаВыполненияРейсаВодительКонтекстноеМеню" id="18"/>
+											<ExtendedTooltip name="ПравилаВыполненияРейсаВодительРасширеннаяПодсказка" id="19"/>
+										</InputField>
+									</ChildItems>
+								</Table>
+								<UsualGroup name="Группа3" id="62">
+									<Group>Vertical</Group>
+									<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="63"/>
+									<ChildItems>
+										<CheckBoxField name="ПравилаВыполненияРейсаПереводитьРейсВСтатусВыполняетсяПослеПрибытияВПервуюТочку" id="245">
+											<DataPath>Items.ПравилаВыполненияРейса.CurrentData.ПереводитьРейсВСтатусВыполняетсяПослеПрибытияВПервуюТочку</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ПравилаВыполненияРейсаПереводитьРейсВСтатусВыполняетсяПослеПрибытияВПервуюТочкуКонтекстноеМеню" id="246"/>
+											<ExtendedTooltip name="ПравилаВыполненияРейсаПереводитьРейсВСтатусВыполняетсяПослеПрибытияВПервуюТочкуРасширеннаяПодсказка" id="247"/>
+											<Events>
+												<Event name="OnChange">ПравилаВыполненияРейсаПереводитьРейсВСтатусВыполняетсяПослеПрибытияВПервуюТочкуПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+										<CheckBoxField name="ПравилаВыполненияРейсаРазрешеноИзменятьПорядокТочек" id="44">
+											<DataPath>Items.ПравилаВыполненияРейса.CurrentData.РазрешеноИзменятьПорядокТочек</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ПравилаВыполненияРейсаРазрешеноИзменятьПорядокТочекКонтекстноеМеню" id="45"/>
+											<ExtendedTooltip name="ПравилаВыполненияРейсаРазрешеноИзменятьПорядокТочекРасширеннаяПодсказка" id="46"/>
+											<Events>
+												<Event name="OnChange">ПравилаВыполненияРейсаРазрешеноИзменятьПорядокТочекПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+										<CheckBoxField name="ПравилаВыполненияРейсаРазрешеноОтменятьНовыеТочки" id="47">
+											<DataPath>Items.ПравилаВыполненияРейса.CurrentData.РазрешеноОтменятьНовыеТочки</DataPath>
+											<Visible>false</Visible>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ПравилаВыполненияРейсаРазрешеноОтменятьНовыеТочкиКонтекстноеМеню" id="48"/>
+											<ExtendedTooltip name="ПравилаВыполненияРейсаРазрешеноОтменятьНовыеТочкиРасширеннаяПодсказка" id="49"/>
+											<Events>
+												<Event name="OnChange">ПравилаВыполненияРейсаРазрешеноОтменятьНовыеТочкиПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+										<CheckBoxField name="ПравилаВыполненияРейсаТолькоОднаТочка" id="50">
+											<DataPath>Items.ПравилаВыполненияРейса.CurrentData.ТолькоОднаТочка</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ПравилаВыполненияРейсаТолькоОднаТочкаКонтекстноеМеню" id="51"/>
+											<ExtendedTooltip name="ПравилаВыполненияРейсаТолькоОднаТочкаРасширеннаяПодсказка" id="52"/>
+											<Events>
+												<Event name="OnChange">ПравилаВыполненияРейсаТолькоОднаТочкаПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+										<InputField name="ПравилаВыполненияРейсаВремяОжиданияПодтвержденияНовыхТочек" id="53">
+											<DataPath>Items.ПравилаВыполненияРейса.CurrentData.ВремяОжиданияПодтвержденияНовыхТочек</DataPath>
+											<Visible>false</Visible>
+											<ContextMenu name="ПравилаВыполненияРейсаВремяОжиданияПодтвержденияНовыхТочекКонтекстноеМеню" id="54"/>
+											<ExtendedTooltip name="ПравилаВыполненияРейсаВремяОжиданияПодтвержденияНовыхТочекРасширеннаяПодсказка" id="55"/>
+											<Events>
+												<Event name="OnChange">ПравилаВыполненияРейсаВремяОжиданияПодтвержденияНовыхТочекПриИзменении</Event>
+											</Events>
+										</InputField>
+										<InputField name="ПравилаВыполненияРейсаПериодичностьОтправкиКоординат" id="56">
+											<DataPath>Items.ПравилаВыполненияРейса.CurrentData.ПериодичностьОтправкиКоординат</DataPath>
+											<SpinButton>true</SpinButton>
+											<MinValue xsi:type="xs:decimal">30</MinValue>
+											<ContextMenu name="ПравилаВыполненияРейсаПериодичностьОтправкиКоординатКонтекстноеМеню" id="57"/>
+											<ExtendedTooltip name="ПравилаВыполненияРейсаПериодичностьОтправкиКоординатРасширеннаяПодсказка" id="58"/>
+											<Events>
+												<Event name="OnChange">ПравилаВыполненияРейсаПериодичностьОтправкиКоординатПриИзменении</Event>
+											</Events>
+										</InputField>
+										<CheckBoxField name="ПравилаВыполненияРейсаЗапрещеноИзменениеПорядкаПогрузкиНаСкладах" id="322">
+											<DataPath>Items.ПравилаВыполненияРейса.CurrentData.ЗапрещеноИзменениеПорядкаПогрузкиНаСкладах</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ПравилаВыполненияРейсаЗапрещеноИзменениеПорядкаПогрузкиНаСкладахКонтекстноеМеню" id="323"/>
+											<ExtendedTooltip name="ПравилаВыполненияРейсаЗапрещеноИзменениеПорядкаПогрузкиНаСкладахРасширеннаяПодсказка" id="324"/>
+											<Events>
+												<Event name="OnChange">ПравилаВыполненияРейсаЗапрещеноИзменениеПорядкаПогрузкиНаСкладахПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+										<UsualGroup name="ГруппаПравилаВыполненияРейсаВидАдресаСклада" id="347">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа правила выполнения рейса вид адреса склада</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа правила выполнения рейса вид адреса склада</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>AlwaysHorizontal</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаПравилаВыполненияРейсаВидАдресаСкладаРасширеннаяПодсказка" id="348"/>
+											<ChildItems>
+												<LabelDecoration name="Декорация8" id="349">
+													<Width>2</Width>
+													<ContextMenu name="Декорация8КонтекстноеМеню" id="350"/>
+													<ExtendedTooltip name="Декорация8РасширеннаяПодсказка" id="351"/>
+												</LabelDecoration>
+												<InputField name="ПравилаВыполненияРейсаВидАдресаСклада" id="325">
+													<DataPath>Items.ПравилаВыполненияРейса.CurrentData.ВидАдресаСклада</DataPath>
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<ContextMenu name="ПравилаВыполненияРейсаВидАдресаСкладаКонтекстноеМеню" id="326"/>
+													<ExtendedTooltip name="ПравилаВыполненияРейсаВидАдресаСкладаРасширеннаяПодсказка" id="327"/>
+													<Events>
+														<Event name="OnChange">ПравилаВыполненияРейсаВидАдресаСкладаПриИзменении</Event>
+													</Events>
+												</InputField>
+											</ChildItems>
+										</UsualGroup>
+										<InputField name="ПравилаВыполненияРейсаСпособОпределенияМестоположения" id="59">
+											<DataPath>Items.ПравилаВыполненияРейса.CurrentData.СпособОпределенияМестоположения</DataPath>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<InputHint>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>&lt;по спутникам&gt;</v8:content>
+												</v8:item>
+											</InputHint>
+											<ContextMenu name="ПравилаВыполненияРейсаСпособОпределенияМестоположенияКонтекстноеМеню" id="60"/>
+											<ExtendedTooltip name="ПравилаВыполненияРейсаСпособОпределенияМестоположенияРасширеннаяПодсказка" id="61"/>
+											<Events>
+												<Event name="OnChange">ПравилаВыполненияРейсаСпособОпределенияМестоположенияПриИзменении</Event>
+											</Events>
+										</InputField>
+										<InputField name="ПравилаВыполненияРейсаСпособВыводаИнформацииОПолучателе" id="276">
+											<DataPath>Items.ПравилаВыполненияРейса.CurrentData.СпособВыводаИнформацииОПолучателе</DataPath>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<InputHint>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>&lt;получатель&gt;</v8:content>
+												</v8:item>
+											</InputHint>
+											<ContextMenu name="ПравилаВыполненияРейсаСпособВыводаИнформацииОПолучателеКонтекстноеМеню" id="277"/>
+											<ExtendedTooltip name="ПравилаВыполненияРейсаСпособВыводаИнформацииОПолучателеРасширеннаяПодсказка" id="278"/>
+											<Events>
+												<Event name="OnChange">ПравилаВыполненияРейсаСпособВыводаИнформацииОПолучателеПриИзменении</Event>
+											</Events>
+										</InputField>
+										<InputField name="ПравилаВыполненияРейсаВидНавигатора" id="226">
+											<DataPath>Items.ПравилаВыполненияРейса.CurrentData.ВидНавигатора</DataPath>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<InputHint>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>&lt;выбирать опционально&gt;</v8:content>
+												</v8:item>
+											</InputHint>
+											<ContextMenu name="ПравилаВыполненияРейсаВидНавигатораКонтекстноеМеню" id="227"/>
+											<ExtendedTooltip name="ПравилаВыполненияРейсаВидНавигатораРасширеннаяПодсказка" id="228"/>
+											<Events>
+												<Event name="OnChange">ПравилаВыполненияРейсаВидНавигатораПриИзменении</Event>
+											</Events>
+										</InputField>
+										<InputField name="ПравилаВыполненияРейсаГруппаТиповСобытийМониторинга" id="352">
+											<DataPath>Items.ПравилаВыполненияРейса.CurrentData.ГруппаТиповСобытийМониторинга</DataPath>
+											<ChoiceParameters>
+												<app:item name="Отбор.ВидПравила">
+													<app:value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation/>
+														<Value xsi:type="xr:DesignTimeRef">Enum.упВидыПравилМобильныйКлиент.EnumValue.ПравилаВыполненияРейса</Value>
+													</app:value>
+												</app:item>
+											</ChoiceParameters>
+											<InputHint>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>&lt;не используется&gt;</v8:content>
+												</v8:item>
+											</InputHint>
+											<ContextMenu name="ПравилаВыполненияРейсаГруппаТиповСобытийМониторингаКонтекстноеМеню" id="353"/>
+											<ExtendedTooltip name="ПравилаВыполненияРейсаГруппаТиповСобытийМониторингаРасширеннаяПодсказка" id="354"/>
+											<Events>
+												<Event name="OnChange">ПравилаВыполненияРейсаГруппаТиповСобытийМониторингаПриИзменении</Event>
+											</Events>
+										</InputField>
+										<UsualGroup name="ГруппаОтложенноеВыполнениеЧастиРабот" id="328">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа отложенное выполнение части работ</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа отложенное выполнение части работ</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Vertical</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаОтложенноеВыполнениеЧастиРаботРасширеннаяПодсказка" id="329"/>
+											<ChildItems>
+												<UsualGroup name="Группа21" id="381">
+													<Group>AlwaysHorizontal</Group>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="Группа21РасширеннаяПодсказка" id="382"/>
+													<ChildItems>
+														<CheckBoxField name="ПравилаВыполненияРейсаРазрешеноОтложенноеВыполнениеЧастиРабот" id="330">
+															<DataPath>Items.ПравилаВыполненияРейса.CurrentData.РазрешеноОтложенноеВыполнениеЧастиРабот</DataPath>
+															<TitleLocation>Right</TitleLocation>
+															<ToolTipRepresentation>Button</ToolTipRepresentation>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="ПравилаВыполненияРейсаРазрешеноОтложенноеВыполнениеЧастиРаботКонтекстноеМеню" id="331"/>
+															<ExtendedTooltip name="ПравилаВыполненияРейсаРазрешеноОтложенноеВыполнениеЧастиРаботРасширеннаяПодсказка" id="332"/>
+															<Events>
+																<Event name="OnChange">ПравилаВыполненияРейсаРазрешеноОтложенноеВыполнениеЧастиРаботПриИзменении</Event>
+															</Events>
+														</CheckBoxField>
+														<InputField name="ПравилаВыполненияРейсаВидДоступаДействиеОтложенноеВыполнениеЧастиРабот" id="333">
+															<DataPath>Items.ПравилаВыполненияРейса.CurrentData.ВидДоступаДействиеОтложенноеВыполнениеЧастиРабот</DataPath>
+															<TitleLocation>None</TitleLocation>
+															<AutoMaxWidth>false</AutoMaxWidth>
+															<InputHint>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>&lt;всегда&gt;</v8:content>
+																</v8:item>
+															</InputHint>
+															<ContextMenu name="ПравилаВыполненияРейсаВидДоступаДействиеОтложенноеВыполнениеЧастиРаботКонтекстноеМеню" id="334"/>
+															<ExtendedTooltip name="ПравилаВыполненияРейсаВидДоступаДействиеОтложенноеВыполнениеЧастиРаботРасширеннаяПодсказка" id="335"/>
+															<Events>
+																<Event name="OnChange">ПравилаВыполненияРейсаВидДоступаДействиеОтложенноеВыполнениеЧастиРаботПриИзменении</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</UsualGroup>
+												<UsualGroup name="Группа20" id="376">
+													<Group>AlwaysHorizontal</Group>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="Группа20РасширеннаяПодсказка" id="377"/>
+													<ChildItems>
+														<LabelDecoration name="Декорация9" id="383">
+															<Width>2</Width>
+															<ContextMenu name="Декорация9КонтекстноеМеню" id="384"/>
+															<ExtendedTooltip name="Декорация9РасширеннаяПодсказка" id="385"/>
+														</LabelDecoration>
+														<InputField name="ПравилаВыполненияРейсаНастройкаОтветовОтложенноеВыполнениеЧастиРабот" id="378">
+															<DataPath>Items.ПравилаВыполненияРейса.CurrentData.НастройкаОтветовОтложенноеВыполнениеЧастиРабот</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Список причин запроса</v8:content>
+																</v8:item>
+															</Title>
+															<AutoMaxWidth>false</AutoMaxWidth>
+															<InputHint>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Причины не настроены: {Причина 1; Причина 2; Причина 3}</v8:content>
+																</v8:item>
+															</InputHint>
+															<ContextMenu name="ПравилаВыполненияРейсаНастройкаОтветовОтложенноеВыполнениеЧастиРаботКонтекстноеМеню" id="379"/>
+															<ExtendedTooltip name="ПравилаВыполненияРейсаНастройкаОтветовОтложенноеВыполнениеЧастиРаботРасширеннаяПодсказка" id="380"/>
+															<Events>
+																<Event name="OnChange">ПравилаВыполненияРейсаНастройкаОтветовОтложенноеВыполнениеЧастиРаботПриИзменении</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ГруппаРозница" id="293">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа розница</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа розница</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаРозницаРасширеннаяПодсказка" id="294"/>
+											<ChildItems>
+												<CheckBoxField name="ПравилаВыполненияРейсаВедетсяРозничнаяПродажаВРейсе" id="279">
+													<DataPath>Items.ПравилаВыполненияРейса.CurrentData.ВедетсяРозничнаяПродажаВРейсе</DataPath>
+													<TitleLocation>Right</TitleLocation>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="ПравилаВыполненияРейсаВедетсяРозничнаяПродажаВРейсеКонтекстноеМеню" id="280"/>
+													<ExtendedTooltip name="ПравилаВыполненияРейсаВедетсяРозничнаяПродажаВРейсеРасширеннаяПодсказка" id="281"/>
+													<Events>
+														<Event name="OnChange">ПравилаВыполненияРейсаВедетсяРозничнаяПродажаВРейсеПриИзменении</Event>
+													</Events>
+												</CheckBoxField>
+												<UsualGroup name="Группа15" id="295">
+													<Group>Horizontal</Group>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="Группа15РасширеннаяПодсказка" id="296"/>
+													<ChildItems>
+														<LabelDecoration name="Декорация6" id="288">
+															<Width>2</Width>
+															<ContextMenu name="Декорация6КонтекстноеМеню" id="289"/>
+															<ExtendedTooltip name="Декорация6РасширеннаяПодсказка" id="290"/>
+														</LabelDecoration>
+														<UsualGroup name="Группа14" id="291">
+															<Group>Vertical</Group>
+															<Representation>None</Representation>
+															<ShowTitle>false</ShowTitle>
+															<ExtendedTooltip name="Группа14РасширеннаяПодсказка" id="292"/>
+															<ChildItems>
+																<InputField name="ПравилаВыполненияРейсаВидКассовойТехники" id="316">
+																	<DataPath>Items.ПравилаВыполненияРейса.CurrentData.ВидКассовойТехники</DataPath>
+																	<AutoMaxWidth>false</AutoMaxWidth>
+																	<InputHint>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>&lt;по выбору&gt;</v8:content>
+																		</v8:item>
+																	</InputHint>
+																	<ContextMenu name="ПравилаВыполненияРейсаВидКассовойТехникиКонтекстноеМеню" id="317"/>
+																	<ExtendedTooltip name="ПравилаВыполненияРейсаВидКассовойТехникиРасширеннаяПодсказка" id="318"/>
+																	<Events>
+																		<Event name="OnChange">ПравилаВыполненияРейсаВидКассовойТехникиПриИзменении</Event>
+																	</Events>
+																</InputField>
+																<InputField name="ПравилаВыполненияРейсаКассаККМПоУмолчанию" id="319">
+																	<DataPath>Items.ПравилаВыполненияРейса.CurrentData.КассаККМПоУмолчанию</DataPath>
+																	<AutoMaxWidth>false</AutoMaxWidth>
+																	<ContextMenu name="ПравилаВыполненияРейсаКассаККМПоУмолчаниюКонтекстноеМеню" id="320"/>
+																	<ExtendedTooltip name="ПравилаВыполненияРейсаКассаККМПоУмолчаниюРасширеннаяПодсказка" id="321"/>
+																	<Events>
+																		<Event name="OnChange">ПравилаВыполненияРейсаКассаККМПоУмолчаниюПриИзменении</Event>
+																	</Events>
+																</InputField>
+																<InputField name="ПравилаВыполненияРейсаНоменклатураДляАвансов" id="406">
+																	<DataPath>Items.ПравилаВыполненияРейса.CurrentData.НоменклатураДляАвансов</DataPath>
+																	<InputHint>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Аванс</v8:content>
+																		</v8:item>
+																	</InputHint>
+																	<ContextMenu name="ПравилаВыполненияРейсаНоменклатураДляАвансовКонтекстноеМеню" id="407"/>
+																	<ExtendedTooltip name="ПравилаВыполненияРейсаНоменклатураДляАвансовРасширеннаяПодсказка" id="408"/>
+																	<Events>
+																		<Event name="OnChange">ПравилаВыполненияРейсаНоменклатураДляАвансовПриИзменении</Event>
+																	</Events>
+																</InputField>
+																<InputField name="ПравилаВыполненияРейсаСтавкаНДСДляАвансов" id="409">
+																	<DataPath>Items.ПравилаВыполненияРейса.CurrentData.СтавкаНДСДляАвансов</DataPath>
+																	<InputHint>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>18%</v8:content>
+																		</v8:item>
+																	</InputHint>
+																	<ContextMenu name="ПравилаВыполненияРейсаСтавкаНДСДляАвансовКонтекстноеМеню" id="410"/>
+																	<ExtendedTooltip name="ПравилаВыполненияРейсаСтавкаНДСДляАвансовРасширеннаяПодсказка" id="411"/>
+																	<Events>
+																		<Event name="OnChange">ПравилаВыполненияРейсаСтавкаНДСДляАвансовПриИзменении</Event>
+																	</Events>
+																</InputField>
+																<CheckBoxField name="ПравилаВыполненияРейсаРазрешенаНастройкаКассовогоОборудования" id="282">
+																	<DataPath>Items.ПравилаВыполненияРейса.CurrentData.РазрешенаНастройкаКассовогоОборудования</DataPath>
+																	<TitleLocation>Right</TitleLocation>
+																	<CheckBoxType>Auto</CheckBoxType>
+																	<ContextMenu name="ПравилаВыполненияРейсаРазрешенаНастройкаКассовогоОборудованияКонтекстноеМеню" id="283"/>
+																	<ExtendedTooltip name="ПравилаВыполненияРейсаРазрешенаНастройкаКассовогоОборудованияРасширеннаяПодсказка" id="284"/>
+																	<Events>
+																		<Event name="OnChange">ПравилаВыполненияРейсаРазрешенаНастройкаКассовогоОборудованияПриИзменении</Event>
+																	</Events>
+																</CheckBoxField>
+																<CheckBoxField name="ПравилаВыполненияРейсаЗакрыватьКассовуюСменуПослеВыполненияРейса" id="285">
+																	<DataPath>Items.ПравилаВыполненияРейса.CurrentData.ЗакрыватьКассовуюСменуПослеВыполненияРейса</DataPath>
+																	<TitleLocation>Right</TitleLocation>
+																	<CheckBoxType>Auto</CheckBoxType>
+																	<ContextMenu name="ПравилаВыполненияРейсаЗакрыватьКассовуюСменуПослеВыполненияРейсаКонтекстноеМеню" id="286"/>
+																	<ExtendedTooltip name="ПравилаВыполненияРейсаЗакрыватьКассовуюСменуПослеВыполненияРейсаРасширеннаяПодсказка" id="287"/>
+																	<Events>
+																		<Event name="OnChange">ПравилаВыполненияРейсаЗакрыватьКассовуюСменуПослеВыполненияРейсаПриИзменении</Event>
+																	</Events>
+																</CheckBoxField>
+																<CheckBoxField name="ПравилаВыполненияРейсаИспользоватьАвтозаполнениеРасчетныхПолейПередПробитиемЧека" id="412">
+																	<DataPath>Items.ПравилаВыполненияРейса.CurrentData.ИспользоватьАвтозаполнениеРасчетныхПолейПередПробитиемЧека</DataPath>
+																	<TitleLocation>Right</TitleLocation>
+																	<ToolTipRepresentation>Button</ToolTipRepresentation>
+																	<CheckBoxType>Auto</CheckBoxType>
+																	<ContextMenu name="ПравилаВыполненияРейсаИспользоватьАвтозаполнениеРасчетныхПолейПередПробитиемЧекаКонтекстноеМеню" id="413"/>
+																	<ExtendedTooltip name="ПравилаВыполненияРейсаИспользоватьАвтозаполнениеРасчетныхПолейПередПробитиемЧекаРасширеннаяПодсказка" id="414"/>
+																	<Events>
+																		<Event name="OnChange">ПравилаВыполненияРейсаИспользоватьАвтозаполнениеРасчетныхПолейПередПробитиемЧекаПриИзменении</Event>
+																	</Events>
+																</CheckBoxField>
+															</ChildItems>
+														</UsualGroup>
+													</ChildItems>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="Точки" id="138">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Правила прохождения точек</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Точки</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ТочкиРасширеннаяПодсказка" id="139"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаПравилаПрохожденияТочек" id="165">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа правила прохождения точек</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа правила прохождения точек</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаПравилаПрохожденияТочекРасширеннаяПодсказка" id="166"/>
+							<ChildItems>
+								<Table name="ПравилаПрохожденияТочек" id="140">
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<FileDragMode>AsFile</FileDragMode>
+									<DataPath>ПравилаПрохожденияТочек</DataPath>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="ПравилаПрохожденияТочекКонтекстноеМеню" id="141"/>
+									<AutoCommandBar name="ПравилаПрохожденияТочекКоманднаяПанель" id="142"/>
+									<ExtendedTooltip name="ПравилаПрохожденияТочекРасширеннаяПодсказка" id="143"/>
+									<SearchStringAddition name="ПравилаПрохожденияТочекСтрокаПоиска" id="144">
+										<AdditionSource>
+											<Item>ПравилаПрохожденияТочек</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ПравилаПрохожденияТочекСтрокаПоискаКонтекстноеМеню" id="145"/>
+										<ExtendedTooltip name="ПравилаПрохожденияТочекСтрокаПоискаРасширеннаяПодсказка" id="146"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="ПравилаПрохожденияТочекСостояниеПросмотра" id="147">
+										<AdditionSource>
+											<Item>ПравилаПрохожденияТочек</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ПравилаПрохожденияТочекСостояниеПросмотраКонтекстноеМеню" id="148"/>
+										<ExtendedTooltip name="ПравилаПрохожденияТочекСостояниеПросмотраРасширеннаяПодсказка" id="149"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="ПравилаПрохожденияТочекУправлениеПоиском" id="150">
+										<AdditionSource>
+											<Item>ПравилаПрохожденияТочек</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="ПравилаПрохожденияТочекУправлениеПоискомКонтекстноеМеню" id="151"/>
+										<ExtendedTooltip name="ПравилаПрохожденияТочекУправлениеПоискомРасширеннаяПодсказка" id="152"/>
+									</SearchControlAddition>
+									<Events>
+										<Event name="OnEditEnd">ПравилаПрохожденияТочекПриОкончанииРедактирования</Event>
+										<Event name="BeforeDeleteRow">ПравилаПрохожденияТочекПередУдалением</Event>
+										<Event name="BeforeEditEnd">ПравилаПрохожденияТочекПередОкончаниемРедактирования</Event>
+										<Event name="OnActivateRow">ПравилаПрохожденияТочекПриАктивизацииСтроки</Event>
+									</Events>
+									<ChildItems>
+										<InputField name="ПравилаПрохожденияТочекПеревозчик" id="153">
+											<DataPath>ПравилаПрохожденияТочек.Перевозчик</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ПравилаПрохожденияТочекПеревозчикКонтекстноеМеню" id="154"/>
+											<ExtendedTooltip name="ПравилаПрохожденияТочекПеревозчикРасширеннаяПодсказка" id="155"/>
+										</InputField>
+										<InputField name="ПравилаПрохожденияТочекВодитель" id="156">
+											<DataPath>ПравилаПрохожденияТочек.Водитель</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ПравилаПрохожденияТочекВодительКонтекстноеМеню" id="157"/>
+											<ExtendedTooltip name="ПравилаПрохожденияТочекВодительРасширеннаяПодсказка" id="158"/>
+										</InputField>
+										<InputField name="ПравилаПрохожденияТочекВидАдреса" id="159">
+											<DataPath>ПравилаПрохожденияТочек.ВидАдреса</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ПравилаПрохожденияТочекВидАдресаКонтекстноеМеню" id="160"/>
+											<ExtendedTooltip name="ПравилаПрохожденияТочекВидАдресаРасширеннаяПодсказка" id="161"/>
+										</InputField>
+										<InputField name="ПравилаПрохожденияТочекАдрес" id="162">
+											<DataPath>ПравилаПрохожденияТочек.Адрес</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ПравилаПрохожденияТочекАдресКонтекстноеМеню" id="163"/>
+											<ExtendedTooltip name="ПравилаПрохожденияТочекАдресРасширеннаяПодсказка" id="164"/>
+										</InputField>
+									</ChildItems>
+								</Table>
+								<UsualGroup name="Группа5" id="167">
+									<Group>Vertical</Group>
+									<ExtendedTooltip name="Группа5РасширеннаяПодсказка" id="168"/>
+									<ChildItems>
+										<CheckBoxField name="ПравилаПрохожденияТочекКонтролироватьКоординатыВодителяПриПрохожденииТочки" id="180">
+											<DataPath>Items.ПравилаПрохожденияТочек.CurrentData.КонтролироватьКоординатыВодителяПриПрохожденииТочки</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ПравилаПрохожденияТочекКонтролироватьКоординатыВодителяПриПрохожденииТочкиКонтекстноеМеню" id="181"/>
+											<ExtendedTooltip name="ПравилаПрохожденияТочекКонтролироватьКоординатыВодителяПриПрохожденииТочкиРасширеннаяПодсказка" id="182"/>
+											<Events>
+												<Event name="OnChange">ПравилаПрохожденияТочекКонтролироватьКоординатыВодителяПриПрохожденииТочкиПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+										<UsualGroup name="Группа2" id="175">
+											<Group>Horizontal</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="176"/>
+											<ChildItems>
+												<LabelDecoration name="Декорация1" id="177">
+													<Width>2</Width>
+													<ContextMenu name="Декорация1КонтекстноеМеню" id="178"/>
+													<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="179"/>
+												</LabelDecoration>
+												<InputField name="ПравилаПрохожденияТочекДопустимоеОтклонение" id="169">
+													<DataPath>Items.ПравилаПрохожденияТочек.CurrentData.ДопустимоеОтклонение</DataPath>
+													<ContextMenu name="ПравилаПрохожденияТочекДопустимоеОтклонениеКонтекстноеМеню" id="170"/>
+													<ExtendedTooltip name="ПравилаПрохожденияТочекДопустимоеОтклонениеРасширеннаяПодсказка" id="171"/>
+													<Events>
+														<Event name="OnChange">ПравилаПрохожденияТочекДопустимоеОтклонениеПриИзменении</Event>
+													</Events>
+												</InputField>
+											</ChildItems>
+										</UsualGroup>
+										<CheckBoxField name="ПравилаПрохожденияТочекЗапрещеноОтменятьРаботыВТочкеВозвратаНаСклад" id="313">
+											<DataPath>Items.ПравилаПрохожденияТочек.CurrentData.ЗапрещеноОтменятьРаботыВТочкеВозвратаНаСклад</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ПравилаПрохожденияТочекЗапрещеноОтменятьРаботыВТочкеВозвратаНаСкладКонтекстноеМеню" id="314"/>
+											<ExtendedTooltip name="ПравилаПрохожденияТочекЗапрещеноОтменятьРаботыВТочкеВозвратаНаСкладРасширеннаяПодсказка" id="315"/>
+											<Events>
+												<Event name="OnChange">ПравилаПрохожденияТочекЗапрещеноОтменятьРаботыВТочкеВозвратаНаСкладПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+										<CheckBoxField name="ПравилаПрохожденияТочекЗапрещеноОтчитыватьсяОРаботах" id="193">
+											<DataPath>Items.ПравилаПрохожденияТочек.CurrentData.ЗапрещеноОтчитыватьсяОРаботах</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ПравилаПрохожденияТочекЗапрещеноОтчитыватьсяОРаботахКонтекстноеМеню" id="194"/>
+											<ExtendedTooltip name="ПравилаПрохожденияТочекЗапрещеноОтчитыватьсяОРаботахРасширеннаяПодсказка" id="195"/>
+											<Events>
+												<Event name="OnChange">ПравилаПрохожденияТочекЗапрещеноОтчитыватьсяОРаботахПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+										<CheckBoxField name="ПравилаПрохожденияТочекРазрешеноГрупповоеВыполнениеРабот" id="265">
+											<DataPath>Items.ПравилаПрохожденияТочек.CurrentData.РазрешеноГрупповоеВыполнениеРабот</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ПравилаПрохожденияТочекРазрешеноГрупповоеВыполнениеРаботКонтекстноеМеню" id="266"/>
+											<ExtendedTooltip name="ПравилаПрохожденияТочекРазрешеноГрупповоеВыполнениеРаботРасширеннаяПодсказка" id="267"/>
+											<Events>
+												<Event name="OnChange">ПравилаПрохожденияТочекРазрешеноГрупповоеВыполнениеРаботПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+										<CheckBoxField name="ПравилаПрохожденияТочекЗапрещеноОтменятьТочкиМаршрута" id="254">
+											<DataPath>Items.ПравилаПрохожденияТочек.CurrentData.ЗапрещеноОтменятьТочкиМаршрута</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ПравилаПрохожденияТочекЗапрещеноОтменятьТочкиМаршрутаКонтекстноеМеню" id="255"/>
+											<ExtendedTooltip name="ПравилаПрохожденияТочекЗапрещеноОтменятьТочкиМаршрутаРасширеннаяПодсказка" id="256"/>
+											<Events>
+												<Event name="OnChange">ПравилаПрохожденияТочекЗапрещеноОтменятьТочкиМаршрутаПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+										<CheckBoxField name="ПравилаПрохожденияТочекГруппироватьЗадачиПередачиЦенностей" id="251">
+											<DataPath>Items.ПравилаПрохожденияТочек.CurrentData.ГруппироватьЗадачиПередачиЦенностей</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ПравилаПрохожденияТочекГруппироватьЗадачиПередачиЦенностейКонтекстноеМеню" id="252"/>
+											<ExtendedTooltip name="ПравилаПрохожденияТочекГруппироватьЗадачиПередачиЦенностейРасширеннаяПодсказка" id="253"/>
+											<Events>
+												<Event name="OnChange">ПравилаПрохожденияТочекГруппироватьЗадачиПередачиЦенностейПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+										<UsualGroup name="Группа13" id="271">
+											<Group>Horizontal</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Группа13РасширеннаяПодсказка" id="272"/>
+											<ChildItems>
+												<CheckBoxField name="ПравилаПрохожденияТочекГруппироватьЗадачиСГрузомВТаре" id="268">
+													<DataPath>Items.ПравилаПрохожденияТочек.CurrentData.ГруппироватьЗадачиСГрузомВТаре</DataPath>
+													<TitleLocation>Right</TitleLocation>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="ПравилаПрохожденияТочекГруппироватьЗадачиСГрузомВТареКонтекстноеМеню" id="269"/>
+													<ExtendedTooltip name="ПравилаПрохожденияТочекГруппироватьЗадачиСГрузомВТареРасширеннаяПодсказка" id="270"/>
+													<Events>
+														<Event name="OnChange">ПравилаПрохожденияТочекГруппироватьЗадачиСГрузомВТареПриИзменении</Event>
+													</Events>
+												</CheckBoxField>
+												<InputField name="ПравилаПрохожденияТочекСпособГруппировкиРабот" id="273">
+													<DataPath>Items.ПравилаПрохожденияТочек.CurrentData.СпособГруппировкиРабот</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<InputHint>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>&lt;все&gt;</v8:content>
+														</v8:item>
+													</InputHint>
+													<ContextMenu name="ПравилаПрохожденияТочекСпособГруппировкиРаботКонтекстноеМеню" id="274"/>
+													<ExtendedTooltip name="ПравилаПрохожденияТочекСпособГруппировкиРаботРасширеннаяПодсказка" id="275"/>
+													<Events>
+														<Event name="OnChange">ПравилаПрохожденияТочекСпособГруппировкиРаботПриИзменении</Event>
+													</Events>
+												</InputField>
+											</ChildItems>
+										</UsualGroup>
+										<CheckBoxField name="ПравилаПрохожденияТочекЗакрыватьКассовуюСменуПослеУбытияИзТочки" id="297">
+											<DataPath>Items.ПравилаПрохожденияТочек.CurrentData.ЗакрыватьКассовуюСменуПослеУбытияИзТочки</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ПравилаПрохожденияТочекЗакрыватьКассовуюСменуПослеУбытияИзТочкиКонтекстноеМеню" id="298"/>
+											<ExtendedTooltip name="ПравилаПрохожденияТочекЗакрыватьКассовуюСменуПослеУбытияИзТочкиРасширеннаяПодсказка" id="299"/>
+											<Events>
+												<Event name="OnChange">ПравилаПрохожденияТочекЗакрыватьКассовуюСменуПослеУбытияИзТочкиПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+										<UsualGroup name="ГруппаДосрочноеУбытиеИзТочкиМаршрута" id="336">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа досрочное убытие из точки маршрута</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа досрочное убытие из точки маршрута</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Vertical</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаДосрочноеУбытиеИзТочкиМаршрутаРасширеннаяПодсказка" id="337"/>
+											<ChildItems>
+												<UsualGroup name="Группа24" id="396">
+													<Group>AlwaysHorizontal</Group>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="Группа24РасширеннаяПодсказка" id="397"/>
+													<ChildItems>
+														<CheckBoxField name="ПравилаПрохожденияТочекРазрешеноДосрочноеУбытиеИзТочкиМаршрута" id="338">
+															<DataPath>Items.ПравилаПрохожденияТочек.CurrentData.РазрешеноДосрочноеУбытиеИзТочкиМаршрута</DataPath>
+															<TitleLocation>Right</TitleLocation>
+															<ToolTipRepresentation>Button</ToolTipRepresentation>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="ПравилаПрохожденияТочекРазрешеноДосрочноеУбытиеИзТочкиМаршрутаКонтекстноеМеню" id="339"/>
+															<ExtendedTooltip name="ПравилаПрохожденияТочекРазрешеноДосрочноеУбытиеИзТочкиМаршрутаРасширеннаяПодсказка" id="340"/>
+															<Events>
+																<Event name="OnChange">ПравилаПрохожденияТочекРазрешеноДосрочноеУбытиеИзТочкиМаршрутаПриИзменении</Event>
+															</Events>
+														</CheckBoxField>
+														<InputField name="ПравилаПрохожденияТочекВидДоступаДействиеДосрочноеУбытиеИзТочкиМаршрута" id="341">
+															<DataPath>Items.ПравилаПрохожденияТочек.CurrentData.ВидДоступаДействиеДосрочноеУбытиеИзТочкиМаршрута</DataPath>
+															<TitleLocation>None</TitleLocation>
+															<InputHint>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>&lt;всегда&gt;</v8:content>
+																</v8:item>
+															</InputHint>
+															<ContextMenu name="ПравилаПрохожденияТочекВидДоступаДействиеДосрочноеУбытиеИзТочкиМаршрутаКонтекстноеМеню" id="342"/>
+															<ExtendedTooltip name="ПравилаПрохожденияТочекВидДоступаДействиеДосрочноеУбытиеИзТочкиМаршрутаРасширеннаяПодсказка" id="343"/>
+															<Events>
+																<Event name="OnChange">ПравилаПрохожденияТочекВидДоступаДействиеДосрочноеУбытиеИзТочкиМаршрутаПриИзменении</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</UsualGroup>
+												<UsualGroup name="Группа25" id="398">
+													<Group>AlwaysHorizontal</Group>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="Группа25РасширеннаяПодсказка" id="399"/>
+													<ChildItems>
+														<LabelDecoration name="Декорация11" id="400">
+															<Width>2</Width>
+															<ContextMenu name="Декорация11КонтекстноеМеню" id="401"/>
+															<ExtendedTooltip name="Декорация11РасширеннаяПодсказка" id="402"/>
+														</LabelDecoration>
+														<InputField name="ПравилаПрохожденияТочекНастройкаОтветовДосрочноеУбытиеИзТочкиМаршрута" id="403">
+															<DataPath>Items.ПравилаПрохожденияТочек.CurrentData.НастройкаОтветовДосрочноеУбытиеИзТочкиМаршрута</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Список причин запроса</v8:content>
+																</v8:item>
+															</Title>
+															<InputHint>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Причины не настроены: {Причина 1; Причина 2; Причина 3}</v8:content>
+																</v8:item>
+															</InputHint>
+															<ContextMenu name="ПравилаПрохожденияТочекНастройкаОтветовДосрочноеУбытиеИзТочкиМаршрутаКонтекстноеМеню" id="404"/>
+															<ExtendedTooltip name="ПравилаПрохожденияТочекНастройкаОтветовДосрочноеУбытиеИзТочкиМаршрутаРасширеннаяПодсказка" id="405"/>
+															<Events>
+																<Event name="OnChange">ПравилаПрохожденияТочекНастройкаОтветовДосрочноеУбытиеИзТочкиМаршрутаПриИзменении</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="Группа22" id="386">
+											<Group>Vertical</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Группа22РасширеннаяПодсказка" id="387"/>
+											<ChildItems>
+												<CheckBoxField name="ПравилаПрохожденияТочекЗапрашиватьРазрешениеНаНазначениеТочкиМаршрутаСледующей" id="344">
+													<DataPath>Items.ПравилаПрохожденияТочек.CurrentData.ЗапрашиватьРазрешениеНаНазначениеТочкиМаршрутаСледующей</DataPath>
+													<TitleLocation>Right</TitleLocation>
+													<ToolTipRepresentation>Button</ToolTipRepresentation>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="ПравилаПрохожденияТочекЗапрашиватьРазрешениеНаНазначениеТочкиМаршрутаСледующейКонтекстноеМеню" id="345"/>
+													<ExtendedTooltip name="ПравилаПрохожденияТочекЗапрашиватьРазрешениеНаНазначениеТочкиМаршрутаСледующейРасширеннаяПодсказка" id="346"/>
+													<Events>
+														<Event name="OnChange">ПравилаПрохожденияТочекЗапрашиватьРазрешениеНаНазначениеТочкиМаршрутаСледующейПриИзменении</Event>
+													</Events>
+												</CheckBoxField>
+												<UsualGroup name="Группа23" id="388">
+													<Group>AlwaysHorizontal</Group>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="Группа23РасширеннаяПодсказка" id="389"/>
+													<ChildItems>
+														<LabelDecoration name="Декорация10" id="393">
+															<Width>2</Width>
+															<ContextMenu name="Декорация10КонтекстноеМеню" id="394"/>
+															<ExtendedTooltip name="Декорация10РасширеннаяПодсказка" id="395"/>
+														</LabelDecoration>
+														<InputField name="ПравилаПрохожденияТочекНастройкаОтветовНазначениеТочкиМаршрутаСледующей" id="390">
+															<DataPath>Items.ПравилаПрохожденияТочек.CurrentData.НастройкаОтветовНазначениеТочкиМаршрутаСледующей</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Список причин запроса</v8:content>
+																</v8:item>
+															</Title>
+															<AutoMaxWidth>false</AutoMaxWidth>
+															<InputHint>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Причины не настроены: {Причина 1; Причина 2; Причина 3}</v8:content>
+																</v8:item>
+															</InputHint>
+															<ContextMenu name="ПравилаПрохожденияТочекНастройкаОтветовНазначениеТочкиМаршрутаСледующейКонтекстноеМеню" id="391"/>
+															<ExtendedTooltip name="ПравилаПрохожденияТочекНастройкаОтветовНазначениеТочкиМаршрутаСледующейРасширеннаяПодсказка" id="392"/>
+															<Events>
+																<Event name="OnChange">ПравилаПрохожденияТочекНастройкаОтветовНазначениеТочкиМаршрутаСледующейПриИзменении</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+										<InputField name="ПравилаПрохожденияТочекСпособПрисоединенияВнешнихФайлов" id="206">
+											<DataPath>Items.ПравилаПрохожденияТочек.CurrentData.СпособПрисоединенияВнешнихФайлов</DataPath>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<InputHint>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>&lt;к прохождению точки&gt;</v8:content>
+												</v8:item>
+											</InputHint>
+											<ContextMenu name="ПравилаПрохожденияТочекСпособПрисоединенияВнешнихФайловКонтекстноеМеню" id="207"/>
+											<ExtendedTooltip name="ПравилаПрохожденияТочекСпособПрисоединенияВнешнихФайловРасширеннаяПодсказка" id="208"/>
+											<Events>
+												<Event name="OnChange">ПравилаПрохожденияТочекСпособПрисоединенияВнешнихФайловПриИзменении</Event>
+											</Events>
+										</InputField>
+										<InputField name="ПравилаПрохожденияТочекГруппаТиповСобытийМониторинга" id="355">
+											<DataPath>Items.ПравилаПрохожденияТочек.CurrentData.ГруппаТиповСобытийМониторинга</DataPath>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<ChoiceParameters>
+												<app:item name="Отбор.ВидПравила">
+													<app:value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation/>
+														<Value xsi:type="xr:DesignTimeRef">Enum.упВидыПравилМобильныйКлиент.EnumValue.ПравилаПрохожденияТочек</Value>
+													</app:value>
+												</app:item>
+											</ChoiceParameters>
+											<InputHint>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>&lt;не используется&gt;</v8:content>
+												</v8:item>
+											</InputHint>
+											<ContextMenu name="ПравилаПрохожденияТочекГруппаТиповСобытийМониторингаКонтекстноеМеню" id="356"/>
+											<ExtendedTooltip name="ПравилаПрохожденияТочекГруппаТиповСобытийМониторингаРасширеннаяПодсказка" id="357"/>
+											<Events>
+												<Event name="OnChange">ПравилаПрохожденияТочекГруппаТиповСобытийМониторингаПриИзменении</Event>
+											</Events>
+										</InputField>
+										<UsualGroup name="ГруппаДополнительнаяИнформация" id="358">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Вывод дополнительной информации</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа дополнительная информация</v8:content>
+												</v8:item>
+											</ToolTip>
+											<ExtendedTooltip name="ГруппаДополнительнаяИнформацияРасширеннаяПодсказка" id="359"/>
+											<ChildItems>
+												<UsualGroup name="Группа18" id="372">
+													<Group>AlwaysHorizontal</Group>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="Группа18РасширеннаяПодсказка" id="373"/>
+													<ChildItems>
+														<CheckBoxField name="ПравилаПрохожденияТочекВыводитьСтатусГотовностиТочки" id="360">
+															<DataPath>Items.ПравилаПрохожденияТочек.CurrentData.ВыводитьСтатусГотовностиТочки</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Статус готовности точки</v8:content>
+																</v8:item>
+															</Title>
+															<TitleLocation>Right</TitleLocation>
+															<ToolTipRepresentation>Button</ToolTipRepresentation>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="ПравилаПрохожденияТочекВыводитьСтатусГотовностиТочкиКонтекстноеМеню" id="361"/>
+															<ExtendedTooltip name="ПравилаПрохожденияТочекВыводитьСтатусГотовностиТочкиРасширеннаяПодсказка" id="362"/>
+															<Events>
+																<Event name="OnChange">ПравилаПрохожденияТочекВыводитьСтатусГотовностиТочкиПриИзменении</Event>
+															</Events>
+														</CheckBoxField>
+														<InputField name="ПравилаПрохожденияТочекВариантФормВыводитьСтатусГотовностиТочки" id="363">
+															<DataPath>Items.ПравилаПрохожденияТочек.CurrentData.ВариантФормВыводитьСтатусГотовностиТочки</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Показывать на формах</v8:content>
+																</v8:item>
+															</Title>
+															<InputHint>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>&lt;форма точки маршрута&gt;</v8:content>
+																</v8:item>
+															</InputHint>
+															<ContextMenu name="ПравилаПрохожденияТочекВариантФормВыводитьСтатусГотовностиТочкиКонтекстноеМеню" id="364"/>
+															<ExtendedTooltip name="ПравилаПрохожденияТочекВариантФормВыводитьСтатусГотовностиТочкиРасширеннаяПодсказка" id="365"/>
+															<Events>
+																<Event name="OnChange">ПравилаПрохожденияТочекВариантФормВыводитьСтатусГотовностиТочкиПриИзменении</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</UsualGroup>
+												<UsualGroup name="Группа19" id="374">
+													<Group>AlwaysHorizontal</Group>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="Группа19РасширеннаяПодсказка" id="375"/>
+													<ChildItems>
+														<CheckBoxField name="ПравилаПрохожденияТочекВыводитьИнформациюОСкладскихВоротах" id="366">
+															<DataPath>Items.ПравилаПрохожденияТочек.CurrentData.ВыводитьИнформациюОСкладскихВоротах</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Складские ворота</v8:content>
+																</v8:item>
+															</Title>
+															<TitleLocation>Right</TitleLocation>
+															<ToolTipRepresentation>Button</ToolTipRepresentation>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="ПравилаПрохожденияТочекВыводитьИнформациюОСкладскихВоротахКонтекстноеМеню" id="367"/>
+															<ExtendedTooltip name="ПравилаПрохожденияТочекВыводитьИнформациюОСкладскихВоротахРасширеннаяПодсказка" id="368"/>
+															<Events>
+																<Event name="OnChange">ПравилаПрохожденияТочекВыводитьИнформациюОСкладскихВоротахПриИзменении</Event>
+															</Events>
+														</CheckBoxField>
+														<InputField name="ПравилаПрохожденияТочекВариантФормВыводитьИнформациюОСкладскихВоротах" id="369">
+															<DataPath>Items.ПравилаПрохожденияТочек.CurrentData.ВариантФормВыводитьИнформациюОСкладскихВоротах</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Показывать на формах</v8:content>
+																</v8:item>
+															</Title>
+															<InputHint>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>&lt;форма точки маршрута&gt;</v8:content>
+																</v8:item>
+															</InputHint>
+															<ContextMenu name="ПравилаПрохожденияТочекВариантФормВыводитьИнформациюОСкладскихВоротахКонтекстноеМеню" id="370"/>
+															<ExtendedTooltip name="ПравилаПрохожденияТочекВариантФормВыводитьИнформациюОСкладскихВоротахРасширеннаяПодсказка" id="371"/>
+															<Events>
+																<Event name="OnChange">ПравилаПрохожденияТочекВариантФормВыводитьИнформациюОСкладскихВоротахПриИзменении</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="Задачи" id="97">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Правила выполнения задач</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Задачи</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ЗадачиРасширеннаяПодсказка" id="98"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаПравилаВыполненияЗадач" id="64">
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа правила выполнения задач</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<ExtendedTooltip name="ГруппаПравилаВыполненияЗадачРасширеннаяПодсказка" id="65"/>
+							<ChildItems>
+								<Table name="ПравилаВыполненияЗадач" id="101">
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<FileDragMode>AsFile</FileDragMode>
+									<DataPath>ПравилаВыполненияЗадач</DataPath>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="ПравилаВыполненияЗадачКонтекстноеМеню" id="102"/>
+									<AutoCommandBar name="ПравилаВыполненияЗадачКоманднаяПанель" id="103"/>
+									<ExtendedTooltip name="ПравилаВыполненияЗадачРасширеннаяПодсказка" id="104"/>
+									<SearchStringAddition name="ПравилаВыполненияЗадачСтрокаПоиска" id="105">
+										<AdditionSource>
+											<Item>ПравилаВыполненияЗадач</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ПравилаВыполненияЗадачСтрокаПоискаКонтекстноеМеню" id="106"/>
+										<ExtendedTooltip name="ПравилаВыполненияЗадачСтрокаПоискаРасширеннаяПодсказка" id="107"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="ПравилаВыполненияЗадачСостояниеПросмотра" id="108">
+										<AdditionSource>
+											<Item>ПравилаВыполненияЗадач</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ПравилаВыполненияЗадачСостояниеПросмотраКонтекстноеМеню" id="109"/>
+										<ExtendedTooltip name="ПравилаВыполненияЗадачСостояниеПросмотраРасширеннаяПодсказка" id="110"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="ПравилаВыполненияЗадачУправлениеПоиском" id="111">
+										<AdditionSource>
+											<Item>ПравилаВыполненияЗадач</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="ПравилаВыполненияЗадачУправлениеПоискомКонтекстноеМеню" id="112"/>
+										<ExtendedTooltip name="ПравилаВыполненияЗадачУправлениеПоискомРасширеннаяПодсказка" id="113"/>
+									</SearchControlAddition>
+									<Events>
+										<Event name="OnEditEnd">ПравилаВыполненияЗадачПриОкончанииРедактирования</Event>
+										<Event name="BeforeDeleteRow">ПравилаВыполненияЗадачПередУдалением</Event>
+										<Event name="BeforeEditEnd">ПравилаВыполненияЗадачПередОкончаниемРедактирования</Event>
+										<Event name="OnActivateRow">ПравилаВыполненияЗадачПриАктивизацииСтроки</Event>
+									</Events>
+									<ChildItems>
+										<InputField name="ПравилаВыполненияЗадачТипОперации" id="114">
+											<DataPath>ПравилаВыполненияЗадач.ТипОперации</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoMarkIncomplete>true</AutoMarkIncomplete>
+											<ContextMenu name="ПравилаВыполненияЗадачТипОперацииКонтекстноеМеню" id="115"/>
+											<ExtendedTooltip name="ПравилаВыполненияЗадачТипОперацииРасширеннаяПодсказка" id="116"/>
+										</InputField>
+										<InputField name="ПравилаВыполненияЗадачПеревозчик" id="117">
+											<DataPath>ПравилаВыполненияЗадач.Перевозчик</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ПравилаВыполненияЗадачПеревозчикКонтекстноеМеню" id="118"/>
+											<ExtendedTooltip name="ПравилаВыполненияЗадачПеревозчикРасширеннаяПодсказка" id="119"/>
+										</InputField>
+										<InputField name="ПравилаВыполненияЗадачВодитель" id="120">
+											<DataPath>ПравилаВыполненияЗадач.Водитель</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ПравилаВыполненияЗадачВодительКонтекстноеМеню" id="121"/>
+											<ExtendedTooltip name="ПравилаВыполненияЗадачВодительРасширеннаяПодсказка" id="122"/>
+										</InputField>
+										<InputField name="ПравилаВыполненияЗадачВидАдреса" id="123">
+											<DataPath>ПравилаВыполненияЗадач.ВидАдреса</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ПравилаВыполненияЗадачВидАдресаКонтекстноеМеню" id="124"/>
+											<ExtendedTooltip name="ПравилаВыполненияЗадачВидАдресаРасширеннаяПодсказка" id="125"/>
+										</InputField>
+									</ChildItems>
+								</Table>
+								<UsualGroup name="Группа4" id="99">
+									<Group>Vertical</Group>
+									<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="100"/>
+									<ChildItems>
+										<UsualGroup name="Группа8" id="196">
+											<Group>Vertical</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Группа8РасширеннаяПодсказка" id="197"/>
+											<ChildItems>
+												<CheckBoxField name="ПравилаВыполненияЗадачТребуетсяСканированиеШК" id="132">
+													<DataPath>Items.ПравилаВыполненияЗадач.CurrentData.ТребуетсяСканированиеШК</DataPath>
+													<TitleLocation>Right</TitleLocation>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="ПравилаВыполненияЗадачТребуетсяСканированиеШККонтекстноеМеню" id="133"/>
+													<ExtendedTooltip name="ПравилаВыполненияЗадачТребуетсяСканированиеШКРасширеннаяПодсказка" id="134"/>
+													<Events>
+														<Event name="OnChange">ПравилаВыполненияЗадачТребуетсяСканированиеШКПриИзменении</Event>
+													</Events>
+												</CheckBoxField>
+												<UsualGroup name="Группа9" id="198">
+													<Group>Horizontal</Group>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="Группа9РасширеннаяПодсказка" id="199"/>
+													<ChildItems>
+														<LabelDecoration name="Декорация3" id="203">
+															<Width>2</Width>
+															<ContextMenu name="Декорация3КонтекстноеМеню" id="204"/>
+															<ExtendedTooltip name="Декорация3РасширеннаяПодсказка" id="205"/>
+														</LabelDecoration>
+														<CheckBoxField name="ПравилаВыполненияЗадачРазрешенаУстановкаНовогоШК" id="200">
+															<DataPath>Items.ПравилаВыполненияЗадач.CurrentData.РазрешенаУстановкаНовогоШК</DataPath>
+															<TitleLocation>Right</TitleLocation>
+															<ToolTip>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>только при учете с точностью до грузового места</v8:content>
+																</v8:item>
+															</ToolTip>
+															<ToolTipRepresentation>Button</ToolTipRepresentation>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="ПравилаВыполненияЗадачРазрешенаУстановкаНовогоШККонтекстноеМеню" id="201"/>
+															<ExtendedTooltip name="ПравилаВыполненияЗадачРазрешенаУстановкаНовогоШКРасширеннаяПодсказка" id="202"/>
+															<Events>
+																<Event name="OnChange">ПравилаВыполненияЗадачРазрешенаУстановкаНовогоШКПриИзменении</Event>
+															</Events>
+														</CheckBoxField>
+													</ChildItems>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="Группа6" id="186">
+											<Group>Vertical</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Группа6РасширеннаяПодсказка" id="187"/>
+											<ChildItems>
+												<CheckBoxField name="ПравилаВыполненияЗадачТребуетсяФотография" id="135">
+													<DataPath>Items.ПравилаВыполненияЗадач.CurrentData.ТребуетсяФотография</DataPath>
+													<TitleLocation>Right</TitleLocation>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="ПравилаВыполненияЗадачТребуетсяФотографияКонтекстноеМеню" id="136"/>
+													<ExtendedTooltip name="ПравилаВыполненияЗадачТребуетсяФотографияРасширеннаяПодсказка" id="137"/>
+													<Events>
+														<Event name="OnChange">ПравилаВыполненияЗадачТребуетсяФотографияПриИзменении</Event>
+													</Events>
+												</CheckBoxField>
+												<CheckBoxField name="ПравилаВыполненияЗадачТребуетсяФотографияПриОтменеЗадачи" id="229">
+													<DataPath>Items.ПравилаВыполненияЗадач.CurrentData.ТребуетсяФотографияПриОтменеЗадачи</DataPath>
+													<TitleLocation>Right</TitleLocation>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="ПравилаВыполненияЗадачТребуетсяФотографияПриОтменеЗадачиКонтекстноеМеню" id="230"/>
+													<ExtendedTooltip name="ПравилаВыполненияЗадачТребуетсяФотографияПриОтменеЗадачиРасширеннаяПодсказка" id="231"/>
+													<Events>
+														<Event name="OnChange">ПравилаВыполненияЗадачТребуетсяФотографияПриОтменеЗадачиПриИзменении</Event>
+													</Events>
+												</CheckBoxField>
+												<UsualGroup name="Группа12" id="257">
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="Группа12РасширеннаяПодсказка" id="258"/>
+													<ChildItems>
+														<LabelDecoration name="Декорация5" id="259">
+															<Width>2</Width>
+															<ContextMenu name="Декорация5КонтекстноеМеню" id="260"/>
+															<ExtendedTooltip name="Декорация5РасширеннаяПодсказка" id="261"/>
+														</LabelDecoration>
+														<CheckBoxField name="ПравилаВыполненияЗадачНеобходимостьФотографииОпределяетсяНаУровнеПроблемы" id="262">
+															<DataPath>Items.ПравилаВыполненияЗадач.CurrentData.НеобходимостьФотографииОпределяетсяНаУровнеПроблемы</DataPath>
+															<TitleLocation>Right</TitleLocation>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="ПравилаВыполненияЗадачНеобходимостьФотографииОпределяетсяНаУровнеПроблемыКонтекстноеМеню" id="263"/>
+															<ExtendedTooltip name="ПравилаВыполненияЗадачНеобходимостьФотографииОпределяетсяНаУровнеПроблемыРасширеннаяПодсказка" id="264"/>
+															<Events>
+																<Event name="OnChange">ПравилаВыполненияЗадачНеобходимостьФотографииОпределяетсяНаУровнеПроблемыПриИзменении</Event>
+															</Events>
+														</CheckBoxField>
+													</ChildItems>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+										<CheckBoxField name="ПравилаВыполненияЗадачЗапрещеноОтчитыватьсяОРаботе" id="248">
+											<DataPath>Items.ПравилаВыполненияЗадач.CurrentData.ЗапрещеноОтчитыватьсяОРаботе</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ПравилаВыполненияЗадачЗапрещеноОтчитыватьсяОРаботеКонтекстноеМеню" id="249"/>
+											<ExtendedTooltip name="ПравилаВыполненияЗадачЗапрещеноОтчитыватьсяОРаботеРасширеннаяПодсказка" id="250"/>
+											<Events>
+												<Event name="OnChange">ПравилаВыполненияЗадачЗапрещеноОтчитыватьсяОРаботеПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+										<InputField name="ПравилаВыполненияЗадачСпособПрисоединенияВнешнихФайлов" id="183">
+											<DataPath>Items.ПравилаВыполненияЗадач.CurrentData.СпособПрисоединенияВнешнихФайлов</DataPath>
+											<InputHint>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>&lt;к прохождению точки&gt;</v8:content>
+												</v8:item>
+											</InputHint>
+											<ContextMenu name="ПравилаВыполненияЗадачСпособПрисоединенияВнешнихФайловКонтекстноеМеню" id="184"/>
+											<ExtendedTooltip name="ПравилаВыполненияЗадачСпособПрисоединенияВнешнихФайловРасширеннаяПодсказка" id="185"/>
+											<Events>
+												<Event name="OnChange">ПравилаВыполненияЗадачСпособПрисоединенияВнешнихФайловПриИзменении</Event>
+											</Events>
+										</InputField>
+										<InputField name="ПравилаВыполненияЗадачСпособФормированияНомераРаботы" id="209">
+											<DataPath>Items.ПравилаВыполненияЗадач.CurrentData.СпособФормированияНомераРаботы</DataPath>
+											<ToolTipRepresentation>Button</ToolTipRepresentation>
+											<InputHint>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>&lt;номер из задания на перевозку&gt;</v8:content>
+												</v8:item>
+											</InputHint>
+											<ContextMenu name="ПравилаВыполненияЗадачСпособФормированияНомераРаботыКонтекстноеМеню" id="210"/>
+											<ExtendedTooltip name="ПравилаВыполненияЗадачСпособФормированияНомераРаботыРасширеннаяПодсказка" id="211"/>
+											<Events>
+												<Event name="OnChange">ПравилаВыполненияЗадачСпособФормированияНомераРаботыПриИзменении</Event>
+											</Events>
+										</InputField>
+										<CheckBoxField name="ПравилаВыполненияЗадачВыводитьКомментарийПоЗаявке" id="212">
+											<DataPath>Items.ПравилаВыполненияЗадач.CurrentData.ВыводитьКомментарийПоЗаявке</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ПравилаВыполненияЗадачВыводитьКомментарийПоЗаявкеКонтекстноеМеню" id="213"/>
+											<ExtendedTooltip name="ПравилаВыполненияЗадачВыводитьКомментарийПоЗаявкеРасширеннаяПодсказка" id="214"/>
+											<Events>
+												<Event name="OnChange">ПравилаВыполненияЗадачВыводитьКомментарийПоЗаявкеПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+										<CheckBoxField name="ПравилаВыполненияЗадачВыводитьНомерИсходногоДокумента" id="215">
+											<DataPath>Items.ПравилаВыполненияЗадач.CurrentData.ВыводитьНомерИсходногоДокумента</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ПравилаВыполненияЗадачВыводитьНомерИсходногоДокументаКонтекстноеМеню" id="216"/>
+											<ExtendedTooltip name="ПравилаВыполненияЗадачВыводитьНомерИсходногоДокументаРасширеннаяПодсказка" id="217"/>
+											<Events>
+												<Event name="OnChange">ПравилаВыполненияЗадачВыводитьНомерИсходногоДокументаПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+										<UsualGroup name="Группа7" id="221">
+											<Group>Horizontal</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Группа7РасширеннаяПодсказка" id="222"/>
+											<ChildItems>
+												<LabelDecoration name="Декорация2" id="223">
+													<Width>2</Width>
+													<ContextMenu name="Декорация2КонтекстноеМеню" id="224"/>
+													<ExtendedTooltip name="Декорация2РасширеннаяПодсказка" id="225"/>
+												</LabelDecoration>
+												<InputField name="ПравилаВыполненияЗадачСпособФормированияНомераДокумента" id="218">
+													<DataPath>Items.ПравилаВыполненияЗадач.CurrentData.СпособФормированияНомераДокумента</DataPath>
+													<InputHint>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>&lt;номер КИС из заявки на перевозку&gt;</v8:content>
+														</v8:item>
+													</InputHint>
+													<ContextMenu name="ПравилаВыполненияЗадачСпособФормированияНомераДокументаКонтекстноеМеню" id="219"/>
+													<ExtendedTooltip name="ПравилаВыполненияЗадачСпособФормированияНомераДокументаРасширеннаяПодсказка" id="220"/>
+													<Events>
+														<Event name="OnChange">ПравилаВыполненияЗадачСпособФормированияНомераДокументаПриИзменении</Event>
+													</Events>
+												</InputField>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="Группа10" id="232">
+											<Group>Vertical</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Группа10РасширеннаяПодсказка" id="233"/>
+											<ChildItems>
+												<CheckBoxField name="ПравилаВыполненияЗадачРазрешенаПогрузкаРазгрузкаСТочностьюДоТоварногоСостава" id="234">
+													<DataPath>Items.ПравилаВыполненияЗадач.CurrentData.РазрешенаПогрузкаРазгрузкаСТочностьюДоТоварногоСостава</DataPath>
+													<TitleLocation>Right</TitleLocation>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="ПравилаВыполненияЗадачРазрешенаПогрузкаРазгрузкаСТочностьюДоТоварногоСоставаКонтекстноеМеню" id="235"/>
+													<ExtendedTooltip name="ПравилаВыполненияЗадачРазрешенаПогрузкаРазгрузкаСТочностьюДоТоварногоСоставаРасширеннаяПодсказка" id="236"/>
+													<Events>
+														<Event name="OnChange">ПравилаВыполненияЗадачРазрешенаПогрузкаРазгрузкаСТочностьюДоТоварногоСоставаПриИзменении</Event>
+													</Events>
+												</CheckBoxField>
+												<UsualGroup name="Группа11" id="240">
+													<Group>Horizontal</Group>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="Группа11РасширеннаяПодсказка" id="241"/>
+													<ChildItems>
+														<LabelDecoration name="Декорация4" id="242">
+															<Width>2</Width>
+															<ContextMenu name="Декорация4КонтекстноеМеню" id="243"/>
+															<ExtendedTooltip name="Декорация4РасширеннаяПодсказка" id="244"/>
+														</LabelDecoration>
+														<CheckBoxField name="ПравилаВыполненияЗадачТребуетсяОтчитыватьсяОЗадачеПоКаждойСтрокеТоварногоСостава" id="237">
+															<DataPath>Items.ПравилаВыполненияЗадач.CurrentData.ТребуетсяОтчитыватьсяОЗадачеПоКаждойСтрокеТоварногоСостава</DataPath>
+															<TitleLocation>Right</TitleLocation>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="ПравилаВыполненияЗадачТребуетсяОтчитыватьсяОЗадачеПоКаждойСтрокеТоварногоСоставаКонтекстноеМеню" id="238"/>
+															<ExtendedTooltip name="ПравилаВыполненияЗадачТребуетсяОтчитыватьсяОЗадачеПоКаждойСтрокеТоварногоСоставаРасширеннаяПодсказка" id="239"/>
+															<Events>
+																<Event name="OnChange">ПравилаВыполненияЗадачТребуетсяОтчитыватьсяОЗадачеПоКаждойСтрокеТоварногоСоставаПриИзменении</Event>
+															</Events>
+														</CheckBoxField>
+													</ChildItems>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="Группа16" id="300">
+											<Group>Vertical</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Группа16РасширеннаяПодсказка" id="301"/>
+											<ChildItems>
+												<CheckBoxField name="ПравилаВыполненияЗадачРазрешеноПробитиеКассовогоЧека" id="302">
+													<DataPath>Items.ПравилаВыполненияЗадач.CurrentData.РазрешеноПробитиеКассовогоЧека</DataPath>
+													<TitleLocation>Right</TitleLocation>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="ПравилаВыполненияЗадачРазрешеноПробитиеКассовогоЧекаКонтекстноеМеню" id="303"/>
+													<ExtendedTooltip name="ПравилаВыполненияЗадачРазрешеноПробитиеКассовогоЧекаРасширеннаяПодсказка" id="304"/>
+													<Events>
+														<Event name="OnChange">ПравилаВыполненияЗадачРазрешеноПробитиеКассовогоЧекаПриИзменении</Event>
+													</Events>
+												</CheckBoxField>
+												<UsualGroup name="Группа17" id="308">
+													<Group>Horizontal</Group>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="Группа17РасширеннаяПодсказка" id="309"/>
+													<ChildItems>
+														<LabelDecoration name="Декорация7" id="310">
+															<Width>2</Width>
+															<ContextMenu name="Декорация7КонтекстноеМеню" id="311"/>
+															<ExtendedTooltip name="Декорация7РасширеннаяПодсказка" id="312"/>
+														</LabelDecoration>
+														<CheckBoxField name="ПравилаВыполненияЗадачПробиватьКаждыйЧекОтдельнойКассовойСменой" id="305">
+															<DataPath>Items.ПравилаВыполненияЗадач.CurrentData.ПробиватьКаждыйЧекОтдельнойКассовойСменой</DataPath>
+															<TitleLocation>Right</TitleLocation>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="ПравилаВыполненияЗадачПробиватьКаждыйЧекОтдельнойКассовойСменойКонтекстноеМеню" id="306"/>
+															<ExtendedTooltip name="ПравилаВыполненияЗадачПробиватьКаждыйЧекОтдельнойКассовойСменойРасширеннаяПодсказка" id="307"/>
+															<Events>
+																<Event name="OnChange">ПравилаВыполненияЗадачПробиватьКаждыйЧекОтдельнойКассовойСменойПриИзменении</Event>
+															</Events>
+														</CheckBoxField>
+													</ChildItems>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ПравилаВыполненияРейса" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Правила выполнения рейса</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:InformationRegisterRecordSet.упПравилаВыполненияРейсаВМобильномКлиенте</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПравилаВыполненияЗадач" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Правила выполнения задач</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:InformationRegisterRecordSet.упПравилаВыполненияЗадачВМобильномКлиенте</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПравилаПрохожденияТочек" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Правила прохождения точек</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:InformationRegisterRecordSet.упПравилаПрохожденияТочекВМобильномКлиенте</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="КонтролироватьКоординатыВодителяПриПрохожденииТочки" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Контролировать координаты водителя при прохождении точки</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ПравилаПрохожденияТочекДопустимоеОтклонение</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ПравилаПрохожденияТочек.КонтролироватьКоординатыВодителяПриПрохожденииТочки</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Доступность</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ПравилаВыполненияРейсаПеревозчик</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ПравилаВыполненияРейса.Перевозчик</dcsset:left>
+						<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:НедоступныеДанныеЦвет</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>&lt;для всех перевозчиков&gt;</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ПравилаВыполненияРейсаВодитель</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ПравилаВыполненияРейса.Водитель</dcsset:left>
+						<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:НедоступныеДанныеЦвет</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>&lt;для всех водителей&gt;</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ПравилаВыполненияЗадачПеревозчик</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ПравилаВыполненияЗадач.Перевозчик</dcsset:left>
+						<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:НедоступныеДанныеЦвет</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>&lt;для всех перевозчиков&gt;</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ПравилаВыполненияЗадачВодитель</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ПравилаВыполненияЗадач.Водитель</dcsset:left>
+						<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:НедоступныеДанныеЦвет</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>&lt;для всех водителей&gt;</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ПравилаВыполненияЗадачВидАдреса</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ПравилаВыполненияЗадач.ВидАдреса</dcsset:left>
+						<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:НедоступныеДанныеЦвет</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>&lt;для всех видов адресов&gt;</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ПравилаПрохожденияТочекПеревозчик</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ПравилаПрохожденияТочек.Перевозчик</dcsset:left>
+						<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:НедоступныеДанныеЦвет</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>&lt;для всех перевозчиков&gt;</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ПравилаПрохожденияТочекВодитель</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ПравилаПрохожденияТочек.Водитель</dcsset:left>
+						<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:НедоступныеДанныеЦвет</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>&lt;для всех водителей&gt;</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ПравилаПрохожденияТочекВидАдреса</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ПравилаПрохожденияТочек.ВидАдреса</dcsset:left>
+						<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:НедоступныеДанныеЦвет</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>&lt;для всех видов адресов&gt;</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ПравилаПрохожденияТочекАдрес</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ПравилаПрохожденияТочек.Адрес</dcsset:left>
+						<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:НедоступныеДанныеЦвет</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>&lt;для всех адресов&gt;</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ПравилаВыполненияРейсаВидАдресаСклада</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ПравилаВыполненияРейса.ЗапрещеноИзменениеПорядкаПогрузкиНаСкладах</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ПравилаВыполненияРейса.ВидАдресаСклада</dcsset:left>
+						<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ОтметкаНезаполненного</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ПравилаВыполненияРейсаВидАдресаСклада</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:groupType>OrGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ПравилаВыполненияРейса.ЗапрещеноИзменениеПорядкаПогрузкиНаСкладах</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ПравилаВыполненияРейса.ВидАдресаСклада</dcsset:left>
+							<dcsset:comparisonType>Filled</dcsset:comparisonType>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ОтметкаНезаполненного</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+</Form>

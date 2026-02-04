@@ -1,0 +1,449 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="AfterWrite">ПослеЗаписи</Event>
+		<Event name="AfterWriteAtServer">ПослеЗаписиНаСервере</Event>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
+		<Event name="FillCheckProcessingAtServer">ОбработкаПроверкиЗаполненияНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Группа2" id="49">
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="50"/>
+			<ChildItems>
+				<InputField name="Наименование" id="7">
+					<DataPath>Объект.Description</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="9"/>
+				</InputField>
+				<InputField name="Пол" id="51">
+					<DataPath>Объект.Пол</DataPath>
+					<Width>10</Width>
+					<ContextMenu name="ПолКонтекстноеМеню" id="52"/>
+					<ExtendedTooltip name="ПолРасширеннаяПодсказка" id="53"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="ТипСотрудника" id="10">
+			<DataPath>Объект.ТипСотрудника</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<ContextMenu name="ТипСотрудникаКонтекстноеМеню" id="11"/>
+			<ExtendedTooltip name="ТипСотрудникаРасширеннаяПодсказка" id="12"/>
+		</InputField>
+		<UsualGroup name="ГруппаПартнеры" id="63">
+			<Group>Vertical</Group>
+			<ShowTitle>false</ShowTitle>
+			<ThroughAlign>Use</ThroughAlign>
+			<ExtendedTooltip name="ГруппаПартнерыРасширеннаяПодсказка" id="64"/>
+			<ChildItems>
+				<InputField name="Партнер" id="13">
+					<DataPath>Объект.Партнер</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<ContextMenu name="ПартнерКонтекстноеМеню" id="14"/>
+					<ExtendedTooltip name="ПартнерРасширеннаяПодсказка" id="15"/>
+				</InputField>
+				<UsualGroup name="Группа3" id="97">
+					<Group>AlwaysHorizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="98"/>
+					<ChildItems>
+						<CheckBoxField name="СотрудникЧислитсяВНесколькихОрганизациях" id="60">
+							<DataPath>Объект.СотрудникЧислитсяВНесколькихОрганизациях</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="СотрудникЧислитсяВНесколькихОрганизацияхКонтекстноеМеню" id="61"/>
+							<ExtendedTooltip name="СотрудникЧислитсяВНесколькихОрганизацияхРасширеннаяПодсказка" id="62"/>
+						</CheckBoxField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Подразделение" id="28">
+			<DataPath>Объект.ПодразделениеПартнера</DataPath>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<ContextMenu name="ПодразделениеКонтекстноеМеню" id="29"/>
+			<ExtendedTooltip name="ПодразделениеРасширеннаяПодсказка" id="30"/>
+		</InputField>
+		<InputField name="ПодразделениеПредприятия" id="65">
+			<DataPath>Объект.Подразделение</DataPath>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<ContextMenu name="ПодразделениеПредприятияКонтекстноеМеню" id="66"/>
+			<ExtendedTooltip name="ПодразделениеПредприятияРасширеннаяПодсказка" id="67"/>
+		</InputField>
+		<InputField name="НаправлениеДеятельности" id="71">
+			<DataPath>Объект.НаправлениеДеятельности</DataPath>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<ContextMenu name="НаправлениеДеятельностиКонтекстноеМеню" id="72"/>
+			<ExtendedTooltip name="НаправлениеДеятельностиРасширеннаяПодсказка" id="73"/>
+		</InputField>
+		<UsualGroup name="Группа1" id="31">
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="32"/>
+			<ChildItems>
+				<InputField name="ТабельныйНомер" id="16">
+					<DataPath>Объект.ТабельныйНомер</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<Width>20</Width>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<ContextMenu name="ТабельныйНомерКонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="ТабельныйНомерРасширеннаяПодсказка" id="18"/>
+				</InputField>
+				<InputField name="Класс" id="19">
+					<DataPath>Объект.Класс</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<ContextMenu name="КлассКонтекстноеМеню" id="20"/>
+					<ExtendedTooltip name="КлассРасширеннаяПодсказка" id="21"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="ИНН" id="68">
+			<DataPath>Объект.ИНН</DataPath>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<ContextMenu name="ИННКонтекстноеМеню" id="69"/>
+			<ExtendedTooltip name="ИННРасширеннаяПодсказка" id="70"/>
+		</InputField>
+		<LabelDecoration name="Декорация1" id="85">
+			<Title formatted="false">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>График работы:</v8:content>
+				</v8:item>
+			</Title>
+			<ContextMenu name="Декорация1КонтекстноеМеню" id="86"/>
+			<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="87"/>
+		</LabelDecoration>
+		<UsualGroup name="ГруппаГрафикРаботы" id="80">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>График работы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа график работы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаГрафикРаботыРасширеннаяПодсказка" id="81"/>
+			<ChildItems>
+				<LabelDecoration name="Декорация14" id="82">
+					<Width>1</Width>
+					<ContextMenu name="Декорация14КонтекстноеМеню" id="83"/>
+					<ExtendedTooltip name="Декорация14РасширеннаяПодсказка" id="84"/>
+				</LabelDecoration>
+				<UsualGroup name="ГруппаГрафикиРаботВарианты" id="91">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа графики работ варианты</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа графики работ варианты</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаГрафикиРаботВариантыРасширеннаяПодсказка" id="92"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаГрафикОбщий" id="95">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа график общий</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа график общий</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаГрафикОбщийРасширеннаяПодсказка" id="96"/>
+							<ChildItems>
+								<RadioButtonField name="ГрафикРаботыОбщий" id="77">
+									<DataPath>ПереключательИспользуетсяИндивидуальныйГрафикРаботы</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>График работы</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>None</TitleLocation>
+									<RadioButtonType>RadioButtons</RadioButtonType>
+									<ColumnsCount>1</ColumnsCount>
+									<ChoiceList>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Общий</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:decimal">0</Value>
+											</xr:Value>
+										</xr:Item>
+									</ChoiceList>
+									<ContextMenu name="ГрафикРаботыОбщийКонтекстноеМеню" id="78"/>
+									<ExtendedTooltip name="ГрафикРаботыОбщийРасширеннаяПодсказка" id="79"/>
+									<Events>
+										<Event name="OnChange">ПереключательГрафикаРаботыПриИзменении</Event>
+									</Events>
+								</RadioButtonField>
+								<InputField name="ГрафикРаботы" id="54">
+									<DataPath>Объект.ГрафикРаботы</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<ContextMenu name="ГрафикРаботыКонтекстноеМеню" id="55"/>
+									<ExtendedTooltip name="ГрафикРаботыРасширеннаяПодсказка" id="56"/>
+									<Events>
+										<Event name="OnChange">ГрафикРаботыПриИзменении</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаГрафикРаботИндивидуальный" id="93">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа график работ индивидуальный</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа график работ индивидуальный</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаГрафикРаботИндивидуальныйРасширеннаяПодсказка" id="94"/>
+							<ChildItems>
+								<RadioButtonField name="ГрафикРаботыИндивидуальный" id="88">
+									<DataPath>ПереключательИспользуетсяИндивидуальныйГрафикРаботы</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<RadioButtonType>Auto</RadioButtonType>
+									<ChoiceList>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Индивидуальный</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:decimal">1</Value>
+											</xr:Value>
+										</xr:Item>
+									</ChoiceList>
+									<ContextMenu name="ГрафикРаботыИндивидуальныйКонтекстноеМеню" id="89"/>
+									<ExtendedTooltip name="ГрафикРаботыИндивидуальныйРасширеннаяПодсказка" id="90"/>
+									<Events>
+										<Event name="OnChange">ПереключательГрафикаРаботыПриИзменении</Event>
+									</Events>
+								</RadioButtonField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Пользователь" id="57">
+			<DataPath>Объект.Пользователь</DataPath>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<ContextMenu name="ПользовательКонтекстноеМеню" id="58"/>
+			<ExtendedTooltip name="ПользовательРасширеннаяПодсказка" id="59"/>
+		</InputField>
+		<Pages name="ГруппаСтраницы" id="24">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="ГруппаСтраницыРасширеннаяПодсказка" id="25"/>
+			<ChildItems>
+				<Page name="ГруппаКонтактнаяИнформация" id="26">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Адреса, телефоны</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа контактная информация</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаКонтактнаяИнформацияExtendedTooltip" id="27"/>
+				</Page>
+				<Page name="ГруппаДополнительныеРеквизиты" id="22">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ДополнительныеРеквизиты</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ДополнительныеРеквизиты</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаДополнительныеРеквизитыРасширеннаяПодсказка" id="23"/>
+				</Page>
+				<Page name="ГруппаАвторизация" id="41">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Параметры авторизации</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа авторизация</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаАвторизацияРасширеннаяПодсказка" id="42"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаЛогин" id="33">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа логин</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа логин</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаЛогинРасширеннаяПодсказка" id="34"/>
+							<ChildItems>
+								<InputField name="Логин" id="35">
+									<DataPath>Объект.Логин</DataPath>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<ContextMenu name="ЛогинКонтекстноеМеню" id="36"/>
+									<ExtendedTooltip name="ЛогинРасширеннаяПодсказка" id="37"/>
+								</InputField>
+								<InputField name="Пароль" id="38">
+									<DataPath>Объект.Пароль</DataPath>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<ContextMenu name="ПарольКонтекстноеМеню" id="39"/>
+									<ExtendedTooltip name="ПарольРасширеннаяПодсказка" id="40"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<InputField name="Штрихкод" id="43">
+							<DataPath>Объект.Штрихкод</DataPath>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<ContextMenu name="ШтрихкодКонтекстноеМеню" id="44"/>
+							<ExtendedTooltip name="ШтрихкодРасширеннаяПодсказка" id="45"/>
+						</InputField>
+						<InputField name="КодМагнитнойКарты" id="46">
+							<DataPath>Объект.КодМагнитнойКарты</DataPath>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<ContextMenu name="КодМагнитнойКартыКонтекстноеМеню" id="47"/>
+							<ExtendedTooltip name="КодМагнитнойКартыРасширеннаяПодсказка" id="48"/>
+						</InputField>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.упСотрудники</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ПереключательИспользуетсяИндивидуальныйГрафикРаботы" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Переключатель используется индивидуальный график работы</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>1</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+			<FunctionalOptions>
+				<Item>FunctionalOption.упИспользуютсяИндивидуальныеГрафикиРаботыСотрудников</Item>
+			</FunctionalOptions>
+		</Attribute>
+		<Attribute name="ИспользуетсяИндивидуальныйГрафикРаботы" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Используется индивидуальный график работы</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<FunctionalOptions>
+				<Item>FunctionalOption.упИспользуютсяИндивидуальныеГрафикиРаботыСотрудников</Item>
+			</FunctionalOptions>
+		</Attribute>
+		<Attribute name="ЭтоНовый" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Это новый</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+</Form>

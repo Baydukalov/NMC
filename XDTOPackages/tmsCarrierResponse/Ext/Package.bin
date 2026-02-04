@@ -1,0 +1,21 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://www.axelot.ru/tms3/CarrierResponse">
+	<valueType name="UID" base="xs:string" minLength="36" maxLength="36"/>
+	<objectType name="CarrierResponse">
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/CarrierResponse" name="RequestUID" type="d3p1:UID"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/CarrierResponse" name="CarrierUID" type="d3p1:UID"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/CarrierResponse" name="AgreementUID" type="d3p1:UID"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/CarrierResponse" name="TypeVehicleUID" type="d3p1:UID"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/CarrierResponse" name="VehicleUID" type="d3p1:UID" lowerBound="0" nillable="true"/>
+		<property name="BeginTime" type="xs:dateTime"/>
+		<property name="EndTime" type="xs:dateTime"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/CarrierResponse" name="Driver1UID" type="d3p1:UID" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/CarrierResponse" name="Driver2UID" type="d3p1:UID" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/CarrierResponse" name="ForwarderUID" type="d3p1:UID" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/CarrierResponse" name="Costs" type="d3p1:CostCarrier" upperBound="-1" nillable="true"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/CarrierResponse" name="CurrencyUID" type="d3p1:UID"/>
+	</objectType>
+	<objectType name="CostCarrier">
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/CarrierResponse" name="CostUID" type="d3p1:UID"/>
+		<property name="Sum" type="xs:unsignedLong"/>
+	</objectType>
+</package>

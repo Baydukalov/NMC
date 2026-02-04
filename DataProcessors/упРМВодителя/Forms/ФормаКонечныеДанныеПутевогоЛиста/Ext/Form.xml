@@ -1,0 +1,904 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoTitle>false</AutoTitle>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="BeforeClose">ПередЗакрытием</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаОсновная" id="124">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа основная</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа основная</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаОсновнаяРасширеннаяПодсказка" id="125"/>
+			<ChildItems>
+				<Pages name="ГруппаГСМ" id="75">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа ГСМ</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа ГСМ</v8:content>
+						</v8:item>
+					</ToolTip>
+					<HorizontalStretch>true</HorizontalStretch>
+					<VerticalStretch>true</VerticalStretch>
+					<PagesRepresentation>None</PagesRepresentation>
+					<ExtendedTooltip name="ГруппаГСМРасширеннаяПодсказка" id="76"/>
+					<ChildItems>
+						<Page name="ГруппаОстатки" id="77">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа остатки</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа остатки</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="ГруппаОстаткиРасширеннаяПодсказка" id="78"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаКонечныПробегОчистить" id="141">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа конечны пробег очистить</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа конечны пробег очистить</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<VerticalAlign>Center</VerticalAlign>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаКонечныПробегОчиститьРасширеннаяПодсказка" id="142"/>
+									<ChildItems>
+										<InputField name="ОбъектПробегОкончание" id="32">
+											<DataPath>Объект.ПробегОкончание</DataPath>
+											<TitleFont ref="style:упШрифтЗаголовкаПоляВводаРабочееМесто" kind="StyleItem"/>
+											<ChoiceButton>true</ChoiceButton>
+											<BackColor>style:упЦветФонаРазрешенныеДляРедактированииПоля</BackColor>
+											<Font ref="style:упШрифтПоляВводаРабочееМесто" kind="StyleItem"/>
+											<ContextMenu name="ОбъектПробегОкончаниеКонтекстноеМеню" id="33"/>
+											<ExtendedTooltip name="ОбъектПробегОкончаниеРасширеннаяПодсказка" id="34"/>
+										</InputField>
+										<UsualGroup name="ГруппаКнопкаОчистить" id="143">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа кнопка очистить</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа кнопка очистить</v8:content>
+												</v8:item>
+											</ToolTip>
+											<GroupVerticalAlign>Center</GroupVerticalAlign>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<BackColor>style:упЦветФонаВыбранногоКонтейнера</BackColor>
+											<ExtendedTooltip name="ГруппаКнопкаОчиститьРасширеннаяПодсказка" id="144"/>
+											<ChildItems>
+												<PictureDecoration name="КнопкаОчиститьКонечныйПробег" id="138">
+													<Width>4</Width>
+													<Height>2</Height>
+													<Font ref="style:упШрифтТаблицыРМ" kind="StyleItem"/>
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Кнопка очистить конечный пробег</v8:content>
+														</v8:item>
+													</Title>
+													<GroupVerticalAlign>Center</GroupVerticalAlign>
+													<Hyperlink>true</Hyperlink>
+													<NonselectedPictureText>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>X</v8:content>
+														</v8:item>
+													</NonselectedPictureText>
+													<BorderColor>style:упЦветРамкиВыбранногоКонтейнера</BorderColor>
+													<Border width="4">
+														<v8ui:style xsi:type="v8ui:ControlBorderType">Single</v8ui:style>
+													</Border>
+													<FileDragMode>AsFile</FileDragMode>
+													<ContextMenu name="КнопкаОчиститьКонечныйПробегКонтекстноеМеню" id="139"/>
+													<ExtendedTooltip name="КнопкаОчиститьКонечныйПробегРасширеннаяПодсказка" id="140"/>
+													<Events>
+														<Event name="Click">КнопкаОчиститьКонечныйПробегНажатие</Event>
+													</Events>
+												</PictureDecoration>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+								<Table name="ГСМ" id="35">
+									<DefaultItem>true</DefaultItem>
+									<HeaderHeight>2</HeaderHeight>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<FileDragMode>AsFile</FileDragMode>
+									<DataPath>Объект.ГСМ</DataPath>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="ГСМКонтекстноеМеню" id="36"/>
+									<AutoCommandBar name="ГСМКоманднаяПанель" id="37">
+										<Autofill>false</Autofill>
+									</AutoCommandBar>
+									<ExtendedTooltip name="ГСМРасширеннаяПодсказка" id="38"/>
+									<SearchStringAddition name="ГСМСтрокаПоиска" id="39">
+										<AdditionSource>
+											<Item>ГСМ</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ГСМСтрокаПоискаКонтекстноеМеню" id="40"/>
+										<ExtendedTooltip name="ГСМСтрокаПоискаРасширеннаяПодсказка" id="41"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="ГСМСостояниеПросмотра" id="42">
+										<AdditionSource>
+											<Item>ГСМ</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ГСМСостояниеПросмотраКонтекстноеМеню" id="43"/>
+										<ExtendedTooltip name="ГСМСостояниеПросмотраРасширеннаяПодсказка" id="44"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="ГСМУправлениеПоиском" id="45">
+										<AdditionSource>
+											<Item>ГСМ</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="ГСМУправлениеПоискомКонтекстноеМеню" id="46"/>
+										<ExtendedTooltip name="ГСМУправлениеПоискомРасширеннаяПодсказка" id="47"/>
+									</SearchControlAddition>
+									<ChildItems>
+										<InputField name="ГСМКонОстаток" id="60">
+											<DataPath>Объект.ГСМ.КонОстаток</DataPath>
+											<DefaultItem>true</DefaultItem>
+											<TitleBackColor>style:упЦветФонаРазрешенныеДляРедактированииПоля</TitleBackColor>
+											<TitleFont ref="style:упШрифтТаблицыРМ" kind="StyleItem"/>
+											<EditMode>Directly</EditMode>
+											<BackColor>style:упЦветФонаРазрешенныеДляРедактированииПоля</BackColor>
+											<Font ref="style:упШрифтТаблицыРМ" kind="StyleItem"/>
+											<ContextMenu name="ГСМКонОстатокКонтекстноеМеню" id="61"/>
+											<ExtendedTooltip name="ГСМКонОстатокРасширеннаяПодсказка" id="62"/>
+										</InputField>
+										<InputField name="ГСМВидГСМ" id="51">
+											<DataPath>Объект.ГСМ.ВидГСМ</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<TitleFont ref="style:упШрифтТаблицыРМ" kind="StyleItem"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Font ref="style:упШрифтТаблицыРМ" kind="StyleItem"/>
+											<ContextMenu name="ГСМВидГСМКонтекстноеМеню" id="52"/>
+											<ExtendedTooltip name="ГСМВидГСМРасширеннаяПодсказка" id="53"/>
+										</InputField>
+										<InputField name="ГСМДопОборудование" id="54">
+											<DataPath>1/0:9b76ec99-ea93-418f-9b81-06006add24ef/0:840d0970-8463-4154-8b78-53608467923c</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<TitleFont ref="style:упШрифтТаблицыРМ" kind="StyleItem"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Font ref="style:упШрифтТаблицыРМ" kind="StyleItem"/>
+											<ContextMenu name="ГСМДопОборудованиеКонтекстноеМеню" id="55"/>
+											<ExtendedTooltip name="ГСМДопОборудованиеРасширеннаяПодсказка" id="56"/>
+										</InputField>
+									</ChildItems>
+								</Table>
+							</ChildItems>
+						</Page>
+						<Page name="ГруппаЗаправки" id="79">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа заправки</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа заправки</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<ExtendedTooltip name="ГруппаЗаправкиРасширеннаяПодсказка" id="80"/>
+							<ChildItems>
+								<Table name="Заправки" id="81">
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<FileDragMode>AsFile</FileDragMode>
+									<DataPath>Объект.Заправки</DataPath>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="ЗаправкиКонтекстноеМеню" id="82"/>
+									<AutoCommandBar name="ЗаправкиКоманднаяПанель" id="83">
+										<Autofill>false</Autofill>
+									</AutoCommandBar>
+									<ExtendedTooltip name="ЗаправкиРасширеннаяПодсказка" id="84"/>
+									<SearchStringAddition name="ЗаправкиСтрокаПоиска" id="85">
+										<AdditionSource>
+											<Item>Заправки</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ЗаправкиСтрокаПоискаКонтекстноеМеню" id="86"/>
+										<ExtendedTooltip name="ЗаправкиСтрокаПоискаРасширеннаяПодсказка" id="87"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="ЗаправкиСостояниеПросмотра" id="88">
+										<AdditionSource>
+											<Item>Заправки</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ЗаправкиСостояниеПросмотраКонтекстноеМеню" id="89"/>
+										<ExtendedTooltip name="ЗаправкиСостояниеПросмотраРасширеннаяПодсказка" id="90"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="ЗаправкиУправлениеПоиском" id="91">
+										<AdditionSource>
+											<Item>Заправки</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="ЗаправкиУправлениеПоискомКонтекстноеМеню" id="92"/>
+										<ExtendedTooltip name="ЗаправкиУправлениеПоискомРасширеннаяПодсказка" id="93"/>
+									</SearchControlAddition>
+									<ChildItems>
+										<InputField name="ЗаправкиКоличество" id="106">
+											<DataPath>Объект.Заправки.Количество</DataPath>
+											<TitleFont ref="style:упШрифтТаблицыРМ" kind="StyleItem"/>
+											<EditMode>Directly</EditMode>
+											<Font ref="style:упШрифтТаблицыРМ" kind="StyleItem"/>
+											<ContextMenu name="ЗаправкиКоличествоКонтекстноеМеню" id="107"/>
+											<ExtendedTooltip name="ЗаправкиКоличествоРасширеннаяПодсказка" id="108"/>
+										</InputField>
+										<InputField name="ЗаправкиВидДвижения" id="100">
+											<DataPath>Объект.Заправки.ВидДвижения</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<TitleFont ref="style:упШрифтТаблицыРМ" kind="StyleItem"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Font ref="style:упШрифтТаблицыРМ" kind="StyleItem"/>
+											<ContextMenu name="ЗаправкиВидДвиженияКонтекстноеМеню" id="101"/>
+											<ExtendedTooltip name="ЗаправкиВидДвиженияРасширеннаяПодсказка" id="102"/>
+										</InputField>
+										<InputField name="ЗаправкиВидГСМ" id="97">
+											<DataPath>Объект.Заправки.ВидГСМ</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<TitleFont ref="style:упШрифтТаблицыРМ" kind="StyleItem"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Font ref="style:упШрифтТаблицыРМ" kind="StyleItem"/>
+											<ContextMenu name="ЗаправкиВидГСМКонтекстноеМеню" id="98"/>
+											<ExtendedTooltip name="ЗаправкиВидГСМРасширеннаяПодсказка" id="99"/>
+										</InputField>
+										<InputField name="ЗаправкиДопОборудование" id="103">
+											<DataPath>1/0:653812e0-0dd9-427f-8283-d13a29b0946d/0:923c8474-8148-4f80-be4e-009b0c9975e0</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<TitleFont ref="style:упШрифтТаблицыРМ" kind="StyleItem"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Font ref="style:упШрифтТаблицыРМ" kind="StyleItem"/>
+											<ContextMenu name="ЗаправкиДопОборудованиеКонтекстноеМеню" id="104"/>
+											<ExtendedTooltip name="ЗаправкиДопОборудованиеРасширеннаяПодсказка" id="105"/>
+										</InputField>
+										<InputField name="ЗаправкиДатаЗаправкиСлива" id="145">
+											<DataPath>Объект.Заправки.ДатаЗаправкиСлива</DataPath>
+											<TitleFont ref="style:упШрифтТаблицыРМ" kind="StyleItem"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Font ref="style:упШрифтТаблицыРМ" kind="StyleItem"/>
+											<ContextMenu name="ЗаправкиДатаЗаправкиСливаКонтекстноеМеню" id="146"/>
+											<ExtendedTooltip name="ЗаправкиДатаЗаправкиСливаРасширеннаяПодсказка" id="147"/>
+										</InputField>
+										<InputField name="ЗаправкиГСМ" id="151">
+											<DataPath>Объект.Заправки.ГСМ</DataPath>
+											<TitleFont ref="style:упШрифтТаблицыРМ" kind="StyleItem"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Font ref="style:упШрифтТаблицыРМ" kind="StyleItem"/>
+											<ContextMenu name="ЗаправкиГСМКонтекстноеМеню" id="152"/>
+											<ExtendedTooltip name="ЗаправкиГСМРасширеннаяПодсказка" id="153"/>
+										</InputField>
+										<InputField name="ЗаправкиПриемникСливаГСМ" id="148">
+											<DataPath>Объект.Заправки.ПриемникСливаГСМ</DataPath>
+											<TitleFont ref="style:упШрифтТаблицыРМ" kind="StyleItem"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Font ref="style:упШрифтТаблицыРМ" kind="StyleItem"/>
+											<ContextMenu name="ЗаправкиПриемникСливаГСМКонтекстноеМеню" id="149"/>
+											<ExtendedTooltip name="ЗаправкиПриемникСливаГСМРасширеннаяПодсказка" id="150"/>
+										</InputField>
+									</ChildItems>
+								</Table>
+								<UsualGroup name="ГруппаКоманднаяПанель" id="109">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа командная панель</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа командная панель</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Width>20</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<Group>Vertical</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаКоманднаяПанельРасширеннаяПодсказка" id="110"/>
+									<ChildItems>
+										<UsualGroup name="ГруппаКнопкаДобавить" id="132">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа кнопка добавить</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа кнопка добавить</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<BackColor>style:упЦветФонаКнопкиЗавершитьОК</BackColor>
+											<ExtendedTooltip name="ГруппаКнопкаДобавитьРасширеннаяПодсказка" id="133"/>
+											<ChildItems>
+												<PictureDecoration name="КнопкаДобавить" id="111">
+													<Height>2</Height>
+													<HorizontalStretch>true</HorizontalStretch>
+													<Font ref="style:упШрифтТаблицыРМ" kind="StyleItem"/>
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Кнопка добавить</v8:content>
+														</v8:item>
+													</Title>
+													<Hyperlink>true</Hyperlink>
+													<NonselectedPictureText>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Добавить</v8:content>
+														</v8:item>
+													</NonselectedPictureText>
+													<BorderColor>style:упЦветРамкиКнопкиЗавершитьОК</BorderColor>
+													<Border width="4">
+														<v8ui:style xsi:type="v8ui:ControlBorderType">Single</v8ui:style>
+													</Border>
+													<FileDragMode>AsFile</FileDragMode>
+													<ContextMenu name="КнопкаДобавитьКонтекстноеМеню" id="112"/>
+													<ExtendedTooltip name="КнопкаДобавитьРасширеннаяПодсказка" id="113"/>
+													<Events>
+														<Event name="Click">КнопкаДобавитьНажатие</Event>
+													</Events>
+												</PictureDecoration>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ГруппаКнопкаУдалить" id="134">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа кнопка удалить</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа кнопка удалить</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<BackColor>style:упЦветФонаКнопкиВыходОтмена</BackColor>
+											<ExtendedTooltip name="ГруппаКнопкаУдалитьРасширеннаяПодсказка" id="135"/>
+											<ChildItems>
+												<PictureDecoration name="КнопкаУдалить" id="114">
+													<Height>2</Height>
+													<HorizontalStretch>true</HorizontalStretch>
+													<Font ref="style:упШрифтТаблицыРМ" kind="StyleItem"/>
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Кнопка удалить</v8:content>
+														</v8:item>
+													</Title>
+													<Hyperlink>true</Hyperlink>
+													<NonselectedPictureText>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Удалить</v8:content>
+														</v8:item>
+													</NonselectedPictureText>
+													<BorderColor>style:упЦветРамкиКнопкиВыходОтмена</BorderColor>
+													<Border width="4">
+														<v8ui:style xsi:type="v8ui:ControlBorderType">Single</v8ui:style>
+													</Border>
+													<FileDragMode>AsFile</FileDragMode>
+													<ContextMenu name="КнопкаУдалитьКонтекстноеМеню" id="115"/>
+													<ExtendedTooltip name="КнопкаУдалитьРасширеннаяПодсказка" id="116"/>
+													<Events>
+														<Event name="Click">КнопкаУдалитьНажатие</Event>
+													</Events>
+												</PictureDecoration>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ГруппаКнопкаИзменить" id="136">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа кнопка изменить</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа кнопка изменить</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<BackColor>style:упЦветФонаВыбранногоКонтейнера</BackColor>
+											<ExtendedTooltip name="ГруппаКнопкаИзменитьРасширеннаяПодсказка" id="137"/>
+											<ChildItems>
+												<PictureDecoration name="КнопкаИзменить" id="129">
+													<Height>2</Height>
+													<HorizontalStretch>true</HorizontalStretch>
+													<Font ref="style:упШрифтТаблицыРМ" kind="StyleItem"/>
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Кнопка изменить</v8:content>
+														</v8:item>
+													</Title>
+													<Hyperlink>true</Hyperlink>
+													<NonselectedPictureText>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Изменить</v8:content>
+														</v8:item>
+													</NonselectedPictureText>
+													<BorderColor>style:упЦветРамкиВыбранногоКонтейнера</BorderColor>
+													<Border width="4">
+														<v8ui:style xsi:type="v8ui:ControlBorderType">Single</v8ui:style>
+													</Border>
+													<FileDragMode>AsFile</FileDragMode>
+													<ContextMenu name="КнопкаИзменитьКонтекстноеМеню" id="130"/>
+													<ExtendedTooltip name="КнопкаИзменитьРасширеннаяПодсказка" id="131"/>
+													<Events>
+														<Event name="Click">КнопкаИзменитьНажатие</Event>
+													</Events>
+												</PictureDecoration>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</Page>
+					</ChildItems>
+				</Pages>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаИнформация" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Информация</v8:content>
+				</v8:item>
+			</Title>
+			<TitleFont ref="sys:DefaultGUIFont" kind="WindowsFont"/>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа информация</v8:content>
+				</v8:item>
+			</ToolTip>
+			<VerticalStretch>false</VerticalStretch>
+			<Group>Vertical</Group>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаИнформацияРасширеннаяПодсказка" id="19"/>
+			<ChildItems>
+				<LabelField name="ТекстДополнительногоСообщения" id="20">
+					<DataPath>ТекстДополнительногоСообщения</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<HorizontalStretch>true</HorizontalStretch>
+					<TextColor>style:упЦветДополнительногоСообщения</TextColor>
+					<Font ref="style:упШрифтПодсказки" kind="StyleItem"/>
+					<ContextMenu name="ТекстДополнительногоСообщенияКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="ТекстДополнительногоСообщенияРасширеннаяПодсказка" id="22"/>
+				</LabelField>
+				<LabelField name="ТекстДополнительногоСообщения1" id="23">
+					<DataPath>ТекстДополнительногоСообщения1</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<HorizontalStretch>true</HorizontalStretch>
+					<TextColor>style:упЦветДополнительногоСообщения</TextColor>
+					<Font ref="style:упШрифтПодсказки" kind="StyleItem"/>
+					<ContextMenu name="ТекстДополнительногоСообщения1КонтекстноеМеню" id="24"/>
+					<ExtendedTooltip name="ТекстДополнительногоСообщения1РасширеннаяПодсказка" id="25"/>
+				</LabelField>
+				<LabelField name="ТекстПодсказки" id="26">
+					<DataPath>ТекстПодсказки</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<HorizontalAlign>Center</HorizontalAlign>
+					<VerticalAlign>Center</VerticalAlign>
+					<Height>1</Height>
+					<HorizontalStretch>true</HorizontalStretch>
+					<TextColor>style:упЦветПодсказки</TextColor>
+					<Font ref="style:упШрифтПодсказки" kind="StyleItem"/>
+					<ContextMenu name="ТекстПодсказкиКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="ТекстПодсказкиExtendedTooltip" id="28"/>
+				</LabelField>
+				<LabelField name="ТекстОшибки" id="29">
+					<DataPath>ТекстОшибки</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<VerticalAlign>Top</VerticalAlign>
+					<Height>2</Height>
+					<HorizontalStretch>true</HorizontalStretch>
+					<TextColor>style:упЦветТекстаОшибки</TextColor>
+					<Font ref="style:упШрифтОшибки" kind="StyleItem"/>
+					<ContextMenu name="ТекстОшибкиКонтекстноеМеню" id="30"/>
+					<ExtendedTooltip name="ТекстОшибкиExtendedTooltip" id="31"/>
+				</LabelField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаКнопки" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа кнопки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа кнопки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаКнопкиРасширеннаяПодсказка" id="2"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаРаспорка1" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа распорка1</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа распорка1</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>3</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРаспорка1РасширеннаяПодсказка" id="4"/>
+					<ChildItems>
+						<PictureDecoration name="Декорация3" id="5">
+							<Height>4</Height>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="Декорация3КонтекстноеМеню" id="6"/>
+							<ExtendedTooltip name="Декорация3РасширеннаяПодсказка" id="7"/>
+						</PictureDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаКнопкаПодтвердить" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа кнопка подтвердить</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа кнопка подтвердить</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<BackColor>style:упЦветФонаКнопкиЗавершитьОК</BackColor>
+					<ExtendedTooltip name="ГруппаКнопкаПодтвердитьРасширеннаяПодсказка" id="9"/>
+					<ChildItems>
+						<PictureDecoration name="КнопкаПодтвердить" id="10">
+							<Height>4</Height>
+							<HorizontalStretch>true</HorizontalStretch>
+							<Font ref="style:упШрифтКнопки" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Подтвердить</v8:content>
+								</v8:item>
+							</Title>
+							<GroupHorizontalAlign>Center</GroupHorizontalAlign>
+							<Hyperlink>true</Hyperlink>
+							<NonselectedPictureText>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Подтвердить</v8:content>
+								</v8:item>
+							</NonselectedPictureText>
+							<BorderColor>style:упЦветРамкиКнопкиЗавершитьОК</BorderColor>
+							<Border width="4">
+								<v8ui:style xsi:type="v8ui:ControlBorderType">Single</v8ui:style>
+							</Border>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="КнопкаПодтвердитьКонтекстноеМеню" id="11"/>
+							<ExtendedTooltip name="КнопкаПодтвердитьРасширеннаяПодсказка" id="12"/>
+							<Events>
+								<Event name="Click">КнопкаПодтвердитьНажатие</Event>
+							</Events>
+						</PictureDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаКнопкаОчиститьОстатки" id="119">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа кнопка очистить остатки</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа кнопка очистить остатки</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<BackColor>style:упЦветФонаВыбранногоКонтейнера</BackColor>
+					<ExtendedTooltip name="ГруппаКнопкаОчиститьОстаткиРасширеннаяПодсказка" id="120"/>
+					<ChildItems>
+						<PictureDecoration name="КнопкаОчиститьОстатки" id="121">
+							<Height>4</Height>
+							<HorizontalStretch>true</HorizontalStretch>
+							<Font ref="style:упШрифтКнопки" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Очистить остатки</v8:content>
+								</v8:item>
+							</Title>
+							<Hyperlink>true</Hyperlink>
+							<NonselectedPictureText>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Очистить остатки</v8:content>
+								</v8:item>
+							</NonselectedPictureText>
+							<BorderColor>style:упЦветРамкиВыбранногоКонтейнера</BorderColor>
+							<Border width="4">
+								<v8ui:style xsi:type="v8ui:ControlBorderType">Single</v8ui:style>
+							</Border>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="КнопкаОчиститьОстаткиКонтекстноеМеню" id="122"/>
+							<ExtendedTooltip name="КнопкаОчиститьОстаткиРасширеннаяПодсказка" id="123"/>
+							<Events>
+								<Event name="Click">КнопкаОчиститьОстаткиНажатие</Event>
+							</Events>
+						</PictureDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаКнопкаРежимы" id="65">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа кнопка режимы</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа кнопка режимы</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ShowTitle>false</ShowTitle>
+					<BackColor>style:упЦветФонаВыбранногоКонтейнера</BackColor>
+					<ExtendedTooltip name="ГруппаКнопкаРежимыРасширеннаяПодсказка" id="66"/>
+					<ChildItems>
+						<PictureDecoration name="КнопкаРежимы" id="69">
+							<Height>4</Height>
+							<HorizontalStretch>true</HorizontalStretch>
+							<Font ref="style:упШрифтКнопки" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Кнопка режимы</v8:content>
+								</v8:item>
+							</Title>
+							<Hyperlink>true</Hyperlink>
+							<NonselectedPictureText>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Заправки</v8:content>
+								</v8:item>
+							</NonselectedPictureText>
+							<BorderColor>style:упЦветРамкиВыбранногоКонтейнера</BorderColor>
+							<Border width="4">
+								<v8ui:style xsi:type="v8ui:ControlBorderType">Single</v8ui:style>
+							</Border>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="КнопкаРежимыКонтекстноеМеню" id="70"/>
+							<ExtendedTooltip name="КнопкаРежимыРасширеннаяПодсказка" id="71"/>
+							<Events>
+								<Event name="Click">КнопкаРежимыНажатие</Event>
+							</Events>
+						</PictureDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаРаспорка2" id="13">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа распорка2</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа распорка2</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>3</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРаспорка2РасширеннаяПодсказка" id="14"/>
+					<ChildItems>
+						<PictureDecoration name="Декорация4" id="15">
+							<Height>4</Height>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="Декорация4КонтекстноеМеню" id="16"/>
+							<ExtendedTooltip name="Декорация4РасширеннаяПодсказка" id="17"/>
+						</PictureDecoration>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.упРМВодителя</v8:Type>
+			</Type>
+			<Columns>
+				<AdditionalColumns table="Объект.Заправки"/>
+			</Columns>
+		</Attribute>
+		<Attribute name="ТекстДополнительногоСообщения" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текст дополнительного сообщения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТекстДополнительногоСообщения1" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текст дополнительного сообщения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТекстОшибки" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текст ошибки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТекстПодсказки" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текст подсказки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЭтоОстатки" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Это остатки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗакрытьТекущуюФорму" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Закрыть текущую форму</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ИспользуетсяГлобальнаяПодсистемаУправлениеПеревозками" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Используется глобальная подсистема управление перевозками</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ФормаЗаблокирована" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Форма заблокирована</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="сткРезультатПриЗакрытииФормы" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Стк результат при закрытии формы</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+	</Attributes>
+</Form>

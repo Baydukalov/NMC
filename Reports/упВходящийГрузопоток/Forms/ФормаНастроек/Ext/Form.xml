@@ -1,0 +1,295 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Настройки географической схемы</v8:content>
+		</v8:item>
+	</Title>
+	<AutoTitle>false</AutoTitle>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормакмдПрименить" id="9">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.кмдПрименить</CommandName>
+				<ExtendedTooltip name="ФормакмдПрименитьРасширеннаяПодсказка" id="10"/>
+			</Button>
+			<Button name="ФормаОтмена" id="31">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Cancel</CommandName>
+				<ExtendedTooltip name="ФормаОтменаРасширеннаяПодсказка" id="32"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="BeforeClose">ПередЗакрытием</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="грпНастройки" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Грп настройки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Грп настройки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ToolTipRepresentation>None</ToolTipRepresentation>
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="грпНастройкиРасширеннаяПодсказка" id="2"/>
+			<ChildItems>
+				<CheckBoxField name="ОтображатьРегионыГеоСхемы" id="3">
+					<DataPath>ОтображатьРегионыГеоСхемы</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отображать географическую схему по умолчанию</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ОтображатьРегионыГеоСхемыКонтекстноеМеню" id="4"/>
+					<ExtendedTooltip name="ОтображатьРегионыГеоСхемыРасширеннаяПодсказка" id="5"/>
+					<Events>
+						<Event name="OnChange">ОтображатьРегионыГеоСхемыПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<CheckBoxField name="ОтображатьНазваниеРегионовВСлоеРегионы" id="11">
+					<DataPath>ОтображатьНазваниеРегионовВСлоеРегионы</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ОтображатьНазваниеРегионовВСлоеРегионыКонтекстноеМеню" id="12"/>
+					<ExtendedTooltip name="ОтображатьНазваниеРегионовВСлоеРегионыРасширеннаяПодсказка" id="13"/>
+					<Events>
+						<Event name="OnChange">ТекущийЭлементПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<CheckBoxField name="ОтображатьНаименованиеЗон" id="20">
+					<DataPath>ОтображатьНаименованиеЗон</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ОтображатьНаименованиеЗонКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="ОтображатьНаименованиеЗонРасширеннаяПодсказка" id="22"/>
+					<Events>
+						<Event name="OnChange">ТекущийЭлементПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<CheckBoxField name="ОтображатьТаблицуДанных" id="17">
+					<DataPath>ОтображатьТаблицуДанных</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ОтображатьТаблицуДанныхКонтекстноеМеню" id="18"/>
+					<ExtendedTooltip name="ОтображатьТаблицуДанныхРасширеннаяПодсказка" id="19"/>
+					<Events>
+						<Event name="OnChange">ТекущийЭлементПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<InputField name="ТипОтображенияСерии" id="6">
+					<DataPath>ТипОтображенияСерии</DataPath>
+					<DropListButton>true</DropListButton>
+					<ChoiceButton>false</ChoiceButton>
+					<ListChoiceMode>true</ListChoiceMode>
+					<AutoMarkIncomplete>true</AutoMarkIncomplete>
+					<ContextMenu name="ТипОтображенияСерииКонтекстноеМеню" id="7"/>
+					<ExtendedTooltip name="ТипОтображенияСерииРасширеннаяПодсказка" id="8"/>
+					<Events>
+						<Event name="OnChange">ТекущийЭлементПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="РежимОтображенияЗначенийСерии" id="14">
+					<DataPath>РежимОтображения</DataPath>
+					<DropListButton>true</DropListButton>
+					<ChoiceButton>false</ChoiceButton>
+					<ListChoiceMode>true</ListChoiceMode>
+					<AutoMarkIncomplete>true</AutoMarkIncomplete>
+					<ContextMenu name="РежимОтображенияЗначенийСерииКонтекстноеМеню" id="15"/>
+					<ExtendedTooltip name="РежимОтображенияЗначенийСерииРасширеннаяПодсказка" id="16"/>
+					<Events>
+						<Event name="OnChange">ТекущийЭлементПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="Проекция" id="23">
+					<DataPath>Проекция</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Проекция</v8:content>
+						</v8:item>
+					</Title>
+					<DropListButton>true</DropListButton>
+					<ChoiceButton>false</ChoiceButton>
+					<ListChoiceMode>true</ListChoiceMode>
+					<AutoMarkIncomplete>true</AutoMarkIncomplete>
+					<ContextMenu name="ПроекцияКонтекстноеМеню" id="24"/>
+					<ExtendedTooltip name="ПроекцияРасширеннаяПодсказка" id="25"/>
+					<Events>
+						<Event name="OnChange">ТекущийЭлементПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ЦветФона" id="26">
+					<DataPath>ЦветФонаОбласти</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Цвет фона</v8:content>
+						</v8:item>
+					</Title>
+					<AutoMarkIncomplete>true</AutoMarkIncomplete>
+					<ContextMenu name="ЦветФонаКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="ЦветФонаРасширеннаяПодсказка" id="28"/>
+					<Events>
+						<Event name="OnChange">ТекущийЭлементПриИзменении</Event>
+					</Events>
+				</InputField>
+				<Button name="УстановитьНастройкиПоУмолчанию" id="37">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.УстановитьНастройкиПоУмолчанию</CommandName>
+					<ExtendedTooltip name="УстановитьНастройкиПоУмолчаниюРасширеннаяПодсказка" id="38"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ОтображатьРегионыГеоСхемы" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отображать регионы географической схемы</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПараметрыОтображения" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Параметры отображения</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="ТипОтображенияСерии" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип отображения серии слоя географической схемы</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="ОтображатьНазваниеРегионовВСлоеРегионы" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отображать название регионов в слое (регионы)</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РежимОтображения" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Режим отображения значений серий</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="ОтображатьТаблицуДанных" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отображать таблицу данных (результата отчета)</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОтображатьНаименованиеЗон" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отображать наименование зон</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Проекция" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип проекции географической схемы</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="ЦветФонаОбласти" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Цвет фона области построения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8ui:Color</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="кмдПрименить" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Применить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Применить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>кмдПрименить</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="УстановитьНастройкиПоУмолчанию" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить настройки по умолчанию</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить настройки по умолчанию</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.ЗаполнитьПоШаблону</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>УстановитьНастройкиПоУмолчанию</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

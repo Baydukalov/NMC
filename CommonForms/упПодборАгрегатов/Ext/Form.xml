@@ -1,0 +1,1071 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoTitle>false</AutoTitle>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаПеренестиВДокумент" id="75">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ПеренестиВДокумент</CommandName>
+				<ExtendedTooltip name="ФормаПеренестиВДокументРасширеннаяПодсказка" id="76"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Группа1" id="1">
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="2"/>
+			<ChildItems>
+				<UsualGroup name="грпВерх" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Грп верх</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Грп верх</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="грпВерхРасширеннаяПодсказка" id="4"/>
+					<ChildItems>
+						<Pages name="грпСтраницы" id="139">
+							<PagesRepresentation>None</PagesRepresentation>
+							<ExtendedTooltip name="грпСтраницыРасширеннаяПодсказка" id="140"/>
+							<ChildItems>
+								<Page name="СтраницаОстатки" id="141">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Остатки</v8:content>
+										</v8:item>
+									</Title>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="СтраницаОстаткиРасширеннаяПодсказка" id="142"/>
+									<ChildItems>
+										<Table name="ОстаткиАгрегатов" id="77">
+											<UseAlternationRowColor>true</UseAlternationRowColor>
+											<EnableStartDrag>true</EnableStartDrag>
+											<FileDragMode>AsFile</FileDragMode>
+											<DataPath>ОстаткиАгрегатов</DataPath>
+											<RowPictureDataPath>ОстаткиАгрегатов.DefaultPicture</RowPictureDataPath>
+											<AutoRefresh>false</AutoRefresh>
+											<AutoRefreshPeriod>60</AutoRefreshPeriod>
+											<Period>
+												<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+												<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+												<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+											</Period>
+											<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+											<RestoreCurrentRow>false</RestoreCurrentRow>
+											<TopLevelParent xsi:nil="true"/>
+											<ShowRoot>true</ShowRoot>
+											<AllowRootChoice>false</AllowRootChoice>
+											<UpdateOnDataChange>Auto</UpdateOnDataChange>
+											<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+											<ContextMenu name="ОстаткиАгрегатовКонтекстноеМеню" id="78"/>
+											<AutoCommandBar name="ОстаткиАгрегатовКоманднаяПанель" id="79"/>
+											<ExtendedTooltip name="ОстаткиАгрегатовРасширеннаяПодсказка" id="80"/>
+											<SearchStringAddition name="ОстаткиАгрегатовСтрокаПоиска" id="81">
+												<AdditionSource>
+													<Item>ОстаткиАгрегатов</Item>
+													<Type>SearchStringRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="ОстаткиАгрегатовСтрокаПоискаКонтекстноеМеню" id="82"/>
+												<ExtendedTooltip name="ОстаткиАгрегатовСтрокаПоискаРасширеннаяПодсказка" id="83"/>
+											</SearchStringAddition>
+											<ViewStatusAddition name="ОстаткиАгрегатовСостояниеПросмотра" id="84">
+												<AdditionSource>
+													<Item>ОстаткиАгрегатов</Item>
+													<Type>ViewStatusRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="ОстаткиАгрегатовСостояниеПросмотраКонтекстноеМеню" id="85"/>
+												<ExtendedTooltip name="ОстаткиАгрегатовСостояниеПросмотраРасширеннаяПодсказка" id="86"/>
+											</ViewStatusAddition>
+											<SearchControlAddition name="ОстаткиАгрегатовУправлениеПоиском" id="87">
+												<AdditionSource>
+													<Item>ОстаткиАгрегатов</Item>
+													<Type>SearchControl</Type>
+												</AdditionSource>
+												<ContextMenu name="ОстаткиАгрегатовУправлениеПоискомКонтекстноеМеню" id="88"/>
+												<ExtendedTooltip name="ОстаткиАгрегатовУправлениеПоискомРасширеннаяПодсказка" id="89"/>
+											</SearchControlAddition>
+											<Events>
+												<Event name="Selection">ОстаткиАгрегатовВыбор</Event>
+											</Events>
+											<ChildItems>
+												<LabelField name="ОстаткиАгрегатовМестоХранения" id="102">
+													<DataPath>ОстаткиАгрегатов.МестоХранения</DataPath>
+													<ContextMenu name="ОстаткиАгрегатовМестоХраненияКонтекстноеМеню" id="103"/>
+													<ExtendedTooltip name="ОстаткиАгрегатовМестоХраненияРасширеннаяПодсказка" id="104"/>
+												</LabelField>
+												<LabelField name="ОстаткиАгрегатовКод" id="96">
+													<DataPath>ОстаткиАгрегатов.Код</DataPath>
+													<ContextMenu name="ОстаткиАгрегатовКодКонтекстноеМеню" id="97"/>
+													<ExtendedTooltip name="ОстаткиАгрегатовКодРасширеннаяПодсказка" id="98"/>
+												</LabelField>
+												<LabelField name="ОстаткиАгрегатовАгрегат" id="90">
+													<DataPath>ОстаткиАгрегатов.Агрегат</DataPath>
+													<HeaderPicture>
+														<xr:Ref>CommonPicture.упАгрегаты</xr:Ref>
+														<xr:LoadTransparent>true</xr:LoadTransparent>
+													</HeaderPicture>
+													<ContextMenu name="ОстаткиАгрегатовАгрегатКонтекстноеМеню" id="91"/>
+													<ExtendedTooltip name="ОстаткиАгрегатовАгрегатРасширеннаяПодсказка" id="92"/>
+												</LabelField>
+												<LabelField name="ОстаткиАгрегатовЕдиницаИзмерения" id="93">
+													<DataPath>ОстаткиАгрегатов.ЕдиницаИзмерения</DataPath>
+													<ContextMenu name="ОстаткиАгрегатовЕдиницаИзмеренияКонтекстноеМеню" id="94"/>
+													<ExtendedTooltip name="ОстаткиАгрегатовЕдиницаИзмеренияРасширеннаяПодсказка" id="95"/>
+												</LabelField>
+												<LabelField name="ОстаткиАгрегатовТип" id="105">
+													<DataPath>ОстаткиАгрегатов.Тип</DataPath>
+													<ContextMenu name="ОстаткиАгрегатовТипКонтекстноеМеню" id="106"/>
+													<ExtendedTooltip name="ОстаткиАгрегатовТипРасширеннаяПодсказка" id="107"/>
+												</LabelField>
+												<LabelField name="ОстаткиАгрегатовКоличество" id="99">
+													<DataPath>ОстаткиАгрегатов.Количество</DataPath>
+													<ContextMenu name="ОстаткиАгрегатовКоличествоКонтекстноеМеню" id="100"/>
+													<ExtendedTooltip name="ОстаткиАгрегатовКоличествоРасширеннаяПодсказка" id="101"/>
+												</LabelField>
+												<LabelField name="ОстаткиАгрегатовСостояние" id="245">
+													<DataPath>ОстаткиАгрегатов.Состояние</DataPath>
+													<ContextMenu name="ОстаткиАгрегатовСостояниеКонтекстноеМеню" id="246"/>
+													<ExtendedTooltip name="ОстаткиАгрегатовСостояниеРасширеннаяПодсказка" id="247"/>
+												</LabelField>
+											</ChildItems>
+										</Table>
+									</ChildItems>
+								</Page>
+								<Page name="СтраницаАгрегаты" id="143">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Агрегаты</v8:content>
+										</v8:item>
+									</Title>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="СтраницаАгрегатыРасширеннаяПодсказка" id="144"/>
+									<ChildItems>
+										<Table name="СписокАгрегаты" id="145">
+											<UseAlternationRowColor>true</UseAlternationRowColor>
+											<EnableStartDrag>true</EnableStartDrag>
+											<FileDragMode>AsFile</FileDragMode>
+											<DataPath>СписокАгрегаты</DataPath>
+											<RowPictureDataPath>СписокАгрегаты.DefaultPicture</RowPictureDataPath>
+											<AutoRefresh>false</AutoRefresh>
+											<AutoRefreshPeriod>60</AutoRefreshPeriod>
+											<Period>
+												<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+												<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+												<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+											</Period>
+											<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+											<RestoreCurrentRow>false</RestoreCurrentRow>
+											<TopLevelParent xsi:nil="true"/>
+											<ShowRoot>true</ShowRoot>
+											<AllowRootChoice>false</AllowRootChoice>
+											<UpdateOnDataChange>Auto</UpdateOnDataChange>
+											<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+											<ContextMenu name="СписокАгрегатыКонтекстноеМеню" id="146"/>
+											<AutoCommandBar name="СписокАгрегатыКоманднаяПанель" id="147"/>
+											<ExtendedTooltip name="СписокАгрегатыРасширеннаяПодсказка" id="148"/>
+											<SearchStringAddition name="СписокАгрегатыСтрокаПоиска" id="149">
+												<AdditionSource>
+													<Item>СписокАгрегаты</Item>
+													<Type>SearchStringRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="СписокАгрегатыСтрокаПоискаКонтекстноеМеню" id="150"/>
+												<ExtendedTooltip name="СписокАгрегатыСтрокаПоискаРасширеннаяПодсказка" id="151"/>
+											</SearchStringAddition>
+											<ViewStatusAddition name="СписокАгрегатыСостояниеПросмотра" id="152">
+												<AdditionSource>
+													<Item>СписокАгрегаты</Item>
+													<Type>ViewStatusRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="СписокАгрегатыСостояниеПросмотраКонтекстноеМеню" id="153"/>
+												<ExtendedTooltip name="СписокАгрегатыСостояниеПросмотраРасширеннаяПодсказка" id="154"/>
+											</ViewStatusAddition>
+											<SearchControlAddition name="СписокАгрегатыУправлениеПоиском" id="155">
+												<AdditionSource>
+													<Item>СписокАгрегаты</Item>
+													<Type>SearchControl</Type>
+												</AdditionSource>
+												<ContextMenu name="СписокАгрегатыУправлениеПоискомКонтекстноеМеню" id="156"/>
+												<ExtendedTooltip name="СписокАгрегатыУправлениеПоискомРасширеннаяПодсказка" id="157"/>
+											</SearchControlAddition>
+											<Events>
+												<Event name="Selection">СписокАгрегатыВыбор</Event>
+											</Events>
+											<ChildItems>
+												<LabelField name="СписокАгрегатыКод" id="164">
+													<DataPath>СписокАгрегаты.Код</DataPath>
+													<ContextMenu name="СписокАгрегатыКодКонтекстноеМеню" id="165"/>
+													<ExtendedTooltip name="СписокАгрегатыКодРасширеннаяПодсказка" id="166"/>
+												</LabelField>
+												<LabelField name="СписокАгрегатыАгрегат" id="158">
+													<DataPath>СписокАгрегаты.Агрегат</DataPath>
+													<HeaderPicture>
+														<xr:Ref>CommonPicture.упАгрегаты</xr:Ref>
+														<xr:LoadTransparent>true</xr:LoadTransparent>
+													</HeaderPicture>
+													<ContextMenu name="СписокАгрегатыАгрегатКонтекстноеМеню" id="159"/>
+													<ExtendedTooltip name="СписокАгрегатыАгрегатРасширеннаяПодсказка" id="160"/>
+												</LabelField>
+												<LabelField name="СписокАгрегатыЕдиницаИзмерения" id="161">
+													<DataPath>СписокАгрегаты.ЕдиницаИзмерения</DataPath>
+													<ContextMenu name="СписокАгрегатыЕдиницаИзмеренияКонтекстноеМеню" id="162"/>
+													<ExtendedTooltip name="СписокАгрегатыЕдиницаИзмеренияРасширеннаяПодсказка" id="163"/>
+												</LabelField>
+												<LabelField name="СписокАгрегатыТип" id="170">
+													<DataPath>СписокАгрегаты.Тип</DataPath>
+													<ContextMenu name="СписокАгрегатыТипКонтекстноеМеню" id="171"/>
+													<ExtendedTooltip name="СписокАгрегатыТипРасширеннаяПодсказка" id="172"/>
+												</LabelField>
+												<LabelField name="СписокАгрегатыСостояние" id="248">
+													<DataPath>СписокАгрегаты.Состояние</DataPath>
+													<ContextMenu name="СписокАгрегатыСостояниеКонтекстноеМеню" id="249"/>
+													<ExtendedTooltip name="СписокАгрегатыСостояниеРасширеннаяПодсказка" id="250"/>
+												</LabelField>
+											</ChildItems>
+										</Table>
+									</ChildItems>
+								</Page>
+								<Page name="СтраницаОстаткиБезТС" id="173">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Остатки </v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница остатки без ТС</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="СтраницаОстаткиБезТСРасширеннаяПодсказка" id="174"/>
+									<ChildItems>
+										<Table name="ОстаткиАгрегатовБезТС" id="175">
+											<UseAlternationRowColor>true</UseAlternationRowColor>
+											<EnableStartDrag>true</EnableStartDrag>
+											<FileDragMode>AsFile</FileDragMode>
+											<DataPath>ОстаткиАгрегатовБезТС</DataPath>
+											<RowPictureDataPath>ОстаткиАгрегатовБезТС.DefaultPicture</RowPictureDataPath>
+											<AutoRefresh>false</AutoRefresh>
+											<AutoRefreshPeriod>60</AutoRefreshPeriod>
+											<Period>
+												<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+												<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+												<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+											</Period>
+											<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+											<RestoreCurrentRow>false</RestoreCurrentRow>
+											<TopLevelParent xsi:nil="true"/>
+											<ShowRoot>true</ShowRoot>
+											<AllowRootChoice>false</AllowRootChoice>
+											<UpdateOnDataChange>Auto</UpdateOnDataChange>
+											<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+											<ContextMenu name="ОстаткиАгрегатовБезТСКонтекстноеМеню" id="176"/>
+											<AutoCommandBar name="ОстаткиАгрегатовБезТСКоманднаяПанель" id="177"/>
+											<ExtendedTooltip name="ОстаткиАгрегатовБезТСРасширеннаяПодсказка" id="178"/>
+											<SearchStringAddition name="ОстаткиАгрегатовБезТССтрокаПоиска" id="179">
+												<AdditionSource>
+													<Item>ОстаткиАгрегатовБезТС</Item>
+													<Type>SearchStringRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="ОстаткиАгрегатовБезТССтрокаПоискаКонтекстноеМеню" id="180"/>
+												<ExtendedTooltip name="ОстаткиАгрегатовБезТССтрокаПоискаРасширеннаяПодсказка" id="181"/>
+											</SearchStringAddition>
+											<ViewStatusAddition name="ОстаткиАгрегатовБезТССостояниеПросмотра" id="182">
+												<AdditionSource>
+													<Item>ОстаткиАгрегатовБезТС</Item>
+													<Type>ViewStatusRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="ОстаткиАгрегатовБезТССостояниеПросмотраКонтекстноеМеню" id="183"/>
+												<ExtendedTooltip name="ОстаткиАгрегатовБезТССостояниеПросмотраРасширеннаяПодсказка" id="184"/>
+											</ViewStatusAddition>
+											<SearchControlAddition name="ОстаткиАгрегатовБезТСУправлениеПоиском" id="185">
+												<AdditionSource>
+													<Item>ОстаткиАгрегатовБезТС</Item>
+													<Type>SearchControl</Type>
+												</AdditionSource>
+												<ContextMenu name="ОстаткиАгрегатовБезТСУправлениеПоискомКонтекстноеМеню" id="186"/>
+												<ExtendedTooltip name="ОстаткиАгрегатовБезТСУправлениеПоискомРасширеннаяПодсказка" id="187"/>
+											</SearchControlAddition>
+											<Events>
+												<Event name="Selection">ОстаткиАгрегатовБезТСВыбор</Event>
+											</Events>
+											<ChildItems>
+												<LabelField name="ОстаткиАгрегатовБезТСМестоХранения" id="200">
+													<DataPath>ОстаткиАгрегатовБезТС.МестоХранения</DataPath>
+													<ContextMenu name="ОстаткиАгрегатовБезТСМестоХраненияКонтекстноеМеню" id="201"/>
+													<ExtendedTooltip name="ОстаткиАгрегатовБезТСМестоХраненияРасширеннаяПодсказка" id="202"/>
+												</LabelField>
+												<LabelField name="ОстаткиАгрегатовБезТСАгрегат" id="188">
+													<DataPath>ОстаткиАгрегатовБезТС.Агрегат</DataPath>
+													<HeaderPicture>
+														<xr:Ref>CommonPicture.упАгрегаты</xr:Ref>
+														<xr:LoadTransparent>true</xr:LoadTransparent>
+													</HeaderPicture>
+													<ContextMenu name="ОстаткиАгрегатовБезТСАгрегатКонтекстноеМеню" id="189"/>
+													<ExtendedTooltip name="ОстаткиАгрегатовБезТСАгрегатРасширеннаяПодсказка" id="190"/>
+												</LabelField>
+												<LabelField name="ОстаткиАгрегатовБезТСЕдиницаИзмерения" id="191">
+													<DataPath>ОстаткиАгрегатовБезТС.ЕдиницаИзмерения</DataPath>
+													<ContextMenu name="ОстаткиАгрегатовБезТСЕдиницаИзмеренияКонтекстноеМеню" id="192"/>
+													<ExtendedTooltip name="ОстаткиАгрегатовБезТСЕдиницаИзмеренияРасширеннаяПодсказка" id="193"/>
+												</LabelField>
+												<LabelField name="ОстаткиАгрегатовБезТСКод" id="194">
+													<DataPath>ОстаткиАгрегатовБезТС.Код</DataPath>
+													<ContextMenu name="ОстаткиАгрегатовБезТСКодКонтекстноеМеню" id="195"/>
+													<ExtendedTooltip name="ОстаткиАгрегатовБезТСКодРасширеннаяПодсказка" id="196"/>
+												</LabelField>
+												<LabelField name="ОстаткиАгрегатовБезТСКоличество" id="197">
+													<DataPath>ОстаткиАгрегатовБезТС.Количество</DataPath>
+													<ContextMenu name="ОстаткиАгрегатовБезТСКоличествоКонтекстноеМеню" id="198"/>
+													<ExtendedTooltip name="ОстаткиАгрегатовБезТСКоличествоРасширеннаяПодсказка" id="199"/>
+												</LabelField>
+												<LabelField name="ОстаткиАгрегатовБезТСТип" id="203">
+													<DataPath>ОстаткиАгрегатовБезТС.Тип</DataPath>
+													<ContextMenu name="ОстаткиАгрегатовБезТСТипКонтекстноеМеню" id="204"/>
+													<ExtendedTooltip name="ОстаткиАгрегатовБезТСТипРасширеннаяПодсказка" id="205"/>
+												</LabelField>
+												<LabelField name="ОстаткиАгрегатовБезТССостояние" id="251">
+													<DataPath>ОстаткиАгрегатовБезТС.Состояние</DataPath>
+													<ContextMenu name="ОстаткиАгрегатовБезТССостояниеКонтекстноеМеню" id="252"/>
+													<ExtendedTooltip name="ОстаткиАгрегатовБезТССостояниеРасширеннаяПодсказка" id="253"/>
+												</LabelField>
+											</ChildItems>
+										</Table>
+									</ChildItems>
+								</Page>
+								<Page name="СтраницаДопОборудование" id="206">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница доп оборудование</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница доп оборудование</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="СтраницаДопОборудованиеРасширеннаяПодсказка" id="207"/>
+									<ChildItems>
+										<Table name="СписокДопОборудование" id="208">
+											<UseAlternationRowColor>true</UseAlternationRowColor>
+											<EnableStartDrag>true</EnableStartDrag>
+											<FileDragMode>AsFile</FileDragMode>
+											<DataPath>СписокДопОборудование</DataPath>
+											<RowPictureDataPath>СписокДопОборудование.DefaultPicture</RowPictureDataPath>
+											<AutoRefresh>false</AutoRefresh>
+											<AutoRefreshPeriod>60</AutoRefreshPeriod>
+											<Period>
+												<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+												<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+												<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+											</Period>
+											<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+											<RestoreCurrentRow>false</RestoreCurrentRow>
+											<TopLevelParent xsi:nil="true"/>
+											<ShowRoot>true</ShowRoot>
+											<AllowRootChoice>false</AllowRootChoice>
+											<UpdateOnDataChange>Auto</UpdateOnDataChange>
+											<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+											<ContextMenu name="СписокДопОборудованиеКонтекстноеМеню" id="209"/>
+											<AutoCommandBar name="СписокДопОборудованиеКоманднаяПанель" id="210"/>
+											<ExtendedTooltip name="СписокДопОборудованиеРасширеннаяПодсказка" id="211"/>
+											<SearchStringAddition name="СписокДопОборудованиеСтрокаПоиска" id="212">
+												<AdditionSource>
+													<Item>СписокДопОборудование</Item>
+													<Type>SearchStringRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="СписокДопОборудованиеСтрокаПоискаКонтекстноеМеню" id="213"/>
+												<ExtendedTooltip name="СписокДопОборудованиеСтрокаПоискаРасширеннаяПодсказка" id="214"/>
+											</SearchStringAddition>
+											<ViewStatusAddition name="СписокДопОборудованиеСостояниеПросмотра" id="215">
+												<AdditionSource>
+													<Item>СписокДопОборудование</Item>
+													<Type>ViewStatusRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="СписокДопОборудованиеСостояниеПросмотраКонтекстноеМеню" id="216"/>
+												<ExtendedTooltip name="СписокДопОборудованиеСостояниеПросмотраРасширеннаяПодсказка" id="217"/>
+											</ViewStatusAddition>
+											<SearchControlAddition name="СписокДопОборудованиеУправлениеПоиском" id="218">
+												<AdditionSource>
+													<Item>СписокДопОборудование</Item>
+													<Type>SearchControl</Type>
+												</AdditionSource>
+												<ContextMenu name="СписокДопОборудованиеУправлениеПоискомКонтекстноеМеню" id="219"/>
+												<ExtendedTooltip name="СписокДопОборудованиеУправлениеПоискомРасширеннаяПодсказка" id="220"/>
+											</SearchControlAddition>
+											<Events>
+												<Event name="Selection">СписокДопОборудованиеВыбор</Event>
+											</Events>
+											<ChildItems>
+												<LabelField name="СписокДопОборудованиеИнвентарныйНомер" id="230">
+													<DataPath>СписокДопОборудование.ИнвентарныйНомер</DataPath>
+													<ContextMenu name="СписокДопОборудованиеИнвентарныйНомерКонтекстноеМеню" id="231"/>
+													<ExtendedTooltip name="СписокДопОборудованиеИнвентарныйНомерРасширеннаяПодсказка" id="232"/>
+												</LabelField>
+												<LabelField name="СписокДопОборудованиеДопОборудование" id="221">
+													<DataPath>СписокДопОборудование.ДопОборудование</DataPath>
+													<HeaderPicture>
+														<xr:Ref>CommonPicture.упМонтаж</xr:Ref>
+														<xr:LoadTransparent>true</xr:LoadTransparent>
+													</HeaderPicture>
+													<ContextMenu name="СписокДопОборудованиеДопОборудованиеКонтекстноеМеню" id="222"/>
+													<ExtendedTooltip name="СписокДопОборудованиеДопОборудованиеРасширеннаяПодсказка" id="223"/>
+												</LabelField>
+												<LabelField name="СписокДопОборудованиеТип" id="242">
+													<DataPath>СписокДопОборудование.Тип</DataPath>
+													<ContextMenu name="СписокДопОборудованиеТипКонтекстноеМеню" id="243"/>
+													<ExtendedTooltip name="СписокДопОборудованиеТипРасширеннаяПодсказка" id="244"/>
+												</LabelField>
+												<LabelField name="СписокДопОборудованиеСостояние" id="254">
+													<DataPath>СписокДопОборудование.Состояние</DataPath>
+													<ContextMenu name="СписокДопОборудованиеСостояниеКонтекстноеМеню" id="255"/>
+													<ExtendedTooltip name="СписокДопОборудованиеСостояниеРасширеннаяПодсказка" id="256"/>
+												</LabelField>
+											</ChildItems>
+										</Table>
+									</ChildItems>
+								</Page>
+							</ChildItems>
+						</Pages>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="грпНиз" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Подобранные агрегаты</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ExtendedTooltip name="грпНизРасширеннаяПодсказка" id="6"/>
+					<ChildItems>
+						<Table name="ПодобранныеАгрегаты" id="111">
+							<Representation>List</Representation>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>ПодобранныеАгрегаты</DataPath>
+							<BackColor>style:упЦветФонаТаблицыФормы</BackColor>
+							<CommandSet>
+								<ExcludedCommand>Add</ExcludedCommand>
+								<ExcludedCommand>Change</ExcludedCommand>
+								<ExcludedCommand>Copy</ExcludedCommand>
+								<ExcludedCommand>EndEdit</ExcludedCommand>
+							</CommandSet>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ПодобранныеАгрегатыКонтекстноеМеню" id="112"/>
+							<AutoCommandBar name="ПодобранныеАгрегатыКоманднаяПанель" id="113">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ПодобранныеАгрегатыРасширеннаяПодсказка" id="114"/>
+							<SearchStringAddition name="ПодобранныеАгрегатыСтрокаПоиска" id="115">
+								<AdditionSource>
+									<Item>ПодобранныеАгрегаты</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПодобранныеАгрегатыСтрокаПоискаКонтекстноеМеню" id="116"/>
+								<ExtendedTooltip name="ПодобранныеАгрегатыСтрокаПоискаРасширеннаяПодсказка" id="117"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ПодобранныеАгрегатыСостояниеПросмотра" id="118">
+								<AdditionSource>
+									<Item>ПодобранныеАгрегаты</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПодобранныеАгрегатыСостояниеПросмотраКонтекстноеМеню" id="119"/>
+								<ExtendedTooltip name="ПодобранныеАгрегатыСостояниеПросмотраРасширеннаяПодсказка" id="120"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ПодобранныеАгрегатыУправлениеПоиском" id="121">
+								<AdditionSource>
+									<Item>ПодобранныеАгрегаты</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ПодобранныеАгрегатыУправлениеПоискомКонтекстноеМеню" id="122"/>
+								<ExtendedTooltip name="ПодобранныеАгрегатыУправлениеПоискомРасширеннаяПодсказка" id="123"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">ПодобранныеАгрегатыВыбор</Event>
+							</Events>
+							<ChildItems>
+								<InputField name="ПодобранныеАгрегатыАгрегат" id="124">
+									<DataPath>ПодобранныеАгрегаты.Агрегат</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<HeaderPicture>
+										<xr:Ref>CommonPicture.упАгрегаты</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</HeaderPicture>
+									<ContextMenu name="ПодобранныеАгрегатыАгрегатКонтекстноеМеню" id="125"/>
+									<ExtendedTooltip name="ПодобранныеАгрегатыАгрегатРасширеннаяПодсказка" id="126"/>
+								</InputField>
+								<InputField name="ПодобранныеАгрегатыЕдиницаИзмерения" id="127">
+									<DataPath>ПодобранныеАгрегаты.ЕдиницаИзмерения</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПодобранныеАгрегатыЕдиницаИзмеренияКонтекстноеМеню" id="128"/>
+									<ExtendedTooltip name="ПодобранныеАгрегатыЕдиницаИзмеренияРасширеннаяПодсказка" id="129"/>
+								</InputField>
+								<InputField name="ПодобранныеАгрегатыТип" id="130">
+									<DataPath>ПодобранныеАгрегаты.Тип</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПодобранныеАгрегатыТипКонтекстноеМеню" id="131"/>
+									<ExtendedTooltip name="ПодобранныеАгрегатыТипРасширеннаяПодсказка" id="132"/>
+								</InputField>
+								<InputField name="ПодобранныеАгрегатыМестоХранения" id="136">
+									<DataPath>ПодобранныеАгрегаты.МестоХранения</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПодобранныеАгрегатыМестоХраненияКонтекстноеМеню" id="137"/>
+									<ExtendedTooltip name="ПодобранныеАгрегатыМестоХраненияРасширеннаяПодсказка" id="138"/>
+								</InputField>
+								<InputField name="ПодобранныеАгрегатыКоличество" id="133">
+									<DataPath>ПодобранныеАгрегаты.Количество</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<HeaderPicture>
+										<xr:Ref>StdPicture.Change</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</HeaderPicture>
+									<ContextMenu name="ПодобранныеАгрегатыКоличествоКонтекстноеМеню" id="134"/>
+									<ExtendedTooltip name="ПодобранныеАгрегатыКоличествоРасширеннаяПодсказка" id="135"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ТипДокумента" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип документа</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="ДатаОстатков" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата остатков</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ОстаткиАгрегатов" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Остатки агрегатов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>ОстаткиАгрегатов.Состояние</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	вз_Агрегаты.МестоХранения КАК МестоХранения,
+	вз_Агрегаты.Код КАК Код,
+	вз_Агрегаты.Агрегат КАК Агрегат,
+	вз_Агрегаты.ЕдиницаИзмерения КАК ЕдиницаИзмерения,
+	вз_Агрегаты.Тип КАК Тип,
+	вз_Агрегаты.Количество КАК Количество,
+    вз_Агрегаты.Состояние КАК Состояние
+ИЗ
+	(ВЫБРАТЬ
+		ЕСТЬNULL(АгрегатыТС.ТранспортноеСредство, ЗНАЧЕНИЕ(Справочник.упТранспортныеСредства.ПустаяСсылка)) КАК МестоХранения,
+		ЕСТЬNULL(Агрегаты.Код, ДопОборудование.ИнвентарныйНомер) КАК Код,
+		АгрегатыТС.Агрегат КАК Агрегат,
+		ЕСТЬNULL(Агрегаты.ЕдиницаИзмерения, ЗНАЧЕНИЕ(Справочник.упЕдиницыИзмерения.ПустаяСсылка)) КАК ЕдиницаИзмерения,
+		ЕСТЬNULL(Агрегаты.Тип, ДопОборудование.ТипДополнительногоОборудования) КАК Тип,
+		ВЫБОР
+			КОГДА НЕ АгрегатыТС.ТранспортноеСредство ЕСТЬ NULL
+				ТОГДА 1
+			ИНАЧЕ 0
+		КОНЕЦ КАК Количество,
+	    ЕСТЬNULL(СостоянияОборудованияСП.Состояние, ЗНАЧЕНИЕ(Справочник.упСостоянияОборудования.НеИспользуется)) КАК Состояние
+	ИЗ
+		РегистрСведений.упАгрегатыТранспортныхСредств.СрезПоследних(
+				&amp;Период,
+				Операция = ЗНАЧЕНИЕ(Перечисление.упТипыОперацийМонтажа.Установлено)
+					И ВЫБОР
+						КОГДА &amp;Склад = ЗНАЧЕНИЕ(Справочник.упСклады.ПустаяСсылка)
+							ТОГДА ИСТИНА
+						ИНАЧЕ ЛОЖЬ
+					КОНЕЦ
+					И (&amp;ЭтоАгрегат
+							И Агрегат.Ссылка ССЫЛКА Справочник.упШиныУзлыИАгрегаты
+						ИЛИ НЕ &amp;ЭтоАгрегат
+							И Агрегат.Ссылка ССЫЛКА Справочник.упДополнительноеОборудование)) КАК АгрегатыТС
+			ЛЕВОЕ СОЕДИНЕНИЕ Справочник.упШиныУзлыИАгрегаты КАК Агрегаты
+			ПО (&amp;ЭтоАгрегат)
+				И АгрегатыТС.Агрегат = Агрегаты.Ссылка
+			ЛЕВОЕ СОЕДИНЕНИЕ Справочник.упДополнительноеОборудование КАК ДопОборудование
+			ПО (НЕ &amp;ЭтоАгрегат)
+				И АгрегатыТС.Агрегат = ДопОборудование.Ссылка
+            ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упСостоянияОборудования.СрезПоследних КАК СостоянияОборудованияСП
+		    ПО АгрегатыТС.Агрегат = СостоянияОборудованияСП.Оборудование  
+              
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		упАгрегатыНаСкладахОстатки.Склад,
+		ЕСТЬNULL(АгрегатыСклад.Код, ДопОборудование.ИнвентарныйНомер),
+		упАгрегатыНаСкладахОстатки.Агрегат,
+		ЕСТЬNULL(АгрегатыСклад.ЕдиницаИзмерения, ЗНАЧЕНИЕ(Справочник.упЕдиницыИзмерения.ПустаяСсылка)),
+		ЕСТЬNULL(АгрегатыСклад.Тип, ДопОборудование.ТипДополнительногоОборудования),
+		упАгрегатыНаСкладахОстатки.КоличествоОстаток,
+        ЕСТЬNULL(СостоянияОборудованияСП.Состояние, ЗНАЧЕНИЕ(Справочник.упСостоянияОборудования.НеИспользуется)) КАК Состояние
+	ИЗ
+		РегистрНакопления.упАгрегатыНаСкладах.Остатки(
+				&amp;Период,
+				ВЫБОР
+						КОГДА &amp;Склад = ЗНАЧЕНИЕ(Справочник.упСклады.ПустаяСсылка)
+							ТОГДА ИСТИНА
+						ИНАЧЕ Склад = &amp;Склад
+					КОНЕЦ
+					И (&amp;ЭтоАгрегат
+							И Агрегат.Ссылка ССЫЛКА Справочник.упШиныУзлыИАгрегаты
+						ИЛИ НЕ &amp;ЭтоАгрегат
+							И Агрегат.Ссылка ССЫЛКА Справочник.упДополнительноеОборудование)) КАК упАгрегатыНаСкладахОстатки
+			ЛЕВОЕ СОЕДИНЕНИЕ Справочник.упШиныУзлыИАгрегаты КАК АгрегатыСклад
+			ПО (&amp;ЭтоАгрегат)
+				И упАгрегатыНаСкладахОстатки.Агрегат = АгрегатыСклад.Ссылка
+			ЛЕВОЕ СОЕДИНЕНИЕ Справочник.упДополнительноеОборудование КАК ДопОборудование
+			ПО (НЕ &amp;ЭтоАгрегат)
+				И упАгрегатыНаСкладахОстатки.Агрегат = ДопОборудование.Ссылка
+            ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упСостоянияОборудования.СрезПоследних КАК СостоянияОборудованияСП
+		    ПО упАгрегатыНаСкладахОстатки.Агрегат = СостоянияОборудованияСП.Оборудование) КАК вз_Агрегаты
+   
+ГДЕ
+	ВЫБОР
+			КОГДА &amp;ТС = ЗНАЧЕНИЕ(Справочник.упТранспортныеСредства.ПустаяСсылка)
+				ТОГДА ИСТИНА
+			ИНАЧЕ вз_Агрегаты.МестоХранения = &amp;ТС
+		КОНЕЦ</QueryText>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ПодобранныеАгрегаты" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подобранные агрегаты</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Агрегат" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Агрегат</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упШиныУзлыИАгрегаты</v8:Type>
+						<v8:Type>cfg:CatalogRef.упДополнительноеОборудование</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ЕдиницаИзмерения" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Единица измерения</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упЕдиницыИзмерения</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Тип" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тип</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упТипыШинУзловИАгрегатов</v8:Type>
+						<v8:Type>cfg:CatalogRef.упТипыДополнительногоОборудования</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Количество" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Количество</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>3</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="МестоХранения" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Место хранения</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упСклады</v8:Type>
+						<v8:Type>cfg:CatalogRef.упТранспортныеСредства</v8:Type>
+					</Type>
+				</Column>
+				<Column name="СтатьяРасходов" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Статья расходов</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упСтатьиДоходовРасходов</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="Склад" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Склад</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.упСклады</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СписокАгрегаты" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список агрегаты</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>СписокАгрегаты.Количество</Field>
+				<Field>СписокАгрегаты.МестоХранения</Field>
+				<Field>СписокАгрегаты.Состояние</Field>
+				<Field>СписокАгрегаты.СтатьяРасходов</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	ЗНАЧЕНИЕ(Справочник.упСклады.ПустаяСсылка) КАК МестоХранения,
+	Агрегаты.Код КАК Код,
+	Агрегаты.Ссылка КАК Агрегат,
+	Агрегаты.Тип КАК Тип,
+	Агрегаты.ЕдиницаИзмерения КАК ЕдиницаИзмерения,
+	1 КАК Количество,
+	ВЫБОР
+		КОГДА Агрегаты.Тип.ФиксироватьСрокПолезногоИспользования
+			ТОГДА Агрегаты.Тип.СтатьяРасходов
+		ИНАЧЕ ЗНАЧЕНИЕ(Справочник.упСтатьиДоходовРасходов.ПустаяСсылка)
+	КОНЕЦ КАК СтатьяРасходов,
+    ЕСТЬNULL(СостоянияОборудованияСП.Состояние, ЗНАЧЕНИЕ(Справочник.упСостоянияОборудования.НеИспользуется)) КАК Состояние
+ИЗ
+	Справочник.упШиныУзлыИАгрегаты КАК Агрегаты
+      ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упСостоянияОборудования.СрезПоследних КАК СостоянияОборудованияСП
+		    ПО Агрегаты.Ссылка = СостоянияОборудованияСП.Оборудование  
+</QueryText>
+				<MainTable>Catalog.упШиныУзлыИАгрегаты</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ОстаткиАгрегатовБезТС" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Остатки агрегатов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>ОстаткиАгрегатовБезТС.Состояние</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	ВложенныйЗапрос.МестоХранения,
+	ВложенныйЗапрос.Код,
+	ВложенныйЗапрос.Агрегат,
+	ВложенныйЗапрос.ЕдиницаИзмерения,
+	ВложенныйЗапрос.Тип,
+	ВложенныйЗапрос.Количество,
+    ВложенныйЗапрос.Состояние
+ИЗ
+	(ВЫБРАТЬ
+		упАгрегатыНаСкладахОстатки.Склад КАК МестоХранения,
+		ЕСТЬNULL(АгрегатыСклад.Код, ДопОборудование.ИнвентарныйНомер) КАК Код,
+		упАгрегатыНаСкладахОстатки.Агрегат КАК Агрегат,
+		ЕСТЬNULL(АгрегатыСклад.ЕдиницаИзмерения, ЗНАЧЕНИЕ(Справочник.упЕдиницыИзмерения.ПустаяСсылка)) КАК ЕдиницаИзмерения,
+		ЕСТЬNULL(АгрегатыСклад.Тип, ДопОборудование.ТипДополнительногоОборудования) КАК Тип,
+		упАгрегатыНаСкладахОстатки.КоличествоОстаток КАК Количество,
+        ЕСТЬNULL(СостоянияОборудованияСП.Состояние, ЗНАЧЕНИЕ(Справочник.упСостоянияОборудования.НеИспользуется)) КАК Состояние
+	ИЗ
+		РегистрНакопления.упАгрегатыНаСкладах.Остатки(
+				&amp;Период,
+				((&amp;ЭтоАгрегат И ВЫБОР
+					КОГДА &amp;МодельТС = НЕОПРЕДЕЛЕНО
+						ТОГДА Агрегат.Тип.МодельТС = ЗНАЧЕНИЕ(Справочник.упМоделиТС.ПустаяСсылка)
+					ИНАЧЕ Агрегат.Тип.МодельТС В (ЗНАЧЕНИЕ(Справочник.упМоделиТС.ПустаяСсылка), &amp;МодельТС)
+				КОНЕЦ) ИЛИ НЕ &amp;ЭтоАгрегат)
+				И (&amp;ЭтоАгрегат
+							И Агрегат.Ссылка ССЫЛКА Справочник.упШиныУзлыИАгрегаты
+						ИЛИ НЕ &amp;ЭтоАгрегат
+							И Агрегат.Ссылка ССЫЛКА Справочник.упДополнительноеОборудование)) КАК упАгрегатыНаСкладахОстатки
+			ЛЕВОЕ СОЕДИНЕНИЕ Справочник.упШиныУзлыИАгрегаты КАК АгрегатыСклад
+			ПО &amp;ЭтоАгрегат И упАгрегатыНаСкладахОстатки.Агрегат = АгрегатыСклад.Ссылка
+			ЛЕВОЕ СОЕДИНЕНИЕ Справочник.упДополнительноеОборудование КАК ДопОборудование
+			ПО (НЕ &amp;ЭтоАгрегат)
+				И упАгрегатыНаСкладахОстатки.Агрегат = ДопОборудование.Ссылка
+              ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упСостоянияОборудования.СрезПоследних КАК СостоянияОборудованияСП
+		    ПО упАгрегатыНаСкладахОстатки.Агрегат = СостоянияОборудованияСП.Оборудование  
+    ) КАК ВложенныйЗапрос
+</QueryText>
+				<AutoSaveUserSettings>false</AutoSaveUserSettings>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ТранспортноеСредство" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Транспортное средство</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.упТранспортныеСредства</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СписокДопОборудование" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список доп оборудование</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>СписокДопОборудование.ЕдиницаИзмерения</Field>
+				<Field>СписокДопОборудование.Количество</Field>
+				<Field>СписокДопОборудование.МестоХранения</Field>
+				<Field>СписокДопОборудование.Состояние</Field>
+				<Field>СписокДопОборудование.СтатьяРасходов</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	ЗНАЧЕНИЕ(Справочник.упСклады.ПустаяСсылка) КАК МестоХранения,
+	СправочникупДополнительноеОборудование.ИнвентарныйНомер КАК ИнвентарныйНомер,
+	СправочникупДополнительноеОборудование.ЗаводскойНомер КАК ЗаводскойНомер,
+	СправочникупДополнительноеОборудование.Ссылка КАК ДопОборудование,
+	СправочникупДополнительноеОборудование.ТипДополнительногоОборудования КАК Тип,
+	ЗНАЧЕНИЕ(Справочник.упЕдиницыИзмерения.ПустаяСсылка) КАК ЕдиницаИзмерения,
+	1 КАК Количество,
+	ЗНАЧЕНИЕ(Справочник.упСтатьиДоходовРасходов.ПустаяСсылка) КАК СтатьяРасходов,
+    ЕСТЬNULL(СостоянияОборудованияСП.Состояние, ЗНАЧЕНИЕ(Справочник.упСостоянияОборудования.НеИспользуется)) КАК Состояние
+ИЗ
+	Справочник.упДополнительноеОборудование КАК СправочникупДополнительноеОборудование
+    ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упСостоянияОборудования.СрезПоследних КАК СостоянияОборудованияСП
+    ПО СправочникупДополнительноеОборудование.Ссылка = СостоянияОборудованияСП.Оборудование  
+</QueryText>
+				<MainTable>Catalog.упДополнительноеОборудование</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ТипОборудования" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип оборудования</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.упШиныУзлыИАгрегаты</v8:Type>
+				<v8:Type>cfg:CatalogRef.упДополнительноеОборудование</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗакрыватьПриВыбореАгрегата" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Закрывать при выборе агрегата</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ОстаткиАгрегатовКод</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ОстаткиАгрегатовАгрегат</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ОстаткиАгрегатовЕдиницаИзмерения</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ОстаткиАгрегатовТип</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ОстаткиАгрегатовМестоХранения</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ОстаткиАгрегатовКоличество</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ОстаткиАгрегатов.Количество</dcsset:left>
+						<dcsset:comparisonType>LessOrEqual</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">#808080</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="false" italic="true" underline="false" strikeout="false" kind="WindowsFont"/>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="ПеренестиВДокумент" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перенести в документ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перенести в документ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПеренестиВДокумент</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

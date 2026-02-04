@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<DocumentJournal uuid="734602b8-b289-4e58-9598-3fd274789c44">
+		<InternalInfo>
+			<xr:GeneratedType name="DocumentJournalSelection.упДокументыДвиженияАгрегатов" category="Selection">
+				<xr:TypeId>0c3ee78b-de1e-41c8-ad00-c2fd656a41c5</xr:TypeId>
+				<xr:ValueId>7c99cc16-739a-4710-8d27-4ce763429ecc</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="DocumentJournalList.упДокументыДвиженияАгрегатов" category="List">
+				<xr:TypeId>54ac4bfc-2576-490d-ac36-9cd976b2976d</xr:TypeId>
+				<xr:ValueId>70efdf60-b0f2-49a7-8398-1de6837f82a9</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="DocumentJournalManager.упДокументыДвиженияАгрегатов" category="Manager">
+				<xr:TypeId>191937d5-fee4-4261-bfb1-46956ead8867</xr:TypeId>
+				<xr:ValueId>65c5d1ea-4569-43e2-8a65-7934abc1304f</xr:ValueId>
+			</xr:GeneratedType>
+		</InternalInfo>
+		<Properties>
+			<Name>упДокументыДвиженияАгрегатов</Name>
+			<Synonym>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Журнал движения оборудования</v8:content>
+				</v8:item>
+			</Synonym>
+			<Comment/>
+			<DefaultForm>DocumentJournal.упДокументыДвиженияАгрегатов.Form.ФормаСписка</DefaultForm>
+			<AuxiliaryForm/>
+			<UseStandardCommands>true</UseStandardCommands>
+			<RegisteredDocuments>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.упПоступлениеАгрегатов</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.упПеремещениеАгрегатов</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.упСписаниеАгрегатов</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.упКорректировкаОстатковАгрегатов</xr:Item>
+			</RegisteredDocuments>
+			<IncludeHelpInContents>true</IncludeHelpInContents>
+			<ListPresentation/>
+			<ExtendedListPresentation/>
+			<Explanation/>
+		</Properties>
+		<ChildObjects>
+			<Column uuid="49057ac6-8e23-44fc-accf-fee0e1c4870c">
+				<Properties>
+					<Name>Склад</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Склад</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.упПеремещениеАгрегатов.Attribute.СкладОтправитель</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.упСписаниеАгрегатов.Attribute.Склад</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="10695c41-b903-49aa-bb49-4590ad538d26">
+				<Properties>
+					<Name>Автор</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Автор</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.упКорректировкаОстатковАгрегатов.Attribute.Автор</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.упПеремещениеАгрегатов.Attribute.Автор</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.упПоступлениеАгрегатов.Attribute.Автор</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.упСписаниеАгрегатов.Attribute.Автор</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="0439278a-6937-4d2b-a9ab-43586c86ea23">
+				<Properties>
+					<Name>СкладПолучатель</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Склад получатель</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.упПеремещениеАгрегатов.Attribute.СкладПолучатель</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.упПоступлениеАгрегатов.Attribute.Склад</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.упКорректировкаОстатковАгрегатов.Attribute.Склад</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Form>ФормаСписка</Form>
+		</ChildObjects>
+	</DocumentJournal>
+</MetaDataObject>

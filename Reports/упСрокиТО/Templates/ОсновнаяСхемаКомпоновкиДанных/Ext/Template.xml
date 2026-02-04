@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТранспортноеСредство</dataPath>
+			<field>ТранспортноеСредство</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТекущееСостояние</dataPath>
+			<field>ТекущееСостояние</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текущее состояние</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидРемонта</dataPath>
+			<field>ВидРемонта</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВремениДоТО</dataPath>
+			<field>ВремениДоТО</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Времени до ТО (дней)</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МодельТС</dataPath>
+			<field>МодельТС</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПробегаДоТО</dataPath>
+			<field>ПробегаДоТО</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пробега до ТО (км)</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	упТранспортныеСредства.Ссылка КАК ТранспортноеСредство,
+	ЕСТЬNULL(упСостоянияТССрезПоследних.СостояниеТС, ЗНАЧЕНИЕ(Справочник.упСостоянияТС.Свободно)) КАК ТекущееСостояние,
+	упНормыТО.МодельТС,
+	упНормыТО.ВидРемонта,
+	ВЫБОР
+		КОГДА упНормыТО.ТипТО = ЗНАЧЕНИЕ(Перечисление.упТипыТО.Разовое)
+			ТОГДА ВЫБОР
+					КОГДА ЕСТЬNULL(упНормыТО.Срок, 0) &gt; 0
+							И ЕСТЬNULL(упНормыТО.Срок, 0) * 30 - РАЗНОСТЬДАТ(упТранспортныеСредства.ДатаВыпуска, &amp;ТекущаяДата, ДЕНЬ) &gt; 0
+						ТОГДА ЕСТЬNULL(упНормыТО.Срок, 0) * 30 - РАЗНОСТЬДАТ(упТранспортныеСредства.ДатаВыпуска, &amp;ТекущаяДата, ДЕНЬ)
+					ИНАЧЕ "Не требуется"
+				КОНЕЦ
+		КОГДА упНормыТО.ТипТО = ЗНАЧЕНИЕ(Перечисление.упТипыТО.Периодическое)
+			ТОГДА ВЫБОР
+					КОГДА ЕСТЬNULL(упНормыТО.Срок, 0) &gt; 0
+							И (РАЗНОСТЬДАТ(упТранспортныеСредства.ДатаВыпуска, &amp;ТекущаяДата, ДЕНЬ) МЕЖДУ ЕСТЬNULL(упНормыТО.СрокС, 0) * 30 И ЕСТЬNULL(упНормыТО.СрокПо, 0) * 30)
+						ТОГДА ВЫБОР
+								КОГДА РАЗНОСТЬДАТ(упТранспортныеСредства.ДатаВыпуска, &amp;ТекущаяДата, ДЕНЬ) = 0
+									ТОГДА ЕСТЬNULL(упНормыТО.Срок, 0)
+								ИНАЧЕ (ВЫРАЗИТЬ(РАЗНОСТЬДАТ(упТранспортныеСредства.ДатаВыпуска, &amp;ТекущаяДата, ДЕНЬ) / (ЕСТЬNULL(упНормыТО.Срок, -1) * 30) - 0.5 КАК ЧИСЛО(10, 0))) * ЕСТЬNULL(упНормыТО.Срок, 0) * 30 + ЕСТЬNULL(упНормыТО.Срок, 0) * 30 - РАЗНОСТЬДАТ(упТранспортныеСредства.ДатаВыпуска, &amp;ТекущаяДата, ДЕНЬ)
+							КОНЕЦ
+					ИНАЧЕ "Не требуется"
+				КОНЕЦ
+		ИНАЧЕ "Не требуется"
+	КОНЕЦ КАК ВремениДоТО,
+	ВЫБОР
+		КОГДА упНормыТО.ТипТО = ЗНАЧЕНИЕ(Перечисление.упТипыТО.Разовое)
+			ТОГДА ВЫБОР
+					КОГДА ЕСТЬNULL(упНормыТО.Пробег, 0) &gt; 0
+							И ЕСТЬNULL(упНормыТО.Пробег, 0) - ЕСТЬNULL(упПробегТСОстатки.ПробегОстаток, 0) &gt; 0
+						ТОГДА ЕСТЬNULL(упНормыТО.Пробег, 0) - ЕСТЬNULL(упПробегТСОстатки.ПробегОстаток, 0)
+					ИНАЧЕ "Не требуется"
+				КОНЕЦ
+		КОГДА упНормыТО.ТипТО = ЗНАЧЕНИЕ(Перечисление.упТипыТО.Периодическое)
+			ТОГДА ВЫБОР
+					КОГДА ЕСТЬNULL(упНормыТО.Пробег, 0) &gt; 0
+							И (ЕСТЬNULL(упПробегТСОстатки.ПробегОстаток, 0) МЕЖДУ ЕСТЬNULL(упНормыТО.ПробегС, 0) И ЕСТЬNULL(упНормыТО.ПробегПо, 0))
+						ТОГДА ВЫБОР
+								КОГДА ЕСТЬNULL(упПробегТСОстатки.ПробегОстаток, 0) = 0
+									ТОГДА ЕСТЬNULL(упНормыТО.Пробег, 0)
+								ИНАЧЕ (ВЫРАЗИТЬ(ЕСТЬNULL(упПробегТСОстатки.ПробегОстаток, 0) / ЕСТЬNULL(упНормыТО.Пробег, -1) - 0.5 КАК ЧИСЛО(10, 0))) * ЕСТЬNULL(упНормыТО.Пробег, 0) + ЕСТЬNULL(упНормыТО.Пробег, 0) - ЕСТЬNULL(упПробегТСОстатки.ПробегОстаток, 0)
+							КОНЕЦ
+					ИНАЧЕ "Не требуется"
+				КОНЕЦ
+		ИНАЧЕ "Не требуется"
+	КОНЕЦ КАК ПробегаДоТО
+ИЗ
+	Справочник.упТранспортныеСредства КАК упТранспортныеСредства
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упСостоянияТранспортныхСредств.СрезПоследних КАК упСостоянияТССрезПоследних
+		ПО упТранспортныеСредства.Ссылка = упСостоянияТССрезПоследних.ТранспортноеСредство
+		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.упТранспортныеСредства.Гаражи КАК упТранспортныеСредстваГаражи
+		ПО упТранспортныеСредства.Ссылка = упТранспортныеСредстваГаражи.Ссылка
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упНормыТО КАК упНормыТО
+		ПО упТранспортныеСредства.Модель = упНормыТО.МодельТС
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.упПробегТС.Остатки КАК упПробегТСОстатки
+		ПО упТранспортныеСредства.Ссылка = упПробегТСОстатки.ТранспортноеСредство
+ГДЕ
+	НЕ упТранспортныеСредства.ПометкаУдаления</query>
+	</dataSet>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>ТекущаяДата</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Текущая дата</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>ТекущаяДата()</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>СрокиТО</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Сроки техосмотра</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТранспортноеСредство</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТекущееСостояние</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>МодельТС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВидРемонта</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВремениДоТО</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПробегаДоТО</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МакетОформления</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">упМакетОформленияОтчетов</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сроки техосмотра</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>ТранспортноеСредство</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>ТекущееСостояние</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:outputParameters>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>РасположениеПолейГруппировки</dcscor:parameter>
+						<dcscor:value xsi:type="dcsset:DataCompositionGroupFieldsPlacement">Separately</dcscor:value>
+					</dcscor:item>
+				</dcsset:outputParameters>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

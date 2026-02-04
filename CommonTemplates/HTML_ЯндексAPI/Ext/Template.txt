@@ -1,0 +1,4144 @@
+﻿<!DOCTYPE html>
+<html>
+<head>    
+    <meta http-equiv="X-UA-Compatible" content="IE=8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />    
+    <title>Используем  API Яндекс.Карт 2.0.</title>    
+    <script src="https://api-maps.yandex.ru/2.0/?load=package.standard,package.geoObjects,package.clusters&lang=ru-RU&mode=debug" type="text/javascript"></script>
+    <style>                                              
+        body, html {
+        	overflow: hidden; /* Убраны полосы прокрутки */
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+ 
+<script type="text/javascript">	
+//release, debug
+//package.standard,package.geoObjects,package.clusters
+		var objectArray           = [];
+		var tripArray             = [];
+        var selectedObjectArray   = [];
+        var unselectedObjectArray = [];
+        var cornerArray           = [];
+        var iconArray             = [];
+        var markersClustered      = null;
+        var arrMarkersClustered   = [];
+        
+        
+		var markerDraw     = false;
+		var newMarkerTitle = '';
+		var newMarker      = null;
+		
+		var multipleSelection   = false;
+		var multipleUnselection = false;
+		var markerClustering    = false;
+		
+		var polygonDraw        = false;
+		var polylineDraw       = false;
+		var newPolygonTitle    = '';
+		var newPolylineTitle   = '';
+		var dragStart          = false;
+		var numberOfPoints     = 0;
+		var newPolygon         = null;
+		var newPolyline        = null;
+		var newRectangle       = null;
+		var newVector          = null;
+		var firstCorner        = null;
+		var lastCorner         = null;
+		var vectorArray        = [];
+		var pointsArray        = [];
+		var cornerMarkerArray  = [];
+		var halfwayMarkerArray = [];
+		var reperMarkerArray   = [];
+
+		var DocEventUIDArray = {};
+		var DocEventUID		 = null;                            
+				
+		var cornerIcon 		= {iconLayout: 'default#image',iconImageHref: '%МаркерРедактируемогоУгла%', iconImageSize: [15,19],iconImageOffset: [-10, -7]};
+		var geocodeIcon 	= {iconLayout: 'default#image',iconImageHref: '%МаркерГеокодирования%',     iconImageSize: [20,20],iconImageOffset: [-18, -16],draggable: true};
+		var firstCornerIcon = {iconLayout: 'default#image',iconImageHref: '%МаркерПервогоУгла%',		iconImageSize: [15,19],iconImageOffset: [-10, -7]};
+		var lastCornerIcon  = {iconLayout: 'default#image',iconImageHref: '%МаркерПоследнегоУгла%', 	iconImageSize: [15,19],iconImageOffset: [-10, -7]};
+		
+		var motionIcon = {iconImageHref: '%МаркерДвиженияТС%', 	iconImageSize: [15,19],iconImageOffset: [-10, -7]};
+
+		var popupArray = [];
+		
+		var displayAllMarkers = false;
+		var vehicleArray	  = [];
+		var borderMarkerArray = [];
+
+        var showVehicleStatus = 0;
+        
+        var mapFormed 			 = false;
+        var hideUnvisibleObjects = false,
+        	toUsePositioning = true;
+        
+        var Icon_Default = {preset: 'islands#redIcon'};
+        
+        var array_draf_track = null;
+        
+        var objectArray_MultiPolyline = [],
+        	objectArray_PlannedRoute = [],
+			objectArray_MovementBetweenFlights = [];
+        var Monitoring_Mode = -1;
+        var objectArray_Visible = [],
+        	editVisible = true;
+        var arImgSize = [];	
+
+		var map = null;
+		
+		// creation of prototype for object Array (ie arrays doesn't have method indexOf)  
+        (function (A) {
+          A.indexOf = A.indexOf || function(object) {
+        for (var i = 0, l = this.length; i < l; i++) {
+            if (i in this && this[i] == object) {
+                return i;
+            }
+        }
+        return -1;
+        };
+        })(Array.prototype);
+ 		
+	// Дождёмся загрузки API и готовности DOM.
+	ymaps.ready(init);
+ 
+		function init(){
+		    
+		    map = new ymaps.Map('map',{
+									center: [%Широта%, %Долгота%],
+									zoom: %Увеличение%			
+								});
+			//controls: ['zoomControl', 'typeSelector'] API 2.1
+			map.controls
+        	.add('zoomControl', { left: 5, top: 5 })
+	        .add('typeSelector')
+        	.add('mapTools', { left: 35, top: 5 });
+        	
+			map.events.add('click', onMapClick);
+			map.events.add('mousemove', onMapMouseMove);	
+			map.events.add('actionend', onMapMoveEnd);
+		
+		} //init ()	
+		
+		function ValidateCacheCalls(){		
+		    var result = true;
+				if(map === null){
+					result = false;
+				};
+			return result;			
+		} //ValidateCacheCalls()
+		
+		function EnterMonitoring(Mode) {		    
+			Monitoring_Mode = Mode;
+		} //EnterMonitoring()
+		
+		function AddMovementBetweenFlights() {
+			//Передвижения между рейсами
+			var index = objectArray.push('MovementBetweenFlights');
+				objectArray_Visible.push([index-1,false,'string']);
+		 	return index;		 	
+		} //AddMovementBetweenFlights()
+		
+		function DrawTrackLaw(track,settings,OIndex){
+			var arrP = track.split(';'),
+        		array = [],
+        		masSettings = ConfigureLine(settings),
+        		d_Color = masSettings[0],
+				d_weight = masSettings[1],
+				//d_opacity = masSettings[2],
+				d_opacity = 0.1,
+				pLat = 0,
+				pLon = 0,
+				latLng = null;
+				
+        	for (var i = 1; i < arrP.length; i++) {        	
+        		latLng = null;
+        		pLat   = parseFloat(arrP[i-1]);
+				pLon   = parseFloat(arrP[i]);
+        		latLng = [pLat,pLon];
+        	    array.push(latLng);
+        	    i = i + 1;        	    
+			}			
+			if(array.length > 0){
+				var geometry = array, 
+					properties = {hintContent: 'Маршрут'},
+					options = {draggable: false,
+						strokeColor: d_Color,
+						strokeWidth: d_weight,
+						strokeOpacity: d_opacity};
+				var polyline = new ymaps.Polyline(geometry,properties,options);
+					map.geoObjects.add(polyline);
+			    	objectArray_PlannedRoute.push([OIndex,[[array,d_Color,0]],[polyline],true,d_Color,d_weight,d_opacity]);
+			}
+				
+		} //DrawTrackLaw()
+		
+		function on_DrawTrackLaw(L_Color,L_Weight,L_Opacity,OIndex){
+		
+			if(array_draf_track !== null){
+				var array = new Array(),
+					d_Color = L_Color,
+					d_weight = L_Weight,
+					d_opacity = 0.2;
+				
+				for (var i = 0; i < array_draf_track.length; i++){				
+					var obj = array_draf_track[i];					
+					array.push(obj.point);					
+				}
+						
+				if(array.length > 0){
+					var geometry = array, 
+						properties = {hintContent: 'Маршрут'},
+						options = {draggable: false,
+							strokeColor: d_Color,
+							strokeWidth: d_weight,
+							strokeOpacity: d_opacity};
+					var polyline = new ymaps.Polyline(geometry,properties,options);
+					map.geoObjects.add(polyline);
+			 		objectArray_PlannedRoute.push([OIndex,[[array,d_Color,0]],[polyline],true,d_Color,d_weight,d_opacity]);
+			    }
+			    
+			} // if(array_draf_track !== null){
+			
+			array_draf_track = null;			
+							
+		} //on_DrawTrackLaw()
+		
+		function ins_DrawTrack(Lat,Lon,cSpeed,cColor){
+		
+			if(array_draf_track === null){
+				array_draf_track = [];
+			}
+		
+			var pLat = parseFloat(Lat),
+				pLon = parseFloat(Lon);
+			
+			var obj = new Object();
+			    obj.point = [pLat,pLon]; //координата точки
+			    obj.color = cColor; //цвет при скорости
+			    obj.speed = parseFloat(cSpeed); //скорость в точке
+			
+			array_draf_track.push(obj);
+				
+		} //ins_DrawTrack()
+		
+		function on_DrawTrack(L_Color,L_Weight,L_Opacity,OIndex){
+		
+			if(array_draf_track !== null){
+        		
+				var array = MakeArrayDrafTrack();
+				
+				var d_weight = L_Weight;
+				if(d_weight === 0){
+					d_weight = 5;
+				}
+				var d_opacity = L_Opacity;
+				if(d_opacity === 0){
+					d_opacity = 0.5;
+				}
+				
+				var M_objectArray = DrawTrackPolyline(array,d_opacity,d_weight);
+							
+				objectArray_MultiPolyline.push([OIndex,array,M_objectArray,true,L_Color,d_weight,d_opacity]);        	
+				
+			} // if(array_draf_track !== null){
+			
+			array_draf_track = null;
+		
+		} //on_DrawTrack()
+		
+		function RepaintLinesDisplay(cArray,trColor,d_Color){
+		
+			var arColor = RetrieveColorTable(trColor);
+			
+			for (var i = 0; i < cArray.length; i++){
+				var arrPointP = cArray[i],
+					pSpeed = arrPointP[2],
+					pColor = ColorSpeed(pSpeed,arColor,d_Color);
+				arrPointP[1] = pColor;
+				cArray[i][1] = pColor;
+			}
+		 
+		} // RepaintLinesDisplay()
+		
+		function EraseAllLinesObject(M_objectArray){
+		
+			for (var i = 0; i < M_objectArray.length; i++){						
+				map.geoObjects.remove(M_objectArray[i]);
+			};
+			M_objectArray.length = 0;
+			
+		} // EraseAllLinesObject()
+		
+		function DrawTrackPolyline(cArray, d_opacity, d_weight){
+		
+			var M_objectArray = [];
+		
+			for (var i = 0; i < cArray.length; i++){
+				var arrPointP = cArray[i],
+					M_PointsArr = arrPointP[0],
+					pColor = arrPointP[1],
+					M_Flag = false;					
+				if(hideUnvisibleObjects){
+					for (var j = 0; j < M_PointsArr.length; j++){				
+						M_Flag = objectOnMap(M_PointsArr[j][0],M_PointsArr[j][1]);
+			    		if(M_Flag){
+			    			break;
+			    		}
+			    	}
+			    }else{
+			    	M_Flag = true;
+			    }
+			    if(M_Flag){
+			        var geometry = arrPointP[0], 
+						properties = {hintContent: 'Маршрут'},
+						options = {draggable: false,
+							strokeColor: pColor,
+							strokeWidth: d_weight,
+							strokeOpacity: d_opacity};
+					var polyline = new ymaps.Polyline(geometry, properties, options);
+						map.geoObjects.add(polyline);
+			    		M_objectArray.push(polyline);
+			    }
+			}		
+			
+			return M_objectArray;
+			
+		} //DrawTrackPolyline()
+		
+		function DrawTrack(trData, trColor, OIndex){
+		
+        	var arrP = trData.split(';'),
+        		array = [],
+        		arColor = null,
+        		arrC = null; 		
+        		
+			var mas = null,
+				pSpeed = 0,
+				rSpeed = 0,
+				arrPoint = [],
+				pLat = 0,
+				pLon = 0,
+				pColor = '',
+				prevColor = '',
+				latLng = null,
+				prevlatLng = null,
+				d_Color = '#03f',
+				d_weight = 0,
+				d_opacity = 0;
+				
+        	for (var i = 0; i < arrP.length; i++) {
+        		latLng = null;
+        	    if(arrP[i].length > 0 ){
+        	        //разбираем строку на данные
+					mas = arrP[i].split(',');
+					pLat   = parseFloat(mas[0]);
+					pLon   = parseFloat(mas[1]);
+					pSpeed = parseFloat(mas[2]);
+					d_Color = mas[3],
+					d_weight = parseFloat(mas[4]),
+					d_opacity = parseFloat(mas[5]);
+					// получаем данные
+					pColor = d_Color;
+					latLng = [pLat,pLon];
+					if(pSpeed === rSpeed){
+						if(latLng !== null){
+							arrPoint.push(latLng);
+						}
+					}else{	
+						if(arrPoint.length > 0){
+							array.push([arrPoint,prevColor,rSpeed]);
+						}
+						rSpeed = pSpeed;
+						arrPoint = [];
+						if(prevlatLng !== null){
+							arrPoint.push(prevlatLng);
+						}
+						if(latLng !== null){
+							arrPoint.push(latLng);
+						}
+					}					
+					prevColor = pColor; //последний цвет
+					prevlatLng = latLng; //последняя координата					
+				} //if(arrP[i].length > 0 ){
+			}
+			if(arrPoint.length > 0){
+				array.push([arrPoint,pColor]);
+			}
+			
+			if(d_weight === 0){
+				d_weight = 5;
+			}
+			if(d_opacity === 0){
+				d_opacity = 0.5;
+			}
+			
+			RepaintLinesDisplay(array, trColor, d_Color);			
+			var M_objectArray = DrawTrackPolyline(array, d_opacity, d_weight);
+			
+			objectArray_MultiPolyline.push([OIndex,array,M_objectArray,true,d_Color,d_weight,d_opacity]);
+			
+		} //DrawTrack()
+		
+		function changeColorDrawTrack(trColor, OIndex){
+			
+			var mas = getMultiPolyline(OIndex);			
+				if(mas !== null){
+				    	var M_objectArray = mas[1][2],
+							array = mas[1][1],
+							d_Color = mas[1][4],
+							d_weight = mas[1][5],
+							d_opacity = mas[1][6],
+							flgLgth = mas[1][3];
+							
+						EraseAllLinesObject(M_objectArray);
+						RepaintLinesDisplay(array, trColor, d_Color);
+						
+						if(flgLgth){
+							M_objectArray = DrawTrackPolyline(array, d_opacity, d_weight);
+							if(M_objectArray.length === 0){
+								flgLgth = false;
+							}
+						}
+						objectArray_MultiPolyline[mas[0]] = [OIndex,array,M_objectArray,flgLgth,d_Color,d_weight,d_opacity];						
+				} //if(mas !== null){
+			
+		} //changeColorDrawTrack()
+		
+		function RetrieveColorTable(trColor){
+			
+		   var arColor = [],
+        		arrC = null; 
+		
+		   if(trColor.length > 0){
+				arrC = trColor.split(';');
+				for (var i = 0; i < arrC.length; i++) {
+					if(arrC[i].length > 0 ){
+						var mas = arrC[i].split(',');
+						arColor.push([parseFloat(mas[0]),mas[1]]);
+					}
+				} //определим цвет и скорорсть, 1.скорость, 2.цвет				
+			}			
+			return arColor;
+		
+		} //RetrieveColorTable()	
+		
+		function ConfigureLine(settings) {		    
+			var d_Color = '#03f',
+				d_weight = 5,
+				d_opacity = 0.5,
+				arrC = null;
+				
+				if(settings.length > 0){
+					arrC = settings.split(',');
+					d_Color = arrC[0],
+					d_weight = parseFloat(arrC[1]),
+					d_opacity = parseFloat(arrC[2]);
+					if(d_weight === 0){
+						d_weight = 5;
+					}
+					if(d_opacity === 0){
+						d_opacity = 0.5;
+					}					
+				} //if(settings.length > 0){
+				
+			return [d_Color,d_weight,d_opacity];
+				
+		} //ConfigureLine()
+		
+		function on_DrawTrackMovement(L_Color,L_Weight,L_Opacity,OIndex){
+		
+			if(array_draf_track !== null){
+        		
+			    var array = MakeArrayDrafTrack();
+			
+				var d_Color = L_Color,
+					d_weight = L_Weight,
+					d_opacity = L_Opacity;			
+				
+				var M_objectArray = [];
+				
+				var d_weight = L_Weight;
+				if(d_weight === 0){
+					d_weight = 5;
+				}
+				var d_opacity = L_Opacity;
+				if(d_opacity === 0){
+					d_opacity = 0.5;
+				}
+							
+				var mas = getMovementBetweenFlights(OIndex);
+				if(mas === null){
+					objectArray_MovementBetweenFlights.push([OIndex,array,[],false,d_Color,d_weight,d_opacity]);
+				}else{
+					var M_objectArray = mas[1][2],
+						M_array = mas[1][1];
+					for (var i = 0; i < array.length; i++){
+						M_array.push(array[i]);			
+					}			
+					objectArray_MovementBetweenFlights[mas[0]] = [OIndex,M_array,M_objectArray,false,d_Color,d_weight,d_opacity];
+				} //if(mas !== null){
+				
+			} // if(array_draf_track !== null){
+			
+			array_draf_track = null;		
+        	
+		} // on_DrawTrackMovement()
+		
+		function DrawTrackMovement(trData,trColor,settings,OIndex) {
+		
+        	var arrP = trData.split(';'),
+        		array = [],
+        		arColor = null,
+        		masSettings = ConfigureLine(settings),
+        		d_Color = masSettings[0],
+				d_weight = masSettings[1],
+				d_opacity = masSettings[2];
+        		
+        	arColor = RetrieveColorTable(trColor);
+        	
+			var mas = null,
+				pSpeed = 0,
+				rSpeed = 0,
+				arrPoint = [],
+				pLat = 0,
+				pLon = 0,
+				pColor = '',
+				prevColor = '',
+				latLng = null,
+				prevlatLng = null;
+				
+        	for (var i = 0; i < arrP.length; i++){
+        		latLng = null;
+        	    if(arrP[i].length > 0 ){
+        	        //разбираем строку на данные
+					mas = arrP[i].split(',');
+					pLat   = parseFloat(mas[0]);
+					pLon   = parseFloat(mas[1]);
+					pSpeed = parseFloat(mas[2]);
+					// получаем данные
+					pColor = ColorSpeed(pSpeed,arColor,d_Color);
+					latLng = [pLat,pLon];
+					
+					if(pSpeed === rSpeed){
+					    if(latLng !== null){
+							arrPoint.push(latLng);
+						}
+					}else{	
+						if(arrPoint.length > 0){
+							array.push([arrPoint,prevColor,rSpeed]);
+						}
+						rSpeed = pSpeed;
+						arrPoint = [];
+						if(prevlatLng !== null){
+							arrPoint.push(prevlatLng);
+						}
+						if(latLng !== null){
+							arrPoint.push(latLng);
+						}
+					}					
+					prevColor = pColor; //последний цвет
+					prevlatLng = latLng; //последняя координата					
+				} //if(arrP[i].length > 0 ){
+			}
+			if(arrPoint.length > 0){
+				array.push([arrPoint,pColor]);
+			}
+			
+			var mas = getMovementBetweenFlights(OIndex);
+			if(mas === null){
+				objectArray_MovementBetweenFlights.push([OIndex,array,[],false,d_Color,d_weight,d_opacity]);
+			}else{
+				var M_objectArray = mas[1][2],
+					M_array = mas[1][1];
+					for (var i = 0; i < array.length; i++){
+						M_array.push(array[i]);
+					}
+				objectArray_MovementBetweenFlights[mas[0]] = [OIndex,M_array,M_objectArray,false,d_Color,d_weight,d_opacity];
+			} //if(mas !== null){
+        	
+		} //DrawTrackMovement()
+		
+		function changeColorDrawTrackMovement(trColor, OIndex){
+			
+			var mas = getMovementBetweenFlights(OIndex);				
+				if(mas !== null){
+				    	var M_objectArray = mas[1][2],
+							array = mas[1][1],
+							d_Color = mas[1][4],
+							d_weight = mas[1][5],
+							d_opacity = mas[1][6],
+							flgLgth = mas[1][3];
+							
+						EraseAllLinesObject(M_objectArray);
+						RepaintLinesDisplay(array, trColor, d_Color);
+							
+						if(flgLgth){							
+							M_objectArray = DrawTrackPolyline(array, d_opacity, d_weight);
+							if(M_objectArray.length === 0){
+								flgLgth = false;
+							}
+						}
+						objectArray_MovementBetweenFlights[mas[0]] = [OIndex,array,M_objectArray,flgLgth,d_Color,d_weight,d_opacity];
+						
+				} //if(mas !== null){
+			
+		} //changeColorDrawTrackMovement()
+		
+		function ColorSpeed(Speed,MasColor,D_Color) {
+		
+			var result = '#03f',
+				mLength = MasColor.length;				
+			if(D_Color !== ''){
+				result = D_Color;
+			}				
+			if(mLength > 1){
+				for (var i = 0; i < mLength; i++) {
+				    var j = i + 1;
+				    if(j >= mLength){
+				    	j = i;
+				    };				    
+					var arrI = MasColor[i],
+						arrJ = MasColor[j];
+					
+					if((arrI[0] < Speed)&&(Speed < arrJ[0])){
+						result = arrJ[1];
+					}
+					else if(arrI[0] === Speed){
+						result = arrI[1];
+					}
+					else if(arrJ[0] === Speed){
+						result = arrJ[1];
+					}					
+				}
+			} //if(mLength > 0){
+			
+			return result;
+			
+		} //ColorSpeed()
+		
+		function clearObjects(){
+             try{
+             for (var i=0; i < objectArray.length; i++ ){
+             	var mass = objectArray[i];
+             	if(mass !== 'MovementBetweenFlights'){
+             		map.geoObjects.remove(mass[0]);
+             		if (mass[1] === 'Polyline') {
+						for (var i=2; i<mass.length; i++ ){
+							if (mass[i] !== null) { 
+								map.geoObjects.remove(mass[i]);
+							}
+						}				
+					}
+				} //f(mass !== 'MovementBetweenFlights'){
+             }
+             
+             objectArray = [];
+             }catch(e){
+				setStatusMap('GetStatus',e.name + ': ' + e.message + ' clearObjects()') ;
+			}
+		} //clearObjects()
+		
+		function clearTrips(){
+        
+             for (var i=0; i < tripArray.length; i++ ){
+             	map.geoObjects.remove(tripArray[i]);
+             }
+             
+             tripArray = [];
+		} //clearTrips()
+		
+		// _color - Stroke color
+        // _weight - Stroke width in pixels
+        // _transparency - Stroke transparency 
+        function addObjectPolylineBetweenObjects(_color, _weight, _transparency) {
+			
+            var _opacity = 1 - _transparency/100;
+			
+			var geometry = pointsArray, 
+				properties = {hintContent: 'Маршрут'},
+				options = {draggable: false,
+					strokeColor: _color,
+					strokeWidth: _weight,
+					strokeOpacity: _opacity};
+			var polyline = new ymaps.Polyline(geometry,properties,options);
+			var mass = [];
+			mass.push(polyline);
+				
+			var iPoint = pointsArray.length;
+			var lastTwoCoordinates = [];
+			
+			if (iPoint > 0) {
+			    if(iPoint > 2){
+					var Plength = Math.round(iPoint * 0.6);			
+					if (Plength > 0){			 
+			 			for (var i=0; i < Plength; i++ ){
+             				lastTwoCoordinates.push(pointsArray[i]);
+             			}
+             		}
+             	}else{
+             		lastTwoCoordinates = pointsArray;
+             	}
+             
+             var mycoor = Coordi_Strelki(lastTwoCoordinates, 3, 20);
+			 
+			 if (mycoor.length >= 3) {
+			
+				var geometry = mycoor[2], 
+				properties = {hintContent: 'стрелки'},
+				options = {draggable: false,
+						strokeColor: _color,
+						strokeWidth: _weight,
+						strokeOpacity: (1 - _opacity/100)};
+						
+				var polyline = new ymaps.Polyline(geometry,properties,options);
+					mass.push(polyline);
+			
+				var geometry = mycoor[1], 
+					properties = {hintContent: 'стрелки'},
+					options = {draggable: false,
+						strokeColor: _color,
+						strokeWidth: _weight,
+						strokeOpacity: (1 - _opacity/100)};
+				var polyline = new ymaps.Polyline(geometry,properties,options);
+					mass.push(polyline);
+			 } //if (mycoor.length >= 3) {
+			} //if (iPoint > 0) {		
+				
+			// Создаем коллекцию геообъектов.
+			var newObject = new ymaps.GeoObjectCollection();
+			
+			for (var i = 0; i < mass.length; i++) {
+				newObject.add(mass[i]);
+			}
+			
+			map.geoObjects.add(newObject);
+			
+			var mass = new Array(4);
+				mass[0] = newObject;
+				mass[1] = 'Polyline';
+				mass[2] = null;
+				mass[3] = null;		
+			
+			var index = objectArray.push(mass);
+				objectArray_Visible.push([index-1,true,'featureGroup']);
+			
+			pointsArray = [];
+			
+			return index;
+			
+		} //addObjectPolylineBetweenObjects()
+		
+		function addTrip(_curveCoordinates, _color, _weight, _transparency){
+             
+		     var _opacity = 1 - _transparency/100;
+		     var _opacity = 1;
+			var newArray = [];
+			var mass = [],
+				polylineArray = [];
+			
+			if (_curveCoordinates !== '') {
+			   var curveArray = _curveCoordinates.split('//');
+			
+			   for (var i = 0; i < curveArray.length; i++) {
+			       var curve = curveArray[i],
+			           coordArray = curve.split(';');
+			       for (var j = 0; j < coordArray.length/2 - 1; j++) {  
+        	           var latlng = [parseFloat(coordArray[j*2]),parseFloat(coordArray[j*2+1])];
+        	           polylineArray.push(latlng);
+        	       }
+        	       var geometry = polylineArray, 
+					   properties = {hintContent: 'Маршрут'},
+					   options = {draggable: false,
+					   		strokeStyle: '3 2',
+							strokeColor: _color,
+							strokeWidth: _weight,
+							strokeOpacity: _opacity};
+				   var polyline = new ymaps.Polyline(geometry,properties,options);					
+					mass.push(polyline);
+        	       var iPoint = Math.round(polylineArray.length * 0.6);
+					if (iPoint > 0) {		
+			 		var lastTwoCoordinates = [];
+			 			for (var i=0; i < iPoint; i++ ){
+             				lastTwoCoordinates.push(polylineArray[i]);
+             			}
+			 		var mycoor = Coordi_Strelki(lastTwoCoordinates, 3, 20);		
+			 			if (mycoor.length >= 3) {			
+						var geometry = mycoor[2], 
+							properties = {hintContent: 'стрелки'},
+							options = {draggable: false,
+								strokeColor: _color,
+								strokeWidth: _weight,
+								strokeOpacity: _opacity};
+						
+						var polyline = new ymaps.Polyline(geometry,properties,options);
+							mass.push(polyline);
+			
+						var geometry = mycoor[1], 
+							properties = {hintContent: 'стрелки'},
+							options = {draggable: false,
+								strokeColor: _color,
+								strokeWidth: _weight,
+								strokeOpacity: _opacity};
+						var polyline = new ymaps.Polyline(geometry,properties,options);
+							mass.push(polyline);							
+			 			} //if (mycoor.length >= 3) {
+					} //if (iPoint > 0) {
+       	       
+        	       polylineArray = [];
+			   }
+			}
+			
+			// Создаем коллекцию геообъектов.
+			var newObject = new ymaps.GeoObjectCollection();
+			
+			for (var i = 0; i < mass.length; i++) {
+				newObject.add(mass[i]);
+			}
+			
+			map.geoObjects.add(newObject);
+			// Устанавливаем карте центр и масштаб так, чтобы охватить коллекцию целиком.
+			map.setBounds(newObject.getBounds());
+			
+			var index = tripArray.push(newObject);
+		    return index;
+		    
+		} //addTrip()		
+		
+		function SizeImage(src){
+		       //src - путь к файлу изображения
+		       //считываем файл и узнаем его размеры
+				var image = new Image();
+				
+				image.onload = function(){
+									var flg = false,
+										crSrc = this.src;
+									crSrc = crSrc.replace("file:///","file://");									
+				                    for (var i=0; i<arImgSize.length; i++ ){
+		            					var obj = arImgSize[i];
+		            					if(obj[0] === crSrc){
+		            						flg = true;
+		            						break;		            						
+		            					}		            					
+		            				}
+		            				if(flg === false){
+				                    	arImgSize.push([crSrc,this.width,this.height]);
+				                    }
+							   };
+			    image.src = src;
+		    
+		} //SizeImage()
+		
+		function HandleArray(src){
+				
+			var	obj = new Object(),
+			    flgObr = false;
+				obj.width = 20; //ширина
+				obj.height = 20; //высота
+				obj.life = null; //объект существует
+			
+			var img = new Image();
+				img.onload = function(){obj.width = img.width;obj.height = img.height;};
+		       	img.src = src;
+		
+		       for (var i=0; i<arImgSize.length; i++ ){
+		            var oArr = arImgSize[i],
+		            	width = oArr[1],
+		            	height = oArr[2];
+		            if(oArr[0] === src){
+		            	  flgObr = true;
+		                  obj.width = width;
+						  obj.height = height;						  
+						  obj.life = true;
+						  break;
+		            }
+		       		
+		       }
+		       
+		       if(flgObr === false){		            
+		       		img = new Image();
+		       		img.onload = function(){obj.width = img.width;obj.height = img.height;};
+		       		img.src = src;
+						
+		       		if(img.width > 0){
+		       	    	obj.width = img.width;
+						obj.height = img.height;
+						obj.life = true;
+						arImgSize.push([src,obj.width,obj.height]);
+		       		}						
+						
+		       }
+		       
+		       	if(obj.width === 20){
+				  	obj.width = 20;
+			  	}
+			  	if(obj.height === 20){
+			  		obj.height = 20;
+				}
+		       
+		       return obj;
+		    
+		} //HandleArray()
+		
+		function addDocEventMarker(lat, lng, _title, _icon, _centerX, _centerY, UID) {		
+		
+            var latLng = [lat, lng],
+            
+				///textballon = '<a href:"' + UID + '" target="_parent">' + _title + '</a>',
+				//textballon = '<font color="#0000FF">' + _title + '</font>',
+				textballon = '<a href="#' + UID + '"></a><a href="#' + UID + '" target="_parent" >' + _title + '</a>',
+				
+				objectMarker = new ymaps.Placemark(latLng,{balloonContent: textballon,hintContent: _title},{draggable:false}),
+				markerIcon = Icon_Default;
+			DocEventUIDArray[UID] = latLng;
+			
+			if(_icon !== ''){				
+				var obj = HandleArray(_icon);
+				markerIcon = {iconLayout: 'default#image',
+								iconMaxHeight: obj.height,
+								iconMaxWidth: obj.width,
+								iconOffset: [0, 0],
+								iconImageHref: _icon,
+								iconImageSize: [obj.width,obj.height],
+								iconImageOffset: [-1*_centerY, -1*_centerX],
+								draggable: false};
+			}
+			objectMarker.options.freeze().set(markerIcon).unfreeze();
+			var mass = new Array(4);
+				mass[0] = objectMarker;
+				mass[1] = 'Marker';
+				mass[2] = objectMarker.events.add('click', onDocEventMarkerClick);
+				//mass[3] = objectMarker.events.add('mouseenter', onDocEventMarkerMouseEnter);
+				
+			var index = objectArray.push(mass);
+				objectArray_Visible.push([index-1,true,'Marker']);
+			map.geoObjects.add(objectMarker);
+			//setCentre(lat,lng); /// - отключим, чтобы припомещени события не перемещалось
+					
+			return index;
+			
+		} //addDocEventMarker()
+		
+	function onDocEventMarkerMouseEnter(eventData){
+	
+			var placemark = eventData.originalEvent.target,
+				position = placemark.geometry.getCoordinates();
+				
+			var _title = 'open my ballon';	
+			map.balloon.close();
+			map.balloon.open(position,_title,{closeButton: true});
+			
+    } //onDocEventMarkerMouseEnter()
+		
+	function onDocEventMarkerClick(eventData){
+			var placemark = eventData.originalEvent.target,
+				position = placemark.geometry.getCoordinates();
+			for (var key in DocEventUIDArray){
+				if (DocEventUIDArray[key] === position) {
+			    	DocEventUID = key;
+			    	break;
+			    }
+			}
+    } //onDocEventMarkerClick()
+	
+	function returnObjectUID() {
+        	var toReturn = DocEventUID;
+        	DocEventUID = '';
+        	return toReturn;
+    } //returnObjectUID()
+
+	//function addObjectMarker(lat, lng, _title, _icon, _centerX, _centerY) {
+	function addObjectMarker(lat, lng, _title, _icon, _centerX, _centerY, _usePopup, _width, _height) {
+	
+			if (typeof _usePopup === undefined) {_usePopup = true;}
+			var latLng = [lat,lng],
+				objectMarker = new ymaps.Placemark(latLng,{hintContent: _title},{draggable: false}),
+				markerIcon = Icon_Default;
+				
+			if(_icon !== ''){
+			    if(_width == 0 || _width == undefined || _height == 0 || _height == undefined){
+			    
+			    	var imag = new Image();
+                	imag.onload = function() {   	
+                		                      markerIcon = {iconLayout: 'default#image',iconImageHref: _icon,iconImageSize: [imag.width,imag.height],iconImageOffset: [-1*_centerX,-1*_centerY]};
+                		                      objectMarker.options.freeze().set(markerIcon).unfreeze();
+                	
+                	};
+	            	imag.src = _icon;
+			    
+   			       var obj = HandleArray(_icon);
+   			       markerIcon = {iconLayout: 'default#image',iconImageHref: _icon,iconImageSize: [obj.width,obj.height],iconImageOffset: [-1*_centerX,-1*_centerY]};
+			    }else{
+    			   markerIcon = {iconLayout: 'default#image',iconImageHref: _icon,iconImageSize: [_width,_height],iconImageOffset: [-1*_centerX, -1*_centerY]};
+			    }				
+			};			
+			objectMarker.options.freeze().set(markerIcon).unfreeze();
+			
+			if (_usePopup === true){
+				var bindPopup = {balloonContent: _title};
+			    objectMarker.properties.set(bindPopup);
+			}			
+			
+			var mass = new Array(3);
+				mass[0] = objectMarker;
+				mass[1] = 'Marker';
+				//mass[2] = objectMarker.events.add('click', onObjectClick);
+				mass[2] = objectMarker.events.add('click', onMarkerClick);
+				
+			map.geoObjects.add(objectMarker);	
+				
+			var index = objectArray.push(mass);
+			var iconContent = {iconContent: String(index)};
+			
+			objectMarker.properties.set(iconContent);
+			    
+			objectArray_Visible.push([index-1,true,'Marker']);
+			setCentre(lat, lng);
+			
+			return index;
+			
+		} //addObjectMarker()
+		
+		function MoveObjectMarker(lat, lng, _title, _icon, _centerX, _centerY, _index){
+			var mass = objectArray[_index-1];
+			if(mass !== undefined){
+				var objectMarker = mass[0];
+				if (_icon !== ''){
+				    var imag = new Image();
+                	imag.onload = function() {markerIcon = {iconLayout: 'default#image',iconImageHref: _icon,iconImageSize: [imag.width,imag.height],iconImageOffset: [-1*_centerX,-1*_centerY]};
+                								objectMarker.options.freeze().set(markerIcon).unfreeze();};
+	            	imag.src = _icon;
+			    }
+				objectMarker.geometry.setCoordinates([lat,lng]);				
+			}
+		} //MoveObjectMarker()
+		
+		function MakeArrayDrafTrack(){
+		
+			var array = [],
+				rSpeed = 0,
+				arrPoint = [],
+				prevColor = '',
+				prevlatLng = null;
+			
+			for (var i = 0; i < array_draf_track.length; i++){
+				
+				var obj = array_draf_track[i];
+				
+				if(obj !== null){
+						
+				if(obj.speed === rSpeed){
+					if(obj.point !== null){
+						arrPoint.push(obj.point);
+					}
+				}else{
+					if(arrPoint.length > 0){
+						array.push([arrPoint,prevColor,rSpeed]);
+					}
+					rSpeed = obj.speed;
+					arrPoint = [];
+					if(prevlatLng !== null){
+						arrPoint.push(prevlatLng);
+					}
+					if(obj.point !== null){
+						arrPoint.push(obj.point);
+					}								
+				} // if(obj.speed === rSpeed){						
+						
+				prevColor = obj.color; //последний цвет
+				prevlatLng = obj.point; //последняя координата						
+        				
+				} // if(obj !== null){
+					
+			} // for (var i = 0; i < array_draf_track.length; i++) {
+				
+			if(arrPoint.length > 0){
+				array.push([arrPoint,obj.color,obj.speed]);
+			}
+			
+			return array;
+		
+		} //MakeArrayDrafTrack()
+		
+		function on_MoveDrawTrack(L_Color,L_Weight,L_Opacity,OIndex){
+			if(array_draf_track !== null){
+		    	var mas = getMultiPolyline(OIndex);
+		    	if(mas !== null){
+		        	var cIndex = mas[0];
+					var M_objectArray = mas[1][2];
+				
+					EraseAllLinesObject(M_objectArray);
+        		
+					var array = MakeArrayDrafTrack();       			
+			
+					var d_weight = L_Weight;
+					if(d_weight === 0){
+						d_weight = 5;
+					}
+					var d_opacity = L_Opacity;
+					if(d_opacity === 0){
+						d_opacity = 0.5;
+					}
+				
+					//RepaintLinesDisplay(array, trColor, d_Color);
+				
+					var M_objectArray = DrawTrackPolyline(array, d_opacity, d_weight);
+				
+					var flgLgth = true;
+					if(M_objectArray.length === 0){
+						flgLgth = false;
+					}
+					objectArray_MultiPolyline[cIndex] = [OIndex,array,M_objectArray,flgLgth,L_Color,d_weight,d_opacity];
+				} //if(mas !== null){		
+				
+			} // if(array_draf_track !== null){
+			
+			array_draf_track = null;
+			
+		} // on_MoveDrawTrack()
+		
+		function MoveDrawTrack(trData, trColor, OIndex){
+		
+		    var mas = getMultiPolyline(OIndex);
+		    if(mas !== null){
+		        var cIndex = mas[0];
+				var M_objectArray = mas[1][2];
+				for (var i = 0; i < M_objectArray.length; i++){
+					map.geoObjects.remove(M_objectArray[i]);
+				};				
+				M_objectArray.length = 0;
+					
+				var arrP = trData.split(';'),
+        			array = new Array(),
+        			arColor = null,
+        			arrC = null;
+        		
+				var mas = null,
+					pSpeed = 0,
+					rSpeed = 0,
+					arrPoint = [],
+					pLat = 0,
+					pLon = 0,
+					pColor = '',
+					prevColor = '',
+					latLng = null,
+					prevlatLng = null,
+					d_Color = '#03f',
+					d_weight = 0,
+					d_opacity = 0;
+				
+        		for (var i = 0; i < arrP.length; i++) {
+        			latLng = null;
+        	    	if(arrP[i].length > 0 ){
+        	        //разбираем строку на данные
+						mas = arrP[i].split(',');
+						pLat   = parseFloat(mas[0]);
+						pLon   = parseFloat(mas[1]);
+						pSpeed = parseFloat(mas[2]);
+						d_Color = mas[3],
+						d_weight = parseFloat(mas[4]),
+						d_opacity = parseFloat(mas[5]);
+						// получаем данные
+						pColor = d_Color;
+						latLng = [pLat,pLon];					
+						if(pSpeed === rSpeed){
+					    	if(latLng !== null){
+								arrPoint.push(latLng);
+							}
+						}else{	
+							if(arrPoint.length > 0){
+								array.push([arrPoint,prevColor,rSpeed]);
+							}
+							rSpeed = pSpeed;
+							arrPoint = [];
+							if(prevlatLng !== null){
+								arrPoint.push(prevlatLng);
+							}
+							if(latLng !== null){
+								arrPoint.push(latLng);						
+							}
+						}					
+						prevColor = pColor; //последний цвет
+						prevlatLng = latLng; //последняя координата
+					
+					} //if(arrP[i].length > 0 ){
+				}
+				if(arrPoint.length > 0){
+					array.push([arrPoint,pColor]);
+				}
+			
+				if(d_weight === 0){
+					d_weight = 5;
+				}
+				if(d_opacity === 0){
+					d_opacity = 0.5;
+				}
+				RepaintLinesDisplay(array, trColor, d_Color);
+				var M_objectArray = DrawTrackPolyline(array, d_opacity, d_weight);					
+				var flgLgth = true;
+				if(M_objectArray.length === 0){
+					flgLgth = false;
+				}				
+				objectArray_MultiPolyline[cIndex] = [OIndex,array,M_objectArray,flgLgth,d_Color,d_weight,d_opacity];
+			} //if(mas !== null){		
+			
+		} //MoveDrawTrack()
+		
+		function getVehicleObject(index) {
+			var result = null;
+			for (var i=0; i<vehicleArray.length; i++ ){
+				var obj = vehicleArray[i];
+				
+				if(obj.index === index ){
+					result = obj;
+					break;
+				}
+			}
+			return result;			
+		} //getVehicleObject()
+		
+		function addObjectPolylineTrackColor(_color, _weight, _opacity) {
+			
+			var geometry = pointsArray, 
+				properties = {hintContent: 'Маршрут'},
+				options = {draggable: false,
+						strokeColor: _color,
+						strokeWidth: _weight,
+						strokeOpacity: _opacity};
+			var polyline = new ymaps.Polyline(geometry,properties,options);			
+			map.geoObjects.add(polyline);
+			if (toUsePositioning === true){
+				map.setBounds(polyline.geometry.getBounds());
+            }			
+			var mass = new Array(4);
+				mass[0] = polyline;
+				mass[1] = 'Polyline';
+				mass[2] = null;
+				mass[3] = null;
+				
+			var index = objectArray.push(mass);
+				objectArray_Visible.push([index-1,true,'Polyline']);
+				
+			pointsArray = [];
+			
+			return index;
+			
+		} //addObjectPolylineTrackColor()
+		
+		function on_MoveObjectPolylineTrackColor(L_Color,L_Weight,L_Opacity,OIndex){
+	
+			if(array_draf_track !== null){
+				var arrPoint = [];		
+				for (var i = 0; i < array_draf_track.length; i++){
+					var obj = array_draf_track[i];
+					if(obj !== null){
+						if(obj.point !== null){
+							arrPoint.push(obj.point);
+						}
+					} // if(obj !== null){
+				} // for (var i = 0; i < array_draf_track.length; i++) {
+				
+				if(arrPoint.length > 0){
+					var mass = objectArray[OIndex-1];
+					if(mass !== undefined){				
+						var polyline = mass[0];
+						polyline.geometry.setCoordinates(arrPoint);
+						polyline.options.set({strokeColor: L_Color,strokeWidth: L_Weight,strokeOpacity: L_Opacity});
+					}
+				}
+			} // if(array_draf_track !== null){
+			
+			array_draf_track = null;	    
+			
+		} // on_MoveObjectPolylineTrackColor()
+		
+		function MoveObjectPolylineTrackColor(track,settings,OIndex) {
+		
+		    var arrP = track.split(';'),
+        		array = new Array(),
+        		masSettings = ConfigureLine(settings),
+        		d_Color = masSettings[0],
+				d_weight = masSettings[1],
+				d_opacity = masSettings[2];
+			
+			for (var i = 1; i < arrP.length; i++) {        	
+        		var pLat   = parseFloat(arrP[i-1]);
+					pLon   = parseFloat(arrP[i]);
+        	    array.push([pLat,pLon]);
+        	    i = i + 1;        	    
+			}			
+			if(array.length > 0){
+				var mass = objectArray[OIndex-1];
+				if(mass !== undefined){				
+					var polyline = mass[0];
+					polyline.geometry.setCoordinates(array);
+					polyline.options.set({strokeColor: d_Color,strokeWidth: d_weight,strokeOpacity: d_opacity});
+				}
+			}			
+			
+		} //MoveObjectPolylineTrackColor
+		
+		function addObjectDirection() {
+		
+			var _color = '#03f',
+				_weight = 5,
+				_opacity = 0.5;
+				
+			var geometry = pointsArray, 
+				properties = {hintContent: 'Маршрут'},
+				options = {draggable: false,
+					strokeColor: _color,
+					strokeWidth: _weight,
+					strokeOpacity: _opacity};
+			var polyline = new ymaps.Polyline(geometry,properties,options);			
+				//map.geoObjects.add(polyline);
+				//map.setBounds(polyline.geometry.getBounds());		
+			var mass = new Array(4);
+				mass[0] = polyline;
+				mass[1] = 'Polyline';
+				mass[2] = null;
+				mass[3] = null;
+			var lastTwoCoordinates = [],
+				Plength = pointsArray.length;				
+			if(Plength > 0){
+				if(Plength > 2){
+					var iPoint = Math.round(Plength * 0.6);			
+					if (iPoint > 0){			 
+			 			for (var i=0; i < iPoint; i++ ){
+             				lastTwoCoordinates.push(pointsArray[i]);
+             			}
+             		}
+             	}else{
+             		lastTwoCoordinates = pointsArray;
+             	}
+			 	var mycoor = Coordi_Strelki(lastTwoCoordinates,3,20);
+			 	if(mycoor.length >= 3){
+					var geometry = mycoor[2],
+						properties = {hintContent: 'стрелк1'},
+						options = {draggable: false,
+							strokeColor: _color,
+							strokeWidth: _weight,
+							strokeOpacity: _opacity};						
+					var polyline = new ymaps.Polyline(geometry,properties,options);
+						mass[2] = polyline;
+						map.geoObjects.add(polyline);
+					var geometry = mycoor[1], 
+						properties = {hintContent: 'стрелк2'},
+						options = {draggable: false,
+									strokeColor: _color,
+									strokeWidth: _weight,
+									strokeOpacity: _opacity};
+					var polyline = new ymaps.Polyline(geometry,properties,options);
+						mass[3] = polyline;
+						map.geoObjects.add(polyline);
+			 	} //if (mycoor.length >= 3) {				
+			} //if(Plength > 0){
+			var index = objectArray.push(mass);
+				objectArray_Visible.push([index-1,true,'featureGroup']);
+
+			pointsArray = [];
+			
+			return objectArray.length-1;
+			
+		} //addObjectDirection()		
+		
+		function addObjectPolygon(_title, _color, _weight, _opacity, _fillColor, _fillOpacity) {
+		
+			var objectPolygon = new ymaps.Polygon([cornerArray,[]], {hintContent: _title}, {strokeColor:_color,strokeOpacity:_opacity,fillColor: _fillColor,fillOpacity:_fillOpacity,strokeWidth: _weight});
+				map.geoObjects.add(objectPolygon);
+			
+			var mass = new Array(2);
+				mass[0] = objectPolygon;
+				mass[1] = 'Polygon';
+				
+			var index = objectArray.push(mass);
+				objectArray_Visible.push([index-1,true,'Polygon']);
+			
+			var Bounds = objectPolygon.geometry.getBounds();
+				map.setBounds(Bounds);
+			
+			cornerArray = [];
+			
+			return index;
+			
+		} //addObjectPolygon()
+		
+		function addObjectPolyline(){
+			
+			var startMarker = new ymaps.Placemark(pointsArray[0],{hintContent: 'Начало пути'},firstCornerIcon);
+				startMarker.options.set('draggable',false);
+			map.geoObjects.add(startMarker);
+			var mass = new Array(2);
+				mass[0] = startMarker;
+				mass[1] = 'Marker';				
+			var index = objectArray.push(mass);
+				objectArray_Visible.push([index-1,true,'Marker']);
+			
+			var lastMarker = new ymaps.Placemark(pointsArray[pointsArray.length-1],{hintContent: 'Конечный пункт'},lastCornerIcon);
+				lastMarker.options.set('draggable',false);
+				map.geoObjects.add(lastMarker);
+			var mass = new Array(2);
+				mass[0] = lastMarker;
+				mass[1] = 'Marker';				
+			index = objectArray.push(mass);
+			objectArray_Visible.push([index-1,true,'Marker']);
+			
+			var geometry = pointsArray, 
+				properties = {hintContent: 'Маршрут'},
+				options = {draggable: false,
+					strokeColor: '#ff0000',
+					strokeWidth: 1,
+					strokeOpacity: 1};
+			var polyline = new ymaps.Polyline(geometry, properties, options);			
+				map.geoObjects.add(polyline);
+				map.setBounds(polyline.geometry.getBounds());
+			var mass = new Array(4);
+				mass[0] = polyline;
+				mass[1] = 'Polyline';
+				mass[2] = null;
+				mass[3] = null;
+				
+			index = objectArray.push(mass);
+			objectArray_Visible.push([index-1,true,'Polyline']);
+			
+			pointsArray = [];
+			
+			return objectArray.length;
+		} //addObjectPolyline()
+		
+		function redrawObjectPolyline(index, _title) {
+			try{
+			newPolylineTitle = _title;
+
+   			var	objectPolyline = objectArray[index - 1];
+   			
+			pointsArray    = objectPolyline[0].geometry.getCoordinates();
+			numberOfPoints = pointsArray.length;
+			
+			map.geoObjects.remove(objectPolyline[0]);
+
+   			var	objectFirstMarker = objectArray[index-3];			
+			map.geoObjects.remove(objectFirstMarker[0]);
+			
+   			var	objectLastMarker = objectArray[index-2];
+			map.geoObjects.remove(objectLastMarker[0]);
+			
+			var geometry = pointsArray, 
+				properties = {hintContent: 'Маршрут'},
+				options = {draggable: false,
+					strokeColor: '#ff0000',
+					strokeOpacity: 0.8};			
+			newPolyline = new ymaps.Polyline(geometry,properties,options);
+			var newVector_E = newPolyline.events.add('click', onMapClick);
+				map.geoObjects.add(newPolyline);
+			
+            var prevPoint = null;
+			for (var i=0; i<pointsArray.length; i++ ){
+				if (i == 0) {
+					var firstCorner = new ymaps.Placemark(pointsArray[i],{hintContent: 'Начало пути'},firstCornerIcon);
+					firstCorner.options.set('draggable',false);
+					map.geoObjects.add(firstCorner);
+					var mass = new Array(2);
+						mass[0] = firstCorner;
+						mass[1] = 'Marker';				
+					cornerMarkerArray.push(mass);
+				}else{
+					if(i == pointsArray.length - 1){
+						var mass = new Array(3);
+							mass[0] = new ymaps.Placemark(pointsArray[i],{hintContent: 'point'},lastCornerIcon);
+							mass[0].options.set('draggable',false);							
+							map.geoObjects.add(mass[0]);
+							mass[1] = 'Marker';
+							mass[2] = mass[0].events.add('click', onLastCornerMarkerClickPolyline); 
+						lastCorner = mass;				
+						cornerMarkerArray.push(lastCorner);
+					}else{
+							var cornerMarker = new ymaps.Placemark(pointsArray[i],{hintContent: 'Переместить'},cornerIcon);
+								cornerMarker.options.set('draggable',true);
+								map.geoObjects.add(cornerMarker);
+							var mass = new Array(6);
+								mass[0] = cornerMarker;
+								mass[1] = 'Marker';
+								mass[2] = mass[0].events.add('click', onCornerMarkerClickPolyline);
+								mass[3] = mass[0].events.add('dragstart', onCornerMarkerDragStart);
+								mass[4] = mass[0].events.add('drag', onCornerMarkerDrag);
+								mass[5] = mass[0].events.add('dragend', onCornerMarkerDragEnd);
+				
+						cornerMarkerArray.push(mass);
+					}
+				}		
+
+				if (prevPoint !== null) {
+					var halfwayMarker = new ymaps.Placemark(getHalfwayLatLng(prevPoint, pointsArray[i]),{hintContent: 'Средний'},cornerIcon);
+						map.geoObjects.add(halfwayMarker);
+					var mass = new Array(3);
+						mass[0] = halfwayMarker;
+						mass[1] = 'Marker';
+						mass[2] = mass[0].events.add('click', onHalfwayMarkerClick);
+					halfwayMarkerArray.push(mass);
+				}
+				
+				prevPoint = pointsArray[i];
+			}
+            }catch(e){
+				setStatusMap('GetStatus',e.name + ': ' + e.message + ' redrawObjectPolyline()') ;
+			}
+		} //redrawObjectPolyline()
+		
+		function setObjectPolyline(index, _title, _color, _weight, _opacity, _fillColor, _fillOpacity) {
+			
+			for (var i=0; i<halfwayMarkerArray.length; i++ ){
+				EreaseObject(halfwayMarkerArray[i]);
+			}
+			halfwayMarkerArray = [];
+			
+			for (var i=0; i<cornerMarkerArray.length; i++ ){
+				EreaseObject(cornerMarkerArray[i]);
+			}
+			cornerMarkerArray = [];
+			
+			for (var i=0; i<reperMarkerArray.length; i++ ){
+				EreaseObject(reperMarkerArray[i]);
+			}
+			reperMarkerArray = [];
+			
+			if (polylineDraw == true && numberOfPoints > 0) {
+				map.geoObjects.remove(newVector);
+				newVector   = null;
+				vectorArray = [];
+			}	
+			
+			polylineDraw = false;
+
+			if (newPolyline !== null) {
+				map.geoObjects.remove(newPolyline);
+				newPolyline = null;
+			}
+			
+   			var	objectPolyline = null;
+			
+			if (index == 0) {
+				var geometry = pointsArray, 
+					properties = {hintContent: 'Маршрут'},
+					options = {draggable: false,
+						strokeColor: _color,
+						strokeWidth: _weight,
+						strokeOpacity: _opacity};
+				objectPolyline = new ymaps.Polyline(geometry, properties, options);			
+				map.geoObjects.add(objectPolyline);
+				map.setBounds(objectPolyline.geometry.getBounds());
+				
+				var startMarker = new ymaps.Placemark(pointsArray[0],{hintContent: 'Начало пути'},firstCornerIcon);
+					startMarker.options.set('draggable',false);
+					map.geoObjects.add(startMarker);
+				
+				var mass = new Array(2);
+					mass[0] = startMarker;
+					mass[1] = 'Marker';				
+				var index = objectArray.push(mass);
+					objectArray_Visible.push([index-1,true,'Marker']);
+			
+				var lastMarker = new ymaps.Placemark(pointsArray[pointsArray.length-1],{hintContent: 'Конечный пункт'},lastCornerIcon);
+					lastMarker.options.set('draggable',false);
+					map.geoObjects.add(lastMarker);
+				var mass = new Array(2);
+					mass[0] = lastMarker;
+					mass[1] = 'Marker';				
+				index = objectArray.push(mass);	
+				objectArray_Visible.push([index-1,true,'Marker']);
+				
+				var mass = new Array(4);
+					mass[0] = objectPolyline;
+					mass[1] = 'Polyline';
+				index = objectArray.push(mass);
+				objectArray_Visible.push([index-1,true,'Polyline']);
+				
+				map.setBounds(objectPolyline.geometry.getBounds());
+				
+				polyLineState = objectArray.length + ';';
+				for (var i=0; i<pointsArray.length; i++ ){
+					var Mass = pointsArray[i];
+					polyLineState = polyLineState + Mass[0] + ';' + Mass[1] + ';';
+				}	
+
+				pointsArray = [];
+			
+				return polyLineState;
+			}else{
+				objectPolyline = objectArray[index-1];
+				pointsArray = objectPolyline[0].geometry.getCoordinates();
+				
+				var	objectFirstMarker = objectArray[index-3];
+					objectFirstMarker[0].geometry.setCoordinates(pointsArray[0]);
+				var	objectLastMarker = objectArray[index-2];
+					objectLastMarker[0].geometry.setCoordinates(pointsArray[pointsArray.length-1]);
+				showObject(index-1);
+				showObject(index-2);
+				map.setBounds(objectPolyline[0].geometry.getBounds());
+				map.geoObjects.add(objectPolyline[0]);
+				polyLineState = String(index) + ';';
+				for (var i=0; i<pointsArray.length; i++ ){
+					var Mass = pointsArray[i];
+					polyLineState = polyLineState + String(Mass[0]) + ';' + String(Mass[1]) + ';';
+				}	
+			
+				pointsArray = [];
+			
+				return polyLineState;
+			}	
+		} //setObjectPolyline()
+		
+		function setObjectMarker(index, _title, _icon, _centerX, _centerY) {
+		    try{
+			markerDraw = false;			
+			if (newMarker === null) {
+				return 0;
+			}			
+			map.geoObjects.remove(newMarker[0]);			
+			var objectMarker = null,
+				markerState = '';
+			if (index == 0) {
+				var latLng = newMarker[0].geometry.getCoordinates(),
+					objectMarker = new ymaps.Placemark(latLng,{hintContent: _title},{draggable: false}),
+					markerIcon = Icon_Default;
+				if (_icon !== '') {
+					markerIcon = {iconLayout: 'default#image',iconImageHref: _icon,iconImageSize: [20,20],iconImageOffset: [-18, -16]};					
+				}				
+				objectMarker.options.freeze().set(markerIcon).unfreeze();
+				
+				var mass = new Array(3);
+					mass[0] = objectMarker;
+					mass[1] = 'Marker';
+					mass[2] = objectMarker.events.add('click', onObjectClick);				
+				var index = objectArray.push(mass);
+					objectArray_Visible.push([index-1,true,'Marker']);
+				
+				map.geoObjects.add(objectMarker);
+				setCentre(latLng[0], latLng[1]);
+				newMarker = null;				
+				markerState = String(index) + ';' + String(latLng[0]) + ';' + (latLng[1]) + ';';			
+				return markerState;
+			}else{			
+    			var mass = objectArray[index - 1];
+				if (mass[1] === 'Marker') {				
+					var Position = newMarker[0].geometry.getCoordinates();
+					objectMarker = 	mass[0];
+					objectMarker.geometry.setCoordinates(Position);
+					map.geoObjects.add(objectMarker);
+					setCentre(Position[0], Position[1]);
+					EreaseObject(newMarker);			
+					markerState = String(index) + ';' + String(Position[0]) + ';' + String(Position[1]) + ';';
+			
+					return markerState;				
+				}else{
+					return 0;
+				}
+			}
+			}catch(e){
+				setStatusMap('GetStatus',e.name + ': ' + e.message + ' setObjectMarker()') ;
+			}
+		} //setObjectMarker()
+		
+		function redrawObjectPolygon(index, _title) {
+		    try{
+			newPolygonTitle = _title;
+
+   			var	objectPolygon = objectArray[index - 1],
+   				pointsArray1 = objectPolygon[0].geometry.getCoordinates();
+   				
+			pointsArray = pointsArray1[0];
+			numberOfPoints  = pointsArray.length;
+			
+			map.geoObjects.remove(objectPolygon[0]);
+			newPolygon = new ymaps.Polygon([pointsArray,[]],{hintContent: _title}, {fillColor: '#FF0000', opacity:0.3, strokeColor: '#0000FF',strokeOpacity: 1, strokeWidth: 5, strokeStyle: 'shortdash'});
+			
+			map.geoObjects.add(newPolygon);
+			map.setBounds(newPolygon.geometry.getBounds());
+			var NachLatLng = pointsArray[0];
+				pointsArray.push(NachLatLng);
+			
+			var geometry = pointsArray,
+				properties = {hintContent: 'Маршрут'},
+				options = {draggable: false,
+					strokeColor: '#0000FF',
+					strokeWidth: 3,
+					strokeOpacity: 0.8};
+			//newPolyline = new ymaps.Polyline(geometry,properties,options);
+			//map.geoObjects.add(newPolyline);
+
+            var prevPoint = null;
+			for (var i=0; i<(pointsArray.length-1); i++ ){
+				
+				var cornerMarker = new ymaps.Placemark(pointsArray[i],{hintContent: 'Переместить'},cornerIcon);
+					cornerMarker.options.set('draggable',true);
+					map.geoObjects.add(cornerMarker);
+				var mass = new Array(6);
+					mass[0] = cornerMarker;
+					mass[1] = 'Marker';
+					mass[2] = mass[0].events.add('click', onCornerMarkerClick);
+					mass[3] = mass[0].events.add('dragstart', onCornerMarkerDragStart);
+					mass[4] = mass[0].events.add('drag', onCornerMarkerDrag);
+					mass[5] = mass[0].events.add('dragend', onCornerMarkerDragEnd);				
+				cornerMarkerArray.push(mass);
+				
+				if (prevPoint !== null) {					
+					var halfwayMarker = new ymaps.Placemark(getHalfwayLatLng(prevPoint, pointsArray[i]),{hintContent: 'h'},cornerIcon);
+						halfwayMarker.options.set('draggable',false);
+						map.geoObjects.add(halfwayMarker);
+					var mass = new Array(3);
+						mass[0] = halfwayMarker;
+						mass[1] = 'Marker';
+						mass[2] = mass[0].events.add('click', onHalfwayMarkerClick);						
+					halfwayMarkerArray.push(mass);
+				}				
+				prevPoint = pointsArray[i];
+			}
+			if (prevPoint !== null) {				
+				var halfwayMarker = new ymaps.Placemark(getHalfwayLatLng(prevPoint, pointsArray[0]),{hintContent: 'h'},cornerIcon);
+					halfwayMarker.options.set('draggable',false);
+					map.geoObjects.add(halfwayMarker);
+				var mass = new Array(3);
+					mass[0] = halfwayMarker;
+					mass[1] = 'Marker';
+					mass[2] = mass[0].events.add('click', onHalfwayMarkerClick);						
+				halfwayMarkerArray.push(mass);
+			}
+			}catch(e){
+				setStatusMap('GetStatus',e.name + ': ' + e.message + ' redrawObjectPolygon()') ;
+			}
+		}  //redrawObjectPolygon()
+		
+		function setObjectPolygon(index, _title, _color, _weight, _opacity, _fillColor, _fillOpacity) {
+		    try{
+			for (var i=0; i<halfwayMarkerArray.length; i++ ){
+				EreaseObject(halfwayMarkerArray[i]);
+			}
+			halfwayMarkerArray = [];
+			
+			for (var i=0; i<cornerMarkerArray.length; i++ ){
+				EreaseObject(cornerMarkerArray[i]);
+			}
+			cornerMarkerArray = [];
+			
+			for (var i=0; i<reperMarkerArray.length; i++ ){
+				EreaseObject(reperMarkerArray[i]);
+			}
+			reperMarkerArray = [];
+
+			if (polygonDraw == true && numberOfPoints > 0) {
+				map.geoObjects.remove(newVector);
+				newVector       = null;
+				vectorArray     = [];
+			}	
+			
+			polygonDraw = false;
+
+			if (newPolygon !== null) {
+				map.geoObjects.remove(newPolygon);
+				newPolygon      = null;
+			}	
+
+			if (newPolyline !== null) {
+				map.geoObjects.remove(newPolyline);
+				newPolyline     = null;
+			}
+
+			numberOfPoints  = 0;
+			
+			if (pointsArray.length < 3) {
+				pointsArray = [];
+				return 0;
+			}	
+
+   			var	objectPolygon  = null,
+   				polygonState = '';
+			if (index == 0) {
+				objectPolygon = new ymaps.Polygon([pointsArray,[]], {hintContent: _title}, {strokeColor:_color,strokeOpacity:_opacity,fillColor: _fillColor,fillOpacity:_fillOpacity,strokeWidth: _weight});
+				map.geoObjects.add(objectPolygon);
+				var mass = new Array(2);
+				 mass[0] = objectPolygon;
+				 mass[1] = 'Polygon';
+				
+				var index = objectArray.push(mass);
+					objectArray_Visible.push([index-1,true,'Polygon']);
+				
+				var Bounds = objectPolygon.geometry.getBounds();
+				map.setBounds(Bounds);
+			
+				polygonState = index + ';';
+				for (var i=0; i<pointsArray.length; i++ ){
+					var Coordinate = pointsArray[i];
+					polygonState = String(polygonState) + String(Coordinate[0]) + ';' + String(Coordinate[0]) + ';';
+				}	
+
+				pointsArray = [];
+			
+				return polygonState;
+			}else{
+			 	objectPolygon  = objectArray[index - 1];
+				objectPolygon[0].geometry.setCoordinates([pointsArray,[]]);
+				map.geoObjects.add(objectPolygon[0]);
+				map.setBounds(objectPolygon[0].geometry.getBounds());
+			
+				polygonState = index + ';';
+				for (var i=0; i<pointsArray.length; i++ ){
+					var Coordinate = pointsArray[i];
+					polygonState = String(polygonState) + String(Coordinate[0]) + ';' + String(Coordinate[1]) + ';';
+				}
+				
+				pointsArray = [];
+			
+				return polygonState;
+			}
+			}catch(e){
+				setStatusMap('GetStatus',e.name + ': ' + e.message + ' setObjectPolygon()') ;
+			}
+		} //setObjectPolygon()
+		
+		function getMovementBetweenFlights(index){
+		    try{
+			var result = null;
+			for (var i=0; i<objectArray_MovementBetweenFlights.length; i++ ){
+				var mas = objectArray_MovementBetweenFlights[i];
+				if(mas[0] === index ){
+					result = [i,mas];
+					break;
+				} //if(mas[0] === index ){
+			}
+			return result;
+			}catch(e){
+				setStatusMap('GetStatus',e.name + ': ' + e.message + ' getMovementBetweenFlights()') ;
+			}
+		} //getMovementBetweenFlights()
+		
+		function getMultiPolyline(index){
+		    try{
+			var result = null;
+			for (var i=0; i<objectArray_MultiPolyline.length; i++ ){
+				var mas = objectArray_MultiPolyline[i];
+				if(mas[0] === index ){
+					result = [i,mas];
+					break;
+				} //if(mas[0] === index ){
+			}
+			return result;
+			}catch(e){
+				setStatusMap('GetStatus',e.name + ': ' + e.message + ' getMultiPolyline()') ;
+			}
+		} //getMultiPolyline()
+		
+		function getRoutePolyline(index){
+		    try{
+			var result = null;
+			for (var i=0; i<objectArray_PlannedRoute.length; i++ ){
+				var mas = objectArray_PlannedRoute[i];
+				if(mas[0] === index ){
+					result = [i,mas];
+					break;
+				} //if(mas[0] === index ){
+			}
+			return result;
+			}catch(e){
+				setStatusMap('GetStatus',e.name + ': ' + e.message + ' getRoutePolyline()') ;
+			}
+		} //getRoutePolyline()
+		
+		function getVisibleObject(index) {
+			var result = null;
+			for (var i=0; i<objectArray_Visible.length; i++ ){
+				var mas = objectArray_Visible[i];				
+				if(mas[0] === index ){
+					result = [i,mas];
+					break;
+				}
+			}
+			return result;			
+		} //getVisibleObject()
+		
+		function showObject(index) {
+		    try{
+			if (markerDraw) { 				
+		    	var mass = newMarker;				
+			}else{
+			    if (index > 0) { 				
+					var mass = objectArray[index-1];
+				}else {
+					var mass = objectArray[0];
+				}
+			}
+			var flgMovement = false;
+			if(mass !==  undefined){
+			    var mas = getVisibleObject(index-1);
+					if(mas !== null){					
+						if(editVisible){
+							objectArray_Visible[mas[0]] = [index-1,true,mas[1][2]];
+						}else{
+							editVisible = mas[1][1];
+						}
+					}
+					if(mass === 'MovementBetweenFlights'){
+						flgMovement = true;
+					}else{
+						if (mass[0] !== null){
+							if (markerClustering === true && mass[1] === 'Marker'){
+        	                	markersClustered.add(mass[0]);
+        	            	}else{
+        	                	map.geoObjects.add(mass[0]);
+        	            	}
+						}
+						if (typeof mass[1] === 'string'){
+							if ((mass[1] === 'Polyline')||(mass[1] === 'Polygon')){
+								for (var i=2; i<mass.length; i++ ){
+									if (mass[i] !== null){
+										map.geoObjects.add(mass[i]);
+									}
+								}
+							} //if (mass[1] === 'Polyline') {
+						}else{						
+							for (var i=0; i<mass.length; i++ ){
+								if (mass[i] !== null){
+									map.geoObjects.add(mass[i]);
+								}
+							}
+						}	
+					} //if(mass === 'MovementBetweenFlights'){
+			} //if(mass !== undefined){
+		
+			if((Monitoring_Mode === 1)&&(editVisible)&&(flgMovement)){
+				var mas = getMovementBetweenFlights(index);				
+				if(mas !== null){
+				    	var M_objectArray = mas[1][2],
+							array = mas[1][1],
+							d_Color = mas[1][4],
+							d_weight = mas[1][5],
+							d_opacity = mas[1][6];
+						
+						EraseAllLinesObject(M_objectArray);
+						M_objectArray = DrawTrackPolyline(array, d_opacity, d_weight);
+											
+						var flgLgth = true;
+						if(M_objectArray.length === 0){
+							flgLgth = false;
+						}
+						objectArray_MovementBetweenFlights[mas[0]] = [index,array,M_objectArray,flgLgth,d_Color,d_weight,d_opacity];
+				} //if(mas !== null){				
+			} //if((Monitoring_Mode === 1)&&(flgMovement)){
+			
+			if(((Monitoring_Mode === 1)||(Monitoring_Mode === 2))&&(editVisible)&&(! flgMovement)){
+				var mas = getMultiPolyline(index);			
+				if(mas !== null){
+				    	var M_objectArray = mas[1][2],
+							array = mas[1][1],
+							d_Color = mas[1][4],
+							d_weight = mas[1][5],
+							d_opacity = mas[1][6];
+						
+						EraseAllLinesObject(M_objectArray);
+						M_objectArray = DrawTrackPolyline(array, d_opacity, d_weight);
+											
+						var flgLgth = true;
+						if(M_objectArray.length === 0){
+							flgLgth = false;
+						}
+						objectArray_MultiPolyline[mas[0]] = [index,array,M_objectArray,flgLgth,d_Color,d_weight,d_opacity];
+				} //if(mas !== null){
+				mas = getRoutePolyline(index);			
+				if(mas !== null){
+				    	var M_objectPoly = mas[1][2],
+				    		flgLgth = mas[1][3],
+							array = mas[1][1],
+							d_Color = mas[1][4],
+							d_weight = mas[1][5],
+							d_opacity = mas[1][6];
+						
+						EraseAllLinesObject(M_objectPoly);
+						
+						M_objectPoly = DrawTrackPolyline(array, d_opacity, d_weight);
+						if(M_objectPoly.length === 0){
+							flgLgth = false;
+						}
+						objectArray_PlannedRoute[mas[0]] = [index,array,M_objectPoly,flgLgth,d_Color,d_weight,d_opacity];
+							
+				} //if(mas !== null){
+			} //if(Monitoring_Mode === 1){
+			
+			editVisible = true;
+			}catch(e){
+				setStatusMap('GetStatus',e.name + ': ' + e.message + ' showObject()') ;
+			}
+		} //showObject()
+		
+		function hideObject(index) {
+		    try{
+		    if (markerDraw) { 				
+		    	var mass = newMarker;				
+			}else{
+			    if (index > 0) { 				
+					var mass = objectArray[index-1];
+				}else{
+					var mass = objectArray[0];
+				}
+			}
+			var flgMovement = false;			
+			if(mass !== undefined){			    
+				var mas = getVisibleObject(index-1);
+					if(mas !== null){
+						if(editVisible){
+							objectArray_Visible[mas[0]] = [index-1,false,mas[1][2]];
+						}
+					}
+				if(mass === 'MovementBetweenFlights'){
+						flgMovement = true;
+				}else{
+					if(mass[0] !== null){
+						if (markerClustering === true && mass[1] === 'Marker'){
+        	                markersClustered.remove(mass[0]);
+        	            }else{
+        	                map.geoObjects.remove(mass[0]);
+        	            }						
+						if (typeof mass[1] === 'string'){												
+							if ((mass[1] === 'Polyline')||(mass[1] === 'Polygon')){
+								for (var i=2; i<mass.length; i++){
+									if(mass[i] !== null){
+										map.geoObjects.remove(mass[i]);
+									}
+								}
+							} //if (mass[1] === 'Polyline') {
+						}else{
+							for (var i=0; i<mass.length; i++ ){
+								if (mass[i] !== null){
+									map.geoObjects.remove(mass[i]);
+								}
+							}
+						}
+					}
+				} //if(mass === 'MovementBetweenFlights'){			
+			} //if(mass !== undefined){
+			
+			if((Monitoring_Mode === 1)&&(editVisible)&&(flgMovement)){
+				var mas = getMovementBetweenFlights(index);
+				if(mas !== null){
+				    	var M_objectArray = mas[1][2],
+							array = mas[1][1],
+							d_Color = mas[1][4],
+							d_weight = mas[1][5],
+							d_opacity = mas[1][6];						
+						
+						EraseAllLinesObject(M_objectArray);
+							
+						objectArray_MovementBetweenFlights[mas[0]] = [index,array,M_objectArray,false,d_Color,d_weight,d_opacity];
+				} //if(mas !== null){
+			} //if((Monitoring_Mode === 1)&&(flgMovement)){
+			
+			if(((Monitoring_Mode === 1)||(Monitoring_Mode === 2))&&(editVisible)){
+				var mas = getMultiPolyline(index);				
+				if(mas !== null){
+						var M_objectArray = mas[1][2],
+							array = mas[1][1],
+							d_Color = mas[1][4],
+							d_weight = mas[1][5],
+							d_opacity = mas[1][6];
+							
+						EraseAllLinesObject(M_objectArray);
+									
+						M_objectArray.length = 0;
+						objectArray_MultiPolyline[mas[0]] = [index,array,M_objectArray,false,d_Color,d_weight,d_opacity];
+				}; //if(mas !== null){
+				var mas = getRoutePolyline(index);				
+				if(mas !== null){
+						var M_objectPoly = mas[1][2],
+							array = mas[1][1],
+							d_Color = mas[1][4],
+							d_weight = mas[1][5],
+							d_opacity = mas[1][6];
+							
+						EraseAllLinesObject(M_objectArray);
+						
+						objectArray_PlannedRoute[mas[0]] = [index,array,M_objectPoly,false,d_Color,d_weight,d_opacity];
+				}; //if(mas !== null){
+			}; //if(Monitoring_Mode === 1){
+			
+			editVisible = true;			
+			}catch(e){
+				setStatusMap('GetStatus',e.name + ': ' + e.message + ' hideObject()') ;
+			}
+		} //hideObject()
+		
+		function showTrip(index) {
+			if(tripArray.length !== 0 ){
+				var mass = tripArray[index-1];
+				for (var i=0; i<mass.length; i++ ){
+					if (mass[i] !== null){
+						map.geoObjects.add(mass[i]);
+					}
+				}
+			}
+		} //showTrip()
+		
+		function hideTrip(index){	
+			if(tripArray.length !== 0 ){
+				var mass = tripArray[index-1];
+				for (var i = 0; i < mass.length; i++){
+					map.geoObjects.remove(mass[i]);
+				}
+			}
+		} //hideTrip()
+		
+        function gotoTrip(index) {
+			if(tripArray.length !== 0 ){
+				var mass = tripArray[index-1];
+				if(mass.length !== 0 ){
+					map.setBounds(mass[0].geometry.getBounds());
+				}
+			}
+		} //gotoTrip()
+		
+		function addCorner(lat, lng) {
+			var latLng = [lat,lng];
+			cornerArray.push(latLng);
+		} //addCorner()
+		
+		function addPoint(lat, lng) {
+			var latLng = [lat,lng];
+			pointsArray.push(latLng);
+		} //addPoint()
+		
+		function redrawObjectMarker(index, _title){
+		    try{
+			markerDraw     = true;
+			newMarkerTitle = _title;
+
+   			var	objectMarker = objectArray[index - 1],
+				Coordinates = objectMarker[0].geometry.getCoordinates();
+			map.geoObjects.remove(objectMarker[0]);
+			var mass = new Array(3);
+				mass[0] = new ymaps.Placemark(Coordinates,{hintContent: newMarkerTitle},geocodeIcon);
+				mass[0].options.set('draggable',true);
+				map.geoObjects.add(mass[0]);
+				mass[1] = 'Marker';
+				mass[2] = mass[0].events.add('click', onNewMarkerClick);
+				                       
+			newMarker = mass;
+			}catch(e){
+				setStatusMap('GetStatus',e.name + ': ' + e.message + ' redrawObjectMarker()') ;
+			}
+		} //redrawObjectMarker()
+		
+		function onNewMarkerClick(eventData) {
+		
+			var placemark = eventData.originalEvent.target;
+			placemark.properties.set('balloonContent', "Идет загрузка данных...");
+			setTimeout(function () {
+            ymaps.geocode(placemark.geometry.getCoordinates(), {
+                results: 1
+            }).then(function (res) {
+                var newContent = res.geoObjects.get(0) ?
+                        res.geoObjects.get(0).properties.get('name') :
+                        'Не удалось определить адрес.';
+
+                // Задаем новое содержимое балуна в соответствующее свойство метки.
+                placemark.properties.set('balloonContent', newContent);
+            });
+			}, 1500);
+			
+		} //onNewMarkerClick()
+		
+		function EreaseObject(CurrentArray){
+			try{
+			for (var j = 2; j < CurrentArray.length; j++) {
+				CurrentArray[0].events.remove(CurrentArray[j]);
+				};
+			map.geoObjects.remove(CurrentArray[0]);
+			CurrentArray = null;
+			}catch(e){
+				setStatusMap('GetStatus',e.name + ': ' + e.message + ' EreaseObject()') ;
+			}
+        } //EreaseObject()
+		
+		function eraseObjectMarker(){
+		    try{
+			markerDraw = true;
+
+            if (newMarker !== null) {
+				EreaseObject(newMarker);
+			}
+			newMarker = null;	
+			}catch(e){
+				setStatusMap('GetStatus',e.name + ': ' + e.message + ' eraseObjectMarker()') ;
+			}
+		} //eraseObjectMarker()
+		
+		function eraseObjectPolygon(){
+		    try{
+			for (var i=0; i<halfwayMarkerArray.length; i++ ){
+				EreaseObject(halfwayMarkerArray[i]);
+			}
+			halfwayMarkerArray = [];			
+			for (var i=0; i<cornerMarkerArray.length; i++ ){
+				EreaseObject(cornerMarkerArray[i]);
+			}
+			cornerMarkerArray = [];			
+			if (polygonDraw == true && numberOfPoints > 0){
+				map.geoObjects.remove(newVector);
+				newVector   = null;
+				vectorArray = [];
+			}			
+			polygonDraw = false;
+			polylineDraw = false;
+			if (newPolygon !== null){
+				map.geoObjects.remove(newPolygon);
+				newPolygon = null;
+				polygonDraw = true;
+			}
+			if (newPolyline !== null){
+				map.geoObjects.remove(newPolyline);
+				newPolyline = null;
+				if (polygonDraw === false){
+					polylineDraw = true;
+				}
+			}
+			if (newVector !== null){
+				map.geoObjects.remove(newVector);
+				newVector = null;
+				vectorArray = [];
+			}
+			numberOfPoints = 0;			
+			pointsArray = [];
+			}catch(e){
+				setStatusMap('GetStatus',e.name + ': ' + e.message + ' eraseObjectPolygon()') ;
+			}
+		} //eraseObjectPolygon()
+		
+		function drawObjectMarker(_title){
+			markerDraw     = true;
+			newMarkerTitle = _title;
+		} //drawObjectMarker()
+		
+		function drawObjectPolygon(_title) {
+			polygonDraw     = true;
+			newPolygonTitle = _title;
+		} //drawObjectPolygon()
+		
+		function drawObjectPolyline(_title, firstLat, firstLng, lastLat, lastLng) {
+		    try{
+			polylineDraw     = true;
+			newPolylineTitle = _title;
+			
+			cornerMarkerArray = [];
+			pointsArray = [];
+			var firstLatLng = [firstLat,firstLng],
+				firstCorner = new ymaps.Placemark(firstLatLng,{hintContent: 'f'},firstCornerIcon);
+			firstCorner.options.set('draggable',false);
+			map.geoObjects.add(firstCorner);			
+			var mass = new Array(2);
+				mass[0] = firstCorner;
+				mass[1] = 'Marker';				
+			cornerMarkerArray.push(mass);
+
+			pointsArray.push(firstLatLng);
+
+			vectorArray.push(firstLatLng);
+			vectorArray.push(firstLatLng);
+			
+			var geometry = vectorArray, 
+			properties = {
+				hintContent: "Маршрут"
+			},
+			options = {
+				draggable: false,
+				strokeColor: '#ff0000',
+				strokeWidth: 3,
+				strokeOpacity: 1
+ 
+			};			
+			newVector = new ymaps.Polyline(geometry, properties, options);
+			var EventLine = newVector.events.add('click', onMapClick);
+			map.geoObjects.add(newVector);
+			
+			numberOfPoints = 1;
+			
+			var lastLatLng = [lastLat,lastLng],			
+				mass = new Array(3);
+				mass[0] = new ymaps.Placemark(lastLatLng,{hintContent: 'l'},lastCornerIcon);
+				mass[0].options.set('draggable',false);				
+				map.geoObjects.add(mass[0]);
+				mass[1] = 'Marker';
+				mass[2] = mass[0].events.add('click', onLastCornerMarkerClickPolyline);
+			lastCorner = mass;
+			
+			setCentre(firstLat,firstLng);
+			}catch(e){
+				setStatusMap('GetStatus',e.name + ': ' + e.message + ' drawObjectPolyline()') ;
+			}
+		} //drawObjectPolyline()
+		
+		function gotoObjectMarker(index) {
+			try{
+			var mass = objectArray[index - 1];
+			if (mass.length > 0) { 
+				if (mass[0] !== null) {
+					if (mass[1] == 'Marker') { 
+						var Position = mass[0].geometry.getCoordinates();
+						var curLat = Position[0];
+						var curLng = Position[1];
+						setCentre(curLat,curLng);
+					}else if (mass[1] == 'Polygon'){
+						map.setBounds(mass[0].geometry.getBounds());
+					} else if (mass[1] == 'Polyline'){
+						map.setBounds(mass[0].geometry.getBounds());
+					}
+				}
+			}
+			} catch(e) {
+				setStatusMap('GetStatus',e.name + ': ' + e.message + ' gotoObjectMarker()') ;
+			}
+		} //gotoObjectMarker()
+		
+		function gotoObjectPolygon(index) {
+			
+			gotoObjectMarker(index);
+			
+		} //gotoObjectPolygon()
+		
+		function addReperMarker(lat, lng) {
+		
+			var firstLatLng = [lat,lng],
+				reperMarker = new ymaps.Placemark(firstLatLng,{hintContent: 'r'},firstCornerIcon);
+			reperMarker.options.set('draggable',false);
+			map.geoObjects.add(reperMarker);
+			var mass = new Array(3);
+				mass[0] = reperMarker;
+				mass[1] = 'Marker';
+				mass[2] = reperMarker.events.add('click', onMapClick);
+			reperMarkerArray.push(mass);		
+			
+		} //addReperMarker()
+		
+		function setCentre(Lat,Lng) {
+		    if((map !== null)&&(toUsePositioning)){
+				map.setCenter([Lat, Lng], map.getZoom());
+			}
+		} //setCentre()
+		
+		function setUsePositioning(UsePos){
+			
+            toUsePositioning = UsePos;
+
+		} //setUsePositioning()
+		
+		function onHalfwayMarkerClick(eventData){
+		    try{
+			var index = -1,
+				placemark = eventData.originalEvent.target,
+				position = placemark.geometry.getCoordinates(),
+				CurrentMarker = null,
+				lthhalfway = halfwayMarkerArray.length;
+			if(lthhalfway > 0){
+				for (var i=0; i<halfwayMarkerArray.length && index == -1; i++ ){
+					CurrentMarker = halfwayMarkerArray[i];
+					if (CurrentMarker[0] == placemark) {
+						index = i;
+						break;
+					}				
+				}
+				pointsArray.splice(index + 1, 0, position);
+
+            	if (newPolygon !== null) {
+					newPolygon.geometry.setCoordinates([pointsArray,[]]);
+					newPolyline.geometry.setCoordinates(pointsArray);
+					if (polygonDraw != true) {
+						var MVCArray = newPolyline.geometry.getCoordinates();
+						MVCArray.push(pointsArray[0]);
+						newPolyline.geometry.setCoordinates(MVCArray);
+					}	
+				}else{
+					newPolyline.geometry.setCoordinates(pointsArray);
+				}
+			
+				var cornerMarker = new ymaps.Placemark(position,{hintContent: 'c'},cornerIcon);
+				cornerMarker.options.set('draggable',true);			
+				map.geoObjects.add(cornerMarker);
+				var mass = new Array(6);
+				mass[0] = cornerMarker;
+				mass[1] = 'Marker';
+				mass[2] = mass[0].events.add('click', onCornerMarkerClick);
+				mass[3] = mass[0].events.add('dragstart', onCornerMarkerDragStart);
+				mass[4] = mass[0].events.add('drag', onCornerMarkerDrag);
+				mass[5] = mass[0].events.add('dragend', onCornerMarkerDragEnd);
+				
+				cornerMarkerArray.splice(index + 1, 0, mass);
+				placemark.geometry.setCoordinates(getHalfwayLatLng(pointsArray[index], pointsArray[index + 1]));
+				var curposition = null;
+				if (index + 2 == pointsArray.length) {
+					curposition = getHalfwayLatLng(pointsArray[index + 1], pointsArray[0]);
+				}else{
+					curposition = getHalfwayLatLng(pointsArray[index + 1], pointsArray[index + 2]);
+				}
+			
+				var halfwayMarker = new ymaps.Placemark(curposition,{hintContent: 'h'},cornerIcon);
+					map.geoObjects.add(halfwayMarker);
+				var mass = new Array(3);
+					mass[0] = halfwayMarker;
+					mass[1] = 'Marker';
+					mass[2] = mass[0].events.add('click', onHalfwayMarkerClick);
+						
+				halfwayMarkerArray.splice(index + 1, 0, mass);
+			
+				numberOfPoints++;
+			}else{
+				this.setMap(null);
+			}			
+			}catch(e){
+				setStatusMap('GetStatus',e.name + ': ' + e.message + ' onHalfwayMarkerClick()') ;
+			}
+		} //onHalfwayMarkerClick()
+		
+		function onCornerMarkerClick(eventData){
+		    try{
+			var index = -1,
+				mass = null,
+				placemark = eventData.originalEvent.target,
+				position = placemark.geometry.getCoordinates(),
+				lthCor = cornerMarkerArray.length;
+			if(lthCor > 0){	
+				for (var i=0; i<cornerMarkerArray.length && index == -1; i++ ){
+					mass = cornerMarkerArray[i];
+					if (mass[0] == placemark) {				
+						index = i;
+						break;
+					}
+				}
+			}else{
+				this.setMap(null);
+			}			
+			if (index == 0) {
+				if (polygonDraw == true) {
+			
+					if (numberOfPoints == 1) {
+						pointsArray       = [];
+						cornerMarkerArray = [];
+						vectorArray       = [];
+						placemark.setMap(null);
+						if (newPolygon != null) {
+							map.geoObjects.remove(newPolygon);
+						}
+						if (newPolyline != null) {
+							map.geoObjects.remove(newPolyline);
+						}
+						map.geoObjects.remove(newVector);
+						
+						newPolygon  = null;
+						newPolyline = null;
+						newVector   = null;
+
+						numberOfPoints = 0;
+					}
+					else {
+						polygonDraw = false;
+						var MVCArray = newPolyline.geometry.getCoordinates();
+						MVCArray.push(position);
+						newPolyline.geometry.setCoordinates(MVCArray);
+						map.geoObjects.remove(newVector);
+						newVector   = null;
+						vectorArray = [];
+						var halfwayMarker = new ymaps.Placemark(getHalfwayLatLng(pointsArray[pointsArray.length - 1], pointsArray[0]),{hintContent: 'h'},cornerIcon);
+						map.geoObjects.add(halfwayMarker);
+						var mass = new Array(3);
+							mass[0] = halfwayMarker;
+							mass[1] = 'Marker';
+							mass[2] = mass[0].events.add('click', onHalfwayMarkerClick);					
+						halfwayMarkerArray.push(mass);
+					}	
+				}
+				else {
+					if (numberOfPoints == 1) {
+						pointsArray       = [];
+						cornerMarkerArray = [];
+						vectorArray       = [];
+						map.geoObjects.remove(placemark);
+						map.geoObjects.remove(newPolygon);
+						map.geoObjects.remove(newPolyline);
+						
+						newPolygon  = null;
+						newPolyline = null;
+						newVector   = null;
+
+						numberOfPoints = 0;
+						
+						polygonDraw = true;
+					}
+					else {          
+						pointsArray.splice(index, 1);                        
+						cornerMarkerArray.splice(index, 1);
+						EreaseObject(halfwayMarkerArray[index]);
+						
+						halfwayMarkerArray.splice(index, 1);                  
+
+                        if (numberOfPoints == 2) {
+							//EreaseObject(halfwayMarkerArray[0]);
+							halfwayMarkerArray = [];                  
+						}
+						else {	
+                        	var halfwayMarker = halfwayMarkerArray[halfwayMarkerArray.length - 1];
+							halfwayMarker[0].geometry.setCoordinates(getHalfwayLatLng(pointsArray[pointsArray.length - 1], pointsArray[0]));
+                        }
+						newPolygon.geometry.setCoordinates([pointsArray,[]]);
+						var MVCArray = newPolyline.geometry.getCoordinates();
+						MVCArray.push(pointsArray[0]);						
+						newPolyline.geometry.setCoordinates(MVCArray);
+						
+						map.geoObjects.remove(placemark);
+
+						numberOfPoints--;
+					}	                                                      
+				}                                                        
+			}else{
+			
+				pointsArray.splice(index, 1);                       
+				cornerMarkerArray.splice(index, 1);
+				EreaseObject(halfwayMarkerArray[index - 1]);
+				halfwayMarkerArray.splice(index - 1, 1);                  
+			
+                if (numberOfPoints == 2 && polygonDraw !== true){
+					//EreaseObject(halfwayMarkerArray[0]);
+					halfwayMarkerArray = [];                  
+				}else{	
+					if (halfwayMarkerArray.length >= index) {                       
+                		var halfwayMarker = halfwayMarkerArray[index - 1];	
+						if (index == pointsArray.length) {
+							halfwayMarker[0].geometry.setCoordinates(getHalfwayLatLng(pointsArray[index - 1], pointsArray[0]));
+    		            }else{
+							halfwayMarker[0].geometry.setCoordinates(getHalfwayLatLng(pointsArray[index - 1], pointsArray[index]));
+                	    }	
+                	}
+                }
+                if (newPolygon !== null) {
+					newPolygon.geometry.setCoordinates([pointsArray,[]]);
+				}				
+				if (newPolyline !== null) {				 
+					newPolyline.geometry.setCoordinates(pointsArray);
+				}				
+				if (polygonDraw !== true) {
+					var MVCArray = newPolyline.geometry.getCoordinates();
+					MVCArray.push(pointsArray[0]);
+					newPolyline.geometry.setCoordinates(MVCArray);
+				}
+				map.geoObjects.remove(placemark);
+
+				//numberOfPoints--;
+				numberOfPoints = pointsArray.length;
+				if (index == pointsArray.length && polygonDraw) {
+					vectorArray[0] = pointsArray[pointsArray.length - 1];
+					newVector.geometry.setCoordinates(vectorArray);
+				}
+			}
+			}catch(e){
+				setStatusMap('GetStatus',e.name + ': ' + e.message + ' onCornerMarkerClick()') ;
+			}
+		} //onCornerMarkerClick()
+		
+		function onLastCornerMarkerClickPolyline(eventData) {
+		    try{
+			var placemark = eventData.originalEvent.target,
+				position = placemark.geometry.getCoordinates();
+			if (polylineDraw == true) {			
+				polylineDraw = false;
+				var mass = new Array(2);
+				mass[0] = placemark;
+				mass[1] = 'Marker';				
+				cornerMarkerArray.push(mass);
+				map.geoObjects.remove(newVector);
+				newVector   = null;
+				vectorArray = [];				
+				var halfwayMarker = new ymaps.Placemark(getHalfwayLatLng(pointsArray[pointsArray.length - 1], position),{hintContent: 'h'},cornerIcon);
+					map.geoObjects.add(halfwayMarker);
+				var mass = new Array(3);
+					mass[0] = halfwayMarker;
+					mass[1] = 'Marker';
+					mass[2] = mass[0].events.add('click', onHalfwayMarkerClick);					
+				halfwayMarkerArray.push(mass);
+				pointsArray.push(position);
+				numberOfPoints++;
+				if (newPolyline !== null) {
+					newPolyline.geometry.setCoordinates(pointsArray);
+				}	
+				else{
+					var geometry = pointsArray, 
+							properties = {
+								hintContent: "Маршрут редактируется"
+							},
+							options = {
+								draggable: false,
+								strokeColor: '#0000ff',
+								strokeWidth: 2,
+								strokeOpacity: 0.8
+							};
+					newPolyline = new ymaps.Polyline(pointsArray, properties, options);
+					map.geoObjects.add(newPolyline);
+				}
+			}	
+			else {
+			
+				polylineDraw = true;
+				var index = pointsArray.length - 1;
+				pointsArray.splice(index, 1);                       
+				cornerMarkerArray.splice(index, 1);
+				var halfwayMarker = halfwayMarkerArray[index - 1];
+				map.geoObjects.remove(halfwayMarker[0]);
+				halfwayMarkerArray.splice(index - 1, 1);                  
+				
+				newPolyline.geometry.setCoordinates(pointsArray);
+
+				numberOfPoints--;
+				vectorArray.push(pointsArray[index - 1]);
+				vectorArray.push(position);				
+				var geometry = vectorArray, 
+					properties = {
+					hintContent: "Маршрут"
+					},
+				options = {
+					draggable: false,
+					strokeColor: '#0000FF',
+					strokeWidth: 3,
+					strokeOpacity: 0.8
+					};
+				newVector = new ymaps.Polyline(geometry, properties, options);
+				var EventLine = newVector.events.add('click', onMapClick);
+				map.geoObjects.add(newVector);
+			}
+			}catch(e){
+				setStatusMap('GetStatus',e.name + ': ' + e.message + ' onLastCornerMarkerClickPolyline()') ;
+			}
+		} //onLastCornerMarkerClickPolyline()		
+		
+		function onCornerMarkerDragStart(eventData) {		
+			dragStart = true;			
+			if (polygonDraw == true || polylineDraw == true) {
+				if (newVector !== null) {
+					map.geoObjects.remove(newVector);
+				}
+			}
+		} //onCornerMarkerDragStart()
+		
+		function onCornerMarkerDragEnd(eventData) {
+			dragStart = false;
+			var placemark = eventData.originalEvent.target,
+				position = placemark.geometry.getCoordinates();
+			if (polygonDraw == true || polylineDraw == true) {
+				var latlngend = pointsArray[pointsArray.length - 1],
+					latlng    = [latlngend[0], latlngend[1]];
+				vectorArray[0] = latlng;
+				vectorArray[1] = position;
+				map.geoObjects.add(newVector);
+			}	
+		} //onCornerMarkerDragEnd()
+		
+		function onCornerMarkerDrag(eventData) {
+			var placemark = eventData.originalEvent.target,
+				position = placemark.geometry.getCoordinates(),
+				index = -1,
+				CurrentMarker = null;
+			for (var i=0; i<cornerMarkerArray.length && index == -1; i++ ){
+				CurrentMarker = cornerMarkerArray[i];			
+				if (CurrentMarker[0] == placemark) {
+					index = i;
+					break;
+				}
+			}
+			pointsArray[index] = position;
+
+            if (newPolygon != null) {
+				newPolygon.geometry.setCoordinates([pointsArray,[]]);
+			}
+				
+            if (newPolyline != null) {
+				newPolyline.geometry.setCoordinates(pointsArray);
+				if (polygonDraw != true && newPolygon != null) {
+					var MVCArray = newPolyline.geometry.getCoordinates();
+					MVCArray.push(pointsArray[0]);						
+					newPolyline.geometry.setCoordinates(MVCArray);
+				}	
+			}	
+
+			if (halfwayMarkerArray.length >= index) {                       
+				if (index == 0) {
+					if (polygonDraw != true && newPolygon != null) {  
+	                	var halfwayMarker = halfwayMarkerArray[halfwayMarkerArray.length - 1];
+						halfwayMarker[0].geometry.setCoordinates(getHalfwayLatLng(pointsArray[pointsArray.length - 1], pointsArray[0]));
+    	            }
+    	        }    
+    	        else {    
+                	var halfwayMarker = halfwayMarkerArray[index - 1];
+					halfwayMarker[0].geometry.setCoordinates(getHalfwayLatLng(pointsArray[index - 1], pointsArray[index]));
+                }	
+            }    
+
+			if (halfwayMarkerArray.length >= index + 1) {                       
+               	var halfwayMarker = halfwayMarkerArray[index];	
+				if (index + 1 == pointsArray.length) {
+					halfwayMarker[0].geometry.setCoordinates(getHalfwayLatLng(pointsArray[index], pointsArray[0]));
+    	        }    
+    	        else {
+					halfwayMarker[0].geometry.setCoordinates(getHalfwayLatLng(pointsArray[index], pointsArray[index + 1]));
+                }	
+            }    
+		} //onCornerMarkerDrag()
+		
+		function onCornerMarkerClickPolyline(eventData) {
+			var placemark = eventData.originalEvent.target,
+				position = placemark.geometry.getCoordinates(),
+				index = -1,
+			CurrentMarker = null;
+			for (var i=0; i<cornerMarkerArray.length && index == -1; i++ ){
+				CurrentMarker = cornerMarkerArray[i];			
+				if (CurrentMarker[0] == placemark) {
+					index = i;
+					break;
+				}				
+			}
+			pointsArray.splice(index, 1);                       
+			cornerMarkerArray.splice(index, 1);
+			var lthPoint = pointsArray.length;
+			if(index > 0){
+				EreaseObject(halfwayMarkerArray[index - 1]);			
+				halfwayMarkerArray.splice(index - 1, 1);                  
+            }                                       
+            if (numberOfPoints == 2) {
+				//EreaseObject(halfwayMarkerArray[0]);
+				halfwayMarkerArray = [];                  
+			}
+			else {	
+				var lthhalf = halfwayMarkerArray.length;
+				if ((lthhalf > 0)&&(lthhalf >= index)){
+               		var halfwayMarker = halfwayMarkerArray[index - 1];	
+					if ((lthPoint > 0)&&(index === lthPoint)){
+						halfwayMarker[0].geometry.setCoordinates(getHalfwayLatLng(pointsArray[index - 1], pointsArray[0]));
+   		            }else if (lthPoint > 0){
+						halfwayMarker[0].geometry.setCoordinates(getHalfwayLatLng(pointsArray[index - 1], pointsArray[index]));
+               	    }	
+               	}
+            }
+            if (newPolygon !== null) {
+                var MapGet = newPolygon.getMap();					
+				if(MapGet !== null){
+					newPolygon.geometry.setCoordinates([pointsArray,[]]);
+				}				
+			}
+			newPolyline.geometry.setCoordinates(pointsArray);
+			map.geoObjects.remove(placemark);
+
+			numberOfPoints--;
+			if ((lthPoint > 0)&&(index === lthPoint)&&(polylineDraw)){
+				vectorArray[0] = pointsArray[lthPoint-1];
+				if(newVector === null){
+					var geometry = vectorArray, 
+						properties = {hintContent: "Маршрут"},
+						options = {
+							draggable: false,
+							strokeColor: '#0000FF',
+							strokeWidth: 2,
+							strokeOpacity: 1
+						};
+						newVector = new ymaps.Polyline(geometry, properties, options);
+						var newVector_E = newVector.events.add('click',onMapClick);
+						map.geoObjects.add(newVector);
+						//var EventLine = newVector.events.add('click', onMapClick);
+				}else{
+					newVector.geometry.setCoordinates(vectorArray);
+					var MapGet = newVector.getMap();					
+					if(MapGet === null){
+						map.geoObjects.add(newVector);
+					}				
+				}				
+			}
+			if ((lthPoint === 0)&&(newVector !== null)){
+				map.geoObjects.remove(newVector);
+				newVector = null;
+			}
+		} //onCornerMarkerClickPolyline()
+		
+		function onMapClick(eventData){
+		    try{
+			var position = eventData.get('coords');
+			if (polygonDraw == true) {
+				var cornerMarker = new ymaps.Placemark(position,{hintContent: 'm'},cornerIcon);
+				cornerMarker.options.set('draggable',true);				
+				map.geoObjects.add(cornerMarker);
+				var mass = new Array(6);
+				mass[0] = cornerMarker;
+				mass[1] = 'Marker';
+				mass[2] = mass[0].events.add('click', onCornerMarkerClick);
+				mass[3] = mass[0].events.add('dragstart', onCornerMarkerDragStart);
+				mass[4] = mass[0].events.add('drag', onCornerMarkerDrag);
+				mass[5] = mass[0].events.add('dragend', onCornerMarkerDragEnd);
+				
+				cornerMarkerArray.push(mass);
+				if (numberOfPoints == 0) {
+					pointsArray.push(position);
+
+					vectorArray.push(position);
+					vectorArray.push(position);
+					
+					var geometry = vectorArray, 
+						properties = {
+							hintContent: "Маршрут редактируется"
+						},
+						options = {
+							draggable: false,
+							strokeColor: '#0000ff',
+							strokeWidth: 2,
+							strokeOpacity: 1.0
+						};
+					newVector = new ymaps.Polyline(geometry, properties, options);
+					newVector.events.add('click', onMapClick);// событие для того чтобы можно было установить маркер
+					map.geoObjects.add(newVector);
+						
+					numberOfPoints = 1;
+				}else{
+					var halfwayMarker = new ymaps.Placemark(getHalfwayLatLng(pointsArray[pointsArray.length - 1], position),{hintContent: newMarkerTitle},cornerIcon);
+						map.geoObjects.add(halfwayMarker);
+						var mass = new Array(3);
+							mass[0] = halfwayMarker;
+							mass[1] = 'Marker';
+							mass[2] = mass[0].events.add('click', onHalfwayMarkerClick);					
+					halfwayMarkerArray.push(mass);
+				
+					pointsArray.push(position);
+					numberOfPoints++;
+
+					if (newPolygon === null) {                                  
+						newPolygon  = new ymaps.Polygon([pointsArray,[]],{hintContent: редактируется}, {
+						                                opacity:0.3,
+														fillColor: '#0000ff',
+														strokeColor:'#0000ff',
+														strokeOpacity: 0.1,
+														strokeWeight: 5,
+														strokeStyle: 'shortdash'
+														});
+						map.geoObjects.add(newPolygon);
+					}
+					else {
+						newPolygon.geometry.setCoordinates([pointsArray,[]]);
+					}
+					if (newPolyline === null){
+					
+						var geometry = pointsArray, 
+							properties = {
+								hintContent: "Маршрут редактируется"
+							},
+							options = {
+								draggable: false,
+								strokeColor: '#0000ff',
+								strokeWidth: 2,
+								strokeOpacity: 0.8
+							};
+						newPolyline = new ymaps.Polyline(geometry, properties, options);
+						map.geoObjects.add(newPolyline);
+						}	
+					else {
+						newPolyline.geometry.setCoordinates(pointsArray);
+					}
+
+					vectorArray[0] = position;
+				}
+			} //if (polygonDraw == true){
+			
+			if (polylineDraw === true){
+				
+				var cornerMarker = new ymaps.Placemark(position,{hintContent: 'c'},cornerIcon);
+				cornerMarker.options.set('draggable',true);				
+				map.geoObjects.add(cornerMarker);
+				var mass = new Array(6);
+				mass[0] = cornerMarker;
+				mass[1] = 'Marker';
+				mass[2] = mass[0].events.add('click', onCornerMarkerClickPolyline);
+				mass[3] = mass[0].events.add('dragstart', onCornerMarkerDragStart);
+				mass[4] = mass[0].events.add('drag', onCornerMarkerDrag);
+				mass[5] = mass[0].events.add('dragend', onCornerMarkerDragEnd);			
+				cornerMarkerArray.push(mass);
+				var lth = pointsArray.length;
+				if(lth>0){
+					var halfwayMarker = new ymaps.Placemark(getHalfwayLatLng(pointsArray[pointsArray.length - 1], position),{hintContent: 'h'},cornerIcon);						
+						map.geoObjects.add(halfwayMarker);
+						var mass = new Array(3);
+							mass[0] = halfwayMarker;
+							mass[1] = 'Marker';
+							mass[2] = mass[0].events.add('click', onHalfwayMarkerClick);					
+					halfwayMarkerArray.push(mass);
+				}
+				pointsArray.push(position);
+				numberOfPoints++;
+
+				if (newPolyline == null) {
+					var geometry = pointsArray, 
+							properties = {
+								hintContent: "Маршрут редактируется"
+							},
+							options = {
+								draggable: false,
+								strokeColor: '#ff0000',
+								strokeWidth: 2,
+								strokeOpacity: 0.8
+							};
+					newPolyline = new ymaps.Polyline(geometry, properties, options);
+					map.geoObjects.add(newPolyline);
+				}	
+				else {
+					newPolyline.geometry.setCoordinates(pointsArray);
+				}
+
+				vectorArray[0] = position;
+				if(newVector === null){
+					var geometry = vectorArray, 
+						properties = {hintContent: "Маршрут"},
+						options = {
+							draggable: false,
+							strokeColor: '#0000FF',
+							strokeWidth: 2,
+							strokeOpacity: 1
+						};
+						newVector = new ymaps.Polyline(geometry, properties, options);
+						var newVector_E = newVector.events.add('click',onMapClick);
+						map.geoObjects.add(newVector);
+				}
+			} //if (polylineDraw == true) {
+			
+			if (markerDraw == true) {
+				if (newMarker == null) {
+				
+					var mass = new Array(3);
+						mass[0] = new ymaps.Placemark(position,{hintContent: 'n'},geocodeIcon);
+						mass[0].options.set('draggable',true);						
+						mass[1] = 'Marker';
+						mass[2] = mass[0].events.add('click', onNewMarkerClick);
+						newMarker = mass;
+						map.geoObjects.add(mass[0]);
+				}
+				else {
+					newMarker[0].geometry.setCoordinates(position);
+				}	
+			} //if (markerDraw == true) {
+			
+			if (multipleSelection === true || multipleUnselection === true){
+				if (numberOfPoints === 0){
+				
+					vectorArray.push(position);
+					vectorArray.push(position);
+					if (multipleSelection === true){
+    					newRectangle = new ymaps.Rectangle(vectorArray, {hintContent: 'hintContent',balloonContent: 'balloonContent'},
+    											{hasHint:false,hasBalloon:false,fillColor: '#7df9ff33',fillOpacity: 0.5,strokeColor: '#0000FF',strokeOpacity: 0.5,strokeWidth: 2,borderRadius: 6});
+    					newRectangle.events.add('click',onMapClick);
+					}else{
+						newRectangle = new ymaps.Rectangle(vectorArray, {hintContent: 'hintContent',balloonContent: 'balloonContent'},
+    											{hasHint:false,hasBalloon:false,fillColor: '#FF7034',fillOpacity: 0.5,strokeColor: '#61411E',strokeOpacity: 0.5,strokeWidth: 2,borderRadius: 6});
+    					newRectangle.events.add('click',onMapClick);
+					}
+					map.geoObjects.add(newRectangle);
+					numberOfPoints = 1;
+				}else{
+				    
+					for (var i = 0; i < objectArray.length; i++){
+					   var mass = objectArray[i],
+					       objectMarker = mass[0];
+					   //if (objectMarker === 'MovementBetweenFlights'){
+					   	//нет объекта
+					   //}
+					   if (mass[1] === 'Marker'){
+					   var Coordinate = objectMarker.geometry.getCoordinates();					   
+					       if (newRectangle.geometry.contains(Coordinate)){
+					          if (multipleSelection === true){
+        					      index = selectedObjectArray.indexOf(objectMarker);
+					    	      if (index === -1){
+								      selectedObjectArray.push(objectMarker);
+							      }
+							  }else{
+							      index = unselectedObjectArray.indexOf(objectMarker);
+					    	      if (index === -1){
+								      unselectedObjectArray.push(objectMarker);
+							      }
+							      index = selectedObjectArray.indexOf(objectMarker);
+					    	      if (index !== -1){
+								      selectedObjectArray.splice(index, 1);
+							      }
+							  } //if (multipleSelection == true){
+					       }
+					   	}
+					}
+					map.geoObjects.remove(newRectangle);
+				    numberOfPoints = 0;
+				    vectorArray = [];
+				    newRectangle = null;
+				}
+			} //if (multipleSelection === true || multipleUnselection === true){
+			
+			} catch(e) {
+				setStatusMap('GetStatus',e.name + ': ' + e.message + ' onMapClick()');
+			}
+		} //onMapClick()
+		
+		function BoundsContains(Bounds,latitude,longitude) {
+			
+			var LN = Bounds[0],
+				VP = Bounds[1],
+				result = false;		
+			if((latitude >= LN[0])&&(latitude <= VP[0])){
+					if((longitude >= LN[1])&&(longitude <= VP[1])){
+						result = true;
+					}			
+			}
+			
+			return result;
+			
+		} //BoundsContains()
+		
+		function onMapMouseMove(eventData){
+		    try{
+			if (polygonDraw == true || polylineDraw == true) {
+				if (numberOfPoints > 0){
+					vectorArray[1] = eventData.get('coords');
+					newVector.geometry.setCoordinates(vectorArray);
+				}
+			}else if (multipleSelection == true || multipleUnselection == true) {
+				     if(numberOfPoints > 0){
+					     vectorArray[1] = eventData.get('coords');
+					     newRectangle.geometry.setCoordinates(vectorArray);
+				     }
+			}
+			} catch(e) {
+				setStatusMap('GetStatus',e.name + ': ' + e.message + ' onMapMouseMove()');
+			}
+		} //onMapMouseMove()
+		
+		function CheckOnMap(lat,lng) {
+			return objectOnMap(lat,lng);
+		}
+		
+		function objectOnMap(latitude, longitude) {
+			var result = false;
+			try{
+			var bounds = map.getBounds(),
+				LN = bounds[0],
+				VP = bounds[1];
+			if((latitude >= LN[0])&&(latitude <= VP[0])){
+					if((longitude >= LN[1])&&(longitude <= VP[1])){
+						result = true;
+					}			
+			}
+			}catch(e){
+				setStatusMap('GetStatus',e.name + ': ' + e.message + ' objectOnMap()') ;
+			}
+			return result;
+			
+		} //objectOnMap()
+		
+		function gotoObjectMarkerSaveZoom(index) {
+		    try{
+			var objectMarker = objectArray[index - 1],
+				Coordinate = objectMarker[0].geometry.getCoordinates();
+			//map.setCenter([Coordinate[0], Coordinate[1]], map.getZoom());
+			setCentre(Coordinate[0],Coordinate[1]);
+			} catch(e) {
+				setStatusMap('GetStatus',e.name + ': ' + e.message + ' gotoObjectMarkerSaveZoom()');
+			}
+		} //gotoObjectMarkerSaveZoom()
+		
+		function gotoMovementBetweenFlights(index){
+		    try{
+			var mas = getMovementBetweenFlights(index);			
+				if(mas !== null){
+				    var array = mas[1][1],
+				    	bounds = [];
+				    for (var i = 0; i < array.length; i++){
+						var arrPointP = array[i],
+							M_PointsArr = arrPointP[0];
+						for (var j = 0; j < M_PointsArr.length; j++){
+							bounds.push(M_PointsArr[j]);							
+			    		}			    		
+					}					
+					var geometry = bounds, 
+							properties = {hintContent: 'Маршрут'},
+							options = {draggable: false,
+								strokeColor: '#ff0000',
+								strokeWidth: 3,
+								strokeOpacity: 0.5};
+					var polyline = new ymaps.Polyline(geometry,properties,options);
+						map.geoObjects.add(polyline);
+						map.setBounds(polyline.geometry.getBounds());
+						map.geoObjects.remove(polyline);
+						polyline = null;						
+				} //if(mas !== null){
+			} catch(e) {
+				setStatusMap('GetStatus',e.name + ': ' + e.message + ' gotoMovementBetweenFlights()');
+			}				
+		} //gotoMovementBetweenFlights()
+		
+		function gotoHistoryPassageFlight(index){
+		    try{
+			var mas = getMultiPolyline(index);
+				if(mas !== null){
+				    var array = mas[1][1],
+				    	bounds = [];
+				    for (var i = 0; i < array.length; i++){
+						var arrPointP = array[i],
+							M_PointsArr = arrPointP[0];
+						for (var j = 0; j < M_PointsArr.length; j++){
+							bounds.push(M_PointsArr[j]);							
+			    		}			    		
+					}					
+					var geometry = bounds, 
+							properties = {hintContent: 'Маршрут'},
+							options = {draggable: false,
+								strokeColor: '#ff0000',
+								strokeWidth: 3,
+								strokeOpacity: 0.5};
+					var polyline = new ymaps.Polyline(geometry,properties,options);
+						map.geoObjects.add(polyline);
+						map.setBounds(polyline.geometry.getBounds());
+						map.geoObjects.remove(polyline);
+						polyline = null;
+				} //if(mas !== null){
+				
+				onMapMoveEnd();
+		   }catch(e){
+				setStatusMap('GetStatus',e.name + ': ' + e.message + ' gotoHistoryPassageFlight()') ;
+		   }
+		} //gotoHistoryPassageFlight()
+		
+		function restoreMapView(lat, lng, zoom) {
+			if(map !== null){
+				map.setZoom(zoom);
+			};
+			setCentre(lat,lng);
+			
+		} //restoreMapView()
+		
+		function openPopupMarker(index, _title) {
+		    try{
+			var marker = objectArray[index-1];
+			if(marker !== 'MovementBetweenFlights'){
+				map.balloon.open(marker[0].geometry.getCoordinates(),_title,{closeButton: true});
+            	popupArray.push(marker);
+			}
+			} catch(e) {
+				setStatusMap('GetStatus',e.name + ': ' + e.message + ' openPopupMarker()');
+			}
+			
+		} //openPopupMarker()
+		
+		function closePopupMarkers() {
+			
+			map.balloon.close();
+			
+			popupArray = [];
+			
+		} //closePopupMarkers()
+		
+		function changeDisplayAllMarkers(display) {
+		
+			displayAllMarkers = display;
+			if (displayAllMarkers == true) {
+		    	onMapMoveEnd();
+		    }
+		    else {
+		    	hideBorderMarkers();
+		    }
+			
+		} //changeDisplayAllMarkers()
+		
+		function hideBorderMarkers(){
+		
+			for (var i=0; i<borderMarkerArray.length; i++ ){
+				EreaseObject(borderMarkerArray[i]);
+			}
+			borderMarkerArray = [];
+			
+		} //hideBorderMarkers()
+		
+		function setMapFormed(formed){
+			mapFormed = formed;
+		}
+		
+		function setHideUnvisibleObjects(hide){
+			hideUnvisibleObjects = hide;
+		}
+		
+		function onMapMoveEnd(){
+		    try{
+		    if ((mapFormed == true) && (hideUnvisibleObjects == true)) {
+				for (var i=0; i<objectArray.length; i++ ){
+					editVisible = false;
+					var mas = getVisibleObject(i),
+						flgExp = false;
+					if(mas === null){
+						continue;
+					}
+					if(mas[1][1] === false){
+						continue;
+					}
+					if(objectArray[i] === 'MovementBetweenFlights'){
+						showObject(i+1);
+						flgExp = true;
+					}else{
+						var mass = objectArray[i],
+							typeObj = mas[1][2];
+						if(typeObj === 'Marker'){
+					    	//var mass = latlng = mass[0].geometry.getCoordinates();
+					    	var latlng = mass[0].geometry.getCoordinates();
+							if (objectOnMap(latlng[0],latlng[1])){
+								showObject(i+1);
+								flgExp = true;
+							}else{
+								hideObject(i+1);
+							}		//нет действия
+					     }else if(typeObj === 'string'){
+					     		//нет действия
+					     }else if((typeObj === 'Polyline')||(typeObj === 'Polygon')||(typeObj === 'featureGroup')){
+					     	var latlngArray = mass[0].geometry.getCoordinates(),
+								show = false;
+							if(typeObj === 'Polygon'){
+								latlngArray = latlngArray[0];
+							}
+							for (var x=0; x<latlngArray.length; x++) {
+						    	var latlng = latlngArray[x];
+									if (objectOnMap(latlng[0],latlng[1])){
+										show = true;
+										break;
+									}
+							}
+					    	if(show === true){
+						    	showObject(i+1);
+						    	flgExp = true;
+					    	}else{
+						    	hideObject(i+1);
+					    	}
+					     } //if(typeObj === 'marker'){					
+					
+					} //if(curObject === 'MovementBetweenFlights'){
+					if(flgExp === false){
+						toCheckDrawnObjects(i+1);
+					}
+				}		
+			}
+		
+			if (displayAllMarkers === true){
+				
+				hideBorderMarkers();
+				
+				var bounds = map.getBounds(),
+					LN = bounds[0],
+					VP = bounds[1],
+					LN_lng = LN[1],
+					LN_lat = LN[0],
+					VP_lng = VP[1],
+					VP_lat = VP[0],
+					M_Zoom = map.getZoom();
+
+				for (var i=0; i<vehicleArray.length; i++ ){
+				
+				   var mas = getVisibleObject(i),
+						flgExp = false;
+					
+						if(mas === null){						
+							continue;
+						}
+						if(mas[1][1] === false){
+							continue;
+						}
+				
+					var latlng = vehicleArray[i].objectMarker[0].geometry.getCoordinates(),
+						lat = latlng[0],
+						lng = latlng[1];
+					if (!(objectOnMap(lat, lng))) {					
+						var P_lat = latlng[0],
+						P_lng = latlng[1],
+						x = 0,
+						y = 0;											
+						if (P_lng <= LN_lng){
+							lng = LN_lng;
+							x = M_Zoom+5;
+						}						
+						if (P_lng >= VP_lng){
+							lng = VP_lng;
+							x = -1*(M_Zoom+5);
+						}						
+						if (P_lat <= LN_lat){
+								lat = LN_lat;								
+								y = -1*(M_Zoom+17);
+						}
+						if (P_lat >= VP_lat){
+								lat = VP_lat;
+								y = 2*M_Zoom+5;
+						}						
+						var newBorderMarker = new ymaps.Placemark([lat,lng],{hintContent: 'M'},{draggable: true, iconOffset:[x,y]});
+						if (showVehicleStatus == 0) {
+							if (vehicleArray[i].icon != null) {							
+								newBorderMarker.options.set(vehicleArray[i].icon);
+								}
+						}
+						else if (showVehicleStatus == 1) {
+							var icon = getStatusIcon(vehicleArray[i].status);
+							newBorderMarker.options.set(icon);
+						}
+						newBorderMarker.properties.set('balloonContent', vehicleArray[i].objectMarker[0].properties.get('hintContent'));
+						var mass = new Array(2);
+							mass[0] = newBorderMarker;
+							mass[1] = 'Marker';
+						
+						map.geoObjects.add(newBorderMarker);
+					    borderMarkerArray.push(mass);
+					}
+				}
+			} //if (displayAllMarkers == true) {
+			
+			editVisible = true;
+			
+			} catch(e) {
+				setStatusMap('GetStatus',e.name + ': ' + e.message + ' onMapMoveEnd()');
+			}
+		} //onMapMoveEnd()
+		
+		function toCheckDrawnObjects(index){
+		    try{
+			if(Monitoring_Mode === 1){
+						var mas = getMovementBetweenFlights(index);
+						if(mas !== null){						
+							var M_objectArray = mas[1][2],
+								array = mas[1][1],
+								d_Color = mas[1][4],
+								d_weight = mas[1][5],
+								d_opacity = mas[1][6];
+								
+							EraseAllLinesObject(M_objectArray);
+							M_objectArray = DrawTrackPolyline(array, d_opacity, d_weight);
+							
+							var M_Flag = false;
+							if(M_objectArray.length > 0){
+								M_Flag = true;
+							}
+							objectArray_MovementBetweenFlights[mas[0]] = [index,array,M_objectArray,M_Flag,d_Color,d_weight,d_opacity];
+						} //if(mas !== null){
+					} //if(Monitoring_Mode === 1){
+					if((Monitoring_Mode === 1)||(Monitoring_Mode === 2)){
+						var mas = getMultiPolyline(index);				
+						if(mas !== null){
+							var M_objectArray = mas[1][2],
+								array = mas[1][1],
+								d_Color = mas[1][4],
+								d_weight = mas[1][5],
+								d_opacity = mas[1][6];	
+													
+							EraseAllLinesObject(M_objectArray);
+							M_objectArray = DrawTrackPolyline(array, d_opacity, d_weight);
+							
+							objectArray_MultiPolyline[mas[0]] = [index,array,M_objectArray,true,d_Color,d_weight,d_opacity];
+						} //if(mas !== null){
+						var mas = getRoutePolyline(index);			
+						if(mas !== null){					
+							var M_objectPoly = mas[1][2],
+								flgLgth = mas[1][3],
+								array = mas[1][1],
+								d_Color = mas[1][4],
+								d_weight = mas[1][5],
+								d_opacity = mas[1][6];
+								
+							EraseAllLinesObject(M_objectPoly);
+							M_objectPoly = DrawTrackPolyline(array, d_opacity, d_weight);
+							
+							if(M_objectPoly.length === 0){
+								flgLgth = false;
+							}							
+							objectArray_PlannedRoute[mas[0]] = [index,array,M_objectPoly,flgLgth,d_Color,d_weight,d_opacity];
+							
+						} //if(mas !== null){				
+					} //if((Monitoring_Mode === 1)||(Monitoring_Mode === 2)){
+				} catch(e) {
+					setStatusMap('GetStatus',e.name + ': ' + e.message + ' toCheckDrawnObjects()');
+				}	
+		} //toCheckDrawnObjects()
+		
+		function addVehicle(lat, lng, _title, _icon, _centerX, _centerY, index, status) {
+		
+			var obj = new Object(),
+				latLng = [lat,lng],
+				objectMarker = new ymaps.Placemark(latLng,{hintContent: _title},{draggable: false}),
+				iconLayout_1	  = objectMarker.options.get('iconLayout'),
+				iconImageHref_1   = objectMarker.options.get('iconImageHref'),
+				iconImageSize_1   = objectMarker.options.get('iconImageSize'),
+				iconImageOffset_1 = objectMarker.options.get('iconImageOffset'),
+				markerIcon = {iconLayout: iconLayout_1,iconImageHref: iconImageHref_1,iconImageSize: iconImageSize_1,iconImageOffset: iconImageOffset_1,preset:'islands#darkOrangeIcon'};	//'islands#redIcon'
+			
+			if (_icon != '') {
+				markerIcon = {iconLayout: 'default#image',iconImageHref: _icon,iconImageSize: [20,20],iconImageOffset: [-18, -16]};
+			};
+			
+			objectMarker.properties.set('balloonContent', _title);
+			objectMarker.options.freeze().set(markerIcon).unfreeze();
+			
+			var mass = new Array(3);
+				mass[0] = objectMarker;
+				mass[1] = 'Marker';
+				mass[2] = objectMarker.events.add('click', onObjectClick);
+				
+			obj.objectMarker = mass;
+			obj.index		 = index;
+			obj.status		 = status;
+			obj.icon		 = markerIcon;
+			
+			vehicleArray.push(obj);
+			
+		} //addVehicle()
+		
+		function changeShowVehicleStatus(state) {
+		
+			showVehicleStatus = state;
+			replaceVehicleMarkers();
+			changeDisplayAllMarkers(displayAllMarkers);
+			
+		} //changeShowVehicleStatus()
+		
+		function replaceVehicleMarkers() {
+		
+	    	for (var i=0; i<vehicleArray.length; i++ ){	
+				var obj = vehicleArray[i],
+					marker = objectArray[obj.index-1],
+					icon = obj.icon;
+	    		if (showVehicleStatus === 1) {
+					icon = getStatusIcon(obj.status);
+	    		}
+	    		marker[0].options.set(icon);
+	    	}
+		} //replaceVehicleMarkers()
+		
+		function getStatusIcon(status){
+		
+			var icon = lastCornerIcon;
+    		if (status === 1) {
+    			icon = firstCornerIcon;
+    		}else if (status === 2) {
+    			icon = motionIcon;
+    		}
+    		
+		    return icon;
+		    
+		} //getStatusIcon()
+		
+		function changeRouteColor(index,_color,cDefault){
+		
+		     var currentObject = objectArray[index-1];     		
+		
+			if(_color === ''){
+		    	_color = cDefault;
+		    }
+			if(Monitoring_Mode === 2){
+				var mas = getMultiPolyline(index);				
+				if(mas !== null){
+				    	var M_objectArray = mas[1][2],
+							array = mas[1][1],
+							d_Color = mas[1][4],
+							d_weight = mas[1][5],
+							d_opacity = mas[1][6],
+							f_vis = mas[1][3];
+							
+						EraseAllLinesObject(M_objectArray);
+						
+						M_objectArray.length = 0;
+						for (var i = 0; i < array.length; i++){
+							var arrPointP = array[i],
+								M_PointsArr = arrPointP[0],
+								M_Flag = false;
+							if(array[i][1] === d_Color){
+								array[i][1] = _color;
+							}
+							if(f_vis){
+								if(hideUnvisibleObjects){
+									for (var j = 0; j < M_PointsArr.length; j++){				
+										M_Flag = objectOnMap(M_PointsArr[j][0],M_PointsArr[j][1]);
+			    						if(M_Flag){
+			    							break;
+			    						}
+			    					}
+			    				}else{
+			    					M_Flag = true;
+			    				}
+			    			}
+			    			if(M_Flag){			    		
+			    				var geometry = arrPointP[0], 
+									properties = {hintContent: 'Маршрут'},
+									options = {draggable: false,
+										strokeColor: array[i][1],
+										strokeWidth: d_weight,
+										strokeOpacity: d_opacity};
+								var polyline = new ymaps.Polyline(geometry, properties, options);			
+									map.geoObjects.add(polyline);
+			    					M_objectArray.push(polyline);
+			    			}
+						}
+						objectArray_MultiPolyline[mas[0]] = [index,array,M_objectArray,f_vis,_color,d_weight,d_opacity];
+				} //if(mas !== null){
+			}else{	
+				currentObject[0].options.set({strokeColor: _color});
+			} //if(Monitoring_Mode === 2){
+		} //changeRouteColor()
+		
+		function onObjectClick(eventData) {
+        	DocEventUID = null;
+			var placemark = eventData.originalEvent.target;
+			placemark.properties.set('balloonContent', placemark.properties.get('hintContent'));
+			
+        } //onObjectClick()        
+        
+        function onMarkerClick(eventData) {
+           
+		   var markerSelected = false;
+		   
+           var object = eventData.originalEvent.target,
+               latLng = object.geometry.getCoordinates(),
+		       index = selectedObjectArray.indexOf(object);
+		       
+			//var miconContent = object.properties.get('iconContent');
+			//var mHint = object.properties.get('hintContent');
+			
+    	   if (index === -1){
+			  selectedObjectArray.push(object);
+			  markerSelected = true;
+		   }else{
+			  selectedObjectArray.splice(index, 1);
+			  unselectedObjectArray.push(object);
+			  markerSelected = false;
+		   }
+		   
+		   // trying to find markers with the same coordinates
+		   for (var i = 0; i < objectArray.length; i++) {
+		        var mass = objectArray[i];
+		   		if (mass[i] === 'MovementBetweenFlights'){
+					continue;
+			  	}else{		   			
+		   			var objectMarker = mass[0];
+		      		if ((object !== objectMarker) && (mass[1] === 'Marker')){
+		          		var objectLatLng = objectMarker.geometry.getCoordinates();
+		          		if ((objectLatLng[0] == latLng[0]) && (objectLatLng[1] == latLng[1])) {
+		             		index = selectedObjectArray.indexOf(objectMarker);
+    	             		if (index === -1) {
+			            		selectedObjectArray.push(objectMarker);
+		             		}else{
+								if (markerSelected === false){
+									selectedObjectArray.splice(index, 1);
+									unselectedObjectArray.push(objectMarker);		  	
+								}
+		             		}
+		          		}
+		      		} //if (object !== objectMarker){
+		      } //if (objectArray[i] === 'MovementBetweenFlights'){
+		   }	   
+		   
+		   setTimeout('document.body.fireEvent("onclick")', 100);
+					   
+        } //onMarkerClick()
+        
+        // function changes the icon of marker
+        //        
+        //function setMarkerIcon(_index, _icon, _centerX, _centerY) {
+        function setMarkerIcon(_index, _icon, _centerX, _centerY, _width, _height, _iconState) {
+                 
+             if (_width === 0 || _width === undefined || _height === 0 || _height === undefined){
+            
+                var imag = new Image();
+                imag.onload = function() {setMarkerIconAfterImageLoad(imag, _index, _icon, _centerX, _centerY)};
+	            imag.src = _icon;
+	        
+            }else{
+                if (_iconState === ''  || _iconState === undefined){
+			        var markerIcon = {iconLayout: 'default#image',
+			        					iconMaxHeight: _height,
+			        					iconMaxWidth: _width,
+			        					iconOffset: [0, 0],
+			        					iconImageHref: _icon,
+			        					iconImageSize: [_width,_height],
+			        					iconImageOffset: [-1*_centerY, -1*_centerX],
+			        					draggable: false};
+			    }else{
+			        var markerIcon = {iconLayout: 'default#image',
+			        					iconMaxHeight: _height,
+			        					iconMaxWidth: _width,
+			        					iconOffset: [0, 0],
+			        					iconImageHref: _icon,
+			        					iconImageSize: [_width,_height],
+			        					iconImageOffset: [-1*_centerY, -1*_centerX],
+			        					draggable: false,
+        	           					iconShadowImageHref: _iconState,
+        	           					iconShadow: true,
+        	           					iconShadowImageSize:[_width,_height],
+        	           					iconShadowOffset: [6, _centerY-_height]};
+			    }
+		        var	objectMarker = objectArray[_index-1];
+		       
+			   objectMarker[0].options.freeze().set(markerIcon).unfreeze();
+               
+            }
+            
+		} //setMarkerIcon()
+		
+		function setMarkerIconAfterImageLoad(imag, _index, _icon, _centerX, _centerY) {
+	
+			var _imgWidth = imag.width;
+	        var _imgHeight = imag.height;
+	        
+		    var markerIcon = {iconLayout: 'default#image',
+		    					iconMaxHeight: _imgHeight,
+		    					iconMaxWidth: _imgWidth,
+		    					iconOffset: [0, 0],
+		    					iconImageHref: _icon,
+		    					iconImageSize: [_imgWidth,_imgHeight],
+		    					iconImageOffset: [-1*_centerY, -1*_centerX],
+		    					draggable: false},
+				objectMarker = objectArray[_index - 1];				
+				if(objectMarker !== undefined){
+					objectMarker[0].options.freeze().set(markerIcon).unfreeze();
+		        }
+		} //setMarkerIconAfterImageLoad()
+		
+		function setMarkerTransparency(_index, _transparency) {
+		
+		    _opacity = 1 - _transparency/100;
+			var	objectMarker = objectArray[_index - 1];
+			var markerOpacity = {opacity: _opacity};
+			objectMarker[0].options.freeze().set(markerOpacity).unfreeze();
+			
+		} //setMarkerTransparency()
+		
+		function CheckCountOfSelectedMarkers() {
+                
+           return selectedObjectArray.length;
+           
+        } //CheckCountOfSelectedMarkers()
+        
+        function CheckCountOfUnselectedMarkers() {         
+            
+           return unselectedObjectArray.length;
+
+        } //CheckCountOfUnselectedMarkers()
+        
+         function getSelectedMarkers() {
+           
+			var splitter = ';id=',
+				str = '';
+			for (var i = 0; i < selectedObjectArray.length; i++) {
+				objectMarker = selectedObjectArray[i];				
+				for (var index = 0; index < objectArray.length; index++){
+				    var mass = objectArray[index];
+				    var object = mass[0];
+					if ((object == objectMarker) && (mass[1] === 'Marker')){
+						str = str + splitter + String(index+1);
+						break;
+					}
+				}
+			}
+			return str;
+			
+        } //getSelectedMarkers()
+        
+        function getUnselectedMarkers() {
+        
+			var splitter = ';id=',
+				str = '';
+			for (var i = 0; i < unselectedObjectArray.length; i++) {
+				objectMarker = unselectedObjectArray[i];
+				for (var index = 0; index < objectArray.length; index++){
+				    var mass = objectArray[index];
+				    var object = mass[0];
+					if ((object == objectMarker) && (mass[1] === 'Marker')){
+						str = str + splitter + String(index+1);
+						break;
+					}
+				}
+			}
+			unselectedObjectArray = [];
+			return str;
+        } //getUnselectedMarkers()
+		
+		function getHalfwayLatLng(firstPoint, secondPoint) {
+		
+			var centerLatLng = [(firstPoint[0] + secondPoint[0]) / 2,(firstPoint[1] + secondPoint[1]) / 2];
+			
+			return centerLatLng;
+			
+		} //getHalfwayLatLng()
+		
+		function setMultipleSelectionMode(value) {
+		    multipleSelection   = value;
+		}
+		
+		function setMultipleUnselectionMode(value) {
+		    multipleUnselection = value;	    		    
+		}
+		
+		function getMapStatus() {
+			var mapState = '';
+			if (map !== null){
+			        var mapCenter = map.getCenter();
+			        mapState = String(mapCenter[0]) + ';' + String(mapCenter[1]) + ';' + String(map.getZoom()) + ';';
+			};			
+			return mapState;
+		} //getMapStatus()
+		
+		function addObjectPolylineTrack() {
+			
+			var geometry = pointsArray, 
+				properties = {
+					hintContent: "Маршрут"
+				},
+				options = {
+					draggable: false,
+					strokeColor: '#ff0000',
+					strokeWidth: 3,
+					strokeOpacity: 0.5
+ 
+				};			
+			var polyline = new ymaps.Polyline(geometry, properties, options);
+			map.geoObjects.add(polyline);
+			
+			map.setBounds(polyline.geometry.getBounds());
+			
+			var mass = new Array(4);
+				mass[0] = polyline;
+				mass[1] = 'Polyline';
+				mass[2] = null;
+				mass[3] = null;
+			
+			objectArray.push(mass);
+			pointsArray = [];
+			
+			return objectArray.length;
+			
+		} //addObjectPolylineTrack()
+		
+	//*********************** рисование стрелки
+		function Coordi_Strelki(mainLineCoordinates, arrowMinLength, arrowMaxLength) {
+				var contours = [];
+					//arrowLength = calculateArrowLength(mainLineCoordinates,arrowMinLength,arrowMaxLength);
+				contours.push(getContourFromLineCoordinates(mainLineCoordinates));
+				var Zoom = map.getZoom();
+				var arrowLength = 0.0002 + ((Zoom/1000)*Zoom); //коэффициент длины линий стрелки
+            // Будем рисовать стрелку только если длина линии не меньше длины стрелки.
+				if (arrowLength > 0) {
+                // Создадим еще 2 контура для стрелочек.
+					var lastTwoCoordinates = [
+							mainLineCoordinates[mainLineCoordinates.length - 2],
+							mainLineCoordinates[mainLineCoordinates.length - 1]
+						],
+                // Для удобства расчетов повернем стрелку так, чтобы она была направлена вдоль оси y,
+                // а потом развернем результаты обратно.
+						rotationAngle = getRotationAngle(lastTwoCoordinates[0], lastTwoCoordinates[1]),
+						rotatedCoordinates = rotate(lastTwoCoordinates, rotationAngle),
+
+						arrowAngle = 20 / 180 * Math.PI,
+						arrowBeginningCoordinates = getArrowsBeginningCoordinates(
+							rotatedCoordinates,
+							arrowLength,
+							arrowAngle
+						),
+						firstArrowCoordinates = rotate([
+							arrowBeginningCoordinates[0],
+							rotatedCoordinates[1]
+						], -rotationAngle),
+						secondArrowCoordinates = rotate([
+							arrowBeginningCoordinates[1],
+							rotatedCoordinates[1]
+						], -rotationAngle);
+
+					contours.push(getContourFromLineCoordinates(firstArrowCoordinates));
+					contours.push(getContourFromLineCoordinates(secondArrowCoordinates));
+				}
+				return contours;
+		} //Coordi_Strelki()
+		
+		function getVectorLength(x, y) {
+			return Math.sqrt(x * x + y * y);
+		} //getVectorLength()
+		
+		function getContourFromLineCoordinates(coords) {
+			var contour = coords.slice();
+			for (var i = coords.length - 2; i > -1; i--) {
+				contour.push(coords[i]);
+			}
+			return contour;
+		} //getContourFromLineCoordinates()
+		
+		function calculateArrowLength(coords, minLength, maxLength) {
+			var linePixelLength = 0;
+			for (var i = 1, l = coords.length; i < l; i++) {
+				linePixelLength += getVectorLength(
+					coords[i][0] - coords[i - 1][0],
+					coords[i][1] - coords[i - 1][1]
+				);
+				if (linePixelLength / 3 > maxLength) {
+					return maxLength;
+				}
+			}
+			var finalArrowLength = linePixelLength / 3;
+			return finalArrowLength < minLength ? 0 : finalArrowLength;
+		} //calculateArrowLength()
+		
+		 function getRotationAngle(p1, p2) {
+			return Math.PI / 2 - Math.atan2(p2[1] - p1[1], p2[0] - p1[0]);
+		} //getRotationAngle()
+		
+		function rotate(coordinates, angle) {
+			var rotatedCoordinates = [];
+			for (var i = 0, l = coordinates.length, x, y; i < l; i++) {
+				x = coordinates[i][0];
+				y = coordinates[i][1];
+				rotatedCoordinates.push([
+					x * Math.cos(angle) - y * Math.sin(angle),
+					x * Math.sin(angle) + y * Math.cos(angle)
+				]);
+			}
+			return rotatedCoordinates;
+		} //rotate()
+		
+		function getArrowsBeginningCoordinates(coordinates, arrowLength, arrowAngle) {
+			var p1 = coordinates[0],
+				p2 = coordinates[1],
+				dx = arrowLength * Math.sin(arrowAngle),
+				y = p2[1] - arrowLength * Math.cos(arrowAngle);
+			return [[p1[0] - dx, y], [p1[0] + dx, y]];
+		} //getArrowsBeginningCoordinates()
+		//*************************рисование стрелки
+		
+		function ErrorClear(){
+			setStatusMap('GetStatus','Great');
+		} //ErrorClear()
+		
+		function setStatusMap(Sloi,strStatus){
+
+			var div = document.getElementById(Sloi)
+			var elems = div.getElementsByTagName('*')	 
+			for(var i=0; i<elems.length; i++) {
+				elems[i].value = strStatus;
+			};
+
+		} //setStatusMap()
+		
+		function MapObjectsView(textOb,mZoom){
+			var arrOb = textOb.split(';'),
+				cBounds = [];
+			for(var i=0; i<arrOb.length; i++){
+				var index = parseFloat(arrOb[i]);			
+				var mass = objectArray[index - 1];
+				if (mass.length > 0) {
+					if (mass[0] !== null) { 
+						if (mass[1] == 'Marker') {
+							cBounds.push(mass[0].geometry.getCoordinates());
+						}else if (mass[1] == 'Polygon'){
+							var latlngArray = mass[0].geometry.getCoordinates();
+							for(var j=0; j<latlngArray.length; j++){
+								cBounds.push(latlngArray[j]);
+							}
+						} else if (mass[1] == 'Polyline'){
+							var latlngArray = mass[0].geometry.getCoordinates();
+							for(var j=0; j<latlngArray.length; j++){
+								cBounds.push(latlngArray[j]);
+							}
+						}
+					}
+				} //if (mass.length > 0) {
+			}
+			if (cBounds.length > 0){
+				var geometry = cBounds, 
+					properties = {hintContent: 'Маршрут'},
+					options = {draggable: false,
+								strokeColor: '#ff0000',
+								strokeWidth: 3,
+								strokeOpacity: 0.5};
+				var polyline = new ymaps.Polyline(geometry,properties,options);
+					map.geoObjects.add(polyline);
+					map.setBounds(polyline.geometry.getBounds());
+					map.geoObjects.remove(polyline);
+					polyline = null;
+					
+				if (mZoom < map.getZoom()){
+					map.setZoom(mZoom);
+				}
+			}
+		
+		} //MapObjectsView()
+		
+		function fitMapToBounds() {
+		    
+		    var geometry = pointsArray, 
+					properties = {hintContent: 'Маршрут'},
+					options = {draggable: false,
+								strokeColor: '#ff0000',
+								strokeWidth: 3,
+								strokeOpacity: 0.5};
+				var polyline = new ymaps.Polyline(geometry,properties,options);
+					map.geoObjects.add(polyline);
+					map.setBounds(polyline.geometry.getBounds());
+					map.geoObjects.remove(polyline);
+					polyline = null;
+            pointsArray = [];
+            if(map.getZoom()===23){
+            	map.setZoom(18);
+            }
+            
+        } // fitMapToBounds()
+        
+        function setMarkerClustering(value) {
+        	markerClustering = value;
+            if (value === true) {
+		        markersClustered = new ymaps.Clusterer({maxZoom:13,openBalloonOnClick:false,groupByCoordinates:false,clusterDisableClickZoom:false})
+		        map.geoObjects.add(markersClustered);
+            }else{
+                 if(markersClustered !== null){
+                     markersClustered.removeAll();
+                     map.geoObjects.remove(markersClustered);
+                     markersClustered = null;
+                 }                 
+            }
+        } // setMarkerClustering()
+        
+        function switchOnClustering(_markerIndexes) {
+		    setMarkerClustering(true);
+		    indexArray = _markerIndexes.split(";");
+		    realMarkersArray = [];
+		    arrMarkersClustered = [];
+		    for (var i = 0; i < indexArray.length - 1; i++){
+		         index = indexArray[i];
+		         arrMarkersClustered.push(index);
+		         var mass = objectArray[index-1];
+		         var objectMarker = mass[0];
+		         realMarkersArray.push(objectMarker);
+		         
+		         map.geoObjects.remove(objectMarker);
+            }           
+            
+            markersClustered.add(realMarkersArray);
+	        
+		} // switchOnClustering()
+        
+        function switchOffClustering() {
+            
+            markerClustering = false;           
+	   		
+            setMarkerClustering(false);           
+            
+            for (var i = 0; i < arrMarkersClustered.length; i++){
+            	var index = arrMarkersClustered[i];
+            	var mass = objectArray[index-1];
+            	var objectMarker = mass[0];
+				map.geoObjects.add(objectMarker);
+            }
+            
+            arrMarkersClustered = [];
+            
+        } // switchOffClustering()
+
+        
+        function CheckCountOfMarkers() {         
+           return objectArray.length;
+        } // CheckCountOfMarkers()
+        
+       function addSelectedMarker(_index) {
+         
+           var	objectMarker = objectArray[_index - 1];
+           index = selectedObjectArray.indexOf(objectMarker[0]);
+    	   if (index == -1) {
+			  selectedObjectArray.push(objectMarker[0]);
+		   }
+        }
+       
+       function deleteSelectedMarker(_index) {
+         
+           var	objectMarker = objectArray[_index - 1];
+           index = selectedObjectArray.indexOf(objectMarker[0]);
+    	   if (index !== -1) {
+			  selectedObjectArray.splice(index, 1);
+		   }
+        }
+        
+        function addIcon(_icon, _centerX, _centerY, _width, _height) {
+		    if (_width === undefined){
+		       //var markerIcon = L.icon({iconUrl: _icon, iconAnchor: [_centerX, _centerY]});
+		       var markerIcon = {iconLayout: 'default#image',iconImageHref: _icon,iconImageSize: [20,20],iconImageOffset: [-18, -16]};
+		    }
+		    else {
+		       //var markerIcon = L.icon({iconUrl: _icon, iconSize: [_width, _height], iconAnchor: [_centerX, _centerY]});
+		       markerIcon = {iconLayout: 'default#image',iconImageHref: _icon,iconImageSize: [_width, _height],iconImageOffset: [-18, -16]};
+		    }
+			var index = iconArray.push(markerIcon);			
+			return index;
+		} // addIcon()
+		
+		function addMarkers(_coordinates, mayBeClustered) {
+		
+		    mayBeClustered = mayBeClustered || false;
+			
+    		var coordArray = _coordinates.split(';');
+			for (var i = 0; i < coordArray.length/9 - 1; i++) {
+			
+        	     var latlng = [parseFloat(coordArray[i*9]), parseFloat(coordArray[i*9 + 1])];
+        	     var _title = coordArray[i*9 + 2]; 
+        	     var _width = parseFloat(coordArray[i*9 + 6]);
+        	     var _height = parseFloat(coordArray[i*9 + 7]);
+        	     
+        	     var _icon = coordArray[i*9 + 3];
+        	     	
+        	     if (_width === 0 || _height === 0) {
+        	         var markerIcon = {iconLayout: 'default#image',
+        	         				iconMaxHeight: _height,
+        	         				iconMaxWidth: _width,
+        	         				iconOffset: [0, 0],
+        	         				iconImageHref: _icon,
+        	         				iconImageSize: [_width,_height],
+        	         				iconImageOffset: [-1*_centerY, -1*_centerX],
+        	         				draggable: false
+									};
+        	     } 
+        	     else {
+        	        _iconState = coordArray[i*9 + 8];
+        	        if (_iconState === ''){
+						var _centerX = parseFloat(coordArray[i*9 + 4]);
+						var _centerY = parseFloat(coordArray[i*9 + 5]);
+        	           var markerIcon = {iconLayout: 'default#image',
+        	           						iconMaxHeight: _height,
+        	           						iconMaxWidth: _width,
+        	           						iconOffset: [0, 0],
+        	           						iconImageHref: _icon,
+        	           						iconImageSize: [_width,_height],
+        	           						iconImageOffset: [-1*_centerX,-1*_centerY],
+        	           						draggable: false
+											};
+        	        }
+        	        else{
+        	           var _centerX = parseFloat(coordArray[i*9 + 4]);
+        	           var _centerY = parseFloat(coordArray[i*9 + 5]);
+        	           var markerIcon = {iconLayout: 'default#image',
+        	           						iconMaxHeight: _height,
+        	           						iconMaxWidth: _width,
+        	           						iconOffset: [0, 0],
+        	           						iconImageHref: _icon,
+        	           						iconImageSize: [_width,_height],
+        	           						iconImageOffset: [-1*_centerY, -1*_centerX],
+        	           						draggable: false,
+        	           						iconShadowImageHref: _iconState,
+        	           						iconShadow: false,
+        	           						iconShadowImageSize:[12,12],
+        	           						iconShadowOffset: [6, _centerY -_height]};
+        	        }
+        	     }        	     
+
+                var objectMarker = new ymaps.Placemark(latlng,{hintContent: _title},{hasBalloon:false,draggable:false});
+				objectMarker.options.freeze().set(markerIcon).unfreeze();
+				 
+        	     if (markerClustering === true && mayBeClustered === true){
+        	        markersClustered.add(objectMarker);
+        	     }else{
+        	         map.geoObjects.add(objectMarker);
+        	     }        	     
+        	   			
+			
+				var mass = new Array(3);
+					mass[0] = objectMarker;
+					mass[1] = 'Marker';
+					mass[2] = objectMarker.events.add('click', onMarkerClick);			
+				
+				var index = objectArray.push(mass);
+				
+				var bindPopup = {iconContent: String(index)};
+			    objectMarker.properties.set(bindPopup);
+			    
+				objectArray_Visible.push([index-1,true,'Marker']);        	     
+        	}        	
+        	
+		} // addMarkers()
+
+
+       function setTripStyle(_index, _weight, _dashArray) {
+	        
+			if(tripArray.length > 0 ){
+				var mass = tripArray[_index-1];
+				if (mass !== undefined){
+					var iterator = mass.getIterator(),
+    						object;
+						while (object = iterator.getNext()) {
+						    object.options.set({weight: _weight});
+						    if (_dashArray !== undefined){
+						    	object.options.unset('strokeStyle');
+						    	if (_dashArray !== ''){
+						    		object.options.set({strokeStyle: _dashArray});
+						    	}
+						    }
+							
+						}
+				}	
+			}
+	    } // setTripStyle()
+	    
+	    function showObjects(_indexes, mayBeClustered) {
+		    mayBeClustered = mayBeClustered || false;
+		    indexArray = _indexes.split(";");
+		    
+		    for (var i = 0; i < indexArray.length - 1; i++){
+		         index = indexArray[i];
+		         var mass = objectArray[index-1];
+		         var objectMarker = mass[0];
+		         if (markerClustering === true && mayBeClustered === true && mass[0] === 'Marker'){
+        	                markersClustered.add(objectMarker);
+        	     }else {
+        	                map.geoObjects.add(objectMarker);
+        	     }
+            }
+            
+		} // showObjects()
+		
+		function hideObjects(_indexes, mayBeClustered) {
+		    mayBeClustered = mayBeClustered || false;
+		    indexArray = _indexes.split(";");
+		    for (var i = 0; i < indexArray.length - 1; i++){
+		         index = indexArray[i];
+		         var mass = objectArray[index-1];
+		         var objectMarker = mass[0];
+		         if (markerClustering === true && mayBeClustered === true && mass[0] === 'Marker'){
+        	         markersClustered.remove(objectMarker);
+        	     }else{
+        	         map.geoObjects.remove(objectMarker);
+        	     }
+            }
+		} // hideObjects()
+		
+		function deleteObjectMarker(index, mayBeClustered) {
+		    mayBeClustered = mayBeClustered || false;
+		    if (objectArray.length !== 0 ){
+				var mass = objectArray[index-1];
+		         var objectMarker = mass[0];
+				if (markerClustering === true && mayBeClustered === true && mass[0] === 'Marker'){
+        	         markersClustered.remove(objectMarker);
+        	     }else{
+        	         map.geoObjects.remove(objectMarker);
+        	     }
+				objectArray.splice(index - 1, 1, 0);
+			}
+		}
+	    
+	    function onResizeDivMap() {
+
+			// Изменим размеры контейнера карты
+			//map.container.getElement().style.width = '300px';
+			// Инициируем пересчет размеров
+			map.container.fitToViewport();
+		
+		} // onResizeDivMap()
+		
+</script>
+</head>
+          
+<body>
+<div id="GetStatus">
+        <input type=HIDDEN  value=''  name="Status"/>        
+    </div>
+	<div id="map" style="width: 100%; height: 100%" onresize="onResizeDivMap()" ></div>
+</body>
+</html>

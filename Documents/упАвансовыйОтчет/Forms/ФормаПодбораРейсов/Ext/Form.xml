@@ -1,0 +1,606 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаВыбрать" id="103">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Выбрать</CommandName>
+				<ExtendedTooltip name="ФормаВыбратьРасширеннаяПодсказка" id="104"/>
+			</Button>
+			<Button name="ФормаЗакрыть" id="105">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Закрыть</CommandName>
+				<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="106"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаОбъектов" id="107">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа объектов</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа объектов</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаОбъектовРасширеннаяПодсказка" id="108"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаВыбора" id="109">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа выбора</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа выбора</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаВыбораРасширеннаяПодсказка" id="110"/>
+					<ChildItems>
+						<Table name="Список" id="3">
+							<Representation>List</Representation>
+							<CommandBarLocation>None</CommandBarLocation>
+							<DefaultItem>true</DefaultItem>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<InitialTreeView>ExpandTopLevel</InitialTreeView>
+							<EnableStartDrag>true</EnableStartDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Список</DataPath>
+							<RowPictureDataPath>Список.ИндексКартинки</RowPictureDataPath>
+							<RowsPicture>
+								<xr:Ref>CommonPicture.упСтатусыРейса</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</RowsPicture>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<UserSettingsGroup>1:02023637-7868-4a5f-8576-835a76e0c9ba</UserSettingsGroup>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
+							<AutoCommandBar name="СписокКоманднаяПанель" id="5">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
+							<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
+							<SearchStringAddition name="СписокСтрокаПоиска" id="7">
+								<AdditionSource>
+									<Item>Список</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="8"/>
+								<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="9"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СписокСостояниеПросмотра" id="10">
+								<AdditionSource>
+									<Item>Список</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="11"/>
+								<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="12"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СписокУправлениеПоиском" id="13">
+								<AdditionSource>
+									<Item>Список</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="14"/>
+								<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="15"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">СписокВыбор</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="Ссылка" id="100">
+									<DataPath>Список.Ссылка</DataPath>
+									<UserVisible>
+										<xr:Common>false</xr:Common>
+									</UserVisible>
+									<ContextMenu name="СсылкаКонтекстноеМеню" id="101"/>
+									<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="102"/>
+								</LabelField>
+								<LabelField name="Статус" id="16">
+									<DataPath>Список.Статус</DataPath>
+									<Width>15</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="СтатусКонтекстноеМеню" id="17"/>
+									<ExtendedTooltip name="СтатусРасширеннаяПодсказка" id="18"/>
+								</LabelField>
+								<CheckBoxField name="ПеревозкаТранспортнойКомпанией" id="19">
+									<DataPath>Список.ПеревозкаТранспортнойКомпанией</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<HeaderPicture>
+										<xr:Ref>CommonPicture.упПеревозкаТранспортнойКомпанией</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</HeaderPicture>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ПеревозкаТранспортнойКомпаниейКонтекстноеМеню" id="20"/>
+									<ExtendedTooltip name="ПеревозкаТранспортнойКомпаниейРасширеннаяПодсказка" id="21"/>
+								</CheckBoxField>
+								<LabelField name="Дата" id="22">
+									<DataPath>Список.Дата</DataPath>
+									<DefaultItem>true</DefaultItem>
+									<ContextMenu name="ДатаКонтекстноеМеню" id="23"/>
+									<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="24"/>
+								</LabelField>
+								<LabelField name="Номер" id="25">
+									<DataPath>Список.Номер</DataPath>
+									<ContextMenu name="НомерКонтекстноеМеню" id="26"/>
+									<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="27"/>
+								</LabelField>
+								<LabelField name="ВидПеревозки" id="28">
+									<DataPath>Список.ВидПеревозки</DataPath>
+									<Width>20</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="ВидПеревозкиКонтекстноеМеню" id="29"/>
+									<ExtendedTooltip name="ВидПеревозкиРасширеннаяПодсказка" id="30"/>
+								</LabelField>
+								<LabelField name="Перевозчик" id="31">
+									<DataPath>Список.Перевозчик</DataPath>
+									<ContextMenu name="ПеревозчикКонтекстноеМеню" id="32"/>
+									<ExtendedTooltip name="ПеревозчикРасширеннаяПодсказка" id="33"/>
+								</LabelField>
+								<LabelField name="ТипТС" id="34">
+									<DataPath>Список.ТипТС</DataPath>
+									<ContextMenu name="ТипТСКонтекстноеМеню" id="35"/>
+									<ExtendedTooltip name="ТипТСРасширеннаяПодсказка" id="36"/>
+								</LabelField>
+								<LabelField name="ТранспортноеСредство" id="37">
+									<DataPath>Список.ТранспортноеСредство</DataPath>
+									<ContextMenu name="ТранспортноеСредствоКонтекстноеМеню" id="38"/>
+									<ExtendedTooltip name="ТранспортноеСредствоРасширеннаяПодсказка" id="39"/>
+								</LabelField>
+								<LabelField name="Масса" id="40">
+									<DataPath>Список.Масса</DataPath>
+									<ContextMenu name="МассаКонтекстноеМеню" id="41"/>
+									<ExtendedTooltip name="МассаРасширеннаяПодсказка" id="42"/>
+								</LabelField>
+								<LabelField name="Объем" id="43">
+									<DataPath>Список.Объем</DataPath>
+									<ContextMenu name="ОбъемКонтекстноеМеню" id="44"/>
+									<ExtendedTooltip name="ОбъемРасширеннаяПодсказка" id="45"/>
+								</LabelField>
+								<LabelField name="ОценочнаяСтоимость" id="46">
+									<DataPath>Список.ОценочнаяСтоимость</DataPath>
+									<UserVisible>
+										<xr:Common>false</xr:Common>
+									</UserVisible>
+									<ContextMenu name="ОценочнаяСтоимостьКонтекстноеМеню" id="47"/>
+									<ExtendedTooltip name="ОценочнаяСтоимостьРасширеннаяПодсказка" id="48"/>
+								</LabelField>
+								<LabelField name="КоличествоМест" id="49">
+									<DataPath>Список.КоличествоМест</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Кол. мест</v8:content>
+										</v8:item>
+									</Title>
+									<Width>10</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="КоличествоМестКонтекстноеМеню" id="50"/>
+									<ExtendedTooltip name="КоличествоМестРасширеннаяПодсказка" id="51"/>
+								</LabelField>
+								<LabelField name="КоличествоЗагрузочныхМетров" id="52">
+									<DataPath>Список.КоличествоЗагрузочныхМетров</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Кол. метров</v8:content>
+										</v8:item>
+									</Title>
+									<Width>10</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="КоличествоЗагрузочныхМетровКонтекстноеМеню" id="53"/>
+									<ExtendedTooltip name="КоличествоЗагрузочныхМетровРасширеннаяПодсказка" id="54"/>
+								</LabelField>
+								<LabelField name="ПланируемоеКоличествоЗаданий" id="55">
+									<DataPath>Список.ПланируемоеКоличествоЗаданий</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Кол. заданий</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ПланируемоеКоличествоЗаданийКонтекстноеМеню" id="56"/>
+									<ExtendedTooltip name="ПланируемоеКоличествоЗаданийРасширеннаяПодсказка" id="57"/>
+								</LabelField>
+								<LabelField name="ПлановоеНачалоВыполнения" id="58">
+									<DataPath>Список.ПлановоеНачалоВыполнения</DataPath>
+									<UserVisible>
+										<xr:Common>false</xr:Common>
+									</UserVisible>
+									<ContextMenu name="ПлановоеНачалоВыполненияКонтекстноеМеню" id="59"/>
+									<ExtendedTooltip name="ПлановоеНачалоВыполненияРасширеннаяПодсказка" id="60"/>
+								</LabelField>
+								<LabelField name="ПлановоеОкончаниеВыполнения" id="61">
+									<DataPath>Список.ПлановоеОкончаниеВыполнения</DataPath>
+									<UserVisible>
+										<xr:Common>false</xr:Common>
+									</UserVisible>
+									<ContextMenu name="ПлановоеОкончаниеВыполненияКонтекстноеМеню" id="62"/>
+									<ExtendedTooltip name="ПлановоеОкончаниеВыполненияРасширеннаяПодсказка" id="63"/>
+								</LabelField>
+								<LabelField name="ЗонаПогрузки" id="64">
+									<DataPath>Список.ЗонаПогрузки</DataPath>
+									<UserVisible>
+										<xr:Common>false</xr:Common>
+									</UserVisible>
+									<ContextMenu name="ЗонаПогрузкиКонтекстноеМеню" id="65"/>
+									<ExtendedTooltip name="ЗонаПогрузкиРасширеннаяПодсказка" id="66"/>
+								</LabelField>
+								<LabelField name="ЗонаРазгрузки" id="67">
+									<DataPath>Список.ЗонаРазгрузки</DataPath>
+									<UserVisible>
+										<xr:Common>false</xr:Common>
+									</UserVisible>
+									<ContextMenu name="ЗонаРазгрузкиКонтекстноеМеню" id="68"/>
+									<ExtendedTooltip name="ЗонаРазгрузкиРасширеннаяПодсказка" id="69"/>
+								</LabelField>
+								<LabelField name="ТекущийЭтап" id="70">
+									<DataPath>Список.ТекущийЭтап</DataPath>
+									<UserVisible>
+										<xr:Common>false</xr:Common>
+									</UserVisible>
+									<ContextMenu name="ТекущийЭтапКонтекстноеМеню" id="71"/>
+									<ExtendedTooltip name="ТекущийЭтапРасширеннаяПодсказка" id="72"/>
+								</LabelField>
+								<LabelField name="НачалоВыполнения" id="73">
+									<DataPath>Список.НачалоВыполнения</DataPath>
+									<UserVisible>
+										<xr:Common>false</xr:Common>
+									</UserVisible>
+									<ContextMenu name="НачалоВыполненияКонтекстноеМеню" id="74"/>
+									<ExtendedTooltip name="НачалоВыполненияРасширеннаяПодсказка" id="75"/>
+								</LabelField>
+								<LabelField name="ОкончаниеВыполнения" id="76">
+									<DataPath>Список.ОкончаниеВыполнения</DataPath>
+									<UserVisible>
+										<xr:Common>false</xr:Common>
+									</UserVisible>
+									<ContextMenu name="ОкончаниеВыполненияКонтекстноеМеню" id="77"/>
+									<ExtendedTooltip name="ОкончаниеВыполненияРасширеннаяПодсказка" id="78"/>
+								</LabelField>
+								<LabelField name="ПлановаяСуммаИнкассации" id="79">
+									<DataPath>Список.ПлановаяСуммаИнкассации</DataPath>
+									<UserVisible>
+										<xr:Common>false</xr:Common>
+									</UserVisible>
+									<ContextMenu name="ПлановаяСуммаИнкассацииКонтекстноеМеню" id="80"/>
+									<ExtendedTooltip name="ПлановаяСуммаИнкассацииРасширеннаяПодсказка" id="81"/>
+								</LabelField>
+								<LabelField name="ФактическаяСуммаИнкассации" id="82">
+									<DataPath>Список.ФактическаяСуммаИнкассации</DataPath>
+									<UserVisible>
+										<xr:Common>false</xr:Common>
+									</UserVisible>
+									<ContextMenu name="ФактическаяСуммаИнкассацииКонтекстноеМеню" id="83"/>
+									<ExtendedTooltip name="ФактическаяСуммаИнкассацииРасширеннаяПодсказка" id="84"/>
+								</LabelField>
+								<LabelField name="Подразделение" id="97">
+									<DataPath>Список.Подразделение</DataPath>
+									<ContextMenu name="ПодразделениеКонтекстноеМеню" id="98"/>
+									<ExtendedTooltip name="ПодразделениеРасширеннаяПодсказка" id="99"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаПодобрать" id="111">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа подобрать</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа подобрать</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаПодобратьРасширеннаяПодсказка" id="112"/>
+					<ChildItems>
+						<Table name="ТаблицаПодбора" id="113">
+							<Representation>List</Representation>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>ТаблицаПодбора</DataPath>
+							<CommandSet>
+								<ExcludedCommand>Add</ExcludedCommand>
+								<ExcludedCommand>Change</ExcludedCommand>
+								<ExcludedCommand>Copy</ExcludedCommand>
+								<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+								<ExcludedCommand>EndEdit</ExcludedCommand>
+								<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
+							</CommandSet>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ТаблицаПодбораКонтекстноеМеню" id="114"/>
+							<AutoCommandBar name="ТаблицаПодбораКоманднаяПанель" id="115"/>
+							<ExtendedTooltip name="ТаблицаПодбораРасширеннаяПодсказка" id="116"/>
+							<SearchStringAddition name="ТаблицаПодбораСтрокаПоиска" id="117">
+								<AdditionSource>
+									<Item>ТаблицаПодбора</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ТаблицаПодбораСтрокаПоискаКонтекстноеМеню" id="118"/>
+								<ExtendedTooltip name="ТаблицаПодбораСтрокаПоискаРасширеннаяПодсказка" id="119"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ТаблицаПодбораСостояниеПросмотра" id="120">
+								<AdditionSource>
+									<Item>ТаблицаПодбора</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ТаблицаПодбораСостояниеПросмотраКонтекстноеМеню" id="121"/>
+								<ExtendedTooltip name="ТаблицаПодбораСостояниеПросмотраРасширеннаяПодсказка" id="122"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ТаблицаПодбораУправлениеПоиском" id="123">
+								<AdditionSource>
+									<Item>ТаблицаПодбора</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ТаблицаПодбораУправлениеПоискомКонтекстноеМеню" id="124"/>
+								<ExtendedTooltip name="ТаблицаПодбораУправлениеПоискомРасширеннаяПодсказка" id="125"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="DragCheck">ТаблицаПодбораПроверкаПеретаскивания</Event>
+								<Event name="AfterDeleteRow">ТаблицаПодбораПослеУдаления</Event>
+							</Events>
+							<ChildItems>
+								<InputField name="ТаблицаПодбораРейс" id="126">
+									<DataPath>ТаблицаПодбора.Рейс</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ТаблицаПодбораРейсКонтекстноеМеню" id="127"/>
+									<ExtendedTooltip name="ТаблицаПодбораРейсРасширеннаяПодсказка" id="128"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Список" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<UseAlways>
+				<Field>Список.Ссылка</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	ДокументупРейс.Ссылка КАК Ссылка,
+	ДокументупРейс.ПометкаУдаления КАК ПометкаУдаления,
+	ДокументупРейс.Номер КАК Номер,
+	ДокументупРейс.Дата КАК Дата,
+	ДокументупРейс.Проведен КАК Проведен,
+	ДокументупРейс.ПеревозкаТранспортнойКомпанией КАК ПеревозкаТранспортнойКомпанией,
+	ДокументупРейс.МаксимальныйКоэффициентЗагрузки КАК МаксимальныйКоэффициентЗагрузки,
+	ДокументупРейс.СреднийКоэффициентЗагрузки КАК СреднийКоэффициентЗагрузки,
+	ДокументупРейс.Организация КАК Организация,
+	ДокументупРейс.ВидПеревозки КАК ВидПеревозки,
+	ДокументупРейс.Автор КАК Автор,
+	ДокументупРейс.Комментарий КАК Комментарий,
+	ДокументупРейс.Трекер КАК Трекер,
+	ДокументупРейс.МоментВремени КАК МоментВремени,
+	ЕСТЬNULL(упПеревозчикПоРейсу.ТранспортноеСредство, ЗНАЧЕНИЕ(Справочник.упТранспортныеСредства.ПустаяСсылка)) КАК ТранспортноеСредство,
+	ЕСТЬNULL(упПеревозчикПоРейсу.Перевозчик, ЗНАЧЕНИЕ(Справочник.упПартнеры.ПустаяСсылка)) КАК Перевозчик,
+	ЕСТЬNULL(упПеревозчикПоРейсу.КонтрагентПеревозчика, ЗНАЧЕНИЕ(Справочник.упКонтрагенты.ПустаяСсылка)) КАК КонтрагентПеревозчика,
+	ЕСТЬNULL(упПеревозчикПоРейсу.Соглашение, ЗНАЧЕНИЕ(Справочник.упСоглашенияСПеревозчиками.ПустаяСсылка)) КАК Соглашение,
+	ЕСТЬNULL(упПеревозчикПоРейсу.ТипТС, ЗНАЧЕНИЕ(Справочник.упТипыТС.ПустаяСсылка)) КАК ТипТС,
+	ЕСТЬNULL(упПеревозчикПоРейсу.Водитель1, ЗНАЧЕНИЕ(Справочник.упСотрудники.ПустаяСсылка)) КАК Водитель1,
+	ЕСТЬNULL(упПеревозчикПоРейсу.Водитель2, ЗНАЧЕНИЕ(Справочник.упСотрудники.ПустаяСсылка)) КАК Водитель2,
+	ЕСТЬNULL(упПеревозчикПоРейсу.Экспедитор, ЗНАЧЕНИЕ(Справочник.упСотрудники.ПустаяСсылка)) КАК Экспедитор,
+	ЕСТЬNULL(упПлановыеПараметрыРейса.Расстояние, 0) КАК Расстояние,
+	ЕСТЬNULL(упПлановыеПараметрыРейса.НулевойПробег, 0) КАК НулевойПробег,
+	ЕСТЬNULL(упПлановыеПараметрыРейса.Время, 0) КАК Время,
+	ЕСТЬNULL(упПлановыеПараметрыРейса.ВремяВПути, 0) КАК ВремяВПути,
+	ЕСТЬNULL(упПлановыеПараметрыРейса.ЗонаПогрузки, ЗНАЧЕНИЕ(Справочник.упГеографическиеЗоны.ПустаяСсылка)) КАК ЗонаПогрузки,
+	ЕСТЬNULL(упПлановыеПараметрыРейса.ЗонаРазгрузки, ЗНАЧЕНИЕ(Справочник.упГеографическиеЗоны.ПустаяСсылка)) КАК ЗонаРазгрузки,
+	ЕСТЬNULL(упПлановыеПараметрыРейса.ПредставлениеМаршрута, "") КАК ПредставлениеМаршрута,
+	ЕСТЬNULL(упПлановыеПараметрыРейса.Объем, 0) КАК Объем,
+	ЕСТЬNULL(упПлановыеПараметрыРейса.ОценочнаяСтоимость, 0) КАК ОценочнаяСтоимость,
+	ЕСТЬNULL(упПлановыеПараметрыРейса.КоличествоМест, 0) КАК КоличествоМест,
+	ЕСТЬNULL(упПлановыеПараметрыРейса.КоличествоЗагрузочныхМетров, 0) КАК КоличествоЗагрузочныхМетров,
+	ЕСТЬNULL(упПлановыеПараметрыРейса.Масса, 0) КАК Масса,
+	ЕСТЬNULL(упПлановыеПараметрыРейса.ПлановоеНачалоВыполнения, ДАТАВРЕМЯ(1, 1, 1)) КАК ПлановоеНачалоВыполнения,
+	ЕСТЬNULL(упПлановыеПараметрыРейса.ПлановоеОкончаниеВыполнения, ДАТАВРЕМЯ(1, 1, 1)) КАК ПлановоеОкончаниеВыполнения,
+	ЕСТЬNULL(упФактическиеПараметрыРейса.НачалоВыполнения, ДАТАВРЕМЯ(1, 1, 1)) КАК НачалоВыполнения,
+	ЕСТЬNULL(упФактическиеПараметрыРейса.ОкончаниеВыполнения, ДАТАВРЕМЯ(1, 1, 1)) КАК ОкончаниеВыполнения,
+	ЕСТЬNULL(упЭтапПодбораПеревозчика.Ссылка, ЗНАЧЕНИЕ(Документ.упЭтапПодбораПеревозчика.ПустаяСсылка)) КАК ТекущийЭтап,
+	ВЫБОР
+		КОГДА ДокументупРейс.ПометкаУдаления
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.упСтатусыРейса.Отменен)
+		ИНАЧЕ ЕСТЬNULL(упСтатусы.Статус, ЗНАЧЕНИЕ(Перечисление.упСтатусыРейса.Новый))
+	КОНЕЦ КАК Статус,
+	ВЫБОР
+		КОГДА ДокументупРейс.ПометкаУдаления
+			ТОГДА 8
+		ИНАЧЕ ЕСТЬNULL(упСтатусы.Статус.Порядок, 0)
+	КОНЕЦ КАК ИндексКартинки,
+	ЕСТЬNULL(упСтатусы.ВыполненЧастично, ЛОЖЬ) КАК ВыполненЧастично,
+	ЕСТЬNULL(упПлановыеПараметрыРейса.ПланируемоеКоличествоЗаданий, 0) КАК ПланируемоеКоличествоЗаданий,
+	ЕСТЬNULL(НаличиеЗаметокПоПредмету.ЕстьЗаметки, ЛОЖЬ) КАК ЕстьЗаметки,
+	ЕСТЬNULL(НаличиеЗаметокПоПредмету.Цвет, -3) + 2 КАК ЦветЗаметки,
+	ЕСТЬNULL(упВсегоРасходыПоРейсу.СуммаПланСНДС, 0) КАК ПлановыеРасходыПоРейсуСНДС,
+	ЕСТЬNULL(упВсегоРасходыПоРейсу.СуммаПланБезНДС, 0) КАК ПлановыеРасходыПоРейсуБезНДС,
+	ЕСТЬNULL(упПлановыеПараметрыРейса.СуммаИнкассации, 0) КАК ПлановаяСуммаИнкассации,
+	ЕСТЬNULL(упФактическиеПараметрыРейса.СуммаИнкассации, 0) КАК ФактическаяСуммаИнкассации,
+	ЕСТЬNULL(упРасходыОбороты.СуммаПланБезНДСОборот, 0) КАК СуммаПланБезНДСОборот,
+	ЕСТЬNULL(упРасходыОбороты.СуммаПланСНДСОборот, 0) КАК СуммаПланСНДСОборот,
+	ЕСТЬNULL(упРасходыОбороты.СуммаФактБезНДСОборот, 0) КАК СуммаФактБезНДСОборот,
+	ЕСТЬNULL(упРасходыОбороты.СуммаФактСНДСОборот, 0) КАК СуммаФактСНДСОборот,
+	ДокументупРейс.Подразделение КАК Подразделение
+ИЗ
+	Документ.упРейс КАК ДокументупРейс
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упСтатусыРейсов.СрезПоследних КАК упСтатусы
+		ПО (упСтатусы.Документ = ДокументупРейс.Ссылка)
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упНаличиеЗаметокПоПредмету КАК НаличиеЗаметокПоПредмету
+		ПО ДокументупРейс.Ссылка = НаличиеЗаметокПоПредмету.Предмет
+			И (НаличиеЗаметокПоПредмету.Автор = &amp;Пользователь)
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упПеревозчикПоРейсу.СрезПоследних КАК упПеревозчикПоРейсу
+		ПО (упПеревозчикПоРейсу.Рейс = ДокументупРейс.Ссылка)
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упПлановыеПараметрыРейса КАК упПлановыеПараметрыРейса
+		ПО (упПлановыеПараметрыРейса.Рейс = ДокументупРейс.Ссылка)
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упФактическиеПараметрыРейса КАК упФактическиеПараметрыРейса
+		ПО (упФактическиеПараметрыРейса.Рейс = ДокументупРейс.Ссылка)
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упВсегоРасходыПоРейсу КАК упВсегоРасходыПоРейсу
+		ПО (упВсегоРасходыПоРейсу.Рейс = ДокументупРейс.Ссылка)
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			упЭтапПодбораПеревозчика.Рейс КАК Рейс,
+			МАКСИМУМ(упЭтапПодбораПеревозчика.НомерЭтапа) КАК НомерЭтапа
+		ИЗ
+			Документ.упЭтапПодбораПеревозчика КАК упЭтапПодбораПеревозчика
+		
+		СГРУППИРОВАТЬ ПО
+			упЭтапПодбораПеревозчика.Рейс) КАК ВложенныйЗапрос
+		ПО ДокументупРейс.Ссылка = ВложенныйЗапрос.Рейс
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.упЭтапПодбораПеревозчика КАК упЭтапПодбораПеревозчика
+		ПО (ВложенныйЗапрос.Рейс = упЭтапПодбораПеревозчика.Рейс)
+			И (ВложенныйЗапрос.НомерЭтапа = упЭтапПодбораПеревозчика.НомерЭтапа)
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.упРасходы.Обороты КАК упРасходыОбороты
+		ПО (упРасходыОбороты.Рейс = ДокументупРейс.Ссылка)
+ГДЕ
+	ВЫБОР
+			КОГДА &amp;Водитель1 = ЗНАЧЕНИЕ(Справочник.упСотрудники.ПустаяСсылка)
+				ТОГДА ЛОЖЬ
+			ИНАЧЕ упПеревозчикПоРейсу.Водитель1 = &amp;Водитель1
+		КОНЕЦ
+	И ВЫБОР
+			КОГДА &amp;НачалоПериода = ДАТАВРЕМЯ(1, 1, 1)
+					ИЛИ &amp;ОкончаниеПериода = ДАТАВРЕМЯ(1, 1, 1)
+				ТОГДА ЛОЖЬ
+			ИНАЧЕ упФактическиеПараметрыРейса.НачалоВыполнения МЕЖДУ &amp;НачалоПериода И &amp;ОкончаниеПериода
+		КОНЕЦ</QueryText>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ТаблицаПодбора" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Таблица подбора</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Рейс" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Рейс</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:DocumentRef.упРейс</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="РежимВыбора" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Режим выбора</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Выбрать" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Выбрать</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="Закрыть" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Закрыть</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Закрыть</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Close</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ЗакрытьКоманда</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

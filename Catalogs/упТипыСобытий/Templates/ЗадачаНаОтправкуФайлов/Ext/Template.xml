@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Дата</dataPath>
+			<field>Дата</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Ссылка</dataPath>
+			<field>Ссылка</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номер</dataPath>
+			<field>Номер</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Статус</dataPath>
+			<field>Статус</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Проведен</dataPath>
+			<field>Проведен</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПометкаУдаления</dataPath>
+			<field>ПометкаУдаления</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Комментарий</dataPath>
+			<field>Комментарий</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Трекер</dataPath>
+			<field>Трекер</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Автор</dataPath>
+			<field>Автор</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Идентификатор</dataPath>
+			<field>Идентификатор</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Изменил</dataPath>
+			<field>Изменил</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ИдентификаторЗадачи</dataPath>
+			<field>ИдентификаторЗадачи</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ИсточникСозданияОбъекта</dataPath>
+			<field>ИсточникСозданияОбъекта</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Сотрудник</dataPath>
+			<field>Сотрудник</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТекстЗапроса</dataPath>
+			<field>ТекстЗапроса</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СобытиеМониторинга</dataPath>
+			<field>СобытиеМониторинга</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	упЗадачаНаОтправкуФайлов.Ссылка КАК Ссылка,
+	упЗадачаНаОтправкуФайлов.ПометкаУдаления КАК ПометкаУдаления,
+	упЗадачаНаОтправкуФайлов.Номер КАК Номер,
+	упЗадачаНаОтправкуФайлов.Дата КАК Дата,
+	упЗадачаНаОтправкуФайлов.Проведен КАК Проведен,
+	упЗадачаНаОтправкуФайлов.Автор КАК Автор,
+	упЗадачаНаОтправкуФайлов.Идентификатор КАК Идентификатор,
+	упЗадачаНаОтправкуФайлов.ИдентификаторЗадачи КАК ИдентификаторЗадачи,
+	упЗадачаНаОтправкуФайлов.Изменил КАК Изменил,
+	упЗадачаНаОтправкуФайлов.ИсточникСозданияОбъекта КАК ИсточникСозданияОбъекта,
+	упЗадачаНаОтправкуФайлов.Комментарий КАК Комментарий,
+	упЗадачаНаОтправкуФайлов.Сотрудник КАК Сотрудник,
+	упЗадачаНаОтправкуФайлов.Статус КАК Статус,
+	упЗадачаНаОтправкуФайлов.ТекстЗапроса КАК ТекстЗапроса,
+	упЗадачаНаОтправкуФайлов.Трекер КАК Трекер,
+	упЗадачаНаОтправкуФайлов.СобытиеМониторинга КАК СобытиеМониторинга
+ИЗ
+	Документ.упЗадачаНаОтправкуФайлов КАК упЗадачаНаОтправкуФайлов</query>
+	</dataSet>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Ссылка</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

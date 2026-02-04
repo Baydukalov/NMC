@@ -1,0 +1,677 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Width>85</Width>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаОбновитьИдентификаторИБ" id="112">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ОбновитьИдентификаторИБ</CommandName>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаОбновитьИдентификаторИБРасширеннаяПодсказка" id="113"/>
+			</Button>
+			<Button name="ФормаОбновить" id="151">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Обновить</CommandName>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаОбновитьРасширеннаяПодсказка" id="152"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<CheckBoxField name="сшпИспользоватьСШП" id="83">
+			<DataPath>НаборКонстант.сшпИспользоватьСШП</DataPath>
+			<TitleLocation>Right</TitleLocation>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="сшпИспользоватьСШПКонтекстноеМеню" id="84"/>
+			<ExtendedTooltip name="сшпИспользоватьСШПРасширеннаяПодсказка" id="85"/>
+			<Events>
+				<Event name="OnChange">сшпИспользоватьСШППриИзменении</Event>
+			</Events>
+		</CheckBoxField>
+		<InputField name="упТипОбмена" id="222">
+			<DataPath>НаборКонстант.упТипОбмена</DataPath>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<AutoMarkIncomplete>true</AutoMarkIncomplete>
+			<ContextMenu name="упТипОбменаКонтекстноеМеню" id="223"/>
+			<ExtendedTooltip name="упТипОбменаРасширеннаяПодсказка" id="224"/>
+			<Events>
+				<Event name="OnChange">упТипОбменаПриИзменении</Event>
+			</Events>
+		</InputField>
+		<UsualGroup name="Группа1" id="10">
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="27"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаНастройкиПодсистемы1С" id="43">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Настройки подсистемы</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа настройки подсистемы1 С</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Representation>StrongSeparation</Representation>
+					<ChildItemsWidth>Equal</ChildItemsWidth>
+					<ExtendedTooltip name="ГруппаНастройкиПодсистемы1СРасширеннаяПодсказка" id="44"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаНастройкиШапка" id="145">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа настройки шапка</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа настройки шапка</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаНастройкиШапкаРасширеннаяПодсказка" id="146"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаНастройкиШапкаЛево" id="147">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа настройки шапка лево</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа настройки шапка лево</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Vertical</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаНастройкиШапкаЛевоРасширеннаяПодсказка" id="148"/>
+									<ChildItems>
+										<LabelField name="сшпФорматДляСериализации" id="104">
+											<DataPath>НаборКонстант.сшпФорматДляСериализации</DataPath>
+											<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+											<ContextMenu name="сшпФорматДляСериализацииКонтекстноеМеню" id="105"/>
+											<ExtendedTooltip name="сшпФорматДляСериализацииРасширеннаяПодсказка" id="106"/>
+										</LabelField>
+										<UsualGroup name="ГруппаКоличествоПотоков" id="86">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Максимальное количество потоков обработки</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа количество потоков</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Vertical</Group>
+											<Representation>None</Representation>
+											<ChildItemsWidth>Equal</ChildItemsWidth>
+											<ExtendedTooltip name="ГруппаКоличествоПотоковРасширеннаяПодсказка" id="87"/>
+											<ChildItems>
+												<LabelField name="сшпМаксимальноеКоличествоПотоковОбработкиВходящих" id="77">
+													<DataPath>НаборКонстант.сшпМаксимальноеКоличествоПотоковОбработкиВходящих</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>очереди входящих сообщений</v8:content>
+														</v8:item>
+													</Title>
+													<Format>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>ЧН=-</v8:content>
+														</v8:item>
+													</Format>
+													<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+													<ContextMenu name="сшпМаксимальноеКоличествоПотоковОбработкиВходящихКонтекстноеМеню" id="78"/>
+													<ExtendedTooltip name="сшпМаксимальноеКоличествоПотоковОбработкиВходящихРасширеннаяПодсказка" id="79"/>
+												</LabelField>
+												<LabelField name="сшпМаксимальноеКоличествоПотоковОбработкиИсходящих" id="74">
+													<DataPath>НаборКонстант.сшпМаксимальноеКоличествоПотоковОбработкиИсходящих</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>очереди исходящих сообщений</v8:content>
+														</v8:item>
+													</Title>
+													<Format>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>ЧН=-</v8:content>
+														</v8:item>
+													</Format>
+													<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+													<ContextMenu name="сшпМаксимальноеКоличествоПотоковОбработкиИсходящихКонтекстноеМеню" id="75"/>
+													<ExtendedTooltip name="сшпМаксимальноеКоличествоПотоковОбработкиИсходящихРасширеннаяПодсказка" id="76"/>
+												</LabelField>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаНастройкиШапкаПраво" id="149">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа настройки шапка право</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа настройки шапка право</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Vertical</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаНастройкиШапкаПравоРасширеннаяПодсказка" id="150"/>
+									<ChildItems>
+										<CheckBoxField name="сшпОтключитьПотокиОбработкиДанных" id="101">
+											<DataPath>НаборКонстант.сшпОтключитьПотокиОбработкиДанных</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<TitleLocation>Right</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="сшпОтключитьПотокиОбработкиДанныхКонтекстноеМеню" id="102"/>
+											<ExtendedTooltip name="сшпОтключитьПотокиОбработкиДанныхРасширеннаяПодсказка" id="103"/>
+										</CheckBoxField>
+										<CheckBoxField name="сшпАвтоматическийСтартОбработчиков" id="114">
+											<DataPath>НаборКонстант.сшпАвтоматическийСтартОбработчиков</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<TitleLocation>Right</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="сшпАвтоматическийСтартОбработчиковКонтекстноеМеню" id="115"/>
+											<ExtendedTooltip name="сшпАвтоматическийСтартОбработчиковРасширеннаяПодсказка" id="116"/>
+										</CheckBoxField>
+										<LabelField name="сшпДлительностьОжидания" id="109">
+											<DataPath>НаборКонстант.сшпДлительностьОжидания</DataPath>
+											<Format>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>ЧН=-</v8:content>
+												</v8:item>
+											</Format>
+											<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+											<ContextMenu name="сшпДлительностьОжиданияКонтекстноеМеню" id="110"/>
+											<ExtendedTooltip name="сшпДлительностьОжиданияРасширеннаяПодсказка" id="111"/>
+										</LabelField>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаДлительностьХранения" id="141">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Длительность хранения сообщений в очередях</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа длительность хранения</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<ExtendedTooltip name="ГруппаДлительностьХраненияРасширеннаяПодсказка" id="142"/>
+							<ChildItems>
+								<LabelField name="сшпДлительностьХраненияСообщений" id="80">
+									<DataPath>НаборКонстант.сшпДлительностьХраненияСообщений</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Длительность хранения по умолчанию (дней)</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Длительность хранения сообщений в днях.</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Format>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ЧН=-</v8:content>
+										</v8:item>
+									</Format>
+									<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+									<ContextMenu name="сшпДлительностьХраненияСообщенийКонтекстноеМеню" id="81"/>
+									<ExtendedTooltip name="сшпДлительностьХраненияСообщенийРасширеннаяПодсказка" id="82"/>
+								</LabelField>
+								<Table name="ТаблицаДлительностиХранения" id="128">
+									<Representation>List</Representation>
+									<CommandBarLocation>None</CommandBarLocation>
+									<ReadOnly>true</ReadOnly>
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<FileDragMode>AsFile</FileDragMode>
+									<DataPath>ТаблицаДлительностиХранения</DataPath>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="ТаблицаДлительностиХраненияКонтекстноеМеню" id="129"/>
+									<AutoCommandBar name="ТаблицаДлительностиХраненияКоманднаяПанель" id="130"/>
+									<ExtendedTooltip name="ТаблицаДлительностиХраненияРасширеннаяПодсказка" id="131"/>
+									<SearchStringAddition name="ТаблицаДлительностиХраненияСтрокаПоиска" id="132">
+										<AdditionSource>
+											<Item>ТаблицаДлительностиХранения</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ТаблицаДлительностиХраненияСтрокаПоискаКонтекстноеМеню" id="133"/>
+										<ExtendedTooltip name="ТаблицаДлительностиХраненияСтрокаПоискаРасширеннаяПодсказка" id="134"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="ТаблицаДлительностиХраненияСостояниеПросмотра" id="135">
+										<AdditionSource>
+											<Item>ТаблицаДлительностиХранения</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ТаблицаДлительностиХраненияСостояниеПросмотраКонтекстноеМеню" id="136"/>
+										<ExtendedTooltip name="ТаблицаДлительностиХраненияСостояниеПросмотраРасширеннаяПодсказка" id="137"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="ТаблицаДлительностиХраненияУправлениеПоиском" id="138">
+										<AdditionSource>
+											<Item>ТаблицаДлительностиХранения</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="ТаблицаДлительностиХраненияУправлениеПоискомКонтекстноеМеню" id="139"/>
+										<ExtendedTooltip name="ТаблицаДлительностиХраненияУправлениеПоискомРасширеннаяПодсказка" id="140"/>
+									</SearchControlAddition>
+								</Table>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<Pages name="ГруппаТочкаПодключения" id="153">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа точка подключения</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа точка подключения</v8:content>
+						</v8:item>
+					</ToolTip>
+					<PagesRepresentation>None</PagesRepresentation>
+					<ExtendedTooltip name="ГруппаТочкаПодключенияРасширеннаяПодсказка" id="154"/>
+					<ChildItems>
+						<Page name="ГруппаESB" id="155">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа ESB</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа ESB</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="ГруппаESBРасширеннаяПодсказка" id="156"/>
+							<ChildItems>
+								<UsualGroup name="Группа9" id="230">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Точки подключения к адаптеру</v8:content>
+										</v8:item>
+									</Title>
+									<Group>Horizontal</Group>
+									<Representation>StrongSeparation</Representation>
+									<BackColor>web:MistyRose</BackColor>
+									<ExtendedTooltip name="Группа9РасширеннаяПодсказка" id="231"/>
+									<ChildItems>
+										<UsualGroup name="ГруппаЛево" id="232">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа лево</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа лево</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаЛевоРасширеннаяПодсказка" id="233"/>
+											<ChildItems>
+												<LabelField name="сшпАдресАдаптераESB" id="234">
+													<DataPath>НаборКонстант.сшпАдресАдаптераESB</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Адаптер (Адрес)</v8:content>
+														</v8:item>
+													</Title>
+													<Hiperlink>true</Hiperlink>
+													<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+													<ContextMenu name="сшпАдресАдаптераESBКонтекстноеМеню" id="235"/>
+													<ExtendedTooltip name="сшпАдресАдаптераESBРасширеннаяПодсказка" id="236"/>
+													<Events>
+														<Event name="Click">сшпАдресАдаптераESBНажатие</Event>
+													</Events>
+												</LabelField>
+												<LabelField name="сшпИмяСервисаESB" id="237">
+													<DataPath>НаборКонстант.сшпИмяСервисаESB</DataPath>
+													<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+													<ContextMenu name="сшпИмяСервисаESBКонтекстноеМеню" id="238"/>
+													<ExtendedTooltip name="сшпИмяСервисаESBРасширеннаяПодсказка" id="239"/>
+												</LabelField>
+												<LabelField name="сшпИмяТочкиПодключенияESB" id="240">
+													<DataPath>НаборКонстант.сшпИмяТочкиПодключенияESB</DataPath>
+													<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+													<ContextMenu name="сшпИмяТочкиПодключенияESBКонтекстноеМеню" id="241"/>
+													<ExtendedTooltip name="сшпИмяТочкиПодключенияESBРасширеннаяПодсказка" id="242"/>
+												</LabelField>
+												<LabelField name="ТипИспользуеммогоКоннектораESB" id="243">
+													<DataPath>НаборКонстант.сшпТипИспользуемогоКоннектораESB</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Тип коннектора</v8:content>
+														</v8:item>
+													</Title>
+													<Width>15</Width>
+													<HorizontalStretch>false</HorizontalStretch>
+													<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+													<ContextMenu name="ТипИспользуеммогоКоннектораESBКонтекстноеМеню" id="244"/>
+													<ExtendedTooltip name="ТипИспользуеммогоКоннектораESBРасширеннаяПодсказка" id="245"/>
+												</LabelField>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ГруппаПраво" id="246">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа право</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа право</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаПравоРасширеннаяПодсказка" id="247"/>
+											<ChildItems>
+												<LabelField name="сшпФорматСообщений" id="248">
+													<DataPath>НаборКонстант.сшпФорматСообщений</DataPath>
+													<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+													<ContextMenu name="сшпФорматСообщенийКонтекстноеМеню" id="249"/>
+													<ExtendedTooltip name="сшпФорматСообщенийРасширеннаяПодсказка" id="250"/>
+												</LabelField>
+												<LabelField name="сшпРежимПередачиСообщений" id="251">
+													<DataPath>НаборКонстант.сшпРежимПередачиСообщений</DataPath>
+													<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+													<ContextMenu name="сшпРежимПередачиСообщенийКонтекстноеМеню" id="252"/>
+													<ExtendedTooltip name="сшпРежимПередачиСообщенийРасширеннаяПодсказка" id="253"/>
+												</LabelField>
+												<LabelField name="сшпРазмерПакета" id="254">
+													<DataPath>НаборКонстант.сшпРазмерПакета</DataPath>
+													<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+													<ContextMenu name="сшпРазмерПакетаКонтекстноеМеню" id="255"/>
+													<ExtendedTooltip name="сшпРазмерПакетаРасширеннаяПодсказка" id="256"/>
+												</LabelField>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</Page>
+						<Page name="ГруппаWeb" id="186">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа web</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа web</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="ГруппаWebРасширеннаяПодсказка" id="187"/>
+							<ChildItems>
+								<UsualGroup name="Группа11" id="188">
+									<EnableContentChange>true</EnableContentChange>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Точки подключения к web-сервису</v8:content>
+										</v8:item>
+									</Title>
+									<Group>Vertical</Group>
+									<Representation>StrongSeparation</Representation>
+									<BackColor>style:упЦветФонаГруппыСтатуса</BackColor>
+									<ExtendedTooltip name="Группа11РасширеннаяПодсказка" id="189"/>
+									<ChildItems>
+										<UsualGroup name="Группа12" id="190">
+											<EnableContentChange>true</EnableContentChange>
+											<Group>Vertical</Group>
+											<Representation>None</Representation>
+											<United>false</United>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Группа12РасширеннаяПодсказка" id="191"/>
+											<ChildItems>
+												<UsualGroup name="Группа3" id="225">
+													<Group>Horizontal</Group>
+													<Representation>None</Representation>
+													<United>false</United>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="226"/>
+													<ChildItems>
+														<InputField name="сшпАдресАдаптераESB1" id="192">
+															<DataPath>НаборКонстант.сшпАдресАдаптераESB</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Адрес сервиса</v8:content>
+																</v8:item>
+															</Title>
+															<HorizontalStretch>true</HorizontalStretch>
+															<ContextMenu name="сшпАдресАдаптераESB1КонтекстноеМеню" id="193"/>
+															<ExtendedTooltip name="сшпАдресАдаптераESB1РасширеннаяПодсказка" id="194"/>
+														</InputField>
+														<InputField name="ТипИспользуеммогоКоннектораESB1" id="195">
+															<DataPath>НаборКонстант.сшпТипИспользуемогоКоннектораESB</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Тип сервиса</v8:content>
+																</v8:item>
+															</Title>
+															<Width>15</Width>
+															<HorizontalStretch>true</HorizontalStretch>
+															<ContextMenu name="ТипИспользуеммогоКоннектораESB1КонтекстноеМеню" id="196"/>
+															<ExtendedTooltip name="ТипИспользуеммогоКоннектораESB1РасширеннаяПодсказка" id="197"/>
+															<Events>
+																<Event name="OnChange">ТипИспользуеммогоКоннектораESB1ПриИзменении</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</UsualGroup>
+												<InputField name="сшпИмяСервисаESB2" id="227">
+													<DataPath>НаборКонстант.сшпИмяСервисаESB</DataPath>
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<ContextMenu name="сшпИмяСервисаESB2КонтекстноеМеню" id="228"/>
+													<ExtendedTooltip name="сшпИмяСервисаESB2РасширеннаяПодсказка" id="229"/>
+												</InputField>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="Группа13" id="198">
+											<EnableContentChange>true</EnableContentChange>
+											<Group>Horizontal</Group>
+											<Representation>None</Representation>
+											<United>false</United>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Группа13РасширеннаяПодсказка" id="199"/>
+											<ChildItems>
+												<InputField name="упПользовательWebСервиса" id="200">
+													<DataPath>НаборКонстант.упПользовательWebСервиса</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Пользователь</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="упПользовательWebСервисаКонтекстноеМеню" id="201"/>
+													<ExtendedTooltip name="упПользовательWebСервисаРасширеннаяПодсказка" id="202"/>
+												</InputField>
+												<InputField name="упПарольWebСервиса" id="203">
+													<DataPath>НаборКонстант.упПарольWebСервиса</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Пароль</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="упПарольWebСервисаКонтекстноеМеню" id="204"/>
+													<ExtendedTooltip name="упПарольWebСервисаРасширеннаяПодсказка" id="205"/>
+												</InputField>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="Группа14" id="206">
+											<EnableContentChange>true</EnableContentChange>
+											<Group>Horizontal</Group>
+											<Representation>None</Representation>
+											<United>false</United>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Группа14РасширеннаяПодсказка" id="207"/>
+											<ChildItems>
+												<InputField name="сшпРежимПередачиСообщений1" id="208">
+													<DataPath>НаборКонстант.сшпРежимПередачиСообщений</DataPath>
+													<HorizontalStretch>true</HorizontalStretch>
+													<ContextMenu name="сшпРежимПередачиСообщений1КонтекстноеМеню" id="209"/>
+													<ExtendedTooltip name="сшпРежимПередачиСообщений1РасширеннаяПодсказка" id="210"/>
+												</InputField>
+												<InputField name="сшпРазмерПакета1" id="211">
+													<DataPath>НаборКонстант.сшпРазмерПакета</DataPath>
+													<HorizontalStretch>true</HorizontalStretch>
+													<ContextMenu name="сшпРазмерПакета1КонтекстноеМеню" id="212"/>
+													<ExtendedTooltip name="сшпРазмерПакета1РасширеннаяПодсказка" id="213"/>
+												</InputField>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="Группа15" id="214">
+											<EnableContentChange>true</EnableContentChange>
+											<Group>Horizontal</Group>
+											<Representation>None</Representation>
+											<United>false</United>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Группа15РасширеннаяПодсказка" id="215"/>
+											<ChildItems>
+												<InputField name="сшпИмяСервисаESB1" id="216">
+													<DataPath>НаборКонстант.сшпИмяСервисаESB</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Имя сервиса</v8:content>
+														</v8:item>
+													</Title>
+													<Width>50</Width>
+													<HorizontalStretch>true</HorizontalStretch>
+													<ContextMenu name="сшпИмяСервисаESB1КонтекстноеМеню" id="217"/>
+													<ExtendedTooltip name="сшпИмяСервисаESB1РасширеннаяПодсказка" id="218"/>
+												</InputField>
+												<InputField name="сшпФорматСообщений1" id="219">
+													<DataPath>НаборКонстант.сшпФорматСообщений</DataPath>
+													<HorizontalStretch>true</HorizontalStretch>
+													<ContextMenu name="сшпФорматСообщений1КонтекстноеМеню" id="220"/>
+													<ExtendedTooltip name="сшпФорматСообщений1РасширеннаяПодсказка" id="221"/>
+												</InputField>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</Page>
+					</ChildItems>
+				</Pages>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="НаборКонстант" id="1">
+			<Type>
+				<v8:Type>cfg:ConstantsSet</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="ТаблицаДлительностиХранения" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Таблица длительности хранения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ОбновитьИдентификаторИБ" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить идентификатор ИБ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить идентификатор ИБ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОбновитьИдентификаторИБ</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="Обновить" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить настройки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Shortcut>F5</Shortcut>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>Обновить</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

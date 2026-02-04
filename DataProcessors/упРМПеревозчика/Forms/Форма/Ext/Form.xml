@@ -1,0 +1,1163 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
+	<AutoTitle>false</AutoTitle>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаЗаявки" id="1078">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заявки на транспорт</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа заявки на ТС</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Representation>NormalSeparation</Representation>
+			<TitleDataPath>10</TitleDataPath>
+			<ExtendedTooltip name="ГруппаЗаявкиРасширеннаяПодсказка" id="1079"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаБыстрыеОтборы" id="1475">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа быстрые отборы</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа быстрые отборы</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаБыстрыеОтборыРасширеннаяПодсказка" id="1476"/>
+				</UsualGroup>
+				<Table name="ЗаявкиНаТС" id="248">
+					<Height>4</Height>
+					<MultipleChoice>true</MultipleChoice>
+					<RowSelectionMode>Row</RowSelectionMode>
+					<UseAlternationRowColor>true</UseAlternationRowColor>
+					<EnableStartDrag>true</EnableStartDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>ЗаявкиНаТС</DataPath>
+					<RowPictureDataPath>ЗаявкиНаТС.ИндексКартинки</RowPictureDataPath>
+					<RowsPicture>
+						<xr:Ref>CommonPicture.упСтатусыЗаявкиНаТС</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</RowsPicture>
+					<CommandSet>
+						<ExcludedCommand>Copy</ExcludedCommand>
+						<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+						<ExcludedCommand>Create</ExcludedCommand>
+						<ExcludedCommand>Delete</ExcludedCommand>
+						<ExcludedCommand>Post</ExcludedCommand>
+						<ExcludedCommand>SetDeletionMark</ExcludedCommand>
+						<ExcludedCommand>UndoPosting</ExcludedCommand>
+					</CommandSet>
+					<AutoRefresh>false</AutoRefresh>
+					<AutoRefreshPeriod>60</AutoRefreshPeriod>
+					<Period>
+						<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+						<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+						<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+					</Period>
+					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+					<RestoreCurrentRow>false</RestoreCurrentRow>
+					<TopLevelParent xsi:nil="true"/>
+					<ShowRoot>true</ShowRoot>
+					<AllowRootChoice>false</AllowRootChoice>
+					<UpdateOnDataChange>Auto</UpdateOnDataChange>
+					<UserSettingsGroup>ГруппаБыстрыеОтборы</UserSettingsGroup>
+					<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+					<ContextMenu name="ЗаявкиНаТСКонтекстноеМеню" id="249"/>
+					<AutoCommandBar name="ЗаявкиНаТСКоманднаяПанель" id="250">
+						<ChildItems>
+							<Button name="ЗаявкиНаТССформироватьПредложение" id="318">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.СформироватьПредложение</CommandName>
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Предложение</v8:content>
+									</v8:item>
+								</Title>
+								<ExtendedTooltip name="ЗаявкиНаТССформироватьПредложениеРасширеннаяПодсказка" id="319">
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сформировать предложение перевозчика</v8:content>
+										</v8:item>
+									</Title>
+								</ExtendedTooltip>
+							</Button>
+							<Button name="ЗаявкиНаТССформироватьПодтверждение" id="1502">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.СформироватьПодтверждение</CommandName>
+								<ExtendedTooltip name="ЗаявкиНаТССформироватьПодтверждениеРасширеннаяПодсказка" id="1503"/>
+							</Button>
+						</ChildItems>
+					</AutoCommandBar>
+					<ExtendedTooltip name="ЗаявкиНаТСРасширеннаяПодсказка" id="251"/>
+					<SearchStringAddition name="ЗаявкиНаТССтрокаПоиска" id="252">
+						<AdditionSource>
+							<Item>ЗаявкиНаТС</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ЗаявкиНаТССтрокаПоискаКонтекстноеМеню" id="255"/>
+						<ExtendedTooltip name="ЗаявкиНаТССтрокаПоискаРасширеннаяПодсказка" id="256"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="ЗаявкиНаТССостояниеПросмотра" id="257">
+						<AdditionSource>
+							<Item>ЗаявкиНаТС</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ЗаявкиНаТССостояниеПросмотраКонтекстноеМеню" id="260"/>
+						<ExtendedTooltip name="ЗаявкиНаТССостояниеПросмотраРасширеннаяПодсказка" id="261"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="ЗаявкиНаТСУправлениеПоиском" id="262">
+						<AdditionSource>
+							<Item>ЗаявкиНаТС</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="ЗаявкиНаТСУправлениеПоискомКонтекстноеМеню" id="265"/>
+						<ExtendedTooltip name="ЗаявкиНаТСУправлениеПоискомРасширеннаяПодсказка" id="266"/>
+					</SearchControlAddition>
+					<Events>
+						<Event name="Selection">ЗаявкиНаТСВыбор</Event>
+						<Event name="OnActivateRow">ЗаявкиНаТСПриАктивизацииСтроки</Event>
+						<Event name="OnGetDataAtServer">ЗаявкиНаТСПриПолученииДанныхНаСервере</Event>
+					</Events>
+					<ChildItems>
+						<ColumnGroup name="КолонкиЗаявка" id="1432">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Колонки заявка</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Колонки заявка</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Width>20</Width>
+							<ExtendedTooltip name="КолонкиЗаявкаРасширеннаяПодсказка" id="1433"/>
+							<ChildItems>
+								<LabelField name="ЗаявкиНаТССтатусЗаявки" id="276">
+									<DataPath>ЗаявкиНаТС.СтатусЗаявки</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Статус заявки</v8:content>
+										</v8:item>
+									</Title>
+									<Width>20</Width>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<ContextMenu name="ЗаявкиНаТССтатусЗаявкиКонтекстноеМеню" id="277"/>
+									<ExtendedTooltip name="ЗаявкиНаТССтатусЗаявкиРасширеннаяПодсказка" id="278"/>
+								</LabelField>
+								<LabelField name="ЗаявкиНаТСТранспортноеСредство" id="1499">
+									<DataPath>ЗаявкиНаТС.ТранспортноеСредство</DataPath>
+									<Width>20</Width>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<ContextMenu name="ЗаявкиНаТСТранспортноеСредствоКонтекстноеМеню" id="1500"/>
+									<ExtendedTooltip name="ЗаявкиНаТСТранспортноеСредствоРасширеннаяПодсказка" id="1501"/>
+								</LabelField>
+							</ChildItems>
+						</ColumnGroup>
+						<CheckBoxField name="ЗаявкиНаТСТендер" id="1434">
+							<DataPath>ЗаявкиНаТС.Тендер</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Это тендер</v8:content>
+								</v8:item>
+							</ToolTip>
+							<HeaderPicture>
+								<xr:Ref>CommonPicture.упТендер</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</HeaderPicture>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ЗаявкиНаТСТендерКонтекстноеМеню" id="1435"/>
+							<ExtendedTooltip name="ЗаявкиНаТСТендерРасширеннаяПодсказка" id="1436"/>
+						</CheckBoxField>
+						<ColumnGroup name="ЗаявкиНаТСГруппаРасходы" id="1477">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Стоимость перевозки</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Заявки на ТСГруппа расходы</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<ShowInHeader>true</ShowInHeader>
+							<HeaderHorizontalAlign>Center</HeaderHorizontalAlign>
+							<ExtendedTooltip name="ЗаявкиНаТСГруппаРасходыРасширеннаяПодсказка" id="1478"/>
+							<ChildItems>
+								<LabelField name="ЗаявкиНаТССуммаРасходыЗаявлено" id="1479">
+									<DataPath>ЗаявкиНаТС.СуммаРасходыЗаявлено</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Заявлено</v8:content>
+										</v8:item>
+									</Title>
+									<Width>12</Width>
+									<ContextMenu name="ЗаявкиНаТССуммаРасходыЗаявленоКонтекстноеМеню" id="1480"/>
+									<ExtendedTooltip name="ЗаявкиНаТССуммаРасходыЗаявленоРасширеннаяПодсказка" id="1481"/>
+								</LabelField>
+								<LabelField name="ЗаявкиНаТССуммаРасходыПредложено" id="1482">
+									<DataPath>ЗаявкиНаТС.СуммаРасходыПредложено</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Предложено</v8:content>
+										</v8:item>
+									</Title>
+									<Width>12</Width>
+									<ContextMenu name="ЗаявкиНаТССуммаРасходыПредложеноКонтекстноеМеню" id="1483"/>
+									<ExtendedTooltip name="ЗаявкиНаТССуммаРасходыПредложеноРасширеннаяПодсказка" id="1484"/>
+								</LabelField>
+							</ChildItems>
+						</ColumnGroup>
+						<ColumnGroup name="ЗаявленныеПараметры" id="1440">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Заявленные параметры</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Заявленные параметры</v8:content>
+								</v8:item>
+							</ToolTip>
+							<HeaderHorizontalAlign>Center</HeaderHorizontalAlign>
+							<ExtendedTooltip name="ЗаявленныеПараметрыРасширеннаяПодсказка" id="1441"/>
+							<ChildItems>
+								<ColumnGroup name="ЗаявленныеПараметрыВерх" id="1442">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Заявленные параметры верх</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Заявленные параметры верх</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<ExtendedTooltip name="ЗаявленныеПараметрыВерхРасширеннаяПодсказка" id="1443"/>
+									<ChildItems>
+										<LabelField name="ЗаявкиНаТСПлановоеВремяРейса" id="1437">
+											<DataPath>ЗаявкиНаТС.ПлановоеВремяРейса</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Время</v8:content>
+												</v8:item>
+											</Title>
+											<TitleHeight>10</TitleHeight>
+											<Width>24</Width>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<ContextMenu name="ЗаявкиНаТСПлановоеВремяРейсаКонтекстноеМеню" id="1438"/>
+											<ExtendedTooltip name="ЗаявкиНаТСПлановоеВремяРейсаРасширеннаяПодсказка" id="1439"/>
+										</LabelField>
+										<LabelField name="ЗаявкиНаТСМасса" id="1056">
+											<DataPath>ЗаявкиНаТС.Масса</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Масса</v8:content>
+												</v8:item>
+											</Title>
+											<Width>12</Width>
+											<ContextMenu name="ЗаявкиНаТСМассаКонтекстноеМеню" id="1057"/>
+											<ExtendedTooltip name="ЗаявкиНаТСМассаРасширеннаяПодсказка" id="1058"/>
+										</LabelField>
+										<LabelField name="ЗаявкиНаТСОбъем" id="1053">
+											<DataPath>ЗаявкиНаТС.Объем</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Объем</v8:content>
+												</v8:item>
+											</Title>
+											<Width>12</Width>
+											<ContextMenu name="ЗаявкиНаТСОбъемКонтекстноеМеню" id="1054"/>
+											<ExtendedTooltip name="ЗаявкиНаТСОбъемРасширеннаяПодсказка" id="1055"/>
+										</LabelField>
+										<LabelField name="ЗаявкиНаТСКоличествоМест" id="1365">
+											<DataPath>ЗаявкиНаТС.КоличествоМест</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Кол. мест</v8:content>
+												</v8:item>
+											</Title>
+											<Width>12</Width>
+											<ContextMenu name="ЗаявкиНаТСКоличествоМестКонтекстноеМеню" id="1366"/>
+											<ExtendedTooltip name="ЗаявкиНаТСКоличествоМестРасширеннаяПодсказка" id="1367"/>
+										</LabelField>
+										<LabelField name="ЗаявкиНаТСКоличествоЗагрузочныхМетров" id="1368">
+											<DataPath>ЗаявкиНаТС.КоличествоЗагрузочныхМетров</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Кол. метров</v8:content>
+												</v8:item>
+											</Title>
+											<Width>12</Width>
+											<ContextMenu name="ЗаявкиНаТСКоличествоЗагрузочныхМетровКонтекстноеМеню" id="1369"/>
+											<ExtendedTooltip name="ЗаявкиНаТСКоличествоЗагрузочныхМетровРасширеннаяПодсказка" id="1370"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="ЗаявленныеПараметрыНиз" id="1444">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Заявленные параметры верх</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Заявленные параметры верх</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<ExtendedTooltip name="ЗаявленныеПараметрыНизРасширеннаяПодсказка" id="1445"/>
+									<ChildItems>
+										<LabelField name="ЗаявкиНаТСТипТС" id="279">
+											<DataPath>ЗаявкиНаТС.ТипТС</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Тип ТС</v8:content>
+												</v8:item>
+											</Title>
+											<Width>20</Width>
+											<ContextMenu name="ЗаявкиНаТСТипТСКонтекстноеМеню" id="280"/>
+											<ExtendedTooltip name="ЗаявкиНаТСТипТСРасширеннаяПодсказка" id="281"/>
+										</LabelField>
+										<LabelField name="ЗаявкиНаТСЗонаПогрузки" id="1379">
+											<DataPath>ЗаявкиНаТС.ЗонаПогрузки</DataPath>
+											<ContextMenu name="ЗаявкиНаТСЗонаПогрузкиКонтекстноеМеню" id="1380"/>
+											<ExtendedTooltip name="ЗаявкиНаТСЗонаПогрузкиРасширеннаяПодсказка" id="1381"/>
+										</LabelField>
+										<LabelField name="ЗаявкиНаТСЗонаРазгрузки" id="1382">
+											<DataPath>ЗаявкиНаТС.ЗонаРазгрузки</DataPath>
+											<ContextMenu name="ЗаявкиНаТСЗонаРазгрузкиКонтекстноеМеню" id="1383"/>
+											<ExtendedTooltip name="ЗаявкиНаТСЗонаРазгрузкиРасширеннаяПодсказка" id="1384"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+							</ChildItems>
+						</ColumnGroup>
+						<ColumnGroup name="СвязанныеДокументы" id="1495">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Связанные документы</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Связанные документы</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="СвязанныеДокументыРасширеннаяПодсказка" id="1496"/>
+							<ChildItems>
+								<LabelField name="ЗаявкиНаТСПредложение" id="1337">
+									<DataPath>ЗаявкиНаТС.Предложение</DataPath>
+									<Width>30</Width>
+									<ContextMenu name="ЗаявкиНаТСПредложениеКонтекстноеМеню" id="1338"/>
+									<ExtendedTooltip name="ЗаявкиНаТСПредложениеРасширеннаяПодсказка" id="1339"/>
+								</LabelField>
+								<LabelField name="ЗаявкиНаТСПодтверждениеЗаявкиНаТС" id="1429">
+									<DataPath>ЗаявкиНаТС.ПодтверждениеЗаявкиНаТС</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Подтверждение</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ЗаявкиНаТСПодтверждениеЗаявкиНаТСКонтекстноеМеню" id="1430"/>
+									<ExtendedTooltip name="ЗаявкиНаТСПодтверждениеЗаявкиНаТСРасширеннаяПодсказка" id="1431"/>
+								</LabelField>
+							</ChildItems>
+						</ColumnGroup>
+						<ColumnGroup name="ЗаявкиНаТСГруппаРейс" id="1504">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Заявки на ТСГруппа рейс</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Заявки на ТСГруппа рейс</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="ЗаявкиНаТСГруппаРейсРасширеннаяПодсказка" id="1505"/>
+							<ChildItems>
+								<LabelField name="ЗаявкиНаТССтатусРейса" id="1506">
+									<DataPath>ЗаявкиНаТС.СтатусРейса</DataPath>
+									<ContextMenu name="ЗаявкиНаТССтатусРейсаКонтекстноеМеню" id="1507"/>
+									<ExtendedTooltip name="ЗаявкиНаТССтатусРейсаРасширеннаяПодсказка" id="1508"/>
+								</LabelField>
+								<LabelField name="ЗаявкиНаТСРейс" id="867">
+									<DataPath>ЗаявкиНаТС.Рейс</DataPath>
+									<ContextMenu name="ЗаявкиНаТСРейсКонтекстноеМеню" id="868"/>
+									<ExtendedTooltip name="ЗаявкиНаТСРейсРасширеннаяПодсказка" id="869"/>
+								</LabelField>
+							</ChildItems>
+						</ColumnGroup>
+						<ColumnGroup name="ФактическиеПараметры" id="1446">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Фактические параметры</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Фактические параметры</v8:content>
+								</v8:item>
+							</ToolTip>
+							<HeaderHorizontalAlign>Center</HeaderHorizontalAlign>
+							<ExtendedTooltip name="ФактическиеПараметрыРасширеннаяПодсказка" id="1447"/>
+							<ChildItems>
+								<ColumnGroup name="ФактическиеПараметрыВерх" id="1448">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Фактические параметры верх</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Фактические параметры верх</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<ExtendedTooltip name="ФактическиеПараметрыВерхРасширеннаяПодсказка" id="1449"/>
+									<ChildItems>
+										<LabelField name="ЗаявкиНаТСФактическоеВремяРейса" id="1452">
+											<DataPath>ЗаявкиНаТС.ФактическоеВремяРейса</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Время</v8:content>
+												</v8:item>
+											</Title>
+											<Width>24</Width>
+											<ContextMenu name="ЗаявкиНаТСФактическоеВремяРейсаКонтекстноеМеню" id="1453"/>
+											<ExtendedTooltip name="ЗаявкиНаТСФактическоеВремяРейсаРасширеннаяПодсказка" id="1454"/>
+										</LabelField>
+										<LabelField name="ЗаявкиНаТСМассаФакт" id="1455">
+											<DataPath>ЗаявкиНаТС.МассаФакт</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Масса</v8:content>
+												</v8:item>
+											</Title>
+											<Width>12</Width>
+											<ContextMenu name="ЗаявкиНаТСМассаФактКонтекстноеМеню" id="1456"/>
+											<ExtendedTooltip name="ЗаявкиНаТСМассаФактРасширеннаяПодсказка" id="1457"/>
+										</LabelField>
+										<LabelField name="ЗаявкиНаТСОбъемФакт" id="1458">
+											<DataPath>ЗаявкиНаТС.ОбъемФакт</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Объем</v8:content>
+												</v8:item>
+											</Title>
+											<Width>12</Width>
+											<ContextMenu name="ЗаявкиНаТСОбъемФактКонтекстноеМеню" id="1459"/>
+											<ExtendedTooltip name="ЗаявкиНаТСОбъемФактРасширеннаяПодсказка" id="1460"/>
+										</LabelField>
+										<LabelField name="ЗаявкиНаТСКоличествоМестФакт" id="1461">
+											<DataPath>ЗаявкиНаТС.КоличествоМестФакт</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Кол. мест</v8:content>
+												</v8:item>
+											</Title>
+											<Width>12</Width>
+											<ContextMenu name="ЗаявкиНаТСКоличествоМестФактКонтекстноеМеню" id="1462"/>
+											<ExtendedTooltip name="ЗаявкиНаТСКоличествоМестФактРасширеннаяПодсказка" id="1463"/>
+										</LabelField>
+										<LabelField name="ЗаявкиНаТСКоличествоЗагрузочныхМетровФакт" id="1464">
+											<DataPath>ЗаявкиНаТС.КоличествоЗагрузочныхМетровФакт</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Кол. метров</v8:content>
+												</v8:item>
+											</Title>
+											<Width>12</Width>
+											<ContextMenu name="ЗаявкиНаТСКоличествоЗагрузочныхМетровФактКонтекстноеМеню" id="1465"/>
+											<ExtendedTooltip name="ЗаявкиНаТСКоличествоЗагрузочныхМетровФактРасширеннаяПодсказка" id="1466"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="ФактическиеПараметрыНиз" id="1450">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Фактические параметры низ</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Фактические параметры низ</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<ExtendedTooltip name="ФактическиеПараметрыНизРасширеннаяПодсказка" id="1451"/>
+									<ChildItems>
+										<LabelField name="ЗаявкиНаТСЗонаПогрузкиФакт" id="1467">
+											<DataPath>ЗаявкиНаТС.ЗонаПогрузкиФакт</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Зона погрузки</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="ЗаявкиНаТСЗонаПогрузкиФактКонтекстноеМеню" id="1468"/>
+											<ExtendedTooltip name="ЗаявкиНаТСЗонаПогрузкиФактРасширеннаяПодсказка" id="1469"/>
+										</LabelField>
+										<LabelField name="ЗаявкиНаТСЗонаРазгрузкиФакт" id="1470">
+											<DataPath>ЗаявкиНаТС.ЗонаРазгрузкиФакт</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Зона разгрузки</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="ЗаявкиНаТСЗонаРазгрузкиФактКонтекстноеМеню" id="1471"/>
+											<ExtendedTooltip name="ЗаявкиНаТСЗонаРазгрузкиФактРасширеннаяПодсказка" id="1472"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+							</ChildItems>
+						</ColumnGroup>
+						<LabelField name="ЗаявкиНаТССсылка" id="267">
+							<DataPath>~ЗаявкиНаТС.Ref</DataPath>
+							<Visible>false</Visible>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Заявка на ТС</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаявкиНаТССсылкаКонтекстноеМеню" id="268"/>
+							<ExtendedTooltip name="ЗаявкиНаТССсылкаРасширеннаяПодсказка" id="269"/>
+						</LabelField>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаСтраницаПрохожденияТочек" id="1395">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прохождения точек по заявке</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страница прохождения точек</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<ExtendedTooltip name="ГруппаСтраницаПрохожденияТочекРасширеннаяПодсказка" id="1396"/>
+			<ChildItems>
+				<Table name="ПрохождениеТочек" id="1397">
+					<Height>4</Height>
+					<UseAlternationRowColor>true</UseAlternationRowColor>
+					<EnableStartDrag>true</EnableStartDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>ПрохождениеТочек</DataPath>
+					<RowPictureDataPath>ПрохождениеТочек.DefaultPicture</RowPictureDataPath>
+					<AutoRefresh>false</AutoRefresh>
+					<AutoRefreshPeriod>60</AutoRefreshPeriod>
+					<Period>
+						<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+						<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+						<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+					</Period>
+					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+					<RestoreCurrentRow>false</RestoreCurrentRow>
+					<TopLevelParent xsi:nil="true"/>
+					<ShowRoot>true</ShowRoot>
+					<AllowRootChoice>false</AllowRootChoice>
+					<UpdateOnDataChange>Auto</UpdateOnDataChange>
+					<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+					<ContextMenu name="ПрохождениеТочекКонтекстноеМеню" id="1398"/>
+					<AutoCommandBar name="ПрохождениеТочекКоманднаяПанель" id="1399">
+						<Autofill>false</Autofill>
+						<ChildItems>
+							<Button name="ПрохождениеТочекСформироватьПрохождениеТочки" id="1509">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.СформироватьПрохождениеТочки</CommandName>
+								<ExtendedTooltip name="ПрохождениеТочекСформироватьПрохождениеТочкиРасширеннаяПодсказка" id="1510"/>
+							</Button>
+						</ChildItems>
+					</AutoCommandBar>
+					<ExtendedTooltip name="ПрохождениеТочекРасширеннаяПодсказка" id="1400"/>
+					<SearchStringAddition name="ПрохождениеТочекСтрокаПоиска" id="1401">
+						<AdditionSource>
+							<Item>ПрохождениеТочек</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ПрохождениеТочекСтрокаПоискаКонтекстноеМеню" id="1402"/>
+						<ExtendedTooltip name="ПрохождениеТочекСтрокаПоискаРасширеннаяПодсказка" id="1403"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="ПрохождениеТочекСостояниеПросмотра" id="1404">
+						<AdditionSource>
+							<Item>ПрохождениеТочек</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ПрохождениеТочекСостояниеПросмотраКонтекстноеМеню" id="1405"/>
+						<ExtendedTooltip name="ПрохождениеТочекСостояниеПросмотраРасширеннаяПодсказка" id="1406"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="ПрохождениеТочекУправлениеПоиском" id="1407">
+						<AdditionSource>
+							<Item>ПрохождениеТочек</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="ПрохождениеТочекУправлениеПоискомКонтекстноеМеню" id="1408"/>
+						<ExtendedTooltip name="ПрохождениеТочекУправлениеПоискомРасширеннаяПодсказка" id="1409"/>
+					</SearchControlAddition>
+					<ChildItems>
+						<LabelField name="ПрохождениеТочекПеревозчик" id="1422">
+							<DataPath>ПрохождениеТочек.Перевозчик</DataPath>
+							<ContextMenu name="ПрохождениеТочекПеревозчикКонтекстноеМеню" id="1423"/>
+							<ExtendedTooltip name="ПрохождениеТочекПеревозчикРасширеннаяПодсказка" id="1424"/>
+						</LabelField>
+						<LabelField name="ПрохождениеТочекСсылка" id="1419">
+							<DataPath>ПрохождениеТочек.Ref</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<ContextMenu name="ПрохождениеТочекСсылкаКонтекстноеМеню" id="1420"/>
+							<ExtendedTooltip name="ПрохождениеТочекСсылкаРасширеннаяПодсказка" id="1421"/>
+						</LabelField>
+						<LabelField name="ПрохождениеТочекДата" id="1410">
+							<DataPath>ПрохождениеТочек.Date</DataPath>
+							<ContextMenu name="ПрохождениеТочекДатаКонтекстноеМеню" id="1411"/>
+							<ExtendedTooltip name="ПрохождениеТочекДатаРасширеннаяПодсказка" id="1412"/>
+						</LabelField>
+						<LabelField name="ПрохождениеТочекНомер" id="1413">
+							<DataPath>ПрохождениеТочек.Number</DataPath>
+							<ContextMenu name="ПрохождениеТочекНомерКонтекстноеМеню" id="1414"/>
+							<ExtendedTooltip name="ПрохождениеТочекНомерРасширеннаяПодсказка" id="1415"/>
+						</LabelField>
+						<LabelField name="ПрохождениеТочекАдресТочки" id="1416">
+							<DataPath>ПрохождениеТочек.АдресТочки</DataPath>
+							<ContextMenu name="ПрохождениеТочекАдресТочкиКонтекстноеМеню" id="1417"/>
+							<ExtendedTooltip name="ПрохождениеТочекАдресТочкиРасширеннаяПодсказка" id="1418"/>
+						</LabelField>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.упРМПеревозчика</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<Save>
+				<Field>1/0:340d0a3f-26bd-4ca1-890a-1e4d953d512b</Field>
+				<Field>1/0:5b1e9595-1331-4489-94d3-006e04191a01</Field>
+				<Field>1/0:9cde6a09-1600-4f7f-863a-4581eceda858</Field>
+				<Field>1/0:b01d65b4-16b7-4b50-b1fe-8df5d61f39e3</Field>
+				<Field>1/0:ce56db66-8488-4601-9b9b-e20bf019b5f3</Field>
+				<Field>1/0:d86056db-c6cb-499d-967e-74ce34a09187</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ЗаявкиНаТС" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заявки на ТС</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>~ЗаявкиНаТС.Ref</Field>
+				<Field>~ЗаявкиНаТС.Статус</Field>
+				<Field>ЗаявкиНаТС.НачалоВыполненияФакт</Field>
+				<Field>ЗаявкиНаТС.ОкончаниеВыполненияФакт</Field>
+				<Field>ЗаявкиНаТС.ПлановоеНачалоВыполнения</Field>
+				<Field>ЗаявкиНаТС.ПлановоеОкончаниеВыполнения</Field>
+				<Field>ЗаявкиНаТС.ПодтверждениеЗаявкиНаТС</Field>
+				<Field>ЗаявкиНаТС.Предложение</Field>
+				<Field>ЗаявкиНаТС.Рейс</Field>
+				<Field>ЗаявкиНаТС.Ссылка</Field>
+				<Field>ЗаявкиНаТС.СтатусЗаявки</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	упЗаявкаНаТС.Ссылка КАК Ссылка,
+	упЗаявкаНаТС.Тендер КАК Тендер,
+	упЗаявкаНаТС.Перевозчик КАК Перевозчик,
+	упЗаявкаНаТС.Соглашение КАК Соглашение,
+	упЗаявкаНаТС.ТипТС КАК ТипТС,
+	ВЫБОР
+		КОГДА упСтатусыЗаявокНаТССрезПоследних.Статус = ЗНАЧЕНИЕ(Перечисление.упСтатусыЗаявкиНаТС.Отправлена)
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.упСтатусыЗаявкиНаТСДляПеревозчика.Новая)
+		КОГДА упСтатусыЗаявокНаТССрезПоследних.Статус = ЗНАЧЕНИЕ(Перечисление.упСтатусыЗаявкиНаТС.ПолученоПредложение)
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.упСтатусыЗаявкиНаТСДляПеревозчика.ОтправленоПредложение)
+		КОГДА упСтатусыЗаявокНаТССрезПоследних.Статус = ЗНАЧЕНИЕ(Перечисление.упСтатусыЗаявкиНаТС.Подтверждена)
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.упСтатусыЗаявкиНаТСДляПеревозчика.Подтверждена)
+		КОГДА упСтатусыЗаявокНаТССрезПоследних.Статус = ЗНАЧЕНИЕ(Перечисление.упСтатусыЗаявкиНаТС.Отклонена)
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.упСтатусыЗаявкиНаТСДляПеревозчика.Отклонена)
+	КОНЕЦ КАК СтатусЗаявки,
+	упСтатусыЗаявокНаТССрезПоследних.Статус.Порядок КАК ИндексКартинки,
+	упЗаявкаНаТС.Рейс КАК Рейс,
+	ЕСТЬNULL(упЗаявкаНаТС.Объем, 0) КАК Объем,
+	ЕСТЬNULL(упЗаявкаНаТС.Масса, 0) КАК Масса,
+	ЕСТЬNULL(упЗаявкаНаТС.КоличествоМест, 0) КАК КоличествоМест,
+	ЕСТЬNULL(упЗаявкаНаТС.КоличествоЗагрузочныхМетров, 0) КАК КоличествоЗагрузочныхМетров,
+	ЕСТЬNULL(упПлановыеПараметрыРейса.ЗонаПогрузки, ЗНАЧЕНИЕ(Справочник.упГеографическиеЗоны.ПустаяСсылка)) КАК ЗонаПогрузки,
+	ЕСТЬNULL(упПлановыеПараметрыРейса.ЗонаРазгрузки, ЗНАЧЕНИЕ(Справочник.упГеографическиеЗоны.ПустаяСсылка)) КАК ЗонаРазгрузки,
+	ЕСТЬNULL(упЗаявкаНаТС.НачалоРейса, ДАТАВРЕМЯ(1, 1, 1)) КАК ПлановоеНачалоВыполнения,
+	ЕСТЬNULL(упЗаявкаНаТС.ОкончаниеРейса, ДАТАВРЕМЯ(1, 1, 1)) КАК ПлановоеОкончаниеВыполнения,
+	ЕСТЬNULL(упФактическиеПараметрыРейса.Объем, 0) КАК ОбъемФакт,
+	ЕСТЬNULL(упФактическиеПараметрыРейса.Масса, 0) КАК МассаФакт,
+	ЕСТЬNULL(упФактическиеПараметрыРейса.КоличествоМест, 0) КАК КоличествоМестФакт,
+	ЕСТЬNULL(упФактическиеПараметрыРейса.КоличествоЗагрузочныхМетров, 0) КАК КоличествоЗагрузочныхМетровФакт,
+	ЕСТЬNULL(упФактическиеПараметрыРейса.ЗонаПогрузки, ЗНАЧЕНИЕ(Справочник.упГеографическиеЗоны.ПустаяСсылка)) КАК ЗонаПогрузкиФакт,
+	ЕСТЬNULL(упФактическиеПараметрыРейса.ЗонаРазгрузки, ЗНАЧЕНИЕ(Справочник.упГеографическиеЗоны.ПустаяСсылка)) КАК ЗонаРазгрузкиФакт,
+	ЕСТЬNULL(упФактическиеПараметрыРейса.НачалоВыполнения, ДАТАВРЕМЯ(1, 1, 1)) КАК НачалоВыполненияФакт,
+	ЕСТЬNULL(упФактическиеПараметрыРейса.ОкончаниеВыполнения, ДАТАВРЕМЯ(1, 1, 1)) КАК ОкончаниеВыполненияФакт,
+	упПредложенияПеревозчикаСрезПоследних.ПредложениеПеревозчика КАК Предложение,
+	ВЫБОР
+		КОГДА упПеревозчикПоРейсу.Регистратор ССЫЛКА Документ.упПодтверждениеЗаявкиНаТС
+			ТОГДА упПеревозчикПоРейсу.Регистратор
+	КОНЕЦ КАК ПодтверждениеЗаявкиНаТС,
+	ВЫРАЗИТЬ("" КАК СТРОКА(50)) КАК ПлановоеВремяРейса,
+	ВЫРАЗИТЬ("" КАК СТРОКА(50)) КАК ФактическоеВремяРейса,
+	упЗаявкаНаТС.СуммаРасходы КАК СуммаРасходыЗаявлено,
+	ЕСТЬNULL(упПредложенияПеревозчикаСрезПоследних.ПредложениеПеревозчика.СуммаРасходы, 0) КАК СуммаРасходыПредложено,
+	ЕСТЬNULL(упПеревозчикПоРейсу.ТранспортноеСредство, ЗНАЧЕНИЕ(Справочник.упТранспортныеСредства.ПустаяСсылка)) КАК ТранспортноеСредство,
+	ЕСТЬNULL(упСтатусыРейсов.Статус, ЗНАЧЕНИЕ(Перечисление.упСтатусыРейса.Новый)) КАК СтатусРейса
+ИЗ
+	Документ.упЗаявкаНаТС КАК упЗаявкаНаТС
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.упСтатусыЗаявокНаТС.СрезПоследних(, ) КАК упСтатусыЗаявокНаТССрезПоследних
+		ПО упЗаявкаНаТС.Ссылка = упСтатусыЗаявокНаТССрезПоследних.Документ
+			И (упСтатусыЗаявокНаТССрезПоследних.Статус В (ЗНАЧЕНИЕ(Перечисление.упСтатусыЗаявкиНаТС.Отправлена), ЗНАЧЕНИЕ(Перечисление.упСтатусыЗаявкиНаТС.ПолученоПредложение), ЗНАЧЕНИЕ(Перечисление.упСтатусыЗаявкиНаТС.Подтверждена), ЗНАЧЕНИЕ(Перечисление.упСтатусыЗаявкиНаТС.Отклонена)))
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упСтатусыРейсов.СрезПоследних(, ) КАК упСтатусыРейсов
+		ПО упЗаявкаНаТС.Рейс = упСтатусыРейсов.Документ
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упПредложенияПеревозчика.СрезПоследних(, ) КАК упПредложенияПеревозчикаСрезПоследних
+		ПО (упПредложенияПеревозчикаСрезПоследних.ЗаявкаНаТС = упЗаявкаНаТС.Ссылка)
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упПлановыеПараметрыРейса КАК упПлановыеПараметрыРейса
+		ПО упЗаявкаНаТС.Рейс = упПлановыеПараметрыРейса.Рейс
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упФактическиеПараметрыРейса КАК упФактическиеПараметрыРейса
+		ПО упЗаявкаНаТС.Рейс = упФактическиеПараметрыРейса.Рейс
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упПеревозчикПоРейсу.СрезПоследних(, ) КАК упПеревозчикПоРейсу
+		ПО упЗаявкаНаТС.Рейс = упПеревозчикПоРейсу.Рейс</QueryText>
+				<MainTable>Document.упЗаявкаНаТС</MainTable>
+				<AutoSaveUserSettings>false</AutoSaveUserSettings>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>Ссылка.Дата</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ВедетсяВалютныйУчет" id="78">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ведется валютный учет</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="УчитыватьКоличествоМест" id="80">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Учитывать количество мест</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<FunctionalOptions>
+				<Item>FunctionalOption.упУчитыватьКоличествоМест</Item>
+			</FunctionalOptions>
+		</Attribute>
+		<Attribute name="УчитыватьМассу" id="82">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Учитывать массу</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<FunctionalOptions>
+				<Item>FunctionalOption.упУчитыватьМассу</Item>
+			</FunctionalOptions>
+		</Attribute>
+		<Attribute name="УчитыватьОбъем" id="83">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Учитывать объем</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<FunctionalOptions>
+				<Item>FunctionalOption.упУчитыватьОбъем</Item>
+			</FunctionalOptions>
+		</Attribute>
+		<Attribute name="ОбъектАвторизации" id="84">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Объект авторизации</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.упПартнеры</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПрохождениеТочек" id="85">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прохождение точек</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>ПрохождениеТочек.Рейс</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ДокументупПрохождениеТочки.Ссылка,
+	ДокументупПрохождениеТочки.ПометкаУдаления,
+	ДокументупПрохождениеТочки.Номер,
+	ДокументупПрохождениеТочки.Дата,
+	ДокументупПрохождениеТочки.Проведен,
+	ДокументупПрохождениеТочки.АдресТочки,
+	ДокументупПрохождениеТочки.ВремяПростояПоВинеЗаказчикаЧасы,
+	ДокументупПрохождениеТочки.ВремяПростояПоВинеПеревозчикаЧасы,
+	ДокументупПрохождениеТочки.Гараж,
+	ДокументупПрохождениеТочки.ИдентификаторТочки,
+	ДокументупПрохождениеТочки.Комментарий,
+	ДокументупПрохождениеТочки.НачалоВыполнения,
+	ДокументупПрохождениеТочки.НачалоРабот,
+	ДокументупПрохождениеТочки.ОкончаниеВыполнения,
+	ДокументупПрохождениеТочки.РасстояниеОтПредыдущейТочки,
+	ДокументупПрохождениеТочки.Рейс,
+	ДокументупПрохождениеТочки.СобытиеНачалаРаботНаТочке,
+	ДокументупПрохождениеТочки.СобытиеПрибытияНаТочку,
+	ДокументупПрохождениеТочки.СобытиеУбытияСТочки,
+	ДокументупПрохождениеТочки.СозданоПоСобытию,
+	ДокументупПрохождениеТочки.СтрокаНомер,
+	ДокументупПрохождениеТочки.ТипТочки,
+	ДокументупПрохождениеТочки.Работы.(
+		Ссылка,
+		НомерСтроки,
+		Выполнена,
+		СтрокаНомер,
+		Проблема,
+		АдресРазгрузки,
+		Задание,
+		ГрузовоеМесто,
+		Операция,
+		КоличествоГрузов,
+		Отменена,
+		ИдентификаторРаботы,
+		ДополнительнаяОперация,
+		КоличествоДопОпераций,
+		ПроблемаПричинаВозникновенияЭтойРаботы,
+		ТипРегламентногоДокумента,
+		КоличествоЭкземпляровДокумента
+	),
+	ДокументупПрохождениеТочки.МоментВремени,
+	упПеревозчикПоРейсуСрезПоследних.Перевозчик
+ИЗ
+	Документ.упПрохождениеТочки КАК ДокументупПрохождениеТочки
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упПеревозчикПоРейсу.СрезПоследних КАК упПеревозчикПоРейсуСрезПоследних
+		ПО ДокументупПрохождениеТочки.Рейс = упПеревозчикПоРейсуСрезПоследних.Рейс</QueryText>
+				<MainTable>Document.упПрохождениеТочки</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ВалютаУпрУчета" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Валюта регл учета</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Валюты</v8:Type>
+			</Type>
+			<FunctionalOptions>
+				<Item>FunctionalOption.упВедетсяВалютныйУчет</Item>
+			</FunctionalOptions>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ЗаявкиНаТСПредложение</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ЗаявкиНаТС.Тендер</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:НедоступныеДанныеЦвет</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" kind="WindowsFont"/>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>только для тендеров</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Доступность</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ЗаявкиНаТССуммаРасходыПредложено</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:groupType>AndGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ЗаявкиНаТС.СуммаРасходыПредложено</dcsset:left>
+							<dcsset:comparisonType>Less</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:Field">ЗаявкиНаТС.СуммаРасходыЗаявлено</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ЗаявкиНаТС.СуммаРасходыПредложено</dcsset:left>
+							<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+						</dcsset:item>
+						<dcsset:presentation xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Предложили стоимость меньше</v8:content>
+							</v8:item>
+						</dcsset:presentation>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:РезультатУспехЦвет</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ЗаявкиНаТССуммаРасходыПредложено</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:groupType>AndGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ЗаявкиНаТС.СуммаРасходыПредложено</dcsset:left>
+							<dcsset:comparisonType>Greater</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:Field">ЗаявкиНаТС.СуммаРасходыЗаявлено</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ЗаявкиНаТС.СуммаРасходыЗаявлено</dcsset:left>
+							<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+						</dcsset:item>
+						<dcsset:presentation xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Предложили стоимость больше</v8:content>
+							</v8:item>
+						</dcsset:presentation>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:упЦветТекстаОшибки</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="СформироватьПредложение" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сформировать предложение</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сформировать предложение по заявке на транспортное средство </v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CreateListItem</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СформироватьПредложениеПеревозчика</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="СформироватьПодтверждение" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подтверждение</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сформировать подтверждение заявки на ТС</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CreateListItem</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СформироватьПодтверждение</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="СформироватьПрохождениеТочки" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прохождение точки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сформировать прохождение точки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CreateListItem</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СформироватьПрохождениеТочки</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+	</Commands>
+</Form>

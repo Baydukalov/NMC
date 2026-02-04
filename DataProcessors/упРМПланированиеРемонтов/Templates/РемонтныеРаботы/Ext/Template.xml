@@ -1,0 +1,573 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>РемонтныеРаботы</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТипРемонта</dataPath>
+			<field>ТипРемонта</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип ремонта</v8:content>
+				</v8:item>
+			</title>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаОкончания</dataPath>
+			<field>ДатаОкончания</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата окончания</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Факт</dataPath>
+			<field>Факт</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Факт</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Гараж</dataPath>
+			<field>Гараж</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Гараж</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МестоРемонта</dataPath>
+			<field>МестоРемонта</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Место ремонта</v8:content>
+				</v8:item>
+			</title>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидРемонта</dataPath>
+			<field>ВидРемонта</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вид ремонта</v8:content>
+				</v8:item>
+			</title>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГрафикРаботы</dataPath>
+			<field>ГрафикРаботы</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТранспортноеСредство</dataPath>
+			<field>ТранспортноеСредство</field>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаНачала</dataPath>
+			<field>ДатаНачала</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата начала</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Документ</dataPath>
+			<field>Документ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документ</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Статус</dataPath>
+			<field>Статус</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ИндексСтатуса</dataPath>
+			<field>ИндексСтатуса</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Индекс статуса</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Подразделение</dataPath>
+			<field>Подразделение</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подразделение</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Регистратор</dataPath>
+			<field>Регистратор</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>//{Запрос: 0 ////////////////////////////////////////
+// Доступные гаражи и места ремонта
+ВЫБРАТЬ
+	упГаражи.Ссылка КАК Гараж,
+	упГаражи.ГрафикРаботы КАК ГрафикРаботы,
+	упМестаРемонта.Ссылка КАК МестоРемонта
+ПОМЕСТИТЬ втМестаРемонтов
+ИЗ
+	Справочник.упГаражи КАК упГаражи
+	ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.упМестаРемонта КАК упМестаРемонта
+	ПО ИСТИНА
+		И упГаражи.Ссылка В  (&amp;Гараж)
+		И упГаражи.Ссылка = упМестаРемонта.Владелец
+		И НЕ (упМестаРемонта.ПометкаУдаления)
+		И НЕ (упМестаРемонта.Закрыто)
+;
+//{Запрос: 1 ////////////////////////////////////////
+// Фактическое расписание работы гаража.
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	втМестаРемонтов.Гараж КАК Гараж,
+	втМестаРемонтов.МестоРемонта КАК МестоРемонта,
+	упФактическоеРасписаниеРаботыГаража.Регистратор КАК Регистратор,
+	упФактическоеРасписаниеРаботыГаража.НачалоРемонта КАК НачалоРемонта,
+	упФактическоеРасписаниеРаботыГаража.ОкончаниеРемонта КАК ОкончаниеРемонта,
+	упФактическоеРасписаниеРаботыГаража.ТранспортноеСредство КАК ТранспортноеСредство
+ПОМЕСТИТЬ втФакт
+ИЗ
+	втМестаРемонтов КАК втМестаРемонтов
+	ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.упФактическоеРасписаниеРаботыГаража КАК упФактическоеРасписаниеРаботыГаража
+	ПО ИСТИНА
+		И втМестаРемонтов.Гараж = упФактическоеРасписаниеРаботыГаража.Гараж
+		И втМестаРемонтов.МестоРемонта = упФактическоеРасписаниеРаботыГаража.МестоРемонта
+		И упФактическоеРасписаниеРаботыГаража.НачалоРемонта &lt;= &amp;ОкончаниеПериода
+		И упФактическоеРасписаниеРаботыГаража.ОкончаниеРемонта &gt;= &amp;НачалоПериода
+;
+//{Запрос: 2 ////////////////////////////////////////
+// Плановое расписание работы гаража,
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	втМестаРемонтов.Гараж КАК Гараж,
+	втМестаРемонтов.МестоРемонта КАК МестоРемонта,
+	упПлановоеРасписаниеРаботыГаража.НачалоРемонта КАК НачалоРемонта,
+	упПлановоеРасписаниеРаботыГаража.ОкончаниеРемонта КАК ОкончаниеРемонта,
+	упПлановоеРасписаниеРаботыГаража.ТранспортноеСредство КАК ТранспортноеСредство,
+	упПлановоеРасписаниеРаботыГаража.Регистратор КАК Регистратор
+ПОМЕСТИТЬ втПлан
+ИЗ
+	втМестаРемонтов КАК втМестаРемонтов
+	ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.упПлановоеРасписаниеРаботыГаража КАК упПлановоеРасписаниеРаботыГаража
+	ПО ИСТИНА
+		И втМестаРемонтов.Гараж = упПлановоеРасписаниеРаботыГаража.Гараж
+		И втМестаРемонтов.МестоРемонта = упПлановоеРасписаниеРаботыГаража.МестоРемонта
+		И упПлановоеРасписаниеРаботыГаража.НачалоРемонта &lt;= &amp;ОкончаниеПериода
+		И упПлановоеРасписаниеРаботыГаража.ОкончаниеРемонта &gt;= &amp;НачалоПериода
+;
+//{Запрос: 3 ////////////////////////////////////////
+ВЫБРАТЬ
+	втПланТ.Регистратор КАК Регистратор,
+	МАКСИМУМ(упРемонтИТОТС.Ссылка) КАК Ремонт,
+	МАКСИМУМ(ВЫБОР
+		КОГДА втФакт.Регистратор ЕСТЬ NULL
+			ТОГДА ЛОЖЬ
+		ИНАЧЕ ИСТИНА
+	КОНЕЦ) КАК ЕстьФакт
+ПОМЕСТИТЬ втРемонтыПоЗаявкам
+ИЗ
+	втПлан КАК втПланТ
+	ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.упРемонтИТОТС КАК упРемонтИТОТС
+	ПО втПланТ.Регистратор = упРемонтИТОТС.ЗаявкаНаРемонтИТО
+	ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упСтатусыРемонтовИТОТС.СрезПоследних КАК упСтатусыРемонтовИТОТС
+	ПО упРемонтИТОТС.Ссылка = упСтатусыРемонтовИТОТС.Документ
+	ЛЕВОЕ СОЕДИНЕНИЕ втФакт КАК втФакт
+	ПО упРемонтИТОТС.Ссылка = втФакт.Регистратор
+ГДЕ ИСТИНА
+	И НЕ (упРемонтИТОТС.ПометкаУдаления)
+	И ЕСТЬNULL(упСтатусыРемонтовИТОТС.Статус, ЗНАЧЕНИЕ(Перечисление.упСтатусыРемонтаИТОТС.Новый)) &lt;&gt; ЗНАЧЕНИЕ(Перечисление.упСтатусыРемонтаИТОТС.Отменен)
+СГРУППИРОВАТЬ ПО
+	втПланТ.Регистратор
+;
+//{Запрос: 4 ////////////////////////////////////////
+// Раписание ремонтов за период включает в себя фактическое расписание,
+// если его нет то плановое расписание,
+// при этом из планового расписания исключаются периоды с регистраторами:
+//  1. Заявками по которым:
+//			* есть ремонт в статусе "Новый"  - он будет доступен для планирования.
+//			* или есть записанный ремонт без пометки удаления
+//          * или есть ремонт с заданным фактическим расписанием
+//  2. Ремонтами с заданным фактическим расписанием
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	втПланТ.Гараж КАК Гараж,
+	втПланТ.МестоРемонта КАК МестоРемонта,
+	втПланТ.НачалоРемонта КАК ДатаНачала,
+	втПланТ.ОкончаниеРемонта КАК ДатаОкончания,
+	втПланТ.Регистратор КАК Регистратор,
+	ЕСТЬNULL(втРемонтыПоЗаявкам.Ремонт, втПланТ.Регистратор) КАК Документ,
+	втПланТ.ТранспортноеСредство КАК ТранспортноеСредство,
+	ВЫБОР
+		КОГДА ТИПЗНАЧЕНИЯ(ЕСТЬNULL(втРемонтыПоЗаявкам.Ремонт, втПланТ.Регистратор)) = ТИП(Документ.упРемонтИТОТС)
+			ТОГДА ВЫРАЗИТЬ(ЕСТЬNULL(втРемонтыПоЗаявкам.Ремонт, втПланТ.Регистратор) КАК Документ.упРемонтИТОТС).ВидРемонта
+		КОГДА ТИПЗНАЧЕНИЯ(ЕСТЬNULL(втРемонтыПоЗаявкам.Ремонт, втПланТ.Регистратор)) = ТИП(Документ.упЗаявкаНаРемонтИТОТС)
+			ТОГДА ВЫРАЗИТЬ(ЕСТЬNULL(втРемонтыПоЗаявкам.Ремонт, втПланТ.Регистратор) КАК Документ.упЗаявкаНаРемонтИТОТС).ВидРемонта
+		ИНАЧЕ ЗНАЧЕНИЕ(Справочник.упВидыРемонтов.ПустаяСсылка)
+	КОНЕЦ КАК ВидРемонта,
+	ВЫБОР
+		КОГДА ТИПЗНАЧЕНИЯ(ЕСТЬNULL(втРемонтыПоЗаявкам.Ремонт, втПланТ.Регистратор)) = ТИП(Документ.упРемонтИТОТС)
+			ТОГДА ВЫРАЗИТЬ(ЕСТЬNULL(втРемонтыПоЗаявкам.Ремонт, втПланТ.Регистратор) КАК Документ.упРемонтИТОТС).ВидРемонта.ТипРемонта
+		КОГДА ТИПЗНАЧЕНИЯ(ЕСТЬNULL(втРемонтыПоЗаявкам.Ремонт, втПланТ.Регистратор)) = ТИП(Документ.упЗаявкаНаРемонтИТОТС)
+			ТОГДА ВЫРАЗИТЬ(ЕСТЬNULL(втРемонтыПоЗаявкам.Ремонт, втПланТ.Регистратор) КАК Документ.упЗаявкаНаРемонтИТОТС).ВидРемонта.ТипРемонта
+		ИНАЧЕ ЗНАЧЕНИЕ(Перечисление.упТипыРемонтов.ПустаяСсылка)
+	КОНЕЦ КАК ТипРемонта,
+	ЛОЖЬ КАК Факт,
+	ВЫБОР
+		КОГДА ТИПЗНАЧЕНИЯ(ЕСТЬNULL(втРемонтыПоЗаявкам.Ремонт, втПланТ.Регистратор)) = ТИП(Документ.упРемонтИТОТС)
+			ТОГДА упСтатусыРемонтовИТОТС.Статус
+		КОГДА ТИПЗНАЧЕНИЯ(ЕСТЬNULL(втРемонтыПоЗаявкам.Ремонт, втПланТ.Регистратор)) = ТИП(Документ.упЗаявкаНаРемонтИТОТС)
+			ТОГДА упСтатусыЗаявокНаРемонтИТОТССрезПоследних.Статус
+		ИНАЧЕ ЗНАЧЕНИЕ(Перечисление.упСтатусыЗаявкиНаРемонтИТОТС.ПустаяСсылка)
+	КОНЕЦ КАК Статус,
+	ВЫБОР
+		КОГДА ТИПЗНАЧЕНИЯ(ЕСТЬNULL(втРемонтыПоЗаявкам.Ремонт, втПланТ.Регистратор)) = ТИП(Документ.упРемонтИТОТС)
+			ТОГДА упСтатусыРемонтовИТОТС.Статус.Порядок
+		КОГДА ТИПЗНАЧЕНИЯ(ЕСТЬNULL(втРемонтыПоЗаявкам.Ремонт, втПланТ.Регистратор)) = ТИП(Документ.упЗаявкаНаРемонтИТОТС)
+			ТОГДА ВЫБОР
+				КОГДА упСтатусыЗаявокНаРемонтИТОТССрезПоследних.Статус = ЗНАЧЕНИЕ(Перечисление.упСтатусыЗаявкиНаРемонтИТОТС.Согласована)
+					ТОГДА 2
+				КОГДА упСтатусыЗаявокНаРемонтИТОТССрезПоследних.Статус = ЗНАЧЕНИЕ(Перечисление.упСтатусыЗаявкиНаРемонтИТОТС.КВыполнению)
+					ТОГДА 2
+				КОГДА упСтатусыЗаявокНаРемонтИТОТССрезПоследних.Статус = ЗНАЧЕНИЕ(Перечисление.упСтатусыЗаявкиНаРемонтИТОТС.СформированРемонт)
+					ТОГДА 2
+				КОГДА упСтатусыЗаявокНаРемонтИТОТССрезПоследних.Статус = ЗНАЧЕНИЕ(Перечисление.упСтатусыЗаявкиНаРемонтИТОТС.ВРемонте)
+					ТОГДА 3
+				КОГДА упСтатусыЗаявокНаРемонтИТОТССрезПоследних.Статус = ЗНАЧЕНИЕ(Перечисление.упСтатусыЗаявкиНаРемонтИТОТС.Выполнена)
+					ТОГДА 4
+				ИНАЧЕ 0
+			КОНЕЦ
+		ИНАЧЕ 0
+	КОНЕЦ КАК ИндексСтатуса,
+	ЕСТЬNULL(упПодразделенияТранспортныхСредствСрезПоследних.Подразделение, ЗНАЧЕНИЕ(Справочник.упСтруктураПредприятия.ПустаяСсылка)) КАК Подразделение
+ПОМЕСТИТЬ втРасписанияРаботыГаражей
+ИЗ
+	втПлан КАК втПланТ
+	ЛЕВОЕ СОЕДИНЕНИЕ втФакт КАК втФактТ
+	ПО втФактТ.Регистратор = втПланТ.Регистратор
+	ЛЕВОЕ СОЕДИНЕНИЕ втРемонтыПоЗаявкам КАК втРемонтыПоЗаявкам
+	ПО втПланТ.Регистратор = втРемонтыПоЗаявкам.Регистратор
+	ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упСтатусыРемонтовИТОТС.СрезПоследних КАК упСтатусыРемонтовИТОТС
+	ПО втРемонтыПоЗаявкам.Ремонт = упСтатусыРемонтовИТОТС.Документ
+	ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упПодразделенияТранспортныхСредств.СрезПоследних КАК упПодразделенияТранспортныхСредствСрезПоследних
+	ПО втПланТ.ТранспортноеСредство = упПодразделенияТранспортныхСредствСрезПоследних.ТранспортноеСредство
+	ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упСтатусыЗаявокНаРемонтИТОТС.СрезПоследних КАК упСтатусыЗаявокНаРемонтИТОТССрезПоследних
+	ПО втПланТ.Регистратор = упСтатусыЗаявокНаРемонтИТОТССрезПоследних.Документ
+ГДЕ ИСТИНА
+	И втФактТ.Регистратор ЕСТЬ NULL
+	И НЕ (ЕСТЬNULL(втРемонтыПоЗаявкам.ЕстьФакт, ЛОЖЬ))
+	И (ЛОЖЬ
+		ИЛИ втРемонтыПоЗаявкам.Ремонт ЕСТЬ NULL
+		ИЛИ НЕ втРемонтыПоЗаявкам.Ремонт ЕСТЬ NULL И упСтатусыРемонтовИТОТС.Статус = ЗНАЧЕНИЕ(Перечисление.упСтатусыРемонтаИТОТС.Новый)
+		ИЛИ ЕСТЬNULL(упСтатусыРемонтовИТОТС.Статус, ЗНАЧЕНИЕ(Перечисление.упСтатусыРемонтаИТОТС.Отменен)) &lt;&gt; ЗНАЧЕНИЕ(Перечисление.упСтатусыРемонтаИТОТС.Новый))
+ОБЪЕДИНИТЬ ВСЕ
+ВЫБРАТЬ
+	втФактТ.Гараж КАК Гараж,
+	втФактТ.МестоРемонта КАК МестоРемонта,
+	втФактТ.НачалоРемонта КАК ДатаНачала,
+	втФактТ.ОкончаниеРемонта КАК ДатаОкончания,
+	втФактТ.Регистратор КАК Регистратор,
+	втФактТ.Регистратор КАК Документ,
+	втФактТ.ТранспортноеСредство КАК ТранспортноеСредство,
+	ВЫБОР
+		КОГДА ТИПЗНАЧЕНИЯ(втФактТ.Регистратор) = ТИП(Документ.упРемонтИТОТС)
+			ТОГДА ВЫРАЗИТЬ(втФактТ.Регистратор КАК Документ.упРемонтИТОТС).ВидРемонта
+		ИНАЧЕ ЗНАЧЕНИЕ(Справочник.упВидыРемонтов.ПустаяСсылка)
+	КОНЕЦ КАК ВидРемонта,
+	ВЫБОР
+		КОГДА ТИПЗНАЧЕНИЯ(втФактТ.Регистратор) = ТИП(Документ.упРемонтИТОТС)
+			ТОГДА ВЫРАЗИТЬ(втФактТ.Регистратор КАК Документ.упРемонтИТОТС).ВидРемонта.ТипРемонта
+		ИНАЧЕ ЗНАЧЕНИЕ(Перечисление.упТипыРемонтов.ПустаяСсылка)
+	КОНЕЦ КАК ТипРемонта,
+	ИСТИНА КАК Факт,
+	ЕСТЬNULL(упСтатусыРемонтовИТОТС.Статус, ЗНАЧЕНИЕ(Перечисление.упСтатусыЗаявкиНаРемонтИТОТС.ПустаяСсылка)) КАК Статус,
+	ЕСТЬNULL(упСтатусыРемонтовИТОТС.Статус.Порядок, 0) КАК ИндексСтатуса,
+	ЕСТЬNULL(упПодразделенияТранспортныхСредствСрезПоследних.Подразделение, ЗНАЧЕНИЕ(Справочник.упСтруктураПредприятия.ПустаяСсылка)) КАК Подразделение
+ИЗ
+	втФакт КАК втФактТ
+	ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упПодразделенияТранспортныхСредств.СрезПоследних КАК упПодразделенияТранспортныхСредствСрезПоследних
+	ПО втФактТ.ТранспортноеСредство = упПодразделенияТранспортныхСредствСрезПоследних.ТранспортноеСредство
+	ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упСтатусыЗаявокНаРемонтИТОТС.СрезПоследних КАК упСтатусыЗаявокНаРемонтИТОТССрезПоследних
+	ПО втФактТ.Регистратор = упСтатусыЗаявокНаРемонтИТОТССрезПоследних.Документ
+	ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упСтатусыРемонтовИТОТС.СрезПоследних КАК упСтатусыРемонтовИТОТС
+	ПО втФактТ.Регистратор = упСтатусыРемонтовИТОТС.Документ
+;
+//{Запрос: 5 ////////////////////////////////////////
+ВЫБРАТЬ
+	втРасписанияРаботыГаражейТ.ВидРемонта КАК ВидРемонта,
+	втРасписанияРаботыГаражейТ.ДатаНачала КАК ДатаНачала,
+	втРасписанияРаботыГаражейТ.ДатаОкончания КАК ДатаОкончания,
+	втРасписанияРаботыГаражейТ.Документ КАК Документ,
+	втРасписанияРаботыГаражейТ.ИндексСтатуса КАК ИндексСтатуса,
+	втРасписанияРаботыГаражейТ.Подразделение КАК Подразделение,
+	втРасписанияРаботыГаражейТ.Регистратор КАК Регистратор,
+	втРасписанияРаботыГаражейТ.Статус КАК Статус,
+	втРасписанияРаботыГаражейТ.ТипРемонта КАК ТипРемонта,
+	втРасписанияРаботыГаражейТ.ТранспортноеСредство КАК ТранспортноеСредство,
+	втРасписанияРаботыГаражейТ.Факт КАК Факт,
+	втМестаРемонтовТ.ГрафикРаботы КАК ГрафикРаботы,
+	втМестаРемонтовТ.Гараж КАК Гараж,
+	втМестаРемонтовТ.МестоРемонта КАК МестоРемонта
+ИЗ
+	втМестаРемонтов КАК втМестаРемонтовТ
+	ЛЕВОЕ СОЕДИНЕНИЕ втРасписанияРаботыГаражей КАК втРасписанияРаботыГаражейТ
+	ПО ИСТИНА
+		И втРасписанияРаботыГаражейТ.Гараж = втМестаРемонтовТ.Гараж
+		И втРасписанияРаботыГаражейТ.МестоРемонта = втМестаРемонтовТ.МестоРемонта
+УПОРЯДОЧИТЬ ПО
+	ДатаНачала        </query>
+	</dataSet>
+	<calculatedField>
+		<dataPath>ВидРемонтаПредставление</dataPath>
+		<expression>Представление(ВидРемонта)</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Вид ремонта представление</v8:content>
+			</v8:item>
+		</title>
+		<useRestriction>
+			<condition>true</condition>
+		</useRestriction>
+	</calculatedField>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>Гараж</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Гараж</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.упГаражи</v8:Type>
+		</valueType>
+		<useRestriction>true</useRestriction>
+		<valueListAllowed>true</valueListAllowed>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ОкончаниеПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Окончание периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Гараж</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ГрафикРаботы</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаНачала</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаОкончания</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>МестоРемонта</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТранспортноеСредство</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВидРемонта</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Факт</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВидРемонтаПредставление</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТипРемонта</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Документ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Статус</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ИндексСтатуса</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Подразделение</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Гараж</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>ГрафикРаботы</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>МестоРемонта</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

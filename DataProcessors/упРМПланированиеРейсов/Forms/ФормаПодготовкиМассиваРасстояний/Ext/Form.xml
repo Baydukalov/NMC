@@ -1,0 +1,1289 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Подготовка массива расстояний</v8:content>
+		</v8:item>
+	</Title>
+	<AutoTitle>false</AutoTitle>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="OnClose">ПриЗакрытии</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаГлавная" id="95">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа главная</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа главная</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаГлавнаяРасширеннаяПодсказка" id="96"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаВсе" id="97">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа все</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа все</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаВсеРасширеннаяПодсказка" id="98"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаСостояниеВсе" id="84">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Расстояния между всеми адресами:</v8:content>
+								</v8:item>
+							</Title>
+							<TitleFont ref="style:NormalTextFont" height="12" kind="StyleItem"/>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа состояние все</v8:content>
+								</v8:item>
+							</ToolTip>
+							<HorizontalStretch>false</HorizontalStretch>
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ExtendedTooltip name="ГруппаСостояниеВсеРасширеннаяПодсказка" id="85"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаРассчитано" id="8">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа рассчитано</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа рассчитано</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаРассчитаноРасширеннаяПодсказка" id="9"/>
+									<ChildItems>
+										<LabelField name="Рассчитано" id="10">
+											<DataPath>Рассчитано</DataPath>
+											<TitleTextColor>#000080</TitleTextColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+											<Format>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>ЧН=</v8:content>
+												</v8:item>
+											</Format>
+											<TextColor>#000080</TextColor>
+											<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+											<ContextMenu name="РассчитаноКонтекстноеМеню" id="11"/>
+											<ExtendedTooltip name="РассчитаноExtendedTooltip" id="12"/>
+										</LabelField>
+										<LabelDecoration name="Декорация11" id="13">
+											<TextColor>#000080</TextColor>
+											<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>%   (</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="Декорация11КонтекстноеМеню" id="14"/>
+											<ExtendedTooltip name="Декорация11ExtendedTooltip" id="15"/>
+										</LabelDecoration>
+										<LabelField name="РассчитаноКоличество" id="16">
+											<DataPath>РассчитаноКоличество</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<Format>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>ЧН=</v8:content>
+												</v8:item>
+											</Format>
+											<TextColor>#000080</TextColor>
+											<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+											<ContextMenu name="РассчитаноКоличествоКонтекстноеМеню" id="17"/>
+											<ExtendedTooltip name="РассчитаноКоличествоExtendedTooltip" id="18"/>
+										</LabelField>
+										<LabelDecoration name="Декорация22" id="19">
+											<TextColor>#000080</TextColor>
+											<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>)</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="Декорация22КонтекстноеМеню" id="20"/>
+											<ExtendedTooltip name="Декорация22ExtendedTooltip" id="21"/>
+										</LabelDecoration>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаПросрочено" id="22">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа просрочено</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа просрочено</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаПросроченоРасширеннаяПодсказка" id="23"/>
+									<ChildItems>
+										<LabelField name="Просрочено" id="24">
+											<DataPath>Просрочено</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Из них устарело</v8:content>
+												</v8:item>
+											</Title>
+											<TitleTextColor>#000080</TitleTextColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+											<Format>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>ЧН=</v8:content>
+												</v8:item>
+											</Format>
+											<TextColor>#000080</TextColor>
+											<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+											<ContextMenu name="ПросроченоКонтекстноеМеню" id="25"/>
+											<ExtendedTooltip name="ПросроченоExtendedTooltip" id="26"/>
+										</LabelField>
+										<LabelDecoration name="Декорация12" id="27">
+											<TextColor>#000080</TextColor>
+											<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>%   (</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="Декорация12КонтекстноеМеню" id="28"/>
+											<ExtendedTooltip name="Декорация12ExtendedTooltip" id="29"/>
+										</LabelDecoration>
+										<LabelField name="ПросроченоКоличество" id="30">
+											<DataPath>ПросроченоКоличество</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<Format>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>ЧН=</v8:content>
+												</v8:item>
+											</Format>
+											<TextColor>#000080</TextColor>
+											<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+											<ContextMenu name="ПросроченоКоличествоКонтекстноеМеню" id="31"/>
+											<ExtendedTooltip name="ПросроченоКоличествоExtendedTooltip" id="32"/>
+										</LabelField>
+										<LabelDecoration name="Декорация23" id="33">
+											<TextColor>#000080</TextColor>
+											<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>)</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="Декорация23КонтекстноеМеню" id="34"/>
+											<ExtendedTooltip name="Декорация23ExtendedTooltip" id="35"/>
+										</LabelDecoration>
+										<Button name="ПоказатьУстаревшие" id="75">
+											<Type>UsualButton</Type>
+											<CommandName>Form.Command.ПоказатьУстаревшие</CommandName>
+											<ExtendedTooltip name="ПоказатьУстаревшиеРасширеннаяПодсказка" id="76"/>
+										</Button>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаНеРассчитано" id="36">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа не рассчитано</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа не рассчитано</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаНеРассчитаноРасширеннаяПодсказка" id="37"/>
+									<ChildItems>
+										<LabelField name="НеРассчитано" id="38">
+											<DataPath>НеРассчитано</DataPath>
+											<TitleTextColor>#000080</TitleTextColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+											<Format>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>ЧН=</v8:content>
+												</v8:item>
+											</Format>
+											<TextColor>#000080</TextColor>
+											<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+											<ContextMenu name="НеРассчитаноКонтекстноеМеню" id="39"/>
+											<ExtendedTooltip name="НеРассчитаноExtendedTooltip" id="40"/>
+										</LabelField>
+										<LabelDecoration name="Декорация13" id="41">
+											<TextColor>#000080</TextColor>
+											<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>%   (</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="Декорация13КонтекстноеМеню" id="42"/>
+											<ExtendedTooltip name="Декорация13ExtendedTooltip" id="43"/>
+										</LabelDecoration>
+										<LabelField name="НеРассчитаноКоличество" id="44">
+											<DataPath>НеРассчитаноКоличество</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<Format>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>ЧН=</v8:content>
+												</v8:item>
+											</Format>
+											<TextColor>#000080</TextColor>
+											<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+											<ContextMenu name="НеРассчитаноКоличествоКонтекстноеМеню" id="45"/>
+											<ExtendedTooltip name="НеРассчитаноКоличествоExtendedTooltip" id="46"/>
+										</LabelField>
+										<LabelDecoration name="Декорация24" id="47">
+											<TextColor>#000080</TextColor>
+											<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>)</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="Декорация24КонтекстноеМеню" id="48"/>
+											<ExtendedTooltip name="Декорация24ExtendedTooltip" id="49"/>
+										</LabelDecoration>
+										<Button name="ПоказатьНеРассчитанныеВсе" id="73">
+											<Type>UsualButton</Type>
+											<CommandName>Form.Command.ПоказатьНерассчитанныеВсе</CommandName>
+											<ExtendedTooltip name="ПоказатьНеРассчитанныеВсеРасширеннаяПодсказка" id="74"/>
+										</Button>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаКомандВсе" id="50">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа команд все</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа команд все</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаКомандВсеРасширеннаяПодсказка" id="51"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаРассчитать" id="52">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа рассчитать</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа рассчитать</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаРассчитатьРасширеннаяПодсказка" id="53"/>
+									<ChildItems>
+										<Button name="Рассчитать" id="54">
+											<Type>UsualButton</Type>
+											<Width>30</Width>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<CommandName>Form.Command.Рассчитать</CommandName>
+											<ToolTipRepresentation>Button</ToolTipRepresentation>
+											<ExtendedTooltip name="РассчитатьExtendedTooltip" id="55"/>
+										</Button>
+										<LabelDecoration name="Декорация17" id="90">
+											<Visible>false</Visible>
+											<Width>30</Width>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<TextColor>#000080</TextColor>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Производит расчет массива расстояний, которые еще не рассчитывались или уже устарели</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="Декорация17КонтекстноеМеню" id="91"/>
+											<ExtendedTooltip name="Декорация17РасширеннаяПодсказка" id="92"/>
+										</LabelDecoration>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаРассчитатьНерассчитанные" id="59">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа рассчитать нерассчитанные</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа рассчитать нерассчитанные</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаРассчитатьНерассчитанныеРасширеннаяПодсказка" id="60"/>
+									<ChildItems>
+										<Button name="РассчитатьТолькоНерассчитанные" id="61">
+											<Type>UsualButton</Type>
+											<Width>30</Width>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<CommandName>Form.Command.РассчитатьТолькоНерассчитанные</CommandName>
+											<Font ref="sys:DefaultGUIFont" height="11" kind="WindowsFont"/>
+											<ToolTipRepresentation>Button</ToolTipRepresentation>
+											<ExtendedTooltip name="РассчитатьТолькоНерассчитанныеExtendedTooltip" id="62"/>
+										</Button>
+										<LabelDecoration name="Декорация15" id="63">
+											<Visible>false</Visible>
+											<Width>30</Width>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<TextColor>#000080</TextColor>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Производит расчет только нерассчитанного массива расстояний, а перерасчет устаревших не происходит</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="Декорация15КонтекстноеМеню" id="64"/>
+											<ExtendedTooltip name="Декорация15ExtendedTooltip" id="65"/>
+										</LabelDecoration>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаИгнорировать" id="66">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа игнорировать</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа игнорировать</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаИгнорироватьРасширеннаяПодсказка" id="67"/>
+									<ChildItems>
+										<Button name="ПропуститьРасчет" id="68">
+											<Type>UsualButton</Type>
+											<Width>30</Width>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<CommandName>Form.Command.ПропуститьРасчет</CommandName>
+											<Font ref="sys:DefaultGUIFont" height="11" kind="WindowsFont"/>
+											<ToolTipRepresentation>Button</ToolTipRepresentation>
+											<ExtendedTooltip name="ПропуститьРасчетExtendedTooltip" id="69"/>
+										</Button>
+										<LabelDecoration name="Декорация16" id="70">
+											<Visible>false</Visible>
+											<Width>30</Width>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<TextColor>#000080</TextColor>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Игнорирует наличие нерассчитанных связей. Данную кнопку стоит использовать только в крайнем случае, т.к. проезд между нерассчитанными точками считается невозможным.</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="Декорация16КонтекстноеМеню" id="71"/>
+											<ExtendedTooltip name="Декорация16ExtendedTooltip" id="72"/>
+										</LabelDecoration>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаБлижайшие" id="99">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа ближайшие</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаБлижайшиеРасширеннаяПодсказка" id="100"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаСостояниеБлижайшие" id="101">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Расстояния между ближайшими адресами:</v8:content>
+								</v8:item>
+							</Title>
+							<TitleFont ref="style:NormalTextFont" height="12" kind="StyleItem"/>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа состояние все</v8:content>
+								</v8:item>
+							</ToolTip>
+							<HorizontalStretch>false</HorizontalStretch>
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ExtendedTooltip name="ГруппаСостояниеБлижайшиеРасширеннаяПодсказка" id="102"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаРассчитаноБлижайшие" id="168">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа рассчитано ближайшие</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа рассчитано</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаРассчитаноБлижайшиеРасширеннаяПодсказка" id="169"/>
+									<ChildItems>
+										<LabelField name="НадписьРассчитаноБлижайшие" id="170">
+											<DataPath>РассчитаноБлижайшие</DataPath>
+											<TitleTextColor>#000080</TitleTextColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+											<HorizontalAlign>Right</HorizontalAlign>
+											<Format>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>ЧН=</v8:content>
+												</v8:item>
+											</Format>
+											<TextColor>#000080</TextColor>
+											<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+											<ContextMenu name="НадписьРассчитаноБлижайшиеКонтекстноеМеню" id="171"/>
+											<ExtendedTooltip name="НадписьРассчитаноБлижайшиеРасширеннаяПодсказка" id="172"/>
+										</LabelField>
+										<LabelDecoration name="Декорация18" id="173">
+											<TextColor>#000080</TextColor>
+											<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>%   (</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="Декорация18КонтекстноеМеню" id="174"/>
+											<ExtendedTooltip name="Декорация18РасширеннаяПодсказка" id="175"/>
+										</LabelDecoration>
+										<LabelField name="РассчитаноБлижайшиеКоличество" id="176">
+											<DataPath>РассчитаноБлижайшиеКоличество</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<HorizontalAlign>Right</HorizontalAlign>
+											<Format>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>ЧН=</v8:content>
+												</v8:item>
+											</Format>
+											<TextColor>#000080</TextColor>
+											<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+											<ContextMenu name="РассчитаноБлижайшиеКоличествоКонтекстноеМеню" id="177"/>
+											<ExtendedTooltip name="РассчитаноБлижайшиеКоличествоРасширеннаяПодсказка" id="178"/>
+										</LabelField>
+										<LabelDecoration name="Декорация25" id="179">
+											<TextColor>#000080</TextColor>
+											<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>)</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="Декорация25КонтекстноеМеню" id="180"/>
+											<ExtendedTooltip name="Декорация25РасширеннаяПодсказка" id="181"/>
+										</LabelDecoration>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаНеРассчитаноБлижайшие" id="135">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Не рассчитано</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа не рассчитано</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаНеРассчитаноБлижайшиеРасширеннаяПодсказка" id="136"/>
+									<ChildItems>
+										<LabelField name="НеРассчитаноБлижайшие" id="191">
+											<DataPath>НеРассчитаноБлижайшие</DataPath>
+											<TitleTextColor>#000080</TitleTextColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+											<HorizontalAlign>Right</HorizontalAlign>
+											<Format>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>ЧН=</v8:content>
+												</v8:item>
+											</Format>
+											<TextColor>#000080</TextColor>
+											<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+											<ContextMenu name="НеРассчитаноБлижайшиеКонтекстноеМеню" id="192"/>
+											<ExtendedTooltip name="НеРассчитаноБлижайшиеРасширеннаяПодсказка" id="193"/>
+										</LabelField>
+										<LabelDecoration name="Декорация19" id="182">
+											<TextColor>#000080</TextColor>
+											<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>%   (</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="Декорация19КонтекстноеМеню" id="183"/>
+											<ExtendedTooltip name="Декорация19РасширеннаяПодсказка" id="184"/>
+										</LabelDecoration>
+										<LabelField name="НеРассчитаноБлижайшиеКоличество" id="143">
+											<DataPath>НеРассчитаноБлижайшиеКоличество</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<HorizontalAlign>Right</HorizontalAlign>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<MaxWidth>15</MaxWidth>
+											<Format>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>ЧН=</v8:content>
+												</v8:item>
+											</Format>
+											<TextColor>#000080</TextColor>
+											<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+											<ContextMenu name="НеРассчитаноБлижайшиеКоличествоКонтекстноеМеню" id="144"/>
+											<ExtendedTooltip name="НеРассчитаноБлижайшиеКоличествоРасширеннаяПодсказка" id="145"/>
+											<Events>
+												<Event name="Click">НадписьОшибкаНажатие</Event>
+											</Events>
+										</LabelField>
+										<LabelDecoration name="Декорация26" id="188">
+											<TextColor>#000080</TextColor>
+											<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>)</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="Декорация26КонтекстноеМеню" id="189"/>
+											<ExtendedTooltip name="Декорация26РасширеннаяПодсказка" id="190"/>
+										</LabelDecoration>
+										<Button name="ПоказатьНеРассчитанныеБлижайшие" id="166">
+											<Type>UsualButton</Type>
+											<CommandName>Form.Command.ПоказатьНерассчитанныеБлижайшие</CommandName>
+											<ExtendedTooltip name="ПоказатьНеРассчитанныеБлижайшиеРасширеннаяПодсказка" id="167"/>
+										</Button>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаНевозможноРассчитать" id="194">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа невозможно рассчитать</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа невозможно рассчитать</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаНевозможноРассчитатьРасширеннаяПодсказка" id="195"/>
+									<ChildItems>
+										<LabelDecoration name="Декорация1" id="196">
+											<Width>2</Width>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<ContextMenu name="Декорация1КонтекстноеМеню" id="197"/>
+											<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="198"/>
+										</LabelDecoration>
+										<LabelField name="НевозможноРассчитатьБлижайшие" id="199">
+											<DataPath>НевозможноРассчитатьБлижайшие</DataPath>
+											<TitleTextColor>style:упЦветТекстаФормулы</TitleTextColor>
+											<TextColor>style:упЦветТекстаФормулы</TextColor>
+											<ContextMenu name="НевозможноРассчитатьБлижайшиеКонтекстноеМеню" id="200"/>
+											<ExtendedTooltip name="НевозможноРассчитатьБлижайшиеРасширеннаяПодсказка" id="201"/>
+										</LabelField>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаКомандБлижайшие" id="93">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Команд ближайшие</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа команд ближайшие</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаКомандБлижайшиеРасширеннаяПодсказка" id="94"/>
+							<ChildItems>
+								<UsualGroup name="ГруппЗаполнитьНеобходимые" id="88">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Заполнить необходимые</v8:content>
+										</v8:item>
+									</Title>
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппЗаполнитьНеобходимыеРасширеннаяПодсказка" id="89"/>
+									<ChildItems>
+										<Button name="ЗаполнитьБлижайшиеРасстояния" id="86">
+											<Type>UsualButton</Type>
+											<Width>30</Width>
+											<CommandName>Form.Command.ЗаполнитьБлижайшиеРасстояния</CommandName>
+											<Font ref="style:TextFont" height="11" kind="StyleItem"/>
+											<ToolTipRepresentation>Button</ToolTipRepresentation>
+											<ExtendedTooltip name="ЗаполнитьБлижайшиеРасстоянияРасширеннаяПодсказка" id="87"/>
+										</Button>
+										<LabelDecoration name="Декорация14" id="56">
+											<Visible>false</Visible>
+											<Width>40</Width>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<Height>2</Height>
+											<TextColor>#000080</TextColor>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Заполнить массив расстояний для ближайших точек, которые еще не рассчитывались или уже устарели</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="Декорация14КонтекстноеМеню" id="57"/>
+											<ExtendedTooltip name="Декорация14ExtendedTooltip" id="58"/>
+										</LabelDecoration>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппРассчитатьБлижайшие" id="153">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Рассчитать ближайшие</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Групп рассчитать ближайшие</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппРассчитатьБлижайшиеРасширеннаяПодсказка" id="154"/>
+									<ChildItems>
+										<Button name="РассчитатьБлижайшие" id="155">
+											<Type>UsualButton</Type>
+											<DefaultButton>true</DefaultButton>
+											<Width>30</Width>
+											<CommandName>Form.Command.РассчитатьБлижайшие</CommandName>
+											<Font ref="sys:DefaultGUIFont" height="11" kind="WindowsFont"/>
+											<ToolTipRepresentation>Button</ToolTipRepresentation>
+											<ExtendedTooltip name="РассчитатьБлижайшиеРасширеннаяПодсказка" id="156"/>
+										</Button>
+										<LabelDecoration name="Декорация21" id="157">
+											<Visible>false</Visible>
+											<Width>40</Width>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<Height>2</Height>
+											<TextColor>#000080</TextColor>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Рассчитать массив расстояний для ближайших точек, которые еще не рассчитывались или уже устарели</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="Декорация21КонтекстноеМеню" id="158"/>
+											<ExtendedTooltip name="Декорация21РасширеннаяПодсказка" id="159"/>
+										</LabelDecoration>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.упРМПланированиеРейсов</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="НеРассчитано" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Не рассчитано</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>5</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НеРассчитаноКоличество" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Не рассчитано количество</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>7</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Просрочено" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Просрочено</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>5</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПросроченоКоличество" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Просрочено (количество)</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>7</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Рассчитано" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Рассчитано</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>5</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="РассчитаноКоличество" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Рассчитано количество</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>7</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="КоличествоИтераций" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество итераций</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="АдресНерассчитанныхАдресов" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Адрес нерассчитанных адресов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="АдресПросроченныхАдресов" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Адрес просроченных адресов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="РассчитыватьРасстоянияТолькоМеждуБлизкимиТочками" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Рассчитывать расстояния только между близкими точками</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="НеРассчитаноБлижайшие" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Не рассчитано</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>5</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИдентификаторЗаданияЗаполненияБлижайших" id="21">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Идентификатор задания заполнения ближайших</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:UUID</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="АдресРезультатаЗаполненияБлижайших" id="22">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Адрес результата заполнения ближайших</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ОписаниеОшибкиФоновогоЗадания" id="23">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Описание ошибки фонового задания</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТранспортыДляРасчетаРасстояний" id="24">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Транспорты для расчета расстояний</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗаданияДляРасчетаРасстояний" id="25">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Задания для расчета расстояний</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="АвтоповторРассчетаБлижайших" id="26">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Автоповтор рассчета ближайших</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="АвтоЗаполнитьБлижайшиеРасстояния" id="27">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Авто заполнить ближайшие расстояния</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РассчитаноБлижайшие" id="28">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Рассчитано</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>5</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="РассчитаноБлижайшиеКоличество" id="29">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Рассчитано</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>8</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НеРассчитаноБлижайшиеКоличество" id="30">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Не рассчитано</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>8</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ВидПеревозки" id="31">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вид перевозки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.упВидыПеревозок</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="АдресВсехАдресов" id="32">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Адрес всех адресов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НевозможноРассчитатьБлижайшие" id="33">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>из них невозможно рассчитать</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>8</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Рассчитать" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Рассчитать все</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Производит расчет массива расстояний, которые еще не рассчитывались или уже устарели</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Рассчитать</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="РассчитатьТолькоНерассчитанные" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Рассчитать нерассчитанные</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Производит расчет только нерассчитанного массива расстояний, а перерасчет устаревших не происходит</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>РассчитатьТолькоНерассчитанные</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПропуститьРасчет" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Игнорировать нерассчитанные</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Игнорирует наличие нерассчитанных связей. Данную кнопку стоит использовать только в крайнем случае, т.к. проезд между нерассчитанными точками считается невозможным.</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПропуститьРасчет</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПоказатьУстаревшие" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать устаревшие</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать устаревшие</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.SyncContents</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ПоказатьУстаревшие</Action>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПоказатьНерассчитанныеВсе" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать нерассчитанные все</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать нерассчитанные все</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.SyncContents</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ПоказатьНерассчитанныеВсе</Action>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ЗаполнитьБлижайшиеРасстояния" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить ближайшие</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить массив расстояний для ближайших точек, которые еще не рассчитывались или уже устарели</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗаполнитьБлижайшиеРасстояния</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="РассчитатьБлижайшие" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Рассчитать ближайшие</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Рассчитать массив расстояний для ближайших точек, которые еще не рассчитывались или уже устарели</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>РассчитатьБлижайшие</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПоказатьНерассчитанныеБлижайшие" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать нерассчитанные ближайшие</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать нерассчитанные</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.SyncContents</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ПоказатьНерассчитанныеБлижайшие</Action>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+	<Parameters>
+		<Parameter name="ТранспортыДляРасчетаРасстояний">
+			<Type/>
+		</Parameter>
+	</Parameters>
+</Form>

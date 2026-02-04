@@ -1,0 +1,808 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаПроверитьФормулу" id="59">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ПроверитьФормулу</CommandName>
+				<ExtendedTooltip name="ФормаПроверитьФормулуExtendedTooltip" id="79"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="AfterWriteAtServer">ПослеЗаписиНаСервере</Event>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
+		<Event name="FillCheckProcessingAtServer">ОбработкаПроверкиЗаполненияНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Наименование" id="3">
+			<DataPath>Объект.Description</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<ContextMenu name="НаименованиеКонтекстноеМеню" id="4"/>
+			<ExtendedTooltip name="НаименованиеExtendedTooltip" id="81"/>
+		</InputField>
+		<InputField name="СпособРаспределения" id="158">
+			<DataPath>Объект.СпособРаспределения</DataPath>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<ContextMenu name="СпособРаспределенияКонтекстноеМеню" id="159"/>
+			<ExtendedTooltip name="СпособРаспределенияРасширеннаяПодсказка" id="160"/>
+			<Events>
+				<Event name="OnChange">СпособРаспределенияПриИзменении</Event>
+			</Events>
+		</InputField>
+		<Pages name="СтраницыСпособРаспределения" id="152">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы способ распределения</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы способ распределения</v8:content>
+				</v8:item>
+			</ToolTip>
+			<PagesRepresentation>None</PagesRepresentation>
+			<ExtendedTooltip name="СтраницыСпособРаспределенияРасширеннаяПодсказка" id="153"/>
+			<ChildItems>
+				<Page name="СтраницаПоФормуле" id="154">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница по формуле</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница по формуле</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаПоФормулеРасширеннаяПодсказка" id="155"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаФормулаРасчета" id="7">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Формула расчета</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа формула расчета</v8:content>
+								</v8:item>
+							</ToolTip>
+							<HorizontalStretch>true</HorizontalStretch>
+							<Group>Vertical</Group>
+							<ExtendedTooltip name="ГруппаФормулаРасчетаExtendedTooltip" id="82"/>
+							<ChildItems>
+								<UsualGroup name="Группа1" id="126">
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="127"/>
+									<ChildItems>
+										<UsualGroup name="Группа2" id="128">
+											<Group>Vertical</Group>
+											<Representation>StrongSeparation</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="129"/>
+											<ChildItems>
+												<LabelDecoration name="Декорация1" id="8">
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Введите формулу расчета. Например:</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="Декорация1КонтекстноеМеню" id="9"/>
+													<ExtendedTooltip name="Декорация1ExtendedTooltip" id="83"/>
+												</LabelDecoration>
+												<UsualGroup name="ГруппаПример" id="12">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа пример</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа пример</v8:content>
+														</v8:item>
+													</ToolTip>
+													<Group>Horizontal</Group>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаПримерExtendedTooltip" id="84"/>
+													<ChildItems>
+														<LabelDecoration name="Декорация10" id="27">
+															<Font ref="sys:DefaultGUIFont" height="9" kind="WindowsFont"/>
+															<ContextMenu name="Декорация10КонтекстноеМеню" id="28"/>
+															<ExtendedTooltip name="Декорация10ExtendedTooltip" id="85"/>
+														</LabelDecoration>
+														<LabelDecoration name="Декорация2" id="10">
+															<AutoMaxWidth>false</AutoMaxWidth>
+															<HorizontalStretch>false</HorizontalStretch>
+															<TextColor>style:упЦветТекстаФормулы</TextColor>
+															<Font ref="style:упШрифтТекстаФормулы" kind="StyleItem"/>
+															<Title formatted="false">
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Макс( (Объем + Масса) / Σ(Объем + Масса), Расстояние * Σ(Расстояние) )</v8:content>
+																</v8:item>
+															</Title>
+															<ContextMenu name="Декорация2КонтекстноеМеню" id="11"/>
+															<ExtendedTooltip name="Декорация2ExtendedTooltip" id="86"/>
+														</LabelDecoration>
+													</ChildItems>
+												</UsualGroup>
+												<LabelDecoration name="Декорация11" id="29">
+													<Width>53</Width>
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<Height>3</Height>
+													<HorizontalStretch>true</HorizontalStretch>
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>В формуле, помимо простых арифметических действий (+ - * /), можно использовать такие функции как Макс, Мин, Окр и т.п., функцию суммирования по всем документам Σ, а также параметры для расчета, приведенные в нижней части формы.</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="Декорация11КонтекстноеМеню" id="30"/>
+													<ExtendedTooltip name="Декорация11ExtendedTooltip" id="87"/>
+												</LabelDecoration>
+											</ChildItems>
+										</UsualGroup>
+										<LabelDecoration name="Декорация13" id="45">
+											<Width>9</Width>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<HorizontalStretch>false</HorizontalStretch>
+											<VerticalStretch>true</VerticalStretch>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Подробнее - см. Справку</v8:content>
+												</v8:item>
+											</Title>
+											<Hyperlink>true</Hyperlink>
+											<VerticalAlign>Center</VerticalAlign>
+											<ContextMenu name="Декорация13КонтекстноеМеню" id="46"/>
+											<ExtendedTooltip name="Декорация13ExtendedTooltip" id="100"/>
+											<Events>
+												<Event name="Click">Декорация13Нажатие</Event>
+											</Events>
+										</LabelDecoration>
+									</ChildItems>
+								</UsualGroup>
+								<TextDocumentField name="Формула" id="31">
+									<DataPath>Формула</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<Height>4</Height>
+									<TextColor>style:упЦветТекстаФормулы</TextColor>
+									<Font ref="style:упШрифтТекстаФормулы" kind="StyleItem"/>
+									<ContextMenu name="ФормулаКонтекстноеМеню" id="32">
+										<Autofill>false</Autofill>
+										<ChildItems>
+											<ButtonGroup name="ФормулаКонтекстноеМенюГруппаФункции" id="35">
+												<Title>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Формула контекстное меню группа функции</v8:content>
+													</v8:item>
+												</Title>
+												<ToolTip>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Формула контекстное меню группа функции</v8:content>
+													</v8:item>
+												</ToolTip>
+												<ExtendedTooltip name="ФормулаКонтекстноеМенюГруппаФункцииExtendedTooltip" id="89"/>
+												<ChildItems>
+													<Button name="ФормулаКонтекстноеМенюКомандаСуммаПоВсемДокументам" id="122">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command.КомандаСуммаПоВсемДокументам</CommandName>
+														<ExtendedTooltip name="ФормулаКонтекстноеМенюКомандаСуммаПоВсемДокументамРасширеннаяПодсказка" id="123"/>
+													</Button>
+													<Button name="ФормулаКонтекстноеМенюКомандаМакс" id="36">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command.КомандаМакс</CommandName>
+														<ExtendedTooltip name="ФормулаКонтекстноеМенюКомандаМаксExtendedTooltip" id="90"/>
+													</Button>
+													<Button name="ФормулаКонтекстноеМенюКомандаМин" id="37">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command.КомандаМин</CommandName>
+														<ExtendedTooltip name="ФормулаКонтекстноеМенюКомандаМинExtendedTooltip" id="91"/>
+													</Button>
+													<Button name="ФормулаКонтекстноеМенюКомандаОкр" id="38">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command.КомандаОкр</CommandName>
+														<ExtendedTooltip name="ФормулаКонтекстноеМенюКомандаОкрExtendedTooltip" id="92"/>
+													</Button>
+													<Button name="ФормулаКонтекстноеМенюКомандаЦел" id="39">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command.КомандаЦел</CommandName>
+														<ExtendedTooltip name="ФормулаКонтекстноеМенюКомандаЦелExtendedTooltip" id="93"/>
+													</Button>
+													<Button name="ФормулаКонтекстноеМенюКомандаУсловие" id="40">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command.КомандаУсловие</CommandName>
+														<ExtendedTooltip name="ФормулаКонтекстноеМенюКомандаУсловиеExtendedTooltip" id="94"/>
+													</Button>
+												</ChildItems>
+											</ButtonGroup>
+											<Button name="ФормулаКонтекстноеМенюПроверитьФормулу" id="41">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ПроверитьФормулу</CommandName>
+												<ExtendedTooltip name="ФормулаКонтекстноеМенюПроверитьФормулуExtendedTooltip" id="95"/>
+											</Button>
+										</ChildItems>
+									</ContextMenu>
+									<ExtendedTooltip name="ФормулаExtendedTooltip" id="96"/>
+								</TextDocumentField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаФункции" id="33">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Функции</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа функции</v8:content>
+								</v8:item>
+							</ToolTip>
+							<HorizontalStretch>true</HorizontalStretch>
+							<Group>Vertical</Group>
+							<Representation>StrongSeparation</Representation>
+							<ExtendedTooltip name="ГруппаФункцииExtendedTooltip" id="97"/>
+							<ChildItems>
+								<LabelDecoration name="Декорация12" id="43">
+									<Width>60</Width>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<Height>2</Height>
+									<HorizontalStretch>true</HorizontalStretch>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Функции, которые могут быть использованы в формуле распределения расходов (нажатие кнопки вставит функцию в поле формулы):</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="Декорация12КонтекстноеМеню" id="44"/>
+									<ExtendedTooltip name="Декорация12ExtendedTooltip" id="99"/>
+								</LabelDecoration>
+								<UsualGroup name="ГруппаФункцииКнопки" id="47">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа функции кнопки</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа функции кнопки</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаФункцииКнопкиExtendedTooltip" id="101"/>
+									<ChildItems>
+										<Button name="КомандаСуммаПоВсемДокументам" id="124">
+											<Type>UsualButton</Type>
+											<CommandName>Form.Command.КомандаСуммаПоВсемДокументам</CommandName>
+											<ExtendedTooltip name="КомандаСуммаПоВсемДокументамРасширеннаяПодсказка" id="125"/>
+										</Button>
+										<Button name="КомандаМакс" id="48">
+											<Type>UsualButton</Type>
+											<CommandName>Form.Command.КомандаМакс</CommandName>
+											<ExtendedTooltip name="КомандаМаксExtendedTooltip" id="102"/>
+										</Button>
+										<Button name="КомандаМин" id="49">
+											<Type>UsualButton</Type>
+											<CommandName>Form.Command.КомандаМин</CommandName>
+											<ExtendedTooltip name="КомандаМинExtendedTooltip" id="103"/>
+										</Button>
+										<Button name="КомандаОкр" id="50">
+											<Type>UsualButton</Type>
+											<CommandName>Form.Command.КомандаОкр</CommandName>
+											<ExtendedTooltip name="КомандаОкрExtendedTooltip" id="104"/>
+										</Button>
+										<Button name="КомандаЦел" id="51">
+											<Type>UsualButton</Type>
+											<CommandName>Form.Command.КомандаЦел</CommandName>
+											<ExtendedTooltip name="КомандаЦелExtendedTooltip" id="105"/>
+										</Button>
+										<Button name="КомандаУсловие" id="52">
+											<Type>UsualButton</Type>
+											<CommandName>Form.Command.КомандаУсловие</CommandName>
+											<ExtendedTooltip name="КомандаУсловиеExtendedTooltip" id="106"/>
+										</Button>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаПоказатели" id="53">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Показатели</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа показатели</v8:content>
+								</v8:item>
+							</ToolTip>
+							<HorizontalStretch>true</HorizontalStretch>
+							<Group>Vertical</Group>
+							<Representation>StrongSeparation</Representation>
+							<ExtendedTooltip name="ГруппаПоказателиExtendedTooltip" id="107"/>
+							<ChildItems>
+								<LabelDecoration name="Декорация14" id="55">
+									<Width>60</Width>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<Height>2</Height>
+									<HorizontalStretch>true</HorizontalStretch>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Показатели, которые можно использовать в формуле распределения расходов (нажатие кнопки вставит функцию в поле формулы):</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="Декорация14КонтекстноеМеню" id="56"/>
+									<ExtendedTooltip name="Декорация14ExtendedTooltip" id="109"/>
+								</LabelDecoration>
+								<UsualGroup name="ГруппаПоказателиКнопки" id="54">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа показатели кнопки</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа показатели кнопки</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ChildItemsWidth>Equal</ChildItemsWidth>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаПоказателиКнопкиРасширеннаяПодсказка" id="108"/>
+									<ChildItems>
+										<UsualGroup name="Группа4" id="132">
+											<Group>Vertical</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="133"/>
+											<ChildItems>
+												<Button name="ПоказательМасса" id="144">
+													<Type>UsualButton</Type>
+													<Width>23</Width>
+													<CommandName>Form.Command.ПоказательМасса</CommandName>
+													<ExtendedTooltip name="ПоказательМассаРасширеннаяПодсказка" id="145"/>
+												</Button>
+												<Button name="ПоказательОбъем" id="146">
+													<Type>UsualButton</Type>
+													<Width>23</Width>
+													<CommandName>Form.Command.ПоказательОбъем</CommandName>
+													<ExtendedTooltip name="ПоказательОбъемРасширеннаяПодсказка" id="147"/>
+												</Button>
+												<Button name="ПоказательКоличествоМест" id="140">
+													<Type>UsualButton</Type>
+													<Width>23</Width>
+													<CommandName>Form.Command.ПоказательКоличествоМест</CommandName>
+													<ExtendedTooltip name="ПоказательКоличествоМестРасширеннаяПодсказка" id="141"/>
+												</Button>
+												<Button name="ПоказательКоличествоЗагрузочныхМетров" id="138">
+													<Type>UsualButton</Type>
+													<Width>23</Width>
+													<CommandName>Form.Command.ПоказательКоличествоЗагрузочныхМетров</CommandName>
+													<ExtendedTooltip name="ПоказательКоличествоЗагрузочныхМетровРасширеннаяПодсказка" id="139"/>
+												</Button>
+												<Button name="ПоказательОценочнаяСтоимостьГруза" id="164">
+													<Type>UsualButton</Type>
+													<Width>23</Width>
+													<CommandName>Form.Command.ПоказательОценочнаяСтоимостьГруза</CommandName>
+													<ExtendedTooltip name="ПоказательОценочнаяСтоимостьГрузаРасширеннаяПодсказка" id="165"/>
+												</Button>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="Группа3" id="130">
+											<Group>Vertical</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="131"/>
+											<ChildItems>
+												<Button name="ПоказательВремя" id="136">
+													<Type>UsualButton</Type>
+													<Width>23</Width>
+													<CommandName>Form.Command.ПоказательВремя</CommandName>
+													<ExtendedTooltip name="ПоказательВремяРасширеннаяПодсказка" id="137"/>
+												</Button>
+												<Button name="ПоказательРасстояние" id="150">
+													<Type>UsualButton</Type>
+													<Width>23</Width>
+													<CommandName>Form.Command.ПоказательРасстояние</CommandName>
+													<ExtendedTooltip name="ПоказательРасстояниеРасширеннаяПодсказка" id="151"/>
+												</Button>
+												<Button name="ПоказательПлановаяСтоимость" id="148">
+													<Type>UsualButton</Type>
+													<Width>23</Width>
+													<CommandName>Form.Command.ПоказательПлановыеРасходыПоРейсу</CommandName>
+													<ExtendedTooltip name="ПоказательПлановаяСтоимостьРасширеннаяПодсказка" id="149"/>
+												</Button>
+												<Button name="ПоказательКоличествоТоварныхНакладных" id="142">
+													<Type>UsualButton</Type>
+													<Width>23</Width>
+													<CommandName>Form.Command.ПоказательКоличествоТоварныхНакладных</CommandName>
+													<ExtendedTooltip name="ПоказательКоличествоТоварныхНакладныхРасширеннаяПодсказка" id="143"/>
+												</Button>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаПропорциональноПоказателю" id="156">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница пропорционально показателю</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница пропорционально показателю</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаПропорциональноПоказателюРасширеннаяПодсказка" id="157"/>
+					<ChildItems>
+						<InputField name="Показатель" id="161">
+							<DataPath>Объект.Показатель</DataPath>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<ContextMenu name="ПоказательКонтекстноеМеню" id="162"/>
+							<ExtendedTooltip name="ПоказательРасширеннаяПодсказка" id="163"/>
+						</InputField>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.упПравилаРаспределенияРасходов</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="Формула" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Формула</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/txtedt">d5p1:TextDocument</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="КомандаМакс" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Макс(,)</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Функция Макс(,) - максимальное значение из переданных значений.</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаМакс</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="КомандаМин" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Мин(,)</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Функция Мин(,) - минимальное значение из переданных значений.</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаМин</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="КомандаОкр" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Окр(,)</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Функция Окр(,) - округленное значение первого параметра, второй параметр - количество разрядов до которого округлять значение. Округление производится по математическим правилам.</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаОкр</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="КомандаЦел" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Цел( )</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Функция Цел() - целая часть от переданного параметра.</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаЦел</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="КомандаУсловие" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>?(,,)</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Функция ?(,,) - условие, если значение первого параметра истинное, то используется второй параметр, иначе - третий.</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаУсловие</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПроверитьФормулу" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Проверить формулу</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Проверить формулу</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CheckSyntax</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ПроверитьФормулу</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="КомандаСуммаПоВсемДокументам" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Σ( )</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Функция Σ( )  - сумма переданного параметра по всем документам участвующим в распределении.</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаСуммаПоВсемДокументам</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПоказательВремя" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Время (сек.)</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Время от начала погрузки до окончания разгрузки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПоказательВремя</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПоказательРасстояние" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расстояние</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расстояние между точками погрузки и разгрузки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПоказательРасстояние</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПоказательПлановыеРасходыПоРейсу" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Плановые расходы по рейсу</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оценочная стоимость перевезенного груза</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПоказательПлановыеРасходыПоРейсу</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПоказательКоличествоТоварныхНакладных" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество товарных накладных</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество  накладных / заказов по которым перевозился груз</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПоказательКоличествоТоварныхНакладных</Action>
+			<FunctionalOptions>
+				<Item>FunctionalOption.упИспользоватьДопАналитическийРазрезПриРаспределенииРасходов</Item>
+			</FunctionalOptions>
+			<ModifiesSavedData>true</ModifiesSavedData>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПоказательКоличествоЗагрузочныхМетров" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество загрузочных метров</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество загрузочных метров занятых перевезенным грузом</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПоказательКоличествоЗагрузочныхМетров</Action>
+			<FunctionalOptions>
+				<Item>FunctionalOption.упУчитыватьКоличествоЗагрузочныхМетров</Item>
+			</FunctionalOptions>
+			<ModifiesSavedData>true</ModifiesSavedData>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПоказательКоличествоМест" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество грузовых мест</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество перевезенных грузовых мест</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПоказательКоличествоМест</Action>
+			<FunctionalOptions>
+				<Item>FunctionalOption.упУчитыватьКоличествоМест</Item>
+			</FunctionalOptions>
+			<ModifiesSavedData>true</ModifiesSavedData>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПоказательОбъем" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Объем</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Объем перевезенного товара</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПоказательОбъем</Action>
+			<FunctionalOptions>
+				<Item>FunctionalOption.упУчитыватьОбъем</Item>
+			</FunctionalOptions>
+			<ModifiesSavedData>true</ModifiesSavedData>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПоказательМасса" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Масса</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Масса перевезенного товара</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПоказательМасса</Action>
+			<FunctionalOptions>
+				<Item>FunctionalOption.упУчитыватьМассу</Item>
+			</FunctionalOptions>
+			<ModifiesSavedData>true</ModifiesSavedData>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПоказательОценочнаяСтоимостьГруза" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оценочная стоимость груза</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество перевезенных грузовых мест</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПоказательОценочнаяСтоимостьГруза</Action>
+			<FunctionalOptions>
+				<Item>FunctionalOption.упУчитыватьКоличествоМест</Item>
+			</FunctionalOptions>
+			<ModifiesSavedData>true</ModifiesSavedData>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

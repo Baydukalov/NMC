@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Наименование" id="1">
+			<DataPath>Объект.Description</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<ContextMenu name="НаименованиеКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="НаименованиеExtendedTooltip" id="7"/>
+		</InputField>
+		<Pages name="Группа1" id="33">
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="34"/>
+			<ChildItems>
+				<Page name="Группа2" id="35">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Основное</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="36"/>
+					<ChildItems>
+						<InputField name="НаборСвойств" id="30">
+							<DataPath>Объект.НаборСвойств</DataPath>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<ContextMenu name="НаборСвойствКонтекстноеМеню" id="31"/>
+							<ExtendedTooltip name="НаборСвойствРасширеннаяПодсказка" id="32"/>
+						</InputField>
+						<UsualGroup name="ГруппаТипыКузововДляПогрузкиРазгрузки" id="19">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Типы кузовов для погрузки / разгрузки</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа типы кузовов для погрузки разгрузки</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<ExtendedTooltip name="ГруппаТипыКузововДляПогрузкиРазгрузкиРасширеннаяПодсказка" id="20"/>
+							<ChildItems>
+								<Table name="ТипыКузововДляПогрузкиРазгрузки" id="9">
+									<Height>4</Height>
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<FileDragMode>AsFile</FileDragMode>
+									<DataPath>Объект.ТипыКузововДляПогрузкиРазгрузки</DataPath>
+									<SearchStringLocation>None</SearchStringLocation>
+									<ViewStatusLocation>None</ViewStatusLocation>
+									<SearchControlLocation>None</SearchControlLocation>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="ТипыКузововДляПогрузкиРазгрузкиКонтекстноеМеню" id="10"/>
+									<AutoCommandBar name="ТипыКузововДляПогрузкиРазгрузкиКоманднаяПанель" id="11"/>
+									<ExtendedTooltip name="ТипыКузововДляПогрузкиРазгрузкиРасширеннаяПодсказка" id="12"/>
+									<SearchStringAddition name="ТипыКузововДляПогрузкиРазгрузкиСтрокаПоиска" id="21">
+										<AdditionSource>
+											<Item>ТипыКузововДляПогрузкиРазгрузки</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ТипыКузововДляПогрузкиРазгрузкиСтрокаПоискаКонтекстноеМеню" id="22"/>
+										<ExtendedTooltip name="ТипыКузововДляПогрузкиРазгрузкиСтрокаПоискаРасширеннаяПодсказка" id="23"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="ТипыКузововДляПогрузкиРазгрузкиСостояниеПросмотра" id="24">
+										<AdditionSource>
+											<Item>ТипыКузововДляПогрузкиРазгрузки</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ТипыКузововДляПогрузкиРазгрузкиСостояниеПросмотраКонтекстноеМеню" id="25"/>
+										<ExtendedTooltip name="ТипыКузововДляПогрузкиРазгрузкиСостояниеПросмотраРасширеннаяПодсказка" id="26"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="ТипыКузововДляПогрузкиРазгрузкиУправлениеПоиском" id="27">
+										<AdditionSource>
+											<Item>ТипыКузововДляПогрузкиРазгрузки</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="ТипыКузововДляПогрузкиРазгрузкиУправлениеПоискомКонтекстноеМеню" id="28"/>
+										<ExtendedTooltip name="ТипыКузововДляПогрузкиРазгрузкиУправлениеПоискомРасширеннаяПодсказка" id="29"/>
+									</SearchControlAddition>
+									<ChildItems>
+										<LabelField name="ТипыКузововДляПогрузкиРазгрузкиНомерСтроки" id="13">
+											<DataPath>Объект.ТипыКузововДляПогрузкиРазгрузки.LineNumber</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ТипыКузововДляПогрузкиРазгрузкиНомерСтрокиКонтекстноеМеню" id="14"/>
+											<ExtendedTooltip name="ТипыКузововДляПогрузкиРазгрузкиНомерСтрокиРасширеннаяПодсказка" id="15"/>
+										</LabelField>
+										<InputField name="ТипыКузововДляПогрузкиРазгрузкиТипКузова" id="16">
+											<DataPath>Объект.ТипыКузововДляПогрузкиРазгрузки.ТипКузова</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ТипыКузововДляПогрузкиРазгрузкиТипКузоваКонтекстноеМеню" id="17"/>
+											<ExtendedTooltip name="ТипыКузововДляПогрузкиРазгрузкиТипКузоваРасширеннаяПодсказка" id="18"/>
+										</InputField>
+									</ChildItems>
+								</Table>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаНесовместимость" id="37">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Несовместимость</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа несовместимость</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаНесовместимостьРасширеннаяПодсказка" id="38"/>
+					<ChildItems>
+						<Table name="НесовместимыеВидыНоменклатуры" id="39">
+							<Representation>List</Representation>
+							<ChangeRowSet>false</ChangeRowSet>
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<Height>4</Height>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>НесовместимыеВидыНоменклатуры</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="НесовместимыеВидыНоменклатурыКонтекстноеМеню" id="40"/>
+							<AutoCommandBar name="НесовместимыеВидыНоменклатурыКоманднаяПанель" id="41">
+								<ChildItems>
+									<Button name="НесовместимыеВидыНоменклатурыУстановитьВсеПометки" id="57">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.УстановитьВсеПометки</CommandName>
+										<ExtendedTooltip name="НесовместимыеВидыНоменклатурыУстановитьВсеПометкиРасширеннаяПодсказка" id="58"/>
+									</Button>
+									<Button name="НесовместимыеВидыНоменклатурыСнятьВсеПометки" id="55">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.СнятьВсеПометки</CommandName>
+										<ExtendedTooltip name="НесовместимыеВидыНоменклатурыСнятьВсеПометкиРасширеннаяПодсказка" id="56"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="НесовместимыеВидыНоменклатурыРасширеннаяПодсказка" id="42"/>
+							<SearchStringAddition name="НесовместимыеВидыНоменклатурыСтрокаПоиска" id="43">
+								<AdditionSource>
+									<Item>НесовместимыеВидыНоменклатуры</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="НесовместимыеВидыНоменклатурыСтрокаПоискаКонтекстноеМеню" id="44"/>
+								<ExtendedTooltip name="НесовместимыеВидыНоменклатурыСтрокаПоискаРасширеннаяПодсказка" id="45"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="НесовместимыеВидыНоменклатурыСостояниеПросмотра" id="46">
+								<AdditionSource>
+									<Item>НесовместимыеВидыНоменклатуры</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="НесовместимыеВидыНоменклатурыСостояниеПросмотраКонтекстноеМеню" id="47"/>
+								<ExtendedTooltip name="НесовместимыеВидыНоменклатурыСостояниеПросмотраРасширеннаяПодсказка" id="48"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="НесовместимыеВидыНоменклатурыУправлениеПоиском" id="49">
+								<AdditionSource>
+									<Item>НесовместимыеВидыНоменклатуры</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="НесовместимыеВидыНоменклатурыУправлениеПоискомКонтекстноеМеню" id="50"/>
+								<ExtendedTooltip name="НесовместимыеВидыНоменклатурыУправлениеПоискомРасширеннаяПодсказка" id="51"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<CheckBoxField name="НесовместимыеВидыНоменклатурыПометка" id="59">
+									<DataPath>НесовместимыеВидыНоменклатуры.Пометка</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<EditMode>Directly</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="НесовместимыеВидыНоменклатурыПометкаКонтекстноеМеню" id="60"/>
+									<ExtendedTooltip name="НесовместимыеВидыНоменклатурыПометкаРасширеннаяПодсказка" id="61"/>
+								</CheckBoxField>
+								<InputField name="НесовместимыеВидыНоменклатурыВидНоменклатуры" id="52">
+									<DataPath>НесовместимыеВидыНоменклатуры.ВидНоменклатуры</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="НесовместимыеВидыНоменклатурыВидНоменклатурыКонтекстноеМеню" id="53"/>
+									<ExtendedTooltip name="НесовместимыеВидыНоменклатурыВидНоменклатурыРасширеннаяПодсказка" id="54"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.упВидыНоменклатуры</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="НесовместимыеВидыНоменклатуры" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Несовместимые виды номенклатуры</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+			<FunctionalOptions>
+				<Item>FunctionalOption.упКонтролироватьСовместимостьТовара</Item>
+			</FunctionalOptions>
+			<Columns>
+				<Column name="ВидНоменклатуры" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вид номенклатуры</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упВидыНоменклатуры</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Пометка" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пометка</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="СнятьВсеПометки" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять все пометки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять пометки выделенных или всех строк</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.UncheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СнятьВсеПометки</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="УстановитьВсеПометки" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить все пометки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить пометки выделенных или всех строк</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>УстановитьВсеПометки</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

@@ -1,0 +1,4650 @@
+﻿//window.onerror = function(){return true;};
+	
+var map_Load = false;
+                
+var map = L.map('map');		
+map.on('load', function(e){map_Load = true});
+map.setView([%Широта%, %Долгота%], %Увеличение%);	
+map.inertia = false;
+		
+L.control.scale({metric: true, imperial: false}).addTo(map);
+		
+%КлючПодключенияКарты%	
+		
+var objectArray           = [];   
+var objectDataArray = [];
+var TripDataArray = [];
+var uiData           		     = [];
+var IndexOfDoubleClickedTrip = null;
+var popupArray 		   = [];
+        
+var tripArray             = [];
+var VehicleArray = [];
+var zoneArray             = [];
+var selectedObjectArray   = [];
+var unselectedObjectArray = [];
+var cornerArray           = [];
+var iconArray             = [];
+var markersClustered      = null;
+
+var markerDraw      = false;
+var newMarkerTitle  = '';
+var newMarker       = null;
+		
+var multipleSelection   = false;	
+var multipleUnselection = false;
+var markerClustering    = false;
+	
+var polygonDraw         = false;
+var polylineDraw        = false;
+var newPolygonTitle     = '';
+var newPolylineTitle    = '';
+var dragStart           = false;
+var numberOfPoints      = 0;
+var newPolygon          = null;
+var newPolyline         = null;
+var newRectangle        = null;
+var newVector           = null;
+var firstCorner         = null;
+var lastCorner          = null;
+var trackAnimation      = null;
+var vectorArray         = [];
+var pointsArray         = [];
+var cornerMarkerArray   = [];
+var halfwayMarkerArray  = [];
+var reperMarkerArray    = [];
+var heat                = null;
+var heatMode            = '';
+
+var DocEventUIDArray	= {};
+var DocEventUID			= null;
+		
+var cornerIcon      = L.icon({iconUrl: '%МаркерРедактируемогоУгла%',iconAnchor: [5, 5]});
+var geocodeIcon     = L.icon({iconUrl: '%МаркерГеокодирования%',	iconAnchor: [19, 39]});
+var firstCornerIcon = L.icon({iconUrl: '%МаркерПервогоУгла%',		iconAnchor: [5, 5]});
+var lastCornerIcon  = L.icon({iconUrl: '%МаркерПоследнегоУгла%',	iconAnchor: [5, 5]});
+		
+var motionIcon  	= L.icon({iconUrl: '%МаркерДвиженияТС%',     	iconAnchor: [5, 5]});
+		
+var animationCircleMarker;
+var displayAllMarkers	= false;
+var vehicleArray		= [];
+var borderMarkerArray	= [];
+
+var showVehicleStatus	= 0;
+        
+// vehicle tracking system  variables
+var directionArray 	   = [];
+var trackArray 		       = [];
+var planTrackArray 	   = [];
+var CirclesArray 	   = [];
+var incidentArray          = [];
+var displayVehicleNames = false;
+var displayDirections           = false;
+var timer = null;
+var interval = null;
+        
+        
+var mapFormed 			= false;
+var hideUnvisibleObjects = false;
+var	toUsePositioning = true;
+        
+var Icon_Default = new L.Icon.Default();
+        
+var array_draf_track = null;
+        
+var objectArray_MultiPolyline = [],
+    objectArray_PlannedRoute = [],
+    objectArray_MovementBetweenFlights = [];
+var Monitoring_Mode = -1;
+var objectArray_Visible = [],
+    editVisible = true;
+var arImgSize = [];
+        
+var objectArray_SiteInterest = [];
+        
+        
+// creation of prototype for object Array (the current vertion of 1C ie machine doesn't have method indexOf for arrays)  
+(function (A) {
+    A.indexOf = A.indexOf || function(object) {
+        for (var i = 0, l = this.length; i < l; i++) {
+            if (i in this && this[i] === object) {
+                return i;
+            }
+        }
+        return -1;
+    };
+})(Array.prototype);
+        
+function onObjectClick(eventData) {                                                                                                                                                                                                                                                                                   
+    DocEventUID = null;
+    eventData.target.openPopup(eventData.latlng);       	
+}
+        
+function onMarkerClick(eventData) {
+
+    object = eventData.target;        
+    latLng = object.getLatLng();
+           
+    index = selectedObjectArray.indexOf(object);
+    if (index === -1) {
+        selectedObjectArray.push(object);
+        markerSelected = true;
+    }
+    else {
+        selectedObjectArray.splice(index, 1);
+        unselectedObjectArray.push(object);		  	
+        markerSelected = false;
+    }
+		   
+    // trying to find markers with the same coordinates
+    for (var i = 0; i < objectArray.length; i++){
+        if (objectArray[i] === 'MovementBetweenFlights'){
+            continue;
+        }else{
+            objectMarker = objectArray[i];
+            if ((object != objectMarker) && (objectMarker.setIcon)){
+                objectLatLng = objectMarker.getLatLng();
+                if (objectLatLng.equals(latLng)){
+                    index = selectedObjectArray.indexOf(objectMarker);
+                    if (index === -1) {
+                        selectedObjectArray.push(objectMarker);
+                    }else{
+                        if (markerSelected === false){
+                            selectedObjectArray.splice(index, 1);
+                            unselectedObjectArray.push(objectMarker);
+                        }		  	
+                    }
+                }
+            } 
+        }
+    }
+		   
+    fireHtmlDocumentClick();
+		   
+} //onMarkerClick()
+
+function fireHtmlDocumentClick() {
+	if (L.Browser.ie) {
+    	setTimeout('document.body.fireEvent("onclick")', 100);
+    } else {
+    	setTimeout('document.body.click()', 100);
+    }	
+}
+
+function onCircleClick(eventData) {
+
+    object = eventData.target;  
+    latLng = object.getLayers()[0].getLatLng();
+           
+    index = CirclesArray.indexOf(object);
+    var  TripData = TripDataArray[index];
+    if (TripData!=null)
+    {
+        var content = '<p style = "line-height:: 0"><b>Рейс:</b> ' + TripData.Title +  '<br/><b>Контакты:</b> '+ TripData.ContactInfo;
+        if (TripData.CurrCoordDate != '')
+            content += '<br/><b>Дата координат:</b> '+ TripData.CurrCoordDate;
+        if (TripData.BestPositions != '')
+            content += '<br/><b>Лучшие позиции:</b> '+ TripData.BestPositions;
+        var popup = L.popup({closeButton: true, autoPan: false}).setLatLng(latLng).setContent(content);
+        object.bindPopup(popup).openPopup();
+    }		   
+}
+
+function onVehicleClick(eventData) {
+
+    object = eventData.target;  
+    latLng = object.getLatLng();
+           
+    index = VehicleArray.indexOf(object);
+    var  TripData = TripDataArray[index];
+    if (TripData!=null)
+    {
+        var content = '<p style = "line-height:: 0"><b>Рейс:</b> ' + TripData.Title +  '<br/><b>Контакты:</b> '+ TripData.ContactInfo + '<br/><b>Дата координат:</b> '+ TripData.CurrCoordDate;
+        var popup = L.popup({closeButton: true, autoPan: false}).setLatLng(latLng).setContent(content);
+        object.closePopup().unbindPopup();
+        object.bindPopup(popup).openPopup();
+    }	   
+}
+
+function onCircleDoubleClick(eventData) {
+    object = eventData.target;  
+    IndexOfDoubleClickedTrip = CirclesArray.indexOf(object);
+    fireHtmlDocumentClick();
+} 
+
+function onVehicleDoubleClick(eventData) {
+
+    object = eventData.target;  
+    IndexOfDoubleClickedTrip = VehicleArray.indexOf(object);
+    fireHtmlDocumentClick();
+}
+
+function GetIndexOfDoubleClickedTrip() {
+
+    IndexOfDoubleClickedTrip1 = IndexOfDoubleClickedTrip;
+    IndexOfDoubleClickedTrip = null;
+    return IndexOfDoubleClickedTrip1;
+		   
+}
+
+function onMarkerMouseOver(eventData) {
+
+    var totalQuantity  =  1;
+    var weight =  0;
+    var volume =  0;
+    var quantityCargo =   0;
+    var quantityMeters =  0;
+    var titleAddress = '';
+
+    var object = eventData.target;  
+    latLng = object.getLatLng();
+    
+    var index = objectArray.indexOf(object);
+   
+    var  CargoParameters = objectDataArray[index];
+    // if(CargoParameters !== undefined){
+    titleAddress =  CargoParameters[0];
+    weight = weight + CargoParameters[1];
+    volume = volume + CargoParameters[2];
+    quantityCargo = quantityCargo + CargoParameters[3];
+    quantityMeters = quantityMeters + CargoParameters[4];
+    // }
+		   
+    // trying to find markers with the same coordinates
+    for (var i = 0; i < objectArray.length; i++){
+        objectMarker = objectArray[i];
+        if ((object != objectMarker) && (objectMarker.setIcon)){
+            objectLatLng = objectMarker.getLatLng();
+            if (objectLatLng.equals(latLng)){
+                if  (map.hasLayer(objectMarker)) {
+                    var  CargoParameters = objectDataArray[i];
+                    if(CargoParameters !== undefined){                 
+                        weight = weight + CargoParameters[1];
+                        volume = volume + CargoParameters[2];
+                        quantityCargo = quantityCargo + CargoParameters[3];
+                        quantityMeters = quantityMeters + CargoParameters[4];
+                        totalQuantity = totalQuantity + 1;
+                    }
+                }	
+            }
+        }
+    }
+		   
+    var content = '<p style = "line-height:: 0"><b>' + uiData[0] + '</b>' + titleAddress 
+    			  +  ((weight >0) ?  '<br /><b>' + uiData[1] + '</b>'+ Math.round(weight*10)/10  : '')  
+    			  +  ((volume >0) ?  '<br /><b>' + uiData[2] + '</b>' + Math.round(volume*10)/10  : '')
+    			  +  ((quantityCargo >0) ?  '<br /><b>' + uiData[3] + '</b>' + quantityCargo : '')
+    			  +  ((quantityMeters >0) ?  '<br /><b>' + uiData[4] + '</b>' + Math.round(quantityMeters*10)/10 : '')
+    			  +  (((weight  >0) || (volume >0)||(quantityCargo >0)||(quantityMeters >0)) ?  '<br /><b>' + uiData[5] + '</b>' + totalQuantity  : '');
+        			  
+	var point = L.point(0, -5);
+    var popup = L.popup({closeButton: false, autoPan: true, offset: point}).setLatLng(latLng).setContent(content);
+    map.openPopup(popup);
+		   
+} //onMarkerMouseOver()
+
+function onMarkerMouseOut(eventData) {
+    
+    var object = eventData.target;  
+    map.closePopup();
+  		   
+} //onMarkerMouseOut()
+
+        
+function onTrackingObjectClick(eventData) {
+        
+    selectedObjectArray = [];
+    object = eventData.target;        
+
+    animCircleMarker = L.circleMarker(object.getLatLng(), {radius:40, stroke: true, color: '#00ff00', fill: false});
+    map.addLayer(animCircleMarker);
+    setTimeout(function() {animCircleMarker.setRadius(35)}, 50);
+    setTimeout(function() {animCircleMarker.setRadius(30)}, 75);
+    setTimeout(function() {animCircleMarker.setRadius(25)}, 100);
+    setTimeout(function() {animCircleMarker.setRadius(20); map.removeLayer(animCircleMarker);}, 125);
+
+           
+    index = selectedObjectArray.indexOf(object);
+    if (index === -1) {
+        selectedObjectArray.push(object);
+    }
+		       
+    fireHtmlDocumentClick();
+		  		   
+} //onTrackingObjectClick()
+                
+// function changes the icon of marker
+//
+function setMarkerIcon(_index, _icon, _centerX, _centerY, _width, _height, _iconState, _state) {
+			
+    if (_width === 0 || _width === undefined || _height === 0 || _height === undefined){
+        var imag = new Image();
+        imag.src = _icon;
+	            
+        // usage of setTimeout function because of the problems with detection of image dimentions on first image load  
+        setTimeout(function() {setMarkerIconAfterImageLoad(imag, _index, _icon, _centerX, _centerY, _state)}, 100);
+    }
+    else {
+        if (_iconState === "") {
+            var markerIcon = L.icon({iconUrl: _icon, iconSize: [_width, _height], iconAnchor: [_centerX, _centerY]});
+        }
+        else {
+            var markerIcon = L.icon({iconUrl: _icon, iconSize: [_width, _height], iconAnchor: [_centerX, _centerY],
+                shadowUrl: _iconState, shadowAnchor: [6, _centerY -_height]});
+        }
+        var	objectMarker = objectArray[_index - 1];
+        objectMarker.setIcon(markerIcon);
+        if  (_state === 0) {
+            objectMarker.setZIndexOffset(0);
+        }
+        else if (_state !== undefined) {
+            objectMarker.setZIndexOffset(1000);
+        }
+    }
+}
+		
+function setMarkerIconAfterImageLoad(imag, _index, _icon, _centerX, _centerY, _state) {
+    var _imgWidth = imag.width;
+    var _imgHeight = imag.height;
+    var markerIcon = L.icon({iconUrl: _icon, iconSize: [_imgWidth, _imgHeight], iconAnchor: [_centerX, _centerY]});
+    var	objectMarker = objectArray[_index - 1];
+    objectMarker.setIcon(markerIcon);	
+    if  (_state === 0) {
+        objectMarker.setZIndexOffset(0);
+    }
+    else if (_state !== undefined){
+        objectMarker.setZIndexOffset(1000);
+    }
+}
+		
+function setMarkerDivIcon(_index, _iconText, _fontColor, _internalFillcolor, _fillcolor) {
+    _fontColor = _fontColor || '#61411E';
+    _internalFillcolor = _internalFillcolor || '#6BCBE8';
+    _fillcolor = _fillcolor || '#6B8DE8';  
+    if (L.Browser.ielt9) {
+        /* пересоздаем маркер из-за некорректного поведения с VML */ 
+        var markerIcon = new L.DivIcon({ html:'<v:group style="width: 20px; height: 20px; padding: 0; color: ' + _fontColor + '; font-family: nyala; font-weight: bolder; text-align: center;">' +
+                     '<v:shape adj="10,10,10,10" fillcolor=' + _internalFillcolor + ' style="z-index: -1; position: absolute;" type="#vml-radius" />' + 
+                     '<v:shape adj="10,10,10,10,3,3,3,3" fillcolor=' + _fillcolor + ' style="z-index: -1; filter: alpha(opacity=80); position: absolute;" type="#vml-radius" />' + 
+                     + _iconText + '</v:group>', className: 'div-icon-leaflet', iconAnchor: [10, 10]});
+    }else{
+        var markerIcon = new L.DivIcon({ html: '<div style="width: 26px; height: 26px;  border-radius: 13px; font-family: nyala; font-weight: bolder; text-align: center; z-index: -1; position: absolute; background-color:' + _fillcolor + '"><div style="width: 20px; height: 20px;  border-radius: 10px; margin: 3px; color: ' + _fontColor + '; font-family: nyala; z-index: -1; position: absolute; font-weight: bolder; text-align: center; background-color:' + _internalFillcolor + '"> ' + _iconText + '</div></div>', className: 'diviconroute', iconAnchor: [10, 10]});
+    }
+    var	objectMarker = objectArray[_index - 1];
+    newobjectMarker = L.marker(objectMarker.getLatLng(), {icon: markerIcon, title: objectMarker._icon.title});	
+    objectArray.splice(_index - 1, 1, newobjectMarker);
+    newobjectMarker.on('click', onMarkerClick);
+    map.removeLayer(objectMarker);
+    newobjectMarker.addTo(map);
+}
+		
+function setTripStyle(_index, _weight, _dashArray) {
+    var	trip = tripArray[_index - 1];
+    trip.setStyle({weight: _weight, dashArray: _dashArray});
+}
+		
+function setMarkerTransparency(_index, _transparency) {
+    var _opacity = 1 - _transparency/100;
+    var	objectMarker = objectArray[_index - 1];
+    objectMarker.setOpacity(_opacity);
+}
+        
+function CheckCountOfSelectedMarkers() {
+    return selectedObjectArray.length;
+}
+        
+function CheckCountOfUnselectedMarkers() {         
+    return unselectedObjectArray.length;
+}
+        
+function CheckCountOfMarkers() {         
+    return objectArray.length;
+}
+        
+function CheckCountOfTrackingIncidents() {         
+    return incidentArray.length;
+}
+       
+function addSelectedMarker(_index) {
+         
+    var	objectMarker = objectArray[_index - 1];
+    var index = selectedObjectArray.indexOf(objectMarker);
+    if (index == -1) {
+        selectedObjectArray.push(objectMarker);
+    }
+}
+       
+function deleteSelectedMarker(_index) {
+         
+    var	objectMarker = objectArray[_index - 1];
+    var index = selectedObjectArray.indexOf(objectMarker);
+    if (index !== -1) {
+        selectedObjectArray.splice(index, 1);
+    }
+}
+        
+function getSelectedMarkers() {
+        
+    var splitter  = ";id=";
+    var str = "";
+    for (var i = 0; i < selectedObjectArray.length; i++) {
+        objectMarker = selectedObjectArray[i];
+        index = objectArray.indexOf(objectMarker);
+        if (index !== -1){
+        //if (index == -1){
+        //	selectedObjectArray.slice(i, 1);
+        //	i--;
+        //}
+        //else {
+            str = str + splitter + String(index + 1);
+        };
+    }
+    return str;
+}
+        
+function getUnselectedMarkers() {
+    var splitter  = ";id=";
+    var str = "";
+    for (var i = 0; i < unselectedObjectArray.length; i++) {
+        objectMarker = unselectedObjectArray[i];
+        index = objectArray.indexOf(objectMarker);
+        if (index !== -1){
+            str = str + splitter + String(index + 1);
+        };
+    }
+    unselectedObjectArray = [];
+    return str;
+}
+
+function ValidateCacheCalls() {		    
+    return map_Load;
+} //ValidateCacheCalls()
+		
+function EnterMonitoring(Mode) {		    
+    Monitoring_Mode = Mode;
+} //EnterMonitoring()
+		
+function AddMovementBetweenFlights() {
+    //Передвижения между рейсами
+    var index = objectArray.push('MovementBetweenFlights');
+    objectArray_Visible.push([index-1,false,'string']);
+			
+    return index;
+		 	
+} //AddMovementBetweenFlights()
+		
+function DrawTrackLaw(track,settings,OIndex){
+    var arrP = track.split(';'),
+        array = new Array(),
+        masSettings = ConfigureLine(settings),
+        d_Color = masSettings[0],
+        d_weight = masSettings[1],
+        d_opacity = 0.2;
+    //d_opacity = masSettings[2];
+				
+    var pLat = 0,
+        pLon = 0,
+        latLng = null;
+				
+    for (var i = 1; i < arrP.length; i++) {        	
+        latLng = null;
+        pLat   = parseFloat(arrP[i-1]);
+        pLon   = parseFloat(arrP[i]);
+        latLng = L.latLng(pLat,pLon);
+        array.push(latLng);
+        i = i + 1;        	    
+    }			
+    if(array.length > 0){
+        var polyline = L.polyline(array,{color:d_Color,weight:d_weight,opacity:d_opacity,smoothFactor:1}).addTo(map);			    	
+        objectArray_PlannedRoute.push([OIndex,[[array,d_Color,0]],[polyline],true,d_Color,d_weight,d_opacity]);
+    }			
+				
+} //DrawTrackLaw()
+		
+function ins_DrawTrack(Lat,Lon,cSpeed,cColor){
+		
+    if(array_draf_track === null){
+        array_draf_track = [];
+    }
+		
+    var pLat = parseFloat(Lat),
+        pLon = parseFloat(Lon);
+			
+    var obj = new Object();
+    obj.point = L.latLng(pLat,pLon); //координата точки
+    obj.color = cColor; //цвет при скорости
+    obj.speed = parseFloat(cSpeed); //скорость в точке
+			
+    array_draf_track.push(obj);
+				
+} //ins_DrawTrack()
+		
+function on_DrawTrackLaw(L_Color,L_Weight,L_Opacity,OIndex){
+		
+    if(array_draf_track !== null){
+        var array = new Array(),
+            d_Color = L_Color,
+            d_weight = L_Weight,
+            d_opacity = 0.2;
+				
+        for (var i = 0; i < array_draf_track.length; i++){				
+            var obj = array_draf_track[i];					
+            array.push(obj.point);					
+        }
+						
+        if(array.length > 0){
+            var polyline = L.polyline(array,{color:d_Color,weight:d_weight,opacity:d_opacity,smoothFactor:1}).addTo(map);
+            objectArray_PlannedRoute.push([OIndex,[[array,d_Color,0]],[polyline],true,d_Color,d_weight,d_opacity]);
+        }
+			    
+    } // if(array_draf_track !== null){
+			
+    array_draf_track = null;			
+							
+} //on_DrawTrackLaw()
+		
+function RepaintLinesDisplay(cArray,trColor,d_Color){
+		
+    var arColor = RetrieveColorTable(trColor);
+			
+    for (var i = 0; i < cArray.length; i++){
+        var arrPointP = cArray[i],
+            pSpeed = arrPointP[2],
+            pColor = ColorSpeed(pSpeed,arColor,d_Color);
+        arrPointP[1] = pColor;
+        cArray[i][1] = pColor;
+    }
+		 
+} // RepaintLinesDisplay()		
+		
+function EraseAllLinesObject(M_objectArray){
+		
+    for (var i = 0; i < M_objectArray.length; i++){
+        map.removeLayer(M_objectArray[i]);
+    };
+    M_objectArray.length = 0;
+			
+} // EraseAllLinesObject()
+		
+function DrawTrackPolyline(cArray, d_opacity, d_weight){
+		    
+    var M_objectArray = [];
+		
+    for (var i = 0; i < cArray.length; i++){
+        var arrPointP = cArray[i],
+            M_PointsArr = arrPointP[0],
+            pColor = arrPointP[1],
+            M_Flag = false;
+        if(hideUnvisibleObjects){				
+            for (var j = 0; j < M_PointsArr.length; j++){				
+                M_Flag = objectOnMap(M_PointsArr[j]);
+                if(M_Flag){
+                    break;
+                }
+            }				
+        }else{
+            M_Flag = true;
+        };
+        if(M_Flag){
+            var polyline = L.polyline(arrPointP[0],{color:pColor,weight:d_weight,opacity:d_opacity,smoothFactor:1}).addTo(map);
+            M_objectArray.push(polyline);
+        }
+    }
+			
+    return M_objectArray;
+			
+} // DrawTrackPolyline()
+		
+function on_DrawTrack(L_Color,L_Weight,L_Opacity,OIndex){
+		
+    if(array_draf_track !== null){
+        		
+        var array = MakeArrayDrafTrack();
+				
+        var d_weight = L_Weight;
+        if(d_weight === 0){
+            d_weight = 5;
+        }
+        var d_opacity = L_Opacity;
+        if(d_opacity === 0){
+            d_opacity = 0.5;
+        }
+				
+        var M_objectArray = DrawTrackPolyline(array,d_opacity,d_weight);
+							
+        objectArray_MultiPolyline.push([OIndex,array,M_objectArray,true,L_Color,d_weight,d_opacity]);        	
+				
+    } // if(array_draf_track !== null){
+			
+    array_draf_track = null;
+		
+} //on_DrawTrack()
+		
+function DrawTrack(trData, trColor, OIndex){
+		
+    var arrP = trData.split(';'),
+        array = new Array(),
+        arColor = null,
+        arrC = null;
+        		
+    var mas = null,
+        pSpeed = 0,
+        rSpeed = 0,
+        arrPoint = [],
+        pLat = 0,
+        pLon = 0,
+        pColor = '',
+        prevColor = '',
+        latLng = null,
+        prevlatLng = null,
+        d_Color = '#03f',
+        d_weight = 0,
+        d_opacity = 0;
+				
+    for (var i = 0; i < arrP.length; i++) {
+        latLng = null;
+        if(arrP[i].length > 0 ){
+            //разбираем строку на данные
+            mas = arrP[i].split(',');
+            pLat   = parseFloat(mas[0]);
+            pLon   = parseFloat(mas[1]);
+            pSpeed = parseFloat(mas[2]);
+            d_Color = mas[3],
+            d_weight = parseFloat(mas[4]),
+            d_opacity = parseFloat(mas[5]);
+            // получаем данные
+            pColor = d_Color;
+            latLng = L.latLng(pLat,pLon);					
+            if(pSpeed === rSpeed){
+                if(latLng !== null){
+                    arrPoint.push(latLng);
+                }
+            }else{
+                if(arrPoint.length > 0){
+                    array.push([arrPoint,prevColor,rSpeed]);
+                }
+                rSpeed = pSpeed;
+                arrPoint = [];
+                if(prevlatLng !== null){
+                    arrPoint.push(prevlatLng);
+                }
+                if(latLng !== null){
+                    arrPoint.push(latLng);						
+                }
+            }					
+            prevColor = pColor; //последний цвет
+            prevlatLng = latLng; //последняя координата
+					
+        } //if(arrP[i].length > 0 ){
+    }
+    if(arrPoint.length > 0){
+        array.push([arrPoint,pColor]);
+    }
+			
+			
+    if(d_weight === 0){
+        d_weight = 5;
+    }
+    if(d_opacity === 0){
+        d_opacity = 0.5;
+    }
+			
+    RepaintLinesDisplay(array, trColor, d_Color);
+			
+    var M_objectArray = DrawTrackPolyline(array, d_opacity, d_weight);
+			
+    objectArray_MultiPolyline.push([OIndex,array,M_objectArray,true,d_Color,d_weight,d_opacity]);
+        	
+} //DrawTrack()
+		
+function changeColorDrawTrack(trColor, OIndex){
+			
+    var mas = getMultiPolyline(OIndex);
+			
+    if(mas !== null){
+			
+        var M_objectArray = mas[1][2],
+            array = mas[1][1],
+            d_Color = mas[1][4],
+            d_weight = mas[1][5],
+            d_opacity = mas[1][6],
+            flgLgth = mas[1][3];
+					
+        EraseAllLinesObject(M_objectArray);
+        RepaintLinesDisplay(array, trColor, d_Color);
+        if(flgLgth){
+            M_objectArray = DrawTrackPolyline(array, d_opacity, d_weight);
+            if(M_objectArray.length === 0){
+                flgLgth = false;
+            }
+        } //if(flgLgth){
+			    	
+        objectArray_MultiPolyline[mas[0]] = [OIndex,array,M_objectArray,flgLgth,d_Color,d_weight,d_opacity];
+					
+    } //if(mas !== null){
+			
+} //changeColorDrawTrack()
+				
+function RetrieveColorTable(trColor){
+			
+    var arColor = new Array(),
+         arrC = null; 
+		
+    if(trColor.length > 0){
+        arrC = trColor.split(';');
+        for (var i = 0; i < arrC.length; i++) {
+            if(arrC[i].length > 0 ){
+                var mas = arrC[i].split(',');
+                arColor.push([parseFloat(mas[0]),mas[1]]);
+            }
+        } //определим цвет и скорорсть, 1.скорость, 2.цвет				
+    }
+			
+    return arColor;
+		
+} //RetrieveColorTable()	
+		
+function ConfigureLine(settings) {		    
+    var d_Color = '#03f',
+        d_weight = 5,
+        d_opacity = 0.5,
+        arrC = null;
+				
+    if(settings.length > 0){
+        arrC = settings.split(',');
+        d_Color = arrC[0],
+        d_weight = parseFloat(arrC[1]),
+        d_opacity = parseFloat(arrC[2]);
+        if(d_weight === 0){
+            d_weight = 5;
+        }
+        if(d_opacity === 0){
+            d_opacity = 0.5;
+        }					
+    } //if(settings.length > 0){
+				
+    return [d_Color,d_weight,d_opacity];
+				
+} //ConfigureLine()
+		
+function on_DrawTrackMovement(L_Color,L_Weight,L_Opacity,OIndex){
+		
+    if(array_draf_track !== null){
+        		
+        var array = MakeArrayDrafTrack();
+				
+        var M_objectArray = [];
+				
+        var d_weight = L_Weight;
+        if(d_weight === 0){
+            d_weight = 5;
+        }
+        var d_opacity = L_Opacity;
+        if(d_opacity === 0){
+            d_opacity = 0.5;
+        }
+				
+        var d_Color = L_Color;
+							
+        var mas = getMovementBetweenFlights(OIndex);
+        if(mas === null){
+            objectArray_MovementBetweenFlights.push([OIndex,array,[],false,d_Color,d_weight,d_opacity]);
+        }else{
+            var M_objectArray = mas[1][2],
+                M_array = mas[1][1];
+            for (var i = 0; i < array.length; i++){
+                M_array.push(array[i]);			
+            }			
+            objectArray_MovementBetweenFlights[mas[0]] = [OIndex,M_array,M_objectArray,false,d_Color,d_weight,d_opacity];
+        } //if(mas !== null){
+				
+    } // if(array_draf_track !== null){
+			
+    array_draf_track = null;		
+        	
+} // on_DrawTrackMovement()
+		
+function DrawTrackMovement(trData,trColor,settings,OIndex) {
+		
+    var arrP = trData.split(';'),
+        array = new Array(),
+        arColor = null,
+        masSettings = ConfigureLine(settings),
+        d_Color = masSettings[0],
+        d_weight = masSettings[1],
+        d_opacity = masSettings[2];
+        		
+    arColor = RetrieveColorTable(trColor);
+        	
+    var mas = null,
+        pSpeed = 0,
+        rSpeed = 0,
+        arrPoint = [],
+        pLat = 0,
+        pLon = 0,
+        pColor = '',
+        prevColor = '',
+        latLng = null,
+        prevlatLng = null;
+				
+    for (var i = 0; i < arrP.length; i++){
+        latLng = null;
+        if(arrP[i].length > 0 ){
+            //разбираем строку на данные
+            mas = arrP[i].split(',');
+            pLat   = parseFloat(mas[0]);
+            pLon   = parseFloat(mas[1]);
+            pSpeed = parseFloat(mas[2]);
+            // получаем данные
+            pColor = ColorSpeed(pSpeed,arColor,d_Color);
+            latLng = L.latLng(pLat,pLon);
+					
+            if(pSpeed === rSpeed){
+                if(latLng !== null){
+                    arrPoint.push(latLng);
+                }
+            }else{
+                if(arrPoint.length > 0){
+                    array.push([arrPoint,prevColor,rSpeed]);
+                }
+                rSpeed = pSpeed;
+                arrPoint = [];
+                if(prevlatLng !== null){
+                    arrPoint.push(prevlatLng);
+                }
+                if(latLng !== null){
+                    arrPoint.push(latLng);
+                }
+            }					
+            prevColor = pColor; //последний цвет
+            prevlatLng = latLng; //последняя координата					
+        } //if(arrP[i].length > 0 ){
+    }
+    if(arrPoint.length > 0){
+        array.push([arrPoint,pColor]);
+    }			
+    var mas = getMovementBetweenFlights(OIndex);
+    if(mas === null){
+        objectArray_MovementBetweenFlights.push([OIndex,array,[],false,d_Color,d_weight,d_opacity]);
+    }else{
+        var M_objectArray = mas[1][2],
+            M_array = mas[1][1];
+        for (var i = 0; i < array.length; i++){
+            M_array.push(array[i]);			
+        }			
+        objectArray_MovementBetweenFlights[mas[0]] = [OIndex,M_array,M_objectArray,false,d_Color,d_weight,d_opacity];
+    } //if(mas !== null){
+        	
+} //DrawTrackMovement()
+		
+function changeColorDrawTrackMovement(trColor, OIndex){
+			
+    var mas = getMovementBetweenFlights(OIndex);			
+    if(mas !== null){
+        var M_objectArray = mas[1][2],
+            array = mas[1][1],
+            d_Color = mas[1][4],
+            d_weight = mas[1][5],
+            d_opacity = mas[1][6],
+            flgLgth = mas[1][3];
+							
+        EraseAllLinesObject(M_objectArray);
+        RepaintLinesDisplay(array, trColor, d_Color);
+        if(flgLgth){
+            M_objectArray = DrawTrackPolyline(array, d_opacity, d_weight);
+            if(M_objectArray.length === 0){
+                flgLgth = false;
+            }
+        } //if(flgLgth){
+        objectArray_MovementBetweenFlights[mas[0]] = [OIndex,array,M_objectArray,flgLgth,d_Color,d_weight,d_opacity];
+    } //if(mas !== null){
+			
+} //changeColorDrawTrackMovement()
+		
+function ColorSpeed(Speed,MasColor,D_Color) {
+		
+    var result = '#03f',
+        mLength = MasColor.length;
+				
+    if(D_Color !== ''){
+        result = D_Color;
+    }
+				
+    if(mLength > 1){
+        for (var i = 0; i < mLength; i++) {
+            var j = i + 1;
+            if(j >= mLength){
+                j = i;
+            };				    
+            var arrI = MasColor[i],
+                arrJ = MasColor[j];
+					
+            if((arrI[0] < Speed)&&(Speed < arrJ[0])){
+                result = arrJ[1];
+            }
+            else if(arrI[0] === Speed){
+                result = arrI[1];
+            }
+            else if(arrJ[0] === Speed){
+                result = arrJ[1];
+            }					
+        }
+    } //if(mLength > 0){
+			
+    return result;
+			
+} //ColorSpeed()
+
+function clearObjects(){
+        
+    for (var i=0; i < objectArray.length; i++ ){
+        map.removeLayer(objectArray[i]);
+    }             
+    objectArray = [];
+             
+} //clearObjects()
+		
+function clearTrips() {
+        
+    for (var i=0; i < tripArray.length; i++ ){
+        map.removeLayer(tripArray[i]);
+    }
+    tripArray = [];
+    TripDataArray = [];
+}
+		
+function clearArrayOfObjects(oArray) {
+    for (var i=0; i < oArray.length; i++ ){
+        map.removeLayer(oArray[i]);
+    }
+    oArray = [];
+}
+		
+function clearZones() {
+        
+    for (var i=0; i < zoneArray.length; i++ ){
+        map.removeLayer(zoneArray[i]);
+    }
+    zoneArray = [];
+}
+
+function drawObjectPolygon(_title) {
+    polygonDraw     = true;
+    newPolygonTitle = _title;
+}
+
+// _color - Stroke color
+// _weight - Stroke width in pixels
+// _transparency - Stroke transparency 
+function addObjectPolylineBetweenObjects(_color, _weight, _transparency) {
+			
+    var _opacity = 1 - _transparency/100;
+        
+    var polyline = L.polyline(pointsArray,
+    {color: _color,
+        weight: _weight,
+        opacity: _opacity,
+        smoothFactor: 1});
+			
+    //map.fitBounds(polyline.getBounds());
+
+    var arrowHead = L.polylineDecorator(polyline, {
+        patterns: [{symbol: new L.Symbol.arrowHead({pixelSize: 8, headAngle: 45, pathOptions: {stroke: true, weight: _weight, color: _color, opacity: _opacity}})}]
+    });           
+			                          
+    var newObject = L.featureGroup([arrowHead, polyline]).addTo(map);
+			
+    var index = objectArray.push(newObject);
+    objectArray_Visible.push([index-1,true,'featureGroup']);
+			
+    pointsArray = [];
+			
+    return index;
+}
+		
+function addTrip(_curveCoordinates, _color, _weight, _transparency) {
+
+    var _opacity = 1 - _transparency/100;	     
+    var newArray = [];
+    var polylineArray = [];
+			
+    if (_curveCoordinates !== '') {
+        var curveArray = _curveCoordinates.split('//');
+        for (var i = 0; i < curveArray.length; i++) {
+            var curve = curveArray[i];
+            var coordArray = curve.split(';');
+            for (var j = 0; j <= coordArray.length/2 - 1; j++) { // was < 
+                var latlng = L.latLng(coordArray[j*2], coordArray[j*2 + 1]);  
+                polylineArray.push(latlng);
+            }
+            var polyline = L.polyline(polylineArray, {color: _color, weight: _weight, opacity: _opacity, dashArray: '3, 2', smoothFactor: 1});
+            newArray.push(polyline);
+            //var arrowHead = L.polylineDecorator(polyline, {
+            //   patterns: [{symbol: new L.Symbol.arrowHead({pixelSize: 8, headAngle: 45, pathOptions: {stroke: true, weight: _weight, color: _color, opacity: _opacity}})}]
+            //    });
+            //newArray.push(arrowHead);
+       	           
+            polylineArray = [];			
+        }
+    }
+    var newObject = L.featureGroup(newArray).addTo(map);
+    newObject.bringToFront();
+    map.fitBounds(newObject.getBounds());
+
+    var index = tripArray.push(newObject);
+    return index;
+}
+
+function addPolylineWithCoordinates(_curveCoordinates, _color, _weight, _transparency) {
+
+    var _opacity = 1 - _transparency/100;	     
+    var polylineArray = [];
+			
+    if (_curveCoordinates !== '') {
+        var coordArray = _curveCoordinates.split(';');
+        for (var j = 0; j <= coordArray.length/2 - 1; j++) { // was < 
+            var latlng = L.latLng(coordArray[j*2], coordArray[j*2 + 1]);  
+            polylineArray.push(latlng);
+        }
+    }   
+      
+    var polyline = L.polyline(polylineArray, {color: _color, weight: _weight, opacity: _opacity, smoothFactor: 1});
+    polyline.addTo(map);
+    var index = objectArray.push(polyline);
+    return index;
+}
+		
+function addZone(_curve, _title, _color, _weight, _opacity, _fillColor, _fillOpacity) {
+    var polylineArray = [];
+    if (_curve !== '') {
+        var coordArray = _curve.split(';');
+        for (var j = 0; j <= coordArray.length/2 - 1; j++) { // was < 
+            var latlng = L.latLng(coordArray[j*2], coordArray[j*2 + 1]);  
+            polylineArray.push(latlng);
+        }
+    }
+
+    var	objectPolygon  = L.polygon(polylineArray, {smoothFactor:0.3, color: _color, weight: _weight, opacity: _opacity, fillColor: _fillColor, fillOpacity: _fillOpacity, clickable: true});
+    objectPolygon.addTo(map);
+    objectPolygon.bringToBack();
+    //objectPolygon.on('click',     onObjectClick);
+			
+    var index = zoneArray.push(objectPolygon);
+    return index;
+}
+
+function FillArrayReperMarker(track){
+    var arrP = track.split(';');
+				
+    var pLat = 0,
+        pLon = 0,
+        latLng = null;
+    var firstLatLng = null;
+    var reperMarker = null;
+			
+    var L_length = ((arrP.length - 1) / 2) - 1;
+    		
+    for (var i = 0; i <= L_length; i++) {  // was <
+        latLng = null;
+        pLat   = parseFloat(arrP[i*2]);
+        pLon   = parseFloat(arrP[(i*2)+1]);
+        firstLatLng = L.latLng(pLat,pLon);
+        reperMarker = L.marker(firstLatLng, {draggable: false, icon: firstCornerIcon});
+        reperMarker.addTo(map);
+        reperMarker.on('click',onMapClick);
+			
+        reperMarkerArray.push(reperMarker);
+    }
+				
+} // FillArrayReperMarker()
+
+function addReperMarker(lat, lng) {
+			
+    var firstLatLng = L.latLng(lat, lng);
+    var reperMarker = L.marker(firstLatLng, {draggable: false, icon: firstCornerIcon});
+    reperMarker.addTo(map);
+    reperMarker.on('click',     onMapClick);
+			
+    reperMarkerArray.push(reperMarker);
+}
+
+function drawObjectPolyline(_title, firstLat, firstLng, lastLat, lastLng) {
+    polylineDraw     = true;
+    newPolylineTitle = _title;
+			
+    cornerMarkerArray = [];
+    pointsArray = [];
+			
+    var firstLatLng = L.latLng(firstLat, firstLng);
+    firstCorner = L.marker(firstLatLng, {draggable: false, icon: firstCornerIcon});
+    firstCorner.addTo(map);
+			
+    cornerMarkerArray.push(firstCorner);
+
+    pointsArray.push(firstLatLng);
+
+    vectorArray.push(firstLatLng);
+    vectorArray.push(firstLatLng);
+    newVector = L.polyline(vectorArray);
+    newVector.addTo(map);
+						
+    numberOfPoints = 1;
+			
+    var lastLatLng = L.latLng(lastLat, lastLng);
+    lastCorner = L.marker(lastLatLng, {draggable: false, icon: lastCornerIcon});
+    lastCorner.addTo(map);
+    lastCorner.on('click',     onLastCornerMarkerClickPolyline);
+    MapsetCentre(firstLatLng,map.getMaxZoom());
+}
+		
+function drawObjectMarker(_title) {
+    markerDraw      = true;
+    newMarkerTitle  = _title;
+}
+
+function redrawObjectPolygon(index, _title) {
+    newPolygonTitle = _title;
+
+    var	objectPolygon  = objectArray[index - 1];
+   				
+    pointsArray     = objectPolygon.getLatLngs();
+    numberOfPoints  = pointsArray.length;
+			
+    map.removeLayer(objectPolygon);
+			
+    newPolygon  = L.polygon(pointsArray, {opacity: 0, color: 'red', clickable: true});
+    newPolygon.addTo(map);
+    //newPolygon.bindPopup(newPolygonTitle);
+						
+    //newPolygon.on('click',     onObjectClick);
+
+    newPolyline = L.polyline(pointsArray, {opacity: 0.8});
+    newPolyline.addLatLng(pointsArray[0]);
+    newPolyline.addTo(map);
+
+    var prevPoint = null;
+    for (var i=0; i<pointsArray.length; i++ ){
+        var cornerMarker = L.marker(pointsArray[i], {draggable: true, icon: cornerIcon});
+        cornerMarker.addTo(map);
+        cornerMarker.on('click',     onCornerMarkerClick);
+        cornerMarker.on('dragstart', onCornerMarkerDragStart);
+        cornerMarker.on('drag',      onCornerMarkerDrag);
+        cornerMarker.on('dragend',   onCornerMarkerDragEnd);
+				
+        cornerMarkerArray.push(cornerMarker);
+
+        if (prevPoint != null) {
+            var halfwayMarker = L.marker(getHalfwayLatLng(prevPoint, pointsArray[i]), {opacity: 0.5, icon: cornerIcon});
+            halfwayMarker.addTo(map);
+            halfwayMarker.on('click',     onHalfwayMarkerClick);
+				
+            halfwayMarkerArray.push(halfwayMarker);
+        }
+				
+        prevPoint = pointsArray[i];
+    }
+
+    if (prevPoint != null) {
+        var halfwayMarker = L.marker(getHalfwayLatLng(prevPoint, pointsArray[0]), {opacity: 0.5, icon: cornerIcon});
+        halfwayMarker.addTo(map);
+        halfwayMarker.on('click',     onHalfwayMarkerClick);
+				
+        halfwayMarkerArray.push(halfwayMarker);
+    }
+}
+
+function redrawObjectPolyline(index, _title) {
+    newPolylineTitle = _title;
+
+    var	objectPolyline = objectArray[index - 1];
+   				
+    pointsArray     = objectPolyline.getLatLngs();
+    numberOfPoints  = pointsArray.length;
+			
+    map.removeLayer(objectPolyline);
+
+    var	objectFirstMarker = objectArray[index-3];
+    map.removeLayer(objectFirstMarker);
+    var	objectLastMarker = objectArray[index -2];
+    map.removeLayer(objectLastMarker);
+			
+    newPolyline  = L.polyline(pointsArray, {color: 'red'});
+    newPolyline.addTo(map);
+    newPolyline.bindPopup(newPolylineTitle);
+						
+    newPolyline.on('click',     onObjectClick);
+
+    var prevPoint = null;
+    for (var i=0; i<pointsArray.length; i++ ){
+			
+        if (i == 0) {
+            firstCorner = L.marker(pointsArray[i], {draggable: false, icon: firstCornerIcon});
+            firstCorner.addTo(map);
+			
+            cornerMarkerArray.push(firstCorner);
+        }
+        else {
+            if (i == pointsArray.length - 1) {	
+                lastCorner = L.marker(pointsArray[i], {draggable: false, icon: lastCornerIcon});
+                lastCorner.addTo(map);
+                lastCorner.on('click',     onLastCornerMarkerClickPolyline);
+			
+                cornerMarkerArray.push(lastCorner);
+            }
+            else {	
+                var cornerMarker = L.marker(pointsArray[i], {draggable: true, icon: cornerIcon});
+                cornerMarker.addTo(map);
+                cornerMarker.on('click',     onCornerMarkerClickPolyline);
+                cornerMarker.on('dragstart', onCornerMarkerDragStart);
+                cornerMarker.on('drag',      onCornerMarkerDrag);
+                cornerMarker.on('dragend',   onCornerMarkerDragEnd);
+					
+                cornerMarkerArray.push(cornerMarker);
+            }
+        }		
+
+        if (prevPoint != null) {
+            var halfwayMarker = L.marker(getHalfwayLatLng(prevPoint, pointsArray[i]), {opacity: 0.5, icon: cornerIcon});
+            halfwayMarker.addTo(map);
+            halfwayMarker.on('click',     onHalfwayMarkerClick);
+				
+            halfwayMarkerArray.push(halfwayMarker);
+        }
+				
+        prevPoint = pointsArray[i];
+    }
+
+}
+
+function redrawObjectMarker(index, _title, lat, lng) {
+    markerDraw      = true;
+    newMarkerTitle  = _title;
+	
+    var	objectMarker  = objectArray[index - 1];
+	if (lat === 0 || lat === undefined || lng === 0 || lng === undefined) {
+          var latLng = objectMarker.getLatLng();
+          newMarker = L.marker(latLng, {draggable: true, icon: geocodeIcon, title: newMarkerTitle});
+    }
+    else {
+    	  markerDraw = false;
+          var latLng = L.latLng(lat, lng);
+          newMarker = L.marker(latLng, {draggable: false, icon: geocodeIcon, title: newMarkerTitle});
+          pointsArray=[];
+    	  pointsArray.push(latLng);
+    	  pointsArray.push(objectMarker.getLatLng());
+          latLngBounds = L.latLngBounds(pointsArray);
+    	  map.fitBounds(latLngBounds);
+    	  pointsArray=[];
+    }					
+    //map.removeLayer(objectMarker);
+
+    //newMarker = L.marker(objectMarker.getLatLng(), {draggable: true, icon: geocodeIcon, title: newMarkerTitle});
+    newMarker.addTo(map);
+    newMarker.bindPopup(newMarkerTitle);
+	
+    if (markerDraw === true) {
+    	newMarker.on('click', onNewMarkerClick);
+    }					
+    
+}
+
+function eraseObjectPolygon(){
+    for (var i=0; i<halfwayMarkerArray.length; i++ ){
+        map.removeLayer(halfwayMarkerArray[i]);
+    }
+    halfwayMarkerArray = [];
+			
+    for (var i=0; i<cornerMarkerArray.length; i++ ){
+        map.removeLayer(cornerMarkerArray[i]);
+    }
+    cornerMarkerArray = [];
+			
+    if (polygonDraw == true && numberOfPoints > 0) {
+        map.removeLayer(newVector);
+        newVector       = null;
+        vectorArray     = [];
+    }	
+			
+    polygonDraw = false;
+    polylineDraw = false;
+    if (newPolygon != null) {
+        map.removeLayer(newPolygon);
+        newPolygon      = null;
+        polygonDraw = true;
+    }	
+
+    if (newPolyline != null) {
+        map.removeLayer(newPolyline);
+        newPolyline     = null;
+        if (polygonDraw === false){
+            polylineDraw = true;
+        }
+    }	
+    if (newVector !== null) {
+        map.removeLayer(newVector);
+        newVector = null;
+    }
+    numberOfPoints  = 0;
+			
+    pointsArray     = [];
+}
+
+function eraseObjectMarker() {
+    markerDraw      = true;
+
+    if (newMarker != null) {
+        map.removeLayer(newMarker);
+    }
+    newMarker = null;	
+}
+		
+function getMovementBetweenFlights(index){
+    var result = null;
+    for (var i=0; i<objectArray_MovementBetweenFlights.length; i++ ){
+        var mas = objectArray_MovementBetweenFlights[i];
+        if(mas[0] === index ){
+            result = [i,mas];
+            break;
+        } //if(mas[0] === index ){
+    }
+    return result;
+			
+} //getMovementBetweenFlights()
+		
+function getMultiPolyline(index) {
+    var result = null;
+    for (var i=0; i<objectArray_MultiPolyline.length; i++ ){
+        var mas = objectArray_MultiPolyline[i];
+        if(mas[0] === index ){
+            result = [i,mas];
+            break;
+        } //if(mas[0] === index ){
+    }
+    return result;
+			
+} //getMultiPolyline()
+		
+function getRoutePolyline(index) {
+    var result = null;
+    for (var i=0; i<objectArray_PlannedRoute.length; i++ ){
+        var mas = objectArray_PlannedRoute[i];
+        if(mas[0] === index ){
+            result = [i,mas];
+            break;
+        } //if(mas[0] === index ){
+    }
+    return result;
+			
+} //getRoutePolyline()
+		
+function getVisibleObject(index) {
+    var result = null;
+    for (var i=0; i<objectArray_Visible.length; i++ ){
+        var mas = objectArray_Visible[i];
+				
+        if(mas[0] === index ){
+            result = [i,mas];
+            break;
+        }
+    }
+    return result;			
+} //getVisibleObject()
+		
+function MapsetCentre(latlng,MaxZoom){
+		
+    var nMaxZoom = MaxZoom;
+    if(String(MaxZoom) == 'Infinity'){nMaxZoom = 18};
+    map.setView(latlng, nMaxZoom, {animate: true});
+           
+} //MapsetCentre()
+		
+function setUsePositioning(UsePos){
+			
+    toUsePositioning = UsePos;
+
+} //setUsePositioning()
+
+function showObjects(_indexes, mayBeClustered) {
+    mayBeClustered = mayBeClustered || false;
+    indexArray = _indexes.split(";");
+    for (var i = 0; i < indexArray.length - 1; i++){
+        index = indexArray[i];
+        var objectMarker = objectArray[index - 1];
+        if (markerClustering === true && mayBeClustered === true){
+            markersClustered.addLayer(objectMarker);
+        }else {
+            map.addLayer(objectMarker);
+        }
+    }
+}
+
+function hideObjects(_indexes, mayBeClustered) {
+    mayBeClustered = mayBeClustered || false;
+    indexArray = _indexes.split(";");
+    for (var i = 0; i < indexArray.length - 1; i++){
+        index = indexArray[i];
+        var objectMarker = objectArray[index - 1];
+        if (markerClustering === true && mayBeClustered === true){
+            markersClustered.removeLayer(objectMarker);
+        } else {
+            map.removeLayer(objectMarker);
+        }
+    }
+}
+
+function showObject(index){
+		
+    if(objectArray.length === 0 ){
+        d = 1;
+    }else{
+        if (markerDraw) {
+            var mass = newMarker;
+        }else{
+            if (index > 0) {
+                var mass = objectArray[index-1];
+            }else {
+                var mass = objectArray[0];
+            }
+        }
+        var flgMovement = false;
+        if(mass !== undefined){
+            var mas = getVisibleObject(index-1);
+            if(mas !== null){
+                if(editVisible){
+                    objectArray_Visible[mas[0]] = [index-1,true,mas[1][2]];
+                }else{
+                    editVisible = mas[1][1];
+                }
+            }				
+            if(mass === 'MovementBetweenFlights'){
+                flgMovement = true;
+            }else{
+                if (markerClustering === true){
+                    markersClustered.addLayer(mass);
+                }
+                else {
+                    map.addLayer(mass);
+                }
+            } //if(mass === 'MovementBetweenFlights'){
+        } //if(mass !== undefined){
+    } //if(objectArray.length === 0 ){
+			
+    if((Monitoring_Mode === 1)&&(editVisible)&&(flgMovement)){
+        var mas = getMovementBetweenFlights(index);			
+        if(mas !== null){
+            var M_objectArray = mas[1][2],
+                array = mas[1][1],
+                d_Color = mas[1][4],
+                d_weight = mas[1][5],
+                d_opacity = mas[1][6];
+						
+            EraseAllLinesObject(M_objectArray);						
+            M_objectArray = DrawTrackPolyline(array, d_opacity, d_weight);
+						
+            var flgLgth = true;
+            if(M_objectArray.length === 0){
+                flgLgth = false;
+            }
+            objectArray_MovementBetweenFlights[mas[0]] = [index,array,M_objectArray,flgLgth,d_Color,d_weight,d_opacity];
+        } //if(mas !== null){
+    } //if((Monitoring_Mode === 1)&&(flgMovement)){
+			
+    if(((Monitoring_Mode === 1)||(Monitoring_Mode === 2))&&(editVisible)&&(! flgMovement)){
+        var mas = getMultiPolyline(index);
+        if(mas !== null){					
+            var M_objectArray = mas[1][2],
+                array = mas[1][1],
+                d_Color = mas[1][4],
+                d_weight = mas[1][5],
+                d_opacity = mas[1][6];
+							
+            EraseAllLinesObject(M_objectArray);
+            M_objectArray = DrawTrackPolyline(array, d_opacity, d_weight);
+						
+            var flgLgth = true;
+            if(M_objectArray.length === 0){
+                flgLgth = false;
+            }
+            objectArray_MultiPolyline[mas[0]] = [index,array,M_objectArray,flgLgth,d_Color,d_weight,d_opacity];
+					
+        } //if(mas !== null){
+        var mas = getRoutePolyline(index);			
+        if(mas !== null){					
+            var M_objectPoly = mas[1][2],
+                flgLgth = mas[1][3],
+                array = mas[1][1],
+                d_Color = mas[1][4],
+                d_weight = mas[1][5],
+                d_opacity = mas[1][6];
+							
+            EraseAllLinesObject(M_objectPoly);
+					
+            M_objectPoly = DrawTrackPolyline(array, d_opacity, d_weight);
+            if(M_objectPoly.length === 0){
+                flgLgth = false;
+            }
+            objectArray_PlannedRoute[mas[0]] = [index,array,M_objectPoly,flgLgth,d_Color,d_weight,d_opacity];
+			    	
+        } //if(mas !== null){
+    } //if(Monitoring_Mode === 1){
+			
+    editVisible = true;
+			
+} //showObject()		
+
+function hideObject(index){	
+			
+    if(objectArray.length === 0 ){
+        d = 1;
+    }else{
+        if (markerDraw) {
+            var mass = newMarker;				
+        }else{
+            if (index > 0) {
+                var mass = objectArray[index-1];
+            }else {
+                var mass = objectArray[0];
+            }
+        }
+        var flgMovement = false;
+        if(mass !== undefined){
+            var mas = getVisibleObject(index-1);
+            if(mas !== null){
+                if(editVisible){
+                    objectArray_Visible[mas[0]] = [index-1,false,mas[1][2]];
+                }
+            }
+            if(mass === 'MovementBetweenFlights'){
+                flgMovement = true;
+            }else{
+                if (markerClustering === true){
+                    markersClustered.removeLayer(mass);
+                } else {
+                    map.removeLayer(mass);
+                }						
+            } //if(mass === 'MovementBetweenFlights'){
+        } //if(mass !== undefined){
+    } //if(objectArray.length === 0)
+    if((Monitoring_Mode === 1)&&(editVisible)&&(flgMovement)){
+        var mas = getMovementBetweenFlights(index);
+        if(mas !== null){
+            var M_objectArray = mas[1][2],
+                array = mas[1][1],
+                d_Color = mas[1][4],
+                d_weight = mas[1][5],
+                d_opacity = mas[1][6];
+							
+            EraseAllLinesObject(M_objectArray);
+						
+            objectArray_MovementBetweenFlights[mas[0]] = [index,array,M_objectArray,false,d_Color,d_weight,d_opacity];
+        } //if(mas !== null){
+    } //if((Monitoring_Mode === 1)&&(flgMovement)){
+			
+    if(((Monitoring_Mode === 1)||(Monitoring_Mode === 2))&&(editVisible)&&(! flgMovement)){
+        var mas = getMultiPolyline(index);
+        if(mas !== null){
+            var M_objectArray = mas[1][2],
+                array = mas[1][1],
+                d_Color = mas[1][4],
+                d_weight = mas[1][5],
+                d_opacity = mas[1][6];
+							
+            EraseAllLinesObject(M_objectArray);
+							
+            objectArray_MultiPolyline[mas[0]] = [index,array,M_objectArray,false,d_Color,d_weight,d_opacity];
+        }; //if(mas !== null){
+        var mas = getRoutePolyline(index);				
+        if(mas !== null){
+            var M_objectPoly = mas[1][2],
+                array = mas[1][1],
+                d_Color = mas[1][4],
+                d_weight = mas[1][5],
+                d_opacity = mas[1][6];
+							
+            EraseAllLinesObject(M_objectPoly);
+						
+            objectArray_PlannedRoute[mas[0]] = [index,array,M_objectPoly,false,d_Color,d_weight,d_opacity];
+        }; //if(mas !== null){				
+    }; //if(Monitoring_Mode === 1){
+			
+    editVisible = true;
+			
+} //hideObject()
+		
+function deleteObjectMarker(index, mayBeClustered) {
+    mayBeClustered = mayBeClustered || false;
+    if (objectArray.length !== 0 ){
+        var objectMarker = objectArray[index - 1];
+        if (markerClustering === true && mayBeClustered === true){
+            markersClustered.removeLayer(objectMarker);
+        } else {
+            map.removeLayer(objectMarker);
+            
+            var  CargoParameters = objectDataArray[index - 1];
+            if(CargoParameters !== undefined){                 
+                CargoParameters.splice(index - 1, 1, 0);
+            }
+        }
+        objectArray.splice(index - 1, 1, 0);
+    }
+}
+		
+function deleteTrip(index) {
+    if (tripArray.length !== 0 ){
+        var trip = tripArray[index - 1];
+        map.removeLayer(trip);
+        tripArray.splice(index - 1, 1, 0);
+    }
+}
+		
+function showTrip(index) {
+    if(tripArray.length !== 0 ){
+        var trip = tripArray[index - 1];
+        map.addLayer(trip);
+    }
+}
+		
+function hideTrip(index){	
+    if(tripArray.length !== 0 ){
+        var trip = tripArray[index - 1];
+        map.removeLayer(trip);
+    }
+}
+		
+function showZone(index) {
+    if(zoneArray.length !== 0 ){
+        var zone = zoneArray[index - 1];
+        map.addLayer(zone);
+    }
+}
+		
+function hideZone(index){	
+    if(zoneArray.length !== 0 ){
+        var zone = zoneArray[index - 1];
+        map.removeLayer(zone);
+    }
+}
+
+function addInterfaceData(data){	
+    uiData.push(data);
+}
+
+function addTripData(index, Title, ContactInfo, CurrCoordDate, BestPositions){	
+    var TripData = {
+        Title: Title,
+        ContactInfo: ContactInfo,
+        CurrCoordDate: CurrCoordDate,
+        BestPositions: BestPositions
+    }
+    TripDataArray[index] = TripData;
+}
+
+function clearInterfaceData(data){	
+    uiData = [];
+}
+		
+function gotoTrip(index) {
+    var trip = tripArray[index - 1];
+    map.fitBounds(trip.getBounds());
+}
+
+function gotoObjectPolygon(index) {
+    var objectPolygon = objectArray[index - 1];
+    map.fitBounds(objectPolygon.getBounds());
+}
+
+function fitMapToBounds() {
+    latLngBounds = L.latLngBounds(pointsArray);
+    map.fitBounds(latLngBounds);
+    pointsArray = [];
+}
+
+function gotoObjectMarker(index) {
+    var objectMarker = objectArray[index - 1];
+    latLng = objectMarker.getLatLng();
+    MapsetCentre(latLng, map.getMaxZoom());
+    onMarkerAddAnimation(latLng,  '#FF3B00');
+}
+
+function addCorner(lat, lng) {
+    var latLng = L.latLng(lat, lng);
+    cornerArray.push(latLng);
+}
+
+function addPoint(lat, lng) {
+    var latLng = L.latLng(lat, lng);
+    pointsArray.push(latLng);
+}
+
+function FillArrayPoint(track){
+    pointsArray = [];
+    var arrP = track.split(';');
+				
+    var pLat = 0,
+            pLon = 0,
+            latLng = null;
+    if (arrP.length === 2) {
+        arrP;
+        arrP.push(arrP[0]);
+        arrP.push(arrP[1]);
+    }
+    var L_length = (arrP.length / 2) - 1;
+    for (var i = 0; i <= L_length; i++) {  // was <
+        var j = i*2;
+        latLng = null;
+        pLat   = parseFloat(arrP[j]);
+        pLon   = parseFloat(arrP[j+1]);
+        latLng = L.latLng(pLat,pLon);				
+        pointsArray.push(latLng);
+    }
+		
+		
+				
+} // FillArrayPoint()
+
+function addObjectPolyline() {
+			
+    var startMarker = L.marker(pointsArray[0], {draggable: false, icon: firstCornerIcon}).addTo(map);
+			
+    var index = objectArray.push(startMarker);
+    objectArray_Visible.push([index-1,true,'marker']);
+			
+    var lastMarker = L.marker(pointsArray[pointsArray.length-1], {draggable: false, icon: lastCornerIcon}).addTo(map);
+			
+    index = objectArray.push(lastMarker);
+    objectArray_Visible.push([index-1,true,'marker']);
+			
+    var polyline = L.polyline(pointsArray,
+    {color: 'red',
+        weight: 1,
+        opacity: 1,
+        smoothFactor: 1}).addTo(map);			
+			
+    map.fitBounds(polyline.getBounds());
+
+    index = objectArray.push(polyline);
+    objectArray_Visible.push([index-1,true,'polyline']);
+    pointsArray = [];
+			
+    return objectArray.length;
+}
+		
+function addObjectPolylineTrackColor(_color, _weight, _opacity) {
+			
+    if(_opacity < 0.1){_opacity = 0.5}
+    var polyline = L.polyline(pointsArray,
+        {color: _color,
+            weight: _weight,
+            opacity: _opacity,
+            smoothFactor: 1}).addTo(map);			
+			
+    if (toUsePositioning === true) {
+        map.fitBounds(polyline.getBounds());
+    }			
+
+    var index = objectArray.push(polyline);			
+    objectArray_Visible.push([index-1,true,'polyline']);
+    pointsArray = [];
+			
+    return index;
+}
+		
+function on_MoveObjectPolylineTrackColor(L_Color,L_Weight,L_Opacity,OIndex){
+	
+    if(array_draf_track !== null){
+			
+        var arrPoint = [];		
+        for (var i = 0; i < array_draf_track.length; i++){
+            var obj = array_draf_track[i];
+            if(obj !== null){
+                if(obj.point !== null){
+                    arrPoint.push(obj.point);
+                }
+            } // if(obj !== null){
+        } // for (var i = 0; i < array_draf_track.length; i++) {
+				
+        if(arrPoint.length > 0){
+            var polyline = objectArray[OIndex-1];
+            if(polyline !== undefined){
+                polyline.setLatLngs(arrPoint);
+                polyline.setStyle({color:L_Color,weight:L_Weight,opacity:L_Opacity});
+            }
+        }
+			
+    } // if(array_draf_track !== null){
+			
+    array_draf_track = null;	    
+			
+} // on_MoveObjectPolylineTrackColor()
+		
+function MoveObjectPolylineTrackColor(track,settings,OIndex) {
+		
+    var arrP = track.split(';'),
+        array = new Array(),
+        masSettings = ConfigureLine(settings),
+        d_Color = masSettings[0],
+        d_weight = masSettings[1],
+        d_opacity = masSettings[2];
+			
+    for (var i = 1; i < arrP.length; i++) {        	
+        latLng = null;
+        pLat   = parseFloat(arrP[i-1]);
+        pLon   = parseFloat(arrP[i]);
+        latLng = L.latLng(pLat,pLon);        		
+        array.push(latLng);
+        i = i + 1;        	    
+    }			
+    if(array.length > 0){
+        var polyline = objectArray[OIndex-1];
+        if(polyline !== undefined){
+            polyline.setLatLngs(array);
+            polyline.setStyle({color:d_Color,weight:d_weight,opacity:d_opacity});
+        }
+    }			
+			
+} //MoveObjectPolylineTrackColor
+
+function addObjectDirection() {
+			
+    var _color = '#03f',
+        _weight = 5,
+        _opacity = 0.5;
+					
+    var polyline = L.polyline(pointsArray,
+    {color: _color,
+        weight: _weight,
+        opacity: _opacity,
+        smoothFactor: 1}).addTo(map);			
+			
+    var arrowHead = L.polylineDecorator(polyline, {
+        patterns: [{symbol: new L.Symbol.arrowHead({pixelSize: 8, headAngle: 45, pathOptions: {stroke: true, weight: _weight, color: _color, opacity: _opacity}})}]
+    }).addTo(map);           
+			
+    var newObject = L.featureGroup([arrowHead, polyline]).addTo(map);
+    var index = objectArray.push(newObject);
+    objectArray_Visible.push([index-1,true,'featureGroup']);
+
+    pointsArray = [];
+			
+    return index;
+}
+
+function FillArrayCorner(track){
+		
+    cornerArray = [];
+		
+    var arrP = track.split(';');
+			
+    var pLat = 0,
+        pLon = 0,
+        latLng = null;
+    var L_length = (arrP.length / 2) - 1;
+    for (var i = 0; i <= L_length; i++) { // was <
+        latLng = null;
+        var j = i*2;
+        pLat   = parseFloat(arrP[j]);
+        pLon   = parseFloat(arrP[j+1]);
+        latLng = L.latLng(pLat,pLon);
+        cornerArray.push(latLng);
+    }
+				
+} // FillArrayCorner()
+
+function addObjectPolygon(_title, _color, _weight, _opacity, _fillColor, _fillOpacity) {
+    var	objectPolygon  = L.polygon(cornerArray, {smoothFactor:0.1, color: _color, weight: _weight, opacity: _opacity, fillColor: _fillColor, fillOpacity: _fillOpacity, clickable: true});
+    objectPolygon.addTo(map);
+    //objectPolygon.bindPopup(_title);
+						
+    //objectPolygon.on('click',     onObjectClick);
+			
+    var index = objectArray.push(objectPolygon);
+    objectArray_Visible.push([index-1,true,'polygon']);
+			
+    if (toUsePositioning === true) {
+        map.fitBounds(objectPolygon.getBounds());
+    }			
+			
+    cornerArray = [];
+			
+    return index;
+}
+
+function addObjectMarker(lat, lng, _title, _icon, _centerX, _centerY, _usePopup, _width, _height) {
+		
+		
+    if (typeof _usePopup == undefined) _usePopup = true;
+    var latLng = L.latLng(lat, lng),
+        objectMarker = null;
+    if (_icon !== '') {
+        if (_width === 0 || _width === undefined || _height === 0 || _height === undefined) {
+            var markerIcon = L.icon({iconUrl: _icon, iconAnchor: [_centerX, _centerY]});
+        }
+        else {
+            var markerIcon = L.icon({iconUrl: _icon, iconSize: [_width, _height], iconAnchor: [_centerX, _centerY]});
+        }
+        objectMarker = L.marker(latLng, {icon: markerIcon, title: _title});
+    }
+    else {
+        objectMarker = L.marker(latLng, {title: _title});
+    }
+			
+    objectMarker.addTo(map);
+    objectMarker.on('click', onMarkerClick);
+    if (_usePopup === true){
+        objectMarker.bindPopup(_title);
+    }
+			
+    var index = objectArray.push(objectMarker);			
+    objectArray_Visible.push([index-1,true,'marker']);
+			
+    if (toUsePositioning === true) {
+        MapsetCentre(objectMarker.getLatLng(), map.getMaxZoom());
+    }
+            
+    return index;
+			
+} // addObjectMarker()
+		
+function MoveObjectMarker(lat, lng, _title, _icon, _centerX, _centerY, _index){
+		    			
+    var objectMarker = objectArray[_index-1];
+    if(objectMarker !== undefined){
+			
+        if (_icon !== '') {
+            objectMarker.setIcon(L.icon({iconUrl: _icon, iconAnchor: [_centerX, _centerY]}));
+        }				
+			
+        objectMarker.setLatLng(L.latLng(lat,lng));				
+    }
+			
+} //MoveObjectMarker()
+		
+function MakeArrayDrafTrack(){
+		
+    var array = [],
+        rSpeed = 0,
+        arrPoint = [],
+        prevColor = '',
+        prevlatLng = null;
+			
+    for (var i = 0; i < array_draf_track.length; i++){
+				
+        var obj = array_draf_track[i];
+				
+        if(obj !== null){
+						
+            if(obj.speed === rSpeed){
+                if(obj.point !== null){
+                    arrPoint.push(obj.point);
+                }
+            }else{
+                if(arrPoint.length > 0){
+                    array.push([arrPoint,prevColor,rSpeed]);
+                }
+                rSpeed = obj.speed;
+                arrPoint = [];
+                if(prevlatLng !== null){
+                    arrPoint.push(prevlatLng);
+                }
+                if(obj.point !== null){
+                    arrPoint.push(obj.point);
+                }								
+            } // if(obj.speed === rSpeed){						
+						
+            prevColor = obj.color; //последний цвет
+            prevlatLng = obj.point; //последняя координата						
+        				
+        } // if(obj !== null){
+					
+    } // for (var i = 0; i < array_draf_track.length; i++) {
+				
+    if(arrPoint.length > 0){
+        array.push([arrPoint,obj.color,obj.speed]);
+    }
+			
+    return array;
+		
+} //MakeArrayDrafTrack()
+		
+function on_MoveDrawTrack(L_Color,L_Weight,L_Opacity,OIndex){
+    if(array_draf_track !== null){
+        var mas = getMultiPolyline(OIndex);
+        if(mas !== null){
+            var cIndex = mas[0];
+            var M_objectArray = mas[1][2];
+				
+            EraseAllLinesObject(M_objectArray);
+        		
+            var array = MakeArrayDrafTrack();       			
+			
+            var d_weight = L_Weight;
+            if(d_weight === 0){
+                d_weight = 5;
+            }
+            var d_opacity = L_Opacity;
+            if(d_opacity === 0){
+                d_opacity = 0.5;
+            }
+				
+            var M_objectArray = DrawTrackPolyline(array, d_opacity, d_weight);
+				
+            var flgLgth = true;
+            if(M_objectArray.length === 0){
+                flgLgth = false;
+            }
+            objectArray_MultiPolyline[cIndex] = [OIndex,array,M_objectArray,flgLgth,L_Color,d_weight,d_opacity];
+        } //if(mas !== null){		
+				
+    } // if(array_draf_track !== null){
+			
+    array_draf_track = null;
+			
+} // on_MoveDrawTrack()
+		
+function MoveDrawTrack(trData, trColor, OIndex){
+		
+    var mas = getMultiPolyline(OIndex);
+    if(mas !== null){
+        var cIndex = mas[0];
+        var M_objectArray = mas[1][2];
+        for (var i = 0; i < M_objectArray.length; i++){
+            map.removeLayer(M_objectArray[i]);
+        };				
+        M_objectArray.length = 0;
+					
+        var arrP = trData.split(';'),
+            array = new Array(),
+            arColor = null,
+            arrC = null;
+        		
+        var mas = null,
+            pSpeed = 0,
+            rSpeed = 0,
+            arrPoint = [],
+            pLat = 0,
+            pLon = 0,
+            pColor = '',
+            prevColor = '',
+            latLng = null,
+            prevlatLng = null,
+            d_Color = '#03f',
+            d_weight = 0,
+            d_opacity = 0;
+				
+        for (var i = 0; i < arrP.length; i++) {
+            latLng = null;
+            if(arrP[i].length > 0 ){
+                //разбираем строку на данные
+                mas = arrP[i].split(',');
+                pLat   = parseFloat(mas[0]);
+                pLon   = parseFloat(mas[1]);
+                pSpeed = parseFloat(mas[2]);
+                d_Color = mas[3],
+                d_weight = parseFloat(mas[4]),
+                d_opacity = parseFloat(mas[5]);
+                // получаем данные
+                pColor = d_Color;
+                latLng = L.latLng(pLat,pLon);					
+                if(pSpeed === rSpeed){
+                    if(latLng !== null){
+                        arrPoint.push(latLng);
+                    }
+                }else{							
+                    if(arrPoint.length > 0){
+                        array.push([arrPoint,prevColor,rSpeed]);
+                    }
+                    rSpeed = pSpeed;
+                    arrPoint = [];
+                    if(prevlatLng !== null){
+                        arrPoint.push(prevlatLng);
+                    }
+                    if(latLng !== null){
+                        arrPoint.push(latLng);						
+                    }
+                }					
+                prevColor = pColor; //последний цвет
+                prevlatLng = latLng; //последняя координата
+					
+            } //if(arrP[i].length > 0 ){
+        }
+        if(arrPoint.length > 0){
+            array.push([arrPoint,pColor]);
+        }
+			
+        if(d_weight === 0){
+            d_weight = 5;
+        }
+        if(d_opacity === 0){
+            d_opacity = 0.5;
+        }
+				
+        RepaintLinesDisplay(array, trColor, d_Color);				
+        var M_objectArray = DrawTrackPolyline(array, d_opacity, d_weight);
+				
+        var flgLgth = true;
+        if(M_objectArray.length === 0){
+            flgLgth = false;
+        }				
+        objectArray_MultiPolyline[cIndex] = [OIndex,array,M_objectArray,flgLgth,d_Color,d_weight,d_opacity];
+    } //if(mas !== null){		
+			
+} //MoveDrawTrack()
+		
+function getVehicleObject(index) {
+    var result = null;
+    for (var i=0; i<vehicleArray.length; i++ ){
+        var obj = vehicleArray[i];
+				
+        if(obj.index === index ){
+            result = obj;
+            break;
+        }
+    }
+    return result;			
+} //getVehicleObject()		
+		
+function RemoveObjectMarker(_index){
+    var objectMarker = objectArray[_index-1];
+    if(objectMarker !== undefined){
+        map.removeLayer(objectMarker);
+        var mas = getVisibleObject(_index-1);
+        if(mas !== null){
+            objectArray_Visible.splice(mas[0],1);
+        }
+        objectArray.splice(_index-1,1);
+    }
+} //RemoveObjectMarker()
+		
+function addIcon(_icon, _centerX, _centerY, _width, _height) {
+    if (_width === undefined) {
+        var markerIcon = L.icon({iconUrl: _icon, iconAnchor: [_centerX, _centerY]});
+    }
+    else {
+        var markerIcon = L.icon({iconUrl: _icon, iconSize: [_width, _height], iconAnchor: [_centerX, _centerY]});
+    }
+    var index = iconArray.push(markerIcon);			
+    return index;
+}
+		
+function addObjectMarkerWithDivIcon(lat, lng, _title, _iconText, _fontColor, _internalFillcolor, _fillcolor) {
+    _fontColor = _fontColor || '#61411E';
+    _internalFillcolor = _internalFillcolor || '#6BCBE8';
+    _fillcolor = _fillcolor || '#6B8DE8'; 
+		
+    var latLng = L.latLng(lat, lng);
+    if (L.Browser.ielt9) {
+        var markerIcon = new L.DivIcon({ html:'<v:group style="width: 20px; height: 20px; color: ' + _fontColor + '; border: 4px double black; font-family: nyala; font-weight: bolder; text-align: center;">' +
+                     '<v:shape adj="10,10,10,10" fillcolor=' + _internalFillcolor + ' style="z-index: -1; position: absolute;" type="#vml-radius" />' + 
+                     '<v:shape adj="10,10,10,10,3,3,3,3" fillcolor=' + _fillcolor + ' style="z-index: -1; filter: alpha(opacity=80); position: absolute;" type="#vml-radius" />' + 
+                     + _iconText + '</v:group>', className: 'div-icon-leaflet', iconAnchor: [10, 10]});
+    }else{		
+        var markerIcon = new L.DivIcon({ html: '<div style="width: 26px; height: 26px;  border-radius: 13px; font-family: nyala; font-weight: bolder; text-align: center; z-index: -1; position: absolute; background-color:' + _fillcolor + '"><div style="width: 20px; height: 20px;  border-radius: 10px; margin: 3px; color: ' + _fontColor + '; font-family: nyala; z-index: -1; position: absolute; font-weight: bolder; text-align: center; background-color:' + _internalFillcolor + '"> ' + _iconText + '</div></div>', className: 'diviconroute', iconAnchor: [10, 10]});
+    }
+    objectMarker = L.marker(latLng, {icon: markerIcon, title: _title});	
+    objectMarker.addTo(map);
+    objectMarker.on('click', onMarkerClick);
+    var index = objectArray.push(objectMarker);	
+    return index;
+}
+		
+function addMarkers(_coordinates, mayBeClustered) {
+		
+    mayBeClustered = mayBeClustered || false;
+			
+    var coordArray = _coordinates.split(';');
+    for (var i = 0; i < coordArray.length/13 - 1; i++) {
+        var latlng = L.latLng(coordArray[i*13], coordArray[i*13 + 1]); 
+        var _title = coordArray[i*13 + 2]; 
+        var _width = coordArray[i*13 + 6];
+        var _height = coordArray[i*13 + 7];
+        if (_width === 0 || _height === 0) {
+            var markerIcon = L.icon({iconUrl: coordArray[i*13 + 3], iconAnchor: [coordArray[i*13 + 4], coordArray[i*13 + 5]]});
+        } 
+        else {
+            _iconState = coordArray[i*13 + 8];
+            if (_iconState === ""){
+                var markerIcon = L.icon({iconUrl: coordArray[i*13 + 3], iconSize: [_width, _height], iconAnchor: [coordArray[i*13 + 4], coordArray[i*13 + 5]]});
+            }
+            else{
+                var _centerX = coordArray[i*13 + 4];
+                var _centerY = coordArray[i*13 + 5];
+                var markerIcon = L.icon({iconUrl: coordArray[i*13 + 3], iconSize: [_width, _height], iconAnchor: [_centerX, _centerY],
+                    shadowUrl: _iconState, shadowSize: L.point(12, 12), shadowAnchor: L.point(6,  _centerY -_height)});
+            }
+        }      
+        
+        objectMarker = L.marker(latlng, {icon: markerIcon});
+        	     
+        if (markerClustering === true && mayBeClustered === true){
+            markersClustered.addLayer(objectMarker);
+        }
+        else {
+            objectMarker.addTo(map);
+        }
+        objectMarker.on('click'    , onMarkerClick);
+        objectMarker.on('mouseover', onMarkerMouseOver);
+        objectMarker.on('mouseout' , onMarkerMouseOut);
+        newArrayLength = objectArray.push(objectMarker);	
+        
+        var  CargoParameters = [];
+        CargoParameters.push(_title);
+        CargoParameters.push(Number(coordArray[i*13 + 9]));
+        CargoParameters.push(Number(coordArray[i*13 + 10]));
+        CargoParameters.push(+coordArray[i*13 + 11]);
+        CargoParameters.push(+coordArray[i*13 + 12]);
+        
+        objectDataArray[newArrayLength - 1] = CargoParameters;
+    }
+}
+		
+function addVehicleTrackingData(_data) {
+		
+    var dataArray =   _data.split('###');
+    for (var i = 0; i < dataArray.length/4; i++) {
+        // маркер ТС
+        coordArray = dataArray[i*4].split(';');
+		           
+        var latlng = L.latLng(coordArray[0], coordArray[1]); 
+        var _centerX = coordArray[3];
+        var _centerY = coordArray[4];
+        var _width = coordArray[5];
+        var _height = coordArray[6];
+        var _iconState = coordArray[7];
+        var _index = coordArray[8];
+        var showObjects = coordArray[9];
+        var showTrack  = coordArray[10];
+
+        var markerIcon = L.icon({iconUrl: coordArray[2], iconSize: [_width, _height], iconAnchor: [_centerX, _centerY], shadowUrl: _iconState, shadowSize: L.point(10, 10), shadowAnchor: L.point(6,  _centerY -_height)});
+        	        
+        _title = dataArray[i*4 + 1]; 
+        	      
+        objectMarker = L.marker(latlng, {icon: markerIcon, title: _title, zIndexOffset: 1000});
+        	      
+        if (showObjects === 'true') {
+            objectMarker.addTo(map);
+        }
+        objectMarker.on('click',  onTrackingObjectClick);
+			    
+        if (_index > 0){
+            previousState = objectArray[_index - 1] ;
+            map.removeLayer(previousState);
+            objectArray[_index - 1] = objectMarker;
+        }
+        else {
+            objectArray.push(objectMarker);	
+        }
+			     
+        // представление ТС  
+        var nameIcon = new L.DivIcon({html:'<span>' + _title + '</span>', className: 'marker-name', iconAnchor: L.point(_centerX, _centerY)});       
+		            
+        nameMarker = L.marker(latlng, {icon: nameIcon});
+        if (displayVehicleNames === true && showObjects === 'true'){
+            nameMarker.addTo(map);
+        }
+		             
+        if (_index > 0){
+            previousState = popupArray[_index - 1] ;
+            map.removeLayer(previousState);
+            popupArray[_index - 1] = nameMarker;
+        }
+        else {
+            popupArray.push(nameMarker);	
+        }
+		              
+        // направление
+        directionData = dataArray[i*4 + 2 ].split(';');
+        currentID =  'direction_' + objectArray.length;
+        var directionIcon = new L.DivIcon({html:' <v:image src="' + directionData[0] + '" id="' + currentID  + '" /> ', className: 'direction-image', iconAnchor: L.point(- _centerX, 8)});
+        directionMarker = L.marker(latlng, {icon: directionIcon});
+        if (displayDirections === true && showObjects === 'true'){
+            directionMarker.addTo(map);
+        }   
+		             
+        newArray = [directionMarker, directionData[1]];
+        if (_index > 0){
+            previousStatуArray = directionArray[_index - 1] ;
+            map.removeLayer(previousStatуArray[0]);
+			            
+            directionArray[_index - 1] = newArray;
+        }
+        else {
+            directionArray.push(newArray);	
+        }
+		            
+        if (displayDirections === true  && showObjects === 'true'){ 
+            var elementID =  document.getElementById(currentID);
+            if (elementID !== null)
+            {      
+            	if (directionData[1]!== null)
+            	{
+            		elementID.rotation  = directionData[1];
+            	}	
+            }
+        }
+
+        //  трек
+        trackData = dataArray[i*4 + 3];
+        if (trackData !== null) {
+            var newArray = [];
+
+            var curveArray = trackData.split('//');
+            for (var y = 0; y < curveArray.length; y++) {
+                var curve = curveArray[y];
+                var coordArray = curve.split(';');
+			                  
+                var polylineArray = [];
+			       
+                _opacity =  1 -  coordArray.pop()/100;
+                _weight  =   coordArray.pop();
+                _color    =   coordArray.pop();
+			                
+                for (var j = 0; j < coordArray.length/2 ; j++) {  
+                    var latlng = L.latLng(coordArray[j*2], coordArray[j*2 + 1]);  
+                    polylineArray.push(latlng);
+                }
+                var polyline = L.polyline(polylineArray, {color: _color, weight: _weight, opacity: _opacity, smoothFactor: 1});
+                newArray.push(polyline);
+                polylineArray = [];
+            }
+            var newObject = L.featureGroup(newArray);
+            if (showTrack === 'true') {
+                newObject.addTo(map);
+            }
+
+            if (_index > 0){
+                previousState = trackArray[_index - 1] ;
+                if (previousState !== undefined){
+                    map.removeLayer(previousState);
+                }			              
+                trackArray[_index - 1] = newObject;
+            }
+            else {
+                trackArray.push(newObject);	
+            } 
+        }       	             	    
+    }
+}
+
+function ResetTrackAnimation() {
+	
+    if (trackAnimation !== null)
+    {
+        map.removeLayer(trackAnimation);
+        trackAnimation = null;
+    }
+    
+}
+	
+function SetTrackAnimation(_latlngs, _durations, isVehicle) {
+		
+    var polylineArray = [];
+    var curveArray = _latlngs.split('//');
+    for (var y = 0; y < curveArray.length; y++) {
+        var curve = curveArray[y];
+        var coordArray = curve.split(';');
+        _points = coordArray.pop();
+        _opacity = 1 - coordArray.pop()/100;
+        _color = coordArray.pop();
+        if (!isVehicle)
+        {
+            _color = coordArray.pop();
+        }
+        for (var j = 0; j < coordArray.length/2 ; j++) {  
+            var latlng = L.latLng(coordArray[j*2], coordArray[j*2 + 1]);  
+            polylineArray.push(latlng);
+        }
+    }
+    trackAnimation = new L.animatedMarker(polylineArray);
+    map.addLayer(trackAnimation);
+    TrackAnimationStop();
+}
+
+function TrackAnimationStart() {
+
+    latLng = trackAnimation._latlngs[trackAnimation._i];
+    if (latLng==undefined)
+    {
+        trackAnimation._i = 0;
+        latLng = trackAnimation._latlngs[trackAnimation._i];
+    }
+	var CurrentZoomLevel = map.getZoom();
+    	MapsetCentre(latLng, CurrentZoomLevel);
+    //MapsetCentre(latLng, 12);
+    //onMarkerAddAnimation(latLng,  '#FF3B00');
+    try {
+        trackAnimation.start();
+    }
+    catch (err){
+        // After animation reaches final point this call throws exception
+    }
+
+}
+
+function TrackAnimationStop() {
+	
+    trackAnimation.stop();
+}
+
+function TrackAnimationPause() {
+	
+    if (trackAnimation.isPaused())
+        trackAnimation.resume();
+    else
+        trackAnimation.pause();
+}
+
+function TrackAnimationMoveTo(_duration) {
+	
+    trackAnimation.moveTo(_duration);
+
+}
+
+function addTripTrackingData(_data) {
+		
+    var dataArray =   _data.split('###');
+    for (var i = 0; i < dataArray.length/4; i++) {
+		      
+        // маркер ТС
+        coordArray = dataArray[i*4].split(';');
+		           
+        var latlng = L.latLng(coordArray[0], coordArray[1]); 
+        var _centerX = coordArray[3];
+        var _centerY = coordArray[4];
+        var _width = coordArray[5];
+        var _height = coordArray[6];
+        var _index = coordArray[7];
+        var showObjects = coordArray[8];
+        var showTrack  = coordArray[9];
+
+        var markerIcon = L.icon({iconUrl: coordArray[2], iconSize: [_width, _height], iconAnchor: [_centerX, _centerY]});
+        	        
+        _title = dataArray[i*4 + 1]; 
+        	      
+        objectMarker = L.marker(latlng, {icon: markerIcon, title: _title, zIndexOffset: 1000});
+        	      
+        if (showObjects === 'true') {
+            objectMarker.addTo(map);
+        }
+        objectMarker.on('click',  onTrackingObjectClick);
+			    
+        if (_index > 0){
+            previousState = objectArray[_index - 1] ;
+            map.removeLayer(previousState);
+            objectArray[_index - 1] = objectMarker;
+			         
+            //animCircleMarker = L.circleMarker(latlng, {radius:40, stroke: true, color: '#ff4924', fill: false});
+            //map.addLayer(animCircleMarker);
+            //setTimeout(function() {animCircleMarker.setRadius(35)}, 100);
+            //setTimeout(function() {animCircleMarker.setRadius(30)}, 200);
+            //setTimeout(function() {animCircleMarker.setRadius(25)}, 300);
+            //setTimeout(function() {animCircleMarker.setRadius(20); map.removeLayer(animCircleMarker);}, 400);
+        }
+        else {
+            objectArray.push(objectMarker);	
+        }
+			     
+        // представление ТС  
+        var nameIcon = new L.DivIcon({html:'<span>' + _title + '</span>', className: 'marker-name', iconAnchor: L.point(_centerX, _centerY)});       
+		            
+        nameMarker = L.marker(latlng, {icon: nameIcon});
+        if (displayVehicleNames === true && showObjects === 'true'){
+            nameMarker.addTo(map);
+        }
+		             
+        if (_index > 0){
+            previousState = popupArray[_index - 1] ;
+            map.removeLayer(previousState);
+            popupArray[_index - 1] = nameMarker;
+        }
+        else {
+            popupArray.push(nameMarker);	
+        }
+			        
+        // направление
+        directionData = dataArray[i*4 + 2 ].split(';');
+        currentID =  'direction_' + objectArray.length;
+        var directionIcon = new L.DivIcon({html:' <v:image src="' + directionData[0] + '" id="' + currentID  + '" /> ', className: 'direction-image', iconAnchor: L.point(- _centerX, 8)});
+        directionMarker = L.marker(latlng, {icon: directionIcon});
+        if (displayDirections === true && showObjects === 'true'){
+            directionMarker.addTo(map);
+        }
+		             
+        newArray = [directionMarker, directionData[1]];
+        if (_index > 0){
+            previousStatуArray = directionArray[_index - 1] ;
+            map.removeLayer(previousStatуArray[0]);
+			            
+            directionArray[_index - 1] = newArray;
+        }
+        else {
+            directionArray.push(newArray);	
+        }
+			     
+        if (displayDirections === true){ 
+            var elementID =  document.getElementById(currentID);
+            if (elementID !== null)
+            {      
+            	if (directionData[1]!== null)
+            	{
+            		elementID.rotation  = directionData[1];
+            	}	
+            }
+        }
+
+        //  трек
+        trackData = dataArray[i*4 + 3];
+        if (trackData !== 'null') {
+            var newArray = [];
+
+            var curveArray = trackData.split('//');
+            for (var y = 0; y < curveArray.length; y++) {
+                var curve = curveArray[y];
+                var coordArray = curve.split(';');
+			                  
+                var polylineArray = [];
+			       
+                _points  =  coordArray.pop();
+                _opacity = 1 -  coordArray.pop()/100;
+                _weight   = coordArray.pop();
+                _color      = coordArray.pop();
+                //_fontColor =  '#61411E';
+                var _fontColor = inversia_color(_color);
+                if   (_points !== 'null') {
+                    // var passedPointsArray = _points.split(',');
+                    // for (var m = 0; m < passedPointsArray.length/2 ; m++) {  
+                    //    var latLng = L.latLng(passedPointsArray[m*2], passedPointsArray[m*2 + 1]);  
+                    //    _circleMarker = L.circleMarker(latLng, {radius:8, stroke: true, color: _color, fillOpacity: _opacity});
+                    //    newArray.push(_circleMarker);
+                    // }
+                    var passedPointsArray = _points.split('\\');
+                    for (var m = 0; m < passedPointsArray.length/4 ; m++) {  
+                        var latLng = L.latLng(passedPointsArray[m*4], passedPointsArray[m*4 + 1]);  
+                        var markerIcon = new L.DivIcon({ html: '<div style="width: 14px; height: 14px;  border-radius: 10px; z-index: -1;  position: absolute; background-color:' + _color + '; font-family: nyala; font-weight: bolder; text-align: center; padding: 3px; color:' +  _fontColor + ';">' + passedPointsArray[m*4 + 2]  + '</div>', className: 'diviconroute', iconAnchor: [7, 7]});
+                        var objectMarker_p = L.marker(latLng, {zIndexOffset: 999, icon: markerIcon, title: passedPointsArray[m*4 + 3]});
+                        newArray.push(objectMarker_p);
+                    }
+                }
+			                
+                for (var j = 0; j < coordArray.length/2 ; j++) {  
+                    var latlng = L.latLng(coordArray[j*2], coordArray[j*2 + 1]);  
+                    polylineArray.push(latlng);
+                }
+                var polyline = L.polyline(polylineArray, {color: _color, weight: _weight, opacity: _opacity, smoothFactor: 1});
+                newArray.push(polyline);
+                polylineArray = [];			
+            }
+            var newObject = L.featureGroup(newArray);
+            if (showTrack === 'true') {
+                newObject.addTo(map);
+            }
+     		           
+            if (_index > 0){
+                previousState = trackArray[_index - 1] ;
+                if (previousState !== undefined){
+                    map.removeLayer(previousState);
+                }
+                trackArray[_index - 1] = newObject;
+            }
+            else {
+                trackArray.push(newObject);	
+            } 
+        }       	             	    
+    }
+}
+
+function hexDec(h){
+
+    var m=h.slice(1).match(/.{2}/g);
+ 
+    m[0]=parseInt(m[0], 16);
+    m[1]=parseInt(m[1], 16);
+    m[2]=parseInt(m[2], 16);
+			
+    return m;
+			
+} // hexDec()
+
+function rgbToHex(R,G,B) { return toHex(R)+toHex(G)+toHex(B); }
+
+function toHex(n) {
+    n = parseInt(n,10);
+    if (isNaN(n)) return "00";
+    n = Math.max(0,Math.min(n,255));
+    return "0123456789ABCDEF".charAt((n-n%16)/16)
+    + "0123456789ABCDEF".charAt(n%16);
+} // toHex()
+
+function inversia_color(_color){
+
+    var rgbArray = hexDec(_color);
+		
+    var newColor = '#' + rgbToHex(255-rgbArray[0],255-rgbArray[1],255-rgbArray[2]);
+		
+    return newColor;
+		
+} // inversia_color()
+	
+function clearTrackingIncidents(){
+    for (var i=0; i < incidentArray.length; i++ ){
+        map.removeLayer(incidentArray[i]);
+    }
+    incidentArray = [];
+}
+	
+function addTrackingIncidents(_data) {
+		
+    var dataArray =   _data.split(';');
+    for (var i = 0; i < dataArray.length/9; i++) {
+			
+        _title =  dataArray[i*9] + ' (' + dataArray[i*9 + 1] + ')';
+        var latlng = L.latLng(dataArray[i*9 + 2], dataArray[i*9 + 3]); 
+        var _iconUrl = dataArray[i*9 + 4];
+        var _centerX = dataArray[i*9 + 5];
+        var _centerY = dataArray[i*9 + 6];
+        var _width = dataArray[i*9 + 7];
+        var _height = dataArray[i*9 + 8];
+
+        var  incidentIcon = L.icon({iconUrl: _iconUrl, iconSize: [_width, _height], iconAnchor: [_centerX, _centerY]});    	             	    
+        incidentMarker = L.marker(latlng, {icon: incidentIcon, title: _title});
+        incidentMarker.addTo(map);
+        incidentArray.push( incidentMarker);	
+    }
+}	      
+	
+function clearVehicleTrackingData() {
+    for (var i=0; i < objectArray.length; i++ ){
+        map.removeLayer(objectArray[i]);
+    }
+    objectArray = [];
+
+    for (var i=0; i < popupArray.length; i++ ){
+        map.removeLayer(popupArray[i]);
+    }
+    popupArray = [];
+	       
+    for (var i=0; i < directionArray.length; i++ ){
+        map.removeLayer(directionArray[i][0]);
+    }
+    directionArray = [];
+          
+    for (var i=0; i < trackArray.length; i++ ){
+        map.removeLayer(trackArray[i]);
+    }
+    trackArray = [];
+            
+    for (var i=0; i < planTrackArray.length; i++ ){
+        var objectPlanTrack = planTrackArray[i];
+        if  (objectPlanTrack !== undefined) {
+            map.removeLayer(objectPlanTrack);
+        }
+    }
+    planTrackArray = [];
+}
+	
+function showDirections(_data){
+    indexArray = _data.split(';');
+    for (var i=0; i < indexArray.length; i++ ){
+        dataArray = directionArray[indexArray[i] - 1];
+        map.addLayer(dataArray[0]);
+				
+        currentID =  'direction_' + (indexArray[i]);
+        var elementID =  document.getElementById(currentID);
+        if (elementID !== null)
+        {      
+            if (dataArray[1]!== null)
+            {
+            	elementID.rotation  = dataArray[1];
+            }	
+        }
+    }
+}
+   
+function  hideDirections(_data){
+    indexArray = _data.split(';');
+    for (var i=0; i < indexArray.length; i++ ){
+        var directionMarker = directionArray[indexArray[i] - 1][0];
+        map.removeLayer(directionMarker);
+    }
+}
+   
+function showVehicleNames(_data){
+    indexArray = _data.split(';');
+    for (var i=0; i < indexArray.length; i++ ){
+        var nameMarker = popupArray[indexArray[i] - 1];
+        map.addLayer(nameMarker);
+    }
+}
+   
+function  hideVehicleNames(_data){
+    indexArray = _data.split(';');
+    for (var i=0; i < indexArray.length; i++ ){
+        var nameMarker = popupArray[indexArray[i] - 1];
+        map.removeLayer(nameMarker);
+    }
+}
+	
+function showVehicleMarker(index, showTrack){
+    if(objectArray.length !== 0 ){
+        var object = objectArray[index - 1];
+        map.addLayer(object);
+    }
+			
+    if (displayVehicleNames === true && popupArray.length !== 0 ){
+        var object = popupArray[index - 1];
+        map.addLayer(object);
+    }
+		  
+    if (displayDirections === true && directionArray.length !== 0 ){
+        dataArray = directionArray[index - 1];
+        var object = dataArray[0];
+        map.addLayer(object);
+         
+        currentID =  'direction_' + index;
+        var elementID =  document.getElementById(currentID);
+        elementID.rotation  = dataArray[1];
+    }
+		  
+    if(showTrack === true && trackArray.length !== 0 ){
+        var object = trackArray[index - 1];
+        if (object !== undefined){
+            map.addLayer(object);
+        }
+    }
+}
+
+function hideVehicleMarker(index){
+    if (objectArray.length !== 0 ){
+        var object = objectArray[index - 1];
+        map.removeLayer(object);
+    }
+		  
+    if (displayVehicleNames === true && popupArray.length !== 0 ){
+        var object = popupArray[index - 1];
+        map.removeLayer(object);
+    }
+		  
+    if (displayDirections === true && directionArray.length !== 0 ){
+        var object = directionArray[index - 1][0];
+        map.removeLayer(object);
+    }
+		  
+    if  (trackArray.length !== 0 ){
+        var object = trackArray[index - 1];
+        if (object !== undefined){
+            map.removeLayer(object);
+        }
+    }		  
+}
+	
+function showIncidentMarkers(_data){
+    if (incidentArray.length !== 0 ){
+        indexArray = _data.split(';');
+	           
+        for (var i=0; i < indexArray.length; i++ ){
+            var incidentMarker = incidentArray[indexArray[i] - 1];
+            map.addLayer(incidentMarker);
+        }
+    }
+}
+    
+function hideIncidentMarkers(_data){
+    if (incidentArray.length !== 0 ){
+        indexArray = _data.split(';');
+	           
+        for (var i=0; i < indexArray.length; i++ ){
+            var incidentMarker = incidentArray[indexArray[i] - 1];
+            map.removeLayer(incidentMarker);
+        }
+    }
+}
+	
+function showTrack (index){
+    if (trackArray.length !== 0 ){
+        var object = trackArray[index - 1];
+        map.addLayer(object);
+    }
+}
+    
+function hideTrack (index){
+    if (trackArray.length !== 0 ){
+        var object = trackArray[index - 1];
+        map.removeLayer(object);
+    }
+}
+      
+function showPlanTrack (index, drawTrack, _data){
+    if   (drawTrack === true){
+        var coordArray = _data.split(';');
+			                  
+        var newArray = [];
+        var polylineArray = [];
+			       
+        _points  =  coordArray.pop();
+        _opacity = 1 -  coordArray.pop()/100;
+        _weight   = coordArray.pop();
+        _color      = coordArray.pop();
+        _fontColor =  '#61411E';
+			                
+        if   (_points !== 'null') {
+            var routePointsArray = _points.split('//');
+            for (var m = 0; m < routePointsArray.length/4 ; m++) {  
+                var latLng = L.latLng(routePointsArray[m*4], routePointsArray[m*4 + 1]);  
+                var markerIcon = new L.DivIcon({ html: '<div style="width: 14px; height: 14px;  border-radius: 10px; z-index: -1;  position: absolute; background-color:' + _color + '; font-family: nyala; font-weight: bolder; text-align: center; padding: 3px; color:' +  _fontColor + ';">' + routePointsArray[m*4 + 2]  + '</div>', className: 'diviconroute', iconAnchor: [7, 7]});
+                var objectMarker = L.marker(latLng, {icon: markerIcon, title: routePointsArray[m*4 + 3],zIndexOffset:-1000});
+                newArray.push(objectMarker);
+            }
+        }
+        for (var j = 0; j < coordArray.length/2 ; j++) {  
+            var latlng = L.latLng(coordArray[j*2], coordArray[j*2 + 1]);  
+            polylineArray.push(latlng);
+        }
+        var polyline = L.polyline(polylineArray, {color: _color, weight: _weight, opacity: _opacity, smoothFactor: 1});
+        newArray.push(polyline);
+        polylineArray = [];			
+        var newObject = L.featureGroup(newArray).addTo(map);
+        newObject.bringToBack();
+        map.addLayer(newObject);
+        planTrackArray[index -1] =  newObject;
+    }
+    else {
+        var objectPlanTrack = planTrackArray[index - 1];
+        if (objectPlanTrack !== undefined){
+            map.addLayer(objectPlanTrack);
+            objectPlanTrack.bringToBack();
+        }
+    }
+}
+    
+function hidePlanTrack (index){
+    if (planTrackArray.length !== 0 ){
+        var object = planTrackArray[index - 1];
+        if (object !== undefined){
+            map.removeLayer(object);	
+        }
+    }
+}
+
+function showCircleWithNumber(_data, ExternalTripIndex){
+    var coordArray = _data.split(';');
+			                  
+    var newArray = [];
+			       
+    _point  = coordArray.pop();
+    _opacity = 1 -  coordArray.pop()/100;
+    _weight = coordArray.pop();
+    _color = coordArray.pop();
+    _fontColor = '#61411E';
+    _internalFillcolor = '#6BCBE8';
+    _fillcolor = '#6B8DE8'; 
+    zindex = 1000;
+    
+    if   (_point !== 'null') 
+    {
+        var PointArray = _point.split('//');
+        _iconText = PointArray[2];
+        var latLng = L.latLng(PointArray[0], PointArray[1]);  
+        //var markerIcon = new L.DivIcon({ html: '<div style="width: 14px; height: 14px; opacity:' + _opacity + '; border-radius: 10px; z-index: -1;  position: absolute; background-color:' + _color + '; font-family: nyala; font-weight: bolder; text-align: center; padding: 3px; color:' +  _fontColor + ';">' + _iconText  + '</div>', className: 'diviconroute', iconAnchor: [7, 7]});
+        if (L.Browser.ielt9) {
+            var markerIcon = new L.DivIcon({ html:'<v:group style="width: 20px; height: 20px; opacity:' + _opacity + '; color: ' + _fontColor + '; border: 4px double black; font-family: nyala; font-weight: bolder; text-align: center;">' +
+                         '<v:shape adj="10,10,10,10" fillcolor=' + _internalFillcolor + ' style="z-index: ' + zindex + '; position: absolute;" type="#vml-radius" />' + 
+                         '<v:shape adj="10,10,10,10,3,3,3,3" fillcolor=' + _fillcolor + ' style="z-index: ' + zindex + '; filter: alpha(opacity=80); position: absolute;" type="#vml-radius" />' + 
+                         + _iconText + '</v:group>', className: 'div-icon-leaflet', iconAnchor: [10, 10]});
+        }else{		
+            var markerIcon = new L.DivIcon({ html: '<div style="width: 26px; height: 26px;  border-radius: 13px; font-family: nyala; font-weight: bolder; text-align: center; z-index: ' + zindex + '; position: absolute; background-color:' + _fillcolor + '"><div style="width: 20px; height: 20px;  border-radius: 10px; margin: 3px; color: ' + _fontColor + '; font-family: nyala; z-index: -1; position: absolute; font-weight: bolder; text-align: center; background-color:' + _internalFillcolor + '"> ' + _iconText + '</div></div>', className: 'diviconroute', iconAnchor: [10, 10]});
+        }
+        var objectMarker = L.marker(latLng, {icon: markerIcon, title: PointArray[3], zIndexOffset:-1000});
+        newArray.push(objectMarker);
+    }		
+    var newObject = L.featureGroup(newArray).addTo(map);
+    newObject.on('click', onCircleClick);
+    newObject.on('dblclick', onCircleDoubleClick);
+    newObject.bringToBack();
+    map.addLayer(newObject);
+    CirclesArray[ExternalTripIndex] =  newObject;
+}
+
+function showVehicleMarkerPlanning(ExternalTripIndex, lat, lng, _title, _icon, _centerX, _centerY, _width, _height) {
+		
+    var latLng = L.latLng(lat, lng),
+        objectMarker = null;
+    if (_icon !== '') {
+        if (_width === 0 || _width === undefined || _height === 0 || _height === undefined) {
+            var markerIcon = L.icon({iconUrl: _icon, iconAnchor: [_centerX, _centerY]});
+        }
+        else {
+            var markerIcon = L.icon({iconUrl: _icon, iconSize: [_width, _height], iconAnchor: [_centerX, _centerY]});
+        }
+        objectMarker = L.marker(latLng, {icon: markerIcon, title: _title});
+    }
+    else {
+        objectMarker = L.marker(latLng, {title: _title});
+    }
+    objectMarker.on('click', onVehicleClick);
+    objectMarker.on('dblclick', onVehicleDoubleClick);
+    map.addLayer(objectMarker);
+    VehicleArray[ExternalTripIndex] = objectMarker;
+}
+
+function clearVehicleArrayPlanning(){
+
+    for (var m = 0; m < VehicleArray.length ; m++) 
+    {  
+        var object = VehicleArray[m];
+        if (object !== undefined){
+            map.removeLayer(object);	
+        }
+    }
+    VehicleArray = [];
+}
+
+function clearCirclesWithNumber(){
+
+    for (var m = 0; m < CirclesArray.length ; m++) 
+    {  
+        var object = CirclesArray[m];
+        if (object !== undefined){
+            map.removeLayer(object);	
+        }
+    }
+    CirclesArray = [];
+}
+
+function SizeImage(src){
+    //src - путь к файлу изображения
+    //считываем файл и узнаем его размеры
+    var image = new Image();
+				
+    image.onload = function(){
+        var flg = false,
+            crSrc = this.src;
+        crSrc = crSrc.replace('file:///','file://');
+        for (var i=0; i<arImgSize.length; i++ ){
+            var obj = arImgSize[i];
+            if(obj[0] === crSrc){
+                flg = true;
+                break;		            						
+            }		            					
+        }
+        if(flg === false){
+            arImgSize.push([crSrc,this.width,this.height]);
+        }
+    };
+    image.src = src;
+		    
+} //SizeImage()
+		
+function HandleArray(src){
+				
+    var	obj = new Object();
+    obj.width = 20; //ширина
+    obj.height = 20; //высота
+		
+    for (var i=0; i<arImgSize.length; i++ ){
+        var oArr = arImgSize[i],
+            width = oArr[1],
+            height = oArr[2];
+        if(oArr[0] === src){		               
+            obj.width = width;
+            obj.height = height;
+            break;
+        }
+		       		
+    }
+		       
+    return obj;
+		    
+} //HandleArray()
+
+function addDocEventMarker(lat, lng, _title, _icon, _centerX, _centerY, UID) {
+    var latLng = L.latLng(lat, lng);
+    var objectMarker = null;
+    DocEventUIDArray[UID] = latLng;
+			
+    if(_icon != ''){                                                                                                                                                             
+        var markerIcon = L.icon({iconUrl: _icon, iconAnchor: [_centerX, _centerY]});
+        objectMarker = L.marker(latLng, {icon: markerIcon, title: _title});
+    }else{
+        objectMarker = L.marker(latLng, {title: _title});
+    }
+				
+    objectMarker.addTo(map);
+    objectMarker.bindPopup("<a href:" + UID + ">" + _title + "</a>");
+    //objectMarker.unbindPopup();			
+    objectMarker.on('click',     onDocEventMarkerClick);
+			
+    var index = objectArray.push(objectMarker);			
+    objectArray_Visible.push([index-1,true,'marker']);
+    if (toUsePositioning === true) {
+        map.setView(objectMarker.getLatLng() ); //, map.getMaxZoom());
+    }	
+			
+    return index;
+}
+
+function onDocEventMarkerClick(eventData) {
+    for (var key in DocEventUIDArray) {
+        if (DocEventUIDArray[key] == eventData.latlng) {
+            DocEventUID = key;
+            break;
+        }
+    }
+}	
+
+function returnObjectUID() {
+    var toReturn = DocEventUID;
+    DocEventUID = '';
+    return toReturn;
+}	
+
+function setObjectPolygon(index, _title, _color, _weight, _opacity, _fillColor, _fillOpacity) {
+    for (var i=0; i<halfwayMarkerArray.length; i++ ){
+        map.removeLayer(halfwayMarkerArray[i]);
+    }
+    halfwayMarkerArray = [];
+			
+    for (var i=0; i<cornerMarkerArray.length; i++ ){
+        map.removeLayer(cornerMarkerArray[i]);
+    }
+    cornerMarkerArray = [];
+			
+    for (var i=0; i<reperMarkerArray.length; i++ ){
+        map.removeLayer(reperMarkerArray[i]);
+    }
+    reperMarkerArray = [];
+
+    if (polygonDraw == true && numberOfPoints > 0) {
+        map.removeLayer(newVector);
+        newVector       = null;
+        vectorArray     = [];
+    }	
+			
+    polygonDraw = false;
+
+    if (newPolygon != null) {
+        map.removeLayer(newPolygon);
+        newPolygon      = null;
+    }	
+
+    if (newPolyline != null) {
+        map.removeLayer(newPolyline);
+        newPolyline     = null;
+    }	
+
+    numberOfPoints  = 0;
+			
+    if (pointsArray.length < 3) {
+        pointsArray     = [];
+        return 0;
+    }	
+
+    var	objectPolygon  = null;
+    if (index == 0) {
+        objectPolygon  = L.polygon(pointsArray, {color: _color, weight: _weight, opacity: _opacity, fillColor: _fillColor, fillOpacity: _fillOpacity, clickable: true});
+        objectPolygon.addTo(map);
+        //objectPolygon.bindPopup(_title);
+						
+        //objectPolygon.on('click',     onObjectClick);
+			
+        var index = objectArray.push(objectPolygon);
+        objectArray_Visible.push([index-1,true,'polygon']);
+				
+        map.fitBounds(objectPolygon.getBounds());
+			
+        polygonState = String(index) + ';';
+        for (var i=0; i<pointsArray.length; i++ ){
+            polygonState = polygonState + String(pointsArray[i].lat) + ';' + String(pointsArray[i].lng) + ';';
+        }	
+
+        pointsArray = [];
+			
+        return polygonState;
+				
+    }else{
+        objectPolygon  = objectArray[index - 1];
+        if ((objectPolygon !== null) && (pointsArray.length > 1)){
+            objectPolygon.setLatLngs(pointsArray);
+						
+            map.addLayer(objectPolygon);
+            map.fitBounds(objectPolygon.getBounds());
+        }
+        polygonState = String(index) + ';';
+        for (var i=0; i<pointsArray.length; i++ ){
+            polygonState = polygonState + String(pointsArray[i].lat) + ';' + String(pointsArray[i].lng) + ';';
+        }
+			
+        pointsArray = [];
+			
+        return polygonState;
+    }	
+}
+
+function setObjectPolyline(index, _title, _color, _weight, _opacity, _fillColor, _fillOpacity) {
+			
+    for (var i=0; i<halfwayMarkerArray.length; i++ ){
+        map.removeLayer(halfwayMarkerArray[i]);
+    }
+    halfwayMarkerArray = [];
+			
+    for (var i=0; i<cornerMarkerArray.length; i++ ){
+        map.removeLayer(cornerMarkerArray[i]);
+    }
+    cornerMarkerArray = [];
+			
+    for (var i=0; i<reperMarkerArray.length; i++ ){
+        map.removeLayer(reperMarkerArray[i]);
+    }
+    reperMarkerArray = [];
+									
+    if (polylineDraw == true && numberOfPoints > 0) {
+        map.removeLayer(newVector);
+        newVector       = null;
+        vectorArray     = [];
+    }
+						
+    polylineDraw = false;
+
+    if (newPolyline != null) {
+        map.removeLayer(newPolyline);
+        newPolyline     = null;
+    }				
+			
+    var	objectPolyline  = null;
+			
+    if (index === 0){
+			
+        objectPolyline  = L.polyline(pointsArray, {color: _color, weight: _weight, opacity: _opacity, fillColor: _fillColor, fillOpacity: _fillOpacity, clickable: true});
+        objectPolyline.addTo(map);
+				
+        var startMarker = L.marker(pointsArray[0], {draggable: false, icon: firstCornerIcon}).addTo(map);
+        var index = objectArray.push(startMarker);
+        objectArray_Visible.push([index-1,true,'marker']);
+				
+        var lastMarker = L.marker(pointsArray[pointsArray.length-1], {draggable: false, icon: lastCornerIcon}).addTo(map);
+        index = objectArray.push(lastMarker);
+        objectArray_Visible.push([index-1,true,'marker']);
+
+        //objectPolyline.bindPopup(_title);
+						
+        //objectPolyline.on('click',     onObjectClick);
+			
+        index = objectArray.push(objectPolyline);
+        objectArray_Visible.push([index-1,true,'polyline']);
+   				
+        map.fitBounds(objectPolyline.getBounds());
+			
+        polyLineState = String(objectArray.length) + ';';
+        for (var i=0; i<pointsArray.length; i++ ){
+            polyLineState = polyLineState + String(pointsArray[i].lat) + ';' + String(pointsArray[i].lng) + ';';
+        }	
+
+        pointsArray = [];
+			    
+        return polyLineState;
+				
+    }else{
+        showObject(index-1);				
+        showObject(index-2);
+        objectPolyline  = objectArray[index-1];
+        if ((objectPolyline !== null) && (pointsArray.length > 1)){
+            objectPolyline.setLatLngs(pointsArray);
+            map.addLayer(objectPolyline);
+            map.fitBounds(objectPolyline.getBounds());				
+        }
+        polyLineState = String(index) + ';';
+        for (var i=0; i<pointsArray.length; i++ ){
+            polyLineState = polyLineState + String(pointsArray[i].lat) + ';' + String(pointsArray[i].lng) + ';';
+        }
+        pointsArray = [];
+        return polyLineState;
+    }	
+			
+} // setObjectPolyline()
+
+function setObjectMarker(index, _title, _icon, _centerX, _centerY) {
+    markerDraw      = false;
+			
+    if (newMarker == null) {
+        return 0;
+    }	
+			
+    map.removeLayer(newMarker);
+			
+    var objectMarker = null;
+    if (index == 0) {
+        var latLng = newMarker.getLatLng();
+        if (_icon != '') {
+            var markerIcon = L.icon({iconUrl: _icon, iconAnchor: [_centerX, _centerY]});
+            objectMarker = L.marker(latLng, {icon: markerIcon, title: _title});
+        }
+        else {
+            objectMarker = L.marker(latLng, {title: _title});
+        }
+
+        objectMarker.addTo(map);
+        objectMarker.bindPopup(_title);
+						
+        objectMarker.on('click',     onObjectClick);
+			
+        var index = objectArray.push(objectMarker);
+        objectArray_Visible.push([index-1,true,'marker']);
+			 
+        MapsetCentre(objectMarker.getLatLng(),map.getMaxZoom());
+				
+        newMarker = null;
+				
+        markerState = String(objectArray.length) + ';' + String(latLng.lat) + ';' + String(latLng.lng) + ';';
+			
+        return markerState;
+    }
+    else {
+        objectMarker  = objectArray[index - 1];
+        objectMarker.setLatLng(newMarker.getLatLng());
+						
+        map.addLayer(objectMarker);
+			 
+        MapsetCentre(objectMarker.getLatLng(),map.getMaxZoom());
+				
+        newMarker = null;
+			
+        markerState = String(index) + ';' + String(objectMarker.getLatLng().lat) + ';' + String(objectMarker.getLatLng().lng) + ';';
+			
+        return markerState;
+    }	
+}
+		
+function getLatLngObjectMarker(index,lat,lng){			
+			
+    if (newMarker === null) {
+        return 0;
+    }
+			
+    var objectMarker = null;
+    var latLng = L.latLng(lat, lng);
+    newMarker.setLatLng(latLng);
+    MapsetCentre(latLng,map.getMaxZoom());
+    if (index === 0){
+        markerState = String(index) + ';' + String(latLng.lat) + ';' + String(latLng.lng) + ';';			
+        return markerState;
+    }else{
+        objectMarker  = objectArray[index-1];
+        objectMarker.setLatLng(latLng);						
+        markerState = String(index) + ';' + String(objectMarker.getLatLng().lat) + ';' + String(objectMarker.getLatLng().lng) + ';';			
+        return markerState;
+    }	
+} // getLatLngObjectMarker()
+		
+function setMultipleSelectionMode(value) {
+    multipleSelection   = value;
+}
+		
+function setMultipleUnselectionMode(value) {
+    multipleUnselection = value;	    		    
+}
+		
+function setMarkerClustering(value) {
+    markerClustering = value;
+    if (value === true) {
+        markersClustered = new L.MarkerClusterGroup(
+        {disableClusteringAtZoom: 13,
+            polygonOptions: {weight: 3, color: '#61411E', opacity: 1, fillColor: ''}
+        });
+        map.addLayer(markersClustered);
+    }
+    else {
+        if (markersClustered !== null) {
+            layersArray = markersClustered.getLayers();
+            markersClustered.removeLayers(layersArray);
+            markersClustered = null;
+        }
+    }
+}
+        
+function switchOnClustering(_markerIndexes) {
+    setMarkerClustering(true);
+    indexArray = _markerIndexes.split(";");
+    realMarkersArray = [];
+    for (var i = 0; i < indexArray.length - 1; i++){
+        index = indexArray[i];
+        var objectMarker = objectArray[index - 1];
+        realMarkersArray.push(objectMarker);
+        map.removeLayer(objectMarker);
+    }
+    markersClustered.addLayers(realMarkersArray);
+}
+        
+function switchOffClustering() {
+    markerClustering = false;
+    layersArray = markersClustered.getLayers();
+    markersClustered.removeLayers(layersArray);
+    for (var i = 0; i < layersArray.length; i++){
+        layersArray[i].addTo(map);
+    }
+}
+
+function switchOnHeatmap(_Indexes, maxIntensity, pointRadius, measure)
+{
+	heatMode = measure;
+	var heatPointsArray = [];
+	var indexArray = _Indexes.split(";");
+	var curZoom = map.getZoom()/2;
+	
+	if (measure == 'timeWindows')
+	{
+		for (var i = 0; i < indexArray.length/3 - 1; i++)
+		{
+        	var latlng =  L.latLng(indexArray[i*3], indexArray[i*3 + 1]); 
+        	var value = Number(indexArray[i*3 + 2]); // value from 1 to 12??????????????
+        	var color = getIttenHalfCircleColor(value);  
+			var circleObject = L.circleMarker(latlng, {radius: curZoom, stroke: true, color: color, fillcolor: color, fillOpacity: 0.75});
+        
+        	heatPointsArray.push(circleObject);
+        }	
+		heat = L.featureGroup(heatPointsArray).addTo(map);
+
+	}
+	else
+	{
+		for (var i = 0; i < indexArray.length/3 - 1; i++)
+		{
+			var newArray = [];
+			newArray.push(indexArray[i*3]);
+			newArray.push(indexArray[i*3 + 1]);
+			newArray.push(indexArray[i*3 + 2]);
+       
+        	heatPointsArray.push(newArray);
+        }
+        heat = L.heatLayer(heatPointsArray, {radius:pointRadius,blur:15,maxZoom:11, max: maxIntensity}).addTo(map);	
+    }    			
+}
+
+function getIttenHalfCircleColor(value)
+{
+	var color = 'red';
+	if (value < 0.1) {color = 'darkgreen'}
+	else if (value < 0.2) {color = 'green'} 
+	else if (value < 0.3) {color = 'limegreen'} 
+	else if (value < 0.4) {color = 'yellowgreen'} 
+	else if (value < 0.5) {color = 'yellow'} 
+	else if (value < 0.6) {color = 'gold'} 
+	else if (value < 0.7) {color = 'orange'} 
+	else if (value < 0.8) {color = 'darkorange'} 
+	else if (value < 0.9) {color = 'orangered'} 
+	else {color = 'red'};
+	
+	//	if (value < 0.1) {color = 'Mediumvioletred'}
+	//else if (value < 0.2) {color = 'violet'} 
+	//else if (value < 0.3) {color = 'blueviolet'} 
+	//else if (value < 0.4) {color = 'blue'} 
+	//else if (value < 0.5) {color = 'lightseagreen'} 
+	//else if (value < 0.6) {color = 'green'} 
+	//else if (value < 0.7) {color = 'yellowgreen'} 
+	//else if (value < 0.8) {color = 'yellow'} 
+	//else if (value < 0.9) {color = 'gold'} 
+	//else if (value < 10) {color = 'orange'} 
+	//else if (value < 11) {color = 'orangered'}
+	
+	return color; 
+}
+
+function switchOffHeatmap()
+{
+	 if (heat != null) 
+	 {
+		map.removeLayer(heat);
+		heat = null;
+	 }
+}
+
+
+function getMapStatus() {
+    var mapState = '',
+        mapCenter = map.getCenter();
+			
+    mapState = String(mapCenter.lat) + ';' + String(mapCenter.lng) + ';' + String(map.getZoom()) + ';';
+			
+    return mapState;
+}
+
+function getHalfwayLatLng(firstPoint, secondPoint) {
+    var centerLatLng = L.latLng(((firstPoint.lat + secondPoint.lat) / 2), ((firstPoint.lng + secondPoint.lng) / 2));
+			
+    return centerLatLng;
+}
+
+function onHalfwayMarkerClick(eventData){		
+    var index = -1,			
+        CurrentMarker = null,
+        thisOb = eventData.target,
+        lthhalfway = halfwayMarkerArray.length;
+			
+    if(lthhalfway > 0){
+        for (var i=0; i<lthhalfway && index == -1; i++ ){
+            if (halfwayMarkerArray[i] === thisOb){
+                index = i;
+                break;
+            }
+        }
+			
+        pointsArray.splice(index+1,0,thisOb.getLatLng());
+
+        if (newPolygon !== null){
+            newPolygon.setLatLngs(pointsArray);
+            newPolyline.setLatLngs(pointsArray);
+            if (polygonDraw !== true){
+                newPolyline.addLatLng(pointsArray[0]);
+            }	
+        }else{
+            newPolyline.setLatLngs(pointsArray);
+        }	
+
+        var cornerMarker = L.marker(thisOb.getLatLng(), {draggable: true, icon: cornerIcon});
+        cornerMarker.addTo(map);
+        cornerMarker.on('click',     onCornerMarkerClick);
+        cornerMarker.on('dragstart', onCornerMarkerDragStart);
+        cornerMarker.on('drag',      onCornerMarkerDrag);
+        cornerMarker.on('dragend',   onCornerMarkerDragEnd);
+		
+        cornerMarkerArray.splice(index + 1, 0, cornerMarker);
+					
+        thisOb.setLatLng(getHalfwayLatLng(pointsArray[index], pointsArray[index + 1]));                                                       
+
+        if (index + 2 == pointsArray.length) {
+            var halfwayMarker = L.marker(getHalfwayLatLng(pointsArray[index + 1], pointsArray[0]), {opacity: 0.5, icon: cornerIcon});
+        }else{	
+            var halfwayMarker = L.marker(getHalfwayLatLng(pointsArray[index + 1], pointsArray[index + 2]), {opacity: 0.5, icon: cornerIcon});
+        }
+        halfwayMarker.addTo(map);
+        halfwayMarker.on('click',     onHalfwayMarkerClick);
+				
+        halfwayMarkerArray.splice(index + 1, 0, halfwayMarker);
+			
+        numberOfPoints++;
+    }else{
+        map.removeLayer(thisOb);
+    } //if(lthhalfway > 0){
+}
+
+function onNewMarkerClick(eventData) {
+    map.removeLayer(eventData.target);
+			
+    newMarker = null;
+}	
+		
+function onCornerMarkerClick(eventData) {
+		
+    var index = -1,
+        mass = null,
+        thisOb = eventData.target,
+        lthCor = cornerMarkerArray.length;
+    if(lthCor > 0){	
+        for (var i=0; i<lthCor && index == -1; i++ ){
+            if (cornerMarkerArray[i] === thisOb) {
+                index = i;
+                break;
+            }
+        }
+    }else{
+        map.removeLayer(thisOb);
+    }
+    if (index === 0) {
+			
+        if (polygonDraw === true) {
+
+            if (numberOfPoints === 1) {
+
+                pointsArray       = [];
+                cornerMarkerArray = [];
+                vectorArray       = [];
+
+                map.removeLayer(thisOb);
+                if (newPolygon !== null) {
+                    map.removeLayer(newPolygon);
+                }
+                if (newPolyline != null) {
+                    map.removeLayer(newPolyline);
+                }	
+                map.removeLayer(newVector);
+						
+                newPolygon  = null;
+                newPolyline = null;
+                newVector   = null;
+
+                numberOfPoints = 0;
+						
+            }else{
+
+                polygonDraw = false;
+                newPolyline.addLatLng(thisOb.getLatLng());
+					
+                map.removeLayer(newVector);
+                newVector   = null;
+                vectorArray = [];
+
+                var halfwayMarker = L.marker(getHalfwayLatLng(pointsArray[pointsArray.length-1],pointsArray[0]),{opacity:0.5,icon:cornerIcon});
+                halfwayMarker.addTo(map);
+                halfwayMarker.on('click',onHalfwayMarkerClick);
+				
+                halfwayMarkerArray.push(halfwayMarker);
+            }
+				
+        }else{
+
+            if (numberOfPoints === 1){
+
+                pointsArray       = [];
+                cornerMarkerArray = [];
+                vectorArray       = [];
+
+                map.removeLayer(thisOb);
+                map.removeLayer(newPolygon);
+                map.removeLayer(newPolyline);
+						
+                newPolygon  = null;
+                newPolyline = null;
+                newVector   = null;
+
+                numberOfPoints = 0;
+						
+                polygonDraw = true;
+						
+            }else{
+
+                pointsArray.splice(index, 1);                        
+                cornerMarkerArray.splice(index, 1);                   
+
+                map.removeLayer(halfwayMarkerArray[index]);
+                halfwayMarkerArray.splice(index, 1);                  
+
+                if (numberOfPoints == 2) {    
+                    //map.removeLayer(halfwayMarkerArray[0]);
+                    halfwayMarkerArray = [];                  
+                }
+                else {	
+                    var halfwayMarker = halfwayMarkerArray[halfwayMarkerArray.length - 1];	
+                    halfwayMarker.setLatLng(getHalfwayLatLng(pointsArray[pointsArray.length - 1], pointsArray[0]));                                                       
+                }
+                                                                               
+                newPolygon.setLatLngs(pointsArray);
+                newPolyline.setLatLngs(pointsArray);
+                newPolyline.addLatLng(pointsArray[0]);
+					
+                map.removeLayer(thisOb);
+
+                numberOfPoints--;
+            }	                                                      
+        }
+				
+    }else{
+			
+        pointsArray.splice(index, 1);                       
+        cornerMarkerArray.splice(index, 1);
+			
+        map.removeLayer(halfwayMarkerArray[index-1]);
+        halfwayMarkerArray.splice(index-1, 1);
+			
+        if (numberOfPoints === 2 && polygonDraw !== true) {    
+            //map.removeLayer(halfwayMarkerArray[0]);
+            halfwayMarkerArray = [];                  
+					
+        }else{
+            if (halfwayMarkerArray.length >= index){
+                var halfwayMarker = halfwayMarkerArray[index-1];
+                if (index == pointsArray.length){						
+                    halfwayMarker.setLatLng(getHalfwayLatLng(pointsArray[index-1], pointsArray[0]));	    	                
+                }else{    		            
+                    halfwayMarker.setLatLng(getHalfwayLatLng(pointsArray[index-1], pointsArray[index]));            	        	
+                }
+            }
+        }
+                
+        if (newPolygon !== null){				
+            newPolygon.setLatLngs(pointsArray);
+        }
+				
+        if (newPolyline !== null){
+            newPolyline.setLatLngs(pointsArray);
+            newPolyline.addLatLng(pointsArray[0]);
+        }				
+				
+        //if (polygonDraw === true) {
+        //	newPolyline.addLatLng(pointsArray[0]);
+        //}
+					
+        map.removeLayer(thisOb);
+
+        //numberOfPoints--;
+        numberOfPoints = pointsArray.length;
+        if ((index === pointsArray.length) && (polygonDraw === true)){
+            vectorArray[0] = pointsArray[pointsArray.length-1];
+            newVector.setLatLngs(vectorArray);
+        }
+    } 
+} // onCornerMarkerClick()
+
+function onLastCornerMarkerClickPolyline(eventData) {
+    if (polylineDraw == true) {
+			
+        polylineDraw = false;
+				
+        cornerMarkerArray.push(eventData.target);
+					
+        map.removeLayer(newVector);
+        newVector   = null;
+        vectorArray = [];
+
+        var halfwayMarker = L.marker(getHalfwayLatLng(pointsArray[pointsArray.length - 1], eventData.latlng), {opacity: 0.5, icon: cornerIcon});
+        halfwayMarker.addTo(map);
+        halfwayMarker.on('click',     onHalfwayMarkerClick);
+				
+        halfwayMarkerArray.push(halfwayMarker);
+			
+        pointsArray.push(eventData.target.getLatLng());
+        numberOfPoints++;
+        if (newPolyline !== null) {
+            newPolyline.setLatLngs(pointsArray);
+        }	
+        else{
+            newPolyline = L.polyline(pointsArray, {opacity: 0.8});
+            newPolyline.addTo(map);
+        }
+    }	
+    else {
+        polylineDraw = true;
+
+        var index = pointsArray.length - 1;
+			
+        pointsArray.splice(index, 1);                       
+        cornerMarkerArray.splice(index, 1);                    
+
+        map.removeLayer(halfwayMarkerArray[index - 1]);
+        halfwayMarkerArray.splice(index - 1, 1);                  
+
+        newPolyline.setLatLngs(pointsArray);
+
+        numberOfPoints--;
+
+        vectorArray.push(pointsArray[index - 1]);
+        vectorArray.push(eventData.target.getLatLng());
+        newVector = L.polyline(vectorArray);
+        newVector.addTo(map);
+    }
+}
+
+function onCornerMarkerClickPolyline(eventData) {
+    var index = -1,
+        thisOb = eventData.target;
+			
+    for (var i=0; i<cornerMarkerArray.length && index == -1; i++ ){
+        if (cornerMarkerArray[i] === thisOb){
+            index = i;
+            break;
+        }
+    }
+			
+    pointsArray.splice(index,1);
+    cornerMarkerArray.splice(index,1);
+    var lthPoint = pointsArray.length;
+            
+    if(index > 0){
+        map.removeLayer(halfwayMarkerArray[index-1]);
+        halfwayMarkerArray.splice(index-1,1);
+    }
+    if (numberOfPoints == 2){
+        //map.removeLayer(halfwayMarkerArray[index]);
+        halfwayMarkerArray = [];                  
+    }else{
+        var lthhalf = halfwayMarkerArray.length;				
+        if ((lthhalf > 0)&&(lthhalf >= index)){
+            var halfwayMarker = halfwayMarkerArray[index-1];
+            if ((lthPoint > 0)&&(index === lthPoint)){
+                halfwayMarker.setLatLng(getHalfwayLatLng(pointsArray[index-1], pointsArray[0]));                                                       
+            }else if (lthPoint > 0){
+                halfwayMarker.setLatLng(getHalfwayLatLng(pointsArray[index-1], pointsArray[index]));
+            }
+        } //if ((lthhalf > 0)&&(lthhalf >= index)){
+    } //if (numberOfPoints == 2){
+            
+    newPolyline.setLatLngs(pointsArray);
+					
+    map.removeLayer(thisOb);
+
+    numberOfPoints--;
+    if ((lthPoint > 0)&&(index === lthPoint && polylineDraw)){
+        vectorArray[0] = pointsArray[lthPoint-1];
+        if(newVector === null){
+            newVector = L.polyline(vectorArray, {color: '#0000ff', opacity: 1.0, weight: 2});
+            newVector.on('click',onMapClick);
+            //newVector.on('rightclick',rightclickBuild);
+            newVector.addTo(map);
+        }else{
+            newVector.setLatLngs(vectorArray);
+            newVector.redraw();
+        }				
+    }
+    if ((lthPoint === 0)&&(newVector !== null)){
+        map.removeLayer(newVector);
+        newVector = null;
+    }
+    //}
+} //onCornerMarkerClickPolyline()
+
+function onCornerMarkerDragStart(eventData){
+    dragStart = true;
+			
+    if (polygonDraw === true || polylineDraw === true){
+        map.removeLayer(newVector);
+    }
+}
+
+function onCornerMarkerDragEnd(eventData) {
+    dragStart = false;
+			
+    if (polygonDraw == true || polylineDraw == true) {
+        var latlngend = pointsArray[pointsArray.length - 1];
+        var latlng    = L.latLng(latlngend.lat, latlngend.lng);
+        vectorArray[0] = latlng;
+        vectorArray[1] = eventData.latlng;
+				
+        map.addLayer(newVector);
+    }	
+}
+
+function onCornerMarkerDrag(eventData) {
+    var index = -1;
+			
+    for (var i=0; i<cornerMarkerArray.length && index == -1; i++ ){
+        if (cornerMarkerArray[i] == eventData.target) {
+            index = i;
+        }
+    }
+			
+    pointsArray[index] = eventData.target.getLatLng();
+
+    if (newPolygon != null) {
+        newPolygon.setLatLngs(pointsArray);
+    }
+				
+    if (newPolyline != null) {
+        newPolyline.setLatLngs(pointsArray);
+        if (polygonDraw != true && newPolygon != null) {
+            newPolyline.addLatLng(pointsArray[0]);
+        }	
+    }	
+
+    if (halfwayMarkerArray.length >= index) {                       
+        if (index == 0) {
+            if (polygonDraw != true && newPolygon != null) {  
+                var halfwayMarker = halfwayMarkerArray[halfwayMarkerArray.length - 1];	
+                halfwayMarker.setLatLng(getHalfwayLatLng(pointsArray[pointsArray.length - 1], pointsArray[0]));                                                       
+            }
+        }    
+        else {    
+            var halfwayMarker = halfwayMarkerArray[index - 1];	
+            halfwayMarker.setLatLng(getHalfwayLatLng(pointsArray[index - 1], pointsArray[index]));                                                       
+        }	
+    }    
+
+    if (halfwayMarkerArray.length >= index + 1) {                       
+        var halfwayMarker = halfwayMarkerArray[index];	
+        if (index + 1 == pointsArray.length) {
+            halfwayMarker.setLatLng(getHalfwayLatLng(pointsArray[index], pointsArray[0]));                                                       
+        }    
+        else {    
+            halfwayMarker.setLatLng(getHalfwayLatLng(pointsArray[index], pointsArray[index + 1]));                                                       
+        }	
+    }    
+}
+
+function onMapClick(eventData){
+		
+    if (polygonDraw === true){
+			
+        var cornerMarker = L.marker(eventData.latlng, {draggable: true, icon: cornerIcon});
+        cornerMarker.addTo(map);
+        cornerMarker.on('click',     onCornerMarkerClick);
+        cornerMarker.on('dragstart', onCornerMarkerDragStart);
+        cornerMarker.on('drag',      onCornerMarkerDrag);
+        cornerMarker.on('dragend',   onCornerMarkerDragEnd);
+				
+        cornerMarkerArray.push(cornerMarker);
+				
+        if (numberOfPoints == 0) {
+            pointsArray.push(eventData.latlng);
+
+            vectorArray.push(eventData.latlng);
+            vectorArray.push(eventData.latlng);
+            newVector = L.polyline(vectorArray);
+            newVector.addTo(map);
+						
+            numberOfPoints = 1;
+        }
+        else {
+            var halfwayMarker = L.marker(getHalfwayLatLng(pointsArray[pointsArray.length - 1], eventData.latlng), {opacity: 0.5, icon: cornerIcon});
+            halfwayMarker.addTo(map);
+            halfwayMarker.on('click',     onHalfwayMarkerClick);
+				
+            halfwayMarkerArray.push(halfwayMarker);
+				
+            pointsArray.push(eventData.latlng);
+            numberOfPoints++;
+
+            if (newPolygon === null) {
+                newPolygon  = L.polygon(pointsArray,{opacity:0,color:'#FF0000',opacity:0.1,weight:1,fillColor:'#0000ff',fillOpacity:0.1,clickable:true});
+                newPolygon.addTo(map);
+                //newPolygon.bindPopup(newPolygonTitle);
+						
+                //newPolygon.on('click',     onObjectClick);
+            }
+            else {
+                newPolygon.setLatLngs(pointsArray);
+            }
+            if (newPolyline == null) {
+                newPolyline = L.polyline(pointsArray, {opacity: 0.8});
+                newPolyline.addTo(map);
+            }	
+            else {
+                newPolyline.setLatLngs(pointsArray);
+            }
+
+            vectorArray[0] = eventData.latlng;
+        }
+    } //if (polygonDraw == true){
+			
+    if (polylineDraw === true){			
+        var cornerMarker = L.marker(eventData.latlng, {draggable: true, icon: cornerIcon});
+        cornerMarker.addTo(map);
+        cornerMarker.on('click',     onCornerMarkerClickPolyline);
+        cornerMarker.on('dragstart', onCornerMarkerDragStart);
+        cornerMarker.on('drag',      onCornerMarkerDrag);
+        cornerMarker.on('dragend',   onCornerMarkerDragEnd);
+				
+        cornerMarkerArray.push(cornerMarker);
+				
+        var lth = pointsArray.length;
+        if(lth>0){
+            var halfwayMarker = L.marker(getHalfwayLatLng(pointsArray[pointsArray.length - 1],eventData.latlng),{opacity:0.5,icon:cornerIcon});
+            halfwayMarker.addTo(map);
+            halfwayMarker.on('click',onHalfwayMarkerClick);
+            halfwayMarkerArray.push(halfwayMarker);				
+        } //if(lth>0){
+			
+        pointsArray.push(eventData.latlng);
+        numberOfPoints++;
+
+        if (newPolyline == null){
+            newPolyline = L.polyline(pointsArray, {color: '#FF0000'});
+            newPolyline.addTo(map);
+            newPolyline.bindPopup(newPolylineTitle);
+						
+            newPolyline.on('click',     onObjectClick);
+        }else{
+            newPolyline.setLatLngs(pointsArray);
+        }
+				
+        vectorArray[0] = eventData.latlng;
+				
+        if(newVector === null){
+            newVector = L.polyline(vectorArray, {color:'#0000ff',opacity:1.0,weight:2});
+            newVector.on('click',onMapClick);
+            //newVector.on('rightclick',rightclickBuild);
+            newVector.addTo(map);
+        }				
+    } //if (polylineDraw === true){
+			
+    if (markerDraw === true){
+        if (newMarker === null){
+            newMarker = L.marker(eventData.latlng, {draggable: true, icon: geocodeIcon, title: newMarkerTitle});
+            newMarker.addTo(map);
+            newMarker.bindPopup(newMarkerTitle);
+					
+            newMarker.on('click',onNewMarkerClick);
+        }
+        else {
+            newMarker.setLatLng(eventData.latlng);
+        }
+    } //if (markerDraw == true){
+			
+    if (multipleSelection === true || multipleUnselection === true){
+        if (numberOfPoints === 0){
+            vectorArray.push(eventData.latlng);
+            vectorArray.push(eventData.latlng);
+            if (multipleSelection == true){
+                newRectangle = L.rectangle(L.latLngBounds(vectorArray), {color: '#61411E', fillColor: '#00FF33', weight: 2}).addTo(map);
+            }else{
+                newRectangle = L.rectangle(L.latLngBounds(vectorArray), {color: '#61411E', fillColor: '#FF7034', weight: 2}).addTo(map);
+            }
+            numberOfPoints = 1;
+        }else{
+            LatLngBounds = newRectangle.getBounds();
+				
+            for (var i = 0; i < objectArray.length; i++){
+                objectMarker = objectArray[i];
+                //if (objectMarker === 'MovementBetweenFlights'){
+                //нет объекта
+                //}
+                if (objectMarker.setIcon){
+                    if (LatLngBounds.contains(objectMarker.getLatLng())){
+                        if (multipleSelection == true){
+                            index = selectedObjectArray.indexOf(objectMarker);
+                            if (index === -1){
+                                selectedObjectArray.push(objectMarker);
+                            }
+                        }else{
+                            index = unselectedObjectArray.indexOf(objectMarker);
+                            if (index === -1){
+                                unselectedObjectArray.push(objectMarker);
+                            }
+                            index = selectedObjectArray.indexOf(objectMarker);
+                            if (index !== -1){
+                                selectedObjectArray.splice(index, 1);
+                            }
+                        } //if (multipleSelection == true){
+                    }
+                } //if (objectMarker.setIcon){
+            }
+            map.removeLayer(newRectangle);
+            numberOfPoints = 0;
+            vectorArray = [];
+            newRectangle = null;
+        }
+    } //if (multipleSelection === true || multipleUnselection === true){
+}
+
+function onMapMouseMove(eventData){
+    if (polygonDraw === true || polylineDraw === true){
+        if((numberOfPoints > 0)&&(newVector !== null)){
+            vectorArray[1] = eventData.latlng;
+            newVector.setLatLngs(vectorArray);
+        }
+    }else if (multipleSelection === true || multipleUnselection === true){
+        if (numberOfPoints > 0){
+            vectorArray[1] = eventData.latlng;
+            newRectangle.setBounds(vectorArray);
+        }
+    }			
+			
+} //onMapMouseMove()
+		
+function CheckOnMap(lat,lng) {
+    var latlng = L.latLng(lat,lng);
+    return objectOnMap(latlng);
+}
+
+function objectOnMap(latLng) {
+    var bounds = map.getBounds();
+    return bounds.contains(latLng);
+}
+		
+function gotoObjectMarkerSaveZoom(index) {
+    var objectMarker = objectArray[index - 1];
+    MapsetCentre(objectMarker.getLatLng(), map.getZoom());
+}
+		
+function gotoMovementBetweenFlights(index){
+		
+    var mas = getMovementBetweenFlights(index);			
+    if(mas !== null){
+        var array = mas[1][1],
+            flgEx = true,
+            bounds = null;
+        for (var i = 0; i < array.length; i++){
+            var arrPointP = array[i],
+                M_PointsArr = arrPointP[0],
+                M_Flag = false;						
+            for (var j = 0; j < M_PointsArr.length; j++){
+                if(flgEx){
+                    bounds = L.latLngBounds(M_PointsArr[j],M_PointsArr[j]);
+                    flgEx = false;
+                }else{
+                    if(bounds === null){
+                        bounds = L.latLngBounds(M_PointsArr[j],M_PointsArr[j]);
+                    }else{
+                        bounds.extend(M_PointsArr[j]);
+                    }
+                }							
+            }			    		
+        }
+        if(bounds !== null){
+            map.fitBounds(bounds);
+        }
+    } //if(mas !== null){
+							
+} //gotoMovementBetweenFlights()
+		
+function gotoHistoryPassageFlight(index){
+		 
+    var mas = getMultiPolyline(index);
+    if(mas !== null){
+        var array = mas[1][1],
+            flgEx = true,
+            bounds = null;
+        for (var i = 0; i < array.length; i++){
+            var arrPointP = array[i],
+                M_PointsArr = arrPointP[0],
+                M_Flag = false;						
+            for (var j = 0; j < M_PointsArr.length; j++){
+                if(flgEx){
+                    bounds = L.latLngBounds(M_PointsArr[j],M_PointsArr[j]);
+                    flgEx = false;
+                }else{
+                    if(bounds === null){
+                        bounds = L.latLngBounds(M_PointsArr[j],M_PointsArr[j]);
+                    }else{
+                        bounds.extend(M_PointsArr[j]);
+                    }
+                }							
+            }			    		
+        }
+        if(bounds !== null){
+            map.fitBounds(bounds);
+        }
+    } //if(mas !== null){
+				
+    onMapMoveEnd();
+							
+} //gotoHistoryPassageFlight()
+
+function restoreMapView(lat, lng, zoom) {
+    var latlng = L.latLng(lat, lng);
+    map.setView(latlng, zoom);
+}
+
+function openPopupMarker(index, _title) {
+    var marker = objectArray[index-1];
+    try{
+        var popup = L.popup()
+            .setLatLng(marker.getLatLng())
+            .setContent(_title)
+            .addTo(map);
+			
+        popup.autoPan = false;
+			                    
+        popupArray.push(popup);
+    } catch(e) {
+        var err = e.name;
+    } //try{
+}
+		
+function closePopupMarkers() {
+    for (var i=0; i<popupArray.length; i++ ){
+        map.removeLayer(popupArray[i]);
+    }
+    popupArray = [];
+}
+
+function changeDisplayAllMarkers(display) {
+    displayAllMarkers = display;
+    if (displayAllMarkers) {
+        onMapMoveEnd();
+    }
+    else {		    
+        hideBorderMarkers();
+    }
+}	
+
+function hideBorderMarkers(){
+		
+    for (var i=0; i<borderMarkerArray.length; i++ ){
+        map.removeLayer(borderMarkerArray[i]);
+    }
+    borderMarkerArray = [];
+			
+} //hideBorderMarkers()
+		
+function setMapFormed(formed){
+    mapFormed = formed;
+}
+		
+function setHideUnvisibleObjects(hide){
+    hideUnvisibleObjects = hide;
+}
+		
+function onMapMoveEnd(){
+
+    if ((mapFormed === true) && (hideUnvisibleObjects === true)) {				
+			   
+        for (var i=0; i<objectArray.length; i++ ){
+            editVisible = false;
+            var mas = getVisibleObject(i),
+                flgExp = false;
+						
+            if(mas === null){						
+                continue;
+            }
+            if(mas[1][1] === false){
+                continue;
+            }
+            var typeObj = mas[1][2],
+                curObject = objectArray[i];
+					
+            if(curObject === 'MovementBetweenFlights'){
+                showObject(i+1);
+                flgExp = true;
+            }else{
+                if(typeObj === 'marker'){
+                    var latlng = curObject.getLatLng();
+                    if(!(objectOnMap(latlng))){
+                        hideObject(i+1);
+                    }else{
+                        showObject(i+1);
+                        flgExp = true;
+                    }
+                }else if(typeObj === 'featureGroup'){
+                    var boundsObj = curObject.getBounds(),
+                        bounds = map.getBounds(),					     		
+                        show = bounds.intersects(boundsObj);
+                    //show = bounds.contains(boundsObj);
+                    if(show){
+                        showObject(i+1);
+                    }else{
+                        hideObject(i+1);
+                    }
+                }else if(typeObj === 'string'){
+                    f = 1;
+                }else if((typeObj === 'polyline')||(typeObj === 'polygon')){
+                    latlngArray = curObject.getLatLngs();
+                    var show = false;
+                    for (var x=0; x<latlngArray.length; x++) {							
+                        if(objectOnMap(latlngArray[x])){
+                            show = true;
+                            break;
+                        }
+                    }
+							
+                    if(show == true){
+                        showObject(i+1);
+                        flgExp = true;
+                    }else{
+                        hideObject(i+1);
+                    }
+                } //if(typeObj === 'marker'){
+            } //if(curObject === 'MovementBetweenFlights'){
+					
+            if(flgExp === false){
+                toCheckDrawnObjects(i+1);
+            }
+        }		
+    }
+			
+    if (displayAllMarkers) {				
+        hideBorderMarkers();				
+        var bounds = map.getBounds(),
+        b_East = bounds.getEast(),
+        b_South = bounds.getSouth(),
+        b_North = bounds.getNorth(),
+        b_West = bounds.getWest(),
+        M_Zoom = map.getZoom();
+        for (var i=0; i<vehicleArray.length; i++ ){
+				
+            var mas = getVisibleObject(i),
+                flgExp = false;
+						
+            if(mas === null){						
+                continue;
+            }
+            if(mas[1][1] === false){
+                continue;
+            }
+				
+            var latlng = vehicleArray[i].objectMarker.getLatLng();
+            if (!(objectOnMap(latlng))) {					    
+                var lat = latlng.lat,
+                lng = latlng.lng,
+                P_lat = latlng.lat,
+                P_lng = latlng.lng,
+                x = 0,
+                y = 0;											
+                if (P_lng >= b_East){
+                    lng = b_East;
+                    x = -1*(M_Zoom+5);
+                }						
+                if (P_lng <= b_West) {
+                    lng = b_West;
+                    x = M_Zoom+5;
+                }						
+                if (P_lat <= b_South){
+                    lat = b_South;
+                    y = -1*(M_Zoom+5);
+                }
+                if (P_lat >= b_North) {						
+                    lat = b_North;
+                    y = M_Zoom+5;
+                }
+                var Point = map.latLngToLayerPoint(L.latLng(lat,lng));
+                var N_Point = L.point(Point.x + x,Point.y + y);
+                var newBorderMarker = L.marker(map.layerPointToLatLng(N_Point));						
+                if (showVehicleStatus == 0) {
+                    if (vehicleArray[i].icon !== null) {
+                        newBorderMarker.setIcon(vehicleArray[i].icon);
+                    }
+                }
+                else if (showVehicleStatus == 1) {
+                    var icon = getStatusIcon(vehicleArray[i].status);
+                    newBorderMarker.setIcon(icon);
+                }
+                newBorderMarker.bindPopup(vehicleArray[i].objectMarker.getPopup().getContent());
+                newBorderMarker.addTo(map);
+                borderMarkerArray.push(newBorderMarker);
+            }
+        }
+    } //if (displayAllMarkers){
+			
+    editVisible = true;
+			
+} //onMapMoveEnd()
+
+function onMapZoomEnd()
+{
+	if (heat != null && heatMode == 'timeWindows') 
+	{
+		var curZoom = map.getZoom()/2;
+		heat.eachLayer(function (layer) {layer.setRadius(curZoom);});
+	}
+}
+		
+function toCheckDrawnObjects(index){
+    if(Monitoring_Mode === 1){
+        var mas = getMovementBetweenFlights(index);
+        if(mas !== null){							
+            var M_objectArray = mas[1][2],
+                array = mas[1][1],
+                d_Color = mas[1][4],
+                d_weight = mas[1][5],
+                d_opacity = mas[1][6];
+							
+            EraseAllLinesObject(M_objectArray);
+            M_objectArray = DrawTrackPolyline(array, d_opacity, d_weight);
+								
+            var M_Flag = false;
+            if(M_objectArray.length > 0){
+                M_Flag = true;
+            }
+            objectArray_MovementBetweenFlights[mas[0]] = [index,array,M_objectArray,M_Flag,d_Color,d_weight,d_opacity];
+        } //if(mas !== null){
+    } //if(Monitoring_Mode === 1){
+    if((Monitoring_Mode === 1)||(Monitoring_Mode === 2)){
+        var mas = getMultiPolyline(index);				
+        if(mas !== null){
+            var M_objectArray = mas[1][2],
+                array = mas[1][1],
+                d_Color = mas[1][4],
+                d_weight = mas[1][5],
+                d_opacity = mas[1][6];
+							
+            EraseAllLinesObject(M_objectArray);
+            M_objectArray = DrawTrackPolyline(array, d_opacity, d_weight);
+								
+            objectArray_MultiPolyline[mas[0]] = [index,array,M_objectArray,true,d_Color,d_weight,d_opacity];
+        } //if(mas !== null){
+        var mas = getRoutePolyline(index);			
+        if(mas !== null){					
+            var M_objectPoly = mas[1][2],
+                flgLgth = mas[1][3],
+                array = mas[1][1],
+                d_Color = mas[1][4],
+                d_weight = mas[1][5],
+                d_opacity = mas[1][6];
+								
+            EraseAllLinesObject(M_objectPoly);
+            M_objectPoly = DrawTrackPolyline(array, d_opacity, d_weight);
+            if(M_objectPoly.length === 0){
+                flgLgth = false;
+            }
+            objectArray_PlannedRoute[mas[0]] = [index,array,M_objectPoly,flgLgth,d_Color,d_weight,d_opacity];
+							
+        } //if(mas !== null){				
+    } //if((Monitoring_Mode === 1)||(Monitoring_Mode === 2)){
+} //toCheckDrawnObjects()
+		
+function addVehicle(lat, lng, _title, _icon, _centerX, _centerY, index, status) {				
+			
+    var latLng = L.latLng(lat,lng),
+        objectMarker = null,
+        markerIcon = Icon_Default;
+			
+    if(_icon != ''){
+        markerIcon = L.icon({iconUrl: _icon, iconAnchor: [_centerX, _centerY]});				
+    }
+			
+    objectMarker = L.marker(latLng, {icon: markerIcon, title: _title});				
+    objectMarker.bindPopup(_title);						
+    objectMarker.on('click',onObjectClick);
+			
+    var obj = new Object();
+    obj.objectMarker = objectMarker;
+    obj.index		 = index;
+    obj.status		 = status;
+    obj.text		 = _title;
+    obj.icon		 = markerIcon;
+    obj.visible		 = false;
+			
+    vehicleArray.push(obj);
+}
+		
+function changeShowVehicleStatus(state) {
+    showVehicleStatus = state;
+    replaceVehicleMarkers();
+    changeDisplayAllMarkers(displayAllMarkers);
+}	
+
+function replaceVehicleMarkers(){
+		
+    for (var i=0; i<vehicleArray.length; i++ ){
+        var obj = vehicleArray[i];
+        if (showVehicleStatus === 1){
+            obj.visible = true;
+            var _objectMarker = obj.objectMarker;
+            var markerIcon = getStatusIcon(obj.status);
+            _objectMarker.setIcon(markerIcon);
+            var LatLng = objectArray[obj.index-1].getLatLng();
+            _objectMarker.setLatLng(LatLng);
+            _objectMarker.addTo(map);
+            var CobjectMarker = objectArray[obj.index-1];
+            map.removeLayer(CobjectMarker);
+            objectArray[obj.index-1] = _objectMarker;
+            obj.objectMarker = CobjectMarker;
+        }else{
+            obj.visible = false;
+            var CobjectMarker = objectArray[obj.index-1];
+            var LatLng = CobjectMarker.getLatLng();
+            map.removeLayer(CobjectMarker);
+            objectArray[obj.index-1] = obj.objectMarker;
+            objectArray[obj.index-1].setLatLng(LatLng);
+            objectArray[obj.index-1].addTo(map);
+					
+            obj.objectMarker = CobjectMarker;
+					
+        }
+    }
+	    	
+} //replaceVehicleMarkers()
+
+function getStatusIcon(status){
+		
+    var icon = lastCornerIcon;
+    if (status === 1) {
+        icon = firstCornerIcon;
+    }else if (status === 2) {
+        icon = motionIcon;
+    }
+    		
+    return icon;
+		    
+} //getStatusIcon()
+
+function changeRouteColor(index,_color,cDefault){
+    if(_color === ''){
+        _color = cDefault;
+    }
+    if(Monitoring_Mode === 2){
+        var mas = getMultiPolyline(index);				
+        if(mas !== null){
+            var M_objectArray = mas[1][2],
+                array = mas[1][1],
+                d_Color = mas[1][4],
+                d_weight = mas[1][5],
+                d_opacity = mas[1][6],
+                f_vis = mas[1][3];
+						
+            EraseAllLinesObject(M_objectArray);
+						
+            for (var i = 0; i < array.length; i++){
+                var arrPointP = array[i],
+                    M_PointsArr = arrPointP[0],
+                    _ColorArr = arrPointP[1],
+                    M_Flag = false;						
+                if(_ColorArr === d_Color){
+                    arrPointP[1] = _color;
+                    array[i][1] = _color;
+                }
+                if(f_vis){
+                    if(hideUnvisibleObjects){
+                        for (var j = 0; j < M_PointsArr.length; j++){				
+                            M_Flag = objectOnMap(M_PointsArr[j]);
+                            if(M_Flag){
+                                break;
+                            }
+                        }
+                    }else{
+                        M_Flag = true;
+                    }
+                } //if(f_vis){
+			    			
+                if(M_Flag){
+                    var polyline = L.polyline(arrPointP[0],{color:arrPointP[1],weight:d_weight,opacity:d_opacity,smoothFactor:1}).addTo(map);
+                    M_objectArray.push(polyline);
+                }
+            }
+            objectArray_MultiPolyline[mas[0]] = [index,array,M_objectArray,f_vis,_color,d_weight,d_opacity];
+        } //if(mas !== null){
+    }else{	
+        objectArray[index-1].setStyle({color: _color});
+    } //if(Monitoring_Mode === 2){       	
+        	
+} //changeRouteColor()
+		
+function MapObjectsView(textOb,mZoom){
+    var arrOb = textOb.split(';'),
+        cBounds = null;
+    for(var i=0; i<arrOb.length; i++){
+        var index = parseFloat(arrOb[i]);
+        var mass = getVisibleObject(index-1);
+        if (mass !== null) {
+            if (mass[1][2] === 'marker') {
+                var Position = objectArray[index-1].getLatLng();
+                if (cBounds === null){ 
+                    cBounds = L.latLngBounds(Position,Position);
+                }else{
+                    cBounds.extend(Position);
+                }						
+            }else if ((mass[1][2] === 'polygon')||(mass[1][2] === 'polyline')){
+                var latlngbounds = objectArray[index-1].getBounds();
+                if (cBounds === null){
+                    cBounds = latlngbounds;
+                }else{
+                    cBounds.extend(latlngbounds);
+                }
+            }	
+        }
+    }
+    if (cBounds !== null){
+        map.fitBounds(cBounds);
+        if (mZoom < map.getZoom()){
+            map.setZoom(mZoom);
+        }
+    }
+		
+} //MapObjectsView()
+		
+function addSiteInterest(_icon, _coordinates){
+			
+    var coordArray = _coordinates.split(';');
+    		
+    var lat = parseFloat(coordArray[3]);
+    var Lng = parseFloat(coordArray[2]);
+    		
+    var latLng = L.latLng(lat,Lng); 
+    var _title_0 = String(coordArray[0]);
+    var _title_1 = String(coordArray[1]);
+    var _title = _title_0 + '. ' + _title_1;
+    var _width = parseFloat(coordArray[6]);
+    var _height = parseFloat(coordArray[7]);
+    var _centerX = parseFloat(coordArray[4]);
+    var _centerY = parseFloat(coordArray[5]);
+			
+    var objectMarker = null;
+    if (_icon !== '') {
+        if (_width === 0 || _width === undefined || _height === 0 || _height === undefined) {
+            var markerIcon = L.icon({iconUrl: _icon, iconAnchor: [_centerX, _centerY]});
+        }
+        else {
+            var markerIcon = L.icon({iconUrl: _icon, iconSize: [_width, _height], iconAnchor: [_centerX, _centerY]});
+        }
+        objectMarker = L.marker(latLng, {icon: markerIcon, title: _title});
+    }
+    else {
+        objectMarker = L.marker(latLng, {title: _title});
+    }
+			
+    objectMarker.addTo(map);
+    objectMarker.on('click', onMarkerClick);
+			
+    var index = objectArray_SiteInterest.push(objectMarker);			
+			
+    return index;	
+        	
+} // addSiteInterest()
+		
+function showSiteInterest(index) {
+    if(objectArray_SiteInterest.length !== 0 ){
+        var SiteInterest = objectArray_SiteInterest[index-1];
+        map.addLayer(SiteInterest);
+    }
+} // showSiteInterest()
+		
+function hideSiteInterest(index){	
+    if(objectArray_SiteInterest.length !== 0 ){
+        var SiteInterest = objectArray_SiteInterest[index-1];
+        map.removeLayer(SiteInterest);
+    }
+} // hideSiteInterest()
+		
+function ClearSiteInterest(){
+			
+    for(var i=0; i<objectArray_SiteInterest.length; i++){
+        var SiteInterest = objectArray_SiteInterest[i];
+        map.removeLayer(SiteInterest);			
+    }			
+			
+} // ClearSiteInterest()
+
+var TimerControl = L.Control.extend({
+    initialize: function (foo, options) { 
+        this._inner = foo;
+        L.Util.setOptions(this, options);
+    },
+
+    onAdd: function (map) {
+        this._el = L.DomUtil.create('div', 'elemTimer');
+        map.getPanes().overlayPane.appendChild(this._el);
+        
+        this._el.id = 'timerId';
+        this._el.innerHTML = this._inner;
+
+        return this._el;
+    } 
+    
+});
+
+function setTimerControl(_title, second) {
+                  
+    if  (timer != null){
+        clearInterval(interval);
+        map.removeControl(timer);
+    };    
+                  
+    //var elementID =  L.DomUtil.get('timerId'); // document.getElementById( 'timerId');
+    // if  (elementID != null){
+    //      map.removechild(elementID) ; // elementID.remove();
+    //  } 
+    //alert(elementID);
+       
+    timer = null;
+    var now = 0;
+    var interval = setInterval(function() { //запускаем таймер с интервалом 1 секунду
+        var time = second - now;
+        if (time < 0) {                      //если конечная дата меньше текущей
+            clearInterval(interval);
+        } else {            
+					      
+            var hours = parseInt(time/3600);
+            var minutes =  parseInt((time -  hours*3600)/60);
+            var seconds =  time - hours*3600 -  minutes*60;
+					       
+            innerHTML = '<div>' + _title + '</div><div>' + zeroFill(hours, 2) + ':' + zeroFill(minutes, 2)+':' + zeroFill(seconds, 2)+' </div>';
+
+            if (timer!== null){
+                timer.removeFrom(map);
+            };
+            timer = new TimerControl(innerHTML, {position: 'bottomleft'});
+            timer.addTo(map);
+            if (!seconds && !minutes && !hours) {              
+                clearInterval(interval);
+            }           
+        }
+        now++;
+    }, 1000);
+}
+          
+function  removeTimerControl(){
+    if  (timer != null){
+        //clearInterval(interval);
+        map.removeControl(timer);
+        timer = null;
+    };    
+}
+      
+function zeroFill(number, width ){
+    width -= number.toString().length;
+    if ( width > 0 )
+    {
+        return new Array( width + (/\./.test( number ) ? 2 : 1) ).join( '0' ) + number;
+    }
+    return number + ""; // always return a string
+}
+      
+function onMarkerAddAnimation(latLng, color){
+    if (animationCircleMarker != undefined){
+        map.removeLayer(animationCircleMarker);
+    }
+
+    animationCircleMarker = L.circleMarker(latLng, {radius:10, stroke: false, fillColor: color});
+    map.addLayer(animationCircleMarker);
+    setTimeout(function() {animationCircleMarker.setRadius(12)}, 300);
+    setTimeout(function() {animationCircleMarker.setRadius(14)}, 350);
+    setTimeout(function() {animationCircleMarker.setRadius(16)}, 400);
+    setTimeout(function() {animationCircleMarker.setRadius(18)}, 450);
+    setTimeout(function() {animationCircleMarker.setRadius(20)}, 500);
+    setTimeout(function() {animationCircleMarker.setRadius(22)}, 550);
+    setTimeout(function() {animationCircleMarker.setRadius(24)}, 600);
+    setTimeout(function() {animationCircleMarker.setRadius(26)}, 650);
+    setTimeout(function() {animationCircleMarker.setRadius(28)}, 700);
+    setTimeout(function() {animationCircleMarker.setRadius(30)}, 750);
+    setTimeout(function() {animationCircleMarker.setRadius(32)}, 800);
+    setTimeout(function() {animationCircleMarker.setRadius(34)}, 850);
+    setTimeout(function() {animationCircleMarker.setRadius(36)}, 900);
+    setTimeout(function() {animationCircleMarker.setRadius(38)}, 950);
+    setTimeout(function() {animationCircleMarker.setRadius(40); map.removeLayer(animationCircleMarker);}, 1000);
+}       
+      
+function setExecut() {
+			
+    var div = document.getElementById('GetExtCommand')
+    var elems = div.getElementsByTagName('*')	 
+    var curData = '';
+    for(var i=0; i<elems.length; i++) {
+        curData = elems[i].value;
+        elems[i].value = '';
+    };
+    try{
+        var result_1 = eval(curData);
+    } catch(e) {
+        alert(e.name + ': ' + e.message);
+        alert(curData);
+    } 
+    var result_JSON = JSON.stringify(result_1);
+		
+    div = document.getElementById('GetData')
+    elems = div.getElementsByTagName('*')	 
+    for(var i=0; i<elems.length; i++) {
+        elems[i].value = result_JSON;
+    };
+		      
+} // setExecut ()
+      
+
+map.on('click',     onMapClick);
+map.on('mousemove', onMapMouseMove);
+map.on('moveend',	onMapMoveEnd);
+map.on('zoomend',	onMapZoomEnd);

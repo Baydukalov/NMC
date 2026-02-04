@@ -1,0 +1,288 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	%РежимСовместимостиКарты%
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!-- <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-1.0.0-b1/leaflet.css" /> -->
+	<!-- тест нового релиза -->
+	<!--<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />-->
+	<link rel="stylesheet" href="...MainDirectoryCSS/leaflet.css" />
+	
+	%ПакетДополнительныхКарт%
+	
+	<!-- <link rel="stylesheet" href="http://leafletjs.com/dist/leaflet.css" /> -->
+	<!--[if VML&(lt IE 9)]>
+    <?import namespace="v" urn="urn:schemas-microsoft-com:vml" implementation="#default#VML" declareNamespace ?>
+    <style type="text/css">
+     body { 
+	      overflow: hidden; /* Убраны полосы прокрутки */
+	    } 
+    v\:shape, v\:shapetype, v\:formulas, v\:group, v\:f, v\:path, v\:fill, v\:image {
+        behavior:url(#default#VML);
+    }
+    v\:group, v\:shape {
+        display:inline-block;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .direction-image  v\:image {
+        width: 16px;
+        height: 16px;
+    }
+    
+    </style>
+  <style type="text/css">    
+    /* Old IE */
+
+ .marker-name span{
+    background-color: transparent;   
+     font-weight: bolder;
+     position: relative; /* Относительное позиционирование */
+     left: -10px; /* Положение от левого края */
+      top: -20px; /* Положение от верхнего края */
+      text-decoration: underline;
+      white-space: nowrap;
+ }
+ 
+ </style>    
+    <v:shapetype id="vml-radius" adj="15,0,15,0" coordorigin="-1 -1" coordsize="1000000 1000000"
+             path="m,@9qy@8,l@15,qx@0,@16l@0,@24qy@22,@1l@29,@1qx,@31l,@9xm@44,@54qy@49,@36
+             l@60,@36qx@39,@65l@39,@77qy@71,@42l@82,@42qx@44,@88l@44,@54xe" stroked="false">
+        <v:formulas>
+        <v:f eqn="val width"/><v:f eqn="val height"/><v:f eqn="prod @0 1 pixelwidth"/>
+        <v:f eqn="prod @1 1 pixelheight"/><v:f eqn="prod #0 1 10000"/><v:f eqn="prod @4 10000 1"/>
+        <v:f eqn="sum #0 0 @5"/><v:f eqn="if @4 @4 @6"/><v:f eqn="prod @7 @2 1"/>
+        <v:f eqn="prod @6 @3 1"/><v:f eqn="prod #1 1 10000"/><v:f eqn="prod @10 10000 1"/>
+        <v:f eqn="sum #1 0 @11"/><v:f eqn="if @10 @10 @12"/><v:f eqn="sum pixelwidth 0 @13"/>
+        <v:f eqn="prod @14 @2 1"/><v:f eqn="prod @12 @3 1"/><v:f eqn="prod #2 1 10000"/>
+        <v:f eqn="prod @17 10000 1"/><v:f eqn="sum #2 0 @18"/><v:f eqn="if @17 @17 @19"/>
+        <v:f eqn="sum pixelwidth 0 @20"/><v:f eqn="prod @21 @2 1"/><v:f eqn="sum pixelheight 0 @19"/>
+        <v:f eqn="prod @23 @3 1"/><v:f eqn="prod #3 1 10000"/><v:f eqn="prod @25 10000 1"/>
+        <v:f eqn="sum #3 0 @26"/><v:f eqn="if @25 @25 @27"/><v:f eqn="prod @28 @2 1"/>
+        <v:f eqn="sum pixelheight 0 @27"/><v:f eqn="prod @30 @3 1"/><v:f eqn="sum #4 #6 0"/>
+        <v:f eqn="sum #5 #7 0"/><v:f eqn="sum @32 @33 0"/><v:f eqn="prod #4 @3 1"/>
+        <v:f eqn="if @34 @35 @9"/><v:f eqn="prod #5 @2 1"/><v:f eqn="sum @0 0 @37"/>
+        <v:f eqn="if @34 @38 0"/><v:f eqn="prod #6 @3 1"/><v:f eqn="sum @1 0 @40"/>
+        <v:f eqn="if @34 @41 @9"/><v:f eqn="prod #7 @2 1"/><v:f eqn="if @34 @43 0"/>
+        <v:f eqn="sum @7 0 #7"/><v:f eqn="if @45 @45 0"/><v:f eqn="prod @46 @2 1"/>
+        <v:f eqn="sum @47 @43 0"/><v:f eqn="if @34 @48 0"/><v:f eqn="sum @6 0 #4"/>
+        <v:f eqn="if @50 @50 0"/><v:f eqn="prod @51 @3 1"/><v:f eqn="sum @52 @35 0"/>
+        <v:f eqn="if @34 @53 @9"/><v:f eqn="sum @13 0 #5"/><v:f eqn="if @55 @55 0"/>
+        <v:f eqn="sum pixelwidth 0 @56"/><v:f eqn="prod @57 @2 1"/><v:f eqn="sum @58 0 @37"/>
+        <v:f eqn="if @34 @59 0"/><v:f eqn="sum @12 0 #4"/><v:f eqn="if @61 @61 0"/>
+        <v:f eqn="prod @62 @3 1"/><v:f eqn="sum @63 @35 0"/><v:f eqn="if @34 @64 @9"/>
+        <v:f eqn="sum @20 0 #5"/><v:f eqn="if @66 @66 0"/><v:f eqn="sum pixelwidth 0 @67"/>
+        <v:f eqn="prod @68 @2 1"/><v:f eqn="sum @69 0 @37"/><v:f eqn="if @34 @70 0"/>
+        <v:f eqn="sum @19 0 #6"/><v:f eqn="if @72 @72 0"/><v:f eqn="sum pixelheight 0 @73"/>
+        <v:f eqn="prod @74 @3 1"/><v:f eqn="sum @75 0 @40"/><v:f eqn="if @34 @76 @9"/>
+        <v:f eqn="sum @28 0 #7"/><v:f eqn="if @78 @78 0"/><v:f eqn="prod @79 @2 1"/>
+        <v:f eqn="sum @80 @43 0"/><v:f eqn="if @34 @81 0"/><v:f eqn="sum @27 0 #6"/>
+        <v:f eqn="if @83 @83 0"/><v:f eqn="sum pixelheight 0 @84"/><v:f eqn="prod @85 @3 1"/>
+        <v:f eqn="sum @86 0 @40"/><v:f eqn="if @34 @87 @9"/>
+        </v:formulas>         
+    </v:shapetype>
+
+    <![endif]-->
+<!--[if IE 9]>
+<style type="text/css">    
+    .marker-cluster-small {
+	background-color: rgba(181, 226, 140, 0.6);
+	}
+.marker-cluster-small div {
+	background-color: rgba(110, 204, 57, 0.6);
+	}
+
+.marker-cluster-medium {
+	background-color: rgba(241, 211, 87, 0.6);
+	}
+.marker-cluster-medium div {
+	background-color: rgba(240, 194, 12, 0.6);
+	}
+
+.marker-cluster-large {
+	background-color: rgba(253, 156, 115, 0.6);
+	}
+.marker-cluster-large div {
+	background-color: rgba(241, 128, 23, 0.6);
+	}
+	
+.div-icon-leaflet {
+	background-color: rgba(107,203,232, 0.8);
+	}
+.div-icon-leaflet div {
+	background-color: rgba(107,203,232, 0.8);
+	}
+
+.diviconroute  div {
+    border-radius: 10px;
+	}
+
+	/* IE 6-8 fallback colors */
+.leaflet-oldie .marker-cluster-small {
+	background-color: rgb(181, 226, 140);
+	}
+.leaflet-oldie .marker-cluster-small div {
+	background-color: rgb(110, 204, 57);
+	}
+
+.leaflet-oldie .marker-cluster-medium {
+	background-color: rgb(241, 211, 87);
+	}
+.leaflet-oldie .marker-cluster-medium div {
+	background-color: rgb(240, 194, 12);
+	}
+
+.leaflet-oldie .marker-cluster-large {
+	background-color: rgb(253, 156, 115);
+	}
+.leaflet-oldie .marker-cluster-large div {
+	background-color: rgb(241, 128, 23);
+}
+
+.marker-cluster {
+	background-clip: padding-box;
+	border-radius: 20px;
+	}
+.marker-cluster div {
+	width: 30px;
+	height: 30px;
+	margin-left: 5px;
+	margin-top: 5px;
+
+	text-align: center;
+	border-radius: 15px;
+	font: 12px "Helvetica Neue", Arial, Helvetica, sans-serif;
+	}
+.marker-cluster span {
+	line-height: 30px;
+	}	
+
+
+.leaflet-control-minimap {
+	border:solid rgba(255, 255, 255, 1.0) 4px;
+	box-shadow: 0 1px 5px rgba(0,0,0,0.65);
+	border-radius: 3px;
+	background: #f8f8f9;
+	transition: all .6s;
+}
+
+.leaflet-control-minimap a {
+	background-color: rgba(255, 255, 255, 1.0);
+	background-repeat: no-repeat;
+	z-index: 99999;
+	transition: all .6s;
+}
+
+.leaflet-control-minimap a.minimized-bottomright {
+	-webkit-transform: rotate(180deg);
+	transform: rotate(180deg);
+	border-radius: 0px;
+}
+
+.leaflet-control-minimap a.minimized-topleft {
+	-webkit-transform: rotate(0deg);
+	transform: rotate(0deg);
+	border-radius: 0px;
+}
+
+.leaflet-control-minimap a.minimized-bottomleft {
+	-webkit-transform: rotate(270deg);
+	transform: rotate(270deg);
+	border-radius: 0px;
+}
+
+.leaflet-control-minimap a.minimized-topright {
+	-webkit-transform: rotate(90deg);
+	transform: rotate(90deg);
+	border-radius: 0px;
+}
+
+.leaflet-control-minimap-toggle-display{
+	background-image: url("images/toggle.svg");
+	background-size: cover;
+	position: absolute;
+	border-radius: 3px 0px 0px 0px;
+}
+
+.leaflet-oldie .leaflet-control-minimap-toggle-display{
+	background-image: url("images/toggle.png");
+}
+
+.leaflet-control-minimap-toggle-display-bottomright {
+	bottom: 0;
+	right: 0;
+}
+
+.leaflet-control-minimap-toggle-display-topleft{
+	top: 0;
+	left: 0;
+	-webkit-transform: rotate(180deg);
+	transform: rotate(180deg);
+}
+
+.leaflet-control-minimap-toggle-display-bottomleft{
+	bottom: 0;
+	left: 0;
+	-webkit-transform: rotate(90deg);
+	transform: rotate(90deg);
+}
+
+.leaflet-control-minimap-toggle-display-topright{
+	top: 0;
+	right: 0;
+	-webkit-transform: rotate(270deg);
+	transform: rotate(270deg);
+}
+
+/* Old IE */
+.leaflet-oldie .leaflet-control-minimap {
+	border: 1px solid #999;
+}
+
+.leaflet-oldie .leaflet-control-minimap a {
+	background-color: #fff;
+}
+
+.leaflet-oldie .leaflet-control-minimap a.minimized {
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+}
+
+</style>
+    <![endif]-->
+    
+</head>
+<body>
+    <div id="GetStatus" style="display:none">
+			<input type="text" value="open"  name="Status"/>        
+		</div>
+		<div id="GetData" style="display:none">
+			<input type="text" value=''  name="Data"/>        
+		</div>
+		<div id="GetExtCommand" style="display:none">
+			<input type="text" value=''  name="ExtCommand"/>        
+		</div>		
+		<div id="buttons" style="display:none">
+			<input type="button" id="ButtonExe" value='Exec' onclick="setExecut()"/>
+	</div>
+
+	<!-- <div id="map" style="width: 100%; height: 100%"></div> -->
+	<!-- <div id="map" style="width: 100vw; height: 100vh"></div> -->
+	<div id="map" style="width: 99vw; height: 96vh"; position: static></div>   	
+	
+    <script src="...MainDirectoryJS/leaflet.js">
+	<script src=".../dist/leaflet.draw.js"></script>
+	<script src=".../dist/markercluster-src.js"></script>
+	<script src=".../dist/polylinedecorator.js"></script>
+	<script src=".../dist/minimap-src.js"></script>
+	<script src=".../dist/MovingMarker.js"></script>
+	<script src=".../dist/leaflet-heat.js"></script>
+	%СкриптДополнительныхКарт%
+	
+	<script>%API%</script>
+</body>
+</html>

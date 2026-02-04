@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <title>Encoding methods</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry"></script>
+    <script>
+		function initialize() {
+			setStatusMap('GetAddres','');	
+			setStatusMap('GetStatus','Great');			
+		}
+		
+		function setStatusMap(Sloi,strStatus) {
+
+			var div = document.getElementById(Sloi);
+			var elems = div.getElementsByTagName('*');
+			for(var i=0; i<elems.length; i++) {
+				elems[i].value = strStatus;
+			};
+
+		} //setStatusMap()
+		
+		function setExecut() {
+			
+			var div = document.getElementById('GetData')
+			var elems = div.getElementsByTagName('*')	 
+			var curData = '';
+			for(var i=0; i<elems.length; i++) {
+				curData = elems[i].value;
+			};
+			var Addres = '';
+			var mass = curData.split(';');
+			for (var i=0; i<mass.length; i++ ){
+					var masCode = mass[i].split(',');
+					var TextCode = '';
+					for (var x=0; x<masCode.length; x++ ){
+						TextCode = TextCode + String.fromCharCode(Number(masCode[x]));
+					}
+					var encodeString = google.maps.geometry.encoding.decodePath(TextCode);			
+					for (var j=0; j<encodeString.length; j++ ){
+						var lat = encodeString[j].lat(); //широта
+						var lng = encodeString[j].lng(); //долгота
+						Addres = Addres + lat + ';' + lng + ';';
+					}
+				}			
+			setStatusMap('GetAddres',Addres);
+			setStatusMap('GetStatus','ok') ;
+		
+		} //setExecut()
+
+		google.maps.event.addDomListener(window, 'load', initialize);
+		
+    </script>
+  </head>
+  <body>
+	<div id="GetStatus">
+        <input type="text" value='bad'  name="Status"/>        
+    </div>
+	<div id="GetData">
+        <input type="text" value=''  name="Data"/>        
+    </div>
+	<div id="GetAddres">
+        <input type="text" value='0'  name="Addres"/>        
+    </div>
+	<div id="buttons">
+        <input type="button" id="ButtonExe" value="Exec" onclick="setExecut();" />        
+    </div>
+  </body>
+</html>
+

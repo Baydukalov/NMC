@@ -1,0 +1,439 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Код" id="1">
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="КодРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<UsualGroup name="ГруппаШапка" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа шапка</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа шапка</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаШапкаРасширеннаяПодсказка" id="8"/>
+			<ChildItems>
+				<InputField name="Наименование" id="4">
+					<DataPath>Объект.Description</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="6"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<Pages name="ГруппаСтраницы" id="73">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="ГруппаСтраницыРасширеннаяПодсказка" id="74"/>
+			<ChildItems>
+				<Page name="ГруппаОсновная" id="75">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Правила</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа основная</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаОсновнаяРасширеннаяПодсказка" id="76"/>
+					<ChildItems>
+						<CheckBoxField name="НесколькоВодителей" id="70">
+							<DataPath>Объект.НесколькоВодителей</DataPath>
+							<Visible>false</Visible>
+							<TitleLocation>Right</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>При нескольких водителях, продолжительность рабочего дня равна 24 ч</v8:content>
+								</v8:item>
+							</ToolTip>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="НесколькоВодителейКонтекстноеМеню" id="71"/>
+							<ExtendedTooltip name="НесколькоВодителейРасширеннаяПодсказка" id="72"/>
+							<Events>
+								<Event name="OnChange">НесколькоВодителейПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<InputField name="ПродолжительностьРабочегоВремениДень" id="12">
+							<DataPath>Объект.ПродолжительностьРабочегоВремениДеньЧ</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Длительность рабочего дня (ч)</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ПродолжительностьРабочегоВремениДеньКонтекстноеМеню" id="13"/>
+							<ExtendedTooltip name="ПродолжительностьРабочегоВремениДеньРасширеннаяПодсказка" id="14"/>
+						</InputField>
+						<CheckBoxField name="ВестиСуммированныйУчет" id="9">
+							<DataPath>Объект.ВестиСуммированныйУчет</DataPath>
+							<Visible>false</Visible>
+							<Enabled>false</Enabled>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Вести суммированный учет рабочего времени (пока отключено)</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>Right</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Ведение суммированного учета рабочего времени</v8:content>
+								</v8:item>
+							</ToolTip>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ВестиСуммированныйУчетКонтекстноеМеню" id="10"/>
+							<ExtendedTooltip name="ВестиСуммированныйУчетРасширеннаяПодсказка" id="11"/>
+							<Events>
+								<Event name="OnChange">ВестиСуммированныйУчетПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<UsualGroup name="ГруппаПравила" id="50">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа правила</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа правила</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаПравилаРасширеннаяПодсказка" id="51"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаНеделя" id="55">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа неделя</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа неделя</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<United>false</United>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаНеделяРасширеннаяПодсказка" id="56"/>
+									<ChildItems>
+										<LabelDecoration name="Декорация6" id="52">
+											<Visible>false</Visible>
+											<Width>2</Width>
+											<ContextMenu name="Декорация6КонтекстноеМеню" id="53"/>
+											<ExtendedTooltip name="Декорация6РасширеннаяПодсказка" id="54"/>
+										</LabelDecoration>
+										<InputField name="ПродолжительностьРабочегоВремениОднаНеделя" id="15">
+											<DataPath>Объект.ПродолжительностьРабочегоВремениОднаНеделяЧ</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Количество рабочих часов в неделю (ч.)</v8:content>
+												</v8:item>
+											</Title>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<ContextMenu name="ПродолжительностьРабочегоВремениОднаНеделяКонтекстноеМеню" id="16"/>
+											<ExtendedTooltip name="ПродолжительностьРабочегоВремениОднаНеделяРасширеннаяПодсказка" id="17"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаДвеНедели" id="57">
+									<Visible>false</Visible>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа две недели</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа две недели</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<United>false</United>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаДвеНеделиРасширеннаяПодсказка" id="58"/>
+									<ChildItems>
+										<LabelDecoration name="Декорация7" id="59">
+											<Width>2</Width>
+											<ContextMenu name="Декорация7КонтекстноеМеню" id="60"/>
+											<ExtendedTooltip name="Декорация7РасширеннаяПодсказка" id="61"/>
+										</LabelDecoration>
+										<InputField name="ПродолжительностьРабочегоВремениДвеНедели" id="18">
+											<DataPath>Объект.ПродолжительностьРабочегоВремениДвеНеделиЧ</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Продолжительность рабочего времени в две недели (ч.)</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Количество времени проводимого за рулем в часах</v8:content>
+												</v8:item>
+											</ToolTip>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<ContextMenu name="ПродолжительностьРабочегоВремениДвеНеделиКонтекстноеМеню" id="19"/>
+											<ExtendedTooltip name="ПродолжительностьРабочегоВремениДвеНеделиРасширеннаяПодсказка" id="20"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаПерерывОтдыхОбед" id="39">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Перерывы для отдыха и питания</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа перерыв отдых обед</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<United>false</United>
+							<ExtendedTooltip name="ГруппаПерерывОтдыхОбедРасширеннаяПодсказка" id="40"/>
+							<ChildItems>
+								<InputField name="ПерерывОбедОтдыхКоличество" id="41">
+									<DataPath>Объект.ПерерывОбедОтдыхКоличество</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Количество</v8:content>
+										</v8:item>
+									</Title>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<ContextMenu name="ПерерывОбедОтдыхКоличествоКонтекстноеМеню" id="42"/>
+									<ExtendedTooltip name="ПерерывОбедОтдыхКоличествоРасширеннаяПодсказка" id="43"/>
+								</InputField>
+								<InputField name="ПерерывОбедОтдыхПродолжительность" id="44">
+									<DataPath>Объект.ПерерывОбедОтдыхПродолжительностьМ</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Продолжительность (мин.)</v8:content>
+										</v8:item>
+									</Title>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<ContextMenu name="ПерерывОбедОтдыхПродолжительностьКонтекстноеМеню" id="45"/>
+									<ExtendedTooltip name="ПерерывОбедОтдыхПродолжительностьРасширеннаяПодсказка" id="46"/>
+								</InputField>
+								<InputField name="ПерерывОбедОтдыхПериодичность" id="47">
+									<DataPath>Объект.ПерерывОбедОтдыхПериодичностьЧ</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Перерыв начинается с момента начала работы (либо окончания последнего перерыва) через (ч.)</v8:content>
+										</v8:item>
+									</Title>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<ContextMenu name="ПерерывОбедОтдыхПериодичностьКонтекстноеМеню" id="48"/>
+									<ExtendedTooltip name="ПерерывОбедОтдыхПериодичностьРасширеннаяПодсказка" id="49"/>
+									<Events>
+										<Event name="OnChange">ПерерывОбедОтдыхПериодичностьПриИзменении</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаСпециальныеПерерывы" id="21">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Специальные перерывы</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа специальные перерывы</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<United>false</United>
+							<ExtendedTooltip name="ГруппаСпециальныеПерерывыРасширеннаяПодсказка" id="22"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаПервый" id="23">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа первый</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа первый</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаПервыйРасширеннаяПодсказка" id="24"/>
+									<ChildItems>
+										<InputField name="СпециальныйПерерывПервыйПродолжительность" id="27">
+											<DataPath>Объект.СпециальныйПерерывПервыйПродолжительностьМ</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Первый (мин.)</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="СпециальныйПерерывПервыйПродолжительностьКонтекстноеМеню" id="28"/>
+											<ExtendedTooltip name="СпециальныйПерерывПервыйПродолжительностьРасширеннаяПодсказка" id="29"/>
+										</InputField>
+										<InputField name="СпециальныйПерерывПервыйПериодичность" id="30">
+											<DataPath>Объект.СпециальныйПерерывПервыйПериодичностьЧ</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>через (ч.)</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="СпециальныйПерерывПервыйПериодичностьКонтекстноеМеню" id="31"/>
+											<ExtendedTooltip name="СпециальныйПерерывПервыйПериодичностьРасширеннаяПодсказка" id="32"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаПоследующие" id="25">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа последующие</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа последующие</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаПоследующиеРасширеннаяПодсказка" id="26"/>
+									<ChildItems>
+										<InputField name="СпециальныйПерерывПоследующиеПродолжительность" id="33">
+											<DataPath>Объект.СпециальныйПерерывПоследующиеПродолжительностьМ</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Последующие (мин.)</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="СпециальныйПерерывПоследующиеПродолжительностьКонтекстноеМеню" id="34"/>
+											<ExtendedTooltip name="СпециальныйПерерывПоследующиеПродолжительностьРасширеннаяПодсказка" id="35"/>
+										</InputField>
+										<InputField name="СпециальныйПерерывПоследующиеПериодичность" id="36">
+											<DataPath>Объект.СпециальныйПерерывПоследующиеПериодичностьЧ</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>через (ч.)</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="СпециальныйПерерывПоследующиеПериодичностьКонтекстноеМеню" id="37"/>
+											<ExtendedTooltip name="СпециальныйПерерывПоследующиеПериодичностьРасширеннаяПодсказка" id="38"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаДополнительно" id="77">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дополнительно</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа дополнительно</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаДополнительноРасширеннаяПодсказка" id="78"/>
+					<ChildItems>
+						<InputField name="Комментарий" id="79">
+							<DataPath>Объект.Комментарий</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Комментарий</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>None</TitleLocation>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<ContextMenu name="КомментарийКонтекстноеМеню" id="80"/>
+							<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="81"/>
+							<Events>
+								<Event name="OnChange">КомментарийПриИзменении</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.упПравилаРежимаТрудаИОтдыхаСотрудников</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+</Form>

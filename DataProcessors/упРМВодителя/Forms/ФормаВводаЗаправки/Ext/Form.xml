@@ -1,0 +1,691 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoTitle>false</AutoTitle>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="BeforeClose">ПередЗакрытием</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаДанные" id="51">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа данные</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа данные</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<ChildrenAlign>ItemsLeftTitlesLeft</ChildrenAlign>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаДанныеРасширеннаяПодсказка" id="52"/>
+			<ChildItems>
+				<InputField name="Количество" id="39">
+					<DataPath>Количество</DataPath>
+					<TitleFont ref="style:упШрифтЗаголовкаПоляВводаРабочееМесто" kind="StyleItem"/>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<HorizontalStretch>true</HorizontalStretch>
+					<Font ref="style:упШрифтПоляВводаРабочееМесто" kind="StyleItem"/>
+					<ContextMenu name="КоличествоКонтекстноеМеню" id="40"/>
+					<ExtendedTooltip name="КоличествоРасширеннаяПодсказка" id="41"/>
+				</InputField>
+				<InputField name="ВидДвижения" id="45">
+					<DataPath>ВидДвижения</DataPath>
+					<TitleFont ref="style:упШрифтЗаголовкаПоляВводаРабочееМесто" kind="StyleItem"/>
+					<GroupVerticalAlign>Bottom</GroupVerticalAlign>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<DropListButton>false</DropListButton>
+					<QuickChoice>true</QuickChoice>
+					<AutoMarkIncomplete>true</AutoMarkIncomplete>
+					<TextEdit>false</TextEdit>
+					<Font ref="style:упШрифтПоляВводаРабочееМесто" kind="StyleItem"/>
+					<ChoiceHistoryOnInput>DontUse</ChoiceHistoryOnInput>
+					<ContextMenu name="ВидДвиженияКонтекстноеМеню" id="46"/>
+					<ExtendedTooltip name="ВидДвиженияРасширеннаяПодсказка" id="47"/>
+					<Events>
+						<Event name="StartChoice">ВидДвиженияНачалоВыбора</Event>
+					</Events>
+				</InputField>
+				<InputField name="ВидГСМ" id="42">
+					<DataPath>ВидГСМ</DataPath>
+					<TitleFont ref="style:упШрифтЗаголовкаПоляВводаРабочееМесто" kind="StyleItem"/>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<DropListButton>false</DropListButton>
+					<OpenButton>false</OpenButton>
+					<QuickChoice>true</QuickChoice>
+					<AutoMarkIncomplete>true</AutoMarkIncomplete>
+					<TextEdit>false</TextEdit>
+					<Font ref="style:упШрифтПоляВводаРабочееМесто" kind="StyleItem"/>
+					<ChoiceHistoryOnInput>DontUse</ChoiceHistoryOnInput>
+					<ContextMenu name="ВидГСМКонтекстноеМеню" id="43"/>
+					<ExtendedTooltip name="ВидГСМРасширеннаяПодсказка" id="44"/>
+					<Events>
+						<Event name="OnChange">ВидГСМПриИзменении</Event>
+						<Event name="StartChoice">ВидГСМНачалоВыбора</Event>
+					</Events>
+				</InputField>
+				<InputField name="ДатаЗаправкиСлива" id="64">
+					<DataPath>ДатаЗаправкиСлива</DataPath>
+					<TitleFont ref="style:упШрифтЗаголовкаПоляВводаРабочееМесто" kind="StyleItem"/>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<HorizontalStretch>true</HorizontalStretch>
+					<Font ref="style:упШрифтПоляВводаРабочееМесто" kind="StyleItem"/>
+					<ContextMenu name="ДатаЗаправкиСливаКонтекстноеМеню" id="65"/>
+					<ExtendedTooltip name="ДатаЗаправкиСливаРасширеннаяПодсказка" id="66"/>
+				</InputField>
+				<Pages name="ГруппаЗаправки" id="70">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа заправки</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа заправки</v8:content>
+						</v8:item>
+					</ToolTip>
+					<PagesRepresentation>None</PagesRepresentation>
+					<ExtendedTooltip name="ГруппаЗаправкиРасширеннаяПодсказка" id="71"/>
+					<ChildItems>
+						<Page name="ГруппаЗаправка" id="72">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа заправка</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа заправка</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="ГруппаЗаправкаРасширеннаяПодсказка" id="73"/>
+							<ChildItems>
+								<LabelDecoration name="Декорация3" id="76">
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<ContextMenu name="Декорация3КонтекстноеМеню" id="77"/>
+									<ExtendedTooltip name="Декорация3РасширеннаяПодсказка" id="78"/>
+								</LabelDecoration>
+							</ChildItems>
+						</Page>
+						<Page name="ГруппаСлив" id="74">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа слив</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа слив</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="ГруппаСливРасширеннаяПодсказка" id="75"/>
+							<ChildItems>
+								<InputField name="ПриемникСливаГСМ" id="67">
+									<DataPath>ПриемникСливаГСМ</DataPath>
+									<TitleFont ref="style:упШрифтЗаголовкаПоляВводаРабочееМесто" kind="StyleItem"/>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<DropListButton>false</DropListButton>
+									<ChoiceButton>false</ChoiceButton>
+									<OpenButton>false</OpenButton>
+									<QuickChoice>true</QuickChoice>
+									<ChooseType>false</ChooseType>
+									<TextEdit>false</TextEdit>
+									<Font ref="style:упШрифтПоляВводаРабочееМесто" kind="StyleItem"/>
+									<ChoiceHistoryOnInput>DontUse</ChoiceHistoryOnInput>
+									<ContextMenu name="ПриемникСливаГСМКонтекстноеМеню" id="68"/>
+									<ExtendedTooltip name="ПриемникСливаГСМРасширеннаяПодсказка" id="69"/>
+									<Events>
+										<Event name="StartChoice">ПриемникСливаГСМНачалоВыбора</Event>
+									</Events>
+								</InputField>
+								<Pages name="ГруппаГСМСтраницы" id="79">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа ГСМСтраницы</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа ГСМСтраницы</v8:content>
+										</v8:item>
+									</ToolTip>
+									<PagesRepresentation>None</PagesRepresentation>
+									<ExtendedTooltip name="ГруппаГСМСтраницыРасширеннаяПодсказка" id="80"/>
+									<ChildItems>
+										<Page name="ГруппаБезГСМ" id="81">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа без ГСМ</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа без ГСМ</v8:content>
+												</v8:item>
+											</ToolTip>
+											<ExtendedTooltip name="ГруппаБезГСМРасширеннаяПодсказка" id="82"/>
+											<ChildItems>
+												<LabelDecoration name="Декорация4" id="88">
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<ContextMenu name="Декорация4КонтекстноеМеню" id="89"/>
+													<ExtendedTooltip name="Декорация4РасширеннаяПодсказка" id="90"/>
+												</LabelDecoration>
+											</ChildItems>
+										</Page>
+										<Page name="ГруппаГСМ" id="83">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа ГСМ</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа ГСМ</v8:content>
+												</v8:item>
+											</ToolTip>
+											<ExtendedTooltip name="ГруппаГСМРасширеннаяПодсказка" id="84"/>
+											<ChildItems>
+												<InputField name="ГСМ" id="85">
+													<DataPath>ГСМ</DataPath>
+													<TitleFont ref="style:упШрифтЗаголовкаПоляВводаРабочееМесто" kind="StyleItem"/>
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<DropListButton>false</DropListButton>
+													<ChoiceButton>false</ChoiceButton>
+													<OpenButton>false</OpenButton>
+													<QuickChoice>true</QuickChoice>
+													<TextEdit>false</TextEdit>
+													<Font ref="style:упШрифтПоляВводаРабочееМесто" kind="StyleItem"/>
+													<ChoiceHistoryOnInput>DontUse</ChoiceHistoryOnInput>
+													<ContextMenu name="ГСМКонтекстноеМеню" id="86"/>
+													<ExtendedTooltip name="ГСМРасширеннаяПодсказка" id="87"/>
+													<Events>
+														<Event name="StartChoice">ГСМНачалоВыбора</Event>
+													</Events>
+												</InputField>
+											</ChildItems>
+										</Page>
+									</ChildItems>
+								</Pages>
+							</ChildItems>
+						</Page>
+					</ChildItems>
+				</Pages>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаИнформация" id="53">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Информация</v8:content>
+				</v8:item>
+			</Title>
+			<TitleFont ref="sys:DefaultGUIFont" kind="WindowsFont"/>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа информация</v8:content>
+				</v8:item>
+			</ToolTip>
+			<GroupHorizontalAlign>Center</GroupHorizontalAlign>
+			<GroupVerticalAlign>Center</GroupVerticalAlign>
+			<Group>Vertical</Group>
+			<HorizontalAlign>Center</HorizontalAlign>
+			<VerticalAlign>Center</VerticalAlign>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаИнформацияРасширеннаяПодсказка" id="54"/>
+			<ChildItems>
+				<LabelField name="ТекстПодсказки" id="61">
+					<DataPath>ТекстПодсказки</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<HorizontalAlign>Center</HorizontalAlign>
+					<VerticalAlign>Center</VerticalAlign>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<Height>1</Height>
+					<HorizontalStretch>true</HorizontalStretch>
+					<TextColor>style:упЦветПодсказки</TextColor>
+					<Font ref="style:упШрифтПодсказки" kind="StyleItem"/>
+					<ContextMenu name="ТекстПодсказкиКонтекстноеМеню" id="62"/>
+					<ExtendedTooltip name="ТекстПодсказкиExtendedTooltip" id="63"/>
+				</LabelField>
+				<LabelField name="ТекстОшибки" id="58">
+					<DataPath>ТекстОшибки</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<HorizontalAlign>Center</HorizontalAlign>
+					<VerticalAlign>Top</VerticalAlign>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<VerticalStretch>true</VerticalStretch>
+					<TextColor>style:упЦветТекстаОшибки</TextColor>
+					<Font ref="style:упШрифтОшибки" kind="StyleItem"/>
+					<ContextMenu name="ТекстОшибкиКонтекстноеМеню" id="59"/>
+					<ExtendedTooltip name="ТекстОшибкиExtendedTooltip" id="60"/>
+				</LabelField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаКнопок" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа кнопок</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа кнопок</v8:content>
+				</v8:item>
+			</ToolTip>
+			<GroupHorizontalAlign>Center</GroupHorizontalAlign>
+			<GroupVerticalAlign>Bottom</GroupVerticalAlign>
+			<Group>Horizontal</Group>
+			<HorizontalAlign>Center</HorizontalAlign>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаКнопокРасширеннаяПодсказка" id="18"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаРаспорка1" id="19">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа распорка1</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа распорка1</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>3</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРаспорка1РасширеннаяПодсказка" id="20"/>
+					<ChildItems>
+						<PictureDecoration name="Декорация1" id="21">
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<Height>4</Height>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="Декорация1КонтекстноеМеню" id="22"/>
+							<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="23"/>
+						</PictureDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаКнопкаВыбрать" id="24">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа кнопка выбрать</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа кнопка выбрать</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<BackColor>style:упЦветФонаКнопкиЗавершитьОК</BackColor>
+					<ExtendedTooltip name="ГруппаКнопкаВыбратьРасширеннаяПодсказка" id="25"/>
+					<ChildItems>
+						<PictureDecoration name="КнопкаДобавить" id="26">
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<Height>4</Height>
+							<HorizontalStretch>true</HorizontalStretch>
+							<Font ref="style:упШрифтКнопки" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Добавить</v8:content>
+								</v8:item>
+							</Title>
+							<GroupHorizontalAlign>Center</GroupHorizontalAlign>
+							<Hyperlink>true</Hyperlink>
+							<NonselectedPictureText>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Добавить</v8:content>
+								</v8:item>
+							</NonselectedPictureText>
+							<BorderColor>style:упЦветРамкиКнопкиЗавершитьОК</BorderColor>
+							<Border width="4">
+								<v8ui:style xsi:type="v8ui:ControlBorderType">Single</v8ui:style>
+							</Border>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="КнопкаДобавитьКонтекстноеМеню" id="27"/>
+							<ExtendedTooltip name="КнопкаДобавитьРасширеннаяПодсказка" id="28"/>
+							<Events>
+								<Event name="Click">КнопкаДобавитьНажатие</Event>
+							</Events>
+						</PictureDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаКнопкаВыход" id="34">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа кнопка выход</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа кнопка выход</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<BackColor>style:упЦветФонаКнопкиВыходОтмена</BackColor>
+					<ExtendedTooltip name="ГруппаКнопкаВыходРасширеннаяПодсказка" id="35"/>
+					<ChildItems>
+						<PictureDecoration name="КнопкаВыход" id="36">
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<Height>4</Height>
+							<HorizontalStretch>true</HorizontalStretch>
+							<Font ref="style:упШрифтКнопки" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Кнопка выход</v8:content>
+								</v8:item>
+							</Title>
+							<Hyperlink>true</Hyperlink>
+							<NonselectedPictureText>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Выход</v8:content>
+								</v8:item>
+							</NonselectedPictureText>
+							<BorderColor>style:упЦветРамкиКнопкиВыходОтмена</BorderColor>
+							<Border width="4">
+								<v8ui:style xsi:type="v8ui:ControlBorderType">Single</v8ui:style>
+							</Border>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="КнопкаВыходКонтекстноеМеню" id="37"/>
+							<ExtendedTooltip name="КнопкаВыходРасширеннаяПодсказка" id="38"/>
+							<Events>
+								<Event name="Click">КнопкаВыходНажатие</Event>
+							</Events>
+						</PictureDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаРаспорка2" id="29">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа распорка2</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа распорка2</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>3</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРаспорка2РасширеннаяПодсказка" id="30"/>
+					<ChildItems>
+						<PictureDecoration name="Декорация2" id="31">
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<Height>4</Height>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="Декорация2КонтекстноеМеню" id="32"/>
+							<ExtendedTooltip name="Декорация2РасширеннаяПодсказка" id="33"/>
+						</PictureDecoration>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ЗакрытьТекущуюФорму" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Закрыть текущую форму</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Количество" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:DefinedType.Количество</v8:TypeSet>
+			</Type>
+		</Attribute>
+		<Attribute name="ВидДвижения" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вид движения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.упВидыДвиженияТоплива</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ВидГСМ" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вид ГСМ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.упВидыГСМ</v8:Type>
+			</Type>
+			<FunctionalOptions>
+				<Item>FunctionalOption.упИспользуетсяУчетГСМ</Item>
+			</FunctionalOptions>
+		</Attribute>
+		<Attribute name="ТекстОшибки" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текст ошибки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДобавитьСтроку" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить строку</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ТекстПодсказки" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текст подсказки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ВедетсяУчетГСМ" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ведется учет ГСМ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ДатаЗаправкиСлива" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата заправки слива</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПриемникСливаГСМ" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Приемник слива ГСМ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.упДополнительноеОборудование</v8:Type>
+				<v8:Type>cfg:CatalogRef.упСклады</v8:Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:Type>cfg:CatalogRef.упТранспортныеСредства</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИдентификаторПриемникаСлива" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Идентификатор приемника слива</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ГСМ" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ГСМ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.упГСМ</v8:Type>
+			</Type>
+			<FillCheck>ShowError</FillCheck>
+		</Attribute>
+		<Attribute name="ФормаЗаблокирована" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Форма заблокирована</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="сткРезультатПриЗакрытииФормы" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Стк результат при закрытии формы</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+	</Attributes>
+	<Parameters>
+		<Parameter name="Количество">
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>12</v8:Digits>
+					<v8:FractionDigits>3</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Parameter>
+		<Parameter name="ВидДвижения">
+			<Type>
+				<v8:Type>cfg:EnumRef.упВидыДвиженияТоплива</v8:Type>
+			</Type>
+		</Parameter>
+		<Parameter name="ДопОборудование">
+			<Type>
+				<v8:Type>cfg:CatalogRef.упДополнительноеОборудование</v8:Type>
+			</Type>
+		</Parameter>
+		<Parameter name="ВидГСМ">
+			<Type>
+				<v8:Type>cfg:CatalogRef.упВидыГСМ</v8:Type>
+			</Type>
+		</Parameter>
+		<Parameter name="ПриемникСливаГСМ">
+			<Type>
+				<v8:Type>cfg:CatalogRef.упДополнительноеОборудование</v8:Type>
+				<v8:Type>cfg:CatalogRef.упСклады</v8:Type>
+				<v8:Type>cfg:CatalogRef.упТранспортныеСредства</v8:Type>
+			</Type>
+		</Parameter>
+		<Parameter name="ДатаЗаправкиСлива">
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Parameter>
+		<Parameter name="ГСМ">
+			<Type>
+				<v8:Type>cfg:CatalogRef.упГСМ</v8:Type>
+			</Type>
+		</Parameter>
+	</Parameters>
+</Form>

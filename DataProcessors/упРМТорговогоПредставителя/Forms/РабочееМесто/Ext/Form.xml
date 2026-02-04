@@ -1,0 +1,2223 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаОбновить" id="329">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Обновить</CommandName>
+				<ShapeRepresentation>WhenActive</ShapeRepresentation>
+				<ExtendedTooltip name="ФормаОбновитьРасширеннаяПодсказка" id="330"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Период" id="1">
+			<DataPath>Объект.Период</DataPath>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<ContextMenu name="ПериодКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="ПериодРасширеннаяПодсказка" id="3"/>
+			<Events>
+				<Event name="OnChange">ПериодПриИзменении</Event>
+			</Events>
+		</InputField>
+		<Table name="СписокРейсов" id="190">
+			<Representation>List</Representation>
+			<ReadOnly>true</ReadOnly>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Объект.СписокРейсов</DataPath>
+			<RowPictureDataPath>Объект.СписокРейсов.ИндексКартинки</RowPictureDataPath>
+			<RowsPicture>
+				<xr:Ref>CommonPicture.упСтатусыРейса</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</RowsPicture>
+			<CommandSet>
+				<ExcludedCommand>Add</ExcludedCommand>
+				<ExcludedCommand>Change</ExcludedCommand>
+				<ExcludedCommand>Copy</ExcludedCommand>
+				<ExcludedCommand>Delete</ExcludedCommand>
+				<ExcludedCommand>EndEdit</ExcludedCommand>
+				<ExcludedCommand>MoveDown</ExcludedCommand>
+				<ExcludedCommand>MoveUp</ExcludedCommand>
+				<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
+				<ExcludedCommand>SortListAsc</ExcludedCommand>
+				<ExcludedCommand>SortListDesc</ExcludedCommand>
+			</CommandSet>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="СписокРейсовКонтекстноеМеню" id="191"/>
+			<AutoCommandBar name="СписокРейсовКоманднаяПанель" id="192">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокРейсовРасширеннаяПодсказка" id="193"/>
+			<SearchStringAddition name="СписокРейсовСтрокаПоиска" id="194">
+				<AdditionSource>
+					<Item>СписокРейсов</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокРейсовСтрокаПоискаКонтекстноеМеню" id="195"/>
+				<ExtendedTooltip name="СписокРейсовСтрокаПоискаРасширеннаяПодсказка" id="196"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокРейсовСостояниеПросмотра" id="197">
+				<AdditionSource>
+					<Item>СписокРейсов</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокРейсовСостояниеПросмотраКонтекстноеМеню" id="198"/>
+				<ExtendedTooltip name="СписокРейсовСостояниеПросмотраРасширеннаяПодсказка" id="199"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокРейсовУправлениеПоиском" id="200">
+				<AdditionSource>
+					<Item>СписокРейсов</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокРейсовУправлениеПоискомКонтекстноеМеню" id="201"/>
+				<ExtendedTooltip name="СписокРейсовУправлениеПоискомРасширеннаяПодсказка" id="202"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="OnActivateRow">СписокРейсовПриАктивизацииСтроки</Event>
+			</Events>
+			<ChildItems>
+				<InputField name="СписокРейсовСтатус" id="224">
+					<DataPath>Объект.СписокРейсов.Статус</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокРейсовСтатусКонтекстноеМеню" id="225"/>
+					<ExtendedTooltip name="СписокРейсовСтатусРасширеннаяПодсказка" id="226"/>
+				</InputField>
+				<PictureField name="СписокРейсовЕстьФайлы" id="206">
+					<DataPath>Объект.СписокРейсов.ЕстьФайлы</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<TitleLocation>None</TitleLocation>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Есть присоединенные файлы</v8:content>
+						</v8:item>
+					</ToolTip>
+					<EditMode>EnterOnInput</EditMode>
+					<ValuesPicture>
+						<xr:Ref>CommonPicture.КоллекцияСкрепка</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</ValuesPicture>
+					<FileDragMode>AsFile</FileDragMode>
+					<ContextMenu name="СписокРейсовЕстьФайлыКонтекстноеМеню" id="207"/>
+					<ExtendedTooltip name="СписокРейсовЕстьФайлыРасширеннаяПодсказка" id="208"/>
+				</PictureField>
+				<InputField name="СписокРейсовДата" id="203">
+					<DataPath>Объект.СписокРейсов.Дата</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокРейсовДатаКонтекстноеМеню" id="204"/>
+					<ExtendedTooltip name="СписокРейсовДатаРасширеннаяПодсказка" id="205"/>
+				</InputField>
+				<InputField name="СписокРейсовНомер" id="215">
+					<DataPath>Объект.СписокРейсов.Номер</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокРейсовНомерКонтекстноеМеню" id="216"/>
+					<ExtendedTooltip name="СписокРейсовНомерРасширеннаяПодсказка" id="217"/>
+				</InputField>
+				<InputField name="СписокРейсовКоличествоТочек" id="209">
+					<DataPath>Объект.СписокРейсов.КоличествоТочек</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Кол. точек</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокРейсовКоличествоТочекКонтекстноеМеню" id="210"/>
+					<ExtendedTooltip name="СписокРейсовКоличествоТочекРасширеннаяПодсказка" id="211"/>
+				</InputField>
+				<InputField name="СписокРейсовКоличествоТочекПолучателя" id="212">
+					<DataPath>Объект.СписокРейсов.КоличествоТочекПолучателя</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Кол. точек получателя</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокРейсовКоличествоТочекПолучателяКонтекстноеМеню" id="213"/>
+					<ExtendedTooltip name="СписокРейсовКоличествоТочекПолучателяРасширеннаяПодсказка" id="214"/>
+				</InputField>
+				<InputField name="СписокРейсовВодитель1" id="243">
+					<DataPath>Объект.СписокРейсов.Водитель1</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокРейсовВодитель1КонтекстноеМеню" id="244"/>
+					<ExtendedTooltip name="СписокРейсовВодитель1РасширеннаяПодсказка" id="245"/>
+				</InputField>
+				<InputField name="СписокРейсовВодитель2" id="246">
+					<DataPath>Объект.СписокРейсов.Водитель2</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокРейсовВодитель2КонтекстноеМеню" id="247"/>
+					<ExtendedTooltip name="СписокРейсовВодитель2РасширеннаяПодсказка" id="248"/>
+				</InputField>
+				<InputField name="СписокРейсовКонтрагентПеревозчика" id="249">
+					<DataPath>Объект.СписокРейсов.КонтрагентПеревозчика</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокРейсовКонтрагентПеревозчикаКонтекстноеМеню" id="250"/>
+					<ExtendedTooltip name="СписокРейсовКонтрагентПеревозчикаРасширеннаяПодсказка" id="251"/>
+				</InputField>
+				<InputField name="СписокРейсовПеревозчик" id="252">
+					<DataPath>Объект.СписокРейсов.Перевозчик</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокРейсовПеревозчикКонтекстноеМеню" id="253"/>
+					<ExtendedTooltip name="СписокРейсовПеревозчикРасширеннаяПодсказка" id="254"/>
+				</InputField>
+				<InputField name="СписокРейсовСоглашение" id="255">
+					<DataPath>Объект.СписокРейсов.Соглашение</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокРейсовСоглашениеКонтекстноеМеню" id="256"/>
+					<ExtendedTooltip name="СписокРейсовСоглашениеРасширеннаяПодсказка" id="257"/>
+				</InputField>
+				<InputField name="СписокРейсовТипТС" id="258">
+					<DataPath>Объект.СписокРейсов.ТипТС</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокРейсовТипТСКонтекстноеМеню" id="259"/>
+					<ExtendedTooltip name="СписокРейсовТипТСРасширеннаяПодсказка" id="260"/>
+				</InputField>
+				<InputField name="СписокРейсовТранспортноеСредство" id="261">
+					<DataPath>Объект.СписокРейсов.ТранспортноеСредство</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокРейсовТранспортноеСредствоКонтекстноеМеню" id="262"/>
+					<ExtendedTooltip name="СписокРейсовТранспортноеСредствоРасширеннаяПодсказка" id="263"/>
+				</InputField>
+				<InputField name="СписокРейсовЭкспедитор" id="264">
+					<DataPath>Объект.СписокРейсов.Экспедитор</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокРейсовЭкспедиторКонтекстноеМеню" id="265"/>
+					<ExtendedTooltip name="СписокРейсовЭкспедиторРасширеннаяПодсказка" id="266"/>
+				</InputField>
+				<InputField name="СписокРейсовВремя" id="267">
+					<DataPath>Объект.СписокРейсов.Время</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокРейсовВремяКонтекстноеМеню" id="268"/>
+					<ExtendedTooltip name="СписокРейсовВремяРасширеннаяПодсказка" id="269"/>
+				</InputField>
+				<InputField name="СписокРейсовВремяВПути" id="270">
+					<DataPath>Объект.СписокРейсов.ВремяВПути</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокРейсовВремяВПутиКонтекстноеМеню" id="271"/>
+					<ExtendedTooltip name="СписокРейсовВремяВПутиРасширеннаяПодсказка" id="272"/>
+				</InputField>
+				<InputField name="СписокРейсовЗонаПогрузки" id="273">
+					<DataPath>Объект.СписокРейсов.ЗонаПогрузки</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокРейсовЗонаПогрузкиКонтекстноеМеню" id="274"/>
+					<ExtendedTooltip name="СписокРейсовЗонаПогрузкиРасширеннаяПодсказка" id="275"/>
+				</InputField>
+				<InputField name="СписокРейсовЗонаРазгрузки" id="276">
+					<DataPath>Объект.СписокРейсов.ЗонаРазгрузки</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокРейсовЗонаРазгрузкиКонтекстноеМеню" id="277"/>
+					<ExtendedTooltip name="СписокРейсовЗонаРазгрузкиРасширеннаяПодсказка" id="278"/>
+				</InputField>
+				<InputField name="СписокРейсовКоличествоГрузовыхМест" id="279">
+					<DataPath>Объект.СписокРейсов.КоличествоГрузовыхМест</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокРейсовКоличествоГрузовыхМестКонтекстноеМеню" id="280"/>
+					<ExtendedTooltip name="СписокРейсовКоличествоГрузовыхМестРасширеннаяПодсказка" id="281"/>
+				</InputField>
+				<InputField name="СписокРейсовКоличествоЗагрузочныхМетров" id="282">
+					<DataPath>Объект.СписокРейсов.КоличествоЗагрузочныхМетров</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокРейсовКоличествоЗагрузочныхМетровКонтекстноеМеню" id="283"/>
+					<ExtendedTooltip name="СписокРейсовКоличествоЗагрузочныхМетровРасширеннаяПодсказка" id="284"/>
+				</InputField>
+				<InputField name="СписокРейсовКоличествоМест" id="285">
+					<DataPath>Объект.СписокРейсов.КоличествоМест</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокРейсовКоличествоМестКонтекстноеМеню" id="286"/>
+					<ExtendedTooltip name="СписокРейсовКоличествоМестРасширеннаяПодсказка" id="287"/>
+				</InputField>
+				<InputField name="СписокРейсовМасса" id="288">
+					<DataPath>Объект.СписокРейсов.Масса</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокРейсовМассаКонтекстноеМеню" id="289"/>
+					<ExtendedTooltip name="СписокРейсовМассаРасширеннаяПодсказка" id="290"/>
+				</InputField>
+				<InputField name="СписокРейсовНачалоВыполнения" id="291">
+					<DataPath>Объект.СписокРейсов.НачалоВыполнения</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокРейсовНачалоВыполненияКонтекстноеМеню" id="292"/>
+					<ExtendedTooltip name="СписокРейсовНачалоВыполненияРасширеннаяПодсказка" id="293"/>
+				</InputField>
+				<InputField name="СписокРейсовНулевойПробег" id="294">
+					<DataPath>Объект.СписокРейсов.НулевойПробег</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокРейсовНулевойПробегКонтекстноеМеню" id="295"/>
+					<ExtendedTooltip name="СписокРейсовНулевойПробегРасширеннаяПодсказка" id="296"/>
+				</InputField>
+				<InputField name="СписокРейсовОбъем" id="297">
+					<DataPath>Объект.СписокРейсов.Объем</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокРейсовОбъемКонтекстноеМеню" id="298"/>
+					<ExtendedTooltip name="СписокРейсовОбъемРасширеннаяПодсказка" id="299"/>
+				</InputField>
+				<InputField name="СписокРейсовОкончаниеВыполнения" id="300">
+					<DataPath>Объект.СписокРейсов.ОкончаниеВыполнения</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокРейсовОкончаниеВыполненияКонтекстноеМеню" id="301"/>
+					<ExtendedTooltip name="СписокРейсовОкончаниеВыполненияРасширеннаяПодсказка" id="302"/>
+				</InputField>
+				<InputField name="СписокРейсовПредставлениеМаршрута" id="303">
+					<DataPath>Объект.СписокРейсов.ПредставлениеМаршрута</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокРейсовПредставлениеМаршрутаКонтекстноеМеню" id="304"/>
+					<ExtendedTooltip name="СписокРейсовПредставлениеМаршрутаРасширеннаяПодсказка" id="305"/>
+				</InputField>
+				<InputField name="СписокРейсовПробег" id="306">
+					<DataPath>Объект.СписокРейсов.Пробег</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокРейсовПробегКонтекстноеМеню" id="307"/>
+					<ExtendedTooltip name="СписокРейсовПробегРасширеннаяПодсказка" id="308"/>
+				</InputField>
+				<InputField name="СписокРейсовРасстояние" id="309">
+					<DataPath>Объект.СписокРейсов.Расстояние</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокРейсовРасстояниеКонтекстноеМеню" id="310"/>
+					<ExtendedTooltip name="СписокРейсовРасстояниеРасширеннаяПодсказка" id="311"/>
+				</InputField>
+				<InputField name="СписокРейсовРасстояниеПоДаннымТрекеров" id="312">
+					<DataPath>Объект.СписокРейсов.РасстояниеПоДаннымТрекеров</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокРейсовРасстояниеПоДаннымТрекеровКонтекстноеМеню" id="313"/>
+					<ExtendedTooltip name="СписокРейсовРасстояниеПоДаннымТрекеровРасширеннаяПодсказка" id="314"/>
+				</InputField>
+				<InputField name="СписокРейсовСуммаИнкассации" id="315">
+					<DataPath>Объект.СписокРейсов.СуммаИнкассации</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокРейсовСуммаИнкассацииКонтекстноеМеню" id="316"/>
+					<ExtendedTooltip name="СписокРейсовСуммаИнкассацииРасширеннаяПодсказка" id="317"/>
+				</InputField>
+				<InputField name="СписокРейсовКоличествоПосещениийТочекПолучателя" id="331">
+					<DataPath>Объект.СписокРейсов.КоличествоПосещениийТочекПолучателя</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокРейсовКоличествоПосещениийТочекПолучателяКонтекстноеМеню" id="332"/>
+					<ExtendedTooltip name="СписокРейсовКоличествоПосещениийТочекПолучателяРасширеннаяПодсказка" id="333"/>
+				</InputField>
+				<PictureField name="СписокРейсовЕстьПроблемы" id="318">
+					<DataPath>Объект.СписокРейсов.ЕстьПроблемы</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>В процессе выполнения работ возникали проблемы.</v8:content>
+						</v8:item>
+					</ToolTip>
+					<EditMode>EnterOnInput</EditMode>
+					<ValuesPicture>
+						<xr:Ref>CommonPicture.упКоллекцияСостояниеЗаданийКорректировки</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</ValuesPicture>
+					<FileDragMode>AsFile</FileDragMode>
+					<ContextMenu name="СписокРейсовЕстьПроблемыКонтекстноеМеню" id="319"/>
+					<ExtendedTooltip name="СписокРейсовЕстьПроблемыРасширеннаяПодсказка" id="320"/>
+				</PictureField>
+				<ColumnGroup name="СписокРейсовГруппаОпоздание" id="324">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Опоздание</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Список рейсов группа опоздание</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>InCell</Group>
+					<ExtendedTooltip name="СписокРейсовГруппаОпозданиеРасширеннаяПодсказка" id="325"/>
+					<ChildItems>
+						<PictureField name="СписокРейсовЕстьОпозданияПрибытияВТочку" id="321">
+							<DataPath>Объект.СписокРейсов.ЕстьОпозданияПрибытияВТочку</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Опоздание</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Имеются опоздания в точках маршрута</v8:content>
+								</v8:item>
+							</ToolTip>
+							<EditMode>EnterOnInput</EditMode>
+							<ValuesPicture>
+								<xr:Ref>CommonPicture.упКоллекцияПопаданиеВоВременныеОкна</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</ValuesPicture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="СписокРейсовЕстьОпозданияПрибытияВТочкуКонтекстноеМеню" id="322"/>
+							<ExtendedTooltip name="СписокРейсовЕстьОпозданияПрибытияВТочкуРасширеннаяПодсказка" id="323"/>
+						</PictureField>
+						<InputField name="СписокРейсовКоличествоТочекСОпозданиями" id="326">
+							<DataPath>Объект.СписокРейсов.КоличествоТочекСОпозданиями</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>3</Width>
+							<ContextMenu name="СписокРейсовКоличествоТочекСОпозданиямиКонтекстноеМеню" id="327"/>
+							<ExtendedTooltip name="СписокРейсовКоличествоТочекСОпозданиямиРасширеннаяПодсказка" id="328"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+			</ChildItems>
+		</Table>
+		<Table name="дрвРаботыПоТекущемуРейсу" id="37">
+			<Representation>Tree</Representation>
+			<ReadOnly>true</ReadOnly>
+			<ChangeRowSet>false</ChangeRowSet>
+			<ChangeRowOrder>false</ChangeRowOrder>
+			<Height>6</Height>
+			<AutoMaxHeight>false</AutoMaxHeight>
+			<InitialTreeView>ExpandAllLevels</InitialTreeView>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Объект.дрвРаботыПоТекущемуРейсу</DataPath>
+			<RowsPicture>
+				<xr:Ref>CommonPicture.упКоллекцияЭлементыМаршрута</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</RowsPicture>
+			<CommandSet>
+				<ExcludedCommand>Add</ExcludedCommand>
+				<ExcludedCommand>Change</ExcludedCommand>
+				<ExcludedCommand>Copy</ExcludedCommand>
+				<ExcludedCommand>Delete</ExcludedCommand>
+				<ExcludedCommand>EndEdit</ExcludedCommand>
+				<ExcludedCommand>HierarchicalList</ExcludedCommand>
+				<ExcludedCommand>List</ExcludedCommand>
+				<ExcludedCommand>MoveDown</ExcludedCommand>
+				<ExcludedCommand>MoveUp</ExcludedCommand>
+				<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
+				<ExcludedCommand>SortListAsc</ExcludedCommand>
+				<ExcludedCommand>SortListDesc</ExcludedCommand>
+			</CommandSet>
+			<ContextMenu name="дрвРаботыПоТекущемуРейсуКонтекстноеМеню" id="38"/>
+			<AutoCommandBar name="дрвРаботыПоТекущемуРейсуКоманднаяПанель" id="39">
+				<ChildItems>
+					<ButtonGroup name="дрвРаботыПоТекущемуРейсуГруппа1" id="107">
+						<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуГруппа1РасширеннаяПодсказка" id="108"/>
+						<ChildItems>
+							<Button name="дрвРаботыПоТекущемуРейсуСвернутьДерево" id="109">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.СвернутьДерево</CommandName>
+								<ShapeRepresentation>WhenActive</ShapeRepresentation>
+								<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуСвернутьДеревоРасширеннаяПодсказка" id="110"/>
+							</Button>
+							<Button name="дрвРаботыПоТекущемуРейсуРазвернутьДерево" id="111">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.РазвернутьДерево</CommandName>
+								<ShapeRepresentation>WhenActive</ShapeRepresentation>
+								<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуРазвернутьДеревоРасширеннаяПодсказка" id="112"/>
+							</Button>
+						</ChildItems>
+					</ButtonGroup>
+					<Button name="СписокРейсовПрисоединенныеФайлы" id="35">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ПрисоединенныеФайлы</CommandName>
+						<ShapeRepresentation>WhenActive</ShapeRepresentation>
+						<ExtendedTooltip name="СписокРейсовПрисоединенныеФайлыРасширеннаяПодсказка" id="36"/>
+					</Button>
+					<Button name="дрвРаботыПоТекущемуРейсуТоварныйСостав" id="334">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ТоварныйСостав</CommandName>
+						<ShapeRepresentation>WhenActive</ShapeRepresentation>
+						<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуТоварныйСоставРасширеннаяПодсказка" id="335"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуРасширеннаяПодсказка" id="40"/>
+			<SearchStringAddition name="дрвРаботыПоТекущемуРейсуСтрокаПоиска" id="41">
+				<AdditionSource>
+					<Item>дрвРаботыПоТекущемуРейсу</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="дрвРаботыПоТекущемуРейсуСтрокаПоискаКонтекстноеМеню" id="42"/>
+				<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуСтрокаПоискаРасширеннаяПодсказка" id="43"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="дрвРаботыПоТекущемуРейсуСостояниеПросмотра" id="44">
+				<AdditionSource>
+					<Item>дрвРаботыПоТекущемуРейсу</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="дрвРаботыПоТекущемуРейсуСостояниеПросмотраКонтекстноеМеню" id="45"/>
+				<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуСостояниеПросмотраРасширеннаяПодсказка" id="46"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="дрвРаботыПоТекущемуРейсуУправлениеПоиском" id="47">
+				<AdditionSource>
+					<Item>дрвРаботыПоТекущемуРейсу</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="дрвРаботыПоТекущемуРейсуУправлениеПоискомКонтекстноеМеню" id="48"/>
+				<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуУправлениеПоискомРасширеннаяПодсказка" id="49"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="OnActivateRow">дрвРаботыПоТекущемуРейсуПриАктивизацииСтроки</Event>
+			</Events>
+			<ChildItems>
+				<CheckBoxField name="дрвРаботыПоТекущемуРейсуВыполнена" id="133">
+					<DataPath>Объект.дрвРаботыПоТекущемуРейсу.Выполнена</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<ThreeState>true</ThreeState>
+					<BackColor>style:упЦветФонаРазрешенныеДляРедактированииПоля</BackColor>
+					<ContextMenu name="дрвРаботыПоТекущемуРейсуВыполненаКонтекстноеМеню" id="134"/>
+					<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуВыполненаРасширеннаяПодсказка" id="135"/>
+				</CheckBoxField>
+				<PictureField name="дрвРаботыПоТекущемуРейсуЕстьФайлы" id="229">
+					<DataPath>Объект.дрвРаботыПоТекущемуРейсу.ЕстьФайлы</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Есть присоединенные файлы</v8:content>
+						</v8:item>
+					</ToolTip>
+					<EditMode>EnterOnInput</EditMode>
+					<ValuesPicture>
+						<xr:Ref>CommonPicture.КоллекцияСкрепка</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</ValuesPicture>
+					<FileDragMode>AsFile</FileDragMode>
+					<ContextMenu name="дрвРаботыПоТекущемуРейсуЕстьФайлыКонтекстноеМеню" id="230"/>
+					<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуЕстьФайлыРасширеннаяПодсказка" id="231"/>
+				</PictureField>
+				<InputField name="дрвРаботыПоТекущемуРейсуНазначениеСтроки" id="136">
+					<DataPath>Объект.дрвРаботыПоТекущемуРейсу.НазначениеСтроки</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="дрвРаботыПоТекущемуРейсуНазначениеСтрокиКонтекстноеМеню" id="137"/>
+					<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуНазначениеСтрокиРасширеннаяПодсказка" id="138"/>
+				</InputField>
+				<InputField name="дрвРаботыПоТекущемуРейсуТара" id="139">
+					<DataPath>Объект.дрвРаботыПоТекущемуРейсу.Тара</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="дрвРаботыПоТекущемуРейсуТараКонтекстноеМеню" id="140"/>
+					<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуТараРасширеннаяПодсказка" id="141"/>
+				</InputField>
+				<InputField name="дрвРаботыПоТекущемуРейсуПрибытиеФакт" id="234">
+					<DataPath>Объект.дрвРаботыПоТекущемуРейсу.ПрибытиеФакт</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="дрвРаботыПоТекущемуРейсуПрибытиеФактКонтекстноеМеню" id="235"/>
+					<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуПрибытиеФактРасширеннаяПодсказка" id="236"/>
+				</InputField>
+				<InputField name="дрвРаботыПоТекущемуРейсуНачалоРаботФакт" id="237">
+					<DataPath>Объект.дрвРаботыПоТекущемуРейсу.НачалоРаботФакт</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="дрвРаботыПоТекущемуРейсуНачалоРаботФактКонтекстноеМеню" id="238"/>
+					<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуНачалоРаботФактРасширеннаяПодсказка" id="239"/>
+				</InputField>
+				<InputField name="дрвРаботыПоТекущемуРейсуУбытиеФакт" id="240">
+					<DataPath>Объект.дрвРаботыПоТекущемуРейсу.УбытиеФакт</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="дрвРаботыПоТекущемуРейсуУбытиеФактКонтекстноеМеню" id="241"/>
+					<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуУбытиеФактРасширеннаяПодсказка" id="242"/>
+				</InputField>
+				<CheckBoxField name="дрвРаботыПоТекущемуРейсуОтменена" id="160">
+					<DataPath>Объект.дрвРаботыПоТекущемуРейсу.Отменена</DataPath>
+					<Visible>false</Visible>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="дрвРаботыПоТекущемуРейсуОтмененаКонтекстноеМеню" id="161"/>
+					<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуОтмененаРасширеннаяПодсказка" id="162"/>
+				</CheckBoxField>
+				<InputField name="дрвРаботыПоТекущемуРейсуКоличество" id="163">
+					<DataPath>Объект.дрвРаботыПоТекущемуРейсу.Количество</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<Width>10</Width>
+					<ContextMenu name="дрвРаботыПоТекущемуРейсуКоличествоКонтекстноеМеню" id="164"/>
+					<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуКоличествоРасширеннаяПодсказка" id="165"/>
+				</InputField>
+				<InputField name="дрвРаботыПоТекущемуРейсуВалюта" id="166">
+					<DataPath>Объект.дрвРаботыПоТекущемуРейсу.Валюта</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<Width>10</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="дрвРаботыПоТекущемуРейсуВалютаКонтекстноеМеню" id="167"/>
+					<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуВалютаРасширеннаяПодсказка" id="168"/>
+				</InputField>
+				<InputField name="дрвРаботыПоТекущемуРейсуСумма" id="169">
+					<DataPath>Объект.дрвРаботыПоТекущемуРейсу.Сумма</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<Width>10</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="дрвРаботыПоТекущемуРейсуСуммаКонтекстноеМеню" id="170"/>
+					<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуСуммаРасширеннаяПодсказка" id="171"/>
+				</InputField>
+				<InputField name="дрвРаботыПоТекущемуРейсуПрохождениеТочки" id="172">
+					<DataPath>Объект.дрвРаботыПоТекущемуРейсу</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="дрвРаботыПоТекущемуРейсуПрохождениеТочкиКонтекстноеМеню" id="173"/>
+					<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуПрохождениеТочкиРасширеннаяПодсказка" id="174"/>
+				</InputField>
+				<CheckBoxField name="дрвРаботыПоТекущемуРейсуЕстьПроблемы" id="175">
+					<DataPath>Объект.дрвРаботыПоТекущемуРейсу.ЕстьПроблемы</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="дрвРаботыПоТекущемуРейсуЕстьПроблемыКонтекстноеМеню" id="176"/>
+					<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуЕстьПроблемыРасширеннаяПодсказка" id="177"/>
+				</CheckBoxField>
+				<InputField name="дрвРаботыПоТекущемуРейсуСписокПроблем" id="178">
+					<DataPath>Объект.дрвРаботыПоТекущемуРейсу.СписокПроблем</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="дрвРаботыПоТекущемуРейсуСписокПроблемКонтекстноеМеню" id="179"/>
+					<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуСписокПроблемРасширеннаяПодсказка" id="180"/>
+				</InputField>
+				<CheckBoxField name="дрвРаботыПоТекущемуРейсуИзмененыПараметры" id="184">
+					<DataPath>Объект.дрвРаботыПоТекущемуРейсу.ИзмененыПараметры</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Изменены параметры ВГХ грузового места</v8:content>
+						</v8:item>
+					</ToolTip>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="дрвРаботыПоТекущемуРейсуИзмененыПараметрыКонтекстноеМеню" id="185"/>
+					<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуИзмененыПараметрыРасширеннаяПодсказка" id="186"/>
+				</CheckBoxField>
+				<CheckBoxField name="дрвРаботыПоТекущемуРейсуДосрочноеУбытие" id="187">
+					<DataPath>Объект.дрвРаботыПоТекущемуРейсу.ДосрочноеУбытие</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="дрвРаботыПоТекущемуРейсуДосрочноеУбытиеКонтекстноеМеню" id="188"/>
+					<ExtendedTooltip name="дрвРаботыПоТекущемуРейсуДосрочноеУбытиеРасширеннаяПодсказка" id="189"/>
+				</CheckBoxField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.упРМТорговогоПредставителя</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<Save>
+				<Field>Объект.Период</Field>
+			</Save>
+			<Columns>
+				<AdditionalColumns table="Объект.ЗаданияПоРейсам">
+					<Column name="Рейс" id="1">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Рейс</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:DocumentRef.упРейс</v8:Type>
+						</Type>
+					</Column>
+					<Column name="Задание" id="2">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Задание</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:DocumentRef.упЗаданиеНаПеревозкуГруза</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ГрузовоеМесто" id="3">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Грузовое место</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.упГрузовыеМеста</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ПустыеГрузовыеМеста" id="4">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Пустые грузовые места</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
+				</AdditionalColumns>
+				<AdditionalColumns table="Объект.дрвРаботыПоТекущемуРейсу">
+					<Column name="АдресТочки" id="1">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Адрес точки</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.упАдреса</v8:Type>
+						</Type>
+					</Column>
+					<Column name="Выполнена" id="2">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Выполнена</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:decimal</v8:Type>
+							<v8:NumberQualifiers>
+								<v8:Digits>1</v8:Digits>
+								<v8:FractionDigits>0</v8:FractionDigits>
+								<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+							</v8:NumberQualifiers>
+						</Type>
+					</Column>
+					<Column name="НазначениеСтроки" id="3">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Адрес / Задание / Операция / ...</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:string</v8:Type>
+							<v8:Type>cfg:DocumentRef.упЗаданиеНаПеревозкуГруза</v8:Type>
+							<v8:Type>cfg:CatalogRef.упГрузовыеМеста</v8:Type>
+							<v8:Type>cfg:CatalogRef.упТипыРегламентныхДокументов</v8:Type>
+							<v8:Type>cfg:CatalogRef.упАдреса</v8:Type>
+							<v8:Type>cfg:EnumRef.упТипыОпераций</v8:Type>
+							<v8:StringQualifiers>
+								<v8:Length>0</v8:Length>
+								<v8:AllowedLength>Variable</v8:AllowedLength>
+							</v8:StringQualifiers>
+						</Type>
+					</Column>
+					<Column name="Отменена" id="4">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Отменена</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
+					<Column name="КоличествоГрузов" id="5">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Количество грузов</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.КоличествоГрузов</v8:TypeSet>
+						</Type>
+					</Column>
+					<Column name="Проблема" id="6">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Проблема</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.упПроблемы</v8:Type>
+						</Type>
+					</Column>
+					<Column name="АдресРазгрузки" id="7">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Адрес разгрузки</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.упАдреса</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ДополнительнаяОперация" id="8">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Дополнительная операция</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.упДополнительныеОперации</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ЭтоРабота" id="9">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Это работа</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ПрибытиеФакт" id="10">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Прибытие</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:dateTime</v8:Type>
+							<v8:DateQualifiers>
+								<v8:DateFractions>DateTime</v8:DateFractions>
+							</v8:DateQualifiers>
+						</Type>
+					</Column>
+					<Column name="НачалоРаботФакт" id="11">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Начало работ</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:dateTime</v8:Type>
+							<v8:DateQualifiers>
+								<v8:DateFractions>DateTime</v8:DateFractions>
+							</v8:DateQualifiers>
+						</Type>
+					</Column>
+					<Column name="УбытиеФакт" id="12">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Убытие</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:dateTime</v8:Type>
+							<v8:DateQualifiers>
+								<v8:DateFractions>DateTime</v8:DateFractions>
+							</v8:DateQualifiers>
+						</Type>
+					</Column>
+					<Column name="ЭтоАдрес" id="13">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Это адрес</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ПрибытиеПлан" id="14">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Прибытие план</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:dateTime</v8:Type>
+							<v8:DateQualifiers>
+								<v8:DateFractions>DateTime</v8:DateFractions>
+							</v8:DateQualifiers>
+						</Type>
+					</Column>
+					<Column name="НачалоРаботПлан" id="15">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Начало работ план</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:dateTime</v8:Type>
+							<v8:DateQualifiers>
+								<v8:DateFractions>DateTime</v8:DateFractions>
+							</v8:DateQualifiers>
+						</Type>
+					</Column>
+					<Column name="УбытиеПлан" id="16">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Убытие план</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:dateTime</v8:Type>
+							<v8:DateQualifiers>
+								<v8:DateFractions>DateTime</v8:DateFractions>
+							</v8:DateQualifiers>
+						</Type>
+					</Column>
+					<Column name="ПрохождениеТочки" id="17">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Прохождение / Происшествие</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:DocumentRef.упПрохождениеТочки</v8:Type>
+							<v8:Type>cfg:DocumentRef.упПроисшествиеВПути</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ИдентификаторТочки" id="18">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Идентификатор точки</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>v8:UUID</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ИдентификаторРаботы" id="19">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Идентификатор работы</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>v8:UUID</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ПорядокТочки" id="20">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Порядок точки</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:decimal</v8:Type>
+							<v8:NumberQualifiers>
+								<v8:Digits>10</v8:Digits>
+								<v8:FractionDigits>0</v8:FractionDigits>
+								<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+							</v8:NumberQualifiers>
+						</Type>
+					</Column>
+					<Column name="ТочкаПройдена" id="21">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Точка пройдена</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ТочкаОтменена" id="22">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Точка отменена</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ТочкаТекущая" id="23">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Точка текущая</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ТипТочки" id="24">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Тип точки</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:EnumRef.упТипыТочекМаршрута</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ПроблемаПричинаВозникновенияЭтойРаботы" id="25">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Проблема причина возникновения этой работы</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.упПроблемы</v8:Type>
+						</Type>
+					</Column>
+					<Column name="Операция" id="26">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Операция</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:EnumRef.упТипыОпераций</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ИндексКартинки" id="27">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Индекс картинки</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:decimal</v8:Type>
+							<v8:NumberQualifiers>
+								<v8:Digits>2</v8:Digits>
+								<v8:FractionDigits>0</v8:FractionDigits>
+								<v8:AllowedSign>Any</v8:AllowedSign>
+							</v8:NumberQualifiers>
+						</Type>
+					</Column>
+					<Column name="ЭтоПолучениеПередачаДокументов" id="28">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Это получение передача документов</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ТипРегламентногоДокумента" id="29">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Тип регламентного документа</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.упТипыРегламентныхДокументов</v8:Type>
+						</Type>
+					</Column>
+					<Column name="КоличествоЭкземпляровДокумента" id="30">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Количество экземпляров документа</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:decimal</v8:Type>
+							<v8:NumberQualifiers>
+								<v8:Digits>3</v8:Digits>
+								<v8:FractionDigits>0</v8:FractionDigits>
+								<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+							</v8:NumberQualifiers>
+						</Type>
+					</Column>
+					<Column name="Гараж" id="31">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Гараж</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.упГаражи</v8:Type>
+						</Type>
+					</Column>
+					<Column name="Количество" id="32">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Количество</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:decimal</v8:Type>
+							<v8:NumberQualifiers>
+								<v8:Digits>5</v8:Digits>
+								<v8:FractionDigits>0</v8:FractionDigits>
+								<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+							</v8:NumberQualifiers>
+						</Type>
+					</Column>
+					<Column name="КоличествоДопОпераций" id="33">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Количество доп операций</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.КоличествоОпераций</v8:TypeSet>
+						</Type>
+					</Column>
+					<Column name="ФормироватьПрохождениеТочки" id="34">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Формировать прохождение точки</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
+					<Column name="РасстояниеОтПредыдущейТочки" id="35">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Расстояние от предыдущей точки</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.Расстояние</v8:TypeSet>
+						</Type>
+					</Column>
+					<Column name="Предшественники" id="36">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Предшественники</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:string</v8:Type>
+							<v8:StringQualifiers>
+								<v8:Length>0</v8:Length>
+								<v8:AllowedLength>Variable</v8:AllowedLength>
+							</v8:StringQualifiers>
+						</Type>
+					</Column>
+					<Column name="Сумма" id="37">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Сумма</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.Сумма</v8:TypeSet>
+						</Type>
+					</Column>
+					<Column name="Валюта" id="38">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Валюта</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.Валюты</v8:Type>
+						</Type>
+					</Column>
+					<Column name="Тара" id="39">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Тара</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.упГрузовыеМеста</v8:Type>
+						</Type>
+						<FunctionalOptions>
+							<Item>FunctionalOption.упВедетсяУчетТары</Item>
+						</FunctionalOptions>
+					</Column>
+					<Column name="ГрузРазделен" id="40">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Груз разделен</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
+					<Column name="СкладскаяЯчейка" id="41">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Складская ячейка</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.упСкладскиеЯчейки</v8:Type>
+						</Type>
+						<FunctionalOptions>
+							<Item>FunctionalOption.упИспользуетсяСкладскойУчетНаХабах</Item>
+						</FunctionalOptions>
+					</Column>
+					<Column name="Склад" id="42">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Склад</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.упСклады</v8:Type>
+						</Type>
+					</Column>
+					<Column name="НомерВЦепиПоставок" id="43">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Номер в цепи поставок</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:decimal</v8:Type>
+							<v8:NumberQualifiers>
+								<v8:Digits>10</v8:Digits>
+								<v8:FractionDigits>0</v8:FractionDigits>
+								<v8:AllowedSign>Any</v8:AllowedSign>
+							</v8:NumberQualifiers>
+						</Type>
+					</Column>
+					<Column name="НомерВЦепиПоставокМаксимальный" id="44">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Номер в цепи поставок максимальный</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:decimal</v8:Type>
+							<v8:NumberQualifiers>
+								<v8:Digits>10</v8:Digits>
+								<v8:FractionDigits>0</v8:FractionDigits>
+								<v8:AllowedSign>Any</v8:AllowedSign>
+							</v8:NumberQualifiers>
+						</Type>
+					</Column>
+					<Column name="ВидГруза" id="45">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Вид груза</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:EnumRef.упВидыГрузов</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ТипГруза" id="46">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Тип груза</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.упТипыГрузов</v8:Type>
+						</Type>
+					</Column>
+					<Column name="Высота" id="47">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Высота</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.ЛинейныеРазмеры</v8:TypeSet>
+						</Type>
+						<FunctionalOptions>
+							<Item>FunctionalOption.упУчитыватьЛинейныеРазмеры</Item>
+						</FunctionalOptions>
+					</Column>
+					<Column name="Длина" id="48">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Длина</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.ЛинейныеРазмеры</v8:TypeSet>
+						</Type>
+						<FunctionalOptions>
+							<Item>FunctionalOption.упУчитыватьЛинейныеРазмеры</Item>
+						</FunctionalOptions>
+					</Column>
+					<Column name="Объем" id="49">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Объем</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.Объем</v8:TypeSet>
+						</Type>
+						<FunctionalOptions>
+							<Item>FunctionalOption.упУчитыватьОбъем</Item>
+						</FunctionalOptions>
+					</Column>
+					<Column name="Ширина" id="50">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Ширина</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.ЛинейныеРазмеры</v8:TypeSet>
+						</Type>
+						<FunctionalOptions>
+							<Item>FunctionalOption.упУчитыватьЛинейныеРазмеры</Item>
+						</FunctionalOptions>
+					</Column>
+					<Column name="Масса" id="51">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Масса</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.Масса</v8:TypeSet>
+						</Type>
+						<FunctionalOptions>
+							<Item>FunctionalOption.упУчитыватьМассу</Item>
+						</FunctionalOptions>
+					</Column>
+					<Column name="КоличествоМест" id="52">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Количество мест</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.КоличествоМест</v8:TypeSet>
+						</Type>
+						<FunctionalOptions>
+							<Item>FunctionalOption.упУчитыватьКоличествоМест</Item>
+						</FunctionalOptions>
+					</Column>
+					<Column name="КоличествоЗагрузочныхМетров" id="53">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Количество загрузочных метров</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.КоличествоЗагрузочныхМетров</v8:TypeSet>
+						</Type>
+						<FunctionalOptions>
+							<Item>FunctionalOption.упУчитыватьКоличествоЗагрузочныхМетров</Item>
+						</FunctionalOptions>
+					</Column>
+					<Column name="ИзмененыПараметры" id="54">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Изменены параметры</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ЕстьПроблемы" id="55">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Есть проблемы</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
+					<Column name="СписокПроблем" id="56">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Список проблем</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:string</v8:Type>
+							<v8:StringQualifiers>
+								<v8:Length>0</v8:Length>
+								<v8:AllowedLength>Variable</v8:AllowedLength>
+							</v8:StringQualifiers>
+						</Type>
+					</Column>
+					<Column name="ИдентификаторИсходнойТочки" id="57">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Идентификатор досрочно пройденной точки</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>v8:UUID</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ДосрочноеУбытие" id="58">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Досрочное убытие</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
+					<Column name="Приоритет" id="59">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Приоритет</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:decimal</v8:Type>
+							<v8:NumberQualifiers>
+								<v8:Digits>1</v8:Digits>
+								<v8:FractionDigits>0</v8:FractionDigits>
+								<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+							</v8:NumberQualifiers>
+						</Type>
+					</Column>
+					<Column name="ЕстьФайлы" id="60">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Есть файлы</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:decimal</v8:Type>
+							<v8:NumberQualifiers>
+								<v8:Digits>1</v8:Digits>
+								<v8:FractionDigits>0</v8:FractionDigits>
+								<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+							</v8:NumberQualifiers>
+						</Type>
+					</Column>
+					<Column name="ЗаданиеЗаявкаНаПеревозкуГруза" id="61">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Задание заявка на перевозку груза</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:DocumentRef.упЗаявкаНаПеревозкуГруза</v8:Type>
+						</Type>
+					</Column>
+				</AdditionalColumns>
+				<AdditionalColumns table="Объект.СписокРейсов">
+					<Column name="Дата" id="1">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Дата</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:dateTime</v8:Type>
+							<v8:DateQualifiers>
+								<v8:DateFractions>Date</v8:DateFractions>
+							</v8:DateQualifiers>
+						</Type>
+					</Column>
+					<Column name="ЕстьФайлы" id="2">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Есть файлы</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:decimal</v8:Type>
+							<v8:NumberQualifiers>
+								<v8:Digits>1</v8:Digits>
+								<v8:FractionDigits>0</v8:FractionDigits>
+								<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+							</v8:NumberQualifiers>
+						</Type>
+					</Column>
+					<Column name="КоличествоТочек" id="3">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Кол. точек</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:decimal</v8:Type>
+							<v8:NumberQualifiers>
+								<v8:Digits>10</v8:Digits>
+								<v8:FractionDigits>0</v8:FractionDigits>
+								<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+							</v8:NumberQualifiers>
+						</Type>
+					</Column>
+					<Column name="КоличествоТочекПолучателя" id="4">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Кол. точек получателя</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:decimal</v8:Type>
+							<v8:NumberQualifiers>
+								<v8:Digits>10</v8:Digits>
+								<v8:FractionDigits>0</v8:FractionDigits>
+								<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+							</v8:NumberQualifiers>
+						</Type>
+					</Column>
+					<Column name="Номер" id="5">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Номер</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:string</v8:Type>
+							<v8:StringQualifiers>
+								<v8:Length>0</v8:Length>
+								<v8:AllowedLength>Variable</v8:AllowedLength>
+							</v8:StringQualifiers>
+						</Type>
+					</Column>
+					<Column name="Рейс" id="6">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Рейс</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:DocumentRef.упРейс</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ИндексКартинки" id="7">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Индекс картинки</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:decimal</v8:Type>
+							<v8:NumberQualifiers>
+								<v8:Digits>10</v8:Digits>
+								<v8:FractionDigits>0</v8:FractionDigits>
+								<v8:AllowedSign>Any</v8:AllowedSign>
+							</v8:NumberQualifiers>
+						</Type>
+					</Column>
+					<Column name="Статус" id="8">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Статус</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:string</v8:Type>
+							<v8:StringQualifiers>
+								<v8:Length>0</v8:Length>
+								<v8:AllowedLength>Variable</v8:AllowedLength>
+							</v8:StringQualifiers>
+						</Type>
+					</Column>
+					<Column name="Водитель1" id="9">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Водитель1</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:string</v8:Type>
+							<v8:StringQualifiers>
+								<v8:Length>0</v8:Length>
+								<v8:AllowedLength>Variable</v8:AllowedLength>
+							</v8:StringQualifiers>
+						</Type>
+					</Column>
+					<Column name="Водитель2" id="10">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Водитель2</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:string</v8:Type>
+							<v8:StringQualifiers>
+								<v8:Length>0</v8:Length>
+								<v8:AllowedLength>Variable</v8:AllowedLength>
+							</v8:StringQualifiers>
+						</Type>
+					</Column>
+					<Column name="КонтрагентПеревозчика" id="11">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Контрагент перевозчика</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:string</v8:Type>
+							<v8:StringQualifiers>
+								<v8:Length>0</v8:Length>
+								<v8:AllowedLength>Variable</v8:AllowedLength>
+							</v8:StringQualifiers>
+						</Type>
+					</Column>
+					<Column name="Перевозчик" id="12">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Перевозчик</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:string</v8:Type>
+							<v8:StringQualifiers>
+								<v8:Length>0</v8:Length>
+								<v8:AllowedLength>Variable</v8:AllowedLength>
+							</v8:StringQualifiers>
+						</Type>
+					</Column>
+					<Column name="Соглашение" id="13">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Соглашение</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:string</v8:Type>
+							<v8:StringQualifiers>
+								<v8:Length>0</v8:Length>
+								<v8:AllowedLength>Variable</v8:AllowedLength>
+							</v8:StringQualifiers>
+						</Type>
+					</Column>
+					<Column name="ТипТС" id="14">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Тип ТС</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:string</v8:Type>
+							<v8:StringQualifiers>
+								<v8:Length>0</v8:Length>
+								<v8:AllowedLength>Variable</v8:AllowedLength>
+							</v8:StringQualifiers>
+						</Type>
+					</Column>
+					<Column name="ТранспортноеСредство" id="15">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Транспортное средство</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:string</v8:Type>
+							<v8:StringQualifiers>
+								<v8:Length>0</v8:Length>
+								<v8:AllowedLength>Variable</v8:AllowedLength>
+							</v8:StringQualifiers>
+						</Type>
+					</Column>
+					<Column name="Экспедитор" id="16">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Экспедитор</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:string</v8:Type>
+							<v8:StringQualifiers>
+								<v8:Length>0</v8:Length>
+								<v8:AllowedLength>Variable</v8:AllowedLength>
+							</v8:StringQualifiers>
+						</Type>
+					</Column>
+					<Column name="Время" id="17">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Время</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.ВремяРаботы</v8:TypeSet>
+						</Type>
+					</Column>
+					<Column name="ВремяВПути" id="18">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Время в пути</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.ВремяРаботы</v8:TypeSet>
+						</Type>
+					</Column>
+					<Column name="ЗонаПогрузки" id="19">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Зона погрузки</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:string</v8:Type>
+							<v8:StringQualifiers>
+								<v8:Length>0</v8:Length>
+								<v8:AllowedLength>Variable</v8:AllowedLength>
+							</v8:StringQualifiers>
+						</Type>
+					</Column>
+					<Column name="ЗонаРазгрузки" id="20">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Зона разгрузки</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:string</v8:Type>
+							<v8:StringQualifiers>
+								<v8:Length>0</v8:Length>
+								<v8:AllowedLength>Variable</v8:AllowedLength>
+							</v8:StringQualifiers>
+						</Type>
+					</Column>
+					<Column name="КоличествоГрузовыхМест" id="21">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Кол. грузовых мест</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.КоличествоГрузов</v8:TypeSet>
+						</Type>
+					</Column>
+					<Column name="КоличествоЗагрузочныхМетров" id="22">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Кол. загрузочных метров</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.КоличествоЗагрузочныхМетров</v8:TypeSet>
+						</Type>
+					</Column>
+					<Column name="КоличествоМест" id="23">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Кол. мест</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.КоличествоМест</v8:TypeSet>
+						</Type>
+					</Column>
+					<Column name="Масса" id="24">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Масса</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.Масса</v8:TypeSet>
+						</Type>
+					</Column>
+					<Column name="НачалоВыполнения" id="25">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Начало выполнения</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:dateTime</v8:Type>
+							<v8:DateQualifiers>
+								<v8:DateFractions>DateTime</v8:DateFractions>
+							</v8:DateQualifiers>
+						</Type>
+					</Column>
+					<Column name="НулевойПробег" id="26">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Нулевой пробег</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.Расстояние</v8:TypeSet>
+						</Type>
+					</Column>
+					<Column name="Объем" id="27">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Объем</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.Объем</v8:TypeSet>
+						</Type>
+					</Column>
+					<Column name="ОкончаниеВыполнения" id="28">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Окончание выполнения</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:dateTime</v8:Type>
+							<v8:DateQualifiers>
+								<v8:DateFractions>DateTime</v8:DateFractions>
+							</v8:DateQualifiers>
+						</Type>
+					</Column>
+					<Column name="ПредставлениеМаршрута" id="29">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Представление маршрута</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:string</v8:Type>
+							<v8:StringQualifiers>
+								<v8:Length>0</v8:Length>
+								<v8:AllowedLength>Variable</v8:AllowedLength>
+							</v8:StringQualifiers>
+						</Type>
+					</Column>
+					<Column name="Пробег" id="30">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Пробег</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.Расстояние</v8:TypeSet>
+						</Type>
+					</Column>
+					<Column name="Расстояние" id="31">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Расстояние</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.Расстояние</v8:TypeSet>
+						</Type>
+					</Column>
+					<Column name="РасстояниеПоДаннымТрекеров" id="32">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Расстояние по данным трекеров</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.Расстояние</v8:TypeSet>
+						</Type>
+					</Column>
+					<Column name="СуммаИнкассации" id="33">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Сумма инкассации</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:TypeSet>cfg:DefinedType.Сумма</v8:TypeSet>
+						</Type>
+					</Column>
+					<Column name="ЕстьПроблемы" id="34">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Есть проблемы</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:decimal</v8:Type>
+							<v8:NumberQualifiers>
+								<v8:Digits>1</v8:Digits>
+								<v8:FractionDigits>0</v8:FractionDigits>
+								<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+							</v8:NumberQualifiers>
+						</Type>
+					</Column>
+					<Column name="ЕстьОпозданияПрибытияВТочку" id="35">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Есть опоздания прибытия в точку</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:decimal</v8:Type>
+							<v8:NumberQualifiers>
+								<v8:Digits>1</v8:Digits>
+								<v8:FractionDigits>0</v8:FractionDigits>
+								<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+							</v8:NumberQualifiers>
+						</Type>
+					</Column>
+					<Column name="КоличествоТочекСОпозданиями" id="36">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Кол. точек с опозданиями</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:decimal</v8:Type>
+							<v8:NumberQualifiers>
+								<v8:Digits>10</v8:Digits>
+								<v8:FractionDigits>0</v8:FractionDigits>
+								<v8:AllowedSign>Any</v8:AllowedSign>
+							</v8:NumberQualifiers>
+						</Type>
+					</Column>
+					<Column name="КоличествоПосещениийТочекПолучателя" id="37">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Кол. посещений точек получателя</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:decimal</v8:Type>
+							<v8:NumberQualifiers>
+								<v8:Digits>10</v8:Digits>
+								<v8:FractionDigits>0</v8:FractionDigits>
+								<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+							</v8:NumberQualifiers>
+						</Type>
+					</Column>
+				</AdditionalColumns>
+			</Columns>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>дрвРаботыПоТекущемуРейсу</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.ТочкаПройдена</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.ТочкаОтменена</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">#CDFFCC</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>дрвРаботыПоТекущемуРейсу</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.ТочкаОтменена</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.ГрузРазделен</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:ОшибкаПолнотекстовыйПоискФон</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">auto</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>дрвРаботыПоТекущемуРейсуНазначениеСтроки</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.ЭтоРабота</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.ЭтоПолучениеПередачаДокументов</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.дрвРаботыПоТекущемуРейсу.НазначениеСтроки</dcsset:left>
+						<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Груз по заданию</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="ПрисоединенныеФайлы" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Присоединенные файлы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Присоединенные файлы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Find</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ПрисоединенныеФайлы</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="Обновить" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>Обновить</Action>
+		</Command>
+		<Command name="РазвернутьДерево" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Развернуть дерево</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Развернуть дерево</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.упРазвернутьГруппировки</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>РазвернутьДерево</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="СвернутьДерево" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Свернуть дерево</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Свернуть дерево</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.упСвернутьГруппировки</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СвернутьДерево</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ТоварныйСостав" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Товарный состав</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Товарный состав</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ТоварныйСостав</Action>
+		</Command>
+	</Commands>
+</Form>

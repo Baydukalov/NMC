@@ -1,0 +1,681 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтатьяРасходов</dataPath>
+			<field>СтатьяРасходов</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Статья расходов</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Материал</dataPath>
+			<field>Материал</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Материал</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидРемонта</dataPath>
+			<field>ВидРемонта</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВыполненыеРаботы</dataPath>
+			<field>ВыполненыеРаботы</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполненые работы</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоП</dataPath>
+			<field>КоличествоП</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество П</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТранспортноеСредство</dataPath>
+			<field>ТранспортноеСредство</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоС</dataPath>
+			<field>КоличествоС</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество С</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Ремонт</dataPath>
+			<field>Ремонт</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ремонт</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаРасходыПлан</dataPath>
+			<field>СуммаРасходыПлан</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма расходы план</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Статус</dataPath>
+			<field>Статус</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Статус</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаРасходыФакт</dataPath>
+			<field>СуммаРасходыФакт</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма расходы факт</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаП</dataPath>
+			<field>СуммаП</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма П</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Склад</dataPath>
+			<field>Склад</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Склад</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Документ</dataPath>
+			<field>Документ</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	упРемонтИТОТС.Ссылка,
+	упРемонтИТОТС.ВидРемонта,
+	упРемонтИТОТС.ТранспортноеСредство,
+	ЕСТЬNULL(СтатусыРемонтов.Статус, ЗНАЧЕНИЕ(Перечисление.упСтатусыРемонтаИТОТС.Новый)) КАК Статус,
+	упРемонтИТОТС.СуммаРасходыПланВалюта КАК СуммаРасходыПлан
+ПОМЕСТИТЬ вт_Данные
+ИЗ
+	Документ.упРемонтИТОТС КАК упРемонтИТОТС
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упСтатусыРемонтовИТОТС.СрезПоследних({(&amp;КонецПериода)}, ) КАК СтатусыРемонтов
+		ПО упРемонтИТОТС.Ссылка = СтатусыРемонтов.Документ
+ГДЕ
+	упРемонтИТОТС.Проведен
+	И упРемонтИТОТС.Дата МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Работы.Ссылка,
+	Работы.РаботаПоРемонту,
+	Работы.СтатьяРасходов,
+	Работы.Сумма КАК СуммаСНДС
+ПОМЕСТИТЬ вт_Работы
+ИЗ
+	Документ.упРемонтИТОТС.Работы КАК Работы
+ГДЕ
+	Работы.Ссылка В
+			(ВЫБРАТЬ
+				вт_Данные.Ссылка
+			ИЗ
+				вт_Данные КАК вт_Данные)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ГСМ.Ссылка,
+	ГСМ.ВидГСМ КАК Материал,
+	ЗНАЧЕНИЕ(Справочник.упСтатьиДоходовРасходов.ПустаяСсылка) КАК СтатьяРасходов,
+	ГСМ.Сумма КАК Сумма,
+	ГСМ.Расход КАК Количество
+ПОМЕСТИТЬ вт_Приобретенные
+ИЗ
+	Документ.упРемонтИТОТС.ГСМ КАК ГСМ
+ГДЕ
+	ГСМ.Ссылка В
+			(ВЫБРАТЬ
+				вт_Данные.Ссылка
+			ИЗ
+				вт_Данные КАК вт_Данные)
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	Запчасти.Ссылка,
+	Запчасти.Запчасть,
+	Запчасти.СтатьяРасходов,
+	Запчасти.Сумма,
+	Запчасти.Количество
+ИЗ
+	Документ.упРемонтИТОТС.Запчасти КАК Запчасти
+ГДЕ
+	Запчасти.Ссылка В
+			(ВЫБРАТЬ
+				вт_Данные.Ссылка
+			ИЗ
+				вт_Данные КАК вт_Данные)
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	Агрегаты.Ссылка,
+	Агрегаты.Агрегат,
+	Агрегаты.ТипОперацииМонтажа,
+	Агрегаты.Сумма,
+	Агрегаты.Количество
+ИЗ
+	Документ.упРемонтИТОТС.ШиныУзлыАгрегаты КАК Агрегаты
+ГДЕ
+	Агрегаты.Ссылка В
+			(ВЫБРАТЬ
+				вт_Данные.Ссылка
+			ИЗ
+				вт_Данные КАК вт_Данные)
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ДопОборудывание.Ссылка,
+	ДопОборудывание.ДополнительноеОборудование,
+	ДопОборудывание.ТипОперацииМонтажа,
+	ДопОборудывание.Сумма,
+	ДопОборудывание.Количество
+ИЗ
+	Документ.упРемонтИТОТС.ДополнительноеОборудование КАК ДопОборудывание
+ГДЕ
+	ДопОборудывание.Ссылка В
+			(ВЫБРАТЬ
+				вт_Данные.Ссылка
+			ИЗ
+				вт_Данные КАК вт_Данные)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ГСМС.Ссылка,
+	ГСМС.ГСМ КАК Материал,
+	ГСМС.Склад КАК Склад,
+	ГСМС.Количество КАК Количество,
+	ЗНАЧЕНИЕ(Справочник.упСтатьиДоходовРасходов.ПустаяСсылка) КАК СтатьяРасходов
+ПОМЕСТИТЬ вт_Собственные
+ИЗ
+	Документ.упРемонтИТОТС.ГСМСобственные КАК ГСМС
+ГДЕ
+	ГСМС.Ссылка В
+			(ВЫБРАТЬ
+				вт_Данные.Ссылка
+			ИЗ
+				вт_Данные КАК вт_Данные)
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ЗапчастиС.Ссылка,
+	ЗапчастиС.Запчасть,
+	ЗапчастиС.Склад,
+	ЗапчастиС.Количество,
+	ЗНАЧЕНИЕ(Справочник.упСтатьиДоходовРасходов.ПустаяСсылка)
+ИЗ
+	Документ.упРемонтИТОТС.ЗапчастиСобственные КАК ЗапчастиС
+ГДЕ
+	ЗапчастиС.Ссылка В
+			(ВЫБРАТЬ
+				вт_Данные.Ссылка
+			ИЗ
+				вт_Данные КАК вт_Данные)
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	Прицепы.Ссылка,
+	Прицепы.Прицеп,
+	ЗНАЧЕНИЕ(Справочник.упСклады.ПустаяСсылка),
+	1,
+	Прицепы.Операция
+ИЗ
+	Документ.упРемонтИТОТС.Прицепы КАК Прицепы
+ГДЕ
+	Прицепы.Ссылка В
+			(ВЫБРАТЬ
+				вт_Данные.Ссылка
+			ИЗ
+				вт_Данные КАК вт_Данные)
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	АгрегатыС.Ссылка,
+	АгрегатыС.Агрегат,
+	АгрегатыС.Склад,
+	АгрегатыС.Количество,
+	АгрегатыС.ТипОперацииМонтажа
+ИЗ
+	Документ.упРемонтИТОТС.ШиныУзлыАгрегатыСобственные КАК АгрегатыС
+ГДЕ
+	АгрегатыС.Ссылка В
+			(ВЫБРАТЬ
+				вт_Данные.Ссылка
+			ИЗ
+				вт_Данные КАК вт_Данные)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	вт_Приобретенные.Ссылка,
+	вт_Приобретенные.Материал,
+	вт_Приобретенные.СтатьяРасходов,
+	вт_Приобретенные.Сумма КАК СуммаП,
+	вт_Приобретенные.Количество КАК КоличествоП,
+	ЗНАЧЕНИЕ(Справочник.упСклады.ПустаяСсылка) КАК Склад,
+	0 КАК КоличествоС
+ПОМЕСТИТЬ вт_Таблицы
+ИЗ
+	вт_Приобретенные КАК вт_Приобретенные
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	вт_Собственные.Ссылка,
+	вт_Собственные.Материал,
+	вт_Собственные.СтатьяРасходов,
+	0,
+	0,
+	вт_Собственные.Склад,
+	вт_Собственные.Количество
+ИЗ
+	вт_Собственные КАК вт_Собственные
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	вт_Работы.Ссылка КАК Ремонт,
+	ЕСТЬNULL(вт_Работы.РаботаПоРемонту, ЗНАЧЕНИЕ(Справочник.упРаботыПоРемонту.ПустаяСсылка)) КАК ВыполненыеРаботы,
+	ЕСТЬNULL(вт_Работы.СуммаСНДС, 0) КАК СуммаРасходыФакт,
+	ЗНАЧЕНИЕ(Справочник.упЗапчасти.ПустаяСсылка) КАК Материал,
+	ЕСТЬNULL(вт_Работы.СтатьяРасходов, ЗНАЧЕНИЕ(Справочник.упСтатьиДоходовРасходов.ПустаяСсылка)) КАК СтатьяРасходов,
+	0 КАК СуммаП,
+	0 КАК КоличествоП,
+	ЗНАЧЕНИЕ(Справочник.упСклады.ПустаяСсылка) КАК Склад,
+	0 КАК КоличествоС
+ПОМЕСТИТЬ вт_Результат
+ИЗ
+	вт_Работы КАК вт_Работы
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	вт_Таблицы.Ссылка,
+	ЕСТЬNULL(вт_Таблицы.Материал, ЗНАЧЕНИЕ(Справочник.упЗапчасти.ПустаяСсылка)),
+	0,
+	ЗНАЧЕНИЕ(Справочник.упРаботыПоРемонту.ПустаяСсылка),
+	ЕСТЬNULL(вт_Таблицы.СтатьяРасходов, ЗНАЧЕНИЕ(Справочник.упСтатьиДоходовРасходов.ПустаяСсылка)),
+	ЕСТЬNULL(вт_Таблицы.СуммаП, 0),
+	ЕСТЬNULL(вт_Таблицы.КоличествоП, 0),
+	ЕСТЬNULL(вт_Таблицы.Склад, ЗНАЧЕНИЕ(Справочник.упСклады.ПустаяСсылка)),
+	ЕСТЬNULL(вт_Таблицы.КоличествоС, 0)
+ИЗ
+	вт_Таблицы КАК вт_Таблицы
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	вт_Данные.ТранспортноеСредство,
+	вт_Данные.ВидРемонта,
+	вт_Данные.Ссылка КАК Ремонт,
+	вт_Данные.Статус,
+	ЕСТЬNULL(вт_Результат.ВыполненыеРаботы, ЗНАЧЕНИЕ(Справочник.упРаботыПоРемонту.ПустаяСсылка)) КАК ВыполненыеРаботы,
+	вт_Данные.СуммаРасходыПлан КАК СуммаРасходыПлан,
+	ЕСТЬNULL(вт_Результат.СуммаРасходыФакт, 0) КАК СуммаРасходыФакт,
+	ЕСТЬNULL(вт_Результат.Материал, ЗНАЧЕНИЕ(Справочник.упЗапчасти.ПустаяСсылка)) КАК Материал,
+	ЕСТЬNULL(вт_Результат.СтатьяРасходов, ЗНАЧЕНИЕ(Справочник.упСтатьиДоходовРасходов.ПустаяСсылка)) КАК СтатьяРасходов,
+	ЕСТЬNULL(вт_Результат.СуммаП, 0) КАК СуммаП,
+	ЕСТЬNULL(вт_Результат.КоличествоП, 0) КАК КоличествоП,
+	ЕСТЬNULL(вт_Результат.Склад, ЗНАЧЕНИЕ(Справочник.упСклады.ПустаяСсылка)) КАК Склад,
+	ЕСТЬNULL(вт_Результат.КоличествоС, 0) КАК КоличествоС
+ИЗ
+	вт_Данные КАК вт_Данные
+		ЛЕВОЕ СОЕДИНЕНИЕ вт_Результат КАК вт_Результат
+		ПО вт_Данные.Ссылка = вт_Результат.Ремонт
+			И (НЕ вт_Данные.Статус = ЗНАЧЕНИЕ(Перечисление.упСтатусыРемонтаИТОТС.Отменен))</query>
+	</dataSet>
+	<calculatedField>
+		<dataPath>СуммаРасходыПлан1</dataPath>
+		<expression>0</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Сумма расходы план1</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<totalField>
+		<dataPath>КоличествоП</dataPath>
+		<expression>Сумма(КоличествоП)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоС</dataPath>
+		<expression>Сумма(КоличествоС)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаП</dataPath>
+		<expression>Сумма(СуммаП)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаРасходыПлан</dataPath>
+		<expression>Сумма(СуммаРасходыПлан)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаРасходыФакт</dataPath>
+		<expression>Сумма(СуммаРасходыФакт)</expression>
+		<group>ВидРемонта</group>
+		<group>ВыполненыеРаботы</group>
+		<group>Ремонт</group>
+		<group>ТранспортноеСредство</group>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаРасходыПлан1</dataPath>
+		<expression>Сумма(ВычислитьВыражениеСГруппировкойМассив("Максимум(СуммаРасходыПлан)","Ремонт"))</expression>
+		<group>ВидРемонта</group>
+		<group>Ремонт</group>
+		<group>Статус</group>
+		<group>ТранспортноеСредство</group>
+		<group>ОбщийИтог</group>
+	</totalField>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;Период.ДатаОкончания</expression>
+	</parameter>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;Период.ДатаНачала</expression>
+	</parameter>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:StandardPeriod</v8:Type>
+		</valueType>
+		<value xsi:type="v8:StandardPeriod">
+			<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+			<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+			<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+		</value>
+		<useRestriction>false</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>РемонтыТО</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Ремонты (ТО)</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТранспортноеСредство</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВидРемонта</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Ремонт</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Статус</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВыполненыеРаботы</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Выполненные работы/Материалы/Агрегаты/ /Доп. Оборудование/ГСМ</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтатьяРасходов</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Склад</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаРасходыПлан1</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Плановые затраты</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаРасходыФакт</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Фактические затраты</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Израсходованные запчасти</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>КоличествоП</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Количество</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>СуммаП</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Сумма</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Израсходованные собственные запчасти</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>КоличествоС</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Количество</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ТранспортноеСредство</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>36b46fa8-486d-4b25-99c9-2822143294b3</dcsset:userSettingID>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">ThisMonth</v8:variant>
+					</dcscor:value>
+					<dcsset:userSettingID>d7f13235-75cd-4148-baf1-bf79bf308bdc</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МакетОформления</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">упМакетОформленияОтчетов</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ремонты (ТО)</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>ТранспортноеСредство</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ВидРемонта</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Ремонт</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Статус</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+						<dcsset:item xsi:type="dcsset:StructureItemGroup">
+							<dcsset:order>
+								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							</dcsset:order>
+							<dcsset:selection>
+								<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+							</dcsset:selection>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

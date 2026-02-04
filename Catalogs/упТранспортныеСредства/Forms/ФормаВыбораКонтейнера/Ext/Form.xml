@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Список ISO-контейнеров</v8:content>
+		</v8:item>
+	</Title>
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoTitle>false</AutoTitle>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="СписокКомпоновщикНастроекПользовательскиеНастройки" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа пользовательских настроек</v8:content>
+				</v8:item>
+			</Title>
+			<VerticalStretch>false</VerticalStretch>
+			<Group>Vertical</Group>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="СписокКомпоновщикНастроекПользовательскиеНастройкиРасширеннаяПодсказка" id="2"/>
+		</UsualGroup>
+		<Table name="Список" id="3">
+			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
+			<DefaultItem>true</DefaultItem>
+			<ChoiceMode>true</ChoiceMode>
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<InitialTreeView>ExpandTopLevel</InitialTreeView>
+			<EnableStartDrag>true</EnableStartDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Список</DataPath>
+			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<UserSettingsGroup>СписокКомпоновщикНастроекПользовательскиеНастройки</UserSettingsGroup>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
+			<SearchStringAddition name="СписокСтрокаПоиска" id="13">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="14"/>
+				<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="15"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокСостояниеПросмотра" id="16">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="17"/>
+				<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="18"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокУправлениеПоиском" id="19">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="20"/>
+				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="21"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="Наименование" id="10">
+					<DataPath>Список.Наименование</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="11"/>
+					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="12"/>
+				</LabelField>
+				<LabelField name="ВладелецКонтейнера" id="46">
+					<DataPath>Список.ВладелецКонтейнера</DataPath>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Указывается владелец контейнера</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ContextMenu name="ВладелецКонтейнераКонтекстноеМеню" id="47"/>
+					<ExtendedTooltip name="ВладелецКонтейнераРасширеннаяПодсказка" id="48"/>
+				</LabelField>
+				<LabelField name="СостояниеКонтейнера" id="40">
+					<DataPath>Список.СостояниеКонтейнера</DataPath>
+					<ContextMenu name="СостояниеКонтейнераКонтекстноеМеню" id="41"/>
+					<ExtendedTooltip name="СостояниеКонтейнераРасширеннаяПодсказка" id="42"/>
+				</LabelField>
+				<LabelField name="ТипКонтейнера" id="25">
+					<DataPath>Список.ТипКонтейнера</DataPath>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Указывается тип контейнера</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ContextMenu name="ТипКонтейнераКонтекстноеМеню" id="26"/>
+					<ExtendedTooltip name="ТипКонтейнераРасширеннаяПодсказка" id="27"/>
+				</LabelField>
+				<CheckBoxField name="СобственныйКонтейнер" id="37">
+					<DataPath>Список.СобственныйКонтейнер</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Собственное</v8:content>
+						</v8:item>
+					</Title>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="СобственныйКонтейнерКонтекстноеМеню" id="38"/>
+					<ExtendedTooltip name="СобственныйКонтейнерРасширеннаяПодсказка" id="39"/>
+				</CheckBoxField>
+				<LabelField name="Подразделение" id="43">
+					<DataPath>Список.Подразделение</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="ПодразделениеКонтекстноеМеню" id="44"/>
+					<ExtendedTooltip name="ПодразделениеРасширеннаяПодсказка" id="45"/>
+				</LabelField>
+				<LabelField name="Ссылка" id="7">
+					<DataPath>Список.Ссылка</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="СсылкаКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="9"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Список" id="1">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<UseAlways>
+				<Field>~Список.ВидГСМОсновной</Field>
+				<Field>~Список.СобственноеТранспортноеСредство</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	СправочникупТранспортныеСредства.Ссылка КАК Ссылка,
+	СправочникупТранспортныеСредства.ПометкаУдаления КАК ПометкаУдаления,
+	СправочникупТранспортныеСредства.Код КАК Код,
+	СправочникупТранспортныеСредства.Наименование КАК Наименование,
+	СправочникупТранспортныеСредства.ВидТранспорта КАК ВидТранспорта,
+	СправочникупТранспортныеСредства.Высота КАК Высота,
+	СправочникупТранспортныеСредства.ГрафикРаботы КАК ГрафикРаботы,
+	СправочникупТранспортныеСредства.Грузоподъемность КАК Грузоподъемность,
+	СправочникупТранспортныеСредства.ДатаВыпуска КАК ДатаВыпуска,
+	СправочникупТранспортныеСредства.Длина КАК Длина,
+	СправочникупТранспортныеСредства.ДоступныеЗоны КАК ДоступныеЗоны,
+	СправочникупТранспортныеСредства.КоличествоЗагрузочныхМетров КАК КоличествоЗагрузочныхМетров,
+	СправочникупТранспортныеСредства.КоличествоМест КАК КоличествоМест,
+	СправочникупТранспортныеСредства.Комментарий КАК Комментарий,
+	СправочникупТранспортныеСредства.Объем КАК Объем,
+	СправочникупТранспортныеСредства.Партнер КАК ВладелецКонтейнера,
+	СправочникупТранспортныеСредства.ПерерывМеждуРейсами КАК ПерерывМеждуРейсами,
+	СправочникупТранспортныеСредства.РегистрационныйНомер КАК РегистрационныйНомер,
+	СправочникупТранспортныеСредства.СобственноеТранспортноеСредство КАК СобственныйКонтейнер,
+	СправочникупТранспортныеСредства.СтильЛиний КАК СтильЛиний,
+	СправочникупТранспортныеСредства.СтильМаркера КАК СтильМаркера,
+	СправочникупТранспортныеСредства.ТемпературныйРежим КАК ТемпературныйРежим,
+	СправочникупТранспортныеСредства.ТипТС КАК ТипКонтейнера,
+	СправочникупТранспортныеСредства.Ширина КАК Ширина,
+	СправочникупТранспортныеСредства.ДополнительныеРеквизиты.(
+		Ссылка КАК Ссылка,
+		НомерСтроки КАК НомерСтроки,
+		Свойство КАК Свойство,
+		Значение КАК Значение,
+		ТекстоваяСтрока КАК ТекстоваяСтрока
+	) КАК ДополнительныеРеквизиты,
+	СправочникупТранспортныеСредства.ДопустимыеКлассыОпасныхГрузов.(
+		Ссылка КАК Ссылка,
+		НомерСтроки КАК НомерСтроки,
+		КлассОпасности КАК КлассОпасности
+	) КАК ДопустимыеКлассыОпасныхГрузов,
+	СправочникупТранспортныеСредства.Предопределенный КАК Предопределенный,
+	СправочникупТранспортныеСредства.ИмяПредопределенныхДанных КАК ИмяПредопределенныхДанных,
+	ЕСТЬNULL(упСостоянияТранспортныхСредствСрезПоследних.СостояниеТС, ЗНАЧЕНИЕ(Справочник.упСостоянияТС.ПустаяСсылка)) КАК СостояниеКонтейнера,
+	упПодразделенияТранспортныхСредствСрезПоследних.Подразделение КАК Подразделение
+ИЗ
+	Справочник.упТранспортныеСредства КАК СправочникупТранспортныеСредства
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упСостоянияТранспортныхСредств.СрезПоследних КАК упСостоянияТранспортныхСредствСрезПоследних
+		ПО (упСостоянияТранспортныхСредствСрезПоследних.ТранспортноеСредство = СправочникупТранспортныеСредства.Ссылка)
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упПодразделенияТранспортныхСредств.СрезПоследних КАК упПодразделенияТранспортныхСредствСрезПоследних
+		ПО СправочникупТранспортныеСредства.Ссылка = упПодразделенияТранспортныхСредствСрезПоследних.ТранспортноеСредство
+ГДЕ	
+	СправочникупТранспортныеСредства.ВидТранспорта = ЗНАЧЕНИЕ(Перечисление.упВидыТранспорта.Контейнер)</QueryText>
+				<MainTable>Catalog.упТранспортныеСредства</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+	<Parameters>
+		<Parameter name="ВидПеревозки">
+			<Type>
+				<v8:Type>cfg:CatalogRef.упВидыПеревозок</v8:Type>
+			</Type>
+		</Parameter>
+		<Parameter name="Организация">
+			<Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Type>
+		</Parameter>
+		<Parameter name="ТипТС">
+			<Type>
+				<v8:Type>cfg:CatalogRef.упТипыТС</v8:Type>
+			</Type>
+		</Parameter>
+		<Parameter name="Перевозчик">
+			<Type>
+				<v8:Type>cfg:CatalogRef.упПартнеры</v8:Type>
+			</Type>
+		</Parameter>
+		<Parameter name="ЭтоСобственноеТС">
+			<Type/>
+		</Parameter>
+		<Parameter name="ВидГСМ">
+			<Type>
+				<v8:Type>cfg:CatalogRef.упВидыГСМ</v8:Type>
+			</Type>
+		</Parameter>
+		<Parameter name="СкрытьНеучетные">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Parameter>
+	</Parameters>
+	<CommandInterface>
+		<CommandBar>
+			<Item>
+				<Command>Catalog.упТранспортныеСредства.Command.ЗапроситьАктуальноеЗначениеДатчикаУровняТоплива</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</CommandBar>
+	</CommandInterface>
+</Form>

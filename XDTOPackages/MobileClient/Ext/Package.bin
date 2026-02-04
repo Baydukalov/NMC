@@ -1,0 +1,460 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://www.axelot.ru/tms3/MobileClient">
+	<valueType name="LocationAccessModes" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">AllSources</enumeration>
+		<enumeration xsi:type="xs:string">Satellites</enumeration>
+		<enumeration xsi:type="xs:string">NetworkLocation</enumeration>
+	</valueType>
+	<valueType name="NavigatorModes" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">Optional</enumeration>
+		<enumeration xsi:type="xs:string">Google</enumeration>
+		<enumeration xsi:type="xs:string">Yandex</enumeration>
+	</valueType>
+	<valueType name="ValueAddedTaxRates" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">VAT10</enumeration>
+		<enumeration xsi:type="xs:string">VAT10_110</enumeration>
+		<enumeration xsi:type="xs:string">VAT18</enumeration>
+		<enumeration xsi:type="xs:string">VAT18_118</enumeration>
+		<enumeration xsi:type="xs:string">VAT0</enumeration>
+		<enumeration xsi:type="xs:string">WithoutVAT</enumeration>
+		<enumeration xsi:type="xs:string">VAT20</enumeration>
+		<enumeration xsi:type="xs:string">VAT20_120</enumeration>
+	</valueType>
+	<valueType name="CashEquipmentConnectionModes" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">Bluetooth</enumeration>
+		<enumeration xsi:type="xs:string">USB</enumeration>
+	</valueType>
+	<valueType name="PaymentTypes" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">Optional</enumeration>
+		<enumeration xsi:type="xs:string">Cash</enumeration>
+		<enumeration xsi:type="xs:string">Electron</enumeration>
+	</valueType>
+	<valueType name="SalesCheckOperationTypes" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">Sale</enumeration>
+		<enumeration xsi:type="xs:string">Return</enumeration>
+	</valueType>
+	<valueType name="CashEquipmentTypes" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">Atol</enumeration>
+		<enumeration xsi:type="xs:string">Ibox</enumeration>
+		<enumeration xsi:type="xs:string">All</enumeration>
+	</valueType>
+	<valueType name="FormTypes" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">RoutePoints</enumeration>
+		<enumeration xsi:type="xs:string">RoutePoint</enumeration>
+	</valueType>
+	<objectType name="Route">
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="Header" type="d3p1:RouteHeader" nillable="false"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="RoutePoints" type="d3p1:RoutePoints" nillable="false"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="Partners" type="d3p1:Partners" nillable="false"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="Settings" type="d3p1:Settings" nillable="false"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="WayAlerts" type="d3p1:WayAlerts" nillable="false"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="SalesChecks" type="d3p1:SalesChecks" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="RouteHeader">
+		<property name="Number" type="xs:string"/>
+		<property name="StartTime" type="xs:dateTime" nillable="true"/>
+		<property name="FinishTime" type="xs:dateTime" nillable="true"/>
+		<property name="RouteRepresentation" type="xs:string" nillable="true"/>
+		<property name="Distance" type="xs:int" nillable="true"/>
+		<property name="TimeSec" type="xs:int" nillable="true"/>
+		<property name="Truckman" type="xs:string"/>
+		<property name="DefaultCommodity" type="xs:string" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="DefaultTaxRate" type="d3p1:ValueAddedTaxRates" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="AuthentificationResult">
+		<property name="Result" type="xs:boolean"/>
+		<property name="ErrorText" type="xs:string" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="Route" type="d3p1:Route" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="CashEquipmentList" type="d3p1:CashEquipmentList" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="Messages">
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="Message" type="d3p1:Message" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="Message">
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="Header" type="d3p1:MessageHeader"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="GeoPositionData" type="d3p1:GeoPositionData"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="PassedRoutePoints" type="d3p1:RoutePoints"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="MissedRoutePoints" type="d3p1:RoutePoints"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="AcceptedRoutePoints" type="d3p1:AcceptedRoutePoints"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="ChangedOrderRoutePoints" type="d3p1:ChangedOrderRoutePoints"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="TextMessages" type="d3p1:TextMessages"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="PhoneCalls" type="d3p1:PhoneCalls"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="ChangedCashEquipmentList" type="d3p1:CashEquipmentList" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="SalesChecks" type="d3p1:SalesChecks" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="CashShifts" type="d3p1:CashShifts" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="MessageHeader">
+		<property name="Order" type="xs:int" lowerBound="0" nillable="true"/>
+		<property name="RouteNumber" type="xs:string"/>
+		<property name="LastReplyTime" type="xs:dateTime" nillable="true"/>
+		<property name="IsEmpty" type="xs:boolean" nillable="false"/>
+	</objectType>
+	<objectType name="Reply">
+		<property name="ReplyTime" type="xs:dateTime"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="DispatcherTextMessages" type="d3p1:DispatcherTextMessages"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="RejectedRoutePoints" type="d3p1:RejectedRoutePoints"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="NewRoutePoints" type="d3p1:RoutePoints"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="ChangedRoutePoints" type="d3p1:ChangedRoutePoints"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="ChangedRoutes" type="d3p1:ChangedRoutes"/>
+		<property name="NotificationText" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="NotificationTitle" type="xs:string" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="Photos">
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="Photo" type="d3p1:Photo" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="Photo">
+		<property name="PhotoID" type="xs:string"/>
+		<property name="Data" type="xs:base64Binary"/>
+	</objectType>
+	<objectType name="RoutePoints">
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="RoutePoint" type="d3p1:RoutePoint" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="RoutePoint">
+		<property name="RoutePointID" type="xs:string"/>
+		<property name="Address" type="xs:string" lowerBound="0"/>
+		<property name="Order" type="xs:int" lowerBound="0"/>
+		<property name="Latitude" type="xs:float" lowerBound="0" nillable="true"/>
+		<property name="Longitude" type="xs:float" lowerBound="0" nillable="true"/>
+		<property name="LatitudeVariance" type="xs:float" lowerBound="0" nillable="true"/>
+		<property name="LongitudeVariance" type="xs:float" lowerBound="0" nillable="true"/>
+		<property name="PlanArrivalTime" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="PlanDepartureTime" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="FactArrivalTime" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="FactStartTime" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="FactDepartureTime" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="Executed" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="ExecutedEarly" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="Rejected" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="RejectedEarly" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="RejectReasonID" type="xs:string" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="PossibleRejectReasons" type="d3p1:PossibleRejectReasons" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="Tasks" type="d3p1:Tasks" lowerBound="0"/>
+		<property name="FactArrivalLatitude" type="xs:float" lowerBound="0" nillable="true"/>
+		<property name="FactArrivalLongitude" type="xs:float" lowerBound="0" nillable="true"/>
+		<property name="FactStartLatitude" type="xs:float" lowerBound="0" nillable="true"/>
+		<property name="FactStartLongitude" type="xs:float" lowerBound="0" nillable="true"/>
+		<property name="FactDepartureLatitude" type="xs:float" lowerBound="0" nillable="true"/>
+		<property name="FactDepartureLongitude" type="xs:float" lowerBound="0" nillable="true"/>
+		<property name="MissedDate" type="xs:dateTime" lowerBound="0"/>
+		<property name="MissedLatitude" type="xs:float" lowerBound="0" nillable="true"/>
+		<property name="MissedLongitude" type="xs:float" lowerBound="0" nillable="true"/>
+		<property name="ReadOnly" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="Files" type="d3p1:Files" nillable="true"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="Predecessors" type="d3p1:Predecessors" nillable="true"/>
+		<property name="AllowedToRejectPoint" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="AllowedToExecuteSetOfTasks" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="CloseCashShiftAfterDepature" type="xs:boolean"/>
+		<property name="AllowedEarlyDeparture" type="xs:boolean"/>
+		<property name="AllowedRequestForEarlyDeparture" type="xs:boolean"/>
+		<property name="AllowedToBeNextExecuted" type="xs:boolean"/>
+		<property name="AllowedRequestForBeingNextExecuted" type="xs:boolean"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="ExtraProperties" type="d3p1:ExtraProperties" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="Predecessors">
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="PointID" type="d3p1:ID" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="ID">
+		<property name="ID" type="xs:string"/>
+	</objectType>
+	<objectType name="PossibleRejectReasons">
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="PossibleRejectReason" type="d3p1:PossibleRejectReason" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="PossibleRejectReason">
+		<property name="RejectReasonID" type="xs:string"/>
+		<property name="RejectReasonName" type="xs:string"/>
+		<property name="PhotoForRejectedRequired" type="xs:boolean"/>
+	</objectType>
+	<objectType name="Tasks">
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="Task" type="d3p1:Task" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="Task">
+		<property name="TaskID" type="xs:string"/>
+		<property name="OperationType" type="xs:string"/>
+		<property name="Object" type="xs:string"/>
+		<property name="Barcode" type="xs:string"/>
+		<property name="ScanningRequired" type="xs:boolean"/>
+		<property name="PhotoRequired" type="xs:boolean"/>
+		<property name="IsCargo" type="xs:boolean"/>
+		<property name="Weight" type="xs:float" lowerBound="0" nillable="true"/>
+		<property name="Volume" type="xs:float" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="CommodityComposition" type="d3p1:CommodityComposition" lowerBound="0" nillable="true"/>
+		<property name="PartnerID" type="xs:string" nillable="true"/>
+		<property name="Executed" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="ExecutedPartly" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="Rejected" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="RejectReasonID" type="xs:string" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="PossibleRejectReasons" type="d3p1:PossibleRejectReasons"/>
+		<property name="QuantityRequired" type="xs:boolean"/>
+		<property name="Quantity" type="xs:float" nillable="true"/>
+		<property name="PlanQuantity" type="xs:float" nillable="true"/>
+		<property name="Digits" type="xs:int" lowerBound="0" nillable="true"/>
+		<property name="FractionDigits" type="xs:int" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="Files" type="d3p1:Files" nillable="true"/>
+		<property name="AllowNewBarcode" type="xs:boolean"/>
+		<property name="NewBarcode" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Commentary" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="OrderNumber" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="QuantityRejectReasonRequired" type="xs:boolean"/>
+		<property name="CommodityExecutionRequired" type="xs:boolean"/>
+		<property name="CommodityExecutionOnly" type="xs:boolean"/>
+		<property name="PhotoForRejectedRequired" type="xs:boolean"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="RejectedTaskFiles" type="d3p1:Files" nillable="true"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="ExecutedTaskFiles" type="d3p1:Files" nillable="true"/>
+		<property name="ReadOnly" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="GroupID" type="xs:string"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="JoinedTasks" type="d3p1:JoinedTasks" lowerBound="0" nillable="true"/>
+		<property name="AllowedToRetail" type="xs:boolean"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="PaymentType" type="d3p1:PaymentTypes" lowerBound="0" nillable="true"/>
+		<property name="OpenCashShiftForEachSalesCheck" type="xs:boolean"/>
+		<property name="TakeSalesCheckContentsFromJoinedTasks" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="TaxRate" type="d3p1:ValueAddedTaxRates" nillable="false"/>
+		<property name="AllowedPrepayment" type="xs:boolean"/>
+	</objectType>
+	<objectType name="JoinedTasks">
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="TaskID" type="d3p1:ID" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="CommodityComposition">
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="CommodityLines" type="d3p1:CommodityLine" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="CommodityLine">
+		<property name="CommodityID" type="xs:string"/>
+		<property name="Commodity" type="xs:string"/>
+		<property name="Unit" type="xs:string" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="TaxRate" type="d3p1:ValueAddedTaxRates" nillable="false"/>
+		<property name="Price" type="xs:float" lowerBound="0" nillable="true"/>
+		<property name="PlanQuantity" type="xs:float" nillable="true"/>
+		<property name="Quantity" type="xs:float"/>
+		<property name="QuantityRequired" type="xs:boolean"/>
+		<property name="Digits" type="xs:int" lowerBound="0" nillable="true"/>
+		<property name="FractionDigits" type="xs:int" lowerBound="0" nillable="true"/>
+		<property name="Executed" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="Rejected" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="RejectReasonID" type="xs:string" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="RejectedLineFiles" type="d3p1:Files" nillable="true"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="ExecutedLineFiles" type="d3p1:Files" nillable="true"/>
+	</objectType>
+	<objectType name="Partners">
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="Partner" type="d3p1:Partner" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="Partner">
+		<property name="PartnerID" type="xs:string"/>
+		<property name="Name" type="xs:string"/>
+		<property name="ContactName" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ContactPhone" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="OpenningTime" type="xs:time" lowerBound="0" nillable="true"/>
+		<property name="ClosingTime" type="xs:time" lowerBound="0" nillable="true"/>
+		<property name="Email" type="xs:string" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="Settings">
+		<property name="AllowedToChangePointsOrder" type="xs:boolean"/>
+		<property name="ShowNextPointOnly" type="xs:boolean"/>
+		<property name="StatusFrequencySec" type="xs:int"/>
+		<property name="AllowedToRejectNewPoints" type="xs:boolean"/>
+		<property name="NewPointsRequestTimeoutSec" type="xs:int"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="LocationAccessMode" type="d3p1:LocationAccessModes" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="NavigatorMode" type="d3p1:NavigatorModes" lowerBound="0" nillable="true"/>
+		<property name="AllowedToRetail" type="xs:boolean"/>
+		<property name="AllowedToChangeCashEquipment" type="xs:boolean"/>
+		<property name="CloseCashShiftAfterRouteFinish" type="xs:boolean"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="CashEquipmentType" type="d3p1:CashEquipmentTypes" lowerBound="0" nillable="true"/>
+		<property name="CoordinatesFrequencySec" type="xs:int"/>
+		<property name="CoordinatesLatitudeVariance" type="xs:float" lowerBound="0" nillable="true"/>
+		<property name="CoordinatesLongitudeVariance" type="xs:float" lowerBound="0" nillable="true"/>
+		<property name="AllowedEarlyExecution" type="xs:boolean"/>
+		<property name="AllowedRequestForEarlyExecution" type="xs:boolean"/>
+	</objectType>
+	<objectType name="WayAlerts">
+		<property name="WayAlert" type="xs:string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="GeoPositionData">
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="GeoPositionPoint" type="d3p1:GeoPositionPoint" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="GeoPositionPoint">
+		<property name="Date" type="xs:dateTime"/>
+		<property name="Latitude" type="xs:float" nillable="true"/>
+		<property name="Longitude" type="xs:float" nillable="true"/>
+		<property name="Altitude" type="xs:float" nillable="true"/>
+		<property name="Velocity" type="xs:int" nillable="true"/>
+		<property name="Direction" type="xs:int" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="AcceptedRoutePoints">
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="AcceptedRoutePoint" type="d3p1:AcceptedRoutePoint" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="AcceptedRoutePoint">
+		<property name="RoutePointID" type="xs:string"/>
+		<property name="Accepted" type="xs:boolean"/>
+		<property name="Date" type="xs:dateTime"/>
+		<property name="Latitude" type="xs:float" nillable="true"/>
+		<property name="Longitude" type="xs:float" nillable="true"/>
+	</objectType>
+	<objectType name="ChangedOrderRoutePoints">
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="ChangedOrderRoutePoint" type="d3p1:ChangedOrderRoutePoint" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="ChangedOrderRoutePoint">
+		<property name="RoutePointID" type="xs:string"/>
+		<property name="PredecessorRoutePointID" type="xs:string" lowerBound="0" upperBound="-1"/>
+		<property name="Date" type="xs:dateTime"/>
+		<property name="Latitude" type="xs:float" nillable="true"/>
+		<property name="Longitude" type="xs:float" nillable="true"/>
+	</objectType>
+	<objectType name="TextMessages">
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="TextMessage" type="d3p1:TextMessage" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="TextMessage">
+		<property name="WayAlert" type="xs:string"/>
+		<property name="Text" type="xs:string" nillable="true"/>
+		<property name="Date" type="xs:dateTime"/>
+		<property name="Latitude" type="xs:float" nillable="true"/>
+		<property name="Longitude" type="xs:float" nillable="true"/>
+	</objectType>
+	<objectType name="PhoneCalls">
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="PhoneCall" type="d3p1:PhoneCall" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="PhoneCall">
+		<property name="PhoneNumber" type="xs:string"/>
+		<property name="DurationSec" type="xs:int" nillable="true"/>
+		<property name="Date" type="xs:dateTime"/>
+		<property name="Latitude" type="xs:float" nillable="true"/>
+		<property name="Longitude" type="xs:float" nillable="true"/>
+		<property name="IsIncoming" type="xs:boolean"/>
+		<property name="Missed" type="xs:boolean"/>
+	</objectType>
+	<objectType name="DispatcherTextMessage">
+		<property name="Text" type="xs:string" nillable="true"/>
+		<property name="Date" type="xs:dateTime"/>
+	</objectType>
+	<objectType name="DispatcherTextMessages">
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="DispatcherTextMessage" type="d3p1:DispatcherTextMessage" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="RejectedRoutePoints">
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="RejectedRoutePoint" type="d3p1:RejectedRoutePoint" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="RejectedRoutePoint">
+		<property name="RoutePointID" type="xs:string"/>
+		<property name="Date" type="xs:dateTime"/>
+		<property name="RejectReasonID" type="xs:string"/>
+		<property name="RejectReasonIDName" type="xs:string"/>
+	</objectType>
+	<objectType name="ChangedRoutePoints">
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="ChangedRoutePoint" type="d3p1:ChangedRoutePoint" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="ChangedRoutePoint">
+		<property name="RoutePointID" type="xs:string"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="NewTasks" type="d3p1:Tasks"/>
+	</objectType>
+	<objectType name="ChangedRoutes">
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="ChangedRoute" type="d3p1:Route" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="Files">
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="File" type="d3p1:File" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="File">
+		<property name="FileID" type="xs:string"/>
+	</objectType>
+	<objectType name="ActiveUsers">
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="ActiveUser" type="d3p1:ActiveUser" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="ActiveUser">
+		<property name="ID" type="xs:string"/>
+		<property name="Name" type="xs:string"/>
+		<property name="LatestCallDate" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="LicenseID" type="xs:string"/>
+	</objectType>
+	<objectType name="Liсenses">
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="Liсense" type="d3p1:Liсense" lowerBound="0" upperBound="-1" nillable="false"/>
+	</objectType>
+	<objectType name="Liсense">
+		<property name="ID" type="xs:string"/>
+		<property name="OrganizationName" type="xs:string"/>
+		<property name="MaxConnectionsQuantity" type="xs:int" nillable="false"/>
+		<property name="UsedConnectionsQuantity" type="xs:int" nillable="false"/>
+		<property name="IsTemporary" type="xs:boolean"/>
+		<property name="ExpirationDate" type="xs:dateTime" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="User">
+		<property name="ID" type="xs:string"/>
+		<property name="Name" type="xs:string"/>
+		<property name="CallDate" type="xs:dateTime" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="CashEquipmentList">
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="CashEquipment" type="d3p1:CashEquipment" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="CashEquipment">
+		<property name="CashEquipmentID" type="xs:string"/>
+		<property name="Name" type="xs:string"/>
+		<property name="Organization" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="INN" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="CashEquipmentModelName" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="CashEquipmentModelID" type="xs:string" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="CashEquipmentConnectionMode" type="d3p1:CashEquipmentConnectionModes"/>
+		<property name="Password" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="AdminPassword" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Cashier" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="CashierINN" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="IsPrincipal" type="xs:boolean"/>
+		<property name="Removed" type="xs:boolean"/>
+		<property name="MacAddress" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="UsbVid" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="UsbPid" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Email" type="xs:string" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="SalesCheck">
+		<property name="SalesCheckID" type="xs:string"/>
+		<property name="Date" type="xs:dateTime" lowerBound="0"/>
+		<property name="TaskID" type="xs:string"/>
+		<property name="CashEquipmentID" type="xs:string" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="PaymentType" type="d3p1:PaymentTypes" lowerBound="0" nillable="true"/>
+		<property name="CashShiftNumber" type="xs:int"/>
+		<property name="SalesCheckNumber" type="xs:string"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="SalesCheckOperationType" type="d3p1:SalesCheckOperationTypes"/>
+		<property name="BaseSalesCheckID" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="TaxSum" type="xs:float"/>
+		<property name="Sum" type="xs:float"/>
+		<property name="SumElectron" type="xs:float" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="SalesCheckCommodityComposition" type="d3p1:SalesCheckCommodityComposition" lowerBound="0" nillable="true"/>
+		<property name="Latitude" type="xs:float" nillable="true"/>
+		<property name="Longitude" type="xs:float" nillable="true"/>
+		<property name="IsReturned" type="xs:boolean"/>
+		<property name="PrepaymentCheckNumber" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="PrepaymentSum" type="xs:float" lowerBound="0" nillable="true"/>
+		<property name="PrepaymentCheckID" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="BasePrepaymentCheckID" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="PrepaymentTaxSum" type="xs:float" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="SalesCheckCommodityComposition">
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="SalesCheckCommodityLines" type="d3p1:SalesCheckCommodityLine" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="SalesCheckCommodityLine">
+		<property name="CommodityID" type="xs:string"/>
+		<property name="Commodity" type="xs:string"/>
+		<property name="Quantity" type="xs:float"/>
+		<property name="Unit" type="xs:string" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="TaxRate" type="d3p1:ValueAddedTaxRates" nillable="false"/>
+		<property name="Price" type="xs:float" lowerBound="0" nillable="true"/>
+		<property name="TaxSum" type="xs:float"/>
+		<property name="Sum" type="xs:float"/>
+	</objectType>
+	<objectType name="SalesChecks">
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="SalesCheck" type="d3p1:SalesCheck" lowerBound="0" upperBound="-1" nillable="false"/>
+	</objectType>
+	<objectType name="CashShift">
+		<property name="CashShiftID" type="xs:string"/>
+		<property name="Date" type="xs:dateTime" lowerBound="0"/>
+		<property name="CashShiftNumber" type="xs:int"/>
+		<property name="CashEquipmentID" type="xs:string"/>
+		<property name="Opened" type="xs:boolean"/>
+		<property name="Closed" type="xs:boolean"/>
+		<property name="Latitude" type="xs:float" nillable="true"/>
+		<property name="Longitude" type="xs:float" nillable="true"/>
+	</objectType>
+	<objectType name="CashShifts">
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="CashShift" type="d3p1:CashShift" lowerBound="0" upperBound="-1" nillable="false"/>
+	</objectType>
+	<objectType name="ExtraProperty">
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="FormType" type="d3p1:FormTypes"/>
+		<property name="Key" type="xs:string"/>
+		<property name="Value" type="xs:string"/>
+	</objectType>
+	<objectType name="ExtraProperties">
+		<property xmlns:d3p1="http://www.axelot.ru/tms3/MobileClient" name="ExtraProperty" type="d3p1:ExtraProperty" lowerBound="0" upperBound="-1"/>
+	</objectType>
+</package>

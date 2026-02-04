@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоЭкземпляровДокумента</dataPath>
+			<field>КоличествоЭкземпляровДокумента</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество экземпляров документа</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Операция</dataPath>
+			<field>Операция</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Задание</dataPath>
+			<field>Задание</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТипРегламентногоДокумента</dataPath>
+			<field>ТипРегламентногоДокумента</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Рейс</dataPath>
+			<field>Рейс</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Адрес</dataPath>
+			<field>Адрес</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	упРаботыПоРейсу.Рейс,
+	упРаботыПоРейсу.Идентификатор,
+	упРаботыПоРейсу.ИдентификаторРаботы,
+	упРаботыПоРейсу.Задание,
+	упРаботыПоРейсу.Операция,
+	упРаботыПоРейсу.ТипРегламентногоДокумента,
+	СУММА(упРаботыПоРейсу.КоличествоЭкземпляровДокумента) КАК КоличествоЭкземпляровДокумента
+ПОМЕСТИТЬ втПлановыеРаботы
+ИЗ
+	РегистрСведений.упРаботыПоРейсу КАК упРаботыПоРейсу
+ГДЕ
+	упРаботыПоРейсу.Период МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+	И упРаботыПоРейсу.Регистратор ССЫЛКА Документ.упРейс
+	И упРаботыПоРейсу.Операция В (ЗНАЧЕНИЕ(Перечисление.упТипыОпераций.ПолучениеДокументов), ЗНАЧЕНИЕ(Перечисление.упТипыОпераций.ПередачаДокументов))
+
+СГРУППИРОВАТЬ ПО
+	упРаботыПоРейсу.Рейс,
+	упРаботыПоРейсу.Идентификатор,
+	упРаботыПоРейсу.ИдентификаторРаботы,
+	упРаботыПоРейсу.Задание,
+	упРаботыПоРейсу.Операция,
+	упРаботыПоРейсу.ТипРегламентногоДокумента
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗЛИЧНЫЕ
+	втПлановыеРаботы.Рейс
+ПОМЕСТИТЬ втРейсы
+ИЗ
+	втПлановыеРаботы КАК втПлановыеРаботы
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	упРаботыПоРейсу.Рейс,
+	упРаботыПоРейсу.Идентификатор,
+	упРаботыПоРейсу.ИдентификаторРаботы,
+	упРаботыПоРейсу.Задание,
+	упРаботыПоРейсу.Операция,
+	упРаботыПоРейсу.ТипРегламентногоДокумента,
+	СУММА(упРаботыПоРейсу.КоличествоЭкземпляровДокумента) КАК КоличествоЭкземпляровДокумента
+ПОМЕСТИТЬ втФактическиеРаботы
+ИЗ
+	РегистрСведений.упРаботыПоРейсу.СрезПоследних(
+			,
+			Рейс В
+				(ВЫБРАТЬ
+					втРейсы.Рейс
+				ИЗ
+					втРейсы)) КАК упРаботыПоРейсу
+ГДЕ
+	упРаботыПоРейсу.Операция В (ЗНАЧЕНИЕ(Перечисление.упТипыОпераций.ПолучениеДокументов), ЗНАЧЕНИЕ(Перечисление.упТипыОпераций.ПередачаДокументов))
+
+СГРУППИРОВАТЬ ПО
+	упРаботыПоРейсу.Рейс,
+	упРаботыПоРейсу.Идентификатор,
+	упРаботыПоРейсу.ИдентификаторРаботы,
+	упРаботыПоРейсу.Задание,
+	упРаботыПоРейсу.Операция,
+	упРаботыПоРейсу.ТипРегламентногоДокумента
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	упМаршрутПоРейсу.Рейс,
+	упМаршрутПоРейсу.Адрес,
+	упМаршрутПоРейсу.Идентификатор,
+	упМаршрутПоРейсу.СтрокаНомер,
+	упМаршрутПоРейсу.Пройдена,
+	упМаршрутПоРейсу.Отменена
+ПОМЕСТИТЬ втМаршруты
+ИЗ
+	РегистрСведений.упМаршрутПоРейсу.СрезПоследних(
+			,
+			Рейс В
+				(ВЫБРАТЬ
+					втРейсы.Рейс
+				ИЗ
+					втРейсы)) КАК упМаршрутПоРейсу
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	втПлановыеРаботы.Рейс,
+	втМаршруты.Адрес,
+	втПлановыеРаботы.Задание,
+	втПлановыеРаботы.Операция,
+	втПлановыеРаботы.ТипРегламентногоДокумента,
+	втПлановыеРаботы.КоличествоЭкземпляровДокумента - ЕСТЬNULL(втФактическиеРаботы.КоличествоЭкземпляровДокумента, 0) КАК КоличествоЭкземпляровДокумента
+ИЗ
+	втПлановыеРаботы КАК втПлановыеРаботы
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ втМаршруты КАК втМаршруты
+		ПО втПлановыеРаботы.Рейс = втМаршруты.Рейс
+			И втПлановыеРаботы.Идентификатор = втМаршруты.Идентификатор
+		ЛЕВОЕ СОЕДИНЕНИЕ втФактическиеРаботы КАК втФактическиеРаботы
+		ПО втПлановыеРаботы.Рейс = втФактическиеРаботы.Рейс
+			И втПлановыеРаботы.Идентификатор = втФактическиеРаботы.Идентификатор
+			И втПлановыеРаботы.ИдентификаторРаботы = втФактическиеРаботы.ИдентификаторРаботы
+			И втПлановыеРаботы.Задание = втФактическиеРаботы.Задание
+			И втПлановыеРаботы.Операция = втФактическиеРаботы.Операция
+			И втПлановыеРаботы.ТипРегламентногоДокумента = втФактическиеРаботы.ТипРегламентногоДокумента
+ГДЕ
+	втПлановыеРаботы.КоличествоЭкземпляровДокумента - ЕСТЬNULL(втФактическиеРаботы.КоличествоЭкземпляровДокумента, 0) &gt; 0
+
+УПОРЯДОЧИТЬ ПО
+	втПлановыеРаботы.Рейс,
+	втМаршруты.СтрокаНомер</query>
+	</dataSet>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>КОНЕЦПЕРИОДА(&amp;СтандартныйПериод.ДатаОкончания, "ДЕНЬ")</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;СтандартныйПериод.ДатаНачала</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>СтандартныйПериод</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:StandardPeriod</v8:Type>
+		</valueType>
+		<value xsi:type="v8:StandardPeriod">
+			<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+			<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+			<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+		</value>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>ЗадолженностьПоДокументамРейсов</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Задолженность по документам в точках рейсов</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Рейс</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Адрес</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Задание</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТипРегламентногоДокумента</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Операция</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоЭкземпляровДокумента</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>СтандартныйПериод</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">ThisQuarter</v8:variant>
+					</dcscor:value>
+					<dcsset:userSettingID>b840999d-21fe-46f1-805c-74e37a5867ee</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МакетОформления</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">упМакетОформленияОтчетов</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Задолженность по документам в точках рейсов</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

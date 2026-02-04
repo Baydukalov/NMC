@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>Документы</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АдресОтправления</dataPath>
+			<field>АдресОтправления</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Заказчик</dataPath>
+			<field>Заказчик</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>БеречьОтВлаги</dataPath>
+			<field>БеречьОтВлаги</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КлассОпасности</dataPath>
+			<field>КлассОпасности</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаАктуальности</dataPath>
+			<field>ДатаАктуальности</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АдресПолучения</dataPath>
+			<field>АдресПолучения</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Соглашение</dataPath>
+			<field>Соглашение</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Хрупкий</dataPath>
+			<field>Хрупкий</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТемпературныйРежим</dataPath>
+			<field>ТемпературныйРежим</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗонаПолучения</dataPath>
+			<field>ЗонаПолучения</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>БеречьОтНагрева</dataPath>
+			<field>БеречьОтНагрева</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>БеречьОтИзлучения</dataPath>
+			<field>БеречьОтИзлучения</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоЗагрузочныхМетров</dataPath>
+			<field>КоличествоЗагрузочныхМетров</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Ссылка</dataPath>
+			<field>Ссылка</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Масса</dataPath>
+			<field>Масса</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Объем</dataPath>
+			<field>Объем</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗонаОтправления</dataPath>
+			<field>ЗонаОтправления</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Статус</dataPath>
+			<field>Статус</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоМест</dataPath>
+			<field>КоличествоМест</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	упЗапросУсловийПеревозки.АдресОтправления,
+	упЗапросУсловийПеревозки.АдресПолучения,
+	упЗапросУсловийПеревозки.БеречьОтВлаги,
+	упЗапросУсловийПеревозки.БеречьОтИзлучения,
+	упЗапросУсловийПеревозки.БеречьОтНагрева,
+	упЗапросУсловийПеревозки.ДатаАктуальности,
+	упЗапросУсловийПеревозки.Заказчик,
+	упЗапросУсловийПеревозки.ЗонаОтправления,
+	упЗапросУсловийПеревозки.ЗонаПолучения,
+	упЗапросУсловийПеревозки.КлассОпасности,
+	упЗапросУсловийПеревозки.КоличествоМест,
+	упЗапросУсловийПеревозки.КоличествоЗагрузочныхМетров,
+	упЗапросУсловийПеревозки.Масса,
+	упЗапросУсловийПеревозки.Объем,
+	упЗапросУсловийПеревозки.Организация,
+	упЗапросУсловийПеревозки.Соглашение,
+	упЗапросУсловийПеревозки.ТемпературныйРежим,
+	упЗапросУсловийПеревозки.Хрупкий,
+	упЗапросУсловийПеревозки.Ссылка,
+	ЕСТЬNULL(упСтатусыЗапросовУсловийПеревозокСрезПоследних.Статус, ЗНАЧЕНИЕ(Перечисление.упСтатусыЗапросаУсловийПеревозки.Новый)) КАК Статус
+ИЗ
+	Документ.упЗапросУсловийПеревозки КАК упЗапросУсловийПеревозки
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упСтатусыЗапросовУсловийПеревозок.СрезПоследних(, {(Документ).* КАК Ссылка}) КАК упСтатусыЗапросовУсловийПеревозокСрезПоследних
+		ПО упЗапросУсловийПеревозки.Ссылка = упСтатусыЗапросовУсловийПеревозокСрезПоследних.Документ</query>
+	</dataSet>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаАктуальности</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>АдресОтправления</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>АдресПолучения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>БеречьОтВлаги</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>БеречьОтИзлучения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>БеречьОтНагрева</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Заказчик</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЗонаОтправления</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЗонаПолучения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КлассОпасности</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоЗагрузочныхМетров</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоМест</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Масса</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Объем</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Организация</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Соглашение</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Ссылка</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Статус</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТемпературныйРежим</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Хрупкий</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

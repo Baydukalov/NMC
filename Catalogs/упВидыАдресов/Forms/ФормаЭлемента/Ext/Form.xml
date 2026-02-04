@@ -1,0 +1,616 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Наименование" id="1">
+			<DataPath>Объект.Description</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<ContextMenu name="НаименованиеКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<CheckBoxField name="ПриоритетноеПостроениеМассиваРасстояний" id="7">
+			<DataPath>Объект.ПриоритетноеПостроениеМассиваРасстояний</DataPath>
+			<TitleLocation>Right</TitleLocation>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="ПриоритетноеПостроениеМассиваРасстоянийКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="ПриоритетноеПостроениеМассиваРасстоянийРасширеннаяПодсказка" id="9"/>
+		</CheckBoxField>
+		<CheckBoxField name="БазовыйАдресОтправления" id="81">
+			<DataPath>Объект.НеИспользоватьКакБазовыйАдресОтправления</DataPath>
+			<TitleLocation>Right</TitleLocation>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="БазовыйАдресОтправленияКонтекстноеМеню" id="82"/>
+			<ExtendedTooltip name="БазовыйАдресОтправленияРасширеннаяПодсказка" id="83"/>
+		</CheckBoxField>
+		<InputField name="ВремяПрохожденияТочки" id="10">
+			<DataPath>Объект.ВремяПрохожденияТочки</DataPath>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<ContextMenu name="ВремяПрохожденияТочкиКонтекстноеМеню" id="11"/>
+			<ExtendedTooltip name="ВремяПрохожденияТочкиРасширеннаяПодсказка" id="12"/>
+		</InputField>
+		<UsualGroup name="ГруппаСтилиМаркера" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оформление</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа стили маркера</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаСтилиМаркераРасширеннаяПодсказка" id="17"/>
+			<ChildItems>
+				<UsualGroup name="Группа1" id="21">
+					<Group>AlwaysHorizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="22"/>
+					<ChildItems>
+						<InputField name="СтильМаркера" id="4">
+							<DataPath>Объект.СтильМаркера</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<ContextMenu name="СтильМаркераКонтекстноеМеню" id="5"/>
+							<ExtendedTooltip name="СтильМаркераРасширеннаяПодсказка" id="6"/>
+							<Events>
+								<Event name="OnChange">СтильМаркераПриИзменении</Event>
+							</Events>
+						</InputField>
+						<Pages name="СтраницыМаркера" id="39">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Страницы маркера</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Страницы маркера</v8:content>
+								</v8:item>
+							</ToolTip>
+							<PagesRepresentation>None</PagesRepresentation>
+							<ExtendedTooltip name="СтраницыМаркераРасширеннаяПодсказка" id="40"/>
+							<ChildItems>
+								<Page name="СтраницаМаркераИзХранилища" id="41">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница маркера из хранилища</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница маркера из хранилища</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="СтраницаМаркераИзХранилищаРасширеннаяПодсказка" id="42"/>
+									<ChildItems>
+										<PictureField name="КартинкаМаркераИзХранилища" id="43">
+											<DataPath>КартинкаМаркераИзХранилища</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<Width>6</Width>
+											<Height>2</Height>
+											<HorizontalStretch>false</HorizontalStretch>
+											<VerticalStretch>false</VerticalStretch>
+											<FileDragMode>AsFile</FileDragMode>
+											<ContextMenu name="КартинкаМаркераИзХранилищаКонтекстноеМеню" id="44"/>
+											<ExtendedTooltip name="КартинкаМаркераИзХранилищаРасширеннаяПодсказка" id="45"/>
+										</PictureField>
+									</ChildItems>
+								</Page>
+								<Page name="СтраницаМаркераКартинка" id="46">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница маркера картинка</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница маркера картинка</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="СтраницаМаркераКартинкаРасширеннаяПодсказка" id="47"/>
+									<ChildItems>
+										<PictureField name="КартинкаМаркера" id="48">
+											<DataPath>КартинкаМаркера</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<Width>6</Width>
+											<Height>2</Height>
+											<HorizontalStretch>false</HorizontalStretch>
+											<VerticalStretch>false</VerticalStretch>
+											<FileDragMode>AsFile</FileDragMode>
+											<ContextMenu name="КартинкаМаркераКонтекстноеМеню" id="49"/>
+											<ExtendedTooltip name="КартинкаМаркераРасширеннаяПодсказка" id="50"/>
+										</PictureField>
+									</ChildItems>
+								</Page>
+							</ChildItems>
+						</Pages>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="Группа2" id="32">
+					<Group>AlwaysHorizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="33"/>
+					<ChildItems>
+						<InputField name="СтильВыделенногоМаркера" id="18">
+							<DataPath>Объект.СтильВыделенногоМаркера</DataPath>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<ContextMenu name="СтильВыделенногоМаркераКонтекстноеМеню" id="19"/>
+							<ExtendedTooltip name="СтильВыделенногоМаркераРасширеннаяПодсказка" id="20"/>
+							<Events>
+								<Event name="OnChange">СтильВыделенногоМаркераПриИзменении</Event>
+							</Events>
+						</InputField>
+						<Pages name="СтраницыВыделенногоМаркера" id="51">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Страницы выделенного маркера</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Страницы маркера</v8:content>
+								</v8:item>
+							</ToolTip>
+							<PagesRepresentation>None</PagesRepresentation>
+							<ExtendedTooltip name="СтраницыВыделенногоМаркераРасширеннаяПодсказка" id="52"/>
+							<ChildItems>
+								<Page name="СтраницаВыделенногоМаркераИзХранилища" id="53">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница маркера из хранилилще</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница маркера из хранилилще</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="СтраницаВыделенногоМаркераИзХранилищаРасширеннаяПодсказка" id="54"/>
+									<ChildItems>
+										<PictureField name="КартинкаВыделенногоМаркераИзХранилища" id="60">
+											<DataPath>КартинкаВыделенногоМаркераИзХранилища</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<Width>6</Width>
+											<Height>2</Height>
+											<HorizontalStretch>false</HorizontalStretch>
+											<VerticalStretch>false</VerticalStretch>
+											<FileDragMode>AsFile</FileDragMode>
+											<ContextMenu name="КартинкаВыделенногоМаркераИзХранилищаКонтекстноеМеню" id="61"/>
+											<ExtendedTooltip name="КартинкаВыделенногоМаркераИзХранилищаРасширеннаяПодсказка" id="62"/>
+										</PictureField>
+									</ChildItems>
+								</Page>
+								<Page name="СтраницаВыделенногоМаркераКартинка" id="58">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница маркера картинка</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница маркера картинка</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="СтраницаВыделенногоМаркераКартинкаРасширеннаяПодсказка" id="59"/>
+									<ChildItems>
+										<PictureField name="КартинкаВыделенногоМаркера" id="63">
+											<DataPath>КартинкаВыделенногоМаркера</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<Width>6</Width>
+											<Height>2</Height>
+											<HorizontalStretch>false</HorizontalStretch>
+											<VerticalStretch>false</VerticalStretch>
+											<FileDragMode>AsFile</FileDragMode>
+											<ContextMenu name="КартинкаВыделенногоМаркераКонтекстноеМеню" id="64"/>
+											<ExtendedTooltip name="КартинкаВыделенногоМаркераРасширеннаяПодсказка" id="65"/>
+										</PictureField>
+									</ChildItems>
+								</Page>
+							</ChildItems>
+						</Pages>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="Группа3" id="34">
+					<Group>AlwaysHorizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="35"/>
+					<ChildItems>
+						<InputField name="СтильВыбранногоМаркера" id="13">
+							<DataPath>Объект.СтильВыбранногоМаркера</DataPath>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<ContextMenu name="СтильВыбранногоМаркераКонтекстноеМеню" id="14"/>
+							<ExtendedTooltip name="СтильВыбранногоМаркераРасширеннаяПодсказка" id="15"/>
+							<Events>
+								<Event name="OnChange">СтильВыбранногоМаркераПриИзменении</Event>
+							</Events>
+						</InputField>
+						<Pages name="СтраницыВыбранногоМаркера" id="66">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Страницы выделенного маркера</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Страницы маркера</v8:content>
+								</v8:item>
+							</ToolTip>
+							<PagesRepresentation>None</PagesRepresentation>
+							<ExtendedTooltip name="СтраницыВыбранногоМаркераРасширеннаяПодсказка" id="67"/>
+							<ChildItems>
+								<Page name="СтраницаВыбранногоМаркераИзХранилища" id="68">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница маркера из хранилища</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница маркера из хранилилще</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="СтраницаВыбранногоМаркераИзХранилищаРасширеннаяПодсказка" id="69"/>
+									<ChildItems>
+										<PictureField name="КартинкаВыбранногоМаркераИзХранилища" id="78">
+											<DataPath>КартинкаВыбранногоМаркераИзХранилища</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<Width>6</Width>
+											<Height>2</Height>
+											<HorizontalStretch>false</HorizontalStretch>
+											<VerticalStretch>false</VerticalStretch>
+											<FileDragMode>AsFile</FileDragMode>
+											<ContextMenu name="КартинкаВыбранногоМаркераИзХранилищаКонтекстноеМеню" id="79"/>
+											<ExtendedTooltip name="КартинкаВыбранногоМаркераИзХранилищаРасширеннаяПодсказка" id="80"/>
+										</PictureField>
+									</ChildItems>
+								</Page>
+								<Page name="СтраницаВыбранногоМаркераКартинка" id="73">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница маркера картинка</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница маркера картинка</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="СтраницаВыбранногоМаркераКартинкаРасширеннаяПодсказка" id="74"/>
+									<ChildItems>
+										<PictureField name="КартинкаВыбранногоМаркера" id="75">
+											<DataPath>КартинкаВыбранногоМаркера</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<Width>6</Width>
+											<Height>2</Height>
+											<HorizontalStretch>false</HorizontalStretch>
+											<VerticalStretch>false</VerticalStretch>
+											<FileDragMode>AsFile</FileDragMode>
+											<ContextMenu name="КартинкаВыбранногоМаркераКонтекстноеМеню" id="76"/>
+											<ExtendedTooltip name="КартинкаВыбранногоМаркераРасширеннаяПодсказка" id="77"/>
+										</PictureField>
+									</ChildItems>
+								</Page>
+							</ChildItems>
+						</Pages>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="Группа4" id="84">
+					<Group>AlwaysHorizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="85"/>
+					<ChildItems>
+						<InputField name="СтильВершиныГрафа" id="86">
+							<DataPath>Объект.СтильВершиныГрафа</DataPath>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<ContextMenu name="СтильВершиныГрафаКонтекстноеМеню" id="87"/>
+							<ExtendedTooltip name="СтильВершиныГрафаРасширеннаяПодсказка" id="88"/>
+							<Events>
+								<Event name="OnChange">СтильВершиныГрафаПриИзменении</Event>
+							</Events>
+						</InputField>
+						<Pages name="СтраницыВершиныГрафа" id="89">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Страницы вершины графа</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Страницы вершины графа</v8:content>
+								</v8:item>
+							</ToolTip>
+							<HorizontalStretch>false</HorizontalStretch>
+							<PagesRepresentation>None</PagesRepresentation>
+							<ExtendedTooltip name="СтраницыВершиныГрафаРасширеннаяПодсказка" id="90"/>
+							<ChildItems>
+								<Page name="СтраницаВершиныГрафаИзХранилища" id="91">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница вершины графа из хранилища</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница вершины графа из хранилища</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="СтраницаВершиныГрафаИзХранилищаРасширеннаяПодсказка" id="92"/>
+									<ChildItems>
+										<PictureField name="КартинкаВершиныГрафаИзХранилища" id="95">
+											<DataPath>КартинкаВершиныГрафаИзХранилища</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<Width>6</Width>
+											<Height>2</Height>
+											<HorizontalStretch>false</HorizontalStretch>
+											<VerticalStretch>false</VerticalStretch>
+											<FileDragMode>AsFile</FileDragMode>
+											<ContextMenu name="КартинкаВершиныГрафаИзХранилищаКонтекстноеМеню" id="96"/>
+											<ExtendedTooltip name="КартинкаВершиныГрафаИзХранилищаРасширеннаяПодсказка" id="97"/>
+										</PictureField>
+									</ChildItems>
+								</Page>
+								<Page name="СтраницаВершиныГрафаКартинка" id="93">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница вершины графа картинка</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница вершины графа картинка</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="СтраницаВершиныГрафаКартинкаРасширеннаяПодсказка" id="94"/>
+									<ChildItems>
+										<PictureField name="КартинкаВершиныГрафа" id="98">
+											<DataPath>КартинкаВершиныГрафа</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<Width>6</Width>
+											<Height>2</Height>
+											<FileDragMode>AsFile</FileDragMode>
+											<ContextMenu name="КартинкаВершиныГрафаКонтекстноеМеню" id="99"/>
+											<ExtendedTooltip name="КартинкаВершиныГрафаРасширеннаяПодсказка" id="100"/>
+										</PictureField>
+									</ChildItems>
+								</Page>
+							</ChildItems>
+						</Pages>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.упВидыАдресов</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="КартинкаМаркера" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Картинка маркера</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8ui:Picture</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="КартинкаВыделенногоМаркераИзХранилища" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Картинка выделенного маркера из хранилища</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<FunctionalOptions>
+				<Item>FunctionalOption.упИспользуетсяГлобальнаяПодсистемаУправлениеПеревозками</Item>
+			</FunctionalOptions>
+		</Attribute>
+		<Attribute name="КартинкаВыбранногоМаркераИзХранилища" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Картинка выбранного маркера из хранилища</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<FunctionalOptions>
+				<Item>FunctionalOption.упИспользуетсяГлобальнаяПодсистемаУправлениеПеревозками</Item>
+			</FunctionalOptions>
+		</Attribute>
+		<Attribute name="КартинкаМаркераИзХранилища" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Картинка маркера из хранилища</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="КартинкаВыделенногоМаркера" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Картинка выделенного маркера</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8ui:Picture</v8:Type>
+			</Type>
+			<FunctionalOptions>
+				<Item>FunctionalOption.упИспользуетсяГлобальнаяПодсистемаУправлениеПеревозками</Item>
+			</FunctionalOptions>
+		</Attribute>
+		<Attribute name="КартинкаВыбранногоМаркера" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Картинка выбранного маркера</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8ui:Picture</v8:Type>
+			</Type>
+			<FunctionalOptions>
+				<Item>FunctionalOption.упИспользуетсяГлобальнаяПодсистемаУправлениеПеревозками</Item>
+			</FunctionalOptions>
+		</Attribute>
+		<Attribute name="КартинкаВершиныГрафа" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Картинка вершины графа</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8ui:Picture</v8:Type>
+			</Type>
+			<FunctionalOptions>
+				<Item>FunctionalOption.упИспользуютсяМультимодальныеПеревозки</Item>
+			</FunctionalOptions>
+		</Attribute>
+		<Attribute name="КартинкаВершиныГрафаИзХранилища" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Картинка вершины графа из хранилища</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<FunctionalOptions>
+				<Item>FunctionalOption.упИспользуютсяМультимодальныеПеревозки</Item>
+			</FunctionalOptions>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>РежимыПеревалкиВходящийТипПеревозки</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.РежимыПеревалки.ВходящийТипПеревозки</dcsset:left>
+						<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:НедоступныеДанныеЦвет</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>&lt;доступны все типы&gt;</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>РежимыПеревалкиИсходящийТипПеревозки</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.РежимыПеревалки.ИсходящийТипПеревозки</dcsset:left>
+						<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:НедоступныеДанныеЦвет</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>&lt;доступны все типы&gt;</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+</Form>

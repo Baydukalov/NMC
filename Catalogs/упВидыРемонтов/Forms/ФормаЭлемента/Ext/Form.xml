@@ -1,0 +1,362 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="BeforeWrite">ПередЗаписью</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Наименование" id="1">
+			<DataPath>Объект.Description</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<ContextMenu name="НаименованиеКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<InputField name="ТипРемонта" id="4">
+			<DataPath>Объект.ТипРемонта</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<ContextMenu name="ТипРемонтаКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="ТипРемонтаРасширеннаяПодсказка" id="6"/>
+		</InputField>
+		<InputField name="СтатьяРасходов" id="7">
+			<DataPath>Объект.СтатьяРасходов</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<ContextMenu name="СтатьяРасходовКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="СтатьяРасходовРасширеннаяПодсказка" id="9"/>
+		</InputField>
+		<UsualGroup name="ГруппаВремяРабот" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа время работ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа время работ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаВремяРаботРасширеннаяПодсказка" id="14"/>
+			<ChildItems>
+				<InputField name="ВремяРаботПланЧасов" id="15">
+					<DataPath>ВремяРаботПланЧасов</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Плановое время работ</v8:content>
+						</v8:item>
+					</Title>
+					<SpinButton>true</SpinButton>
+					<ContextMenu name="ВремяРаботПланЧасовКонтекстноеМеню" id="16"/>
+					<ExtendedTooltip name="ВремяРаботПланЧасовРасширеннаяПодсказка" id="17"/>
+				</InputField>
+				<LabelDecoration name="Декорация1" id="21">
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ч</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="Декорация1КонтекстноеМеню" id="22"/>
+					<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="23"/>
+				</LabelDecoration>
+				<InputField name="ВремяРаботПланМинут" id="18">
+					<DataPath>ВремяРаботПланМинут</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>мин</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Right</TitleLocation>
+					<SpinButton>true</SpinButton>
+					<MaxValue xsi:type="xs:decimal">59</MaxValue>
+					<ContextMenu name="ВремяРаботПланМинутКонтекстноеМеню" id="19"/>
+					<ExtendedTooltip name="ВремяРаботПланМинутРасширеннаяПодсказка" id="20"/>
+				</InputField>
+				<Button name="Пересчитать" id="58">
+					<Type>Hyperlink</Type>
+					<CommandName>Form.Command.Пересчитать</CommandName>
+					<ExtendedTooltip name="ПересчитатьРасширеннаяПодсказка" id="59"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаПарметрыРемнотИТО" id="63">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документы Ремонт и ТО транспортного средства</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Параметры документов Ремонт и ТО транспортного средства</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<ExtendedTooltip name="ГруппаПарметрыРемнотИТОРасширеннаяПодсказка" id="64"/>
+			<ChildItems>
+				<CheckBoxField name="ЗапрещеноОформлениеРемонтныхРаботБезЗаявкиНаРемонт" id="60">
+					<DataPath>Объект.ЗапрещеноОформлениеРемонтныхРаботБезЗаявкиНаРемонт</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ЗапрещеноОформлениеРемонтныхРаботБезЗаявкиНаРемонтКонтекстноеМеню" id="61"/>
+					<ExtendedTooltip name="ЗапрещеноОформлениеРемонтныхРаботБезЗаявкиНаРемонтРасширеннаяПодсказка" id="62"/>
+				</CheckBoxField>
+				<UsualGroup name="ГруппаНастройкиСогласованияЗаявок" id="71">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Настройки согласования заявок</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа настройки согласования заявок</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаНастройкиСогласованияЗаявокРасширеннаяПодсказка" id="72"/>
+					<ChildItems>
+						<CheckBoxField name="ТребуетсяСогласованиеЗаявкиНаРемонт" id="65">
+							<DataPath>Объект.ТребуетсяСогласованиеЗаявкиНаРемонт</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ТребуетсяСогласованиеЗаявкиНаРемонтКонтекстноеМеню" id="66"/>
+							<ExtendedTooltip name="ТребуетсяСогласованиеЗаявкиНаРемонтРасширеннаяПодсказка" id="67"/>
+							<Events>
+								<Event name="OnChange">ТребуетсяСогласованиеЗаявкиНаРемонтПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<UsualGroup name="Группа2" id="76">
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="77"/>
+							<ChildItems>
+								<LabelDecoration name="Декорация7" id="78">
+									<Width>2</Width>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<ContextMenu name="Декорация7КонтекстноеМеню" id="79"/>
+									<ExtendedTooltip name="Декорация7РасширеннаяПодсказка" id="80"/>
+								</LabelDecoration>
+								<CheckBoxField name="АвтоматическиПередаватьСогласованныеЗаявкиНаРемонтКИсполнению" id="68">
+									<DataPath>Объект.АвтоматическиПередаватьСогласованныеЗаявкиНаРемонтКИсполнению</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="АвтоматическиПередаватьСогласованныеЗаявкиНаРемонтКИсполнениюКонтекстноеМеню" id="69"/>
+									<ExtendedTooltip name="АвтоматическиПередаватьСогласованныеЗаявкиНаРемонтКИсполнениюРасширеннаяПодсказка" id="70"/>
+								</CheckBoxField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<Pages name="ГруппаСтраницы" id="29">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="ГруппаСтраницыРасширеннаяПодсказка" id="30"/>
+			<ChildItems>
+				<Page name="ГруппаРаботыПоУмолчанию" id="31">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Работы (по умолчанию)</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа работы по умолчанию</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаРаботыПоУмолчаниюРасширеннаяПодсказка" id="32"/>
+					<ChildItems>
+						<Table name="РаботыПоРемонту" id="33">
+							<Height>3</Height>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Объект.РаботыПоРемонту</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="РаботыПоРемонтуКонтекстноеМеню" id="34"/>
+							<AutoCommandBar name="РаботыПоРемонтуКоманднаяПанель" id="35"/>
+							<ExtendedTooltip name="РаботыПоРемонтуРасширеннаяПодсказка" id="36"/>
+							<SearchStringAddition name="РаботыПоРемонтуСтрокаПоиска" id="37">
+								<AdditionSource>
+									<Item>РаботыПоРемонту</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="РаботыПоРемонтуСтрокаПоискаКонтекстноеМеню" id="38"/>
+								<ExtendedTooltip name="РаботыПоРемонтуСтрокаПоискаРасширеннаяПодсказка" id="39"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="РаботыПоРемонтуСостояниеПросмотра" id="40">
+								<AdditionSource>
+									<Item>РаботыПоРемонту</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="РаботыПоРемонтуСостояниеПросмотраКонтекстноеМеню" id="41"/>
+								<ExtendedTooltip name="РаботыПоРемонтуСостояниеПросмотраРасширеннаяПодсказка" id="42"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="РаботыПоРемонтуУправлениеПоиском" id="43">
+								<AdditionSource>
+									<Item>РаботыПоРемонту</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="РаботыПоРемонтуУправлениеПоискомКонтекстноеМеню" id="44"/>
+								<ExtendedTooltip name="РаботыПоРемонтуУправлениеПоискомРасширеннаяПодсказка" id="45"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="OnEditEnd">РаботыПоРемонтуПриОкончанииРедактирования</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="РаботыПоРемонтуНомерСтроки" id="46">
+									<DataPath>Объект.РаботыПоРемонту.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="РаботыПоРемонтуНомерСтрокиКонтекстноеМеню" id="47"/>
+									<ExtendedTooltip name="РаботыПоРемонтуНомерСтрокиРасширеннаяПодсказка" id="48"/>
+								</LabelField>
+								<InputField name="РаботыПоРемонтуРаботаПоРемонту" id="49">
+									<DataPath>Объект.РаботыПоРемонту.РаботаПоРемонту</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="РаботыПоРемонтуРаботаПоРемонтуКонтекстноеМеню" id="50"/>
+									<ExtendedTooltip name="РаботыПоРемонтуРаботаПоРемонтуРасширеннаяПодсказка" id="51"/>
+								</InputField>
+								<InputField name="РаботыПоРемонтуСтатьяРасходов" id="55">
+									<DataPath>Объект.РаботыПоРемонту.СтатьяРасходов</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>25</Width>
+									<ContextMenu name="РаботыПоРемонтуСтатьяРасходовКонтекстноеМеню" id="56"/>
+									<ExtendedTooltip name="РаботыПоРемонтуСтатьяРасходовРасширеннаяПодсказка" id="57"/>
+								</InputField>
+								<InputField name="РаботыПоРемонтуКоличество" id="52">
+									<DataPath>Объект.РаботыПоРемонту.Количество</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>14</Width>
+									<ContextMenu name="РаботыПоРемонтуКоличествоКонтекстноеМеню" id="53"/>
+									<ExtendedTooltip name="РаботыПоРемонтуКоличествоРасширеннаяПодсказка" id="54"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаКомментарий" id="27">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Комментарий</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа комментарий</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаКомментарийРасширеннаяПодсказка" id="28"/>
+					<ChildItems>
+						<InputField name="Комментарий" id="24">
+							<DataPath>Объект.Комментарий</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MultiLine>true</MultiLine>
+							<ContextMenu name="КомментарийКонтекстноеМеню" id="25"/>
+							<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="26"/>
+						</InputField>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.упВидыРемонтов</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ВремяРаботПланЧасов" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Время работ план часов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>3</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ВремяРаботПланМинут" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Время работ план минут</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>2</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Пересчитать" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пересчитать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пересчитать плановое время работ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>Пересчитать</Action>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

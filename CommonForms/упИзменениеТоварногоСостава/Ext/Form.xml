@@ -1,0 +1,965 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаЗаписатьИЗакрыть" id="44">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ЗаписатьИЗакрыть</CommandName>
+				<ExtendedTooltip name="ФормаЗаписатьИЗакрытьРасширеннаяПодсказка" id="45"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="FillCheckProcessingAtServer">ОбработкаПроверкиЗаполненияНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаГрузовоеМесто" id="82">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа грузовое место</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа грузовое место</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаГрузовоеМестоРасширеннаяПодсказка" id="83"/>
+			<ChildItems>
+				<InputField name="ГрузовоеМесто" id="17">
+					<DataPath>ГрузовоеМесто</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<ContextMenu name="ГрузовоеМестоКонтекстноеМеню" id="18"/>
+					<ExtendedTooltip name="ГрузовоеМестоРасширеннаяПодсказка" id="19"/>
+				</InputField>
+				<InputField name="КоличествоГрузов" id="26">
+					<DataPath>КоличествоГрузов</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<ContextMenu name="КоличествоГрузовКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="КоличествоГрузовРасширеннаяПодсказка" id="28"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<Table name="ТоварныйСоставГруза" id="1">
+			<Representation>List</Representation>
+			<ChangeRowOrder>false</ChangeRowOrder>
+			<MultipleChoice>true</MultipleChoice>
+			<Footer>true</Footer>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>ТоварныйСоставГрузовогоМеста</DataPath>
+			<CommandSet>
+				<ExcludedCommand>Change</ExcludedCommand>
+			</CommandSet>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ТоварныйСоставГрузаКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="ТоварныйСоставГрузаКоманднаяПанель" id="3"/>
+			<ExtendedTooltip name="ТоварныйСоставГрузаРасширеннаяПодсказка" id="4"/>
+			<SearchStringAddition name="ТоварныйСоставГрузаСтрокаПоиска" id="5">
+				<AdditionSource>
+					<Item>ТоварныйСоставГруза</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ТоварныйСоставГрузаСтрокаПоискаКонтекстноеМеню" id="6"/>
+				<ExtendedTooltip name="ТоварныйСоставГрузаСтрокаПоискаРасширеннаяПодсказка" id="7"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ТоварныйСоставГрузаСостояниеПросмотра" id="8">
+				<AdditionSource>
+					<Item>ТоварныйСоставГруза</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ТоварныйСоставГрузаСостояниеПросмотраКонтекстноеМеню" id="9"/>
+				<ExtendedTooltip name="ТоварныйСоставГрузаСостояниеПросмотраРасширеннаяПодсказка" id="10"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ТоварныйСоставГрузаУправлениеПоиском" id="11">
+				<AdditionSource>
+					<Item>ТоварныйСоставГруза</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ТоварныйСоставГрузаУправлениеПоискомКонтекстноеМеню" id="12"/>
+				<ExtendedTooltip name="ТоварныйСоставГрузаУправлениеПоискомРасширеннаяПодсказка" id="13"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="BeforeAddRow">ТоварныйСоставГрузаПередНачаломДобавления</Event>
+				<Event name="BeforeDeleteRow">ТоварныйСоставГрузаПередУдалением</Event>
+				<Event name="OnStartEdit">ТоварныйСоставГрузаПриНачалеРедактирования</Event>
+			</Events>
+			<ChildItems>
+				<CheckBoxField name="ТоварныйСоставГрузаЕдиныйГруз" id="58">
+					<DataPath>ТоварныйСоставГрузовогоМеста.ЕдиныйГруз</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ТоварныйСоставГрузаЕдиныйГрузКонтекстноеМеню" id="59"/>
+					<ExtendedTooltip name="ТоварныйСоставГрузаЕдиныйГрузРасширеннаяПодсказка" id="60"/>
+					<Events>
+						<Event name="OnChange">ТоварныйСоставГрузаЕдиныйГрузПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<InputField name="ТоварныйСоставГрузаНоменклатура" id="46">
+					<DataPath>ТоварныйСоставГрузовогоМеста.Номенклатура</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoMarkIncomplete>true</AutoMarkIncomplete>
+					<ContextMenu name="ТоварныйСоставГрузаНоменклатураКонтекстноеМеню" id="47"/>
+					<ExtendedTooltip name="ТоварныйСоставГрузаНоменклатураРасширеннаяПодсказка" id="48"/>
+					<Events>
+						<Event name="OnChange">ТоварныйСоставГрузаНоменклатураПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ТоварныйСоставГрузаПроблема" id="49">
+					<DataPath>ТоварныйСоставГрузовогоМеста.Проблема</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ChoiceParameterLinks>
+						<xr:Link>
+							<xr:Name>Отбор.ТипОперации</xr:Name>
+							<xr:DataPath xsi:type="xs:string">ТипОперации</xr:DataPath>
+							<xr:ValueChange>Clear</xr:ValueChange>
+						</xr:Link>
+					</ChoiceParameterLinks>
+					<ContextMenu name="ТоварныйСоставГрузаПроблемаКонтекстноеМеню" id="50"/>
+					<ExtendedTooltip name="ТоварныйСоставГрузаПроблемаРасширеннаяПодсказка" id="51"/>
+					<Events>
+						<Event name="OnChange">ТоварныйСоставГрузаПроблемаПриИзменении</Event>
+						<Event name="ChoiceProcessing">ТоварныйСоставГрузаПроблемаОбработкаВыбора</Event>
+					</Events>
+				</InputField>
+				<InputField name="ТоварныйСоставГрузаАдресРазгрузки" id="55">
+					<DataPath>ТоварныйСоставГрузовогоМеста.АдресРазгрузки</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТоварныйСоставГрузаАдресРазгрузкиКонтекстноеМеню" id="56"/>
+					<ExtendedTooltip name="ТоварныйСоставГрузаАдресРазгрузкиРасширеннаяПодсказка" id="57"/>
+					<Events>
+						<Event name="OnChange">ТоварныйСоставГрузаАдресРазгрузкиПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ТоварныйСоставГрузаЦена" id="67">
+					<DataPath>ТоварныйСоставГрузовогоМеста.Цена</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТоварныйСоставГрузаЦенаКонтекстноеМеню" id="68"/>
+					<ExtendedTooltip name="ТоварныйСоставГрузаЦенаРасширеннаяПодсказка" id="69"/>
+					<Events>
+						<Event name="OnChange">ТоварныйСоставГрузовогоМестаЦенаПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ТоварныйСоставГрузаКоличество" id="61">
+					<DataPath>ТоварныйСоставГрузовогоМеста.Количество</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoMarkIncomplete>true</AutoMarkIncomplete>
+					<ContextMenu name="ТоварныйСоставГрузаКоличествоКонтекстноеМеню" id="62"/>
+					<ExtendedTooltip name="ТоварныйСоставГрузаКоличествоРасширеннаяПодсказка" id="63"/>
+					<Events>
+						<Event name="OnChange">ТоварныйСоставГрузовогоМестаКоличествоПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ТоварныйСоставГрузаСтавкаНДС" id="70">
+					<DataPath>ТоварныйСоставГрузовогоМеста.СтавкаНДС</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТоварныйСоставГрузаСтавкаНДСКонтекстноеМеню" id="71"/>
+					<ExtendedTooltip name="ТоварныйСоставГрузаСтавкаНДСРасширеннаяПодсказка" id="72"/>
+					<Events>
+						<Event name="OnChange">ТоварныйСоставГрузовогоМестаСтавкаНДСПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ТоварныйСоставГрузаСумма" id="73">
+					<DataPath>ТоварныйСоставГрузовогоМеста.Сумма</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТоварныйСоставГрузаСуммаКонтекстноеМеню" id="74"/>
+					<ExtendedTooltip name="ТоварныйСоставГрузаСуммаРасширеннаяПодсказка" id="75"/>
+					<Events>
+						<Event name="OnChange">ТоварныйСоставГрузовогоМестаСуммаПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ТоварныйСоставГрузаСуммаНДС" id="84">
+					<DataPath>ТоварныйСоставГрузовогоМеста.СуммаНДС</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТоварныйСоставГрузаСуммаНДСКонтекстноеМеню" id="85"/>
+					<ExtendedTooltip name="ТоварныйСоставГрузаСуммаНДСРасширеннаяПодсказка" id="86"/>
+					<Events>
+						<Event name="OnChange">ТоварныйСоставГрузаСуммаНДСПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ТоварныйСоставГрузаСуммаБезНДС" id="76">
+					<DataPath>ТоварныйСоставГрузовогоМеста.СуммаБезНДС</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТоварныйСоставГрузаСуммаБезНДСКонтекстноеМеню" id="77"/>
+					<ExtendedTooltip name="ТоварныйСоставГрузаСуммаБезНДСРасширеннаяПодсказка" id="78"/>
+					<Events>
+						<Event name="OnChange">ТоварныйСоставГрузаСуммаБезНДСПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ТоварныйСоставГрузаАналитическийРазрез" id="79">
+					<DataPath>ТоварныйСоставГрузовогоМеста.АналитическийРазрез</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТоварныйСоставГрузаАналитическийРазрезКонтекстноеМеню" id="80"/>
+					<ExtendedTooltip name="ТоварныйСоставГрузаАналитическийРазрезРасширеннаяПодсказка" id="81"/>
+					<Events>
+						<Event name="OnChange">ТоварныйСоставГрузаАналитическийРазрезПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ТоварныйСоставГрузаУпаковкаНоменклатуры" id="64">
+					<DataPath>ТоварныйСоставГрузовогоМеста.УпаковкаНоменклатуры</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТоварныйСоставГрузаУпаковкаНоменклатурыКонтекстноеМеню" id="65"/>
+					<ExtendedTooltip name="ТоварныйСоставГрузаУпаковкаНоменклатурыРасширеннаяПодсказка" id="66"/>
+					<Events>
+						<Event name="OnChange">ТоварныйСоставГрузаУпаковкаНоменклатурыПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ТоварныйСоставГрузаГрузовоеМесто" id="87">
+					<DataPath>ТоварныйСоставГрузовогоМеста.ГрузовоеМесто</DataPath>
+					<Visible>false</Visible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТоварныйСоставГрузаГрузовоеМестоКонтекстноеМеню" id="88"/>
+					<ExtendedTooltip name="ТоварныйСоставГрузаГрузовоеМестоРасширеннаяПодсказка" id="89"/>
+				</InputField>
+				<InputField name="ТоварныйСоставГрузаЗаданиеНаПеревозкуГруза" id="90">
+					<DataPath>ТоварныйСоставГрузовогоМеста.ЗаданиеНаПеревозкуГруза</DataPath>
+					<Visible>false</Visible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТоварныйСоставГрузаЗаданиеНаПеревозкуГрузаКонтекстноеМеню" id="91"/>
+					<ExtendedTooltip name="ТоварныйСоставГрузаЗаданиеНаПеревозкуГрузаРасширеннаяПодсказка" id="92"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ТоварныйСоставГрузовогоМеста" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Товарный состав грузового места</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<FillCheck>ShowError</FillCheck>
+			<Columns>
+				<Column name="Номенклатура" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номенклатура</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упНоменклатура</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Проблема" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Проблема</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упПроблемы</v8:Type>
+					</Type>
+				</Column>
+				<Column name="АдресРазгрузки" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Адрес разгрузки</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упАдреса</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ЕдиныйГруз" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Единый груз</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Количество" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Количество</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>16</v8:Digits>
+							<v8:FractionDigits>3</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="УпаковкаНоменклатуры" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Упаковка номенклатуры</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упУпаковкиНоменклатуры</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Цена" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Цена</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.Сумма</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="СтавкаНДС" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ставка НДС</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.упСтавкиНДС</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Сумма" id="10">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.Сумма</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="СуммаБезНДС" id="11">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма без НДС</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.Сумма</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="АналитическийРазрез" id="12">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Аналитический разрез</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упАналитическиеРазрезы</v8:Type>
+					</Type>
+				</Column>
+				<Column name="СуммаНДС" id="13">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма НДС</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.Сумма</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="НовыйТовар" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Новый товар</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ГрузовоеМесто" id="14">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Грузовое место</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упГрузовыеМеста</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ЗаданиеНаПеревозкуГруза" id="15">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Задание на перевозку груза</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ГрузовоеМесто" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Грузовое место</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.упГрузовыеМеста</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Регистратор" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Регистратор</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DocumentRef.упПрохождениеТочки</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="КоличествоГрузов" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество грузов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>5</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТипОперации" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип операции</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.упТипыОпераций</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ТоварныйСоставГрузовогоМестаИсходный" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Товарный состав грузового места</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Номенклатура" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номенклатура</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упНоменклатура</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Проблема" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Проблема</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упПроблемы</v8:Type>
+					</Type>
+				</Column>
+				<Column name="АдресРазгрузки" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Адрес разгрузки</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упАдреса</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ЕдиныйГруз" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Единый груз</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Количество" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Количество</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>16</v8:Digits>
+							<v8:FractionDigits>3</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="УпаковкаНоменклатуры" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Упаковка номенклатуры</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упУпаковкиНоменклатуры</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Цена" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Цена</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.Сумма</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="СтавкаНДС" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ставка НДС</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.упСтавкиНДС</v8:Type>
+					</Type>
+				</Column>
+				<Column name="СуммаНДС" id="10">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма НДС</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.Сумма</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="СуммаБезНДС" id="11">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма без НДС</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.Сумма</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="Сумма" id="12">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.Сумма</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="АналитическийРазрез" id="13">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Аналитический разрез</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упАналитическиеРазрезы</v8:Type>
+					</Type>
+				</Column>
+				<Column name="НовыйТовар" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Новый товар</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ГрузовоеМесто" id="14">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Грузовое место</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упГрузовыеМеста</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ЗаданиеНаПеревозкуГруза" id="15">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Задание на перевозку груза</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ЗаданиеНаПеревозкуГруза" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Задание на перевозку груза</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DocumentRef.упЗаданиеНаПеревозкуГруза</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="АдресПогрузкиПоРейсу" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Адрес погрузки по рейсу</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.упАдреса</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Рейс" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Рейс</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DocumentRef.упРейс</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РежимРаботыФормы" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Режим работы формы</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗаданиеНаПеревозкуГрузаПредставление" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Задание на перевозку груза представление</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ТоварныйСоставГруза</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ТоварныйСоставГрузовогоМеста.НовыйТовар</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:упЦветФонаНевыбранногоКонтейнера</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ТоварныйСоставГрузаАдресРазгрузки</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:groupType>OrGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemGroup">
+							<dcsset:groupType>AndGroup</dcsset:groupType>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">ТоварныйСоставГрузовогоМеста.АдресРазгрузки</dcsset:left>
+								<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">ТоварныйСоставГрузовогоМеста.Проблема</dcsset:left>
+								<dcsset:comparisonType>Filled</dcsset:comparisonType>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">ТипОперации</dcsset:left>
+								<dcsset:comparisonType>Equal</dcsset:comparisonType>
+								<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.упТипыОпераций.Разгрузка</dcsset:right>
+							</dcsset:item>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ОтметкаНезаполненного</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ТоварныйСоставГрузаАдресРазгрузки</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ТоварныйСоставГрузаПроблема</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:groupType>OrGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemGroup">
+							<dcsset:groupType>AndGroup</dcsset:groupType>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">ТоварныйСоставГрузовогоМеста.Проблема</dcsset:left>
+								<dcsset:comparisonType>Filled</dcsset:comparisonType>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">ТоварныйСоставГрузовогоМеста.АдресРазгрузки</dcsset:left>
+								<dcsset:comparisonType>Filled</dcsset:comparisonType>
+							</dcsset:item>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemGroup">
+							<dcsset:groupType>AndGroup</dcsset:groupType>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">ТоварныйСоставГрузовогоМеста.АдресРазгрузки</dcsset:left>
+								<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">ТоварныйСоставГрузовогоМеста.Проблема</dcsset:left>
+								<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+							</dcsset:item>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ОтметкаНезаполненного</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ТоварныйСоставГрузаПроблема</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:groupType>OrGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemGroup">
+							<dcsset:groupType>AndGroup</dcsset:groupType>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">ТоварныйСоставГрузовогоМеста.АдресРазгрузки</dcsset:left>
+								<dcsset:comparisonType>Filled</dcsset:comparisonType>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">ТоварныйСоставГрузовогоМеста.Проблема</dcsset:left>
+								<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+							</dcsset:item>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ОтметкаНезаполненного</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ТоварныйСоставГрузаАдресРазгрузки</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ТипОперации</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.упТипыОпераций.Погрузка</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Видимость</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ТоварныйСоставГрузаАдресРазгрузки</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ТипОперации</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.упТипыОпераций.Разгрузка</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Видимость</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="ЗаписатьИЗакрыть" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Записать и закрыть</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Записать и закрыть</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗаписатьИЗакрыть</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+	<Parameters>
+		<Parameter name="Регистратор">
+			<Type>
+				<v8:Type>cfg:DocumentRef.упПрохождениеТочки</v8:Type>
+			</Type>
+		</Parameter>
+		<Parameter name="ГрузовоеМесто">
+			<Type>
+				<v8:Type>cfg:CatalogRef.упГрузовыеМеста</v8:Type>
+			</Type>
+		</Parameter>
+		<Parameter name="ТипОперации">
+			<Type>
+				<v8:Type>cfg:EnumRef.упТипыОпераций</v8:Type>
+			</Type>
+		</Parameter>
+		<Parameter name="КоличествоГрузов">
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>5</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Parameter>
+		<Parameter name="ЗаданиеНаПеревозкуГруза">
+			<Type>
+				<v8:Type>cfg:DocumentRef.упЗаданиеНаПеревозкуГруза</v8:Type>
+			</Type>
+		</Parameter>
+		<Parameter name="ТоварныйСоставГрузовогоМеста">
+			<Type/>
+		</Parameter>
+		<Parameter name="ТолькоПросмотр">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Parameter>
+		<Parameter name="Рейс">
+			<Type>
+				<v8:Type>cfg:DocumentRef.упРейс</v8:Type>
+			</Type>
+		</Parameter>
+	</Parameters>
+</Form>

@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="СписокКомпоновщикНастроекПользовательскиеНастройки" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа пользовательских настроек</v8:content>
+				</v8:item>
+			</Title>
+			<VerticalStretch>false</VerticalStretch>
+			<Group>Vertical</Group>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="СписокКомпоновщикНастроекПользовательскиеНастройкиРасширеннаяПодсказка" id="2"/>
+		</UsualGroup>
+		<Table name="Список" id="3">
+			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
+			<DefaultItem>true</DefaultItem>
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<InitialTreeView>ExpandTopLevel</InitialTreeView>
+			<EnableStartDrag>true</EnableStartDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Список</DataPath>
+			<RowPictureDataPath>Список.ИндексКартинки</RowPictureDataPath>
+			<RowsPicture>
+				<xr:Ref>CommonPicture.упСтатусыЗаданияНаПеревозкуГруза</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</RowsPicture>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<UserSettingsGroup>СписокКомпоновщикНастроекПользовательскиеНастройки</UserSettingsGroup>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
+			<SearchStringAddition name="СписокСтрокаПоиска" id="7">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="10"/>
+				<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="11"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокСостояниеПросмотра" id="12">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="15"/>
+				<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="16"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокУправлениеПоиском" id="17">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="20"/>
+				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="21"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="Статус" id="31">
+					<DataPath>Список.Статус</DataPath>
+					<Width>10</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="СтатусКонтекстноеМеню" id="32"/>
+					<ExtendedTooltip name="СтатусРасширеннаяПодсказка" id="33"/>
+				</LabelField>
+				<LabelField name="Дата" id="22">
+					<DataPath>Список.Date</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<Width>14</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="ДатаКонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="24"/>
+				</LabelField>
+				<LabelField name="Номер" id="25">
+					<DataPath>Список.Number</DataPath>
+					<ContextMenu name="НомерКонтекстноеМеню" id="26"/>
+					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="27"/>
+				</LabelField>
+				<LabelField name="ВидПеревозки" id="37">
+					<DataPath>Список.ВидПеревозки</DataPath>
+					<Width>20</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="ВидПеревозкиКонтекстноеМеню" id="38"/>
+					<ExtendedTooltip name="ВидПеревозкиРасширеннаяПодсказка" id="39"/>
+				</LabelField>
+				<LabelField name="Заказчик" id="40">
+					<DataPath>Список.Заказчик</DataPath>
+					<Width>20</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="ЗаказчикКонтекстноеМеню" id="41"/>
+					<ExtendedTooltip name="ЗаказчикРасширеннаяПодсказка" id="42"/>
+				</LabelField>
+				<PictureField name="ЦветЗаметки" id="55">
+					<DataPath>Список.ЦветЗаметки</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<HeaderPicture>
+						<xr:Ref>CommonPicture.Заметка</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</HeaderPicture>
+					<Width>2</Width>
+					<ValuesPicture>
+						<xr:Ref>CommonPicture.КоллекцияЗаметки</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</ValuesPicture>
+					<FileDragMode>AsFile</FileDragMode>
+					<ContextMenu name="ЦветЗаметкиКонтекстноеМеню" id="56"/>
+					<ExtendedTooltip name="ЦветЗаметкиРасширеннаяПодсказка" id="57"/>
+				</PictureField>
+				<LabelField name="ЗонаОтправления" id="58">
+					<DataPath>Список.ЗонаОтправления</DataPath>
+					<ContextMenu name="ЗонаОтправленияКонтекстноеМеню" id="59"/>
+					<ExtendedTooltip name="ЗонаОтправленияРасширеннаяПодсказка" id="60"/>
+				</LabelField>
+				<LabelField name="ЗонаПолучения" id="61">
+					<DataPath>Список.ЗонаПолучения</DataPath>
+					<ContextMenu name="ЗонаПолученияКонтекстноеМеню" id="62"/>
+					<ExtendedTooltip name="ЗонаПолученияРасширеннаяПодсказка" id="63"/>
+				</LabelField>
+				<LabelField name="Масса" id="43">
+					<DataPath>Список.Масса</DataPath>
+					<Width>12</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="МассаКонтекстноеМеню" id="44"/>
+					<ExtendedTooltip name="МассаРасширеннаяПодсказка" id="45"/>
+				</LabelField>
+				<LabelField name="Объем" id="46">
+					<DataPath>Список.Объем</DataPath>
+					<Width>14</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="ОбъемКонтекстноеМеню" id="47"/>
+					<ExtendedTooltip name="ОбъемРасширеннаяПодсказка" id="48"/>
+				</LabelField>
+				<LabelField name="КоличествоМест" id="49">
+					<DataPath>Список.КоличествоМест</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Кол. мест</v8:content>
+						</v8:item>
+					</Title>
+					<Width>12</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="КоличествоМестКонтекстноеМеню" id="50"/>
+					<ExtendedTooltip name="КоличествоМестРасширеннаяПодсказка" id="51"/>
+				</LabelField>
+				<LabelField name="КоличествоЗагрузочныхМетров" id="52">
+					<DataPath>Список.КоличествоЗагрузочныхМетров</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Кол. метров</v8:content>
+						</v8:item>
+					</Title>
+					<Width>12</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="КоличествоЗагрузочныхМетровКонтекстноеМеню" id="53"/>
+					<ExtendedTooltip name="КоличествоЗагрузочныхМетровРасширеннаяПодсказка" id="54"/>
+				</LabelField>
+				<LabelField name="Подразделение" id="64">
+					<DataPath>Список.Подразделение</DataPath>
+					<ContextMenu name="ПодразделениеКонтекстноеМеню" id="65"/>
+					<ExtendedTooltip name="ПодразделениеРасширеннаяПодсказка" id="66"/>
+				</LabelField>
+				<LabelField name="Ссылка" id="34">
+					<DataPath>Список.Ref</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="СсылкаКонтекстноеМеню" id="35"/>
+					<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="36"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Список" id="1">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<UseAlways>
+				<Field>Список.Ref</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	ДокументупЗаданиеНаПеревозкуГруза.Ссылка,
+	ДокументупЗаданиеНаПеревозкуГруза.ПометкаУдаления,
+	ДокументупЗаданиеНаПеревозкуГруза.Номер,
+	ДокументупЗаданиеНаПеревозкуГруза.Дата,
+	ДокументупЗаданиеНаПеревозкуГруза.Проведен,
+	ДокументупЗаданиеНаПеревозкуГруза.Автор,
+	ДокументупЗаданиеНаПеревозкуГруза.Заказчик,
+	ДокументупЗаданиеНаПеревозкуГруза.КонтактноеЛицоЗаказчика,
+	ДокументупЗаданиеНаПеревозкуГруза.Соглашение,
+	ДокументупЗаданиеНаПеревозкуГруза.Отправитель,
+	ДокументупЗаданиеНаПеревозкуГруза.АдресОтправления,
+	ДокументупЗаданиеНаПеревозкуГруза.КонтактноеЛицоОтправителя,
+	ДокументупЗаданиеНаПеревозкуГруза.Получатель,
+	ДокументупЗаданиеНаПеревозкуГруза.АдресПолучения,
+	ДокументупЗаданиеНаПеревозкуГруза.КонтактноеЛицоПолучателя,
+	ДокументупЗаданиеНаПеревозкуГруза.Комментарий,
+	ДокументупЗаданиеНаПеревозкуГруза.ОтправлениеГрузаС,
+	ДокументупЗаданиеНаПеревозкуГруза.ОтправлениеГрузаПо,
+	ДокументупЗаданиеНаПеревозкуГруза.ПолучениеГрузаС,
+	ДокументупЗаданиеНаПеревозкуГруза.ПолучениеГрузаПо,
+	ДокументупЗаданиеНаПеревозкуГруза.Организация,
+	ДокументупЗаданиеНаПеревозкуГруза.ОбщийГруз,
+	ДокументупЗаданиеНаПеревозкуГруза.ЗонаОтправления,
+	ДокументупЗаданиеНаПеревозкуГруза.ЗонаПолучения,
+	ДокументупЗаданиеНаПеревозкуГруза.ВидПеревозки,
+	ДокументупЗаданиеНаПеревозкуГруза.НомерКИС,
+	ДокументупЗаданиеНаПеревозкуГруза.ДатаКИС,
+	ДокументупЗаданиеНаПеревозкуГруза.ВремяПогрузки,
+	ДокументупЗаданиеНаПеревозкуГруза.ВремяРазгрузки,
+	ДокументупЗаданиеНаПеревозкуГруза.Масса,
+	ДокументупЗаданиеНаПеревозкуГруза.Объем,
+	ДокументупЗаданиеНаПеревозкуГруза.КоличествоМест,
+	ДокументупЗаданиеНаПеревозкуГруза.КоличествоЗагрузочныхМетров,
+	ВЫБОР
+		КОГДА ДокументупЗаданиеНаПеревозкуГруза.ПометкаУдаления
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.упСтатусыЗаданияНаПеревозкуГруза.Отменено)
+		ИНАЧЕ ЕСТЬNULL(упСтатусыЗаданийНаПеревозкуГрузаСрезПоследних.Статус, ЗНАЧЕНИЕ(Перечисление.упСтатусыЗаданияНаПеревозкуГруза.Новое))
+	КОНЕЦ КАК Статус,
+	ВЫБОР
+		КОГДА ДокументупЗаданиеНаПеревозкуГруза.ПометкаУдаления
+			ТОГДА 7
+		ИНАЧЕ ЕСТЬNULL(упСтатусыЗаданийНаПеревозкуГрузаСрезПоследних.Статус.Порядок, 0)
+	КОНЕЦ КАК ИндексКартинки,
+	ЕСТЬNULL(НаличиеЗаметокПоПредмету.ЕстьЗаметки, ЛОЖЬ) КАК ЕстьЗаметки,
+	ЕСТЬNULL(НаличиеЗаметокПоПредмету.Цвет, -3) + 2 КАК ЦветЗаметки,
+	ДокументупЗаданиеНаПеревозкуГруза.Подразделение КАК Подразделение
+ИЗ
+	Документ.упЗаданиеНаПеревозкуГруза КАК ДокументупЗаданиеНаПеревозкуГруза
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упСтатусыЗаданийНаПеревозкуГруза.СрезПоследних КАК упСтатусыЗаданийНаПеревозкуГрузаСрезПоследних
+		ПО (упСтатусыЗаданийНаПеревозкуГрузаСрезПоследних.Документ = ДокументупЗаданиеНаПеревозкуГруза.Ссылка)
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упНаличиеЗаметокПоПредмету КАК НаличиеЗаметокПоПредмету
+		ПО ДокументупЗаданиеНаПеревозкуГруза.Ссылка = НаличиеЗаметокПоПредмету.Предмет
+			И (НаличиеЗаметокПоПредмету.Автор = &amp;Пользователь)</QueryText>
+				<MainTable>Document.упЗаданиеНаПеревозкуГруза</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+	<CommandInterface>
+		<CommandBar>
+			<Item>
+				<Command>0:2baf6d7a-12ed-4f22-ad96-92bb31b747ff</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</CommandBar>
+	</CommandInterface>
+</Form>

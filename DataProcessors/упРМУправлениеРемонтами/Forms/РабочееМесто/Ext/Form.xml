@@ -1,0 +1,1488 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<VerticalSpacing>Half</VerticalSpacing>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаУказатьПараметрыУправленияРемонтами" id="121">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.УказатьПараметрыУправленияРемонтами</CommandName>
+				<ExtendedTooltip name="ФормаУказатьПараметрыУправленияРемонтамиРасширеннаяПодсказка" id="122"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаОбщиеНастройки" id="245">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа общие настройки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа общие настройки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаОбщиеНастройкиРасширеннаяПодсказка" id="246"/>
+			<ChildItems>
+				<InputField name="Гараж" id="89">
+					<DataPath>Гараж</DataPath>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<ClearButton>true</ClearButton>
+					<BackColor>style:ФонУправляющегоПоля</BackColor>
+					<InputHint>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>отбор транспортных средств по гаражу</v8:content>
+						</v8:item>
+					</InputHint>
+					<ContextMenu name="ГаражКонтекстноеМеню" id="90"/>
+					<ExtendedTooltip name="ГаражРасширеннаяПодсказка" id="91"/>
+					<Events>
+						<Event name="OnChange">ГаражПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ВариантСписков" id="240">
+					<DataPath>ВариантСписков</DataPath>
+					<TitleFont ref="style:TextFont" height="10" kind="StyleItem"/>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<AutoMaxHeight>false</AutoMaxHeight>
+					<DropListButton>true</DropListButton>
+					<ClearButton>true</ClearButton>
+					<OpenButton>false</OpenButton>
+					<ListChoiceMode>true</ListChoiceMode>
+					<BackColor>style:ФонУправляющегоПоля</BackColor>
+					<ContextMenu name="ВариантСписковКонтекстноеМеню" id="241"/>
+					<ExtendedTooltip name="ВариантСписковРасширеннаяПодсказка" id="242"/>
+					<Events>
+						<Event name="OnChange">ВариантНастроекПриИзменении</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаОбъектыРемонта" id="131">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа объекты ремонта</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа объекты ремонта</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<United>false</United>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаОбъектыРемонтаРасширеннаяПодсказка" id="132"/>
+			<ChildItems>
+				<Table name="СписокОбъектовРемонта" id="133">
+					<Representation>List</Representation>
+					<ReadOnly>true</ReadOnly>
+					<ChangeRowSet>false</ChangeRowSet>
+					<ChangeRowOrder>false</ChangeRowOrder>
+					<AutoInsertNewRow>true</AutoInsertNewRow>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>СписокОбъектовРемонта</DataPath>
+					<RowPictureDataPath>СписокОбъектовРемонта.ИндексКартинки</RowPictureDataPath>
+					<RowsPicture>
+						<xr:Ref>CommonPicture.упКоллекцияОбъектыРемонтаДляТО</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</RowsPicture>
+					<RowFilter xsi:nil="true"/>
+					<ContextMenu name="СписокОбъектовРемонтаКонтекстноеМеню" id="134"/>
+					<AutoCommandBar name="СписокОбъектовРемонтаКоманднаяПанель" id="135">
+						<ChildItems>
+							<ButtonGroup name="СписокОбъектовРемонтаГруппаКнопок" id="251">
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Список объектов ремонта группа кнопок</v8:content>
+									</v8:item>
+								</Title>
+								<ToolTip>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Список объектов ремонта группа кнопок</v8:content>
+									</v8:item>
+								</ToolTip>
+								<Representation>Compact</Representation>
+								<ExtendedTooltip name="СписокОбъектовРемонтаГруппаКнопокРасширеннаяПодсказка" id="252"/>
+								<ChildItems>
+									<Button name="СписокОбъектовРемонтаНастроитьСписокОбъектовРемонта" id="243">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.НастроитьСписокОбъектовРемонта</CommandName>
+										<ExtendedTooltip name="СписокОбъектовРемонтаНастроитьСписокОбъектовРемонтаРасширеннаяПодсказка" id="244"/>
+									</Button>
+									<Button name="СписокОбъектовРемонтаСохранитьВариантНастройкиСпискаОбъектовРемонта" id="247">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.СохранитьВариантНастройкиСпискаОбъектовРемонта</CommandName>
+										<ExtendedTooltip name="СписокОбъектовРемонтаСохранитьВариантНастройкиСпискаОбъектовРемонтаРасширеннаяПодсказка" id="248"/>
+									</Button>
+									<Button name="СписокОбъектовРемонтаОткрытьВариантНастройкиСпискаОбъектовРемонта" id="249">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ОткрытьВариантНастройкиСпискаОбъектовРемонта</CommandName>
+										<ExtendedTooltip name="СписокОбъектовРемонтаОткрытьВариантНастройкиСпискаОбъектовРемонтаРасширеннаяПодсказка" id="250"/>
+									</Button>
+								</ChildItems>
+							</ButtonGroup>
+							<Button name="СписокОбъектовРемонтаПоказатьПройденныеТО" id="206">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.ПоказатьПройденныеТО</CommandName>
+								<ExtendedTooltip name="СписокОбъектовРемонтаПоказатьПройденныеТОРасширеннаяПодсказка" id="207"/>
+							</Button>
+							<Button name="СписокОбъектовРемонтаПакетнаяФормаОбработкаРемонтовИТОТС" id="260">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.ПакетнаяФормаОбработкаРемонтовИТОТС</CommandName>
+								<ExtendedTooltip name="СписокОбъектовРемонтаПакетнаяФормаОбработкаРемонтовИТОТСРасширеннаяПодсказка" id="261"/>
+							</Button>
+							<Button name="СписокОбъектовРемонтаОбновитьСписокОбъектовРемонта" id="204">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.ОбновитьСписокОбъектовРемонта</CommandName>
+								<ExtendedTooltip name="СписокОбъектовРемонтаОбновитьСписокОбъектовРемонтаРасширеннаяПодсказка" id="205"/>
+							</Button>
+						</ChildItems>
+					</AutoCommandBar>
+					<ExtendedTooltip name="СписокОбъектовРемонтаРасширеннаяПодсказка" id="136"/>
+					<SearchStringAddition name="СписокОбъектовРемонтаСтрокаПоиска" id="137">
+						<AdditionSource>
+							<Item>СписокОбъектовРемонта</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="СписокОбъектовРемонтаСтрокаПоискаКонтекстноеМеню" id="138"/>
+						<ExtendedTooltip name="СписокОбъектовРемонтаСтрокаПоискаРасширеннаяПодсказка" id="139"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="СписокОбъектовРемонтаСостояниеПросмотра" id="140">
+						<AdditionSource>
+							<Item>СписокОбъектовРемонта</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="СписокОбъектовРемонтаСостояниеПросмотраКонтекстноеМеню" id="141"/>
+						<ExtendedTooltip name="СписокОбъектовРемонтаСостояниеПросмотраРасширеннаяПодсказка" id="142"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="СписокОбъектовРемонтаУправлениеПоиском" id="143">
+						<AdditionSource>
+							<Item>СписокОбъектовРемонта</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="СписокОбъектовРемонтаУправлениеПоискомКонтекстноеМеню" id="144"/>
+						<ExtendedTooltip name="СписокОбъектовРемонтаУправлениеПоискомРасширеннаяПодсказка" id="145"/>
+					</SearchControlAddition>
+					<Events>
+						<Event name="Selection">СписокОбъектовРемонтаВыбор</Event>
+						<Event name="OnActivateRow">СписокОбъектовРемонтаПриАктивизацииСтроки</Event>
+					</Events>
+					<ChildItems>
+						<PictureField name="СписокОбъектовРемонтаСостояниеРемонта" id="196">
+							<DataPath>СписокОбъектовРемонта.СостояниеРемонта</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>2</Width>
+							<ValuesPicture>
+								<xr:Ref>CommonPicture.упРаботоспособностьТС</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</ValuesPicture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="СписокОбъектовРемонтаСостояниеРемонтаКонтекстноеМеню" id="197"/>
+							<ExtendedTooltip name="СписокОбъектовРемонтаСостояниеРемонтаРасширеннаяПодсказка" id="198"/>
+						</PictureField>
+						<InputField name="СписокОбъектовРемонтаОбъектРемонта" id="146">
+							<DataPath>СписокОбъектовРемонта.ОбъектРемонта</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="СписокОбъектовРемонтаОбъектРемонтаКонтекстноеМеню" id="147"/>
+							<ExtendedTooltip name="СписокОбъектовРемонтаОбъектРемонтаРасширеннаяПодсказка" id="148"/>
+						</InputField>
+						<InputField name="СписокОбъектовРемонтаПрогнозируемаяДатаСледующегоТО" id="179">
+							<DataPath>СписокОбъектовРемонта.ПрогнозируемаяДатаСледующегоТО</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>16</Width>
+							<ContextMenu name="СписокОбъектовРемонтаПрогнозируемаяДатаСледующегоТОКонтекстноеМеню" id="180"/>
+							<ExtendedTooltip name="СписокОбъектовРемонтаПрогнозируемаяДатаСледующегоТОРасширеннаяПодсказка" id="181"/>
+						</InputField>
+						<ColumnGroup name="СписокОбъектовРемонтаГруппаКолонокДанныеОТО" id="194">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Данные о следующих ТО</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Список объектов ремонта группа колонок данные ОТО</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<ShowInHeader>true</ShowInHeader>
+							<HeaderHorizontalAlign>Center</HeaderHorizontalAlign>
+							<ExtendedTooltip name="СписокОбъектовРемонтаГруппаКолонокДанныеОТОРасширеннаяПодсказка" id="195"/>
+							<ChildItems>
+								<InputField name="СписокОбъектовРемонтаДатаСледующегоТО" id="176">
+									<DataPath>СписокОбъектовРемонта.ДатаСледующегоТО</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дата</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СписокОбъектовРемонтаДатаСледующегоТОКонтекстноеМеню" id="177"/>
+									<ExtendedTooltip name="СписокОбъектовРемонтаДатаСледующегоТОРасширеннаяПодсказка" id="178"/>
+								</InputField>
+								<InputField name="СписокОбъектовРемонтаПробегОсталось" id="170">
+									<DataPath>СписокОбъектовРемонта.ПробегОсталось</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Осталось пробега (км)</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СписокОбъектовРемонтаПробегОсталосьКонтекстноеМеню" id="171"/>
+									<ExtendedTooltip name="СписокОбъектовРемонтаПробегОсталосьРасширеннаяПодсказка" id="172"/>
+								</InputField>
+								<InputField name="СписокОбъектовРемонтаМоточасыОсталось" id="173">
+									<DataPath>СписокОбъектовРемонта.МоточасыОсталось</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Осталось моточасов</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>16</Width>
+									<ContextMenu name="СписокОбъектовРемонтаМоточасыОсталосьКонтекстноеМеню" id="174"/>
+									<ExtendedTooltip name="СписокОбъектовРемонтаМоточасыОсталосьРасширеннаяПодсказка" id="175"/>
+								</InputField>
+							</ChildItems>
+						</ColumnGroup>
+						<ColumnGroup name="СписокОбъектовРемонтаГруппаСостояние" id="199">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Список объектов ремонта группа состояние</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Список объектов ремонта группа состояние</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>InCell</Group>
+							<ExtendedTooltip name="СписокОбъектовРемонтаГруппаСостояниеРасширеннаяПодсказка" id="200"/>
+							<ChildItems>
+								<PictureField name="СписокОбъектовРемонтаИндексКартинкиСостояния" id="201">
+									<DataPath>СписокОбъектовРемонта.ИндексКартинкиСостояния</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>2</Width>
+									<ValuesPicture>
+										<xr:Ref>CommonPicture.упКоллекцияТипыСостоянийТС</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</ValuesPicture>
+									<FileDragMode>AsFile</FileDragMode>
+									<ContextMenu name="СписокОбъектовРемонтаИндексКартинкиСостоянияКонтекстноеМеню" id="202"/>
+									<ExtendedTooltip name="СписокОбъектовРемонтаИндексКартинкиСостоянияРасширеннаяПодсказка" id="203"/>
+								</PictureField>
+								<InputField name="СписокОбъектовРемонтаСостояние" id="164">
+									<DataPath>СписокОбъектовРемонта.Состояние</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СписокОбъектовРемонтаСостояниеКонтекстноеМеню" id="165"/>
+									<ExtendedTooltip name="СписокОбъектовРемонтаСостояниеРасширеннаяПодсказка" id="166"/>
+								</InputField>
+							</ChildItems>
+						</ColumnGroup>
+						<InputField name="СписокОбъектовРемонтаМестоположение" id="161">
+							<DataPath>СписокОбъектовРемонта.Местоположение</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="СписокОбъектовРемонтаМестоположениеКонтекстноеМеню" id="162"/>
+							<ExtendedTooltip name="СписокОбъектовРемонтаМестоположениеРасширеннаяПодсказка" id="163"/>
+						</InputField>
+						<InputField name="СписокОбъектовРемонтаПоследнееТО" id="185">
+							<DataPath>СписокОбъектовРемонта.ПоследнееТО</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="СписокОбъектовРемонтаПоследнееТОКонтекстноеМеню" id="186"/>
+							<ExtendedTooltip name="СписокОбъектовРемонтаПоследнееТОРасширеннаяПодсказка" id="187"/>
+						</InputField>
+						<InputField name="СписокОбъектовРемонтаПоследнийРемонт" id="182">
+							<DataPath>СписокОбъектовРемонта.ПоследнийРемонт</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="СписокОбъектовРемонтаПоследнийРемонтКонтекстноеМеню" id="183"/>
+							<ExtendedTooltip name="СписокОбъектовРемонтаПоследнийРемонтРасширеннаяПодсказка" id="184"/>
+						</InputField>
+						<InputField name="СписокОбъектовРемонтаВидРемонта" id="257">
+							<DataPath>СписокОбъектовРемонта.ВидРемонта</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Вид следующего ТО</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="СписокОбъектовРемонтаВидРемонтаКонтекстноеМеню" id="258"/>
+							<ExtendedTooltip name="СписокОбъектовРемонтаВидРемонтаРасширеннаяПодсказка" id="259"/>
+						</InputField>
+						<InputField name="СписокОбъектовРемонтаПодразделение" id="191">
+							<DataPath>СписокОбъектовРемонта.Подразделение</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="СписокОбъектовРемонтаПодразделениеКонтекстноеМеню" id="192"/>
+							<ExtendedTooltip name="СписокОбъектовРемонтаПодразделениеРасширеннаяПодсказка" id="193"/>
+						</InputField>
+						<InputField name="СписокОбъектовРемонтаТранспортноеСредство" id="149">
+							<DataPath>СписокОбъектовРемонта.ТранспортноеСредство</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="СписокОбъектовРемонтаТранспортноеСредствоКонтекстноеМеню" id="150"/>
+							<ExtendedTooltip name="СписокОбъектовРемонтаТранспортноеСредствоРасширеннаяПодсказка" id="151"/>
+						</InputField>
+						<InputField name="СписокОбъектовРемонтаДополнительноеОборудование" id="152">
+							<DataPath>СписокОбъектовРемонта.ДополнительноеОборудование</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="СписокОбъектовРемонтаДополнительноеОборудованиеКонтекстноеМеню" id="153"/>
+							<ExtendedTooltip name="СписокОбъектовРемонтаДополнительноеОборудованиеРасширеннаяПодсказка" id="154"/>
+						</InputField>
+						<InputField name="СписокОбъектовРемонтаСклад" id="155">
+							<DataPath>СписокОбъектовРемонта.Склад</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="СписокОбъектовРемонтаСкладКонтекстноеМеню" id="156"/>
+							<ExtendedTooltip name="СписокОбъектовРемонтаСкладРасширеннаяПодсказка" id="157"/>
+						</InputField>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+		<Pages name="ГруппаРемонтныеДокументы" id="238">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа ремонтные документы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа ремонтные документы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="ГруппаРемонтныеДокументыРасширеннаяПодсказка" id="239"/>
+			<Events>
+				<Event name="OnCurrentPageChange">ГруппаРемонтныеДокументыПриСменеСтраницы</Event>
+			</Events>
+			<ChildItems>
+				<Page name="ГруппаЗаявкиНаРемонт" id="211">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Заявки</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа заявки на ремонт</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаЗаявкиНаРемонтРасширеннаяПодсказка" id="212"/>
+					<ChildItems>
+						<Table name="СписокЗаявокНаРемонт" id="213">
+							<Height>5</Height>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>СписокЗаявокНаРемонт</DataPath>
+							<RowPictureDataPath>СписокЗаявокНаРемонт.ИндексКартинки</RowPictureDataPath>
+							<RowsPicture>
+								<xr:Ref>CommonPicture.упСтатусыЗаявкиНаРемонт</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</RowsPicture>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="СписокЗаявокНаРемонтКонтекстноеМеню" id="214"/>
+							<AutoCommandBar name="СписокЗаявокНаРемонтКоманднаяПанель" id="215">
+								<ChildItems>
+									<Button name="СписокЗаявокНаРемонтОтображатьДокументыТолькоПоТекущемуОбъектуРемонта" id="253">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ОтображатьДокументыТолькоПоТекущемуОбъектуРемонта</CommandName>
+										<ExtendedTooltip name="СписокЗаявокНаРемонтОтображатьДокументыТолькоПоТекущемуОбъектуРемонтаРасширеннаяПодсказка" id="254"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="СписокЗаявокНаРемонтРасширеннаяПодсказка" id="216"/>
+							<SearchStringAddition name="СписокЗаявокНаРемонтСтрокаПоиска" id="217">
+								<AdditionSource>
+									<Item>СписокЗаявокНаРемонт</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокЗаявокНаРемонтСтрокаПоискаКонтекстноеМеню" id="218"/>
+								<ExtendedTooltip name="СписокЗаявокНаРемонтСтрокаПоискаРасширеннаяПодсказка" id="219"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СписокЗаявокНаРемонтСостояниеПросмотра" id="220">
+								<AdditionSource>
+									<Item>СписокЗаявокНаРемонт</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокЗаявокНаРемонтСостояниеПросмотраКонтекстноеМеню" id="221"/>
+								<ExtendedTooltip name="СписокЗаявокНаРемонтСостояниеПросмотраРасширеннаяПодсказка" id="222"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СписокЗаявокНаРемонтУправлениеПоиском" id="223">
+								<AdditionSource>
+									<Item>СписокЗаявокНаРемонт</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокЗаявокНаРемонтУправлениеПоискомКонтекстноеМеню" id="224"/>
+								<ExtendedTooltip name="СписокЗаявокНаРемонтУправлениеПоискомРасширеннаяПодсказка" id="225"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="BeforeAddRow">СписокЗаявокНаРемонтПередНачаломДобавления</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="СписокЗаявокНаРемонтСтатус" id="235">
+									<DataPath>СписокЗаявокНаРемонт.Статус</DataPath>
+									<Width>10</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="СписокЗаявокНаРемонтСтатусКонтекстноеМеню" id="236"/>
+									<ExtendedTooltip name="СписокЗаявокНаРемонтСтатусРасширеннаяПодсказка" id="237"/>
+								</LabelField>
+								<LabelField name="СписокЗаявокНаРемонтЗаявкаНаРемонт" id="226">
+									<DataPath>СписокЗаявокНаРемонт.ЗаявкаНаРемонт</DataPath>
+									<ContextMenu name="СписокЗаявокНаРемонтЗаявкаНаРемонтКонтекстноеМеню" id="227"/>
+									<ExtendedTooltip name="СписокЗаявокНаРемонтЗаявкаНаРемонтРасширеннаяПодсказка" id="228"/>
+								</LabelField>
+								<LabelField name="СписокЗаявокНаРемонтОбъектРемонта" id="232">
+									<DataPath>СписокЗаявокНаРемонт.ОбъектРемонта</DataPath>
+									<ContextMenu name="СписокЗаявокНаРемонтОбъектРемонтаКонтекстноеМеню" id="233"/>
+									<ExtendedTooltip name="СписокЗаявокНаРемонтОбъектРемонтаРасширеннаяПодсказка" id="234"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаРемонты" id="94">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ремонты</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа ремонты</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаРемонтыРасширеннаяПодсказка" id="95"/>
+					<ChildItems>
+						<Table name="СписокРемонтов" id="1">
+							<Height>3</Height>
+							<AutoMaxHeight>false</AutoMaxHeight>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>СписокРемонтов</DataPath>
+							<RowPictureDataPath>СписокРемонтов.ИндексКартинки</RowPictureDataPath>
+							<RowsPicture>
+								<xr:Ref>CommonPicture.упСтатусыРемонтаИТОТС</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</RowsPicture>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="СписокРемонтовКонтекстноеМеню" id="2"/>
+							<AutoCommandBar name="СписокРемонтовКоманднаяПанель" id="3">
+								<ChildItems>
+									<Button name="ОтображатьДокументыТолькоПоТекущемуОбъектуРемонта" id="255">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ОтображатьДокументыТолькоПоТекущемуОбъектуРемонта</CommandName>
+										<ExtendedTooltip name="ОтображатьДокументыТолькоПоТекущемуОбъектуРемонтаРасширеннаяПодсказка" id="256"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="СписокРемонтовРасширеннаяПодсказка" id="4"/>
+							<SearchStringAddition name="СписокРемонтовСтрокаПоиска" id="5">
+								<AdditionSource>
+									<Item>СписокРемонтов</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокРемонтовСтрокаПоискаКонтекстноеМеню" id="6"/>
+								<ExtendedTooltip name="СписокРемонтовСтрокаПоискаРасширеннаяПодсказка" id="7"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СписокРемонтовСостояниеПросмотра" id="8">
+								<AdditionSource>
+									<Item>СписокРемонтов</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокРемонтовСостояниеПросмотраКонтекстноеМеню" id="9"/>
+								<ExtendedTooltip name="СписокРемонтовСостояниеПросмотраРасширеннаяПодсказка" id="10"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СписокРемонтовУправлениеПоиском" id="11">
+								<AdditionSource>
+									<Item>СписокРемонтов</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокРемонтовУправлениеПоискомКонтекстноеМеню" id="12"/>
+								<ExtendedTooltip name="СписокРемонтовУправлениеПоискомРасширеннаяПодсказка" id="13"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="BeforeAddRow">СписокРемонтовПередНачаломДобавления</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="СписокРемонтовСтатус" id="60">
+									<DataPath>СписокРемонтов.Статус</DataPath>
+									<Width>10</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="СписокРемонтовСтатусКонтекстноеМеню" id="61"/>
+									<ExtendedTooltip name="СписокРемонтовСтатусРасширеннаяПодсказка" id="62"/>
+								</LabelField>
+								<LabelField name="СписокРемонтовРемонт" id="57">
+									<DataPath>СписокРемонтов.Ремонт</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Ремонт (ТО)</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="СписокРемонтовРемонтКонтекстноеМеню" id="58"/>
+									<ExtendedTooltip name="СписокРемонтовРемонтРасширеннаяПодсказка" id="59"/>
+								</LabelField>
+								<LabelField name="СписокРемонтовОбъектРемонта" id="208">
+									<DataPath>СписокРемонтов.ОбъектРемонта</DataPath>
+									<ContextMenu name="СписокРемонтовОбъектРемонтаКонтекстноеМеню" id="209"/>
+									<ExtendedTooltip name="СписокРемонтовОбъектРемонтаРасширеннаяПодсказка" id="210"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.упРМУправлениеРемонтами</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="Гараж" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Гараж</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.упГаражи</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СписокРемонтов" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список ремонтов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	упРемонтИТОТС.Ссылка КАК Ремонт,
+	ВЫБОР КОГДА упРемонтИТОТС.ОбъектРемонта = ЗНАЧЕНИЕ(Перечисление.упОбъектыРемонта.ТранспортноеСредство)
+		ТОГДА упРемонтИТОТС.ТранспортноеСредство
+		ИНАЧЕ упРемонтИТОТС.ДополнительноеОборудованиеРемонта
+	КОНЕЦ КАК ОбъектРемонта,
+	ВЫБОР
+		КОГДА упСтатусыРемонтовИТОТССрезПоследних.Статус В (ЗНАЧЕНИЕ(Перечисление.упСтатусыРемонтаИТОТС.Запланирован), ЗНАЧЕНИЕ(Перечисление.упСтатусыРемонтаИТОТС.Начат))
+				И упРемонтИТОТС.ОкончаниеРемонтаПлан &lt;&gt; ДАТАВРЕМЯ(1, 1, 1)
+				И упРемонтИТОТС.ОкончаниеРемонтаПлан &lt; &amp;ТекущаяДата
+			ТОГДА ИСТИНА
+		ИНАЧЕ ЛОЖЬ
+	КОНЕЦ КАК Просрочен,
+	ЕСТЬNULL(упСтатусыРемонтовИТОТССрезПоследних.Статус, ЗНАЧЕНИЕ(Перечисление.упСтатусыРемонтаИТОТС.Новый)) КАК Статус,
+	ЕСТЬNULL(упСтатусыРемонтовИТОТССрезПоследних.Статус.Порядок, 0) КАК ИндексКартинки
+ИЗ
+	Документ.упРемонтИТОТС КАК упРемонтИТОТС
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упСтатусыРемонтовИТОТС.СрезПоследних КАК упСтатусыРемонтовИТОТССрезПоследних
+		ПО упРемонтИТОТС.Ссылка = упСтатусыРемонтовИТОТССрезПоследних.Документ
+ГДЕ
+    НЕ упРемонтИТОТС.ПометкаУдаления
+    И НЕ упРемонтИТОТС.ОбъектРемонта = ЗНАЧЕНИЕ(Перечисление.упОбъектыРемонта.Агрегат)
+	И НЕ упСтатусыРемонтовИТОТССрезПоследних.Статус В (ЗНАЧЕНИЕ(Перечисление.упСтатусыРемонтаИТОТС.Завершен), ЗНАЧЕНИЕ(Перечисление.упСтатусыРемонтаИТОТС.Отменен))
+{ГДЕ
+	(упРемонтИТОТС.Гараж В (&amp;Гараж, ЗНАЧЕНИЕ(Справочник.упГаражи.ПустаяСсылка)))}		</QueryText>
+				<MainTable>Document.упРемонтИТОТС</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>Ремонт</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:item>
+							<dcsset:selection/>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">Просрочен</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветТекста</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">style:SpecialTextColor</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ПараметрыУправленияРемонтами" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Параметры управления ремонтами</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="ТекущийПользователь" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текущий пользователь</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Пользователи</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СписокОбъектовРемонта" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список объектов ремонта</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="ОбъектРемонта" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Объект ремонта</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упДополнительноеОборудование</v8:Type>
+						<v8:Type>cfg:CatalogRef.упТранспортныеСредства</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ТранспортноеСредство" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Транспортное средство</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упТранспортныеСредства</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ДополнительноеОборудование" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дополнительное оборудование</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упДополнительноеОборудование</v8:Type>
+					</Type>
+					<FunctionalOptions>
+						<Item>FunctionalOption.упИспользуетсяУчетДополнительногоОборудования</Item>
+					</FunctionalOptions>
+				</Column>
+				<Column name="Склад" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Склад</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упСклады</v8:Type>
+					</Type>
+					<FunctionalOptions>
+						<Item>FunctionalOption.упИспользуетсяУчетДополнительногоОборудования</Item>
+					</FunctionalOptions>
+				</Column>
+				<Column name="ВидОбъектаРемонта" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вид объекта ремонта</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>1</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Местоположение" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Местоположение</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упСклады</v8:Type>
+						<v8:Type>cfg:CatalogRef.упТранспортныеСредства</v8:Type>
+					</Type>
+					<FunctionalOptions>
+						<Item>FunctionalOption.упИспользуетсяУчетДополнительногоОборудования</Item>
+					</FunctionalOptions>
+				</Column>
+				<Column name="Состояние" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Состояние ТС</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упСостоянияТС</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ИндексКартинкиСостояния" id="8">
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>1</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ПробегОсталось" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пробег осталось</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.Пробег</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="МоточасыОсталось" id="10">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Моточасы осталось</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.ВремяРаботы</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="ДатаСледующегоТО" id="11">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата следующего ТО</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Date</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="ПрогнозируемаяДатаСледующегоТО" id="12">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Прогнозируемая дата</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Date</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="ПоследнийРемонт" id="13">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Последний ремонт</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:DocumentRef.упРемонтИТОТС</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ПоследнееТО" id="14">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Последнее ТО</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Date</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="СостояниеРемонта" id="15">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Состояние ремонта</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>1</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Подразделение" id="16">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Подразделение</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упСтруктураПредприятия</v8:Type>
+					</Type>
+					<FunctionalOptions>
+						<Item>FunctionalOption.упИспользуетсяУчетПодразделений</Item>
+					</FunctionalOptions>
+				</Column>
+				<Column name="ИндексКартинки" id="17">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Индекс картинки</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>1</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ИндексЦветаФонаСтроки" id="18">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Индекс цвета фона строки</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>1</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ВидРемонта" id="19">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вид ремонта</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.упВидыРемонтов</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="АдресСхемыКомпоновкиДанных" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Адрес схемы компоновки данных</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="КомпоновщикНастроек" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Компоновщик настроек</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>dcsset:SettingsComposer</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СписокЗаявокНаРемонт" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список заявок на ремонт</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	упЗаявкаНаРемонтИТОТС.Ссылка КАК ЗаявкаНаРемонт,
+	ВЫБОР
+		КОГДА упЗаявкаНаРемонтИТОТС.ОбъектРемонта = ЗНАЧЕНИЕ(Перечисление.упОбъектыРемонта.ТранспортноеСредство)
+			ТОГДА упЗаявкаНаРемонтИТОТС.ТранспортноеСредство
+		ИНАЧЕ упЗаявкаНаРемонтИТОТС.ДополнительноеОборудованиеРемонта
+	КОНЕЦ КАК ОбъектРемонта,
+	ЕСТЬNULL(упСтатусыЗаявокНаРемонтИТОТССрезПоследних.Статус, ЗНАЧЕНИЕ(Перечисление.упСтатусыЗаявкиНаРемонтИТОТС.Новая)) КАК Статус,
+	ЕСТЬNULL(упСтатусыЗаявокНаРемонтИТОТССрезПоследних.Статус.Порядок, 0) КАК ИндексКартинки
+ИЗ
+	Документ.упЗаявкаНаРемонтИТОТС КАК упЗаявкаНаРемонтИТОТС
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.упСтатусыЗаявокНаРемонтИТОТС.СрезПоследних КАК упСтатусыЗаявокНаРемонтИТОТССрезПоследних
+		ПО (упСтатусыЗаявокНаРемонтИТОТССрезПоследних.Документ = упЗаявкаНаРемонтИТОТС.Ссылка)
+ГДЕ
+	НЕ упЗаявкаНаРемонтИТОТС.ПометкаУдаления
+	И НЕ упЗаявкаНаРемонтИТОТС.ОбъектРемонта = ЗНАЧЕНИЕ(Перечисление.упОбъектыРемонта.Агрегат)
+	И НЕ ЕСТЬNULL(упСтатусыЗаявокНаРемонтИТОТССрезПоследних.Статус, ЗНАЧЕНИЕ(Перечисление.упСтатусыЗаявкиНаРемонтИТОТС.Новая)) В (ЗНАЧЕНИЕ(Перечисление.упСтатусыЗаявкиНаРемонтИТОТС.Отменена), ЗНАЧЕНИЕ(Перечисление.упСтатусыЗаявкиНаРемонтИТОТС.Выполнена))
+{ГДЕ
+	(упЗаявкаНаРемонтИТОТС.Гараж В (&amp;Гараж, ЗНАЧЕНИЕ(Справочник.упГаражи.ПустаяСсылка)))}	</QueryText>
+				<MainTable>Document.упЗаявкаНаРемонтИТОТС</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ВариантСписков" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вариант списков</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>256</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<Save>
+				<Field>ВариантСписков</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="КлючОбщихНастроекФормы" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ключ общих настроек формы</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ОтображатьДокументыТолькоПоТекущемуОбъектуРемонта" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отображать документы только по текущему объекту ремонта</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОтборУстановлен" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбор установлен</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>СписокОбъектовРемонтаСостояние</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">СписокОбъектовРемонта.ВидОбъектаРемонта</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:decimal">1</dcsset:right>
+						<dcsset:presentation xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Это доп. оборудование</v8:content>
+							</v8:item>
+						</dcsset:presentation>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:НедоступныеДанныеЦвет</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="false" italic="true" underline="false" strikeout="false" kind="WindowsFont"/>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>только для транспорта</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>Отображать</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>СписокОбъектовРемонтаИндексКартинкиСостояния</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">СписокОбъектовРемонта.ВидОбъектаРемонта</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:decimal">1</dcsset:right>
+						<dcsset:presentation xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Это доп. оборудование</v8:content>
+							</v8:item>
+						</dcsset:presentation>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>только для транспорта</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Отображать</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>СписокОбъектовРемонтаМестоположение</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">СписокОбъектовРемонта.ВидОбъектаРемонта</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+						<dcsset:presentation xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Это ТС</v8:content>
+							</v8:item>
+						</dcsset:presentation>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:НедоступныеДанныеЦвет</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="style:TextFont" bold="false" italic="true" underline="false" strikeout="false" kind="StyleItem"/>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>только для оборудования</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>СписокОбъектовРемонта</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">СписокОбъектовРемонта.ИндексЦветаФонаСтроки</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:decimal">1</dcsset:right>
+						<dcsset:presentation xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Изменить цвет фона строки</v8:content>
+							</v8:item>
+						</dcsset:presentation>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">#FAFAFA</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>СписокОбъектовРемонтаПрогнозируемаяДатаСледующегоТО</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="xs:boolean">true</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+						<dcsset:presentation xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Всегда</v8:content>
+							</v8:item>
+						</dcsset:presentation>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:ДобавленныйРеквизитФон</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>СписокОбъектовРемонтаДатаСледующегоТО</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СписокОбъектовРемонтаПробегОсталось</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СписокОбъектовРемонтаМоточасыОсталось</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="xs:boolean">true</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+						<dcsset:presentation xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Всегда</v8:content>
+							</v8:item>
+						</dcsset:presentation>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:упЦветФонаГруппыСтатуса</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="ПоказатьПройденныеТО" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пройденные ТО</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать пройденные ТО</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.ShowData</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ПоказатьПройденныеТО</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="УказатьПараметрыУправленияРемонтами" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Параметры</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Указать параметры управления ремонтами</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.упСервис</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>УказатьПараметрыУправленияРемонтами</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ОбновитьСписокОбъектовРемонта" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить список объектов ремонта</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить список объектов ремонта</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ОбновитьСписокОбъектовРемонта</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="НастроитьСписокОбъектовРемонта" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбор</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Редактировать текущие настройки отбора списка объектов ремонта</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.ReportSettings</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>НастройкаОбъектовРемонта</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="СохранитьВариантНастройкиСпискаОбъектовРемонта" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить вариант настройки списка объектов ремонта</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить вариант настройки списка объектов ремонта</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.SaveValues</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СохранитьВариантНастройкиСпискаОбъектовРемонта</Action>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ОткрытьВариантНастройкиСпискаОбъектовРемонта" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть вариант настройки списка объектов ремонта</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть вариант настройки списка объектов ремонта</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.RestoreValues</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ОткрытьВариантНастройкиСпискаОбъектовРемонта</Action>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ОтображатьДокументыТолькоПоТекущемуОбъектуРемонта" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Только текущие</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отображать документы только по текущему объекту ремонта</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОтображатьДокументыТолькоПоТекущемуОбъектуРемонта</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПакетнаяФормаОбработкаРемонтовИТОТС" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сформировать ТО</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пакетная форма обработка ремонтов ИТОТС</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПакетнаяФормаОбработкаРемонтовИТОТС</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

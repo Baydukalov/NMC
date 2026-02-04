@@ -1,0 +1,475 @@
+﻿
+var network = null;
+var nodes = null;
+var edges = null;
+var newEdges = [];
+var newNotifications = [];
+
+// global options for network graph
+var addAddressToNodeLabel    = false;
+var showEdgesLabel           = false;
+var enableHierarchicalLayout = false;
+var nodesShape               = 'ellipse';
+var noCargoMode              = false;
+
+function createNetwork(nodesString, edgesString){
+	
+	nodes = new vis.DataSet();
+	var nodesArray = nodesString.split(';');
+    for (var i = 0; i < nodesArray.length/5 - 1; i++) {
+    	var id = nodesArray[i*5];
+    	var title = nodesArray[i*5 + 1];
+    	var image = nodesArray[i*5 + 2];
+    	var borderColor = nodesArray[i*5 + 3];
+    	var chosen = nodesArray[i*5 + 4];
+    	
+    	editGraphNode(id, title, image, borderColor, chosen);
+    }
+
+	edges = new vis.DataSet();
+	
+	var edgesdArray = edgesString.split(';');
+    for (var i = 0; i < edgesdArray.length/9 - 1; i++) {
+    	var id = edgesdArray[i*9];
+    	var title = edgesdArray[i*9 + 1];
+    	var from = edgesdArray[i*9 + 2];
+    	var to = edgesdArray[i*9 + 3];
+    	var color = edgesdArray[i*9 + 4];
+    	var useDashes = edgesdArray[i*9 + 5];
+    	var chosen = edgesdArray[i*9 + 6];
+    	var hidden = edgesdArray[i*9 + 7];
+    	var state = edgesdArray[i*9 + 8];
+    	
+    	editGraphEdge(id, title, from, to, color, useDashes, chosen, hidden, state);
+    }
+	
+	var container = document.getElementById('networkgraph');
+	var data = {
+    	nodes: nodes,
+    	edges: edges
+  	};  
+  	
+  	var options = {
+  		nodes: {
+  			color: {
+      			border: '#2B7CE9',
+      			background: '#FFFFFF',
+      			highlight: {
+        			border: '#2B7CE9',
+        			background: '#D2E5FF'
+      			},
+      			hover: {
+        			border: '#2B7CE9',
+        			background: '#FFFFFF'
+      			}
+    		}
+  		},
+  		edges: {
+    		arrows: 'to'
+  		},
+  		/*interaction: {
+    		dragNodes:true,
+   			dragView: true,
+    		hideEdgesOnDrag: false,
+    		hideNodesOnDrag: false,
+    		hover: false,
+    		hoverConnectedEdges: true,
+    		keyboard: {
+      			enabled: false,
+      			speed: {x: 10, y: 10, zoom: 0.02},
+      			bindToWindow: true
+    		},
+   			multiselect: false,
+   			navigationButtons: false,
+    		selectable: false,
+    		selectConnectedEdges: true,
+    		tooltipDelay: 300,
+    		zoomView: false
+  		},*/
+  		layout: {
+  			hierarchical: {
+      			enabled: enableHierarchicalLayout,
+      			levelSeparation: 150,
+      			nodeSpacing: 100,
+      			treeSpacing: 200,
+      			blockShifting: true,
+      			edgeMinimization: true,
+      			parentCentralization: true,
+     			direction: 'LR',        // UD, DU, LR, RL
+      			sortMethod: 'directed'   // hubsize, directed
+    		}
+  		},
+  		manipulation: {
+  			enabled: false,
+    		addEdge: function(edgeData,callback) {
+    			var res = newEdgeIsCorrect(edgeData);
+    			if (res === true) {
+    				callback(edgeData);
+    				newEdges.push(edgeData.id);
+      				newEdges.push(edgeData.from);
+      				newEdges.push(edgeData.to);		
+    			}
+    		},
+    		deleteNode: true,
+    		deleteEdge: true
+  		},
+  		physics:{
+  			enabled: false,
+    		stabilization: {
+      			enabled: true,
+      			iterations: 300,
+      			updateInterval: 50,
+      			onlyDynamicEdges: false,
+      			fit: true
+    		},
+    		timestep: 0.5,
+    		adaptiveTimestep: true,
+    		solver: 'repulsion'
+    		
+  		}
+  	};
+  	network = new vis.Network(container, data, options);
+  	stabilizeGraph();
+}
+
+function stabilizeGraph() {
+	network.stabilize(500);
+}
+
+function fitGraph() {
+	var options = {
+		offset: {
+			x:0,
+			y:0
+		},
+        duration: 1000,
+        easingFunction: 'easeInOutQuad'
+      };
+	network.fit({animation: options});
+}
+
+function setGraphProperties(pAddAddressToNodeLabel, pShowEdgesLabel, pEnableHierarchicalLayout, pNodesShape, pNoCargoMode) {
+	addAddressToNodeLabel = pAddAddressToNodeLabel;
+	showEdgesLabel = pShowEdgesLabel;
+	enableHierarchicalLayout = pEnableHierarchicalLayout;
+	nodesShape = pNodesShape;
+	noCargoMode = pNoCargoMode;
+}
+
+function editGraphNode(id, title, image, borderColor, chosen) {
+    if (addAddressToNodeLabel === true){
+    	var label = "<b>" + id + "</b>." + title;	
+    } 
+    else {
+    	var label = "<b>" + id + "</b>";
+    }
+	
+    if (chosen === "false") {
+    
+    	chosen = false;
+    }
+    
+    if (nodesShape == 'image' || nodesShape == 'circularImage') { 
+    	var maximumWidth = 100;
+    }
+    else {
+    	var maximumWidth = 250;
+    	image = undefined;	
+    }	
+
+	var options = {
+		id: id,
+		chosen: chosen,
+		label: label,
+		shape: nodesShape,
+		shapeProperties: {
+			interpolation: false,  // only for image and circularImage shapes
+			useImageSize: true  // only for image and circularImage shapes
+		},
+		image: image,
+		title: title, 
+		widthConstraint: {
+			minimum: 10, 
+			maximum: maximumWidth
+		},
+		font: {
+			size: 12,
+			multi: 'html',
+			bold: {
+        		color: borderColor        		
+      		},
+		},
+		color: {
+      		border: borderColor,
+      		highlight: {
+        		border: borderColor,
+      		},
+      		hover: {
+        		border: borderColor,
+      		}
+      	}	
+	};
+	
+	var curNode = nodes.get(id);
+	if (curNode == null) {
+		nodes.add(options);
+	}
+	else {		
+		nodes.update(options);	
+	}
+}
+
+function editGraphEdge(id, title, from, to, color, useDashes, chosen, hidden, state) {
+	
+    if (title == "") {
+    	title = undefined;
+    }
+	
+	if (showEdgesLabel === true){
+		if (title== undefined) {
+			var label = "?";
+		}
+		else {
+			var label = title;	
+		}
+    } 
+    else {
+    	var label = undefined;
+    }    
+    
+    if (useDashes === "false") {
+    
+    	useDashes = false;
+    }
+    
+    if (chosen === "false") {
+    
+    	chosen = false;
+    }
+    
+    if (hidden === "false") {
+    
+    	hidden = false;
+    }
+    
+	var options = {
+		id: id,
+		state: state,
+		label: label,
+		title: title,
+		from: from,
+		to: to,
+		arrows:'to',
+		dashes: useDashes,
+		color: {
+			color: color,
+			highlight: color
+		},
+		font: {
+			size: 9
+		},
+		chosen: chosen,
+		physics: !hidden,
+		hidden: hidden,
+		connected: true
+	};
+		
+	var curEdge = edges.get(id);
+	if (curEdge == null) {
+		edges.add(options);
+	}
+	else {		
+		edges.update(options);	
+	}	
+}
+
+function removeEdge(id) {
+
+	/*var currentEdges = edges.get({
+    	filter: function (item) {
+    		return (item.id == id);
+  		}
+	});
+
+	edges.getDataSet().remove(currentEdges);*/
+	edges.getDataSet().remove(id);
+	
+	/*try {
+        edges.remove(id);	
+    } catch(e) {
+        alert(e.name + ': ' + e.message);
+    } */
+}
+
+function removeNode(id) {
+	nodes.getDataSet().remove(id);	
+}
+
+function enableGraphEdgeMode() {
+	if (network != null){
+		network.addEdgeMode();	
+	}
+ }
+ 
+function disableGraphEdgeMode() {
+	if (network != null){
+		network.disableEditMode();	
+	}
+ } 
+ 
+function getAddedEdges() {
+ 	var str = newEdges.join(";");
+ 	newEdges = [];
+    return str;
+ }
+ 
+function getNotifications() {
+ 	var str = newNotifications.join("//");
+ 	newNotifications = [];
+    return str;
+ }
+ 
+function getSelectedNodesFromGraph() {
+ 	var str = "";
+ 	if (network != null){
+		var selectedElements = network.getSelectedNodes();
+		str = selectedElements.join(";");
+	}
+    return str;
+ }
+ 
+function getSelectedEdgesFromGraph() {
+ 	var str = "";
+ 	if (network != null){
+ 		var selectedElements = network.getSelectedEdges();
+ 		str = selectedElements.join(";");
+	}
+	return str;
+}	
+ 
+function newEdgeIsCorrect(edgeData) {
+ 	var res = true;
+ 	
+ 	if (edgeData.from === edgeData.to) {
+    	newNotifications.push("ru = 'Нельзя соединять вершину саму с собой!'");
+    	return false;
+    }  			
+    
+    var nextEdges = edges.get({
+    	filter: function (item) {
+    		return (item.from == edgeData.to);
+  		}
+	});
+	
+	if (noCargoMode === true) {
+		if (nextEdges != null) {
+			if (nextEdges.length > 1) {
+				newNotifications.push("ru = 'При вводе грузовых мест в целом по заявке на перевозку разветвления цепи поставок запрещены!'");
+    			return false;
+			}			
+		}
+		
+		var previousEdges = edges.get({
+    		filter: function (item) {
+    			return (item.from == edgeData.from);
+  			}
+		});
+		if (previousEdges != null) {
+			if (previousEdges.length + 1 > 1) {
+				newNotifications.push("ru = 'При вводе грузовых мест в целом по заявке на перевозку разветвления цепи поставок запрещены!'");
+    			return false;
+			}			
+		}
+	}
+	
+	if (nextEdges != null) {
+		cancelledExists = false;
+		newExists = false;
+    	for (var i = 0; i < nextEdges.length; i++) {
+    		var curEdge = nextEdges[i];
+    		if (curEdge.state == 'executed') {
+    			newNotifications.push("ru = 'Нельзя создавать новый этап, предшествующий выполняющимся этапам!'");
+    			return false;	
+    		}
+    		
+    		if (curEdge.state == 'cancelled') {
+    			cancelledExists = true;	
+    		}
+    		
+    		if (curEdge.state == 'new') {
+    			newExists = true;	
+    		}
+    	}
+    	
+    	if (!newExists && cancelledExists) {
+    		newNotifications.push("ru = 'Нельзя создавать новый этап, предшествующий только отменяющимся и запланированным этапам!'");
+    		return false;	
+    	}
+	}
+	
+	var graphCyclic = newEdgeMadeGraphCyclic(edgeData, nextEdges);
+	if (graphCyclic == true) {
+		newNotifications.push("ru = 'Запрещено создание циклов на графе! Для добавления этапа возврата в точку нужно добавить на граф новую вершину (точку).'");
+    	return false;
+	}
+    	
+ 	return res;
+}
+
+function newEdgeMadeGraphCyclic(edgeData, nextEdges) {
+	
+	var res = false;
+	var newEdgeFrom = edgeData.from;
+	
+	if (nextEdges != null) {
+		res = checkNextEdgesForCycles(nextEdges, newEdgeFrom);
+	}
+	
+	return res;
+}
+
+function checkNextEdgesForCycles(nextEdges, newEdgeFrom) {
+	for (var i = 0; i < nextEdges.length; i++) {
+    	var curEdge = nextEdges[i];
+    	
+    	if (curEdge.to == newEdgeFrom) {
+    		return true;	
+    	}
+    	var nextEdges = edges.get({
+    		filter: function (item) {
+    			return (item.from == curEdge.to);
+  			}
+  		});	
+  		if (nextEdges != null) {
+			var res = checkNextEdgesForCycles(nextEdges, newEdgeFrom, res);
+			if (res == true) {
+				return res;
+			}
+		}
+	}	
+}
+
+function setExecut() {
+			
+    var div = document.getElementById('GetExtCommand');
+    var elems = div.getElementsByTagName('*');	 
+    var curData = '';
+    for(var i=0; i<elems.length; i++) {
+        curData = elems[i].value;
+        elems[i].value = '';
+    };
+    try{
+        var result_1 = eval(curData);
+    } catch(e) {
+        alert(e.name + ': ' + e.message);
+        alert(curData);
+    } 
+    var result_JSON = JSON.stringify(result_1);
+		
+    div = document.getElementById('GetData');
+    elems = div.getElementsByTagName('*');	 
+    for(var i=0; i<elems.length; i++) {
+        elems[i].value = result_JSON;
+    };
+		      
+} // setExecut ()

@@ -1,0 +1,874 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаПланСНДС</dataPath>
+			<field>СуммаПланСНДС</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма план с НДС</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Пробег</dataPath>
+			<field>Пробег</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пробег</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<field>true</field>
+				<condition>true</condition>
+				<group>true</group>
+				<order>true</order>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТипТС</dataPath>
+			<field>ТипТС</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтатьяРасходов</dataPath>
+			<field>СтатьяРасходов</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Статья расходов</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаФактСНДС</dataPath>
+			<field>СуммаФактСНДС</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма факт с НДС</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТранспортноеСредство</dataPath>
+			<field>ТранспортноеСредство</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДокументОснования</dataPath>
+			<field>ДокументОснования</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документ основания</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:periodNumber>1</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Перевозчик</dataPath>
+			<field>Перевозчик</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаФактВалютаСНДС</dataPath>
+			<field>СуммаФактВалютаСНДС</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма факт валюта с НДС</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МодельТС</dataPath>
+			<field>МодельТС</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Модель ТС</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Валюта</dataPath>
+			<field>Валюта</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Валюта</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаПланВалютаСНДС</dataPath>
+			<field>СуммаПланВалютаСНДС</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма план валюта с НДС</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТранспортноеСредство1</dataPath>
+			<field>ТранспортноеСредство1</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Транспортное средство</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ПеревозчикПоРейсуСП.ТранспортноеСредство КАК ТС,
+	упТранспортныеСредства.ТипТС КАК ТипТС,
+	упТранспортныеСредства.Модель КАК МодельТС,
+	ПеревозчикПоРейсуСП.Рейс,
+	ПеревозчикПоРейсуСП.Перевозчик
+ПОМЕСТИТЬ вт_ТС
+ИЗ
+	РегистрСведений.упПеревозчикПоРейсу.СрезПоследних({(&amp;КонецПериода)}, ) КАК ПеревозчикПоРейсуСП
+		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.упТранспортныеСредства КАК упТранспортныеСредства
+		ПО ПеревозчикПоРейсуСП.ТранспортноеСредство = упТранспортныеСредства.Ссылка
+ГДЕ
+	НЕ упТранспортныеСредства.Ссылка ЕСТЬ NULL
+	И ПеревозчикПоРейсуСП.ТранспортноеСредство В
+			(ВЫБРАТЬ
+				упПеревозчикПоРейсу.ТранспортноеСредство
+			ИЗ
+				РегистрСведений.упПеревозчикПоРейсу КАК упПеревозчикПоРейсу
+			ГДЕ
+				упПеревозчикПоРейсу.Период МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода)
+{ГДЕ
+	ПеревозчикПоРейсуСП.ТранспортноеСредство.* КАК ТранспортноеСредство1}
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	МИНИМУМ(упПробегТС.Период) КАК Период,
+	упПробегТС.ТранспортноеСредство
+ПОМЕСТИТЬ вт_ПробегН
+ИЗ
+	РегистрНакопления.упПробегТС КАК упПробегТС
+ГДЕ
+	упПробегТС.ТранспортноеСредство В
+			(ВЫБРАТЬ
+				вт_ТС.ТС
+			ИЗ
+				вт_ТС КАК вт_ТС)
+
+СГРУППИРОВАТЬ ПО
+	упПробегТС.ТранспортноеСредство
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ПробегТС1.ТранспортноеСредство,
+	ПробегТС1.Пробег
+ПОМЕСТИТЬ вт_ПробегНачала
+ИЗ
+	РегистрНакопления.упПробегТС КАК ПробегТС1
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ вт_ПробегН КАК вт_ПробегН
+		ПО ПробегТС1.Период = вт_ПробегН.Период
+			И ПробегТС1.ТранспортноеСредство = вт_ПробегН.ТранспортноеСредство
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	упПробегТСОстатки.ТранспортноеСредство КАК ТС,
+	ВЫБОР
+		КОГДА вт_ПробегНачала.Пробег ЕСТЬ NULL
+			ТОГДА упПробегТСОстатки.ПробегОстаток
+		ИНАЧЕ ВЫБОР
+				КОГДА упПробегТСОстатки.ПробегОстаток &gt; вт_ПробегНачала.Пробег
+					ТОГДА упПробегТСОстатки.ПробегОстаток - вт_ПробегНачала.Пробег
+				ИНАЧЕ вт_ПробегНачала.Пробег - упПробегТСОстатки.ПробегОстаток
+			КОНЕЦ
+	КОНЕЦ КАК Пробег
+ПОМЕСТИТЬ вт_Пробег
+ИЗ
+	РегистрНакопления.упПробегТС.Остатки(
+			{(&amp;КонецПериода)},
+			ТранспортноеСредство В
+				(ВЫБРАТЬ
+					вт_ТС.ТС
+				ИЗ
+					вт_ТС КАК вт_ТС)) КАК упПробегТСОстатки
+		ЛЕВОЕ СОЕДИНЕНИЕ вт_ПробегНачала КАК вт_ПробегНачала
+		ПО упПробегТСОстатки.ТранспортноеСредство = вт_ПробегНачала.ТранспортноеСредство
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	упСтатусыПутевыхЛистовСрезПоследних.Документ.Рейс,
+	упСтатусыПутевыхЛистовСрезПоследних.Документ.ТранспортноеСредство
+ПОМЕСТИТЬ вт_ПутевыеЛисты
+ИЗ
+	РегистрСведений.упСтатусыПутевыхЛистов.СрезПоследних({(&amp;КонецПериода)}, ) КАК упСтатусыПутевыхЛистовСрезПоследних
+ГДЕ
+	упСтатусыПутевыхЛистовСрезПоследних.Документ.Дата МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+	И НЕ упСтатусыПутевыхЛистовСрезПоследних.Статус = ЗНАЧЕНИЕ(Перечисление.упСтатусыПутевогоЛиста.Отменен)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	вт_ТС.ТС,
+	вт_ТС.Рейс,
+	упРасходы.Регистратор КАК ДокументОснования,
+	ЕСТЬNULL(упРасходы.СтатьяРасходов, ЗНАЧЕНИЕ(Справочник.упСтатьиДоходовРасходов.ПустаяСсылка)) КАК СтатьяРасходов,
+	ЕСТЬNULL(упРасходы.Валюта, ЗНАЧЕНИЕ(Справочник.Валюты.ПустаяСсылка)) КАК Валюта,
+	ЕСТЬNULL(упРасходы.СуммаПланСНДС, 0) КАК СуммаПланСНДС,
+	ЕСТЬNULL(упРасходы.СуммаПланВалютаСНДС, 0) КАК СуммаПланВалютаСНДС,
+	ЕСТЬNULL(упРасходы.СуммаФактСНДС, 0) КАК СуммаФактСНДС,
+	ЕСТЬNULL(упРасходы.СуммаФактВалютаСНДС, 0) КАК СуммаФактВалютаСНДС
+ПОМЕСТИТЬ вт_Расходы1
+ИЗ
+	вт_ТС КАК вт_ТС
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.упРасходы КАК упРасходы
+		ПО вт_ТС.Рейс = упРасходы.Рейс
+			И (ТИПЗНАЧЕНИЯ(упРасходы.Регистратор) В (ТИП(Документ.упПутевойЛист), ТИП(Документ.упРемонтИТОТС), ТИП(Документ.упПрочиеРасходы), ТИП(Документ.упСлужебноеРасследование)))
+ГДЕ
+	упРасходы.Период МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	упОстаткиГСМ.ТранспортноеСредство,
+	ЕСТЬNULL(вт_ПутевыеЛисты.ДокументРейс, ЗНАЧЕНИЕ(Документ.упРейс.ПустаяСсылка)),
+	упОстаткиГСМ.Регистратор,
+	упОстаткиГСМ.ВидДвиженияТоплива,
+	ЗНАЧЕНИЕ(Справочник.Валюты.ПустаяСсылка),
+	0,
+	0,
+	упОстаткиГСМ.Стоимость + упОстаткиГСМ.СтоимостьНДС,
+	0
+ИЗ
+	РегистрНакопления.упОстаткиГСМ КАК упОстаткиГСМ
+		ЛЕВОЕ СОЕДИНЕНИЕ вт_ПутевыеЛисты КАК вт_ПутевыеЛисты
+		ПО упОстаткиГСМ.ТранспортноеСредство = вт_ПутевыеЛисты.ДокументТранспортноеСредство
+ГДЕ
+	упОстаткиГСМ.ТранспортноеСредство В
+			(ВЫБРАТЬ
+				вт_ТС.ТС
+			ИЗ
+				вт_ТС КАК вт_ТС)
+	И ТИПЗНАЧЕНИЯ(упОстаткиГСМ.Регистратор) = ТИП(Документ.упЗаправкаСливГСМ)
+	И упОстаткиГСМ.Период МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	вт_Расходы1.ТС,
+	вт_Расходы1.Рейс,
+	вт_Расходы1.ДокументОснования,
+	вт_Расходы1.СтатьяРасходов,
+	вт_Расходы1.Валюта,
+	СУММА(вт_Расходы1.СуммаПланСНДС) КАК СуммаПланСНДС,
+	СУММА(вт_Расходы1.СуммаПланВалютаСНДС) КАК СуммаПланВалютаСНДС,
+	СУММА(ВЫБОР
+			КОГДА вт_Расходы1.СуммаФактСНДС &lt; 0
+				ТОГДА -1 * вт_Расходы1.СуммаФактСНДС
+			ИНАЧЕ вт_Расходы1.СуммаФактСНДС
+		КОНЕЦ) КАК СуммаФактСНДС,
+	СУММА(ВЫБОР
+			КОГДА вт_Расходы1.СуммаФактВалютаСНДС &lt; 0
+				ТОГДА -1 * вт_Расходы1.СуммаФактВалютаСНДС
+			ИНАЧЕ вт_Расходы1.СуммаФактВалютаСНДС
+		КОНЕЦ) КАК СуммаФактВалютаСНДС
+ПОМЕСТИТЬ вт_Расходы
+ИЗ
+	вт_Расходы1 КАК вт_Расходы1
+
+СГРУППИРОВАТЬ ПО
+	вт_Расходы1.ТС,
+	вт_Расходы1.Рейс,
+	вт_Расходы1.ДокументОснования,
+	вт_Расходы1.СтатьяРасходов,
+	вт_Расходы1.Валюта
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	вт_ТС.ТипТС,
+	вт_ТС.МодельТС,
+	вт_ТС.ТС,
+	вт_ТС.Перевозчик,
+	ЕСТЬNULL(вт_Расходы.ДокументОснования, ЗНАЧЕНИЕ(Документ.упПрочиеРасходы.ПустаяСсылка)) КАК ДокументОснования,
+	ЕСТЬNULL(вт_Расходы.СтатьяРасходов, ЗНАЧЕНИЕ(Справочник.упСтатьиДоходовРасходов.ПустаяСсылка)) КАК СтатьяРасходов,
+	ЕСТЬNULL(вт_Пробег.Пробег, 0) КАК Пробег,
+	ЕСТЬNULL(вт_Расходы.Валюта, ЗНАЧЕНИЕ(Справочник.Валюты.ПустаяСсылка)) КАК Валюта,
+	ЕСТЬNULL(вт_Расходы.СуммаПланСНДС, 0) КАК СуммаПланСНДС,
+	ЕСТЬNULL(вт_Расходы.СуммаПланВалютаСНДС, 0) КАК СуммаПланВалютаСНДС,
+	ЕСТЬNULL(вт_Расходы.СуммаФактСНДС, 0) КАК СуммаФактСНДС,
+	ЕСТЬNULL(вт_Расходы.СуммаФактВалютаСНДС, 0) КАК СуммаФактВалютаСНДС
+ПОМЕСТИТЬ вт_Данные
+ИЗ
+	вт_ТС КАК вт_ТС
+		ЛЕВОЕ СОЕДИНЕНИЕ вт_Расходы КАК вт_Расходы
+		ПО вт_ТС.ТС = вт_Расходы.ТС
+			И вт_ТС.Рейс = вт_Расходы.Рейс
+		ЛЕВОЕ СОЕДИНЕНИЕ вт_Пробег КАК вт_Пробег
+		ПО вт_ТС.ТС = вт_Пробег.ТС
+ГДЕ
+	НЕ вт_Расходы.ДокументОснования ЕСТЬ NULL
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	вт_Данные.ТипТС,
+	вт_Данные.МодельТС,
+	вт_Данные.ТС КАК ТранспортноеСредство,
+	вт_Данные.Перевозчик,
+	вт_Данные.ДокументОснования,
+	вт_Данные.СтатьяРасходов,
+	вт_Данные.Пробег КАК Пробег,
+	вт_Данные.Валюта,
+	СУММА(вт_Данные.СуммаПланСНДС) КАК СуммаПланСНДС,
+	СУММА(вт_Данные.СуммаПланВалютаСНДС) КАК СуммаПланВалютаСНДС,
+	СУММА(вт_Данные.СуммаФактСНДС) КАК СуммаФактСНДС,
+	СУММА(вт_Данные.СуммаФактВалютаСНДС) КАК СуммаФактВалютаСНДС
+ИЗ
+	вт_Данные КАК вт_Данные
+
+СГРУППИРОВАТЬ ПО
+	вт_Данные.ТипТС,
+	вт_Данные.МодельТС,
+	вт_Данные.ТС,
+	вт_Данные.Перевозчик,
+	вт_Данные.ДокументОснования,
+	вт_Данные.СтатьяРасходов,
+	вт_Данные.Пробег,
+	вт_Данные.Валюта</query>
+	</dataSet>
+	<calculatedField>
+		<dataPath>СтоимостьКмПлан</dataPath>
+		<expression>ВЫБОР КОГДА Пробег = 0 ТОГДА 0 ИНАЧЕ СуммаПланСНДС / Пробег КОНЕЦ</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Стоимость км план</v8:content>
+			</v8:item>
+		</title>
+		<useRestriction>
+			<field>true</field>
+			<condition>true</condition>
+			<group>true</group>
+			<order>true</order>
+		</useRestriction>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ЧДЦ=5; ЧРД=.; ЧГ=0</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>СтоимостьКмПланВ</dataPath>
+		<expression>ВЫБОР КОГДА Пробег = 0 ТОГДА 0 ИНАЧЕ СуммаПланВалютаСНДС / Пробег КОНЕЦ</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Стоимость км план В</v8:content>
+			</v8:item>
+		</title>
+		<useRestriction>
+			<field>true</field>
+			<condition>true</condition>
+			<group>true</group>
+			<order>true</order>
+		</useRestriction>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ЧДЦ=5; ЧРД=.; ЧГ=0</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>СтоимостьКмФакт</dataPath>
+		<expression>ВЫБОР КОГДА Пробег = 0 ТОГДА 0 ИНАЧЕ СуммаФактСНДС / Пробег КОНЕЦ</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Стоимость км факт</v8:content>
+			</v8:item>
+		</title>
+		<useRestriction>
+			<field>true</field>
+			<condition>true</condition>
+			<group>true</group>
+			<order>true</order>
+		</useRestriction>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ЧДЦ=5; ЧРД=.; ЧГ=0</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>СтоимостьКмФактВ</dataPath>
+		<expression>ВЫБОР КОГДА Пробег = 0 ТОГДА 0 ИНАЧЕ СуммаФактВалютаСНДС / Пробег КОНЕЦ</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Стоимость км факт В</v8:content>
+			</v8:item>
+		</title>
+		<useRestriction>
+			<field>true</field>
+			<condition>true</condition>
+			<group>true</group>
+			<order>true</order>
+		</useRestriction>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ЧДЦ=5; ЧРД=.; ЧГ=0</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>Пробег1</dataPath>
+		<expression>0</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Пробег</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>СтоимостьКмПлан1</dataPath>
+		<expression>0</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Стоимость км план</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ЧДЦ=5; ЧРД=.; ЧГ=0</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>СтоимостьКмПланВ1</dataPath>
+		<expression>0</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Стоимость км план валюта</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ЧДЦ=5; ЧРД=.; ЧГ=0</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>СтоимостьКмФакт1</dataPath>
+		<expression>0</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Стоимость км факт</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ЧДЦ=5; ЧРД=.; ЧГ=0</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>СтоимостьКмФактВ1</dataPath>
+		<expression>0</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Стоимость км факт валюта</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ЧДЦ=5; ЧРД=.; ЧГ=0</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<totalField>
+		<dataPath>СуммаПланВалютаСНДС</dataPath>
+		<expression>Сумма(СуммаПланВалютаСНДС)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаПланСНДС</dataPath>
+		<expression>Сумма(СуммаПланСНДС)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаФактВалютаСНДС</dataPath>
+		<expression>Сумма(СуммаФактВалютаСНДС)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаФактСНДС</dataPath>
+		<expression>Сумма(СуммаФактСНДС)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СтоимостьКмПлан</dataPath>
+		<expression>Сумма(СтоимостьКмПлан)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СтоимостьКмПланВ</dataPath>
+		<expression>Сумма(СтоимостьКмПланВ)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СтоимостьКмФакт</dataPath>
+		<expression>Сумма(СтоимостьКмФакт)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СтоимостьКмФактВ</dataPath>
+		<expression>Сумма(СтоимостьКмФактВ)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Пробег</dataPath>
+		<expression>Сумма(Пробег)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Пробег1</dataPath>
+		<expression>Сумма(ВычислитьВыражениеСГруппировкойМассив("Максимум(Пробег)","ТранспортноеСредство"))</expression>
+		<group>МодельТС</group>
+		<group>ТипТС</group>
+		<group>ТранспортноеСредство</group>
+		<group>ОбщийИтог</group>
+	</totalField>
+	<totalField>
+		<dataPath>СтоимостьКмПлан1</dataPath>
+		<expression>Сумма(ВычислитьВыражениеСГруппировкойМассив("Сумма(СтоимостьКмПлан)","ТранспортноеСредство"))</expression>
+		<group>МодельТС</group>
+		<group>ТипТС</group>
+		<group>ТранспортноеСредство</group>
+		<group>ОбщийИтог</group>
+	</totalField>
+	<totalField>
+		<dataPath>СтоимостьКмПланВ1</dataPath>
+		<expression>Сумма(ВычислитьВыражениеСГруппировкойМассив("Сумма(СтоимостьКмПланВ)","ТранспортноеСредство"))</expression>
+		<group>МодельТС</group>
+		<group>ТипТС</group>
+		<group>ТранспортноеСредство</group>
+		<group>ОбщийИтог</group>
+	</totalField>
+	<totalField>
+		<dataPath>СтоимостьКмФакт1</dataPath>
+		<expression>Сумма(ВычислитьВыражениеСГруппировкойМассив("Сумма(СтоимостьКмФакт)","ТранспортноеСредство"))</expression>
+		<group>МодельТС</group>
+		<group>ТипТС</group>
+		<group>ТранспортноеСредство</group>
+		<group>ОбщийИтог</group>
+	</totalField>
+	<totalField>
+		<dataPath>СтоимостьКмФактВ1</dataPath>
+		<expression>Сумма(ВычислитьВыражениеСГруппировкойМассив("Сумма(СтоимостьКмФактВ)","ТранспортноеСредство"))</expression>
+		<group>МодельТС</group>
+		<group>ТипТС</group>
+		<group>ТранспортноеСредство</group>
+		<group>ОбщийИтог</group>
+	</totalField>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;Период.ДатаОкончания</expression>
+	</parameter>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;Период.ДатаНачала</expression>
+	</parameter>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:StandardPeriod</v8:Type>
+		</valueType>
+		<value xsi:type="v8:StandardPeriod">
+			<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+			<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+			<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+		</value>
+		<useRestriction>false</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>СтоимостьКилометраПробегаТС</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Стоимость км пробега транспортных средств</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Перевозчик</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДокументОснования</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтатьяРасходов</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Валюта</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Пробег1</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пробег</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>План</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>СуммаПланСНДС</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Сумма с НДС</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>СуммаПланВалютаСНДС</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Сумма с НДС валюты</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>СтоимостьКмПлан1</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Стоимость за км</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>СтоимостьКмПланВ1</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Стоимость за км валюты</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Факт</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>СуммаФактСНДС</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Сумма с НДС</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>СуммаФактВалютаСНДС</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Сумма с НДС валюты</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>СтоимостьКмФакт1</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Стоимость за км</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>СтоимостьКмФактВ1</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Стоимость за км валюты</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ТранспортноеСредство1</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:string">00000000-0000-0000-0000-000000000000</dcsset:right>
+					<dcsset:userSettingID>d9ca1d3d-321b-4149-af1d-d63468389654</dcsset:userSettingID>
+					<dcsset:userSettingPresentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Транспортное средство</v8:content>
+						</v8:item>
+					</dcsset:userSettingPresentation>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">ThisMonth</v8:variant>
+					</dcscor:value>
+					<dcsset:userSettingID>b910b474-af90-4734-84c8-9c9460e36659</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МакетОформления</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">упМакетОформленияОтчетов</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Анализ стоимости километра пробега транспортных средств</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>ТипТС</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>МодельТС</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>ТранспортноеСредство</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+						<dcsset:item xsi:type="dcsset:StructureItemGroup">
+							<dcsset:order>
+								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							</dcsset:order>
+							<dcsset:selection>
+								<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+							</dcsset:selection>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>
